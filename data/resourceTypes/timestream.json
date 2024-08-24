@@ -1,0 +1,23 @@
+{
+  "database": {
+    "key": "database",
+    "arn": "arn:${Partition}:timestream:${Region}:${Account}:database/${DatabaseName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "table": {
+    "key": "table",
+    "arn": "arn:${Partition}:timestream:${Region}:${Account}:database/${DatabaseName}/table/${TableName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "scheduled-query": {
+    "key": "scheduled-query",
+    "arn": "arn:${Partition}:timestream:${Region}:${Account}:scheduled-query/${ScheduledQueryName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

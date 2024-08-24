@@ -1,0 +1,46 @@
+{
+  "Connect": {
+    "name": "Connect",
+    "description": "Grants permission to connect to a VPC Lattice service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TCP Service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "vpc-lattice-svcs:Port",
+      "vpc-lattice-svcs:ServiceNetworkArn",
+      "vpc-lattice-svcs:ServiceArn",
+      "vpc-lattice-svcs:SourceVpc",
+      "vpc-lattice-svcs:SourceVpcOwnerAccount"
+    ],
+    "dependentActions": []
+  },
+  "Invoke": {
+    "name": "Invoke",
+    "description": "Grants permission to invoke a VPC Lattice service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "vpc-lattice-svcs:Port",
+      "vpc-lattice-svcs:ServiceNetworkArn",
+      "vpc-lattice-svcs:ServiceArn",
+      "vpc-lattice-svcs:SourceVpc",
+      "vpc-lattice-svcs:SourceVpcOwnerAccount",
+      "vpc-lattice-svcs:RequestHeader/${HeaderName}",
+      "vpc-lattice-svcs:RequestQueryString/${QueryStringKey}"
+    ],
+    "dependentActions": []
+  }
+}

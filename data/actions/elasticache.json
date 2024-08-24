@@ -1,0 +1,1920 @@
+{
+  "AddTagsToResource": {
+    "name": "AddTagsToResource",
+    "description": "Grants permission to add tags to an ElastiCache resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reserved-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securitygroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscachesnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "usergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "AuthorizeCacheSecurityGroupIngress": {
+    "name": "AuthorizeCacheSecurityGroupIngress",
+    "description": "Grants permission to authorize an EC2 security group on a ElastiCache security group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securitygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:AuthorizeSecurityGroupIngress"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "BatchApplyUpdateAction": {
+    "name": "BatchApplyUpdateAction",
+    "description": "Grants permission to apply ElastiCache service updates to sets of clusters and replication groups",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "s3:GetObject"
+        ]
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "BatchStopUpdateAction": {
+    "name": "BatchStopUpdateAction",
+    "description": "Grants permission to stop ElastiCache service updates from being executed on a set of clusters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CompleteMigration": {
+    "name": "CompleteMigration",
+    "description": "Grants permission to complete an online migration of data from hosted Redis on Amazon EC2 to ElastiCache",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "Connect": {
+    "name": "Connect",
+    "description": "Grants permission to connect as a specified ElastiCache user to an ElastiCache Replication Group or ElastiCache serverless cache",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CopyServerlessCacheSnapshot": {
+    "name": "CopyServerlessCacheSnapshot",
+    "description": "Grants permission to make a copy of an existing serverless cache snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "serverlesscachesnapshot",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "elasticache:KmsKeyId"
+        ],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CopySnapshot": {
+    "name": "CopySnapshot",
+    "description": "Grants permission to make a copy of an existing snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticache:AddTagsToResource",
+          "s3:DeleteObject",
+          "s3:GetBucketAcl",
+          "s3:PutObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticache:KmsKeyId"
+    ],
+    "dependentActions": []
+  },
+  "CreateCacheCluster": {
+    "name": "CreateCacheCluster",
+    "description": "Grants permission to create a cache cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "elasticache:AddTagsToResource",
+          "s3:GetObject"
+        ]
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "elasticache:CacheNodeType",
+          "elasticache:EngineVersion",
+          "elasticache:EngineType",
+          "elasticache:MultiAZEnabled",
+          "elasticache:AuthTokenEnabled",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:CacheParameterGroupName"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [
+          "elasticache:CacheNodeType",
+          "elasticache:EngineVersion",
+          "elasticache:EngineType",
+          "elasticache:MultiAZEnabled",
+          "elasticache:AuthTokenEnabled",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:CacheParameterGroupName"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "securitygroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateCacheParameterGroup": {
+    "name": "CreateCacheParameterGroup",
+    "description": "Grants permission to create a parameter group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticache:CacheParameterGroupName"
+    ],
+    "dependentActions": []
+  },
+  "CreateCacheSecurityGroup": {
+    "name": "CreateCacheSecurityGroup",
+    "description": "Grants permission to create a cache security group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securitygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateCacheSubnetGroup": {
+    "name": "CreateCacheSubnetGroup",
+    "description": "Grants permission to create a cache subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateGlobalReplicationGroup": {
+    "name": "CreateGlobalReplicationGroup",
+    "description": "Grants permission to create a global replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateReplicationGroup": {
+    "name": "CreateReplicationGroup",
+    "description": "Grants permission to create a replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "elasticache:AddTagsToResource",
+          "s3:GetObject"
+        ]
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "globalreplicationgroup",
+        "required": false,
+        "conditionKeys": [
+          "elasticache:NumNodeGroups",
+          "elasticache:CacheNodeType",
+          "elasticache:ReplicasPerNodeGroup",
+          "elasticache:EngineVersion",
+          "elasticache:EngineType",
+          "elasticache:AtRestEncryptionEnabled",
+          "elasticache:TransitEncryptionEnabled",
+          "elasticache:AutomaticFailoverEnabled",
+          "elasticache:MultiAZEnabled",
+          "elasticache:ClusterModeEnabled",
+          "elasticache:AuthTokenEnabled",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:KmsKeyId",
+          "elasticache:CacheParameterGroupName"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "elasticache:NumNodeGroups",
+          "elasticache:CacheNodeType",
+          "elasticache:ReplicasPerNodeGroup",
+          "elasticache:EngineVersion",
+          "elasticache:EngineType",
+          "elasticache:AtRestEncryptionEnabled",
+          "elasticache:TransitEncryptionEnabled",
+          "elasticache:AutomaticFailoverEnabled",
+          "elasticache:MultiAZEnabled",
+          "elasticache:ClusterModeEnabled",
+          "elasticache:AuthTokenEnabled",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:KmsKeyId",
+          "elasticache:CacheParameterGroupName"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "securitygroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "usergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateServerlessCache": {
+    "name": "CreateServerlessCache",
+    "description": "Grants permission to create a serverless cache",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "serverlesscache",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "elasticache:EngineType",
+          "elasticache:EngineVersion",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:KmsKeyId",
+          "elasticache:MaximumDataStorage",
+          "elasticache:DataStorageUnit",
+          "elasticache:MaximumECPUPerSecond"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags",
+          "ec2:CreateVpcEndpoint",
+          "ec2:DeleteVpcEndpoints",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeTags",
+          "ec2:DescribeVpcEndpoints",
+          "ec2:DescribeVpcs",
+          "elasticache:AddTagsToResource",
+          "s3:GetObject"
+        ]
+      },
+      {
+        "name": "serverlesscachesnapshot",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "usergroup",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateServerlessCacheSnapshot": {
+    "name": "CreateServerlessCacheSnapshot",
+    "description": "Grants permission to create a copy of a serverless cache at a specific moment in time",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "serverlesscache",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      },
+      {
+        "name": "serverlesscachesnapshot",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "elasticache:KmsKeyId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSnapshot": {
+    "name": "CreateSnapshot",
+    "description": "Grants permission to create a copy of an entire Redis cluster at a specific moment in time",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "elasticache:KmsKeyId"
+        ],
+        "dependentActions": [
+          "elasticache:AddTagsToResource",
+          "s3:DeleteObject",
+          "s3:GetBucketAcl",
+          "s3:PutObject"
+        ]
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateUser": {
+    "name": "CreateUser",
+    "description": "Grants permission to create a user for Redis. Users are supported from Redis 6.0 onwards",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticache:UserAuthenticationMode"
+    ],
+    "dependentActions": []
+  },
+  "CreateUserGroup": {
+    "name": "CreateUserGroup",
+    "description": "Grants permission to create a user group for Redis. Groups are supported from Redis 6.0 onwards",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      },
+      {
+        "name": "usergroup",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DecreaseNodeGroupsInGlobalReplicationGroup": {
+    "name": "DecreaseNodeGroupsInGlobalReplicationGroup",
+    "description": "Grants permission to decrease the number of node groups in global replication groups",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "elasticache:NumNodeGroups"
+    ],
+    "dependentActions": []
+  },
+  "DecreaseReplicaCount": {
+    "name": "DecreaseReplicaCount",
+    "description": "Grants permission to decrease the number of replicas in a Redis (cluster mode disabled) replication group or the number of replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticache:ReplicasPerNodeGroup"
+    ],
+    "dependentActions": []
+  },
+  "DeleteCacheCluster": {
+    "name": "DeleteCacheCluster",
+    "description": "Grants permission to delete a previously provisioned cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCacheParameterGroup": {
+    "name": "DeleteCacheParameterGroup",
+    "description": "Grants permission to delete the specified cache parameter group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticache:CacheParameterGroupName"
+    ],
+    "dependentActions": []
+  },
+  "DeleteCacheSecurityGroup": {
+    "name": "DeleteCacheSecurityGroup",
+    "description": "Grants permission to delete a cache security group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securitygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteCacheSubnetGroup": {
+    "name": "DeleteCacheSubnetGroup",
+    "description": "Grants permission to delete a cache subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteGlobalReplicationGroup": {
+    "name": "DeleteGlobalReplicationGroup",
+    "description": "Grants permission to delete an existing global replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReplicationGroup": {
+    "name": "DeleteReplicationGroup",
+    "description": "Grants permission to delete an existing replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteServerlessCache": {
+    "name": "DeleteServerlessCache",
+    "description": "Grants permission to delete a serverless cache",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "serverlesscache",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:DescribeTags"
+        ]
+      },
+      {
+        "name": "serverlesscachesnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteServerlessCacheSnapshot": {
+    "name": "DeleteServerlessCacheSnapshot",
+    "description": "Grants permission to delete a serverless cache snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "serverlesscachesnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteSnapshot": {
+    "name": "DeleteSnapshot",
+    "description": "Grants permission to delete an existing snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteUser": {
+    "name": "DeleteUser",
+    "description": "Grants permission to delete an existing user and thus remove it from all user groups and replication groups where it was assigned",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteUserGroup": {
+    "name": "DeleteUserGroup",
+    "description": "Grants permission to delete an existing user group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "usergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeCacheClusters": {
+    "name": "DescribeCacheClusters",
+    "description": "Grants permission to list information about provisioned cache clusters",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeCacheEngineVersions": {
+    "name": "DescribeCacheEngineVersions",
+    "description": "Grants permission to list available cache engines and their versions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCacheParameterGroups": {
+    "name": "DescribeCacheParameterGroups",
+    "description": "Grants permission to list cache parameter group descriptions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeCacheParameters": {
+    "name": "DescribeCacheParameters",
+    "description": "Grants permission to retrieve the detailed parameter list for a particular cache parameter group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeCacheSecurityGroups": {
+    "name": "DescribeCacheSecurityGroups",
+    "description": "Grants permission to list cache security group descriptions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "securitygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeCacheSubnetGroups": {
+    "name": "DescribeCacheSubnetGroups",
+    "description": "Grants permission to list cache subnet group descriptions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeEngineDefaultParameters": {
+    "name": "DescribeEngineDefaultParameters",
+    "description": "Grants permission to retrieve the default engine and system parameter information for the specified cache engine",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEvents": {
+    "name": "DescribeEvents",
+    "description": "Grants permission to list events related to clusters, cache security groups, and cache parameter groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGlobalReplicationGroups": {
+    "name": "DescribeGlobalReplicationGroups",
+    "description": "Grants permission to list information about global replication groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationGroups": {
+    "name": "DescribeReplicationGroups",
+    "description": "Grants permission to list information about provisioned replication groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeReservedCacheNodes": {
+    "name": "DescribeReservedCacheNodes",
+    "description": "Grants permission to list information about purchased reserved cache nodes",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "reserved-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeReservedCacheNodesOfferings": {
+    "name": "DescribeReservedCacheNodesOfferings",
+    "description": "Grants permission to list available reserved cache node offerings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeServerlessCacheSnapshots": {
+    "name": "DescribeServerlessCacheSnapshots",
+    "description": "Grants permission to list information about serverless cache snapshots",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "serverlesscachesnapshot",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscache",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeServerlessCaches": {
+    "name": "DescribeServerlessCaches",
+    "description": "Grants permission to list serverless caches",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "serverlesscache",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeServiceUpdates": {
+    "name": "DescribeServiceUpdates",
+    "description": "Grants permission to list details of the service updates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSnapshots": {
+    "name": "DescribeSnapshots",
+    "description": "Grants permission to list information about cluster or replication group snapshots",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeUpdateActions": {
+    "name": "DescribeUpdateActions",
+    "description": "Grants permission to list details of the update actions for a set of clusters or replication groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeUserGroups": {
+    "name": "DescribeUserGroups",
+    "description": "Grants permission to list information about Redis user groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "usergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeUsers": {
+    "name": "DescribeUsers",
+    "description": "Grants permission to list information about Redis users",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DisassociateGlobalReplicationGroup": {
+    "name": "DisassociateGlobalReplicationGroup",
+    "description": "Grants permission to remove a secondary replication group from the global replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ExportServerlessCacheSnapshot": {
+    "name": "ExportServerlessCacheSnapshot",
+    "description": "Grants permission to export a copy of a serverless cache at a specific moment in time to s3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "serverlesscachesnapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "s3:DeleteObject",
+      "s3:ListAllMyBuckets",
+      "s3:PutObject"
+    ]
+  },
+  "FailoverGlobalReplicationGroup": {
+    "name": "FailoverGlobalReplicationGroup",
+    "description": "Grants permission to failover the primary region to a selected secondary region of a global replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "IncreaseNodeGroupsInGlobalReplicationGroup": {
+    "name": "IncreaseNodeGroupsInGlobalReplicationGroup",
+    "description": "Grants permission to increase the number of node groups in a global replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "elasticache:NumNodeGroups"
+    ],
+    "dependentActions": []
+  },
+  "IncreaseReplicaCount": {
+    "name": "IncreaseReplicaCount",
+    "description": "Grants permission to increase the number of replicas in a Redis (cluster mode disabled) replication group or the number of replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticache:ReplicasPerNodeGroup"
+    ],
+    "dependentActions": []
+  },
+  "InterruptClusterAzPower": {
+    "name": "InterruptClusterAzPower",
+    "isPermissionOnly": true,
+    "description": "Grants permission to test an AZ power interruption for an ElastiCache resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListAllowedNodeTypeModifications": {
+    "name": "ListAllowedNodeTypeModifications",
+    "description": "Grants permission to list available node type that can be used to scale a particular Redis cluster or replication group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an ElastiCache resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reserved-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securitygroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscachesnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "usergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyCacheCluster": {
+    "name": "ModifyCacheCluster",
+    "description": "Grants permission to modify settings for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [
+          "elasticache:CacheNodeType",
+          "elasticache:EngineVersion",
+          "elasticache:MultiAZEnabled",
+          "elasticache:AuthTokenEnabled",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:CacheParameterGroupName"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securitygroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyCacheParameterGroup": {
+    "name": "ModifyCacheParameterGroup",
+    "description": "Grants permission to modify parameters of a cache parameter group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticache:CacheParameterGroupName"
+    ],
+    "dependentActions": []
+  },
+  "ModifyCacheSubnetGroup": {
+    "name": "ModifyCacheSubnetGroup",
+    "description": "Grants permission to modify an existing cache subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subnetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyGlobalReplicationGroup": {
+    "name": "ModifyGlobalReplicationGroup",
+    "description": "Grants permission to modify settings for a global replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "elasticache:CacheNodeType",
+      "elasticache:EngineVersion",
+      "elasticache:AutomaticFailoverEnabled"
+    ],
+    "dependentActions": []
+  },
+  "ModifyReplicationGroup": {
+    "name": "ModifyReplicationGroup",
+    "description": "Grants permission to modify the settings for a replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [
+          "elasticache:CacheNodeType",
+          "elasticache:EngineVersion",
+          "elasticache:AutomaticFailoverEnabled",
+          "elasticache:MultiAZEnabled",
+          "elasticache:AuthTokenEnabled",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:CacheParameterGroupName",
+          "elasticache:TransitEncryptionEnabled",
+          "elasticache:ClusterModeEnabled"
+        ],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securitygroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "usergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyReplicationGroupShardConfiguration": {
+    "name": "ModifyReplicationGroupShardConfiguration",
+    "description": "Grants permission to add shards, remove shards, or rebalance the keyspaces among existing shards of a replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticache:NumNodeGroups"
+    ],
+    "dependentActions": []
+  },
+  "ModifyServerlessCache": {
+    "name": "ModifyServerlessCache",
+    "description": "Grants permission to modify parameters for a serverless cache",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "serverlesscache",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "elasticache:EngineVersion",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:MaximumDataStorage",
+          "elasticache:DataStorageUnit",
+          "elasticache:MaximumECPUPerSecond"
+        ],
+        "dependentActions": [
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeTags"
+        ]
+      },
+      {
+        "name": "usergroup",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyUser": {
+    "name": "ModifyUser",
+    "description": "Grants permission to change Redis user password(s) and/or access string",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticache:UserAuthenticationMode"
+    ],
+    "dependentActions": []
+  },
+  "ModifyUserGroup": {
+    "name": "ModifyUserGroup",
+    "description": "Grants permission to change list of users that belong to the user group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "usergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "PurchaseReservedCacheNodesOffering": {
+    "name": "PurchaseReservedCacheNodesOffering",
+    "description": "Grants permission to purchase a reserved cache node offering",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reserved-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticache:AddTagsToResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RebalanceSlotsInGlobalReplicationGroup": {
+    "name": "RebalanceSlotsInGlobalReplicationGroup",
+    "description": "Grants permission to perform a key space rebalance operation to redistribute slots and ensure uniform key distribution across existing shards in a global replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "globalreplicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RebootCacheCluster": {
+    "name": "RebootCacheCluster",
+    "description": "Grants permission to reboot some, or all, of the cache nodes within a provisioned cache cluster or replication group (cluster mode disabled)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RemoveTagsFromResource": {
+    "name": "RemoveTagsFromResource",
+    "description": "Grants permission to remove tags from a ElastiCache resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reserved-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securitygroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "serverlesscachesnapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "usergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ResetCacheParameterGroup": {
+    "name": "ResetCacheParameterGroup",
+    "description": "Grants permission to modify parameters of a cache parameter group back to their default values",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticache:CacheParameterGroupName"
+    ],
+    "dependentActions": []
+  },
+  "RevokeCacheSecurityGroupIngress": {
+    "name": "RevokeCacheSecurityGroupIngress",
+    "description": "Grants permission to remove an EC2 security group ingress from a ElastiCache security group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "securitygroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "StartMigration": {
+    "name": "StartMigration",
+    "description": "Grants permission to start a migration of data from hosted Redis on Amazon EC2 to ElastiCache for Redis",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TestFailover": {
+    "name": "TestFailover",
+    "description": "Grants permission to test automatic failover on a specified node group in a replication group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TestMigration": {
+    "name": "TestMigration",
+    "description": "Grants permission to test a migration of data from hosted Redis on Amazon EC2 to ElastiCache for Redis",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

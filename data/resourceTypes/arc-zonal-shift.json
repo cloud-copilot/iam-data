@@ -1,0 +1,18 @@
+{
+  "ALB": {
+    "key": "ALB",
+    "arn": "arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/app/${LoadBalancerName}/${LoadBalancerId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ]
+  },
+  "NLB": {
+    "key": "NLB",
+    "arn": "arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/net/${LoadBalancerName}/${LoadBalancerId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ]
+  }
+}

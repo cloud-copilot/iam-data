@@ -1,0 +1,1306 @@
+{
+  "AcceptAccountLinkInvitation": {
+    "name": "AcceptAccountLinkInvitation",
+    "description": "Grants permission to accept invitations from other AWS accounts to share the same configuration for WorkSpaces BYOL",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateConnectionAlias": {
+    "name": "AssociateConnectionAlias",
+    "description": "Grants permission to associate connection aliases with directories",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectionalias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateIpGroups": {
+    "name": "AssociateIpGroups",
+    "description": "Grants permission to associate IP access control groups with directories",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceipgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateWorkspaceApplication": {
+    "name": "AssociateWorkspaceApplication",
+    "description": "Grants permission to associate a workspace application with a WorkSpace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceapplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "AuthorizeIpRules": {
+    "name": "AuthorizeIpRules",
+    "description": "Grants permission to add rules to IP access control groups",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceipgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "workspaces:UpdateRulesOfIpGroup"
+    ]
+  },
+  "CopyWorkspaceImage": {
+    "name": "CopyWorkspaceImage",
+    "description": "Grants permission to copy a WorkSpace image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "workspaces:DescribeWorkspaceImages"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateAccountLinkInvitation": {
+    "name": "CreateAccountLinkInvitation",
+    "description": "Grants permission to invite other AWS accounts to share the same configuration for WorkSpaces BYOL",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConnectClientAddIn": {
+    "name": "CreateConnectClientAddIn",
+    "description": "Grants permission to create an Amazon Connect client add-in within a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConnectionAlias": {
+    "name": "CreateConnectionAlias",
+    "description": "Grants permission to create connection aliases for use with cross-Region redirection",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateIpGroup": {
+    "name": "CreateIpGroup",
+    "description": "Grants permission to create IP access control groups",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateStandbyWorkspaces": {
+    "name": "CreateStandbyWorkspaces",
+    "description": "Grants permission to create one or more Standby WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateTags": {
+    "name": "CreateTags",
+    "description": "Grants permission to create tags for WorkSpaces resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateUpdatedWorkspaceImage": {
+    "name": "CreateUpdatedWorkspaceImage",
+    "description": "Grants permission to create an updated WorkSpace image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateWorkspaceBundle": {
+    "name": "CreateWorkspaceBundle",
+    "description": "Grants permission to create a WorkSpace bundle",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacebundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "workspaces:CreateTags"
+        ]
+      },
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateWorkspaceImage": {
+    "name": "CreateWorkspaceImage",
+    "description": "Grants permission to create a new WorkSpace image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateWorkspaces": {
+    "name": "CreateWorkspaces",
+    "description": "Grants permission to create one or more WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspacebundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateWorkspacesPool": {
+    "name": "CreateWorkspacesPool",
+    "description": "Grants permission to create a WorkSpaces Pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspacebundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspacespoolid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAccountLinkInvitation": {
+    "name": "DeleteAccountLinkInvitation",
+    "description": "Grants permission to delete invitations to other AWS accounts to share the same configuration for WorkSpaces BYOL",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteClientBranding": {
+    "name": "DeleteClientBranding",
+    "description": "Grants permission to delete AWS WorkSpaces Client branding data within a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConnectClientAddIn": {
+    "name": "DeleteConnectClientAddIn",
+    "description": "Grants permission to delete an Amazon Connect client add-in that is configured within a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConnectionAlias": {
+    "name": "DeleteConnectionAlias",
+    "description": "Grants permission to delete connection aliases",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectionalias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteIpGroup": {
+    "name": "DeleteIpGroup",
+    "description": "Grants permission to delete IP access control groups",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceipgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTags": {
+    "name": "DeleteTags",
+    "description": "Grants permission to delete tags from WorkSpaces resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteWorkspaceBundle": {
+    "name": "DeleteWorkspaceBundle",
+    "description": "Grants permission to delete WorkSpace bundles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacebundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteWorkspaceImage": {
+    "name": "DeleteWorkspaceImage",
+    "description": "Grants permission to delete WorkSpace images",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeployWorkspaceApplications": {
+    "name": "DeployWorkspaceApplications",
+    "description": "Grants permission to deploy all pending workspace applications on a WorkSpace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeregisterWorkspaceDirectory": {
+    "name": "DeregisterWorkspaceDirectory",
+    "description": "Grants permission to deregister directories from use with Amazon WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccount": {
+    "name": "DescribeAccount",
+    "description": "Grants permission to retrieve the configuration of Bring Your Own License (BYOL) for WorkSpaces accounts",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccountModifications": {
+    "name": "DescribeAccountModifications",
+    "description": "Grants permission to retrieve modifications to the configuration of Bring Your Own License (BYOL) for WorkSpaces accounts",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeApplicationAssociations": {
+    "name": "DescribeApplicationAssociations",
+    "description": "Grants permission to retrieve information about resources associated with a WorkSpace application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspaceapplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeApplications": {
+    "name": "DescribeApplications",
+    "description": "Grants permission to obtain information about WorkSpace applications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBundleAssociations": {
+    "name": "DescribeBundleAssociations",
+    "description": "Grants permission to retrieve information about resources associated with a WorkSpace bundle",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspacebundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeClientBranding": {
+    "name": "DescribeClientBranding",
+    "description": "Grants permission to retrieve AWS WorkSpaces Client branding data within a directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeClientProperties": {
+    "name": "DescribeClientProperties",
+    "description": "Grants permission to retrieve information about WorkSpaces clients",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConnectClientAddIns": {
+    "name": "DescribeConnectClientAddIns",
+    "description": "Grants permission to retrieve a list of Amazon Connect client add-ins that have been created",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConnectionAliasPermissions": {
+    "name": "DescribeConnectionAliasPermissions",
+    "description": "Grants permission to retrieve the permissions that the owners of connection aliases have granted to other AWS accounts for connection aliases",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connectionalias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConnectionAliases": {
+    "name": "DescribeConnectionAliases",
+    "description": "Grants permission to retrieve a list that describes the connection aliases used for cross-Region redirection",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeImageAssociations": {
+    "name": "DescribeImageAssociations",
+    "description": "Grants permission to retrieve information about resources associated with a WorkSpace image",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeIpGroups": {
+    "name": "DescribeIpGroups",
+    "description": "Grants permission to retrieve information about IP access control groups",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspaceipgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTags": {
+    "name": "DescribeTags",
+    "description": "Grants permission to describe the tags for WorkSpaces resources",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspaceAssociations": {
+    "name": "DescribeWorkspaceAssociations",
+    "description": "Grants permission to retrieve information about resources associated with a WorkSpace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeWorkspaceBundles": {
+    "name": "DescribeWorkspaceBundles",
+    "description": "Grants permission to obtain information about WorkSpace bundles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspaceDirectories": {
+    "name": "DescribeWorkspaceDirectories",
+    "description": "Grants permission to retrieve information about directories that are registered with WorkSpaces",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspaceImagePermissions": {
+    "name": "DescribeWorkspaceImagePermissions",
+    "description": "Grants permission to retrieve information about WorkSpace image permissions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspaceImages": {
+    "name": "DescribeWorkspaceImages",
+    "description": "Grants permission to retrieve information about WorkSpace images",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspaceSnapshots": {
+    "name": "DescribeWorkspaceSnapshots",
+    "description": "Grants permission to retrieve information about WorkSpace snapshots",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspaces": {
+    "name": "DescribeWorkspaces",
+    "description": "Grants permission to obtain information about WorkSpaces",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspacesConnectionStatus": {
+    "name": "DescribeWorkspacesConnectionStatus",
+    "description": "Grants permission to obtain the connection status of WorkSpaces",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspacesPoolSessions": {
+    "name": "DescribeWorkspacesPoolSessions",
+    "description": "Grants permission to retrieve information about the sessions of a WorkSpaces Pool",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspacespoolid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkspacesPools": {
+    "name": "DescribeWorkspacesPools",
+    "description": "Grants permission to retrieve information about WorkSpaces Pools",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateConnectionAlias": {
+    "name": "DisassociateConnectionAlias",
+    "description": "Grants permission to disassociate connection aliases from directories",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectionalias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateIpGroups": {
+    "name": "DisassociateIpGroups",
+    "description": "Grants permission to disassociate IP access control groups from directories",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceipgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateWorkspaceApplication": {
+    "name": "DisassociateWorkspaceApplication",
+    "description": "Grants permission to disassociate a workspace application from a WorkSpace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceapplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetAccountLink": {
+    "name": "GetAccountLink",
+    "description": "Grants permission to retrieve a link with another AWS Account for sharing configuration for WorkSpaces BYOL",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportClientBranding": {
+    "name": "ImportClientBranding",
+    "description": "Grants permission to import AWS WorkSpaces Client branding data within a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportWorkspaceImage": {
+    "name": "ImportWorkspaceImage",
+    "description": "Grants permission to import Bring Your Own License (BYOL) images into Amazon WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeImages",
+      "ec2:ModifyImageAttribute"
+    ]
+  },
+  "ListAccountLinks": {
+    "name": "ListAccountLinks",
+    "description": "Grants permission to retrieve links with the AWS Account(s) that share your configuration for WorkSpaces BYOL",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAvailableManagementCidrRanges": {
+    "name": "ListAvailableManagementCidrRanges",
+    "description": "Grants permission to list the available CIDR ranges for enabling Bring Your Own License (BYOL) for WorkSpaces accounts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "MigrateWorkspace": {
+    "name": "MigrateWorkspace",
+    "description": "Grants permission to migrate WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacebundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyAccount": {
+    "name": "ModifyAccount",
+    "description": "Grants permission to modify the configuration of Bring Your Own License (BYOL) for WorkSpaces accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyCertificateBasedAuthProperties": {
+    "name": "ModifyCertificateBasedAuthProperties",
+    "description": "Grants permission to modify the certificate-based authorization properties of a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyClientProperties": {
+    "name": "ModifyClientProperties",
+    "description": "Grants permission to modify the properties of WorkSpaces clients",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifySamlProperties": {
+    "name": "ModifySamlProperties",
+    "description": "Grants permission to modify the SAML properties of a directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifySelfservicePermissions": {
+    "name": "ModifySelfservicePermissions",
+    "description": "Grants permission to modify the self-service WorkSpace management capabilities for your users",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyStreamingProperties": {
+    "name": "ModifyStreamingProperties",
+    "description": "Grants permission to modify the streaming properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyWorkspaceAccessProperties": {
+    "name": "ModifyWorkspaceAccessProperties",
+    "description": "Grants permission to specify which devices and operating systems users can use to access their WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyWorkspaceCreationProperties": {
+    "name": "ModifyWorkspaceCreationProperties",
+    "description": "Grants permission to modify the default properties used to create WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyWorkspaceProperties": {
+    "name": "ModifyWorkspaceProperties",
+    "description": "Grants permission to modify WorkSpace properties, including the running mode and the AutoStop period",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyWorkspaceState": {
+    "name": "ModifyWorkspaceState",
+    "description": "Grants permission to modify the state of WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RebootWorkspaces": {
+    "name": "RebootWorkspaces",
+    "description": "Grants permission to reboot WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RebuildWorkspaces": {
+    "name": "RebuildWorkspaces",
+    "description": "Grants permission to rebuild WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterWorkspaceDirectory": {
+    "name": "RegisterWorkspaceDirectory",
+    "description": "Grants permission to register directories for use with Amazon WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RejectAccountLinkInvitation": {
+    "name": "RejectAccountLinkInvitation",
+    "description": "Grants permission to reject invitations from other AWS accounts to share the same configuration for WorkSpaces BYOL",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RestoreWorkspace": {
+    "name": "RestoreWorkspace",
+    "description": "Grants permission to restore WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RevokeIpRules": {
+    "name": "RevokeIpRules",
+    "description": "Grants permission to remove rules from IP access control groups",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceipgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "workspaces:UpdateRulesOfIpGroup"
+    ]
+  },
+  "StartWorkspaces": {
+    "name": "StartWorkspaces",
+    "description": "Grants permission to start AutoStop WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartWorkspacesPool": {
+    "name": "StartWorkspacesPool",
+    "description": "Grants permission to start a WorkSpaces Pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacespoolid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopWorkspaces": {
+    "name": "StopWorkspaces",
+    "description": "Grants permission to stop AutoStop WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopWorkspacesPool": {
+    "name": "StopWorkspacesPool",
+    "description": "Grants permission to stop a WorkSpaces Pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacespoolid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "Stream": {
+    "name": "Stream",
+    "description": "Grants permission to federated users to sign in by using their existing credentials and stream their workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "workspaces:userId"
+    ],
+    "dependentActions": []
+  },
+  "TerminateWorkspaces": {
+    "name": "TerminateWorkspaces",
+    "description": "Grants permission to terminate WorkSpaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TerminateWorkspacesPool": {
+    "name": "TerminateWorkspacesPool",
+    "description": "Grants permission to terminate a WorkSpaces Pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacespoolid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TerminateWorkspacesPoolSession": {
+    "name": "TerminateWorkspacesPoolSession",
+    "description": "Grants permission to terminate a WorkSpaces Pool session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConnectClientAddIn": {
+    "name": "UpdateConnectClientAddIn",
+    "description": "Grants permission to update an Amazon Connect client add-in. Use this action to update the name and endpoint URL of an Amazon Connect client add-in",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConnectionAliasPermission": {
+    "name": "UpdateConnectionAliasPermission",
+    "description": "Grants permission to share or unshare connection aliases with other accounts",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "connectionalias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateRulesOfIpGroup": {
+    "name": "UpdateRulesOfIpGroup",
+    "description": "Grants permission to replace rules for IP access control groups",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspaceipgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "workspaces:AuthorizeIpRules",
+      "workspaces:RevokeIpRules"
+    ]
+  },
+  "UpdateWorkspaceBundle": {
+    "name": "UpdateWorkspaceBundle",
+    "description": "Grants permission to update the WorkSpace images used in WorkSpace bundles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacebundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateWorkspaceImagePermission": {
+    "name": "UpdateWorkspaceImagePermission",
+    "description": "Grants permission to share or unshare WorkSpace images with other accounts by specifying whether other accounts have permission to copy the image",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "workspaceimage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateWorkspacesPool": {
+    "name": "UpdateWorkspacesPool",
+    "description": "Grants permission to update the WorkSpaces pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspacespoolid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

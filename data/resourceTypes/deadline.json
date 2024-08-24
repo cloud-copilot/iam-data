@@ -1,0 +1,67 @@
+{
+  "budget": {
+    "key": "budget",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:farm/${FarmId}/budget/${BudgetId}",
+    "conditionKeys": [
+      "deadline:FarmMembershipLevels"
+    ]
+  },
+  "farm": {
+    "key": "farm",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:farm/${FarmId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "deadline:FarmMembershipLevels"
+    ]
+  },
+  "fleet": {
+    "key": "fleet",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:farm/${FarmId}/fleet/${FleetId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "deadline:FarmMembershipLevels",
+      "deadline:FleetMembershipLevels"
+    ]
+  },
+  "job": {
+    "key": "job",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:farm/${FarmId}/queue/${QueueId}/job/${JobId}",
+    "conditionKeys": [
+      "deadline:FarmMembershipLevels",
+      "deadline:JobMembershipLevels",
+      "deadline:QueueMembershipLevels"
+    ]
+  },
+  "license-endpoint": {
+    "key": "license-endpoint",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:license-endpoint/${LicenseEndpointId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "metered-product": {
+    "key": "metered-product",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:license-endpoint/${LicenseEndpointId}/metered-product/${ProductId}"
+  },
+  "monitor": {
+    "key": "monitor",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:monitor/${MonitorId}"
+  },
+  "queue": {
+    "key": "queue",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:farm/${FarmId}/queue/${QueueId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "deadline:FarmMembershipLevels",
+      "deadline:QueueMembershipLevels"
+    ]
+  },
+  "worker": {
+    "key": "worker",
+    "arn": "arn:${Partition}:deadline:${Region}:${Account}:farm/${FarmId}/fleet/${FleetId}/worker/${WorkerId}",
+    "conditionKeys": [
+      "deadline:FarmMembershipLevels",
+      "deadline:FleetMembershipLevels"
+    ]
+  }
+}

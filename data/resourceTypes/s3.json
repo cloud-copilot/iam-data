@@ -1,0 +1,80 @@
+{
+  "accesspoint": {
+    "key": "accesspoint",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}"
+  },
+  "bucket": {
+    "key": "bucket",
+    "arn": "arn:${Partition}:s3:::${BucketName}"
+  },
+  "object": {
+    "key": "object",
+    "arn": "arn:${Partition}:s3:::${BucketName}/${ObjectName}"
+  },
+  "job": {
+    "key": "job",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "storagelensconfiguration": {
+    "key": "storagelensconfiguration",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:storage-lens/${ConfigId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "storagelensgroup": {
+    "key": "storagelensgroup",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:storage-lens-group/${Name}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "objectlambdaaccesspoint": {
+    "key": "objectlambdaaccesspoint",
+    "arn": "arn:${Partition}:s3-object-lambda:${Region}:${Account}:accesspoint/${AccessPointName}"
+  },
+  "multiregionaccesspoint": {
+    "key": "multiregionaccesspoint",
+    "arn": "arn:${Partition}:s3::${Account}:accesspoint/${AccessPointAlias}"
+  },
+  "multiregionaccesspointrequestarn": {
+    "key": "multiregionaccesspointrequestarn",
+    "arn": "arn:${Partition}:s3:us-west-2:${Account}:async-request/mrap/${Operation}/${Token}"
+  },
+  "accessgrantsinstance": {
+    "key": "accessgrantsinstance",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:access-grants/default",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "accessgrantslocation": {
+    "key": "accessgrantslocation",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:access-grants/default/location/${Token}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "accessgrant": {
+    "key": "accessgrant",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:access-grants/default/grant/${Token}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  }
+}

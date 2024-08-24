@@ -1,0 +1,390 @@
+{
+  "CreateAlias": {
+    "name": "CreateAlias",
+    "description": "Grants permission to create a user-friendly name for a Key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateKey": {
+    "name": "CreateKey",
+    "description": "Grants permission to create a unique customer managed key in the caller's AWS account and region",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "payment-cryptography:TagResource"
+    ]
+  },
+  "DecryptData": {
+    "name": "DecryptData",
+    "description": "Grants permission to decrypt ciphertext data to plaintext using symmetric, asymmetric or DUKPT data encryption key",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAlias": {
+    "name": "DeleteAlias",
+    "description": "Grants permission to delete the specified alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteKey": {
+    "name": "DeleteKey",
+    "description": "Grants permission to schedule the deletion of a Key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "EncryptData": {
+    "name": "EncryptData",
+    "description": "Grants permission to encrypt plaintext data to ciphertext using symmetric, asymmetric or DUKPT data encryption key",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ExportKey": {
+    "name": "ExportKey",
+    "description": "Grants permission to export a key from the service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GenerateCardValidationData": {
+    "name": "GenerateCardValidationData",
+    "description": "Grants permission to generate card-related data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2) or Card Security Codes (CSC) that check the validity of a magnetic stripe card",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GenerateMac": {
+    "name": "GenerateMac",
+    "description": "Grants permission to generate a MAC (Message Authentication Code) cryptogram",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GeneratePinData": {
+    "name": "GeneratePinData",
+    "description": "Grants permission to generate pin-related data such as PIN, PIN Verification Value (PVV), PIN Block and PIN Offset during new card issuance or card re-issuance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAlias": {
+    "name": "GetAlias",
+    "description": "Grants permission to return the keyArn associated with an aliasName",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "GetKey": {
+    "name": "GetKey",
+    "description": "Grants permission to return the detailed information about the specified key",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetParametersForExport": {
+    "name": "GetParametersForExport",
+    "description": "Grants permission to get the export token and the signing key certificate to initiate a TR-34 key export",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetParametersForImport": {
+    "name": "GetParametersForImport",
+    "description": "Grants permission to get the import token and the wrapping key certificate to initiate a TR-34 key import",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPublicKeyCertificate": {
+    "name": "GetPublicKeyCertificate",
+    "description": "Grants permission to return the public key from a key of class PUBLIC_KEY",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportKey": {
+    "name": "ImportKey",
+    "description": "Grants permission to imports keys and public key certificates",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "payment-cryptography:TagResource"
+    ]
+  },
+  "ListAliases": {
+    "name": "ListAliases",
+    "description": "Grants permission to return a list of aliases created for all keys in the caller's AWS account and Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKeys": {
+    "name": "ListKeys",
+    "description": "Grants permission to return a list of keys created in the caller's AWS account and Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to return a list of tags created in the caller's AWS account and Region",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ReEncryptData": {
+    "name": "ReEncryptData",
+    "description": "Grants permission to re-encrypt ciphertext using DUKPT, Symmetric and Asymmetric Data Encryption Keys",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RestoreKey": {
+    "name": "RestoreKey",
+    "description": "Grants permission to cancel a scheduled key deletion if at any point during the waiting period a Key needs to be revived",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartKeyUsage": {
+    "name": "StartKeyUsage",
+    "description": "Grants permission to enable a disabled Key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopKeyUsage": {
+    "name": "StopKeyUsage",
+    "description": "Grants permission to disable an enabled Key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or overwrites one or more tags for the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TranslatePinData": {
+    "name": "TranslatePinData",
+    "description": "Grants permission to translate encrypted PIN block from and to ISO 9564 formats 0,1,3,4",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the specified tag or tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAlias": {
+    "name": "UpdateAlias",
+    "description": "Grants permission to change the key to which an alias is assigned, or unassign it from its current key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "VerifyAuthRequestCryptogram": {
+    "name": "VerifyAuthRequestCryptogram",
+    "description": "Grants permission to verify Authorization Request Cryptogram (ARQC) for a EMV chip payment card authorization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "VerifyCardValidationData": {
+    "name": "VerifyCardValidationData",
+    "description": "Grants permission to verify card-related validation data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2) and Card Security Codes (CSC)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "VerifyMac": {
+    "name": "VerifyMac",
+    "description": "Grants permission to verify MAC (Message Authentication Code) of input data against a provided MAC",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "VerifyPinData": {
+    "name": "VerifyPinData",
+    "description": "Grants permission to verify pin-related data such as PIN and PIN Offset using algorithms including VISA PVV and IBM3624",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

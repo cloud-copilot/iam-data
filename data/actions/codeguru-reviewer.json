@@ -1,0 +1,262 @@
+{
+  "AssociateRepository": {
+    "name": "AssociateRepository",
+    "description": "Grants permission to associates a repository with Amazon CodeGuru Reviewer",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "codecommit:GetRepository",
+      "codecommit:ListRepositories",
+      "codecommit:TagResource",
+      "codestar-connections:PassConnection",
+      "events:PutRule",
+      "events:PutTargets",
+      "iam:CreateServiceLinkedRole",
+      "s3:CreateBucket",
+      "s3:ListBucket",
+      "s3:PutBucketPolicy",
+      "s3:PutLifecycleConfiguration"
+    ]
+  },
+  "CreateCodeReview": {
+    "name": "CreateCodeReview",
+    "description": "Grants permission to create a code review",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "s3:GetObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateConnectionToken": {
+    "name": "CreateConnectionToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to perform webbased oauth handshake for 3rd party providers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCodeReview": {
+    "name": "DescribeCodeReview",
+    "description": "Grants permission to describe a code review",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeRecommendationFeedback": {
+    "name": "DescribeRecommendationFeedback",
+    "description": "Grants permission to describe a recommendation feedback on a code review",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeRepositoryAssociation": {
+    "name": "DescribeRepositoryAssociation",
+    "description": "Grants permission to describe a repository association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DisassociateRepository": {
+    "name": "DisassociateRepository",
+    "description": "Grants permission to disassociate a repository with Amazon CodeGuru Reviewer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "codecommit:UntagResource",
+          "events:DeleteRule",
+          "events:RemoveTargets"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetMetricsData": {
+    "name": "GetMetricsData",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view pull request metrics in console",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCodeReviews": {
+    "name": "ListCodeReviews",
+    "description": "Grants permission to list summary of code reviews",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRecommendationFeedback": {
+    "name": "ListRecommendationFeedback",
+    "description": "Grants permission to list summary of recommendation feedback on a code review",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListRecommendations": {
+    "name": "ListRecommendations",
+    "description": "Grants permission to list summary of recommendations on a code review",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListRepositoryAssociations": {
+    "name": "ListRepositoryAssociations",
+    "description": "Grants permission to list summary of repository associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the resource attached to a associated repository ARN",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListThirdPartyRepositories": {
+    "name": "ListThirdPartyRepositories",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list 3rd party providers repositories in console",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutRecommendationFeedback": {
+    "name": "PutRecommendationFeedback",
+    "description": "Grants permission to put feedback for a recommendation on a code review",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to attach resource tags to an associated repository ARN",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UnTagResource": {
+    "name": "UnTagResource",
+    "description": "Grants permission to disassociate resource tags from an associated repository ARN",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

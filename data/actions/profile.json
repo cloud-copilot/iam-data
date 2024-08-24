@@ -1,0 +1,1000 @@
+{
+  "AddProfileKey": {
+    "name": "AddProfileKey",
+    "description": "Grants permission to add a profile key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateCalculatedAttributeDefinition": {
+    "name": "CreateCalculatedAttributeDefinition",
+    "description": "Grants permission to create a calculated attribute definition in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateDomain": {
+    "name": "CreateDomain",
+    "description": "Grants permission to create a Domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "CreateEventStream": {
+    "name": "CreateEventStream",
+    "description": "Grants permission to put an event stream in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PutRolePolicy",
+          "kinesis:DescribeStreamSummary"
+        ]
+      },
+      {
+        "name": "event-streams",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateIntegrationWorkflow": {
+    "name": "CreateIntegrationWorkflow",
+    "description": "Grants permission to create an integration workflow in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrations",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateProfile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a profile in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateSnapshot": {
+    "name": "CreateSnapshot",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a snapshot in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCalculatedAttributeDefinition": {
+    "name": "DeleteCalculatedAttributeDefinition",
+    "description": "Grants permission to delete a calculated attribute definition in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDomain": {
+    "name": "DeleteDomain",
+    "description": "Grants permission to delete a Domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEventStream": {
+    "name": "DeleteEventStream",
+    "description": "Grants permission to delete an event stream in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:DeleteRolePolicy"
+        ]
+      },
+      {
+        "name": "event-streams",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteIntegration": {
+    "name": "DeleteIntegration",
+    "description": "Grants permission to delete a integration in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteProfile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteProfileKey": {
+    "name": "DeleteProfileKey",
+    "description": "Grants permission to delete a profile key",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteProfileObject": {
+    "name": "DeleteProfileObject",
+    "description": "Grants permission to delete a profile object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteProfileObjectType": {
+    "name": "DeleteProfileObjectType",
+    "description": "Grants permission to delete a specific profile object type in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteWorkflow": {
+    "name": "DeleteWorkflow",
+    "description": "Grants permission to delete a workflow in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectProfileObjectType": {
+    "name": "DetectProfileObjectType",
+    "description": "Grants permission to auto detect object type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAutoMergingPreview": {
+    "name": "GetAutoMergingPreview",
+    "description": "Grants permission to get a preview of auto merging in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCalculatedAttributeDefinition": {
+    "name": "GetCalculatedAttributeDefinition",
+    "description": "Grants permission to get a calculated attribute definition in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCalculatedAttributeForProfile": {
+    "name": "GetCalculatedAttributeForProfile",
+    "description": "Grants permission to retrieve a calculated attribute for a specific profile in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDomain": {
+    "name": "GetDomain",
+    "description": "Grants permission to get a specific domain in an account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEventStream": {
+    "name": "GetEventStream",
+    "description": "Grants permission to get a specific event stream in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kinesis:DescribeStreamSummary"
+        ]
+      },
+      {
+        "name": "event-streams",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIdentityResolutionJob": {
+    "name": "GetIdentityResolutionJob",
+    "description": "Grants permission to get an identity resolution job in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIntegration": {
+    "name": "GetIntegration",
+    "description": "Grants permission to get a specific integrations in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMatches": {
+    "name": "GetMatches",
+    "description": "Grants permission to get profile matches in a domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProfileObjectType": {
+    "name": "GetProfileObjectType",
+    "description": "Grants permission to get a specific profile object type in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProfileObjectTypeTemplate": {
+    "name": "GetProfileObjectTypeTemplate",
+    "description": "Grants permission to get a specific object type template",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSimilarProfiles": {
+    "name": "GetSimilarProfiles",
+    "description": "Grants permission to get all the similar profiles in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSnapshot": {
+    "name": "GetSnapshot",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get a snapshot in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetWorkflow": {
+    "name": "GetWorkflow",
+    "description": "Grants permission to get workflow details in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetWorkflowSteps": {
+    "name": "GetWorkflowSteps",
+    "description": "Grants permission to get workflow step details in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccountIntegrations": {
+    "name": "ListAccountIntegrations",
+    "description": "Grants permission to list all the integrations in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCalculatedAttributeDefinitions": {
+    "name": "ListCalculatedAttributeDefinitions",
+    "description": "Grants permission to list all the calculated attribute definitions in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCalculatedAttributesForProfile": {
+    "name": "ListCalculatedAttributesForProfile",
+    "description": "Grants permission to list all calculated attributes for a specific profile in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDomains": {
+    "name": "ListDomains",
+    "description": "Grants permission to list all the domains in an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEventStreams": {
+    "name": "ListEventStreams",
+    "description": "Grants permission to list all the event streams in a specific domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIdentityResolutionJobs": {
+    "name": "ListIdentityResolutionJobs",
+    "description": "Grants permission to list identity resolution jobs in a domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIntegrations": {
+    "name": "ListIntegrations",
+    "description": "Grants permission to list all the integrations in a specific domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfileObjectTypeTemplates": {
+    "name": "ListProfileObjectTypeTemplates",
+    "description": "Grants permission to list all the profile object type templates in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfileObjectTypes": {
+    "name": "ListProfileObjectTypes",
+    "description": "Grants permission to list all the profile object types in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfileObjects": {
+    "name": "ListProfileObjects",
+    "description": "Grants permission to list all the profile objects for a profile",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRuleBasedMatches": {
+    "name": "ListRuleBasedMatches",
+    "description": "Grants permission to list all the rule-based matching result in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-streams",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWorkflows": {
+    "name": "ListWorkflows",
+    "description": "Grants permission to list all the workflows in a specific domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "MergeProfiles": {
+    "name": "MergeProfiles",
+    "description": "Grants permission to merge profiles in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutIntegration": {
+    "name": "PutIntegration",
+    "description": "Grants permission to put a integration in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrations",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutProfileObject": {
+    "name": "PutProfileObject",
+    "description": "Grants permission to put an object for a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutProfileObjectType": {
+    "name": "PutProfileObjectType",
+    "description": "Grants permission to put a specific profile object type in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SearchProfiles": {
+    "name": "SearchProfiles",
+    "description": "Grants permission to search for profiles in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to adds tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-streams",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-streams",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateCalculatedAttributeDefinition": {
+    "name": "UpdateCalculatedAttributeDefinition",
+    "description": "Grants permission to update a calculated attribute definition in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDomain": {
+    "name": "UpdateDomain",
+    "description": "Grants permission to update a Domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "UpdateProfile": {
+    "name": "UpdateProfile",
+    "description": "Grants permission to update a profile in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

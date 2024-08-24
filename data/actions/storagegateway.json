@@ -1,0 +1,1466 @@
+{
+  "ActivateGateway": {
+    "name": "ActivateGateway",
+    "description": "Grants permission to activate the gateway you previously deployed on your host",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "AddCache": {
+    "name": "AddCache",
+    "description": "Grants permission to configure one or more gateway local disks as cache for a cached-volume gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AddTagsToResource": {
+    "name": "AddTagsToResource",
+    "description": "Grants permission to add one or more tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "share",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "AddUploadBuffer": {
+    "name": "AddUploadBuffer",
+    "description": "Grants permission to configure one or more gateway local disks as upload buffer for a specified gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AddWorkingStorage": {
+    "name": "AddWorkingStorage",
+    "description": "Grants permission to configure one or more gateway local disks as working storage for a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssignTapePool": {
+    "name": "AssignTapePool",
+    "description": "Grants permission to move a tape to the target pool specified",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tape",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tapepool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateFileSystem": {
+    "name": "AssociateFileSystem",
+    "description": "Grants permission to associate an Amazon FSx file system with the Amazon FSx file gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ds:DescribeDirectories",
+          "ec2:DescribeNetworkInterfaces",
+          "fsx:DescribeFileSystems",
+          "iam:CreateServiceLinkedRole",
+          "logs:CreateLogDelivery",
+          "logs:GetLogDelivery",
+          "logs:ListLogDeliveries",
+          "logs:UpdateLogDelivery"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "AttachVolume": {
+    "name": "AttachVolume",
+    "description": "Grants permission to connect a volume to an iSCSI connection and then attaches the volume to the specified gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BypassGovernanceRetention": {
+    "name": "BypassGovernanceRetention",
+    "description": "Grants permission to allow the governance retention lock on a pool to be bypassed",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tapepool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelArchival": {
+    "name": "CancelArchival",
+    "description": "Grants permission to cancel archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelRetrieval": {
+    "name": "CancelRetrieval",
+    "description": "Grants permission to cancel retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateCachediSCSIVolume": {
+    "name": "CreateCachediSCSIVolume",
+    "description": "Grants permission to create a cached volume on a specified cached gateway. This operation is supported only for the gateway-cached volume architecture",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateNFSFileShare": {
+    "name": "CreateNFSFileShare",
+    "description": "Grants permission to create a NFS file share on an existing file gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSMBFileShare": {
+    "name": "CreateSMBFileShare",
+    "description": "Grants permission to create a SMB file share on an existing file gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSnapshot": {
+    "name": "CreateSnapshot",
+    "description": "Grants permission to initiate a snapshot of a volume",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSnapshotFromVolumeRecoveryPoint": {
+    "name": "CreateSnapshotFromVolumeRecoveryPoint",
+    "description": "Grants permission to initiate a snapshot of a gateway from a volume recovery point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateStorediSCSIVolume": {
+    "name": "CreateStorediSCSIVolume",
+    "description": "Grants permission to create a volume on a specified gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateTapePool": {
+    "name": "CreateTapePool",
+    "description": "Grants permission to create a tape pool",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateTapeWithBarcode": {
+    "name": "CreateTapeWithBarcode",
+    "description": "Grants permission to create a virtual tape by using your own barcode",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tapepool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateTapes": {
+    "name": "CreateTapes",
+    "description": "Grants permission to create one or more virtual tapes. You write data to the virtual tapes and then archive the tapes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tapepool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAutomaticTapeCreationPolicy": {
+    "name": "DeleteAutomaticTapeCreationPolicy",
+    "description": "Grants permission to delete the automatic tape creation policy configured on a gateway-VTL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBandwidthRateLimit": {
+    "name": "DeleteBandwidthRateLimit",
+    "description": "Grants permission to delete the bandwidth rate limits of a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteChapCredentials": {
+    "name": "DeleteChapCredentials",
+    "description": "Grants permission to delete Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "target",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFileShare": {
+    "name": "DeleteFileShare",
+    "description": "Grants permission to delete a file share from a file gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteGateway": {
+    "name": "DeleteGateway",
+    "description": "Grants permission to delete a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteSnapshotSchedule": {
+    "name": "DeleteSnapshotSchedule",
+    "description": "Grants permission to delete a snapshot of a volume",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTape": {
+    "name": "DeleteTape",
+    "description": "Grants permission to delete the specified virtual tape",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTapeArchive": {
+    "name": "DeleteTapeArchive",
+    "description": "Grants permission to delete the specified virtual tape from the virtual tape shelf (VTS)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTapePool": {
+    "name": "DeleteTapePool",
+    "description": "Grants permission to delete the specified tape pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tapepool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteVolume": {
+    "name": "DeleteVolume",
+    "description": "Grants permission to delete the specified gateway volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAvailabilityMonitorTest": {
+    "name": "DescribeAvailabilityMonitorTest",
+    "description": "Grants permission to get the information about the most recent high availability monitoring test that was performed on the gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBandwidthRateLimit": {
+    "name": "DescribeBandwidthRateLimit",
+    "description": "Grants permission to get the bandwidth rate limits of a gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBandwidthRateLimitSchedule": {
+    "name": "DescribeBandwidthRateLimitSchedule",
+    "description": "Grants permission to get the bandwidth rate limit schedule of a gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCache": {
+    "name": "DescribeCache",
+    "description": "Grants permission to get information about the cache of a gateway. This operation is supported only for the gateway-cached volume architecture",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCachediSCSIVolumes": {
+    "name": "DescribeCachediSCSIVolumes",
+    "description": "Grants permission to get a description of the gateway volumes specified in the request. This operation is supported only for the gateway-cached volume architecture",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeChapCredentials": {
+    "name": "DescribeChapCredentials",
+    "description": "Grants permission to get an array of Challenge-Handshake Authentication Protocol (CHAP) credentials information for a specified iSCSI target, one for each target-initiator pair",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "target",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFileSystemAssociations": {
+    "name": "DescribeFileSystemAssociations",
+    "description": "Grants permission to get a description for one or more file system associations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fs-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGatewayInformation": {
+    "name": "DescribeGatewayInformation",
+    "description": "Grants permission to get metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceStartTime": {
+    "name": "DescribeMaintenanceStartTime",
+    "description": "Grants permission to get your gateway's weekly maintenance start time including the day and time of the week",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeNFSFileShares": {
+    "name": "DescribeNFSFileShares",
+    "description": "Grants permission to get a description for one or more file shares from a file gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSMBFileShares": {
+    "name": "DescribeSMBFileShares",
+    "description": "Grants permission to get a description for one or more file shares from a file gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSMBSettings": {
+    "name": "DescribeSMBSettings",
+    "description": "Grants permission to get a description of a Server Message Block (SMB) file share settings from a file gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSnapshotSchedule": {
+    "name": "DescribeSnapshotSchedule",
+    "description": "Grants permission to describe the snapshot schedule for the specified gateway volume",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeStorediSCSIVolumes": {
+    "name": "DescribeStorediSCSIVolumes",
+    "description": "Grants permission to get the description of the gateway volumes specified in the request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTapeArchives": {
+    "name": "DescribeTapeArchives",
+    "description": "Grants permission to get a description of specified virtual tapes in the virtual tape shelf (VTS)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTapeRecoveryPoints": {
+    "name": "DescribeTapeRecoveryPoints",
+    "description": "Grants permission to get a list of virtual tape recovery points that are available for the specified gateway-VTL",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTapes": {
+    "name": "DescribeTapes",
+    "description": "Grants permission to get a description of the specified Amazon Resource Name (ARN) of virtual tapes",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeUploadBuffer": {
+    "name": "DescribeUploadBuffer",
+    "description": "Grants permission to get information about the upload buffer of a gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeVTLDevices": {
+    "name": "DescribeVTLDevices",
+    "description": "Grants permission to get a description of virtual tape library (VTL) devices for the specified gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkingStorage": {
+    "name": "DescribeWorkingStorage",
+    "description": "Grants permission to get information about the working storage of a gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetachVolume": {
+    "name": "DetachVolume",
+    "description": "Grants permission to disconnect a volume from an iSCSI connection and then detaches the volume from the specified gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisableGateway": {
+    "name": "DisableGateway",
+    "description": "Grants permission to disable a gateway when the gateway is no longer functioning",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateFileSystem": {
+    "name": "DisassociateFileSystem",
+    "description": "Grants permission to disassociate an Amazon FSx file system from an Amazon FSx file gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fs-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "JoinDomain": {
+    "name": "JoinDomain",
+    "description": "Grants permission to enable you to join an Active Directory Domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAutomaticTapeCreationPolicies": {
+    "name": "ListAutomaticTapeCreationPolicies",
+    "description": "Grants permission to list the automatic tape creation policies configured on the specified gateway-VTL or all gateway-VTLs owned by your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFileShares": {
+    "name": "ListFileShares",
+    "description": "Grants permission to get a list of the file shares for a specific file gateway, or the list of file shares owned by your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFileSystemAssociations": {
+    "name": "ListFileSystemAssociations",
+    "description": "Grants permission to get a list of the file system associations for the specified gateway",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListGateways": {
+    "name": "ListGateways",
+    "description": "Grants permission to list gateways owned by an AWS account in a region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLocalDisks": {
+    "name": "ListLocalDisks",
+    "description": "Grants permission to get a list of the gateway's local disks",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to get the tags that have been added to the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "share",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTapePools": {
+    "name": "ListTapePools",
+    "description": "Grants permission to list tape pools owned by your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTapes": {
+    "name": "ListTapes",
+    "description": "Grants permission to list virtual tapes in your virtual tape library (VTL) and your virtual tape shelf (VTS)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListVolumeInitiators": {
+    "name": "ListVolumeInitiators",
+    "description": "Grants permission to list iSCSI initiators that are connected to a volume",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListVolumeRecoveryPoints": {
+    "name": "ListVolumeRecoveryPoints",
+    "description": "Grants permission to list the recovery points for a specified gateway",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListVolumes": {
+    "name": "ListVolumes",
+    "description": "Grants permission to list the iSCSI stored volumes of a gateway",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyWhenUploaded": {
+    "name": "NotifyWhenUploaded",
+    "description": "Grants permission to send you a notification through CloudWatch Events when all files written to your NFS file share have been uploaded to Amazon S3",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RefreshCache": {
+    "name": "RefreshCache",
+    "description": "Grants permission to refresh the cache for the specified file share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RemoveTagsFromResource": {
+    "name": "RemoveTagsFromResource",
+    "description": "Grants permission to remove one or more tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "share",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "ResetCache": {
+    "name": "ResetCache",
+    "description": "Grants permission to reset all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RetrieveTapeArchive": {
+    "name": "RetrieveTapeArchive",
+    "description": "Grants permission to retrieve an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RetrieveTapeRecoveryPoint": {
+    "name": "RetrieveTapeRecoveryPoint",
+    "description": "Grants permission to retrieve the recovery point for the specified virtual tape",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tape",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetLocalConsolePassword": {
+    "name": "SetLocalConsolePassword",
+    "description": "Grants permission to set the password for your VM local console",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetSMBGuestPassword": {
+    "name": "SetSMBGuestPassword",
+    "description": "Grants permission to set the password for SMB Guest user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ShutdownGateway": {
+    "name": "ShutdownGateway",
+    "description": "Grants permission to shut down a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartAvailabilityMonitorTest": {
+    "name": "StartAvailabilityMonitorTest",
+    "description": "Grants permission to start a test that verifies that the specified gateway is configured for High Availability monitoring in your host environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartGateway": {
+    "name": "StartGateway",
+    "description": "Grants permission to start a gateway that you previously shut down",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAutomaticTapeCreationPolicy": {
+    "name": "UpdateAutomaticTapeCreationPolicy",
+    "description": "Grants permission to update the automatic tape creation policy configured on a gateway-VTL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tapepool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateBandwidthRateLimit": {
+    "name": "UpdateBandwidthRateLimit",
+    "description": "Grants permission to update the bandwidth rate limits of a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateBandwidthRateLimitSchedule": {
+    "name": "UpdateBandwidthRateLimitSchedule",
+    "description": "Grants permission to update the bandwidth rate limit schedule of a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateChapCredentials": {
+    "name": "UpdateChapCredentials",
+    "description": "Grants permission to update the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "target",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFileSystemAssociation": {
+    "name": "UpdateFileSystemAssociation",
+    "description": "Grants permission to update a file system association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fs-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "logs:CreateLogDelivery",
+      "logs:DeleteLogDelivery",
+      "logs:GetLogDelivery",
+      "logs:ListLogDeliveries",
+      "logs:UpdateLogDelivery"
+    ]
+  },
+  "UpdateGatewayInformation": {
+    "name": "UpdateGatewayInformation",
+    "description": "Grants permission to update a gateway's metadata, which includes the gateway's name and time zone",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateGatewaySoftwareNow": {
+    "name": "UpdateGatewaySoftwareNow",
+    "description": "Grants permission to update the gateway virtual machine (VM) software",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateMaintenanceStartTime": {
+    "name": "UpdateMaintenanceStartTime",
+    "description": "Grants permission to update a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateNFSFileShare": {
+    "name": "UpdateNFSFileShare",
+    "description": "Grants permission to update a NFS file share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSMBFileShare": {
+    "name": "UpdateSMBFileShare",
+    "description": "Grants permission to update a SMB file share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSMBFileShareVisibility": {
+    "name": "UpdateSMBFileShareVisibility",
+    "description": "Grants permission to update whether the shares on a gateway are visible in a net view or browse list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSMBLocalGroups": {
+    "name": "UpdateSMBLocalGroups",
+    "description": "Grants permission to update the list of Active Directory users and groups that have special permissions for SMB file shares on the gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSMBSecurityStrategy": {
+    "name": "UpdateSMBSecurityStrategy",
+    "description": "Grants permission to update the SMB security strategy on a file gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSnapshotSchedule": {
+    "name": "UpdateSnapshotSchedule",
+    "description": "Grants permission to update a snapshot schedule configured for a gateway volume",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateVTLDeviceType": {
+    "name": "UpdateVTLDeviceType",
+    "description": "Grants permission to update the type of medium changer in a gateway-VTL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

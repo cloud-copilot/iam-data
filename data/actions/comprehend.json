@@ -1,0 +1,1551 @@
+{
+  "BatchDetectDominantLanguage": {
+    "name": "BatchDetectDominantLanguage",
+    "description": "Grants permission to detect the language or languages present in the list of text documents",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchDetectEntities": {
+    "name": "BatchDetectEntities",
+    "description": "Grants permission to detect the named entities (\"People\", \"Places\", \"Locations\", etc) within the given list of text documents",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchDetectKeyPhrases": {
+    "name": "BatchDetectKeyPhrases",
+    "description": "Grants permission to detect the phrases in the list of text documents that are most indicative of the content",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchDetectSentiment": {
+    "name": "BatchDetectSentiment",
+    "description": "Grants permission to detect the sentiment of a text in the list of documents (Positive, Negative, Neutral, or Mixed)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchDetectSyntax": {
+    "name": "BatchDetectSyntax",
+    "description": "Grants permission to detect syntactic information (like Part of Speech, Tokens) in a list of text documents",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchDetectTargetedSentiment": {
+    "name": "BatchDetectTargetedSentiment",
+    "description": "Grants permission to detect the sentiments associated with specific entities (such as brands or products) within the given list of text documents",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ClassifyDocument": {
+    "name": "ClassifyDocument",
+    "description": "Grants permission to create a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document-classifier-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ContainsPiiEntities": {
+    "name": "ContainsPiiEntities",
+    "description": "Grants permission to classify the personally identifiable information within given documents in real-time",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateDataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a new dataset within a flywheel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateDocumentClassifier": {
+    "name": "CreateDocumentClassifier",
+    "description": "Grants permission to create a new document classifier that you can use to categorize documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:VolumeKmsKey",
+      "comprehend:ModelKmsKey",
+      "comprehend:OutputKmsKey",
+      "comprehend:VpcSecurityGroupIds",
+      "comprehend:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
+  "CreateEndpoint": {
+    "name": "CreateEndpoint",
+    "description": "Grants permission to create a model-specific endpoint for synchronous inference for a previously trained custom model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateEntityRecognizer": {
+    "name": "CreateEntityRecognizer",
+    "description": "Grants permission to create an entity recognizer using submitted files",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:VolumeKmsKey",
+      "comprehend:ModelKmsKey",
+      "comprehend:VpcSecurityGroupIds",
+      "comprehend:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
+  "CreateFlywheel": {
+    "name": "CreateFlywheel",
+    "description": "Grants permission to create a new flywheel that you can use to train model versions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "comprehend:VolumeKmsKey",
+          "comprehend:ModelKmsKey",
+          "comprehend:DataLakeKmsKey",
+          "comprehend:VpcSecurityGroupIds",
+          "comprehend:VpcSubnets"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDocumentClassifier": {
+    "name": "DeleteDocumentClassifier",
+    "description": "Grants permission to delete a previously created document classifier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEndpoint": {
+    "name": "DeleteEndpoint",
+    "description": "Grants permission to delete a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEntityRecognizer": {
+    "name": "DeleteEntityRecognizer",
+    "description": "Grants permission to delete a submitted entity recognizer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFlywheel": {
+    "name": "DeleteFlywheel",
+    "description": "Grants permission to Delete a flywheel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to remove policy on resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDataset": {
+    "name": "DescribeDataset",
+    "description": "Grants permission to get the properties associated with a dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flywheel-dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDocumentClassificationJob": {
+    "name": "DescribeDocumentClassificationJob",
+    "description": "Grants permission to get the properties associated with a document classification job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document-classification-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDocumentClassifier": {
+    "name": "DescribeDocumentClassifier",
+    "description": "Grants permission to get the properties associated with a document classifier",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDominantLanguageDetectionJob": {
+    "name": "DescribeDominantLanguageDetectionJob",
+    "description": "Grants permission to get the properties associated with a dominant language detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dominant-language-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEndpoint": {
+    "name": "DescribeEndpoint",
+    "description": "Grants permission to get the properties associated with a specific endpoint. Use this operation to get the status of an endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document-classifier-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEntitiesDetectionJob": {
+    "name": "DescribeEntitiesDetectionJob",
+    "description": "Grants permission to get the properties associated with an entities detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "entities-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEntityRecognizer": {
+    "name": "DescribeEntityRecognizer",
+    "description": "Grants permission to provide details about an entity recognizer including status, S3 buckets containing training data, recognizer metadata, metrics, and so on",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEventsDetectionJob": {
+    "name": "DescribeEventsDetectionJob",
+    "description": "Grants permission to get the properties associated with an Events detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "events-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFlywheel": {
+    "name": "DescribeFlywheel",
+    "description": "Grants permission to get the properties associated with a flywheel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFlywheelIteration": {
+    "name": "DescribeFlywheelIteration",
+    "description": "Grants permission to get the properties associated with a flywheel iteration for a flywheel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "comprehend:FlywheelIterationId"
+    ],
+    "dependentActions": []
+  },
+  "DescribeKeyPhrasesDetectionJob": {
+    "name": "DescribeKeyPhrasesDetectionJob",
+    "description": "Grants permission to get the properties associated with a key phrases detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "key-phrases-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePiiEntitiesDetectionJob": {
+    "name": "DescribePiiEntitiesDetectionJob",
+    "description": "Grants permission to get the properties associated with a PII entities detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pii-entities-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeResourcePolicy": {
+    "name": "DescribeResourcePolicy",
+    "description": "Grants permission to read attached policy on resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSentimentDetectionJob": {
+    "name": "DescribeSentimentDetectionJob",
+    "description": "Grants permission to get the properties associated with a sentiment detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sentiment-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTargetedSentimentDetectionJob": {
+    "name": "DescribeTargetedSentimentDetectionJob",
+    "description": "Grants permission to get the properties associated with a targeted sentiment detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "targeted-sentiment-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTopicsDetectionJob": {
+    "name": "DescribeTopicsDetectionJob",
+    "description": "Grants permission to get the properties associated with a topic detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "topics-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectDominantLanguage": {
+    "name": "DetectDominantLanguage",
+    "description": "Grants permission to detect the language or languages present in the text",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectEntities": {
+    "name": "DetectEntities",
+    "description": "Grants permission to detect the named entities (\"People\", \"Places\", \"Locations\", etc) within the given text document",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectKeyPhrases": {
+    "name": "DetectKeyPhrases",
+    "description": "Grants permission to detect the phrases in the text that are most indicative of the content",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectPiiEntities": {
+    "name": "DetectPiiEntities",
+    "description": "Grants permission to detect the personally identifiable information entities (\"Name\", \"SSN\", \"PIN\", etc) within the given text document",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectSentiment": {
+    "name": "DetectSentiment",
+    "description": "Grants permission to detect the sentiment of a text in a document (Positive, Negative, Neutral, or Mixed)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectSyntax": {
+    "name": "DetectSyntax",
+    "description": "Grants permission to detect syntactic information (like Part of Speech, Tokens) in a text document",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectTargetedSentiment": {
+    "name": "DetectTargetedSentiment",
+    "description": "Grants permission to detect the sentiments associated with specific entities (such as brands or products) in a document",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectToxicContent": {
+    "name": "DetectToxicContent",
+    "description": "Grants permission to detect toxic content within the given list of text segments",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportModel": {
+    "name": "ImportModel",
+    "description": "Grants permission to import a trained Comprehend model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:ModelKmsKey"
+    ],
+    "dependentActions": []
+  },
+  "ListDatasets": {
+    "name": "ListDatasets",
+    "description": "Grants permission to get a list of the Datasets associated with a flywheel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDocumentClassificationJobs": {
+    "name": "ListDocumentClassificationJobs",
+    "description": "Grants permission to get a list of the document classification jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDocumentClassifierSummaries": {
+    "name": "ListDocumentClassifierSummaries",
+    "description": "Grants permission to get a list of summaries of the document classifiers that you have created",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDocumentClassifiers": {
+    "name": "ListDocumentClassifiers",
+    "description": "Grants permission to get a list of the document classifiers that you have created",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDominantLanguageDetectionJobs": {
+    "name": "ListDominantLanguageDetectionJobs",
+    "description": "Grants permission to get a list of the dominant language detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEndpoints": {
+    "name": "ListEndpoints",
+    "description": "Grants permission to get a list of all existing endpoints that you've created",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEntitiesDetectionJobs": {
+    "name": "ListEntitiesDetectionJobs",
+    "description": "Grants permission to get a list of the entity detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEntityRecognizerSummaries": {
+    "name": "ListEntityRecognizerSummaries",
+    "description": "Grants permission to get a list of summaries for the entity recognizers that you have created",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEntityRecognizers": {
+    "name": "ListEntityRecognizers",
+    "description": "Grants permission to get a list of the properties of all entity recognizers that you created, including recognizers currently in training",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEventsDetectionJobs": {
+    "name": "ListEventsDetectionJobs",
+    "description": "Grants permission to get a list of Events detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFlywheelIterationHistory": {
+    "name": "ListFlywheelIterationHistory",
+    "description": "Grants permission to get a list of iterations associated for a flywheel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFlywheels": {
+    "name": "ListFlywheels",
+    "description": "Grants permission to get a list of the flywheels that you have created",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKeyPhrasesDetectionJobs": {
+    "name": "ListKeyPhrasesDetectionJobs",
+    "description": "Grants permission to get a list of key phrase detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPiiEntitiesDetectionJobs": {
+    "name": "ListPiiEntitiesDetectionJobs",
+    "description": "Grants permission to get a list of PII entities detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSentimentDetectionJobs": {
+    "name": "ListSentimentDetectionJobs",
+    "description": "Grants permission to get a list of sentiment detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document-classification-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dominant-language-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entities-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "events-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel-dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key-phrases-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pii-entities-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sentiment-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "targeted-sentiment-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "topics-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTargetedSentimentDetectionJobs": {
+    "name": "ListTargetedSentimentDetectionJobs",
+    "description": "Grants permission to get a list of targeted sentiment detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTopicsDetectionJobs": {
+    "name": "ListTopicsDetectionJobs",
+    "description": "Grants permission to get a list of the topic detection jobs that you have submitted",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach policy to resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartDocumentClassificationJob": {
+    "name": "StartDocumentClassificationJob",
+    "description": "Grants permission to start an asynchronous document classification job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classification-job",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "comprehend:VolumeKmsKey",
+          "comprehend:OutputKmsKey",
+          "comprehend:VpcSecurityGroupIds",
+          "comprehend:VpcSubnets"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartDominantLanguageDetectionJob": {
+    "name": "StartDominantLanguageDetectionJob",
+    "description": "Grants permission to start an asynchronous dominant language detection job for a collection of documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dominant-language-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:VolumeKmsKey",
+      "comprehend:OutputKmsKey",
+      "comprehend:VpcSecurityGroupIds",
+      "comprehend:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
+  "StartEntitiesDetectionJob": {
+    "name": "StartEntitiesDetectionJob",
+    "description": "Grants permission to start an asynchronous entity detection job for a collection of documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "entities-detection-job",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "comprehend:VolumeKmsKey",
+          "comprehend:OutputKmsKey",
+          "comprehend:VpcSecurityGroupIds",
+          "comprehend:VpcSubnets"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartEventsDetectionJob": {
+    "name": "StartEventsDetectionJob",
+    "description": "Grants permission to start an asynchronous Events detection job for a collection of documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "events-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:OutputKmsKey"
+    ],
+    "dependentActions": []
+  },
+  "StartFlywheelIteration": {
+    "name": "StartFlywheelIteration",
+    "description": "Grants permission to start a flywheel iteration for a flywheel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartKeyPhrasesDetectionJob": {
+    "name": "StartKeyPhrasesDetectionJob",
+    "description": "Grants permission to start an asynchronous key phrase detection job for a collection of documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key-phrases-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:VolumeKmsKey",
+      "comprehend:OutputKmsKey",
+      "comprehend:VpcSecurityGroupIds",
+      "comprehend:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
+  "StartPiiEntitiesDetectionJob": {
+    "name": "StartPiiEntitiesDetectionJob",
+    "description": "Grants permission to start an asynchronous PII entities detection job for a collection of documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pii-entities-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:OutputKmsKey"
+    ],
+    "dependentActions": []
+  },
+  "StartSentimentDetectionJob": {
+    "name": "StartSentimentDetectionJob",
+    "description": "Grants permission to start an asynchronous sentiment detection job for a collection of documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sentiment-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:VolumeKmsKey",
+      "comprehend:OutputKmsKey",
+      "comprehend:VpcSecurityGroupIds",
+      "comprehend:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
+  "StartTargetedSentimentDetectionJob": {
+    "name": "StartTargetedSentimentDetectionJob",
+    "description": "Grants permission to start an asynchronous targeted sentiment detection job for a collection of documents",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targeted-sentiment-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:VolumeKmsKey",
+      "comprehend:OutputKmsKey",
+      "comprehend:VpcSecurityGroupIds",
+      "comprehend:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
+  "StartTopicsDetectionJob": {
+    "name": "StartTopicsDetectionJob",
+    "description": "Grants permission to start an asynchronous job to detect the most common topics in the collection of documents and the phrases associated with each topic",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topics-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "comprehend:VolumeKmsKey",
+      "comprehend:OutputKmsKey",
+      "comprehend:VpcSecurityGroupIds",
+      "comprehend:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
+  "StopDominantLanguageDetectionJob": {
+    "name": "StopDominantLanguageDetectionJob",
+    "description": "Grants permission to stop a dominant language detection job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dominant-language-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopEntitiesDetectionJob": {
+    "name": "StopEntitiesDetectionJob",
+    "description": "Grants permission to stop an entity detection job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "entities-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopEventsDetectionJob": {
+    "name": "StopEventsDetectionJob",
+    "description": "Grants permission to stop an Events detection job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "events-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopKeyPhrasesDetectionJob": {
+    "name": "StopKeyPhrasesDetectionJob",
+    "description": "Grants permission to stop a key phrase detection job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "key-phrases-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopPiiEntitiesDetectionJob": {
+    "name": "StopPiiEntitiesDetectionJob",
+    "description": "Grants permission to stop a PII entities detection job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pii-entities-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopSentimentDetectionJob": {
+    "name": "StopSentimentDetectionJob",
+    "description": "Grants permission to stop a sentiment detection job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sentiment-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopTargetedSentimentDetectionJob": {
+    "name": "StopTargetedSentimentDetectionJob",
+    "description": "Grants permission to stop a targeted sentiment detection job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targeted-sentiment-detection-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopTrainingDocumentClassifier": {
+    "name": "StopTrainingDocumentClassifier",
+    "description": "Grants permission to stop a previously created document classifier training job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopTrainingEntityRecognizer": {
+    "name": "StopTrainingEntityRecognizer",
+    "description": "Grants permission to stop a previously created entity recognizer training job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "entity-recognizer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource with given key value pairs",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "document-classification-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dominant-language-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entities-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "events-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel-dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key-phrases-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pii-entities-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sentiment-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "targeted-sentiment-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "topics-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource with given key",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "document-classification-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dominant-language-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entities-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "events-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel-dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key-phrases-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pii-entities-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sentiment-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "targeted-sentiment-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "topics-detection-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateEndpoint": {
+    "name": "UpdateEndpoint",
+    "description": "Grants permission to update information about the specified endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document-classifier-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFlywheel": {
+    "name": "UpdateFlywheel",
+    "description": "Grants permission to Update a flywheel's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [
+          "comprehend:VolumeKmsKey",
+          "comprehend:ModelKmsKey",
+          "comprehend:VpcSecurityGroupIds",
+          "comprehend:VpcSubnets"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "document-classifier",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "entity-recognizer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

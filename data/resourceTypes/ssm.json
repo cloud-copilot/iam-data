@@ -1,0 +1,136 @@
+{
+  "association": {
+    "key": "association",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:association/${AssociationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "automation-execution": {
+    "key": "automation-execution",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:automation-execution/${AutomationExecutionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/tag-key"
+    ]
+  },
+  "automation-definition": {
+    "key": "automation-definition",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:automation-definition/${AutomationDefinitionName}:${VersionId}"
+  },
+  "bucket": {
+    "key": "bucket",
+    "arn": "arn:${Partition}:s3:::${BucketName}"
+  },
+  "document": {
+    "key": "document",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:document/${DocumentName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:DocumentCategories",
+      "ssm:resourceTag/${TagKey}"
+    ]
+  },
+  "instance": {
+    "key": "instance",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:instance/${InstanceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/${TagKey}"
+    ]
+  },
+  "maintenancewindow": {
+    "key": "maintenancewindow",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:maintenancewindow/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/tag-key"
+    ]
+  },
+  "managed-instance": {
+    "key": "managed-instance",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:managed-instance/${InstanceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/tag-key"
+    ]
+  },
+  "managed-instance-inventory": {
+    "key": "managed-instance-inventory",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:managed-instance-inventory/${InstanceId}"
+  },
+  "opsitem": {
+    "key": "opsitem",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:opsitem/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "opsitemgroup": {
+    "key": "opsitemgroup",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:opsitemgroup/default"
+  },
+  "opsmetadata": {
+    "key": "opsmetadata",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:opsmetadata/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/${TagKey}"
+    ]
+  },
+  "parameter": {
+    "key": "parameter",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:parameter/${ParameterNameWithoutLeadingSlash}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/tag-key"
+    ]
+  },
+  "patchbaseline": {
+    "key": "patchbaseline",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:patchbaseline/${PatchBaselineIdResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/tag-key"
+    ]
+  },
+  "session": {
+    "key": "session",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:session/${SessionId}",
+    "conditionKeys": [
+      "ssm:resourceTag/aws:ssmmessages:session-id",
+      "ssm:resourceTag/aws:ssmmessages:target-id"
+    ]
+  },
+  "resourcedatasync": {
+    "key": "resourcedatasync",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:resource-data-sync/${SyncName}"
+  },
+  "servicesetting": {
+    "key": "servicesetting",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:servicesetting/${ResourceId}"
+  },
+  "windowtarget": {
+    "key": "windowtarget",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:windowtarget/${WindowTargetId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/tag-key"
+    ]
+  },
+  "windowtask": {
+    "key": "windowtask",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:windowtask/${WindowTaskId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/tag-key"
+    ]
+  },
+  "task": {
+    "key": "task",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:task/${TaskId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

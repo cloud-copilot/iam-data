@@ -1,0 +1,295 @@
+{
+  "AccessInteractiveEndpoints": {
+    "name": "AccessInteractiveEndpoints",
+    "isPermissionOnly": true,
+    "description": "Grants permission to execute interactive workloads on an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "AccessLivyEndpoints": {
+    "name": "AccessLivyEndpoints",
+    "isPermissionOnly": true,
+    "description": "Grants permission to execute interactive workloads on Livy Endpoint enabled on an EMR Serverless Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CancelJobRun": {
+    "name": "CancelJobRun",
+    "description": "Grants permission to cancel a job run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "jobRun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateApplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create an Application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetApplication": {
+    "name": "GetApplication",
+    "description": "Grants permission to get application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDashboardForJobRun": {
+    "name": "GetDashboardForJobRun",
+    "description": "Grants permission to get job run dashboard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "jobRun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetJobRun": {
+    "name": "GetJobRun",
+    "description": "Grants permission to get a job run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "jobRun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListApplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list applications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListJobRunAttempts": {
+    "name": "ListJobRunAttempts",
+    "description": "Grants permission to list job run attempts associated with a job run",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "jobRun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListJobRuns": {
+    "name": "ListJobRuns",
+    "description": "Grants permission to list job runs associated with an application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "jobRun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartApplication": {
+    "name": "StartApplication",
+    "description": "Grants permission to Start an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartJobRun": {
+    "name": "StartJobRun",
+    "description": "Grants permission to start a job run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "StopApplication": {
+    "name": "StopApplication",
+    "description": "Grants permission to Stop an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "jobRun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "jobRun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateApplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to Update an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

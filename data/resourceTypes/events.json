@@ -1,0 +1,47 @@
+{
+  "event-source": {
+    "key": "event-source",
+    "arn": "arn:${Partition}:events:${Region}::event-source/${EventSourceName}"
+  },
+  "event-bus": {
+    "key": "event-bus",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "rule-on-default-event-bus": {
+    "key": "rule-on-default-event-bus",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:rule/${RuleName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "rule-on-custom-event-bus": {
+    "key": "rule-on-custom-event-bus",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:rule/${EventBusName}/${RuleName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "archive": {
+    "key": "archive",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:archive/${ArchiveName}"
+  },
+  "replay": {
+    "key": "replay",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:replay/${ReplayName}"
+  },
+  "connection": {
+    "key": "connection",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:connection/${ConnectionName}"
+  },
+  "api-destination": {
+    "key": "api-destination",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:api-destination/${ApiDestinationName}"
+  },
+  "endpoint": {
+    "key": "endpoint",
+    "arn": "arn:${Partition}:events:${Region}:${Account}:endpoint/${EndpointName}"
+  }
+}

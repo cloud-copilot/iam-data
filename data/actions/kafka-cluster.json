@@ -1,0 +1,336 @@
+{
+  "AlterCluster": {
+    "name": "AlterCluster",
+    "description": "Grants permission to alter various aspects of the cluster, equivalent to Apache Kafka's ALTER CLUSTER ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeCluster"
+    ]
+  },
+  "AlterClusterDynamicConfiguration": {
+    "name": "AlterClusterDynamicConfiguration",
+    "description": "Grants permission to alter the dynamic configuration of a cluster, equivalent to Apache Kafka's ALTER_CONFIGS CLUSTER ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeClusterDynamicConfiguration"
+    ]
+  },
+  "AlterGroup": {
+    "name": "AlterGroup",
+    "description": "Grants permission to join groups on a cluster, equivalent to Apache Kafka's READ GROUP ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeGroup"
+    ]
+  },
+  "AlterTopic": {
+    "name": "AlterTopic",
+    "description": "Grants permission to alter topics on a cluster, equivalent to Apache Kafka's ALTER TOPIC ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic"
+    ]
+  },
+  "AlterTopicDynamicConfiguration": {
+    "name": "AlterTopicDynamicConfiguration",
+    "description": "Grants permission to alter the dynamic configuration of topics on a cluster, equivalent to Apache Kafka's ALTER_CONFIGS TOPIC ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopicDynamicConfiguration"
+    ]
+  },
+  "AlterTransactionalId": {
+    "name": "AlterTransactionalId",
+    "description": "Grants permission to alter transactional IDs on a cluster, equivalent to Apache Kafka's WRITE TRANSACTIONAL_ID ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transactional-id",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTransactionalId",
+      "kafka-cluster:WriteData"
+    ]
+  },
+  "Connect": {
+    "name": "Connect",
+    "description": "Grants permission to connect and authenticate to the cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateTopic": {
+    "name": "CreateTopic",
+    "description": "Grants permission to create topics on a cluster, equivalent to Apache Kafka's CREATE CLUSTER/TOPIC ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect"
+    ]
+  },
+  "DeleteGroup": {
+    "name": "DeleteGroup",
+    "description": "Grants permission to delete groups on a cluster, equivalent to Apache Kafka's DELETE GROUP ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeGroup"
+    ]
+  },
+  "DeleteTopic": {
+    "name": "DeleteTopic",
+    "description": "Grants permission to delete topics on a cluster, equivalent to Apache Kafka's DELETE TOPIC ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic"
+    ]
+  },
+  "DescribeCluster": {
+    "name": "DescribeCluster",
+    "description": "Grants permission to describe various aspects of the cluster, equivalent to Apache Kafka's DESCRIBE CLUSTER ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect"
+    ]
+  },
+  "DescribeClusterDynamicConfiguration": {
+    "name": "DescribeClusterDynamicConfiguration",
+    "description": "Grants permission to describe the dynamic configuration of a cluster, equivalent to Apache Kafka's DESCRIBE_CONFIGS CLUSTER ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect"
+    ]
+  },
+  "DescribeGroup": {
+    "name": "DescribeGroup",
+    "description": "Grants permission to describe groups on a cluster, equivalent to Apache Kafka's DESCRIBE GROUP ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect"
+    ]
+  },
+  "DescribeTopic": {
+    "name": "DescribeTopic",
+    "description": "Grants permission to describe topics on a cluster, equivalent to Apache Kafka's DESCRIBE TOPIC ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect"
+    ]
+  },
+  "DescribeTopicDynamicConfiguration": {
+    "name": "DescribeTopicDynamicConfiguration",
+    "description": "Grants permission to describe the dynamic configuration of topics on a cluster, equivalent to Apache Kafka's DESCRIBE_CONFIGS TOPIC ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect"
+    ]
+  },
+  "DescribeTransactionalId": {
+    "name": "DescribeTransactionalId",
+    "description": "Grants permission to describe transactional IDs on a cluster, equivalent to Apache Kafka's DESCRIBE TRANSACTIONAL_ID ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "transactional-id",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect"
+    ]
+  },
+  "ReadData": {
+    "name": "ReadData",
+    "description": "Grants permission to read data from topics on a cluster, equivalent to Apache Kafka's READ TOPIC ACL",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:AlterGroup",
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic"
+    ]
+  },
+  "WriteData": {
+    "name": "WriteData",
+    "description": "Grants permission to write data to topics on a cluster, equivalent to Apache Kafka's WRITE TOPIC ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic"
+    ]
+  },
+  "WriteDataIdempotently": {
+    "name": "WriteDataIdempotently",
+    "description": "Grants permission to write data idempotently on a cluster, equivalent to Apache Kafka's IDEMPOTENT_WRITE CLUSTER ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:WriteData"
+    ]
+  }
+}

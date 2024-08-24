@@ -1,0 +1,80 @@
+{
+  "access-report": {
+    "key": "access-report",
+    "arn": "arn:${Partition}:iam::${Account}:access-report/${EntityPath}"
+  },
+  "assumed-role": {
+    "key": "assumed-role",
+    "arn": "arn:${Partition}:iam::${Account}:assumed-role/${RoleName}/${RoleSessionName}"
+  },
+  "federated-user": {
+    "key": "federated-user",
+    "arn": "arn:${Partition}:iam::${Account}:federated-user/${UserName}"
+  },
+  "group": {
+    "key": "group",
+    "arn": "arn:${Partition}:iam::${Account}:group/${GroupNameWithPath}"
+  },
+  "instance-profile": {
+    "key": "instance-profile",
+    "arn": "arn:${Partition}:iam::${Account}:instance-profile/${InstanceProfileNameWithPath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "mfa": {
+    "key": "mfa",
+    "arn": "arn:${Partition}:iam::${Account}:mfa/${MfaTokenIdWithPath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "oidc-provider": {
+    "key": "oidc-provider",
+    "arn": "arn:${Partition}:iam::${Account}:oidc-provider/${OidcProviderName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "policy": {
+    "key": "policy",
+    "arn": "arn:${Partition}:iam::${Account}:policy/${PolicyNameWithPath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "role": {
+    "key": "role",
+    "arn": "arn:${Partition}:iam::${Account}:role/${RoleNameWithPath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "iam:ResourceTag/${TagKey}"
+    ]
+  },
+  "saml-provider": {
+    "key": "saml-provider",
+    "arn": "arn:${Partition}:iam::${Account}:saml-provider/${SamlProviderName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "server-certificate": {
+    "key": "server-certificate",
+    "arn": "arn:${Partition}:iam::${Account}:server-certificate/${CertificateNameWithPath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "sms-mfa": {
+    "key": "sms-mfa",
+    "arn": "arn:${Partition}:iam::${Account}:sms-mfa/${MfaTokenIdWithPath}"
+  },
+  "user": {
+    "key": "user",
+    "arn": "arn:${Partition}:iam::${Account}:user/${UserNameWithPath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "iam:ResourceTag/${TagKey}"
+    ]
+  }
+}

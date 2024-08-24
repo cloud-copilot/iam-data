@@ -1,0 +1,1683 @@
+{
+  "BatchGetCollaborationAnalysisTemplate": {
+    "name": "BatchGetCollaborationAnalysisTemplate",
+    "description": "Grants permission to view details of analysisTemplates associated to the collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cleanrooms:GetCollaborationAnalysisTemplate"
+        ]
+      },
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchGetSchema": {
+    "name": "BatchGetSchema",
+    "description": "Grants permission to view details for schemas",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cleanrooms:GetSchema"
+        ]
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchGetSchemaAnalysisRule": {
+    "name": "BatchGetSchemaAnalysisRule",
+    "description": "Grants permission to view analysis rules associated with schemas",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cleanrooms:GetSchema"
+        ]
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateAnalysisTemplate": {
+    "name": "CreateAnalysisTemplate",
+    "description": "Grants permission to create a new analysis template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateCollaboration": {
+    "name": "CreateCollaboration",
+    "description": "Grants permission to create a new collaboration, a shared data collaboration environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateConfiguredAudienceModelAssociation": {
+    "name": "CreateConfiguredAudienceModelAssociation",
+    "description": "Grants permission to link a Cleanrooms ML configured audience model with a collaboration by creating a new association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "cleanrooms-ml:GetConfiguredAudienceModel",
+          "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+          "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConfiguredTable": {
+    "name": "CreateConfiguredTable",
+    "description": "Grants permission to create a new configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "glue:BatchGetPartition",
+      "glue:GetDatabase",
+      "glue:GetDatabases",
+      "glue:GetPartition",
+      "glue:GetPartitions",
+      "glue:GetSchemaVersion",
+      "glue:GetTable",
+      "glue:GetTables"
+    ]
+  },
+  "CreateConfiguredTableAnalysisRule": {
+    "name": "CreateConfiguredTableAnalysisRule",
+    "description": "Grants permission to create a analysis rule for a configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConfiguredTableAssociation": {
+    "name": "CreateConfiguredTableAssociation",
+    "description": "Grants permission to link a configured table with a collaboration by creating a new association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConfiguredTableAssociationAnalysisRule": {
+    "name": "CreateConfiguredTableAssociationAnalysisRule",
+    "description": "Grants permission to create an analysis rule for a configured table association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateIdMappingTable": {
+    "name": "CreateIdMappingTable",
+    "description": "Grants permission to link an id mapping workflow with a collaboration by creating a new id mapping table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "idmappingtable",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "entityresolution:AddPolicyStatement",
+          "entityresolution:GetIdMappingWorkflow"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateIdNamespaceAssociation": {
+    "name": "CreateIdNamespaceAssociation",
+    "description": "Grants permission to link an AWS Entity Resolution Id Namespace with a collaboration by creating a new association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "idnamespaceassociation",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "entityresolution:AddPolicyStatement",
+          "entityresolution:GetIdNamespace"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateMembership": {
+    "name": "CreateMembership",
+    "description": "Grants permission to join collaborations by creating a membership",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "iam:PassRole",
+          "logs:CreateLogDelivery",
+          "logs:CreateLogGroup",
+          "logs:DeleteLogDelivery",
+          "logs:DescribeLogGroups",
+          "logs:DescribeResourcePolicies",
+          "logs:GetLogDelivery",
+          "logs:ListLogDeliveries",
+          "logs:PutResourcePolicy",
+          "logs:UpdateLogDelivery",
+          "s3:GetBucketLocation"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreatePrivacyBudgetTemplate": {
+    "name": "CreatePrivacyBudgetTemplate",
+    "description": "Grants permission to create a new privacy budget template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAnalysisTemplate": {
+    "name": "DeleteAnalysisTemplate",
+    "description": "Grants permission to delete an existing analysis template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCollaboration": {
+    "name": "DeleteCollaboration",
+    "description": "Grants permission to delete an existing collaboration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
+      "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+      "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+    ]
+  },
+  "DeleteConfiguredAudienceModelAssociation": {
+    "name": "DeleteConfiguredAudienceModelAssociation",
+    "description": "Grants permission to delete an existing configured audience model association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
+      "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+      "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+    ]
+  },
+  "DeleteConfiguredTable": {
+    "name": "DeleteConfiguredTable",
+    "description": "Grants permission to delete a configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConfiguredTableAnalysisRule": {
+    "name": "DeleteConfiguredTableAnalysisRule",
+    "description": "Grants permission to delete an existing analysis rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConfiguredTableAssociation": {
+    "name": "DeleteConfiguredTableAssociation",
+    "description": "Grants permission to remove a configured table association from a collaboration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConfiguredTableAssociationAnalysisRule": {
+    "name": "DeleteConfiguredTableAssociationAnalysisRule",
+    "description": "Grants permission to delete an existing configured table association analysis rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteIdMappingTable": {
+    "name": "DeleteIdMappingTable",
+    "description": "Grants permission to remove an id mapping table from a collaboration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "idmappingtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "entityresolution:DeletePolicyStatement"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteIdNamespaceAssociation": {
+    "name": "DeleteIdNamespaceAssociation",
+    "description": "Grants permission to remove an Id Namespace Association from a collaboration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "idnamespaceassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "entityresolution:DeletePolicyStatement"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteMember": {
+    "name": "DeleteMember",
+    "description": "Grants permission to delete members from a collaboration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
+      "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+      "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+    ]
+  },
+  "DeleteMembership": {
+    "name": "DeleteMembership",
+    "description": "Grants permission to leave collaborations by deleting a membership",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePrivacyBudgetTemplate": {
+    "name": "DeletePrivacyBudgetTemplate",
+    "description": "Grants permission to delete an existing privacy budget template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAnalysisTemplate": {
+    "name": "GetAnalysisTemplate",
+    "description": "Grants permission to view details for an analysis template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCollaboration": {
+    "name": "GetCollaboration",
+    "description": "Grants permission to view details for a collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCollaborationAnalysisTemplate": {
+    "name": "GetCollaborationAnalysisTemplate",
+    "description": "Grants permission to view details for an analysis template within a collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCollaborationConfiguredAudienceModelAssociation": {
+    "name": "GetCollaborationConfiguredAudienceModelAssociation",
+    "description": "Grants permission to view details for a configured audience model association within a collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCollaborationIdNamespaceAssociation": {
+    "name": "GetCollaborationIdNamespaceAssociation",
+    "description": "Grants permission to get id namespace association within a collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idnamespaceassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCollaborationPrivacyBudgetTemplate": {
+    "name": "GetCollaborationPrivacyBudgetTemplate",
+    "description": "Grants permission to view details for a privacy budget template within a collaboration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConfiguredAudienceModelAssociation": {
+    "name": "GetConfiguredAudienceModelAssociation",
+    "description": "Grants permission to view details for a configured audience model association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConfiguredTable": {
+    "name": "GetConfiguredTable",
+    "description": "Grants permission to view details for a configured table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConfiguredTableAnalysisRule": {
+    "name": "GetConfiguredTableAnalysisRule",
+    "description": "Grants permission to view analysis rules for a configured table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConfiguredTableAssociation": {
+    "name": "GetConfiguredTableAssociation",
+    "description": "Grants permission to view details for a configured table association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConfiguredTableAssociationAnalysisRule": {
+    "name": "GetConfiguredTableAssociationAnalysisRule",
+    "description": "Grants permission to view analysis rules for a configured table association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIdMappingTable": {
+    "name": "GetIdMappingTable",
+    "description": "Grants permission to view details of an id mapping table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "idmappingtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIdNamespaceAssociation": {
+    "name": "GetIdNamespaceAssociation",
+    "description": "Grants permission to view details of an id namespace association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "idnamespaceassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "entityresolution:GetIdNamespace"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMembership": {
+    "name": "GetMembership",
+    "description": "Grants permission to view details about a membership",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPrivacyBudgetTemplate": {
+    "name": "GetPrivacyBudgetTemplate",
+    "description": "Grants permission to view details for a privacy budget template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProtectedQuery": {
+    "name": "GetProtectedQuery",
+    "description": "Grants permission to view a protected query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSchema": {
+    "name": "GetSchema",
+    "description": "Grants permission to view details for a schema",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSchemaAnalysisRule": {
+    "name": "GetSchemaAnalysisRule",
+    "description": "Grants permission to view analysis rules associated with a schema",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cleanrooms:GetSchema"
+        ]
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAnalysisTemplates": {
+    "name": "ListAnalysisTemplates",
+    "description": "Grants permission to list available analysis templates",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCollaborationAnalysisTemplates": {
+    "name": "ListCollaborationAnalysisTemplates",
+    "description": "Grants permission to list available analysis templates within a collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCollaborationConfiguredAudienceModelAssociations": {
+    "name": "ListCollaborationConfiguredAudienceModelAssociations",
+    "description": "Grants permission to list available configured audience model association within a collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCollaborationIdNamespaceAssociations": {
+    "name": "ListCollaborationIdNamespaceAssociations",
+    "description": "Grants permission to list id namespace within a collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCollaborationPrivacyBudgetTemplates": {
+    "name": "ListCollaborationPrivacyBudgetTemplates",
+    "description": "Grants permission to list available privacy budget templates within a collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCollaborationPrivacyBudgets": {
+    "name": "ListCollaborationPrivacyBudgets",
+    "description": "Grants permission to list privacy budgets within a collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCollaborations": {
+    "name": "ListCollaborations",
+    "description": "Grants permission to list available collaborations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConfiguredAudienceModelAssociations": {
+    "name": "ListConfiguredAudienceModelAssociations",
+    "description": "Grants permission to list available configured audience model associations for a membership",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConfiguredTableAssociations": {
+    "name": "ListConfiguredTableAssociations",
+    "description": "Grants permission to list available configured table associations for a membership",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConfiguredTables": {
+    "name": "ListConfiguredTables",
+    "description": "Grants permission to list available configured tables",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIdMappingTables": {
+    "name": "ListIdMappingTables",
+    "description": "Grants permission to list available id mapping tables for a membership",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "idmappingtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIdNamespaceAssociations": {
+    "name": "ListIdNamespaceAssociations",
+    "description": "Grants permission to list entity resolution data associations for a membership",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "idnamespaceassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListMembers": {
+    "name": "ListMembers",
+    "description": "Grants permission to list the members of a collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListMemberships": {
+    "name": "ListMemberships",
+    "description": "Grants permission to list available memberships",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPrivacyBudgetTemplates": {
+    "name": "ListPrivacyBudgetTemplates",
+    "description": "Grants permission to list available privacy budget templates",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPrivacyBudgets": {
+    "name": "ListPrivacyBudgets",
+    "description": "Grants permission to list available privacy budgets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProtectedQueries": {
+    "name": "ListProtectedQueries",
+    "description": "Grants permission to list protected queries",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSchemas": {
+    "name": "ListSchemas",
+    "description": "Grants permission to view available schemas for a collaboration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "collaboration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "privacybudgettemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PopulateIdMappingTable": {
+    "name": "PopulateIdMappingTable",
+    "description": "Grants permission to start an Id Mapping Job in AWS Entity Resolution to generate id mapping results in cleanrooms collaboration.",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "idmappingtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "entityresolution:GetIdMappingWorkflow"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PreviewPrivacyImpact": {
+    "name": "PreviewPrivacyImpact",
+    "description": "Grants permission to preview privacy budget template settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartProtectedQuery": {
+    "name": "StartProtectedQuery",
+    "description": "Grants permission to start protected queries",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cleanrooms:GetCollaborationAnalysisTemplate",
+          "cleanrooms:GetSchema",
+          "s3:GetBucketLocation",
+          "s3:ListBucket",
+          "s3:PutObject"
+        ]
+      },
+      {
+        "name": "analysistemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "collaboration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idnamespaceassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "privacybudgettemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "collaboration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idnamespaceassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "privacybudgettemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAnalysisTemplate": {
+    "name": "UpdateAnalysisTemplate",
+    "description": "Grants permission to update details of the analysis template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "analysistemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateCollaboration": {
+    "name": "UpdateCollaboration",
+    "description": "Grants permission to update details of the collaboration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConfiguredAudienceModelAssociation": {
+    "name": "UpdateConfiguredAudienceModelAssociation",
+    "description": "Grants permission to update a configured audience model association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredaudiencemodelassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConfiguredTable": {
+    "name": "UpdateConfiguredTable",
+    "description": "Grants permission to update an existing configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConfiguredTableAnalysisRule": {
+    "name": "UpdateConfiguredTableAnalysisRule",
+    "description": "Grants permission to update analysis rules for a configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConfiguredTableAssociation": {
+    "name": "UpdateConfiguredTableAssociation",
+    "description": "Grants permission to update a configured table association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "UpdateConfiguredTableAssociationAnalysisRule": {
+    "name": "UpdateConfiguredTableAssociationAnalysisRule",
+    "description": "Grants permission to update analysis rules for a configured table association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateIdMappingTable": {
+    "name": "UpdateIdMappingTable",
+    "description": "Grants permission to update an id mapping table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "idmappingtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateIdNamespaceAssociation": {
+    "name": "UpdateIdNamespaceAssociation",
+    "description": "Grants permission to update a entity resolution input association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "idnamespaceassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "entityresolution:GetIdNamespace"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateMembership": {
+    "name": "UpdateMembership",
+    "description": "Grants permission to update details of a membership",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole",
+      "logs:CreateLogDelivery",
+      "logs:CreateLogGroup",
+      "logs:DeleteLogDelivery",
+      "logs:DescribeLogGroups",
+      "logs:DescribeResourcePolicies",
+      "logs:GetLogDelivery",
+      "logs:ListLogDeliveries",
+      "logs:PutResourcePolicy",
+      "logs:UpdateLogDelivery",
+      "s3:GetBucketLocation"
+    ]
+  },
+  "UpdatePrivacyBudgetTemplate": {
+    "name": "UpdatePrivacyBudgetTemplate",
+    "description": "Grants permission to update details of the privacy budget template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateProtectedQuery": {
+    "name": "UpdateProtectedQuery",
+    "description": "Grants permission to update protected queries",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

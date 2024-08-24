@@ -1,0 +1,1651 @@
+{
+  "AcceptAttachment": {
+    "name": "AcceptAttachment",
+    "description": "Grants permission to accept creation of an attachment between a source and destination in a core network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "AssociateConnectPeer": {
+    "name": "AssociateConnectPeer",
+    "description": "Grants permission to associate a Connect Peer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateCustomerGateway": {
+    "name": "AssociateCustomerGateway",
+    "description": "Grants permission to associate a customer gateway to a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "networkmanager:cgwArn"
+    ],
+    "dependentActions": []
+  },
+  "AssociateLink": {
+    "name": "AssociateLink",
+    "description": "Grants permission to associate a link to a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateTransitGatewayConnectPeer": {
+    "name": "AssociateTransitGatewayConnectPeer",
+    "description": "Grants permission to associate a transit gateway connect peer to a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "networkmanager:tgwConnectPeerArn"
+    ],
+    "dependentActions": []
+  },
+  "CreateConnectAttachment": {
+    "name": "CreateConnectAttachment",
+    "description": "Grants permission to create a Connect attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      },
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateConnectPeer": {
+    "name": "CreateConnectPeer",
+    "description": "Grants permission to create a Connect Peer connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateConnection": {
+    "name": "CreateConnection",
+    "description": "Grants permission to create a new connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateCoreNetwork": {
+    "name": "CreateCoreNetwork",
+    "description": "Grants permission to create a new core network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateDevice": {
+    "name": "CreateDevice",
+    "description": "Grants permission to create a new device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateGlobalNetwork": {
+    "name": "CreateGlobalNetwork",
+    "description": "Grants permission to create a new global network",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "networkmanager:TagResource"
+    ]
+  },
+  "CreateLink": {
+    "name": "CreateLink",
+    "description": "Grants permission to create a new link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "networkmanager:TagResource"
+        ]
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSite": {
+    "name": "CreateSite",
+    "description": "Grants permission to create a new site",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSiteToSiteVpnAttachment": {
+    "name": "CreateSiteToSiteVpnAttachment",
+    "description": "Grants permission to create a site-to-site VPN attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "networkmanager:vpnConnectionArn"
+    ],
+    "dependentActions": []
+  },
+  "CreateTransitGatewayPeering": {
+    "name": "CreateTransitGatewayPeering",
+    "description": "Grants permission to create a Transit Gateway peering",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "networkmanager:tgwArn"
+    ],
+    "dependentActions": []
+  },
+  "CreateTransitGatewayRouteTableAttachment": {
+    "name": "CreateTransitGatewayRouteTableAttachment",
+    "description": "Grants permission to create a TGW RTB attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "peering",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "networkmanager:tgwRtbArn"
+    ],
+    "dependentActions": []
+  },
+  "CreateVpcAttachment": {
+    "name": "CreateVpcAttachment",
+    "description": "Grants permission to create a VPC attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "networkmanager:vpcArn",
+      "networkmanager:subnetArns"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAttachment": {
+    "name": "DeleteAttachment",
+    "description": "Grants permission to delete an attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "DeleteConnectPeer": {
+    "name": "DeleteConnectPeer",
+    "description": "Grants permission to delete a Connect Peer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connect-peer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "DeleteConnection": {
+    "name": "DeleteConnection",
+    "description": "Grants permission to delete a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCoreNetwork": {
+    "name": "DeleteCoreNetwork",
+    "description": "Grants permission to delete a core network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "DeleteCoreNetworkPolicyVersion": {
+    "name": "DeleteCoreNetworkPolicyVersion",
+    "description": "Grants permission to delete the core network policy version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDevice": {
+    "name": "DeleteDevice",
+    "description": "Grants permission to delete a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteGlobalNetwork": {
+    "name": "DeleteGlobalNetwork",
+    "description": "Grants permission to delete a global network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteLink": {
+    "name": "DeleteLink",
+    "description": "Grants permission to delete a link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePeering": {
+    "name": "DeletePeering",
+    "description": "Grants permission to delete a peering",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "peering",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteSite": {
+    "name": "DeleteSite",
+    "description": "Grants permission to delete a site",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterTransitGateway": {
+    "name": "DeregisterTransitGateway",
+    "description": "Grants permission to deregister a transit gateway from a global network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "networkmanager:tgwArn"
+    ],
+    "dependentActions": []
+  },
+  "DescribeGlobalNetworks": {
+    "name": "DescribeGlobalNetworks",
+    "description": "Grants permission to describe global networks",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateConnectPeer": {
+    "name": "DisassociateConnectPeer",
+    "description": "Grants permission to disassociate a Connect Peer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateCustomerGateway": {
+    "name": "DisassociateCustomerGateway",
+    "description": "Grants permission to disassociate a customer gateway from a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "networkmanager:cgwArn"
+    ],
+    "dependentActions": []
+  },
+  "DisassociateLink": {
+    "name": "DisassociateLink",
+    "description": "Grants permission to disassociate a link from a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateTransitGatewayConnectPeer": {
+    "name": "DisassociateTransitGatewayConnectPeer",
+    "description": "Grants permission to disassociate a transit gateway connect peer from a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "networkmanager:tgwConnectPeerArn"
+    ],
+    "dependentActions": []
+  },
+  "ExecuteCoreNetworkChangeSet": {
+    "name": "ExecuteCoreNetworkChangeSet",
+    "description": "Grants permission to apply changes to the core network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "GetConnectAttachment": {
+    "name": "GetConnectAttachment",
+    "description": "Grants permission to retrieve a Connect attachment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConnectPeer": {
+    "name": "GetConnectPeer",
+    "description": "Grants permission to retrieve a Connect Peer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connect-peer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConnectPeerAssociations": {
+    "name": "GetConnectPeerAssociations",
+    "description": "Grants permission to describe Connect Peer associations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConnections": {
+    "name": "GetConnections",
+    "description": "Grants permission to describe connections",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCoreNetwork": {
+    "name": "GetCoreNetwork",
+    "description": "Grants permission to retrieve a core network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCoreNetworkChangeEvents": {
+    "name": "GetCoreNetworkChangeEvents",
+    "description": "Grants permission to retrieve a list of core network change events",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCoreNetworkChangeSet": {
+    "name": "GetCoreNetworkChangeSet",
+    "description": "Grants permission to retrieve a list of core network change sets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCoreNetworkPolicy": {
+    "name": "GetCoreNetworkPolicy",
+    "description": "Grants permission to retrieve core network policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCustomerGatewayAssociations": {
+    "name": "GetCustomerGatewayAssociations",
+    "description": "Grants permission to describe customer gateway associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDevices": {
+    "name": "GetDevices",
+    "description": "Grants permission to describe devices",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLinkAssociations": {
+    "name": "GetLinkAssociations",
+    "description": "Grants permission to describe link associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLinks": {
+    "name": "GetLinks",
+    "description": "Grants permission to describe links",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNetworkResourceCounts": {
+    "name": "GetNetworkResourceCounts",
+    "description": "Grants permission to return the number of resources for a global network grouped by type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNetworkResourceRelationships": {
+    "name": "GetNetworkResourceRelationships",
+    "description": "Grants permission to retrieve related resources for a resource within the global network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNetworkResources": {
+    "name": "GetNetworkResources",
+    "description": "Grants permission to retrieve a global network resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNetworkRoutes": {
+    "name": "GetNetworkRoutes",
+    "description": "Grants permission to retrieve routes for a route table within the global network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNetworkTelemetry": {
+    "name": "GetNetworkTelemetry",
+    "description": "Grants permission to retrieve network telemetry objects for the global network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetResourcePolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to retrieve a resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRouteAnalysis": {
+    "name": "GetRouteAnalysis",
+    "description": "Grants permission to retrieve a route analysis configuration and result",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSiteToSiteVpnAttachment": {
+    "name": "GetSiteToSiteVpnAttachment",
+    "description": "Grants permission to retrieve a site-to-site VPN attachment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSites": {
+    "name": "GetSites",
+    "description": "Grants permission to describe global networks",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTransitGatewayConnectPeerAssociations": {
+    "name": "GetTransitGatewayConnectPeerAssociations",
+    "description": "Grants permission to describe transit gateway connect peer associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTransitGatewayPeering": {
+    "name": "GetTransitGatewayPeering",
+    "description": "Grants permission to retrieve a Transit Gateway peering",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "peering",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTransitGatewayRegistrations": {
+    "name": "GetTransitGatewayRegistrations",
+    "description": "Grants permission to describe transit gateway registrations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTransitGatewayRouteTableAttachment": {
+    "name": "GetTransitGatewayRouteTableAttachment",
+    "description": "Grants permission to retrieve a TGW RTB attachment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetVpcAttachment": {
+    "name": "GetVpcAttachment",
+    "description": "Grants permission to retrieve a VPC attachment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAttachments": {
+    "name": "ListAttachments",
+    "description": "Grants permission to describe attachments",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConnectPeers": {
+    "name": "ListConnectPeers",
+    "description": "Grants permission to describe Connect Peers",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "connect-peer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCoreNetworkPolicyVersions": {
+    "name": "ListCoreNetworkPolicyVersions",
+    "description": "Grants permission to list core network policy versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCoreNetworks": {
+    "name": "ListCoreNetworks",
+    "description": "Grants permission to list core networks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListOrganizationServiceAccessStatus": {
+    "name": "ListOrganizationServiceAccessStatus",
+    "description": "Grants permission to list organization service access status",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPeerings": {
+    "name": "ListPeerings",
+    "description": "Grants permission to describe peerings",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a Network Manager resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connect-peer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "core-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "peering",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "PutCoreNetworkPolicy": {
+    "name": "PutCoreNetworkPolicy",
+    "description": "Grants permission to create a core network policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create or update a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterTransitGateway": {
+    "name": "RegisterTransitGateway",
+    "description": "Grants permission to register a transit gateway to a global network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "networkmanager:tgwArn"
+    ],
+    "dependentActions": []
+  },
+  "RejectAttachment": {
+    "name": "RejectAttachment",
+    "description": "Grants permission to reject attachment request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RestoreCoreNetworkPolicyVersion": {
+    "name": "RestoreCoreNetworkPolicyVersion",
+    "description": "Grants permission to restore the core network policy to a previous version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "StartOrganizationServiceAccessUpdate": {
+    "name": "StartOrganizationServiceAccessUpdate",
+    "description": "Grants permission to start organization service access update",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartRouteAnalysis": {
+    "name": "StartRouteAnalysis",
+    "description": "Grants permission to start a route analysis and stores analysis configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a Network Manager resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connect-peer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "core-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "peering",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a Network Manager resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connect-peer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "core-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "peering",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateConnection": {
+    "name": "UpdateConnection",
+    "description": "Grants permission to update a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateCoreNetwork": {
+    "name": "UpdateCoreNetwork",
+    "description": "Grants permission to update a core network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDevice": {
+    "name": "UpdateDevice",
+    "description": "Grants permission to update a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateGlobalNetwork": {
+    "name": "UpdateGlobalNetwork",
+    "description": "Grants permission to update a global network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateLink": {
+    "name": "UpdateLink",
+    "description": "Grants permission to update a link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateNetworkResourceMetadata": {
+    "name": "UpdateNetworkResourceMetadata",
+    "description": "Grants permission to add or update metadata key/value pairs on network resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSite": {
+    "name": "UpdateSite",
+    "description": "Grants permission to update a site",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "global-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "site",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateVpcAttachment": {
+    "name": "UpdateVpcAttachment",
+    "description": "Grants permission to update a VPC attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "networkmanager:subnetArns"
+    ],
+    "dependentActions": []
+  }
+}

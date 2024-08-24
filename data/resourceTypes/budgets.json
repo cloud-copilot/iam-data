@@ -1,0 +1,20 @@
+{
+  "budget": {
+    "key": "budget",
+    "arn": "arn:${Partition}:budgets::${Account}:budget/${BudgetName}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "budgetAction": {
+    "key": "budgetAction",
+    "arn": "arn:${Partition}:budgets::${Account}:budget/${BudgetName}/action/${ActionId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  }
+}

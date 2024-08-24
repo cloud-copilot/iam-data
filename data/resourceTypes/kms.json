@@ -1,0 +1,19 @@
+{
+  "alias": {
+    "key": "alias",
+    "arn": "arn:${Partition}:kms:${Region}:${Account}:alias/${Alias}"
+  },
+  "key": {
+    "key": "key",
+    "arn": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "kms:KeyOrigin",
+      "kms:KeySpec",
+      "kms:KeyUsage",
+      "kms:MultiRegion",
+      "kms:MultiRegionKeyType",
+      "kms:ResourceAliases"
+    ]
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "CreateSchedule": {
+    "name": "CreateSchedule",
+    "description": "Grants permission to create an Amazon EventBridge Scheduler schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateScheduleGroup": {
+    "name": "CreateScheduleGroup",
+    "description": "Grants permission to create an Amazon EventBridge Scheduler schedule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schedule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteSchedule": {
+    "name": "DeleteSchedule",
+    "description": "Grants permission to delete an Amazon EventBridge Scheduler schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteScheduleGroup": {
+    "name": "DeleteScheduleGroup",
+    "description": "Grants permission to delete an Amazon EventBridge Scheduler schedule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schedule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "scheduler:DeleteSchedule"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetSchedule": {
+    "name": "GetSchedule",
+    "description": "Grants permission to view details about an Amazon EventBridge Scheduler schedule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetScheduleGroup": {
+    "name": "GetScheduleGroup",
+    "description": "Grants permission to view details about an Amazon EventBridge Scheduler schedule group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "schedule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListScheduleGroups": {
+    "name": "ListScheduleGroups",
+    "description": "Grants permission to list the Amazon EventBridge Scheduler schedule groups in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSchedules": {
+    "name": "ListSchedules",
+    "description": "Grants permission to list the Amazon EventBridge Scheduler schedules in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to lists tag for an Amazon EventBridge Scheduler resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "schedule-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an Amazon EventBridge Scheduler resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "schedule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an Amazon EventBridge Scheduler resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "schedule-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateSchedule": {
+    "name": "UpdateSchedule",
+    "description": "Grants permission to modify an Amazon EventBridge Scheduler schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "schedule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

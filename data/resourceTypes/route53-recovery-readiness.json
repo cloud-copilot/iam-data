@@ -1,0 +1,30 @@
+{
+  "readinesscheck": {
+    "key": "readinesscheck",
+    "arn": "arn:${Partition}:route53-recovery-readiness::${Account}:readiness-check/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "resourceset": {
+    "key": "resourceset",
+    "arn": "arn:${Partition}:route53-recovery-readiness::${Account}:resource-set/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "cell": {
+    "key": "cell",
+    "arn": "arn:${Partition}:route53-recovery-readiness::${Account}:cell/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "recoverygroup": {
+    "key": "recoverygroup",
+    "arn": "arn:${Partition}:route53-recovery-readiness::${Account}:recovery-group/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

@@ -1,0 +1,1416 @@
+{
+  "CancelImageCreation": {
+    "name": "CancelImageCreation",
+    "description": "Grants permission to cancel an image creation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelLifecycleExecution": {
+    "name": "CancelLifecycleExecution",
+    "description": "Grants permission to cancel a lifecycle execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lifecycleExecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateComponent": {
+    "name": "CreateComponent",
+    "description": "Grants permission to create a new component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "imagebuilder:TagResource",
+      "kms:Encrypt",
+      "kms:GenerateDataKey",
+      "kms:GenerateDataKeyWithoutPlaintext"
+    ]
+  },
+  "CreateContainerRecipe": {
+    "name": "CreateContainerRecipe",
+    "description": "Grants permission to create a new Container Recipe",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "containerRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ecr:DescribeImages",
+      "ecr:DescribeRepositories",
+      "iam:CreateServiceLinkedRole",
+      "imagebuilder:GetComponent",
+      "imagebuilder:GetImage",
+      "imagebuilder:TagResource",
+      "kms:Encrypt",
+      "kms:GenerateDataKey",
+      "kms:GenerateDataKeyWithoutPlaintext"
+    ]
+  },
+  "CreateDistributionConfiguration": {
+    "name": "CreateDistributionConfiguration",
+    "description": "Grants permission to create a new distribution configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distributionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "imagebuilder:TagResource"
+    ]
+  },
+  "CreateImage": {
+    "name": "CreateImage",
+    "description": "Grants permission to create a new image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole",
+      "imagebuilder:GetContainerRecipe",
+      "imagebuilder:GetDistributionConfiguration",
+      "imagebuilder:GetImageRecipe",
+      "imagebuilder:GetInfrastructureConfiguration",
+      "imagebuilder:GetWorkflow",
+      "imagebuilder:TagResource"
+    ]
+  },
+  "CreateImagePipeline": {
+    "name": "CreateImagePipeline",
+    "description": "Grants permission to create a new image pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imagePipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole",
+      "imagebuilder:GetContainerRecipe",
+      "imagebuilder:GetDistributionConfiguration",
+      "imagebuilder:GetImageRecipe",
+      "imagebuilder:GetInfrastructureConfiguration",
+      "imagebuilder:GetWorkflow",
+      "imagebuilder:TagResource"
+    ]
+  },
+  "CreateImageRecipe": {
+    "name": "CreateImageRecipe",
+    "description": "Grants permission to create a new Image Recipe",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imageRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeImages",
+      "iam:CreateServiceLinkedRole",
+      "imagebuilder:GetComponent",
+      "imagebuilder:GetImage",
+      "imagebuilder:TagResource"
+    ]
+  },
+  "CreateInfrastructureConfiguration": {
+    "name": "CreateInfrastructureConfiguration",
+    "description": "Grants permission to create a new infrastructure configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "infrastructureConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "imagebuilder:CreatedResourceTagKeys",
+      "imagebuilder:CreatedResourceTag/<key>",
+      "imagebuilder:Ec2MetadataHttpTokens",
+      "imagebuilder:StatusTopicArn"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole",
+      "imagebuilder:TagResource",
+      "sns:Publish"
+    ]
+  },
+  "CreateLifecyclePolicy": {
+    "name": "CreateLifecyclePolicy",
+    "description": "Grants permission to create a new lifecycle policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lifecyclePolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "imagebuilder:LifecyclePolicyResourceType"
+    ],
+    "dependentActions": [
+      "iam:PassRole",
+      "imagebuilder:TagResource"
+    ]
+  },
+  "CreateWorkflow": {
+    "name": "CreateWorkflow",
+    "description": "Grants permission to create a new workflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "imagebuilder:TagResource",
+      "kms:Encrypt",
+      "kms:GenerateDataKey",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+  },
+  "DeleteComponent": {
+    "name": "DeleteComponent",
+    "description": "Grants permission to delete a component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteContainerRecipe": {
+    "name": "DeleteContainerRecipe",
+    "description": "Grants permission to delete a container recipe",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "containerRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDistributionConfiguration": {
+    "name": "DeleteDistributionConfiguration",
+    "description": "Grants permission to delete a distribution configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distributionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteImage": {
+    "name": "DeleteImage",
+    "description": "Grants permission to delete an image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteImagePipeline": {
+    "name": "DeleteImagePipeline",
+    "description": "Grants permission to delete an image pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imagePipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteImageRecipe": {
+    "name": "DeleteImageRecipe",
+    "description": "Grants permission to delete an image recipe",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imageRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteInfrastructureConfiguration": {
+    "name": "DeleteInfrastructureConfiguration",
+    "description": "Grants permission to delete an infrastructure configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "infrastructureConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteLifecyclePolicy": {
+    "name": "DeleteLifecyclePolicy",
+    "description": "Grants permission to delete a lifecycle policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lifecyclePolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteWorkflow": {
+    "name": "DeleteWorkflow",
+    "description": "Grants permission to delete a workflow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetComponent": {
+    "name": "GetComponent",
+    "description": "Grants permission to view details about a component",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "GetComponentPolicy": {
+    "name": "GetComponentPolicy",
+    "description": "Grants permission to view the resource policy associated with a component",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetContainerRecipe": {
+    "name": "GetContainerRecipe",
+    "description": "Grants permission to view details about a container recipe",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "containerRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetContainerRecipePolicy": {
+    "name": "GetContainerRecipePolicy",
+    "description": "Grants permission to view the resource policy associated with a container recipe",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "containerRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDistributionConfiguration": {
+    "name": "GetDistributionConfiguration",
+    "description": "Grants permission to view details about a distribution configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distributionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetImage": {
+    "name": "GetImage",
+    "description": "Grants permission to view details about an image",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetImagePipeline": {
+    "name": "GetImagePipeline",
+    "description": "Grants permission to view details about an image pipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "imagePipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetImagePolicy": {
+    "name": "GetImagePolicy",
+    "description": "Grants permission to view the resource policy associated with an image",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetImageRecipe": {
+    "name": "GetImageRecipe",
+    "description": "Grants permission to view details about an image recipe",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "imageRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetImageRecipePolicy": {
+    "name": "GetImageRecipePolicy",
+    "description": "Grants permission to view the resource policy associated with an image recipe",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "imageRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetInfrastructureConfiguration": {
+    "name": "GetInfrastructureConfiguration",
+    "description": "Grants permission to view details about an infrastructure configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "infrastructureConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLifecycleExecution": {
+    "name": "GetLifecycleExecution",
+    "description": "Grants permission to view details about a lifecycle execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "lifecycleExecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLifecyclePolicy": {
+    "name": "GetLifecyclePolicy",
+    "description": "Grants permission to view details about a lifecycle policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "lifecyclePolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetWorkflow": {
+    "name": "GetWorkflow",
+    "description": "Grants permission to view details about a workflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "GetWorkflowExecution": {
+    "name": "GetWorkflowExecution",
+    "description": "Grants permission to view details about a workflow execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflowExecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetWorkflowStepExecution": {
+    "name": "GetWorkflowStepExecution",
+    "description": "Grants permission to view details about a workflow step execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflowStepExecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportComponent": {
+    "name": "ImportComponent",
+    "description": "Grants permission to import a new component",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "imagebuilder:TagResource",
+      "kms:Encrypt",
+      "kms:GenerateDataKey",
+      "kms:GenerateDataKeyWithoutPlaintext"
+    ]
+  },
+  "ImportVmImage": {
+    "name": "ImportVmImage",
+    "description": "Grants permission to import an image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imageVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeImages",
+      "ec2:DescribeImportImageTasks",
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "ListComponentBuildVersions": {
+    "name": "ListComponentBuildVersions",
+    "description": "Grants permission to list the component build versions in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "componentVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListComponents": {
+    "name": "ListComponents",
+    "description": "Grants permission to list the component versions owned by or shared with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListContainerRecipes": {
+    "name": "ListContainerRecipes",
+    "description": "Grants permission to list the container recipes owned by or shared with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDistributionConfigurations": {
+    "name": "ListDistributionConfigurations",
+    "description": "Grants permission to list the distribution configurations in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImageBuildVersions": {
+    "name": "ListImageBuildVersions",
+    "description": "Grants permission to list the image build versions in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "imageVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImagePackages": {
+    "name": "ListImagePackages",
+    "description": "Grants permission to return a list of packages installed on the specified image",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListImagePipelineImages": {
+    "name": "ListImagePipelineImages",
+    "description": "Grants permission to return a list of images created by the specified pipeline",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "imagePipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImagePipelines": {
+    "name": "ListImagePipelines",
+    "description": "Grants permission to list the image pipelines in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImageRecipes": {
+    "name": "ListImageRecipes",
+    "description": "Grants permission to list the image recipes owned by or shared with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImageScanFindingAggregations": {
+    "name": "ListImageScanFindingAggregations",
+    "description": "Grants permission to list aggregations on the image scan findings in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "imagePipeline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImageScanFindings": {
+    "name": "ListImageScanFindings",
+    "description": "Grants permission to list the image scan findings for the images in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "inspector2:ListFindings"
+        ]
+      },
+      {
+        "name": "imagePipeline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImages": {
+    "name": "ListImages",
+    "description": "Grants permission to list the image versions owned by or shared with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListInfrastructureConfigurations": {
+    "name": "ListInfrastructureConfigurations",
+    "description": "Grants permission to list the infrastructure configurations in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLifecycleExecutionResources": {
+    "name": "ListLifecycleExecutionResources",
+    "description": "Grants permission to list resources for the specified lifecycle execution",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "lifecycleExecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLifecycleExecutions": {
+    "name": "ListLifecycleExecutions",
+    "description": "Grants permission to list lifecycle executions for the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "lifecyclePolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLifecyclePolicies": {
+    "name": "ListLifecyclePolicies",
+    "description": "Grants permission to list the lifecycle policies in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an Image Builder resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "containerRecipe",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "distributionConfiguration",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "imagePipeline",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "imageRecipe",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "infrastructureConfiguration",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "lifecyclePolicy",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWaitingWorkflowSteps": {
+    "name": "ListWaitingWorkflowSteps",
+    "description": "Grants permission to list waiting workflow steps for the caller account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWorkflowBuildVersions": {
+    "name": "ListWorkflowBuildVersions",
+    "description": "Grants permission to list the workflow build versions in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workflowVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWorkflowExecutions": {
+    "name": "ListWorkflowExecutions",
+    "description": "Grants permission to list workflow executions for the specified image",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWorkflowStepExecutions": {
+    "name": "ListWorkflowStepExecutions",
+    "description": "Grants permission to list workflow step executions for the specified workflow",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workflowExecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWorkflows": {
+    "name": "ListWorkflows",
+    "description": "Grants permission to list the workflow versions owned by or shared with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutComponentPolicy": {
+    "name": "PutComponentPolicy",
+    "description": "Grants permission to set the resource policy associated with a component",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutContainerRecipePolicy": {
+    "name": "PutContainerRecipePolicy",
+    "description": "Grants permission to set the resource policy associated with a container recipe",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "containerRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutImagePolicy": {
+    "name": "PutImagePolicy",
+    "description": "Grants permission to set the resource policy associated with an image",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutImageRecipePolicy": {
+    "name": "PutImageRecipePolicy",
+    "description": "Grants permission to set the resource policy associated with an image recipe",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "imageRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendWorkflowStepAction": {
+    "name": "SendWorkflowStepAction",
+    "description": "Grants permission to send an action to a workflow step",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflowStepExecution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartImagePipelineExecution": {
+    "name": "StartImagePipelineExecution",
+    "description": "Grants permission to create a new image from a pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imagePipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "imagebuilder:GetImagePipeline"
+    ]
+  },
+  "StartResourceStateUpdate": {
+    "name": "StartResourceStateUpdate",
+    "description": "Grants permission to start a state update for the specified resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an Image Builder resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "containerRecipe",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "distributionConfiguration",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "imagePipeline",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "imageRecipe",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "infrastructureConfiguration",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "lifecyclePolicy",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an Image Builder resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "component",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "containerRecipe",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "distributionConfiguration",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "imagePipeline",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "imageRecipe",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "infrastructureConfiguration",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "lifecyclePolicy",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDistributionConfiguration": {
+    "name": "UpdateDistributionConfiguration",
+    "description": "Grants permission to update an existing distribution configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distributionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateImagePipeline": {
+    "name": "UpdateImagePipeline",
+    "description": "Grants permission to update an existing image pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imagePipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole",
+      "imagebuilder:GetContainerRecipe",
+      "imagebuilder:GetDistributionConfiguration",
+      "imagebuilder:GetImageRecipe",
+      "imagebuilder:GetInfrastructureConfiguration",
+      "imagebuilder:GetWorkflow"
+    ]
+  },
+  "UpdateInfrastructureConfiguration": {
+    "name": "UpdateInfrastructureConfiguration",
+    "description": "Grants permission to update an existing infrastructure configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "infrastructureConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "imagebuilder:CreatedResourceTagKeys",
+      "imagebuilder:CreatedResourceTag/<key>",
+      "imagebuilder:Ec2MetadataHttpTokens",
+      "imagebuilder:StatusTopicArn"
+    ],
+    "dependentActions": [
+      "iam:PassRole",
+      "sns:Publish"
+    ]
+  },
+  "UpdateLifecyclePolicy": {
+    "name": "UpdateLifecyclePolicy",
+    "description": "Grants permission to update an existing lifecycle policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lifecyclePolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "imagebuilder:LifecyclePolicyResourceType"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  }
+}

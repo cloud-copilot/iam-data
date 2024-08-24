@@ -1,0 +1,2419 @@
+{
+  "AddTagsToResource": {
+    "name": "AddTagsToResource",
+    "description": "Grants permission to add or overwrite one or more tags for a specified AWS resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automation-execution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "maintenancewindow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "opsitem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "opsmetadata",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parameter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "patchbaseline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "AssociateOpsItemRelatedItem": {
+    "name": "AssociateOpsItemRelatedItem",
+    "description": "Grants permission to associate RelatedItem to an OpsItem",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "opsitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelCommand": {
+    "name": "CancelCommand",
+    "description": "Grants permission to cancel a specified Run Command command",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelMaintenanceWindowExecution": {
+    "name": "CancelMaintenanceWindowExecution",
+    "description": "Grants permission to cancel an in-progress maintenance window execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateActivation": {
+    "name": "CreateActivation",
+    "description": "Grants permission to create an activation that is used to register on-premises servers and virtual machines (VMs) with Systems Manager",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateAssociation": {
+    "name": "CreateAssociation",
+    "description": "Grants permission to associate a specified Systems Manager document with specified instances or other targets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateAssociationBatch": {
+    "name": "CreateAssociationBatch",
+    "description": "Grants permission to combine entries for multiple CreateAssociation operations in a single command",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateDocument": {
+    "name": "CreateDocument",
+    "description": "Grants permission to create a Systems Manager SSM document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateMaintenanceWindow": {
+    "name": "CreateMaintenanceWindow",
+    "description": "Grants permission to create a maintenance window",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateOpsItem": {
+    "name": "CreateOpsItem",
+    "description": "Grants permission to create an OpsItem in OpsCenter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateOpsMetadata": {
+    "name": "CreateOpsMetadata",
+    "description": "Grants permission to create an OpsMetadata object for an AWS resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreatePatchBaseline": {
+    "name": "CreatePatchBaseline",
+    "description": "Grants permission to create a patch baseline",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateResourceDataSync": {
+    "name": "CreateResourceDataSync",
+    "description": "Grants permission to create a resource data sync configuration, which regularly collects inventory data from managed instances and updates the data in an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resourcedatasync",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SyncType"
+    ],
+    "dependentActions": []
+  },
+  "DeleteActivation": {
+    "name": "DeleteActivation",
+    "description": "Grants permission to delete a specified activation for managed instances",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAssociation": {
+    "name": "DeleteAssociation",
+    "description": "Grants permission to disassociate a specified SSM document from a specified instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteDocument": {
+    "name": "DeleteDocument",
+    "description": "Grants permission to delete a specified SSM document and its instance associations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteInventory": {
+    "name": "DeleteInventory",
+    "description": "Grants permission to delete a specified custom inventory type, or the data associated with a custom inventory type",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteMaintenanceWindow": {
+    "name": "DeleteMaintenanceWindow",
+    "description": "Grants permission to delete a specified maintenance window",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteOpsItem": {
+    "name": "DeleteOpsItem",
+    "description": "Grants permission to delete an OpsItem",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "opsitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteOpsMetadata": {
+    "name": "DeleteOpsMetadata",
+    "description": "Grants permission to delete an OpsMetadata object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "opsmetadata",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteParameter": {
+    "name": "DeleteParameter",
+    "description": "Grants permission to delete a specified SSM parameter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteParameters": {
+    "name": "DeleteParameters",
+    "description": "Grants permission to delete multiple specified SSM parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeletePatchBaseline": {
+    "name": "DeletePatchBaseline",
+    "description": "Grants permission to delete a specified patch baseline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteResourceDataSync": {
+    "name": "DeleteResourceDataSync",
+    "description": "Grants permission to delete a specified resource data sync",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resourcedatasync",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SyncType"
+    ],
+    "dependentActions": []
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a Systems Manager resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "opsitemgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parameter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterManagedInstance": {
+    "name": "DeregisterManagedInstance",
+    "description": "Grants permission to deregister a specified on-premises server or virtual machine (VM) from Systems Manager",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "managed-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:resourceTag/tag-key"
+    ],
+    "dependentActions": []
+  },
+  "DeregisterPatchBaselineForPatchGroup": {
+    "name": "DeregisterPatchBaselineForPatchGroup",
+    "description": "Grants permission to deregister a specified patch baseline from being the default patch baseline for a specified patch group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterTargetFromMaintenanceWindow": {
+    "name": "DeregisterTargetFromMaintenanceWindow",
+    "description": "Grants permission to deregister a specified target from a maintenance window",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterTaskFromMaintenanceWindow": {
+    "name": "DeregisterTaskFromMaintenanceWindow",
+    "description": "Grants permission to deregister a specified task from a maintenance window",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeActivations": {
+    "name": "DescribeActivations",
+    "description": "Grants permission to view details about a specified managed instance activation, such as when it was created and the number of instances registered using the activation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAssociation": {
+    "name": "DescribeAssociation",
+    "description": "Grants permission to view details about the specified association for a specified instance or target",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeAssociationExecutionTargets": {
+    "name": "DescribeAssociationExecutionTargets",
+    "description": "Grants permission to view information about a specified association execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeAssociationExecutions": {
+    "name": "DescribeAssociationExecutions",
+    "description": "Grants permission to view all executions for a specified association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeAutomationExecutions": {
+    "name": "DescribeAutomationExecutions",
+    "description": "Grants permission to view details about all active and terminated Automation executions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAutomationStepExecutions": {
+    "name": "DescribeAutomationStepExecutions",
+    "description": "Grants permission to view information about all active and terminated step executions in an Automation workflow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automation-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAvailablePatches": {
+    "name": "DescribeAvailablePatches",
+    "description": "Grants permission to view all patches eligible to include in a patch baseline",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDocument": {
+    "name": "DescribeDocument",
+    "description": "Grants permission to view details about a specified SSM document",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDocumentParameters": {
+    "name": "DescribeDocumentParameters",
+    "description": "Grants permission to display information about SSM document parameters in the Systems Manager console (internal Systems Manager action)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDocumentPermission": {
+    "name": "DescribeDocumentPermission",
+    "description": "Grants permission to view the permissions for a specified SSM document",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEffectiveInstanceAssociations": {
+    "name": "DescribeEffectiveInstanceAssociations",
+    "description": "Grants permission to view all current associations for a specified instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeEffectivePatchesForPatchBaseline": {
+    "name": "DescribeEffectivePatchesForPatchBaseline",
+    "description": "Grants permission to view details about the patches currently associated with the specified patch baseline (Windows only)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstanceAssociationsStatus": {
+    "name": "DescribeInstanceAssociationsStatus",
+    "description": "Grants permission to view the status of the associations for a specified instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeInstanceInformation": {
+    "name": "DescribeInstanceInformation",
+    "description": "Grants permission to view details about a specified instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstancePatchStates": {
+    "name": "DescribeInstancePatchStates",
+    "description": "Grants permission to view status details about patches on a specified instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeInstancePatchStatesForPatchGroup": {
+    "name": "DescribeInstancePatchStatesForPatchGroup",
+    "description": "Grants permission to describe the high-level patch state for the instances in the specified patch group",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstancePatches": {
+    "name": "DescribeInstancePatches",
+    "description": "Grants permission to view general details about the patches on a specified instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeInstanceProperties": {
+    "name": "DescribeInstanceProperties",
+    "description": "Grants permission to user's Amazon EC2 console to render managed instances' nodes",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInventoryDeletions": {
+    "name": "DescribeInventoryDeletions",
+    "description": "Grants permission to view details about a specified inventory deletion",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindowExecutionTaskInvocations": {
+    "name": "DescribeMaintenanceWindowExecutionTaskInvocations",
+    "description": "Grants permission to view details of a specified task execution for a maintenance window",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindowExecutionTasks": {
+    "name": "DescribeMaintenanceWindowExecutionTasks",
+    "description": "Grants permission to view details about the tasks that ran during a specified maintenance window execution",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindowExecutions": {
+    "name": "DescribeMaintenanceWindowExecutions",
+    "description": "Grants permission to view the executions of a specified maintenance window",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindowSchedule": {
+    "name": "DescribeMaintenanceWindowSchedule",
+    "description": "Grants permission to view details about upcoming executions of a specified maintenance window",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindowTargets": {
+    "name": "DescribeMaintenanceWindowTargets",
+    "description": "Grants permission to view a list of the targets associated with a specified maintenance window",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindowTasks": {
+    "name": "DescribeMaintenanceWindowTasks",
+    "description": "Grants permission to view a list of the tasks associated with a specified maintenance window",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindows": {
+    "name": "DescribeMaintenanceWindows",
+    "description": "Grants permission to view information about all or specified maintenance windows",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMaintenanceWindowsForTarget": {
+    "name": "DescribeMaintenanceWindowsForTarget",
+    "description": "Grants permission to view information about the maintenance window targets and tasks associated with a specified instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeOpsItems": {
+    "name": "DescribeOpsItems",
+    "description": "Grants permission to view details about specified OpsItems",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeParameters": {
+    "name": "DescribeParameters",
+    "description": "Grants permission to view details about a specified SSM parameter",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePatchBaselines": {
+    "name": "DescribePatchBaselines",
+    "description": "Grants permission to view information about patch baselines that meet the specified criteria",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePatchGroupState": {
+    "name": "DescribePatchGroupState",
+    "description": "Grants permission to view aggregated status details for patches for a specified patch group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePatchGroups": {
+    "name": "DescribePatchGroups",
+    "description": "Grants permission to view information about the patch baseline for a specified patch group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePatchProperties": {
+    "name": "DescribePatchProperties",
+    "description": "Grants permission to view details of available patches for a specified operating system and patch property",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSessions": {
+    "name": "DescribeSessions",
+    "description": "Grants permission to view a list of recent Session Manager sessions that meet the specified search criteria",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateOpsItemRelatedItem": {
+    "name": "DisassociateOpsItemRelatedItem",
+    "description": "Grants permission to disassociate RelatedItem from an OpsItem",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "opsitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAutomationExecution": {
+    "name": "GetAutomationExecution",
+    "description": "Grants permission to view details of a specified Automation execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automation-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCalendar": {
+    "name": "GetCalendar",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view details of a specific calendar",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCalendarState": {
+    "name": "GetCalendarState",
+    "description": "Grants permission to view the calendar state for a change calendar or a list of change calendars",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCommandInvocation": {
+    "name": "GetCommandInvocation",
+    "description": "Grants permission to view details about the command execution of a specified invocation or plugin",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConnectionStatus": {
+    "name": "GetConnectionStatus",
+    "description": "Grants permission to view the Session Manager connection status for a specified managed instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:resourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetDefaultPatchBaseline": {
+    "name": "GetDefaultPatchBaseline",
+    "description": "Grants permission to view the current default patch baseline for a specified operating system type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDeployablePatchSnapshotForInstance": {
+    "name": "GetDeployablePatchSnapshotForInstance",
+    "description": "Grants permission to retrieve the current patch baseline snapshot for a specified instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDocument": {
+    "name": "GetDocument",
+    "description": "Grants permission to view the contents of a specified SSM document",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:DocumentCategories"
+    ],
+    "dependentActions": []
+  },
+  "GetInventory": {
+    "name": "GetInventory",
+    "description": "Grants permission to view instance inventory details per the specified criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetInventorySchema": {
+    "name": "GetInventorySchema",
+    "description": "Grants permission to view a list of inventory types or attribute names for a specified inventory item type",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMaintenanceWindow": {
+    "name": "GetMaintenanceWindow",
+    "description": "Grants permission to view details about a specified maintenance window",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMaintenanceWindowExecution": {
+    "name": "GetMaintenanceWindowExecution",
+    "description": "Grants permission to view details about a specified maintenance window execution",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMaintenanceWindowExecutionTask": {
+    "name": "GetMaintenanceWindowExecutionTask",
+    "description": "Grants permission to view details about a specified maintenance window execution task",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMaintenanceWindowExecutionTaskInvocation": {
+    "name": "GetMaintenanceWindowExecutionTaskInvocation",
+    "description": "Grants permission to view details about a specific maintenance window task running on a specific target",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMaintenanceWindowTask": {
+    "name": "GetMaintenanceWindowTask",
+    "description": "Grants permission to view details about tasks registered with a specified maintenance window",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetManifest": {
+    "name": "GetManifest",
+    "isPermissionOnly": true,
+    "description": "Grants permission to Systems Manager and SSM Agent to determine package installation requirements for an instance (internal Systems Manager call)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetOpsItem": {
+    "name": "GetOpsItem",
+    "description": "Grants permission to view information about a specified OpsItem",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "opsitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetOpsMetadata": {
+    "name": "GetOpsMetadata",
+    "description": "Grants permission to retrieve an OpsMetadata object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "opsmetadata",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetOpsSummary": {
+    "name": "GetOpsSummary",
+    "description": "Grants permission to view summary information about OpsItems based on specified filters and aggregators",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "resourcedatasync",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetParameter": {
+    "name": "GetParameter",
+    "description": "Grants permission to view information about a specified parameter",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetParameterHistory": {
+    "name": "GetParameterHistory",
+    "description": "Grants permission to view details and changes for a specified parameter",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetParameters": {
+    "name": "GetParameters",
+    "description": "Grants permission to view information about multiple specified parameters",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetParametersByPath": {
+    "name": "GetParametersByPath",
+    "description": "Grants permission to view information about parameters in a specified hierarchy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:Recursive"
+    ],
+    "dependentActions": []
+  },
+  "GetPatchBaseline": {
+    "name": "GetPatchBaseline",
+    "description": "Grants permission to view information about a specified patch baseline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPatchBaselineForPatchGroup": {
+    "name": "GetPatchBaselineForPatchGroup",
+    "description": "Grants permission to view the ID of the current patch baseline for a specified patch group",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetResourcePolicies": {
+    "name": "GetResourcePolicies",
+    "description": "Grants permission to retrieve lists of Systems Manager resource policies",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "opsitemgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parameter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetServiceSetting": {
+    "name": "GetServiceSetting",
+    "description": "Grants permission to view the account-level setting for an AWS service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "servicesetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "LabelParameterVersion": {
+    "name": "LabelParameterVersion",
+    "description": "Grants permission to apply an identifying label to a specified version of a parameter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListAssociationVersions": {
+    "name": "ListAssociationVersions",
+    "description": "Grants permission to list versions of the specified association",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListAssociations": {
+    "name": "ListAssociations",
+    "description": "Grants permission to list the associations for a specified SSM document or managed instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCommandInvocations": {
+    "name": "ListCommandInvocations",
+    "description": "Grants permission to list information about command invocations sent to a specified instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCommands": {
+    "name": "ListCommands",
+    "description": "Grants permission to list the commands sent to a specified instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListComplianceItems": {
+    "name": "ListComplianceItems",
+    "description": "Grants permission to list compliance status for specified resource types on a specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListComplianceSummaries": {
+    "name": "ListComplianceSummaries",
+    "description": "Grants permission to list a summary count of compliant and noncompliant resources for a specified compliance type",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDocumentMetadataHistory": {
+    "name": "ListDocumentMetadataHistory",
+    "description": "Grants permission to view metadata history about a specified SSM document",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDocumentVersions": {
+    "name": "ListDocumentVersions",
+    "description": "Grants permission to list all versions of a specified document",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDocuments": {
+    "name": "ListDocuments",
+    "description": "Grants permission to view information about a specified SSM document",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListInstanceAssociations": {
+    "name": "ListInstanceAssociations",
+    "description": "Grants permission to SSM Agent to check for new State Manager associations (internal Systems Manager call)",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListInventoryEntries": {
+    "name": "ListInventoryEntries",
+    "description": "Grants permission to view a list of specified inventory types for a specified instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListOpsItemEvents": {
+    "name": "ListOpsItemEvents",
+    "description": "Grants permission to view details about OpsItemEvents",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListOpsItemRelatedItems": {
+    "name": "ListOpsItemRelatedItems",
+    "description": "Grants permission to view details about OpsItem RelatedItems",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListOpsMetadata": {
+    "name": "ListOpsMetadata",
+    "description": "Grants permission to view a list of OpsMetadata objects",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListResourceComplianceSummaries": {
+    "name": "ListResourceComplianceSummaries",
+    "description": "Grants permission to list resource-level summary count",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListResourceDataSync": {
+    "name": "ListResourceDataSync",
+    "description": "Grants permission to list information about resource data sync configurations in an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ssm:SyncType"
+    ],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to view a list of resource tags for a specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automation-execution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "maintenancewindow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "opsitem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "opsmetadata",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parameter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "patchbaseline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyDocumentPermission": {
+    "name": "ModifyDocumentPermission",
+    "description": "Grants permission to share a custom SSM document publicly or privately with specified AWS accounts",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutCalendar": {
+    "name": "PutCalendar",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create/edit a specific calendar",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutComplianceItems": {
+    "name": "PutComplianceItems",
+    "description": "Grants permission to register a compliance type and other compliance details on a specified resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SourceInstanceARN",
+      "ec2:SourceInstanceARN"
+    ],
+    "dependentActions": []
+  },
+  "PutConfigurePackageResult": {
+    "name": "PutConfigurePackageResult",
+    "isPermissionOnly": true,
+    "description": "Grants permission to SSM Agent to generate a report of the results of specific agent requests (internal Systems Manager call)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutInventory": {
+    "name": "PutInventory",
+    "description": "Grants permission to add or update inventory items on multiple specified managed instances",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutParameter": {
+    "name": "PutParameter",
+    "description": "Grants permission to create an SSM parameter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ssm:Overwrite",
+      "ssm:Policies"
+    ],
+    "dependentActions": []
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create or update a Systems Manager resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "opsitemgroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parameter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterDefaultPatchBaseline": {
+    "name": "RegisterDefaultPatchBaseline",
+    "description": "Grants permission to specify the default patch baseline for an operating system type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterManagedInstance": {
+    "name": "RegisterManagedInstance",
+    "description": "Grants permission to register a Systems Manager Agent",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RegisterPatchBaselineForPatchGroup": {
+    "name": "RegisterPatchBaselineForPatchGroup",
+    "description": "Grants permission to specify the default patch baseline for a specified patch group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterTargetWithMaintenanceWindow": {
+    "name": "RegisterTargetWithMaintenanceWindow",
+    "description": "Grants permission to register a target with a specified maintenance window",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterTaskWithMaintenanceWindow": {
+    "name": "RegisterTaskWithMaintenanceWindow",
+    "description": "Grants permission to register a task with a specified maintenance window",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RemoveTagsFromResource": {
+    "name": "RemoveTagsFromResource",
+    "description": "Grants permission to remove a specified tag key from a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automation-execution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "maintenancewindow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "opsitem",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "opsmetadata",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "parameter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "patchbaseline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "ResetServiceSetting": {
+    "name": "ResetServiceSetting",
+    "description": "Grants permission to reset the service setting for an AWS account to the default value",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "servicesetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ResumeSession": {
+    "name": "ResumeSession",
+    "description": "Grants permission to reconnect a Session Manager session to a managed instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:resourceTag/aws:ssmmessages:session-id",
+      "ssm:resourceTag/aws:ssmmessages:target-id"
+    ],
+    "dependentActions": []
+  },
+  "SendAutomationSignal": {
+    "name": "SendAutomationSignal",
+    "description": "Grants permission to send a signal to change the current behavior or status of a specified Automation execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendCommand": {
+    "name": "SendCommand",
+    "description": "Grants permission to run commands on one or more specified managed instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "StartAssociationsOnce": {
+    "name": "StartAssociationsOnce",
+    "description": "Grants permission to run a specified association manually",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "StartAutomationExecution": {
+    "name": "StartAutomationExecution",
+    "description": "Grants permission to initiate the execution of an Automation document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "StartChangeRequestExecution": {
+    "name": "StartChangeRequestExecution",
+    "description": "Grants permission to initiate the execution of an Automation Change Template document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ssm:AutoApprove"
+    ],
+    "dependentActions": []
+  },
+  "StartSession": {
+    "name": "StartSession",
+    "description": "Grants permission to initiate a connection to a specified target for a Session Manager session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SessionDocumentAccessCheck",
+      "ssm:resourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "StopAutomationExecution": {
+    "name": "StopAutomationExecution",
+    "description": "Grants permission to stop a specified Automation execution that is already in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TerminateSession": {
+    "name": "TerminateSession",
+    "description": "Grants permission to permanently end a Session Manager connection to an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:resourceTag/aws:ssmmessages:session-id",
+      "ssm:resourceTag/aws:ssmmessages:target-id"
+    ],
+    "dependentActions": []
+  },
+  "UnlabelParameterVersion": {
+    "name": "UnlabelParameterVersion",
+    "description": "Grants permission to remove an identifying label from a specified version of a parameter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "parameter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAssociation": {
+    "name": "UpdateAssociation",
+    "description": "Grants permission to update an association and immediately run the association on the specified targets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAssociationStatus": {
+    "name": "UpdateAssociationStatus",
+    "description": "Grants permission to update the status of the SSM document associated with a specified instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SourceInstanceARN",
+      "ec2:SourceInstanceARN",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateDocument": {
+    "name": "UpdateDocument",
+    "description": "Grants permission to update one or more values for an SSM document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDocumentDefaultVersion": {
+    "name": "UpdateDocumentDefaultVersion",
+    "description": "Grants permission to change the default version of an SSM document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDocumentMetadata": {
+    "name": "UpdateDocumentMetadata",
+    "description": "Grants permission to update the metadata of an SSM document",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateInstanceAssociationStatus": {
+    "name": "UpdateInstanceAssociationStatus",
+    "isPermissionOnly": true,
+    "description": "Grants permission to SSM Agent to update the status of the association that it is currently running (internal Systems Manager call)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SourceInstanceARN",
+      "ec2:SourceInstanceARN",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateInstanceInformation": {
+    "name": "UpdateInstanceInformation",
+    "description": "Grants permission to SSM Agent to send a heartbeat signal to the Systems Manager service in the cloud",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SourceInstanceARN",
+      "ec2:SourceInstanceARN"
+    ],
+    "dependentActions": []
+  },
+  "UpdateMaintenanceWindow": {
+    "name": "UpdateMaintenanceWindow",
+    "description": "Grants permission to update a specified maintenance window",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateMaintenanceWindowTarget": {
+    "name": "UpdateMaintenanceWindowTarget",
+    "description": "Grants permission to update a specified maintenance window target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "windowtarget",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateMaintenanceWindowTask": {
+    "name": "UpdateMaintenanceWindowTask",
+    "description": "Grants permission to update a specified maintenance window task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "maintenancewindow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "windowtask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateManagedInstanceRole": {
+    "name": "UpdateManagedInstanceRole",
+    "description": "Grants permission to assign or change the IAM role assigned to a specified managed instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "managed-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:resourceTag/tag-key"
+    ],
+    "dependentActions": []
+  },
+  "UpdateOpsItem": {
+    "name": "UpdateOpsItem",
+    "description": "Grants permission to edit or change an OpsItem",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "opsitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateOpsMetadata": {
+    "name": "UpdateOpsMetadata",
+    "description": "Grants permission to update an OpsMetadata object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "opsmetadata",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdatePatchBaseline": {
+    "name": "UpdatePatchBaseline",
+    "description": "Grants permission to update a specified patch baseline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "patchbaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateResourceDataSync": {
+    "name": "UpdateResourceDataSync",
+    "description": "Grants permission to update a resource data sync",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resourcedatasync",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:SyncType"
+    ],
+    "dependentActions": []
+  },
+  "UpdateServiceSetting": {
+    "name": "UpdateServiceSetting",
+    "description": "Grants permission to update the service setting for an AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "servicesetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

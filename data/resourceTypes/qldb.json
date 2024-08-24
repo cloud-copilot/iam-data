@@ -1,0 +1,30 @@
+{
+  "ledger": {
+    "key": "ledger",
+    "arn": "arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "stream": {
+    "key": "stream",
+    "arn": "arn:${Partition}:qldb:${Region}:${Account}:stream/${LedgerName}/${StreamId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "table": {
+    "key": "table",
+    "arn": "arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}/table/${TableId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "catalog": {
+    "key": "catalog",
+    "arn": "arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}/information_schema/user_tables",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

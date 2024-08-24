@@ -1,0 +1,21 @@
+{
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:cluster/${ClusterName}/${ClusterUuid}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "topic": {
+    "key": "topic",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:topic/${ClusterName}/${ClusterUuid}/${TopicName}"
+  },
+  "group": {
+    "key": "group",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:group/${ClusterName}/${ClusterUuid}/${GroupName}"
+  },
+  "transactional-id": {
+    "key": "transactional-id",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:transactional-id/${ClusterName}/${ClusterUuid}/${TransactionalId}"
+  }
+}

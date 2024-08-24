@@ -1,0 +1,177 @@
+{
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:cluster:${DbClusterInstanceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:cluster-tag/${TagKey}"
+    ]
+  },
+  "shardgrp": {
+    "key": "shardgrp",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:shard-group:${DbShardGroupResourceId}"
+  },
+  "cluster-auto-backup": {
+    "key": "cluster-auto-backup",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:cluster-auto-backup:${DbClusterAutomatedBackupId}"
+  },
+  "auto-backup": {
+    "key": "auto-backup",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:auto-backup:${DbInstanceAutomatedBackupId}"
+  },
+  "cluster-endpoint": {
+    "key": "cluster-endpoint",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:cluster-endpoint:${DbClusterEndpoint}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "cluster-pg": {
+    "key": "cluster-pg",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:cluster-pg:${ClusterParameterGroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:cluster-pg-tag/${TagKey}"
+    ]
+  },
+  "cluster-snapshot": {
+    "key": "cluster-snapshot",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:cluster-snapshot:${ClusterSnapshotName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:cluster-snapshot-tag/${TagKey}"
+    ]
+  },
+  "db": {
+    "key": "db",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:DatabaseClass",
+      "rds:DatabaseEngine",
+      "rds:DatabaseName",
+      "rds:MultiAz",
+      "rds:Piops",
+      "rds:StorageEncrypted",
+      "rds:StorageSize",
+      "rds:Vpc",
+      "rds:db-tag/${TagKey}"
+    ]
+  },
+  "es": {
+    "key": "es",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:es:${SubscriptionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:es-tag/${TagKey}"
+    ]
+  },
+  "global-cluster": {
+    "key": "global-cluster",
+    "arn": "arn:${Partition}:rds::${Account}:global-cluster:${GlobalCluster}"
+  },
+  "og": {
+    "key": "og",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:og:${OptionGroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:og-tag/${TagKey}"
+    ]
+  },
+  "pg": {
+    "key": "pg",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:pg:${ParameterGroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:pg-tag/${TagKey}"
+    ]
+  },
+  "proxy": {
+    "key": "proxy",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:db-proxy:${DbProxyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "proxy-endpoint": {
+    "key": "proxy-endpoint",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:db-proxy-endpoint:${DbProxyEndpointId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "ri": {
+    "key": "ri",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:ri:${ReservedDbInstanceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:ri-tag/${TagKey}"
+    ]
+  },
+  "secgrp": {
+    "key": "secgrp",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:secgrp:${SecurityGroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:secgrp-tag/${TagKey}"
+    ]
+  },
+  "snapshot": {
+    "key": "snapshot",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:snapshot:${SnapshotName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:snapshot-tag/${TagKey}"
+    ]
+  },
+  "subgrp": {
+    "key": "subgrp",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:subgrp:${SubnetGroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "rds:subgrp-tag/${TagKey}"
+    ]
+  },
+  "target-group": {
+    "key": "target-group",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:target-group:${TargetGroupId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "cev": {
+    "key": "cev",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:cev:${Engine}/${EngineVersion}/${CustomDbEngineVersionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "deployment": {
+    "key": "deployment",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:deployment:${BlueGreenDeploymentIdentifier}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "integration": {
+    "key": "integration",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:integration:${IntegrationIdentifier}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "snapshot-tenant-database": {
+    "key": "snapshot-tenant-database",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:snapshot-tenant-database:${SnapshotName}:${TenantResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "tenant-database": {
+    "key": "tenant-database",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:tenant-database:${TenantResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

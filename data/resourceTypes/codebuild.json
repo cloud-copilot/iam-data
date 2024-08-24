@@ -1,0 +1,32 @@
+{
+  "build": {
+    "key": "build",
+    "arn": "arn:${Partition}:codebuild:${Region}:${Account}:build/${BuildId}"
+  },
+  "build-batch": {
+    "key": "build-batch",
+    "arn": "arn:${Partition}:codebuild:${Region}:${Account}:build-batch/${BuildBatchId}"
+  },
+  "project": {
+    "key": "project",
+    "arn": "arn:${Partition}:codebuild:${Region}:${Account}:project/${ProjectName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "report-group": {
+    "key": "report-group",
+    "arn": "arn:${Partition}:codebuild:${Region}:${Account}:report-group/${ReportGroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "report": {
+    "key": "report",
+    "arn": "arn:${Partition}:codebuild:${Region}:${Account}:report/${ReportGroupName}:${ReportId}"
+  },
+  "fleet": {
+    "key": "fleet",
+    "arn": "arn:${Partition}:codebuild:${Region}:${Account}:fleet/${FleetName}:${FleetId}"
+  }
+}

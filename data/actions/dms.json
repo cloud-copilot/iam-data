@@ -1,0 +1,2140 @@
+{
+  "AddTagsToResource": {
+    "name": "AddTagsToResource",
+    "description": "Grants permission to add metadata tags to DMS resources, including replication instances, endpoints, security groups, and migration tasks",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataMigration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EventSubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "InstanceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationConfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationInstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationSubnetGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTask",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ApplyPendingMaintenanceAction": {
+    "name": "ApplyPendingMaintenanceAction",
+    "description": "Grants permission to apply a pending maintenance action to a resource (for example, to a replication instance)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateExtensionPack": {
+    "name": "AssociateExtensionPack",
+    "description": "Grants permission to associate a extension pack",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:StartExtensionPackAssociation"
+    ]
+  },
+  "BatchStartRecommendations": {
+    "name": "BatchStartRecommendations",
+    "description": "Grants permission to start the analysis of up to 20 source databases to recommend target engines for each source database",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelMetadataModelAssessment": {
+    "name": "CancelMetadataModelAssessment",
+    "description": "Grants permission to cancel a single metadata model assessment run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelMetadataModelConversion": {
+    "name": "CancelMetadataModelConversion",
+    "description": "Grants permission to cancel a single metadata model conversion run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelMetadataModelExport": {
+    "name": "CancelMetadataModelExport",
+    "description": "Grants permission to cancel a single metadata model export run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelReplicationTaskAssessmentRun": {
+    "name": "CancelReplicationTaskAssessmentRun",
+    "description": "Grants permission to cancel a single premigration assessment run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTaskAssessmentRun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateDataMigration": {
+    "name": "CreateDataMigration",
+    "description": "Grants permission to create a database migration using the provided settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateDataProvider": {
+    "name": "CreateDataProvider",
+    "description": "Grants permission to create an data provider using the provided settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CreateEndpoint": {
+    "name": "CreateEndpoint",
+    "description": "Grants permission to create an endpoint using the provided settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CreateEventSubscription": {
+    "name": "CreateEventSubscription",
+    "description": "Grants permission to create an AWS DMS event notification subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateFleetAdvisorCollector": {
+    "name": "CreateFleetAdvisorCollector",
+    "description": "Grants permission to create a Fleet Advisor collector using the specified parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CreateInstanceProfile": {
+    "name": "CreateInstanceProfile",
+    "description": "Grants permission to create an instance profile using the provided settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CreateMigrationProject": {
+    "name": "CreateMigrationProject",
+    "description": "Grants permission to create an migration project using the provided settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "InstanceProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateReplicationConfig": {
+    "name": "CreateReplicationConfig",
+    "description": "Grants permission to create a replication config using the provided settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateReplicationInstance": {
+    "name": "CreateReplicationInstance",
+    "description": "Grants permission to create a replication instance using the specified parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CreateReplicationSubnetGroup": {
+    "name": "CreateReplicationSubnetGroup",
+    "description": "Grants permission to create a replication subnet group given a list of the subnet IDs in a VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateReplicationTask": {
+    "name": "CreateReplicationTask",
+    "description": "Grants permission to create a replication task using the specified parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteCertificate": {
+    "name": "DeleteCertificate",
+    "description": "Grants permission to delete the specified certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConnection": {
+    "name": "DeleteConnection",
+    "description": "Grants permission to delete the specified connection between a replication instance and an endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDataMigration": {
+    "name": "DeleteDataMigration",
+    "description": "Grants permission to delete the specified database migration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataMigration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDataProvider": {
+    "name": "DeleteDataProvider",
+    "description": "Grants permission to delete the specified data provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEndpoint": {
+    "name": "DeleteEndpoint",
+    "description": "Grants permission to delete the specified endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEventSubscription": {
+    "name": "DeleteEventSubscription",
+    "description": "Grants permission to delete an AWS DMS event subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EventSubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFleetAdvisorCollector": {
+    "name": "DeleteFleetAdvisorCollector",
+    "description": "Grants permission to delete the specified Fleet Advisor collector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFleetAdvisorDatabases": {
+    "name": "DeleteFleetAdvisorDatabases",
+    "description": "Grants permission to delete the specified Fleet Advisor databases",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteInstanceProfile": {
+    "name": "DeleteInstanceProfile",
+    "description": "Grants permission to delete the specified instance profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "InstanceProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteMigrationProject": {
+    "name": "DeleteMigrationProject",
+    "description": "Grants permission to delete the specified migration project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReplicationConfig": {
+    "name": "DeleteReplicationConfig",
+    "description": "Grants permission to delete the specified replication config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReplicationInstance": {
+    "name": "DeleteReplicationInstance",
+    "description": "Grants permission to delete the specified replication instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReplicationSubnetGroup": {
+    "name": "DeleteReplicationSubnetGroup",
+    "description": "Grants permission to deletes a subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationSubnetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReplicationTask": {
+    "name": "DeleteReplicationTask",
+    "description": "Grants permission to delete the specified replication task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReplicationTaskAssessmentRun": {
+    "name": "DeleteReplicationTaskAssessmentRun",
+    "description": "Grants permission to delete the record of a single premigration assessment run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTaskAssessmentRun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccountAttributes": {
+    "name": "DescribeAccountAttributes",
+    "description": "Grants permission to list all of the AWS DMS attributes for a customer account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeApplicableIndividualAssessments": {
+    "name": "DescribeApplicableIndividualAssessments",
+    "description": "Grants permission to list individual assessments that you can specify for a new premigration assessment run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTask",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCertificates": {
+    "name": "DescribeCertificates",
+    "description": "Grants permission to provide a description of the certificate",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConnections": {
+    "name": "DescribeConnections",
+    "description": "Grants permission to describe the status of the connections that have been made between the replication instance and an endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConversionConfiguration": {
+    "name": "DescribeConversionConfiguration",
+    "description": "Grants permission to return information about DMS Schema Conversion project configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDataMigrations": {
+    "name": "DescribeDataMigrations",
+    "description": "Grants permission to return information about database migrations for your account in the specified region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDataProviders": {
+    "name": "DescribeDataProviders",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for a data providers. Note. This action should be added along with ListDataProviders, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ListDataProviders"
+    ]
+  },
+  "DescribeEndpointSettings": {
+    "name": "DescribeEndpointSettings",
+    "description": "Grants permission to return the possible endpoint settings available when you create an endpoint for a specific database engine",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEndpointTypes": {
+    "name": "DescribeEndpointTypes",
+    "description": "Grants permission to return information about the type of endpoints available",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEndpoints": {
+    "name": "DescribeEndpoints",
+    "description": "Grants permission to return information about the endpoints for your account in the current region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEngineVersions": {
+    "name": "DescribeEngineVersions",
+    "description": "Grants permission to return information about the available versions for DMS replication instances",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEventCategories": {
+    "name": "DescribeEventCategories",
+    "description": "Grants permission to list categories for all event source types, or, if specified, for a specified source type",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEventSubscriptions": {
+    "name": "DescribeEventSubscriptions",
+    "description": "Grants permission to list all the event subscriptions for a customer account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEvents": {
+    "name": "DescribeEvents",
+    "description": "Grants permission to list events for a given source identifier and source type",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeExtensionPackAssociations": {
+    "name": "DescribeExtensionPackAssociations",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for extension packs. Note. This action should be added along with ListExtensionPacks, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ListExtensionPacks"
+    ]
+  },
+  "DescribeFleetAdvisorCollectors": {
+    "name": "DescribeFleetAdvisorCollectors",
+    "description": "Grants permission to return a paginated list of Fleet Advisor collectors in your account based on filter settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetAdvisorDatabases": {
+    "name": "DescribeFleetAdvisorDatabases",
+    "description": "Grants permission to return a paginated list of Fleet Advisor databases in your account based on filter settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetAdvisorLsaAnalysis": {
+    "name": "DescribeFleetAdvisorLsaAnalysis",
+    "description": "Grants permission to return a paginated list of descriptions of large-scale assessment (LSA) analyses produced by your Fleet Advisor collectors",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetAdvisorSchemaObjectSummary": {
+    "name": "DescribeFleetAdvisorSchemaObjectSummary",
+    "description": "Grants permission to return a paginated list of descriptions of schemas discovered by your Fleet Advisor collectors based on filter settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetAdvisorSchemas": {
+    "name": "DescribeFleetAdvisorSchemas",
+    "description": "Grants permission to return a paginated list of schemas discovered by your Fleet Advisor collectors based on filter settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstanceProfiles": {
+    "name": "DescribeInstanceProfiles",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for a instance profiles. Note. This action should be added along with ListInstanceProfiles, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "InstanceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ListInstanceProfiles"
+    ]
+  },
+  "DescribeMetadataModelAssessments": {
+    "name": "DescribeMetadataModelAssessments",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for metadata model assessments. Note. This action should be added along with ListMetadataModelAssessments, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ListMetadataModelAssessments"
+    ]
+  },
+  "DescribeMetadataModelConversions": {
+    "name": "DescribeMetadataModelConversions",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model conversions. Note. This action should be added along with ListMetadataModelConversions, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ListMetadataModelConversions"
+    ]
+  },
+  "DescribeMetadataModelExportsAsScript": {
+    "name": "DescribeMetadataModelExportsAsScript",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model exports. Note. This action should be added along with ListMetadataModelExports, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ListMetadataModelExports"
+    ]
+  },
+  "DescribeMetadataModelExportsToTarget": {
+    "name": "DescribeMetadataModelExportsToTarget",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model exports. Note. This action should be added along with ListMetadataModelExports, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ListMetadataModelExports"
+    ]
+  },
+  "DescribeMetadataModelImports": {
+    "name": "DescribeMetadataModelImports",
+    "description": "Grants permission to return information about start metadata model import operations for a migration project",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMigrationProjects": {
+    "name": "DescribeMigrationProjects",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the AWS DMS attributes for a migration projects. Note. This action should be added along with ListMigrationProjects, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "dms:ListMigrationProjects"
+        ]
+      },
+      {
+        "name": "InstanceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeOrderableReplicationInstances": {
+    "name": "DescribeOrderableReplicationInstances",
+    "description": "Grants permission to return information about the replication instance types that can be created in the specified region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePendingMaintenanceActions": {
+    "name": "DescribePendingMaintenanceActions",
+    "description": "Grants permission to return information about pending maintenance actions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRecommendationLimitations": {
+    "name": "DescribeRecommendationLimitations",
+    "description": "Grants permission to return a paginated list of descriptions of limitations for recommendations of target AWS engines",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRecommendations": {
+    "name": "DescribeRecommendations",
+    "description": "Grants permission to return a paginated list of descriptions of target engine recommendations for your source databases",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRefreshSchemasStatus": {
+    "name": "DescribeRefreshSchemasStatus",
+    "description": "Grants permission to returns the status of the RefreshSchemas operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationConfigs": {
+    "name": "DescribeReplicationConfigs",
+    "description": "Grants permission to describe replication configs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationInstanceTaskLogs": {
+    "name": "DescribeReplicationInstanceTaskLogs",
+    "description": "Grants permission to return information about the task logs for the specified task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DescribeReplicationInstances": {
+    "name": "DescribeReplicationInstances",
+    "description": "Grants permission to return information about replication instances for your account in the current region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationSubnetGroups": {
+    "name": "DescribeReplicationSubnetGroups",
+    "description": "Grants permission to return information about the replication subnet groups",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationTableStatistics": {
+    "name": "DescribeReplicationTableStatistics",
+    "description": "Grants permission to describe replication table statistics",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationTaskAssessmentResults": {
+    "name": "DescribeReplicationTaskAssessmentResults",
+    "description": "Grants permission to return the latest task assessment results from Amazon S3",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationTaskAssessmentRuns": {
+    "name": "DescribeReplicationTaskAssessmentRuns",
+    "description": "Grants permission to return a paginated list of premigration assessment runs based on filter settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTask",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTaskAssessmentRun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationTaskIndividualAssessments": {
+    "name": "DescribeReplicationTaskIndividualAssessments",
+    "description": "Grants permission to return a paginated list of individual assessments based on filter settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTaskAssessmentRun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationTasks": {
+    "name": "DescribeReplicationTasks",
+    "description": "Grants permission to return information about replication tasks for your account in the current region",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplications": {
+    "name": "DescribeReplications",
+    "description": "Grants permission to describe replications",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSchemas": {
+    "name": "DescribeSchemas",
+    "description": "Grants permission to return information about the schema for the specified endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTableStatistics": {
+    "name": "DescribeTableStatistics",
+    "description": "Grants permission to return table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateExtensionPack": {
+    "name": "DisassociateExtensionPack",
+    "description": "Grants permission to disassociate a extension pack",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ExportMetadataModelAssessment": {
+    "name": "ExportMetadataModelAssessment",
+    "description": "Grants permission to export the specified metadata model assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMetadataModel": {
+    "name": "GetMetadataModel",
+    "description": "Grants permission to list all of the AWS DMS attributes for a metadata model. Note. Despite this action requires StartMetadataModelImport, the latter does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:StartMetadataModelImport"
+    ]
+  },
+  "ImportCertificate": {
+    "name": "ImportCertificate",
+    "description": "Grants permission to upload the specified certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "ListDataProviders": {
+    "name": "ListDataProviders",
+    "description": "Grants permission to list the AWS DMS attributes for a data providers",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:DescribeDataProviders"
+    ]
+  },
+  "ListExtensionPacks": {
+    "name": "ListExtensionPacks",
+    "description": "Grants permission to list the AWS DMS attributes for a extension packs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:DescribeExtensionPackAssociations"
+    ]
+  },
+  "ListInstanceProfiles": {
+    "name": "ListInstanceProfiles",
+    "description": "Grants permission to list the AWS DMS attributes for a instance profiles",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "InstanceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:DescribeInstanceProfiles"
+    ]
+  },
+  "ListMetadataModelAssessmentActionItems": {
+    "name": "ListMetadataModelAssessmentActionItems",
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model assessment action items. Note. Despite this action requires StartMetadataModelImport, the latter does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:StartMetadataModelImport"
+    ]
+  },
+  "ListMetadataModelAssessments": {
+    "name": "ListMetadataModelAssessments",
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model assessments",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:DescribeMetadataModelAssessments"
+    ]
+  },
+  "ListMetadataModelConversions": {
+    "name": "ListMetadataModelConversions",
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model conversions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:DescribeMetadataModelConversions"
+    ]
+  },
+  "ListMetadataModelExports": {
+    "name": "ListMetadataModelExports",
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model exports",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:DescribeMetadataModelExportsAsScript",
+      "dms:DescribeMetadataModelExportsToTarget"
+    ]
+  },
+  "ListMigrationProjects": {
+    "name": "ListMigrationProjects",
+    "description": "Grants permission to list the AWS DMS attributes for a migration projects. Note. Despite this action requires DescribeMigrationProjects and DescribeConversionConfiguration, both required actions do not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "dms:DescribeConversionConfiguration",
+          "dms:DescribeMigrationProjects"
+        ]
+      },
+      {
+        "name": "InstanceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags for an AWS DMS resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataMigration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EventSubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "InstanceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationConfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationInstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationSubnetGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTask",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyConversionConfiguration": {
+    "name": "ModifyConversionConfiguration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update a conversion configuration. Note. This action should be added along with UpdateConversionConfiguration, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:UpdateConversionConfiguration"
+    ]
+  },
+  "ModifyDataMigration": {
+    "name": "ModifyDataMigration",
+    "description": "Grants permission to modify the specified database migration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataMigration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "ModifyDataProvider": {
+    "name": "ModifyDataProvider",
+    "isPermissionOnly": true,
+    "description": "Grants permission to modify the specified data provider. Note. This action should be added along with UpdateDataProvider, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:UpdateDataProvider",
+      "iam:PassRole"
+    ]
+  },
+  "ModifyEndpoint": {
+    "name": "ModifyEndpoint",
+    "description": "Grants permission to modify the specified endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyEventSubscription": {
+    "name": "ModifyEventSubscription",
+    "description": "Grants permission to modify an existing AWS DMS event notification subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyFleetAdvisorCollector": {
+    "name": "ModifyFleetAdvisorCollector",
+    "isPermissionOnly": true,
+    "description": "Grants permission to modify the name and description of the specified Fleet Advisor collector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyFleetAdvisorCollectorStatuses": {
+    "name": "ModifyFleetAdvisorCollectorStatuses",
+    "isPermissionOnly": true,
+    "description": "Grants permission to modify the status of the specified Fleet Advisor collector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyInstanceProfile": {
+    "name": "ModifyInstanceProfile",
+    "isPermissionOnly": true,
+    "description": "Grants permission to modify the specified instance profile. Note. This action should be added along with UpdateInstanceProfile, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "InstanceProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:UpdateInstanceProfile",
+      "iam:PassRole"
+    ]
+  },
+  "ModifyMigrationProject": {
+    "name": "ModifyMigrationProject",
+    "isPermissionOnly": true,
+    "description": "Grants permission to modify the specified migration project. Note. This action should be added along with UpdateMigrationProject, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:UpdateMigrationProject",
+      "iam:PassRole"
+    ]
+  },
+  "ModifyReplicationConfig": {
+    "name": "ModifyReplicationConfig",
+    "description": "Grants permission to modify the specified replication config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyReplicationInstance": {
+    "name": "ModifyReplicationInstance",
+    "description": "Grants permission to modify the replication instance to apply new settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyReplicationSubnetGroup": {
+    "name": "ModifyReplicationSubnetGroup",
+    "description": "Grants permission to modify the settings for the specified replication subnet group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyReplicationTask": {
+    "name": "ModifyReplicationTask",
+    "description": "Grants permission to modify the specified replication task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "MoveReplicationTask": {
+    "name": "MoveReplicationTask",
+    "description": "Grants permission to move the specified replication task to a different replication instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RebootReplicationInstance": {
+    "name": "RebootReplicationInstance",
+    "description": "Grants permission to reboot a replication instance. Rebooting results in a momentary outage, until the replication instance becomes available again",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RefreshSchemas": {
+    "name": "RefreshSchemas",
+    "description": "Grants permission to populate the schema for the specified endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ReloadReplicationTables": {
+    "name": "ReloadReplicationTables",
+    "description": "Grants permission to reload the target database table with the source for a replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ReloadTables": {
+    "name": "ReloadTables",
+    "description": "Grants permission to reload the target database table with the source data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RemoveTagsFromResource": {
+    "name": "RemoveTagsFromResource",
+    "description": "Grants permission to remove metadata tags from a DMS resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataMigration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DataProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EventSubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "InstanceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MigrationProject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationConfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationInstance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationSubnetGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationTask",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RunFleetAdvisorLsaAnalysis": {
+    "name": "RunFleetAdvisorLsaAnalysis",
+    "description": "Grants permission to run a large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartDataMigration": {
+    "name": "StartDataMigration",
+    "description": "Grants permission to start the database migration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataMigration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartExtensionPackAssociation": {
+    "name": "StartExtensionPackAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate an extension pack. Note. This action should be added along with AssociateExtensionPack, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:AssociateExtensionPack"
+    ]
+  },
+  "StartMetadataModelAssessment": {
+    "name": "StartMetadataModelAssessment",
+    "description": "Grants permission to start a new assessment of metadata model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartMetadataModelConversion": {
+    "name": "StartMetadataModelConversion",
+    "description": "Grants permission to start a new conversion of metadata model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartMetadataModelExportAsScript": {
+    "name": "StartMetadataModelExportAsScript",
+    "isPermissionOnly": true,
+    "description": "Grants permission to start a new export of metadata model as script. Note. This action should be added along with StartMetadataModelExportAsScripts, but does not currently authorize the described Schema Conversion operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:StartMetadataModelExportAsScripts"
+    ]
+  },
+  "StartMetadataModelExportAsScripts": {
+    "name": "StartMetadataModelExportAsScripts",
+    "description": "Grants permission to start a new export of metadata model as script",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:StartMetadataModelExportAsScript"
+    ]
+  },
+  "StartMetadataModelExportToTarget": {
+    "name": "StartMetadataModelExportToTarget",
+    "description": "Grants permission to start a new export of metadata model to target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartMetadataModelImport": {
+    "name": "StartMetadataModelImport",
+    "description": "Grants permission to start a new import of metadata model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartRecommendations": {
+    "name": "StartRecommendations",
+    "description": "Grants permission to start the analysis of your source database to provide recommendations of target engines",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartReplication": {
+    "name": "StartReplication",
+    "description": "Grants permission to start a replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartReplicationTask": {
+    "name": "StartReplicationTask",
+    "description": "Grants permission to start the replication task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartReplicationTaskAssessment": {
+    "name": "StartReplicationTaskAssessment",
+    "description": "Grants permission to start the replication task assessment for unsupported data types in the source database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartReplicationTaskAssessmentRun": {
+    "name": "StartReplicationTaskAssessmentRun",
+    "description": "Grants permission to start a new premigration assessment run for one or more individual assessments of a migration task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "StopDataMigration": {
+    "name": "StopDataMigration",
+    "description": "Grants permission to stop the database migration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataMigration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopReplication": {
+    "name": "StopReplication",
+    "description": "Grants permission to stop a replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopReplicationTask": {
+    "name": "StopReplicationTask",
+    "description": "Grants permission to stop the replication task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TestConnection": {
+    "name": "TestConnection",
+    "description": "Grants permission to test the connection between the replication instance and the endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConversionConfiguration": {
+    "name": "UpdateConversionConfiguration",
+    "description": "Grants permission to update a conversion configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ModifyConversionConfiguration"
+    ]
+  },
+  "UpdateDataProvider": {
+    "name": "UpdateDataProvider",
+    "description": "Grants permission to update the specified data provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ModifyDataProvider"
+    ]
+  },
+  "UpdateInstanceProfile": {
+    "name": "UpdateInstanceProfile",
+    "description": "Grants permission to update the specified instance profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "InstanceProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ModifyInstanceProfile"
+    ]
+  },
+  "UpdateMigrationProject": {
+    "name": "UpdateMigrationProject",
+    "description": "Grants permission to update the specified migration project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dms:ModifyMigrationProject"
+    ]
+  },
+  "UpdateSubscriptionsToEventBridge": {
+    "name": "UpdateSubscriptionsToEventBridge",
+    "description": "Grants permission to migrate DMS subcriptions to Eventbridge",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UploadFileMetadataList": {
+    "name": "UploadFileMetadataList",
+    "isPermissionOnly": true,
+    "description": "Grants permission to upload files to your Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

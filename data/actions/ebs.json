@@ -1,0 +1,109 @@
+{
+  "CompleteSnapshot": {
+    "name": "CompleteSnapshot",
+    "description": "Grants permission to seal and complete the snapshot after all of the required blocks of data have been written to it",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetSnapshotBlock": {
+    "name": "GetSnapshotBlock",
+    "description": "Grants permission to return the data of a block in an Amazon Elastic Block Store (EBS) snapshot",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListChangedBlocks": {
+    "name": "ListChangedBlocks",
+    "description": "Grants permission to list the blocks that are different between two Amazon Elastic Block Store (EBS) snapshots of the same volume/snapshot lineage",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListSnapshotBlocks": {
+    "name": "ListSnapshotBlocks",
+    "description": "Grants permission to list the blocks in an Amazon Elastic Block Store (EBS) snapshot",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "PutSnapshotBlock": {
+    "name": "PutSnapshotBlock",
+    "description": "Grants permission to write a block of data to a snapshot created by the StartSnapshot operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "StartSnapshot": {
+    "name": "StartSnapshot",
+    "description": "Grants permission to create a new EBS snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ebs:Description",
+      "ebs:ParentSnapshot",
+      "ebs:VolumeSize"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:route53-recovery-control::${Account}:cluster/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "controlpanel": {
+    "key": "controlpanel",
+    "arn": "arn:${Partition}:route53-recovery-control::${Account}:controlpanel/${ControlPanelId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routingcontrol": {
+    "key": "routingcontrol",
+    "arn": "arn:${Partition}:route53-recovery-control::${Account}:controlpanel/${ControlPanelId}/routingcontrol/${RoutingControlId}"
+  },
+  "safetyrule": {
+    "key": "safetyrule",
+    "arn": "arn:${Partition}:route53-recovery-control::${Account}:controlpanel/${ControlPanelId}/safetyrule/${SafetyRuleId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

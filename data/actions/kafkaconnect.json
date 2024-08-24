@@ -1,0 +1,288 @@
+{
+  "CreateConnector": {
+    "name": "CreateConnector",
+    "description": "Grants permission to create an MSK Connect connector",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "firehose:TagDeliveryStream",
+      "iam:AttachRolePolicy",
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole",
+      "iam:PutRolePolicy",
+      "logs:CreateLogDelivery",
+      "logs:DescribeLogGroups",
+      "logs:DescribeResourcePolicies",
+      "logs:GetLogDelivery",
+      "logs:ListLogDeliveries",
+      "logs:PutResourcePolicy",
+      "s3:GetBucketPolicy",
+      "s3:PutBucketPolicy"
+    ]
+  },
+  "CreateCustomPlugin": {
+    "name": "CreateCustomPlugin",
+    "description": "Grants permission to create an MSK Connect custom plugin",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "CreateWorkerConfiguration": {
+    "name": "CreateWorkerConfiguration",
+    "description": "Grants permission to create an MSK Connect worker configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConnector": {
+    "name": "DeleteConnector",
+    "description": "Grants permission to delete an MSK Connect connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "logs:DeleteLogDelivery",
+      "logs:ListLogDeliveries"
+    ]
+  },
+  "DeleteCustomPlugin": {
+    "name": "DeleteCustomPlugin",
+    "description": "Grants permission to delete an MSK Connect custom plugin",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom plugin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteWorkerConfiguration": {
+    "name": "DeleteWorkerConfiguration",
+    "description": "Grants permission to delete an MSK Connect worker configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "worker configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConnector": {
+    "name": "DescribeConnector",
+    "description": "Grants permission to describe an MSK Connect connector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCustomPlugin": {
+    "name": "DescribeCustomPlugin",
+    "description": "Grants permission to describe an MSK Connect custom plugin",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custom plugin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkerConfiguration": {
+    "name": "DescribeWorkerConfiguration",
+    "description": "Grants permission to describe an MSK Connect worker configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "worker configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConnectors": {
+    "name": "ListConnectors",
+    "description": "Grants permission to list all MSK Connect connectors in this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCustomPlugins": {
+    "name": "ListCustomPlugins",
+    "description": "Grants permission to list all MSK Connect custom plugins in this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags of an MSK Connect resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "custom plugin",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "worker configuration",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWorkerConfigurations": {
+    "name": "ListWorkerConfigurations",
+    "description": "Grants permission to list all MSK Connect worker configurations in this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an MSK Connect resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "custom plugin",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "worker configuration",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an MSK Connect resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "custom plugin",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "worker configuration",
+        "required": false,
+        "conditionKeys": [
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateConnector": {
+    "name": "UpdateConnector",
+    "description": "Grants permission to update an MSK Connect connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

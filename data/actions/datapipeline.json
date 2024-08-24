@@ -1,0 +1,333 @@
+{
+  "ActivatePipeline": {
+    "name": "ActivatePipeline",
+    "description": "Grants permission to validate the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag",
+      "datapipeline:workerGroup"
+    ],
+    "dependentActions": []
+  },
+  "AddTags": {
+    "name": "AddTags",
+    "description": "Grants permission to add or modify tags for the specified pipeline",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreatePipeline": {
+    "name": "CreatePipeline",
+    "description": "Grants permission to create a new, empty pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "datapipeline:Tag"
+    ],
+    "dependentActions": [
+      "datapipeline:AddTags"
+    ]
+  },
+  "DeactivatePipeline": {
+    "name": "DeactivatePipeline",
+    "description": "Grants permission to Deactivate the specified running pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag",
+      "datapipeline:workerGroup"
+    ],
+    "dependentActions": []
+  },
+  "DeletePipeline": {
+    "name": "DeletePipeline",
+    "description": "Grants permission to delete a pipeline, its pipeline definition, and its run history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag"
+    ],
+    "dependentActions": []
+  },
+  "DescribeObjects": {
+    "name": "DescribeObjects",
+    "description": "Grants permission to get the object definitions for a set of objects associated with the pipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag"
+    ],
+    "dependentActions": []
+  },
+  "DescribePipelines": {
+    "name": "DescribePipelines",
+    "description": "Grants permission to retrieves metadata about one or more pipelines",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag"
+    ],
+    "dependentActions": []
+  },
+  "EvaluateExpression": {
+    "name": "EvaluateExpression",
+    "description": "Grants permission to task runners to call EvaluateExpression, to evaluate a string in the context of the specified object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag"
+    ],
+    "dependentActions": []
+  },
+  "GetAccountLimits": {
+    "name": "GetAccountLimits",
+    "isPermissionOnly": true,
+    "description": "Grants permission to call GetAccountLimits",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPipelineDefinition": {
+    "name": "GetPipelineDefinition",
+    "description": "Grants permission to gets the definition of the specified pipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag",
+      "datapipeline:workerGroup"
+    ],
+    "dependentActions": []
+  },
+  "ListPipelines": {
+    "name": "ListPipelines",
+    "description": "Grants permission to list the pipeline identifiers for all active pipelines that you have permission to access",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PollForTask": {
+    "name": "PollForTask",
+    "description": "Grants permission to task runners to call PollForTask, to receive a task to perform from AWS Data Pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "datapipeline:workerGroup"
+    ],
+    "dependentActions": []
+  },
+  "PutAccountLimits": {
+    "name": "PutAccountLimits",
+    "isPermissionOnly": true,
+    "description": "Grants permission to call PutAccountLimits",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutPipelineDefinition": {
+    "name": "PutPipelineDefinition",
+    "description": "Grants permission to add tasks, schedules, and preconditions to the specified pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag",
+      "datapipeline:workerGroup"
+    ],
+    "dependentActions": []
+  },
+  "QueryObjects": {
+    "name": "QueryObjects",
+    "description": "Grants permission to query the specified pipeline for the names of objects that match the specified set of conditions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag"
+    ],
+    "dependentActions": []
+  },
+  "RemoveTags": {
+    "name": "RemoveTags",
+    "description": "Grants permission to remove existing tags from the specified pipeline",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ReportTaskProgress": {
+    "name": "ReportTaskProgress",
+    "description": "Grants permission to task runners to call ReportTaskProgress, when they are assigned a task to acknowledge that it has the task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ReportTaskRunnerHeartbeat": {
+    "name": "ReportTaskRunnerHeartbeat",
+    "description": "Grants permission to task runners to call ReportTaskRunnerHeartbeat every 15 minutes to indicate that they are operational",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetStatus": {
+    "name": "SetStatus",
+    "description": "Grants permission to requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag"
+    ],
+    "dependentActions": []
+  },
+  "SetTaskStatus": {
+    "name": "SetTaskStatus",
+    "description": "Grants permission to task runners to call SetTaskStatus to notify AWS Data Pipeline that a task is completed and provide information about the final status",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ValidatePipelineDefinition": {
+    "name": "ValidatePipelineDefinition",
+    "description": "Grants permission to validate the specified pipeline definition to ensure that it is well formed and can be run without error",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag",
+      "datapipeline:workerGroup"
+    ],
+    "dependentActions": []
+  }
+}

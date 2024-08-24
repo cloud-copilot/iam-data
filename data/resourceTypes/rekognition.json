@@ -1,0 +1,31 @@
+{
+  "collection": {
+    "key": "collection",
+    "arn": "arn:${Partition}:rekognition:${Region}:${Account}:collection/${CollectionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "streamprocessor": {
+    "key": "streamprocessor",
+    "arn": "arn:${Partition}:rekognition:${Region}:${Account}:streamprocessor/${StreamprocessorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "project": {
+    "key": "project",
+    "arn": "arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/${CreationTimestamp}"
+  },
+  "projectversion": {
+    "key": "projectversion",
+    "arn": "arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/version/${VersionName}/${CreationTimestamp}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "dataset": {
+    "key": "dataset",
+    "arn": "arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/dataset/${DatasetType}/${CreationTimestamp}"
+  }
+}

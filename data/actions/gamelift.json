@@ -1,0 +1,1554 @@
+{
+  "AcceptMatch": {
+    "name": "AcceptMatch",
+    "description": "Grants permission to register player acceptance or rejection of a proposed FlexMatch match",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ClaimGameServer": {
+    "name": "ClaimGameServer",
+    "description": "Grants permission to locate and reserve a game server to host a new game session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateAlias": {
+    "name": "CreateAlias",
+    "description": "Grants permission to define a new alias for a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gamelift:TagResource"
+    ]
+  },
+  "CreateBuild": {
+    "name": "CreateBuild",
+    "description": "Grants permission to create a new game build using files stored in an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gamelift:TagResource",
+      "iam:PassRole",
+      "s3:GetObject"
+    ]
+  },
+  "CreateContainerGroupDefinition": {
+    "name": "CreateContainerGroupDefinition",
+    "description": "Grants permission to create a new container group definition for a container fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ecr:BatchGetImage",
+      "ecr:DescribeImages",
+      "ecr:GetDownloadUrlForLayer",
+      "gamelift:TagResource"
+    ]
+  },
+  "CreateFleet": {
+    "name": "CreateFleet",
+    "description": "Grants permission to create a new fleet of computing resources to run your game servers",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeRegions",
+      "gamelift:TagResource",
+      "iam:PassRole"
+    ]
+  },
+  "CreateFleetLocations": {
+    "name": "CreateFleetLocations",
+    "description": "Grants permission to specify additional locations for a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeRegions"
+    ]
+  },
+  "CreateGameServerGroup": {
+    "name": "CreateGameServerGroup",
+    "description": "Grants permission to create a new game server group, set up a corresponding Auto Scaling group, and launche instances to host game servers",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "autoscaling:CreateAutoScalingGroup",
+      "autoscaling:DescribeAutoScalingGroups",
+      "autoscaling:PutLifecycleHook",
+      "autoscaling:PutScalingPolicy",
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeSubnets",
+      "events:PutRule",
+      "events:PutTargets",
+      "gamelift:TagResource",
+      "iam:PassRole"
+    ]
+  },
+  "CreateGameSession": {
+    "name": "CreateGameSession",
+    "description": "Grants permission to start a new game session on a specified fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateGameSessionQueue": {
+    "name": "CreateGameSessionQueue",
+    "description": "Grants permission to set up a new queue for processing game session placement requests",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gamelift:TagResource"
+    ]
+  },
+  "CreateLocation": {
+    "name": "CreateLocation",
+    "description": "Grants permission to define a new location for a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gamelift:TagResource"
+    ]
+  },
+  "CreateMatchmakingConfiguration": {
+    "name": "CreateMatchmakingConfiguration",
+    "description": "Grants permission to create a new FlexMatch matchmaker",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gamelift:TagResource"
+    ]
+  },
+  "CreateMatchmakingRuleSet": {
+    "name": "CreateMatchmakingRuleSet",
+    "description": "Grants permission to create a new matchmaking rule set for FlexMatch",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gamelift:TagResource"
+    ]
+  },
+  "CreatePlayerSession": {
+    "name": "CreatePlayerSession",
+    "description": "Grants permission to reserve an available game session slot for a player",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreatePlayerSessions": {
+    "name": "CreatePlayerSessions",
+    "description": "Grants permission to reserve available game session slots for multiple players",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateScript": {
+    "name": "CreateScript",
+    "description": "Grants permission to create a new Realtime Servers script",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gamelift:TagResource",
+      "iam:PassRole",
+      "s3:GetObject"
+    ]
+  },
+  "CreateVpcPeeringAuthorization": {
+    "name": "CreateVpcPeeringAuthorization",
+    "description": "Grants permission to allow GameLift to create or delete a peering connection between a GameLift fleet VPC and a VPC on another AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AcceptVpcPeeringConnection",
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateRoute",
+      "ec2:DeleteRoute",
+      "ec2:DescribeRouteTables",
+      "ec2:DescribeSecurityGroups",
+      "ec2:RevokeSecurityGroupEgress",
+      "ec2:RevokeSecurityGroupIngress"
+    ]
+  },
+  "CreateVpcPeeringConnection": {
+    "name": "CreateVpcPeeringConnection",
+    "description": "Grants permission to establish a peering connection between your GameLift fleet VPC and a VPC on another account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAlias": {
+    "name": "DeleteAlias",
+    "description": "Grants permission to delete an alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBuild": {
+    "name": "DeleteBuild",
+    "description": "Grants permission to delete a game build",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "build",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteContainerGroupDefinition": {
+    "name": "DeleteContainerGroupDefinition",
+    "description": "Grants permission to delete a container group definition that is not being used in a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "containerGroupDefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFleet": {
+    "name": "DeleteFleet",
+    "description": "Grants permission to delete an empty fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFleetLocations": {
+    "name": "DeleteFleetLocations",
+    "description": "Grants permission to delete locations for a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteGameServerGroup": {
+    "name": "DeleteGameServerGroup",
+    "description": "Grants permission to permanently delete a game server group and terminate FleetIQ activity for the corresponding Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "autoscaling:DeleteAutoScalingGroup",
+      "autoscaling:DescribeAutoScalingGroups",
+      "autoscaling:ExitStandby",
+      "autoscaling:ResumeProcesses",
+      "autoscaling:SetInstanceProtection",
+      "autoscaling:UpdateAutoScalingGroup"
+    ]
+  },
+  "DeleteGameSessionQueue": {
+    "name": "DeleteGameSessionQueue",
+    "description": "Grants permission to delete an existing game session queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameSessionQueue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteLocation": {
+    "name": "DeleteLocation",
+    "description": "Grants permission to delete a location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "location",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteMatchmakingConfiguration": {
+    "name": "DeleteMatchmakingConfiguration",
+    "description": "Grants permission to delete an existing FlexMatch matchmaker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "matchmakingConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteMatchmakingRuleSet": {
+    "name": "DeleteMatchmakingRuleSet",
+    "description": "Grants permission to delete an existing FlexMatch matchmaking rule set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "matchmakingRuleSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteScalingPolicy": {
+    "name": "DeleteScalingPolicy",
+    "description": "Grants permission to delete a set of auto-scaling rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteScript": {
+    "name": "DeleteScript",
+    "description": "Grants permission to delete a Realtime Servers script",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "script",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteVpcPeeringAuthorization": {
+    "name": "DeleteVpcPeeringAuthorization",
+    "description": "Grants permission to cancel a VPC peering authorization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteVpcPeeringConnection": {
+    "name": "DeleteVpcPeeringConnection",
+    "description": "Grants permission to remove a peering connection between VPCs",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterCompute": {
+    "name": "DeregisterCompute",
+    "description": "Grants permission to deregister a compute against a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterGameServer": {
+    "name": "DeregisterGameServer",
+    "description": "Grants permission to remove a game server from a game server group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAlias": {
+    "name": "DescribeAlias",
+    "description": "Grants permission to retrieve properties for an alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBuild": {
+    "name": "DescribeBuild",
+    "description": "Grants permission to retrieve properties for a game build",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "build",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCompute": {
+    "name": "DescribeCompute",
+    "description": "Grants permission to retrieve general properties of the compute such as ARN, fleet details, SDK endpoints, and location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeContainerGroupDefinition": {
+    "name": "DescribeContainerGroupDefinition",
+    "description": "Grants permission to retrieve general properties, including status, for a container group definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "containerGroupDefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEC2InstanceLimits": {
+    "name": "DescribeEC2InstanceLimits",
+    "description": "Grants permission to retrieve the maximum allowed and current usage for EC2 instance types",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetAttributes": {
+    "name": "DescribeFleetAttributes",
+    "description": "Grants permission to retrieve general properties, including status, for fleets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetCapacity": {
+    "name": "DescribeFleetCapacity",
+    "description": "Grants permission to retrieve the current capacity setting for fleets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetEvents": {
+    "name": "DescribeFleetEvents",
+    "description": "Grants permission to retrieve entries from a fleet's event log",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetLocationAttributes": {
+    "name": "DescribeFleetLocationAttributes",
+    "description": "Grants permission to retrieve general properties, including statuses, for a fleet's locations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetLocationCapacity": {
+    "name": "DescribeFleetLocationCapacity",
+    "description": "Grants permission to retrieve the current capacity setting for a fleet's location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetLocationUtilization": {
+    "name": "DescribeFleetLocationUtilization",
+    "description": "Grants permission to retrieve utilization statistics for fleet's location",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetPortSettings": {
+    "name": "DescribeFleetPortSettings",
+    "description": "Grants permission to retrieve the inbound connection permissions for a fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFleetUtilization": {
+    "name": "DescribeFleetUtilization",
+    "description": "Grants permission to retrieve utilization statistics for fleets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGameServer": {
+    "name": "DescribeGameServer",
+    "description": "Grants permission to retrieve properties for a game server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGameServerGroup": {
+    "name": "DescribeGameServerGroup",
+    "description": "Grants permission to retrieve properties for a game server group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGameServerInstances": {
+    "name": "DescribeGameServerInstances",
+    "description": "Grants permission to retrieve the status of EC2 instances in a game server group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGameSessionDetails": {
+    "name": "DescribeGameSessionDetails",
+    "description": "Grants permission to retrieve properties for game sessions in a fleet, including the protection policy",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGameSessionPlacement": {
+    "name": "DescribeGameSessionPlacement",
+    "description": "Grants permission to retrieve details of a game session placement request",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGameSessionQueues": {
+    "name": "DescribeGameSessionQueues",
+    "description": "Grants permission to retrieve properties for game session queues",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGameSessions": {
+    "name": "DescribeGameSessions",
+    "description": "Grants permission to retrieve properties for game sessions in a fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstances": {
+    "name": "DescribeInstances",
+    "description": "Grants permission to retrieve information about instances in a fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMatchmaking": {
+    "name": "DescribeMatchmaking",
+    "description": "Grants permission to retrieve details of matchmaking tickets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMatchmakingConfigurations": {
+    "name": "DescribeMatchmakingConfigurations",
+    "description": "Grants permission to retrieve properties for FlexMatch matchmakers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMatchmakingRuleSets": {
+    "name": "DescribeMatchmakingRuleSets",
+    "description": "Grants permission to retrieve properties for FlexMatch matchmaking rule sets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePlayerSessions": {
+    "name": "DescribePlayerSessions",
+    "description": "Grants permission to retrieve properties for player sessions in a game session",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRuntimeConfiguration": {
+    "name": "DescribeRuntimeConfiguration",
+    "description": "Grants permission to retrieve the current runtime configuration for a fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeScalingPolicies": {
+    "name": "DescribeScalingPolicies",
+    "description": "Grants permission to retrieve all scaling policies that are applied to a fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeScript": {
+    "name": "DescribeScript",
+    "description": "Grants permission to retrieve properties for a Realtime Servers script",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "script",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeVpcPeeringAuthorizations": {
+    "name": "DescribeVpcPeeringAuthorizations",
+    "description": "Grants permission to retrieve valid VPC peering authorizations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeVpcPeeringConnections": {
+    "name": "DescribeVpcPeeringConnections",
+    "description": "Grants permission to retrieve details on active or pending VPC peering connections",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetComputeAccess": {
+    "name": "GetComputeAccess",
+    "description": "Grants permission to retrieve access credentials of the compute",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetComputeAuthToken": {
+    "name": "GetComputeAuthToken",
+    "description": "Grants permission to retrieve an authorization token for a compute and fleet to use in game server processes",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetGameSessionLogUrl": {
+    "name": "GetGameSessionLogUrl",
+    "description": "Grants permission to retrieve the location of stored logs for a game session",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetInstanceAccess": {
+    "name": "GetInstanceAccess",
+    "description": "Grants permission to request remote access to a specified fleet instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAliases": {
+    "name": "ListAliases",
+    "description": "Grants permission to retrieve all aliases that are defined in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBuilds": {
+    "name": "ListBuilds",
+    "description": "Grants permission to retrieve all game build in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCompute": {
+    "name": "ListCompute",
+    "description": "Grants permission to retrieve all compute resources in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListContainerGroupDefinitions": {
+    "name": "ListContainerGroupDefinitions",
+    "description": "Grants permission to retrieve a list of names for all container group definitions in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFleets": {
+    "name": "ListFleets",
+    "description": "Grants permission to retrieve a list of fleet IDs for all fleets in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListGameServerGroups": {
+    "name": "ListGameServerGroups",
+    "description": "Grants permission to retrieve all game server groups that are defined in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListGameServers": {
+    "name": "ListGameServers",
+    "description": "Grants permission to retrieve all game servers that are currently running in a game server group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLocations": {
+    "name": "ListLocations",
+    "description": "Grants permission to retrieve all locations in this account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListScripts": {
+    "name": "ListScripts",
+    "description": "Grants permission to retrieve properties for all Realtime Servers scripts in the current region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to retrieve tags for GameLift resources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "build",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "containerGroupDefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gameServerGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gameSessionQueue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "location",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "matchmakingConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "matchmakingRuleSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "script",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutScalingPolicy": {
+    "name": "PutScalingPolicy",
+    "description": "Grants permission to create or update a fleet auto-scaling policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterCompute": {
+    "name": "RegisterCompute",
+    "description": "Grants permission to register a compute against a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterGameServer": {
+    "name": "RegisterGameServer",
+    "description": "Grants permission to notify GameLift FleetIQ when a new game server is ready to host gameplay",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RequestUploadCredentials": {
+    "name": "RequestUploadCredentials",
+    "description": "Grants permission to retrieve fresh upload credentials to use when uploading a new game build",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "build",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ResolveAlias": {
+    "name": "ResolveAlias",
+    "description": "Grants permission to retrieve the fleet ID associated with an alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ResumeGameServerGroup": {
+    "name": "ResumeGameServerGroup",
+    "description": "Grants permission to reinstate suspended FleetIQ activity for a game server group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SearchGameSessions": {
+    "name": "SearchGameSessions",
+    "description": "Grants permission to retrieve game sessions that match a set of search criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartFleetActions": {
+    "name": "StartFleetActions",
+    "description": "Grants permission to resume auto-scaling activity on a fleet after it was suspended with StopFleetActions()",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartGameSessionPlacement": {
+    "name": "StartGameSessionPlacement",
+    "description": "Grants permission to send a game session placement request to a game session queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameSessionQueue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartMatchBackfill": {
+    "name": "StartMatchBackfill",
+    "description": "Grants permission to request FlexMatch matchmaking to fill available player slots in an existing game session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartMatchmaking": {
+    "name": "StartMatchmaking",
+    "description": "Grants permission to request FlexMatch matchmaking for one or a group of players and initiate game session placement",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopFleetActions": {
+    "name": "StopFleetActions",
+    "description": "Grants permission to suspend auto-scaling activity on a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopGameSessionPlacement": {
+    "name": "StopGameSessionPlacement",
+    "description": "Grants permission to cancel a game session placement request that is in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopMatchmaking": {
+    "name": "StopMatchmaking",
+    "description": "Grants permission to cancel a matchmaking or match backfill request that is in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SuspendGameServerGroup": {
+    "name": "SuspendGameServerGroup",
+    "description": "Grants permission to temporarily stop FleetIQ activity for a game server group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag GameLift resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "build",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "containerGroupDefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gameServerGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gameSessionQueue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "location",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "matchmakingConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "matchmakingRuleSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "script",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag GameLift resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "build",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "containerGroupDefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gameServerGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gameSessionQueue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "location",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "matchmakingConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "matchmakingRuleSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "script",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAlias": {
+    "name": "UpdateAlias",
+    "description": "Grants permission to update the properties of an existing alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateBuild": {
+    "name": "UpdateBuild",
+    "description": "Grants permission to update an existing build's metadata",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "build",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFleetAttributes": {
+    "name": "UpdateFleetAttributes",
+    "description": "Grants permission to update the general properties of an existing fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFleetCapacity": {
+    "name": "UpdateFleetCapacity",
+    "description": "Grants permission to adjust a fleet's capacity settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFleetPortSettings": {
+    "name": "UpdateFleetPortSettings",
+    "description": "Grants permission to adjust a fleet's port settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateGameServer": {
+    "name": "UpdateGameServer",
+    "description": "Grants permission to change game server properties, health status, or utilization status",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateGameServerGroup": {
+    "name": "UpdateGameServerGroup",
+    "description": "Grants permission to update properties for game server group, including allowed instance types",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameServerGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "UpdateGameSession": {
+    "name": "UpdateGameSession",
+    "description": "Grants permission to update the properties of an existing game session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateGameSessionQueue": {
+    "name": "UpdateGameSessionQueue",
+    "description": "Grants permission to update properties of an existing game session queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gameSessionQueue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateMatchmakingConfiguration": {
+    "name": "UpdateMatchmakingConfiguration",
+    "description": "Grants permission to update properties of an existing FlexMatch matchmaking configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "matchmakingConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateRuntimeConfiguration": {
+    "name": "UpdateRuntimeConfiguration",
+    "description": "Grants permission to update how server processes are configured on instances in an existing fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateScript": {
+    "name": "UpdateScript",
+    "description": "Grants permission to update the metadata and content of an existing Realtime Servers script",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "script",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole",
+      "s3:GetObject"
+    ]
+  },
+  "ValidateMatchmakingRuleSet": {
+    "name": "ValidateMatchmakingRuleSet",
+    "description": "Grants permission to validate the syntax of a FlexMatch matchmaking rule set",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "AnomalyDetector": {
+    "key": "AnomalyDetector",
+    "arn": "arn:${Partition}:lookoutmetrics:${Region}:${Account}:AnomalyDetector:${AnomalyDetectorName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "MetricSet": {
+    "key": "MetricSet",
+    "arn": "arn:${Partition}:lookoutmetrics:${Region}:${Account}:MetricSet/${AnomalyDetectorName}/${MetricSetName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "Alert": {
+    "key": "Alert",
+    "arn": "arn:${Partition}:lookoutmetrics:${Region}:${Account}:Alert:${AlertName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

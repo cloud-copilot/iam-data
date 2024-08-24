@@ -1,0 +1,39 @@
+{
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:cluster/${ClusterName}/${Uuid}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "configuration": {
+    "key": "configuration",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:configuration/${ConfigurationName}/${Uuid}"
+  },
+  "vpc-connection": {
+    "key": "vpc-connection",
+    "arn": "arn:${Partition}:kafka:${Region}:${VpcOwnerAccount}:vpc-connection/${ClusterOwnerAccount}/${ClusterName}/${Uuid}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "replicator": {
+    "key": "replicator",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:replicator/${ReplicatorName}/${Uuid}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "topic": {
+    "key": "topic",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:topic/${ClusterName}/${ClusterUuid}/${TopicName}"
+  },
+  "group": {
+    "key": "group",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:group/${ClusterName}/${ClusterUuid}/${GroupName}"
+  },
+  "transactional-id": {
+    "key": "transactional-id",
+    "arn": "arn:${Partition}:kafka:${Region}:${Account}:transactional-id/${ClusterName}/${ClusterUuid}/${TransactionalId}"
+  }
+}

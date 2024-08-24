@@ -1,0 +1,36 @@
+{
+  "workspace": {
+    "key": "workspace",
+    "arn": "arn:${Partition}:aps:${Region}:${Account}:workspace/${WorkspaceId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "rulegroupsnamespace": {
+    "key": "rulegroupsnamespace",
+    "arn": "arn:${Partition}:aps:${Region}:${Account}:rulegroupsnamespace/${WorkspaceId}/${Namespace}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "scraper": {
+    "key": "scraper",
+    "arn": "arn:${Partition}:aps:${Region}:${Account}:scraper/${ScraperId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:cluster/${ClusterName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

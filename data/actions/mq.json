@@ -1,0 +1,370 @@
+{
+  "CreateBroker": {
+    "name": "CreateBroker",
+    "description": "Grants permission to create a broker",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateVpcEndpoint",
+      "ec2:DescribeInternetGateways",
+      "ec2:DescribeNetworkInterfacePermissions",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcEndpoints",
+      "ec2:DescribeVpcs",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "iam:CreateServiceLinkedRole",
+      "route53:AssociateVPCWithHostedZone"
+    ]
+  },
+  "CreateConfiguration": {
+    "name": "CreateConfiguration",
+    "description": "Grants permission to create a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and engine version)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateReplicaBroker": {
+    "name": "CreateReplicaBroker",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a replica broker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateTags": {
+    "name": "CreateTags",
+    "description": "Grants permission to create tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configurations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateUser": {
+    "name": "CreateUser",
+    "description": "Grants permission to create an ActiveMQ user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBroker": {
+    "name": "DeleteBroker",
+    "description": "Grants permission to delete a broker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteNetworkInterfacePermission",
+      "ec2:DeleteVpcEndpoints",
+      "ec2:DetachNetworkInterface"
+    ]
+  },
+  "DeleteTags": {
+    "name": "DeleteTags",
+    "description": "Grants permission to delete tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configurations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteUser": {
+    "name": "DeleteUser",
+    "description": "Grants permission to delete an ActiveMQ user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBroker": {
+    "name": "DescribeBroker",
+    "description": "Grants permission to return information about the specified broker",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBrokerEngineTypes": {
+    "name": "DescribeBrokerEngineTypes",
+    "description": "Grants permission to return information about broker engines",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBrokerInstanceOptions": {
+    "name": "DescribeBrokerInstanceOptions",
+    "description": "Grants permission to return information about the broker instance options",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConfiguration": {
+    "name": "DescribeConfiguration",
+    "description": "Grants permission to return information about the specified configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configurations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConfigurationRevision": {
+    "name": "DescribeConfigurationRevision",
+    "description": "Grants permission to return the specified configuration revision for the specified configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configurations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeUser": {
+    "name": "DescribeUser",
+    "description": "Grants permission to return information about an ActiveMQ user",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBrokers": {
+    "name": "ListBrokers",
+    "description": "Grants permission to return a list of all brokers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConfigurationRevisions": {
+    "name": "ListConfigurationRevisions",
+    "description": "Grants permission to return a list of all existing revisions for the specified configuration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configurations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConfigurations": {
+    "name": "ListConfigurations",
+    "description": "Grants permission to return a list of all configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTags": {
+    "name": "ListTags",
+    "description": "Grants permission to return a list of tags",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configurations",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListUsers": {
+    "name": "ListUsers",
+    "description": "Grants permission to return a list of all ActiveMQ users",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "Promote": {
+    "name": "Promote",
+    "description": "Grants permission to promote a broker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RebootBroker": {
+    "name": "RebootBroker",
+    "description": "Grants permission to reboot a broker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateBroker": {
+    "name": "UpdateBroker",
+    "description": "Grants permission to add a pending configuration change to a broker",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConfiguration": {
+    "name": "UpdateConfiguration",
+    "description": "Grants permission to update the specified configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configurations",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateUser": {
+    "name": "UpdateUser",
+    "description": "Grants permission to update the information for an ActiveMQ user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

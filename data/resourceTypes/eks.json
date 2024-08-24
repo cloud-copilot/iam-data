@@ -1,0 +1,67 @@
+{
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:cluster/${ClusterName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "nodegroup": {
+    "key": "nodegroup",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:nodegroup/${ClusterName}/${NodegroupName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "addon": {
+    "key": "addon",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:addon/${ClusterName}/${AddonName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "fargateprofile": {
+    "key": "fargateprofile",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:fargateprofile/${ClusterName}/${FargateProfileName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "identityproviderconfig": {
+    "key": "identityproviderconfig",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:identityproviderconfig/${ClusterName}/${IdentityProviderType}/${IdentityProviderConfigName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "eks-anywhere-subscription": {
+    "key": "eks-anywhere-subscription",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:eks-anywhere-subscription/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "podidentityassociation": {
+    "key": "podidentityassociation",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:podidentityassociation/${ClusterName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "access-entry": {
+    "key": "access-entry",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:access-entry/${ClusterName}/${IamIdentityType}/${IamIdentityAccountID}/${IamIdentityName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "eks:accessEntryType",
+      "eks:clusterName",
+      "eks:kubernetesGroups",
+      "eks:principalArn",
+      "eks:username"
+    ]
+  },
+  "access-policy": {
+    "key": "access-policy",
+    "arn": "arn:${Partition}:eks::aws:cluster-access-policy/${AccessPolicyName}"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "detector": {
+    "key": "detector",
+    "arn": "arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "filter": {
+    "key": "filter",
+    "arn": "arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/filter/${FilterName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "ipset": {
+    "key": "ipset",
+    "arn": "arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/ipset/${IPSetId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "threatintelset": {
+    "key": "threatintelset",
+    "arn": "arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/threatintelset/${ThreatIntelSetId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "publishingDestination": {
+    "key": "publishingDestination",
+    "arn": "arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/publishingDestination/${PublishingDestinationId}"
+  },
+  "malwareprotectionplan": {
+    "key": "malwareprotectionplan",
+    "arn": "arn:${Partition}:guardduty:${Region}:${Account}:malware-protection-plan/${MalwareProtectionPlanId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

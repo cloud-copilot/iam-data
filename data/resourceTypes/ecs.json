@@ -1,0 +1,58 @@
+{
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:cluster/${ClusterName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
+  "container-instance": {
+    "key": "container-instance",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:container-instance/${ClusterName}/${ContainerInstanceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
+  "service": {
+    "key": "service",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service/${ClusterName}/${ServiceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
+  "task": {
+    "key": "task",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:task/${ClusterName}/${TaskId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
+  "task-definition": {
+    "key": "task-definition",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
+  "capacity-provider": {
+    "key": "capacity-provider",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:capacity-provider/${CapacityProviderName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
+  "task-set": {
+    "key": "task-set",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:task-set/${ClusterName}/${ServiceName}/${TaskSetId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  }
+}

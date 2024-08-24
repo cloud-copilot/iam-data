@@ -1,0 +1,39 @@
+{
+  "PermissionSet": {
+    "key": "PermissionSet",
+    "arn": "arn:${Partition}:sso:::permissionSet/${InstanceId}/${PermissionSetId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "Account": {
+    "key": "Account",
+    "arn": "arn:${Partition}:sso:::account/${AccountId}"
+  },
+  "Instance": {
+    "key": "Instance",
+    "arn": "arn:${Partition}:sso:::instance/${InstanceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "Application": {
+    "key": "Application",
+    "arn": "arn:${Partition}:sso::${AccountId}:application/${InstanceId}/${ApplicationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sso:ApplicationAccount"
+    ]
+  },
+  "TrustedTokenIssuer": {
+    "key": "TrustedTokenIssuer",
+    "arn": "arn:${Partition}:sso::${AccountId}:trustedTokenIssuer/${InstanceId}/${TrustedTokenIssuerId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "ApplicationProvider": {
+    "key": "ApplicationProvider",
+    "arn": "arn:${Partition}:sso::aws:applicationProvider/${ApplicationProviderId}"
+  }
+}

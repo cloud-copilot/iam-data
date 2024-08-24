@@ -1,0 +1,129 @@
+{
+  "GetExecution": {
+    "name": "GetExecution",
+    "description": "Grants permission to get details about specific execution within AWS Diagnostic tools",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetExecutionOutput": {
+    "name": "GetExecutionOutput",
+    "description": "Grants permission to get details about specific execution output within AWS Diagnostic tools",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTool": {
+    "name": "GetTool",
+    "description": "Grants permission to get details about specific tool within AWS Diagnostic tools",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "tool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListExecutions": {
+    "name": "ListExecutions",
+    "description": "Grants permission to list all available execution within AWS Diagnostic tools",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for an AWS Diagnostic tools resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "ListTools": {
+    "name": "ListTools",
+    "description": "Grants permission to list all available tools within AWS Diagnostic tools",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartExecution": {
+    "name": "StartExecution",
+    "description": "Grants permission to start an execution workflow of specific tool within AWS Diagnostic tools",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an AWS Diagnostic tools resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an AWS Diagnostic tools resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "Entity": {
+    "key": "Entity",
+    "arn": "arn:${Partition}:aws-marketplace:${Region}:${Account}:${Catalog}/${EntityType}/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "catalog:ChangeType"
+    ]
+  },
+  "ChangeSet": {
+    "key": "ChangeSet",
+    "arn": "arn:${Partition}:aws-marketplace:${Region}:${Account}:${Catalog}/ChangeSet/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "catalog:ChangeType"
+    ]
+  },
+  "DeploymentParameter": {
+    "key": "DeploymentParameter",
+    "arn": "arn:${Partition}:aws-marketplace:${Region}:${Account}:DeploymentParameter:catalogs/${CatalogName}/products/${ProductId}/${ResourceId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "SellerDashboard": {
+    "key": "SellerDashboard",
+    "arn": "arn:${Partition}:aws-marketplace::${Account}:${Catalog}/ReportingData/${FactTable}/Dashboard/${DashboardName}"
+  }
+}

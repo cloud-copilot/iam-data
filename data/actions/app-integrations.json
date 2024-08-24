@@ -1,0 +1,563 @@
+{
+  "CreateApplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create a new Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:AttachRolePolicy",
+          "iam:CreateServiceLinkedRole",
+          "iam:PutRolePolicy"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateApplicationAssociation": {
+    "name": "CreateApplicationAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an ApplicationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateDataIntegration": {
+    "name": "CreateDataIntegration",
+    "description": "Grants permission to create a new DataIntegration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "appflow:DeleteFlow",
+          "appflow:DescribeConnectorProfiles",
+          "iam:AttachRolePolicy",
+          "iam:CreateServiceLinkedRole",
+          "iam:PutRolePolicy",
+          "kms:CreateGrant",
+          "profile:GetDomain",
+          "profile:GetProfileObjectType",
+          "s3:GetBucketNotification",
+          "s3:GetEncryptionConfiguration",
+          "s3:PutBucketNotification"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateDataIntegrationAssociation": {
+    "name": "CreateDataIntegrationAssociation",
+    "description": "Grants permission to create a DataIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "appflow:CreateFlow",
+          "appflow:DeleteFlow",
+          "appflow:DescribeConnectorEntity",
+          "appflow:DescribeConnectorProfiles",
+          "appflow:TagResource",
+          "appflow:UseConnectorProfile",
+          "profile:CreateSnapshot",
+          "profile:GetSnapshot"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateEventIntegration": {
+    "name": "CreateEventIntegration",
+    "description": "Grants permission to create a new EventIntegration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:AttachRolePolicy",
+          "iam:CreateServiceLinkedRole",
+          "iam:PutRolePolicy"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateEventIntegrationAssociation": {
+    "name": "CreateEventIntegrationAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an EventIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "events:PutRule",
+          "events:PutTargets"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplicationAssociation": {
+    "name": "DeleteApplicationAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an ApplicationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDataIntegration": {
+    "name": "DeleteDataIntegration",
+    "description": "Grants permission to delete a DataIntegration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteDataIntegrationAssociation": {
+    "name": "DeleteDataIntegrationAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete a DataIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "appflow:CreateFlow",
+      "appflow:DeleteFlow",
+      "appflow:DescribeConnectorEntity",
+      "appflow:DescribeConnectorProfiles",
+      "appflow:StopFlow",
+      "appflow:TagResource",
+      "appflow:UseConnectorProfile"
+    ]
+  },
+  "DeleteEventIntegration": {
+    "name": "DeleteEventIntegration",
+    "description": "Grants permission to delete an EventIntegration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteEventIntegrationAssociation": {
+    "name": "DeleteEventIntegrationAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an EventIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-integration-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "events:DeleteRule",
+      "events:ListTargetsByRule",
+      "events:RemoveTargets"
+    ]
+  },
+  "GetApplication": {
+    "name": "GetApplication",
+    "description": "Grants permission to view details about Application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetDataIntegration": {
+    "name": "GetDataIntegration",
+    "description": "Grants permission to view details about DataIntegrations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetEventIntegration": {
+    "name": "GetEventIntegration",
+    "description": "Grants permission to view details about EventIntegrations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "event-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListApplicationAssociations": {
+    "name": "ListApplicationAssociations",
+    "description": "Grants permission to list ApplicationAssociations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListApplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list Applications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDataIntegrationAssociations": {
+    "name": "ListDataIntegrationAssociations",
+    "description": "Grants permission to list DataIntegrationAssociations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDataIntegrations": {
+    "name": "ListDataIntegrations",
+    "description": "Grants permission to list DataIntegrations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEventIntegrationAssociations": {
+    "name": "ListEventIntegrationAssociations",
+    "description": "Grants permission to list EventIntegrationAssociations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEventIntegrations": {
+    "name": "ListEventIntegrations",
+    "description": "Grants permission to list EventIntegrations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to lists tag for an Amazon AppIntegration resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an Amazon AppIntegration resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "application-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an Amazon AppIntegration resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "application-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateApplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to modify an Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateDataIntegration": {
+    "name": "UpdateDataIntegration",
+    "description": "Grants permission to modify a DataIntegration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateDataIntegrationAssociation": {
+    "name": "UpdateDataIntegrationAssociation",
+    "description": "Grants permission to modify a DataIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "profile:CreateSnapshot",
+          "profile:GetSnapshot"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateEventIntegration": {
+    "name": "UpdateEventIntegration",
+    "description": "Grants permission to modify an EventIntegration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

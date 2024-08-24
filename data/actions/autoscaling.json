@@ -1,0 +1,998 @@
+{
+  "AttachInstances": {
+    "name": "AttachInstances",
+    "description": "Grants permission to attach one or more EC2 instances to the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "AttachLoadBalancerTargetGroups": {
+    "name": "AttachLoadBalancerTargetGroups",
+    "description": "Grants permission to attach one or more target groups to the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:TargetGroupARNs"
+    ],
+    "dependentActions": []
+  },
+  "AttachLoadBalancers": {
+    "name": "AttachLoadBalancers",
+    "description": "Grants permission to attach one or more load balancers to the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:LoadBalancerNames"
+    ],
+    "dependentActions": []
+  },
+  "AttachTrafficSources": {
+    "name": "AttachTrafficSources",
+    "description": "Grants permission to attach one or more traffic sources to an Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:TrafficSourceIdentifiers"
+    ],
+    "dependentActions": []
+  },
+  "BatchDeleteScheduledAction": {
+    "name": "BatchDeleteScheduledAction",
+    "description": "Grants permission to delete the specified scheduled actions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "BatchPutScheduledUpdateGroupAction": {
+    "name": "BatchPutScheduledUpdateGroupAction",
+    "description": "Grants permission to create or update multiple scheduled scaling actions for an Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CancelInstanceRefresh": {
+    "name": "CancelInstanceRefresh",
+    "description": "Grants permission to cancel an instance refresh operation in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CompleteLifecycleAction": {
+    "name": "CompleteLifecycleAction",
+    "description": "Grants permission to complete the lifecycle action for the specified token or instance with the specified result",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateAutoScalingGroup": {
+    "name": "CreateAutoScalingGroup",
+    "description": "Grants permission to create an Auto Scaling group with the specified name and attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:InstanceTypes",
+      "autoscaling:LaunchConfigurationName",
+      "autoscaling:LaunchTemplateVersionSpecified",
+      "autoscaling:LoadBalancerNames",
+      "autoscaling:MaxSize",
+      "autoscaling:MinSize",
+      "autoscaling:TargetGroupARNs",
+      "autoscaling:TrafficSourceIdentifiers",
+      "autoscaling:VPCZoneIdentifiers",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateLaunchConfiguration": {
+    "name": "CreateLaunchConfiguration",
+    "description": "Grants permission to create a launch configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launchConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ImageId",
+      "autoscaling:InstanceType",
+      "autoscaling:SpotPrice",
+      "autoscaling:MetadataHttpTokens",
+      "autoscaling:MetadataHttpPutResponseHopLimit",
+      "autoscaling:MetadataHttpEndpoint"
+    ],
+    "dependentActions": []
+  },
+  "CreateOrUpdateTags": {
+    "name": "CreateOrUpdateTags",
+    "description": "Grants permission to create or update tags for the specified Auto Scaling group",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAutoScalingGroup": {
+    "name": "DeleteAutoScalingGroup",
+    "description": "Grants permission to delete the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteLaunchConfiguration": {
+    "name": "DeleteLaunchConfiguration",
+    "description": "Grants permission to delete the specified launch configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "launchConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteLifecycleHook": {
+    "name": "DeleteLifecycleHook",
+    "description": "Grants permission to deletes the specified lifecycle hook",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteNotificationConfiguration": {
+    "name": "DeleteNotificationConfiguration",
+    "description": "Grants permission to delete the specified notification",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeletePolicy": {
+    "name": "DeletePolicy",
+    "description": "Grants permission to delete the specified Auto Scaling policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteScheduledAction": {
+    "name": "DeleteScheduledAction",
+    "description": "Grants permission to delete the specified scheduled action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteTags": {
+    "name": "DeleteTags",
+    "description": "Grants permission to delete the specified tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteWarmPool": {
+    "name": "DeleteWarmPool",
+    "description": "Grants permission to delete the warm pool associated with the Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeAccountLimits": {
+    "name": "DescribeAccountLimits",
+    "description": "Grants permission to describe the current Auto Scaling resource limits for your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAdjustmentTypes": {
+    "name": "DescribeAdjustmentTypes",
+    "description": "Grants permission to describe the policy adjustment types for use with PutScalingPolicy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAutoScalingGroups": {
+    "name": "DescribeAutoScalingGroups",
+    "description": "Grants permission to describe one or more Auto Scaling groups. If a list of names is not provided, the call describes all Auto Scaling groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAutoScalingInstances": {
+    "name": "DescribeAutoScalingInstances",
+    "description": "Grants permission to describe one or more Auto Scaling instances. If a list is not provided, the call describes all instances",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAutoScalingNotificationTypes": {
+    "name": "DescribeAutoScalingNotificationTypes",
+    "description": "Grants permission to describe the notification types that are supported by Auto Scaling",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstanceRefreshes": {
+    "name": "DescribeInstanceRefreshes",
+    "description": "Grants permission to describe one or more instance refreshes for an Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLaunchConfigurations": {
+    "name": "DescribeLaunchConfigurations",
+    "description": "Grants permission to describe one or more launch configurations. If you omit the list of names, then the call describes all launch configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLifecycleHookTypes": {
+    "name": "DescribeLifecycleHookTypes",
+    "description": "Grants permission to describe the available types of lifecycle hooks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLifecycleHooks": {
+    "name": "DescribeLifecycleHooks",
+    "description": "Grants permission to describe the lifecycle hooks for the specified Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLoadBalancerTargetGroups": {
+    "name": "DescribeLoadBalancerTargetGroups",
+    "description": "Grants permission to describe the target groups for the specified Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLoadBalancers": {
+    "name": "DescribeLoadBalancers",
+    "description": "Grants permission to describe the load balancers for the specified Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeMetricCollectionTypes": {
+    "name": "DescribeMetricCollectionTypes",
+    "description": "Grants permission to describe the available CloudWatch metrics for Auto Scaling",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeNotificationConfigurations": {
+    "name": "DescribeNotificationConfigurations",
+    "description": "Grants permission to describe the notification actions associated with the specified Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePolicies": {
+    "name": "DescribePolicies",
+    "description": "Grants permission to describe the policies for the specified Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeScalingActivities": {
+    "name": "DescribeScalingActivities",
+    "description": "Grants permission to describe one or more scaling activities for the specified Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeScalingProcessTypes": {
+    "name": "DescribeScalingProcessTypes",
+    "description": "Grants permission to describe the scaling process types for use with ResumeProcesses and SuspendProcesses",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeScheduledActions": {
+    "name": "DescribeScheduledActions",
+    "description": "Grants permission to describe the actions scheduled for your Auto Scaling group that haven't run",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTags": {
+    "name": "DescribeTags",
+    "description": "Grants permission to describe the specified tags",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTerminationPolicyTypes": {
+    "name": "DescribeTerminationPolicyTypes",
+    "description": "Grants permission to describe the termination policies supported by Auto Scaling",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTrafficSources": {
+    "name": "DescribeTrafficSources",
+    "description": "Grants permission to describe the target groups for the specified Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWarmPool": {
+    "name": "DescribeWarmPool",
+    "description": "Grants permission to describe the warm pool associated with the Auto Scaling group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetachInstances": {
+    "name": "DetachInstances",
+    "description": "Grants permission to remove one or more instances from the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DetachLoadBalancerTargetGroups": {
+    "name": "DetachLoadBalancerTargetGroups",
+    "description": "Grants permission to detach one or more target groups from the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:TargetGroupARNs"
+    ],
+    "dependentActions": []
+  },
+  "DetachLoadBalancers": {
+    "name": "DetachLoadBalancers",
+    "description": "Grants permission to remove one or more load balancers from the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:LoadBalancerNames"
+    ],
+    "dependentActions": []
+  },
+  "DetachTrafficSources": {
+    "name": "DetachTrafficSources",
+    "description": "Grants permission to detach one or more traffic sources from an Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:TrafficSourceIdentifiers"
+    ],
+    "dependentActions": []
+  },
+  "DisableMetricsCollection": {
+    "name": "DisableMetricsCollection",
+    "description": "Grants permission to disable monitoring of the specified metrics for the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "EnableMetricsCollection": {
+    "name": "EnableMetricsCollection",
+    "description": "Grants permission to enable monitoring of the specified metrics for the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "EnterStandby": {
+    "name": "EnterStandby",
+    "description": "Grants permission to move the specified instances into Standby mode",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ExecutePolicy": {
+    "name": "ExecutePolicy",
+    "description": "Grants permission to execute the specified policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ExitStandby": {
+    "name": "ExitStandby",
+    "description": "Grants permission to move the specified instances out of Standby mode",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetPredictiveScalingForecast": {
+    "name": "GetPredictiveScalingForecast",
+    "description": "Grants permission to retrieve the forecast data for a predictive scaling policy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutLifecycleHook": {
+    "name": "PutLifecycleHook",
+    "description": "Grants permission to create or update a lifecycle hook for the specified Auto Scaling Group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "PutNotificationConfiguration": {
+    "name": "PutNotificationConfiguration",
+    "description": "Grants permission to configure an Auto Scaling group to send notifications when specified events take place",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "PutScalingPolicy": {
+    "name": "PutScalingPolicy",
+    "description": "Grants permission to create or update a policy for an Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "PutScheduledUpdateGroupAction": {
+    "name": "PutScheduledUpdateGroupAction",
+    "description": "Grants permission to create or update a scheduled scaling action for an Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:MaxSize",
+      "autoscaling:MinSize"
+    ],
+    "dependentActions": []
+  },
+  "PutWarmPool": {
+    "name": "PutWarmPool",
+    "description": "Grants permission to create or update the warm pool associated with the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RecordLifecycleActionHeartbeat": {
+    "name": "RecordLifecycleActionHeartbeat",
+    "description": "Grants permission to record a heartbeat for the lifecycle action associated with the specified token or instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ResumeProcesses": {
+    "name": "ResumeProcesses",
+    "description": "Grants permission to resume the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RollbackInstanceRefresh": {
+    "name": "RollbackInstanceRefresh",
+    "description": "Grants permission to rollback an instance refresh operation in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetDesiredCapacity": {
+    "name": "SetDesiredCapacity",
+    "description": "Grants permission to set the size of the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetInstanceHealth": {
+    "name": "SetInstanceHealth",
+    "description": "Grants permission to set the health status of the specified instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetInstanceProtection": {
+    "name": "SetInstanceProtection",
+    "description": "Grants permission to update the instance protection settings of the specified instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "StartInstanceRefresh": {
+    "name": "StartInstanceRefresh",
+    "description": "Grants permission to start a new instance refresh operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SuspendProcesses": {
+    "name": "SuspendProcesses",
+    "description": "Grants permission to suspend the specified Auto Scaling processes, or all processes, for the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TerminateInstanceInAutoScalingGroup": {
+    "name": "TerminateInstanceInAutoScalingGroup",
+    "description": "Grants permission to terminate the specified instance and optionally adjust the desired group size",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAutoScalingGroup": {
+    "name": "UpdateAutoScalingGroup",
+    "description": "Grants permission to update the configuration for the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:InstanceTypes",
+      "autoscaling:LaunchConfigurationName",
+      "autoscaling:LaunchTemplateVersionSpecified",
+      "autoscaling:MaxSize",
+      "autoscaling:MinSize",
+      "autoscaling:VPCZoneIdentifiers"
+    ],
+    "dependentActions": []
+  }
+}

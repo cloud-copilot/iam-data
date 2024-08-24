@@ -1,0 +1,615 @@
+{
+  "AcceptPage": {
+    "name": "AcceptPage",
+    "description": "Grants permission to accept a page",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "page",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ActivateContactChannel": {
+    "name": "ActivateContactChannel",
+    "description": "Grants permission to activate a contact's contact channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contactchannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateContact": {
+    "name": "AssociateContact",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use a contact in an escalation plan",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateContact": {
+    "name": "CreateContact",
+    "description": "Grants permission to create a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ssm-contacts:AssociateContact"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateContactChannel": {
+    "name": "CreateContactChannel",
+    "description": "Grants permission to create a contact channel for a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateRotation": {
+    "name": "CreateRotation",
+    "description": "Grants permission to create a rotation in an on-call schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateRotationOverride": {
+    "name": "CreateRotationOverride",
+    "description": "Grants permission to create an override for a rotation in an on-call schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeactivateContactChannel": {
+    "name": "DeactivateContactChannel",
+    "description": "Grants permission to deactivate a contact's contact channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contactchannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteContact": {
+    "name": "DeleteContact",
+    "description": "Grants permission to delete a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteContactChannel": {
+    "name": "DeleteContactChannel",
+    "description": "Grants permission to delete a contact's contact channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contactchannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRotation": {
+    "name": "DeleteRotation",
+    "description": "Grants permission to delete a rotation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRotationOverride": {
+    "name": "DeleteRotationOverride",
+    "description": "Grants permission to delete a rotation's rotation override",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEngagement": {
+    "name": "DescribeEngagement",
+    "description": "Grants permission to describe an engagement",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "engagement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePage": {
+    "name": "DescribePage",
+    "description": "Grants permission to describe a page",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "page",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetContact": {
+    "name": "GetContact",
+    "description": "Grants permission to get a contact",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetContactChannel": {
+    "name": "GetContactChannel",
+    "description": "Grants permission to get a contact's contact channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contactchannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetContactPolicy": {
+    "name": "GetContactPolicy",
+    "description": "Grants permission to get a contact's resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRotation": {
+    "name": "GetRotation",
+    "description": "Grants permission to retrieve information about an on-call rotation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRotationOverride": {
+    "name": "GetRotationOverride",
+    "description": "Grants permission to retrieve information about an override in an on-call rotation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListContactChannels": {
+    "name": "ListContactChannels",
+    "description": "Grants permission to list all of a contact's contact channels",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListContacts": {
+    "name": "ListContacts",
+    "description": "Grants permission to list all contacts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEngagements": {
+    "name": "ListEngagements",
+    "description": "Grants permission to list all engagements",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPageReceipts": {
+    "name": "ListPageReceipts",
+    "description": "Grants permission to list all receipts of a page",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "page",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPageResolutions": {
+    "name": "ListPageResolutions",
+    "description": "Grants permission to list the resolution path of an engagement",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "page",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPagesByContact": {
+    "name": "ListPagesByContact",
+    "description": "Grants permission to list all pages sent to a contact",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPagesByEngagement": {
+    "name": "ListPagesByEngagement",
+    "description": "Grants permission to list all pages created in an engagement",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "engagement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPreviewRotationShifts": {
+    "name": "ListPreviewRotationShifts",
+    "description": "Grants permission to retrieve a list of shifts based on rotation configuration parameters",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRotationOverrides": {
+    "name": "ListRotationOverrides",
+    "description": "Grants permission to retrieve a list of overrides currently specified for an on-call rotation",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRotationShifts": {
+    "name": "ListRotationShifts",
+    "description": "Grants permission to retrieve a list of rotation shifts in an on-call schedule",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRotations": {
+    "name": "ListRotations",
+    "description": "Grants permission to retrieve a list of on-call rotations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to view a list of resource tags for a specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rotation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutContactPolicy": {
+    "name": "PutContactPolicy",
+    "description": "Grants permission to add a resource policy to a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendActivationCode": {
+    "name": "SendActivationCode",
+    "description": "Grants permission to send the activation code of a contact's contact channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contactchannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartEngagement": {
+    "name": "StartEngagement",
+    "description": "Grants permission to start an engagement",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopEngagement": {
+    "name": "StopEngagement",
+    "description": "Grants permission to stop an engagement",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "engagement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rotation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rotation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateContact": {
+    "name": "UpdateContact",
+    "description": "Grants permission to update a contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ssm-contacts:AssociateContact"
+    ]
+  },
+  "UpdateContactChannel": {
+    "name": "UpdateContactChannel",
+    "description": "Grants permission to update a contact's contact channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contactchannel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateRotation": {
+    "name": "UpdateRotation",
+    "description": "Grants permission to update the information specified for an on-call rotation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rotation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

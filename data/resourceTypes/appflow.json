@@ -1,0 +1,20 @@
+{
+  "connectorprofile": {
+    "key": "connectorprofile",
+    "arn": "arn:${Partition}:appflow:${Region}:${Account}:connectorprofile/${ProfileName}"
+  },
+  "flow": {
+    "key": "flow",
+    "arn": "arn:${Partition}:appflow:${Region}:${Account}:flow/${FlowName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "connector": {
+    "key": "connector",
+    "arn": "arn:${Partition}:appflow:${Region}:${Account}:connector/${ConnectorLabel}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

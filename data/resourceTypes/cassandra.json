@@ -1,0 +1,16 @@
+{
+  "keyspace": {
+    "key": "keyspace",
+    "arn": "arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "table": {
+    "key": "table",
+    "arn": "arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/table/${TableName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

@@ -1,0 +1,1585 @@
+{
+  "AssociateFailbackClientToRecoveryInstanceForDrs": {
+    "name": "AssociateFailbackClientToRecoveryInstanceForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get associate failback client to recovery instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateSourceNetworkStack": {
+    "name": "AssociateSourceNetworkStack",
+    "description": "Grants permission to associate CloudFormation stack with source network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceNetworkResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudformation:DescribeStackResource",
+          "cloudformation:DescribeStacks",
+          "drs:GetLaunchConfiguration",
+          "ec2:CreateLaunchTemplateVersion",
+          "ec2:DescribeLaunchTemplateVersions",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "ec2:ModifyLaunchTemplate"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "BatchCreateVolumeSnapshotGroupForDrs": {
+    "name": "BatchCreateVolumeSnapshotGroupForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to batch create volume snapshot group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchDeleteSnapshotRequestForDrs": {
+    "name": "BatchDeleteSnapshotRequestForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to batch delete snapshot request",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConvertedSnapshotForDrs": {
+    "name": "CreateConvertedSnapshotForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create converted snapshot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateExtendedSourceServer": {
+    "name": "CreateExtendedSourceServer",
+    "description": "Grants permission to extend a source server",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "drs:DescribeSourceServers",
+      "drs:GetReplicationConfiguration"
+    ]
+  },
+  "CreateLaunchConfigurationTemplate": {
+    "name": "CreateLaunchConfigurationTemplate",
+    "description": "Grants permission to create launch configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateRecoveryInstanceForDrs": {
+    "name": "CreateRecoveryInstanceForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create recovery instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateReplicationConfigurationTemplate": {
+    "name": "CreateReplicationConfigurationTemplate",
+    "description": "Grants permission to create replication configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:CreateSecurityGroup",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:GetEbsDefaultKmsKeyId",
+      "ec2:GetEbsEncryptionByDefault",
+      "kms:CreateGrant",
+      "kms:DescribeKey"
+    ]
+  },
+  "CreateSourceNetwork": {
+    "name": "CreateSourceNetwork",
+    "description": "Grants permission to create a source network",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeInstances",
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "CreateSourceServerForDrs": {
+    "name": "CreateSourceServerForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a source server",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteJob": {
+    "name": "DeleteJob",
+    "description": "Grants permission to delete a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "JobResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteLaunchAction": {
+    "name": "DeleteLaunchAction",
+    "description": "Grants permission to delete a launch action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteLaunchConfigurationTemplate": {
+    "name": "DeleteLaunchConfigurationTemplate",
+    "description": "Grants permission to delete launch configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRecoveryInstance": {
+    "name": "DeleteRecoveryInstance",
+    "description": "Grants permission to delete recovery instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReplicationConfigurationTemplate": {
+    "name": "DeleteReplicationConfigurationTemplate",
+    "description": "Grants permission to delete replication configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteSourceNetwork": {
+    "name": "DeleteSourceNetwork",
+    "description": "Grants permission to delete source network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceNetworkResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteSourceServer": {
+    "name": "DeleteSourceServer",
+    "description": "Grants permission to delete source server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeJobLogItems": {
+    "name": "DescribeJobLogItems",
+    "description": "Grants permission to describe job log items",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "JobResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeJobs": {
+    "name": "DescribeJobs",
+    "description": "Grants permission to describe jobs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLaunchConfigurationTemplates": {
+    "name": "DescribeLaunchConfigurationTemplates",
+    "description": "Grants permission to describe launch configuration template",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRecoveryInstances": {
+    "name": "DescribeRecoveryInstances",
+    "description": "Grants permission to describe recovery instances",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "drs:DescribeSourceServers",
+      "ec2:DescribeInstances"
+    ]
+  },
+  "DescribeRecoverySnapshots": {
+    "name": "DescribeRecoverySnapshots",
+    "description": "Grants permission to describe recovery snapshots",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationConfigurationTemplates": {
+    "name": "DescribeReplicationConfigurationTemplates",
+    "description": "Grants permission to describe replication configuration template",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReplicationServerAssociationsForDrs": {
+    "name": "DescribeReplicationServerAssociationsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe replication server associations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSnapshotRequestsForDrs": {
+    "name": "DescribeSnapshotRequestsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe snapshot requests",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSourceNetworks": {
+    "name": "DescribeSourceNetworks",
+    "description": "Grants permission to describe source networks",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSourceServers": {
+    "name": "DescribeSourceServers",
+    "description": "Grants permission to describe source servers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisconnectRecoveryInstance": {
+    "name": "DisconnectRecoveryInstance",
+    "description": "Grants permission to disconnect recovery instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisconnectSourceServer": {
+    "name": "DisconnectSourceServer",
+    "description": "Grants permission to disconnect source server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ExportSourceNetworkCfnTemplate": {
+    "name": "ExportSourceNetworkCfnTemplate",
+    "description": "Grants permission to export CloudFormation template which contains source network resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceNetworkResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "s3:GetBucketLocation",
+          "s3:GetObject",
+          "s3:PutObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "GetAgentCommandForDrs": {
+    "name": "GetAgentCommandForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent command",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentConfirmedResumeInfoForDrs": {
+    "name": "GetAgentConfirmedResumeInfoForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent confirmed resume info",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentInstallationAssetsForDrs": {
+    "name": "GetAgentInstallationAssetsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent installation assets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentReplicationInfoForDrs": {
+    "name": "GetAgentReplicationInfoForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent replication info",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentRuntimeConfigurationForDrs": {
+    "name": "GetAgentRuntimeConfigurationForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent runtime configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentSnapshotCreditsForDrs": {
+    "name": "GetAgentSnapshotCreditsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get agent snapshot credits",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetChannelCommandsForDrs": {
+    "name": "GetChannelCommandsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get channel commands",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFailbackCommandForDrs": {
+    "name": "GetFailbackCommandForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get failback command",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFailbackLaunchRequestedForDrs": {
+    "name": "GetFailbackLaunchRequestedForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get failback launch requested",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFailbackReplicationConfiguration": {
+    "name": "GetFailbackReplicationConfiguration",
+    "description": "Grants permission to get failback replication configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLaunchConfiguration": {
+    "name": "GetLaunchConfiguration",
+    "description": "Grants permission to get launch configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetReplicationConfiguration": {
+    "name": "GetReplicationConfiguration",
+    "description": "Grants permission to get replication configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSuggestedFailbackClientDeviceMappingForDrs": {
+    "name": "GetSuggestedFailbackClientDeviceMappingForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get suggested failback client device mapping",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InitializeService": {
+    "name": "InitializeService",
+    "description": "Grants permission to initialize service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:AddRoleToInstanceProfile",
+      "iam:CreateInstanceProfile",
+      "iam:CreateServiceLinkedRole",
+      "iam:GetInstanceProfile"
+    ]
+  },
+  "IssueAgentCertificateForDrs": {
+    "name": "IssueAgentCertificateForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to issue an agent certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListExtensibleSourceServers": {
+    "name": "ListExtensibleSourceServers",
+    "description": "Grants permission to list extensible source servers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "drs:DescribeSourceServers"
+    ]
+  },
+  "ListLaunchActions": {
+    "name": "ListLaunchActions",
+    "description": "Grants permission to list launch actions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListStagingAccounts": {
+    "name": "ListStagingAccounts",
+    "description": "Grants permission to list staging accounts",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyAgentAuthenticationForDrs": {
+    "name": "NotifyAgentAuthenticationForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent authentication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyAgentConnectedForDrs": {
+    "name": "NotifyAgentConnectedForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent is connected",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyAgentDisconnectedForDrs": {
+    "name": "NotifyAgentDisconnectedForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent is disconnected",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyAgentReplicationProgressForDrs": {
+    "name": "NotifyAgentReplicationProgressForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify agent replication progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyConsistencyAttainedForDrs": {
+    "name": "NotifyConsistencyAttainedForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify consistency attained",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyReplicationServerAuthenticationForDrs": {
+    "name": "NotifyReplicationServerAuthenticationForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify replication server authentication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "NotifyVolumeEventForDrs": {
+    "name": "NotifyVolumeEventForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to notify replicator volume events",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutLaunchAction": {
+    "name": "PutLaunchAction",
+    "description": "Grants permission to put a launch action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ssm:DescribeDocument"
+        ]
+      },
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RetryDataReplication": {
+    "name": "RetryDataReplication",
+    "description": "Grants permission to retry data replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ReverseReplication": {
+    "name": "ReverseReplication",
+    "description": "Grants permission to reverse replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "drs:DescribeReplicationConfigurationTemplates",
+          "drs:DescribeSourceServers",
+          "ec2:DescribeInstances"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "SendAgentLogsForDrs": {
+    "name": "SendAgentLogsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send agent logs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendAgentMetricsForDrs": {
+    "name": "SendAgentMetricsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send agent metrics",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendChannelCommandResultForDrs": {
+    "name": "SendChannelCommandResultForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send channel command result",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendClientLogsForDrs": {
+    "name": "SendClientLogsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send client logs",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendClientMetricsForDrs": {
+    "name": "SendClientMetricsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send client metrics",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendVolumeStatsForDrs": {
+    "name": "SendVolumeStatsForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send volume throughput statistics",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartFailbackLaunch": {
+    "name": "StartFailbackLaunch",
+    "description": "Grants permission to start failback launch",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "StartRecovery": {
+    "name": "StartRecovery",
+    "description": "Grants permission to start recovery",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "drs:CreateRecoveryInstanceForDrs",
+          "drs:ListTagsForResource",
+          "ec2:AttachVolume",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:CreateLaunchTemplate",
+          "ec2:CreateLaunchTemplateVersion",
+          "ec2:CreateSnapshot",
+          "ec2:CreateTags",
+          "ec2:CreateVolume",
+          "ec2:DeleteLaunchTemplateVersions",
+          "ec2:DeleteSnapshot",
+          "ec2:DeleteVolume",
+          "ec2:DescribeAccountAttributes",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeImages",
+          "ec2:DescribeInstanceAttribute",
+          "ec2:DescribeInstanceStatus",
+          "ec2:DescribeInstanceTypes",
+          "ec2:DescribeInstances",
+          "ec2:DescribeLaunchTemplateVersions",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSnapshots",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVolumes",
+          "ec2:DetachVolume",
+          "ec2:ModifyInstanceAttribute",
+          "ec2:ModifyLaunchTemplate",
+          "ec2:RevokeSecurityGroupEgress",
+          "ec2:RunInstances",
+          "ec2:StartInstances",
+          "ec2:StopInstances",
+          "ec2:TerminateInstances",
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "StartReplication": {
+    "name": "StartReplication",
+    "description": "Grants permission to start replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartSourceNetworkRecovery": {
+    "name": "StartSourceNetworkRecovery",
+    "description": "Grants permission to start network recovery",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceNetworkResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudformation:CreateStack",
+          "cloudformation:DescribeStackResource",
+          "cloudformation:DescribeStacks",
+          "cloudformation:UpdateStack",
+          "drs:GetLaunchConfiguration",
+          "ec2:CreateLaunchTemplateVersion",
+          "ec2:DescribeLaunchTemplateVersions",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "ec2:ModifyLaunchTemplate",
+          "s3:GetObject",
+          "s3:PutObject"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "StartSourceNetworkReplication": {
+    "name": "StartSourceNetworkReplication",
+    "description": "Grants permission to start network replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceNetworkResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopFailback": {
+    "name": "StopFailback",
+    "description": "Grants permission to stop failback",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopReplication": {
+    "name": "StopReplication",
+    "description": "Grants permission to stop replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopSourceNetworkReplication": {
+    "name": "StopSourceNetworkReplication",
+    "description": "Grants permission to stop network replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceNetworkResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to assign a resource tag",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "JobResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RecoveryInstanceResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceNetworkResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "drs:CreateAction"
+    ],
+    "dependentActions": []
+  },
+  "TerminateRecoveryInstances": {
+    "name": "TerminateRecoveryInstances",
+    "description": "Grants permission to terminate recovery instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "drs:DescribeSourceServers",
+          "ec2:DeleteVolume",
+          "ec2:DescribeInstances",
+          "ec2:DescribeVolumes",
+          "ec2:TerminateInstances"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "JobResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RecoveryInstanceResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceNetworkResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAgentBacklogForDrs": {
+    "name": "UpdateAgentBacklogForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent backlog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgentConversionInfoForDrs": {
+    "name": "UpdateAgentConversionInfoForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent conversion info",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgentReplicationInfoForDrs": {
+    "name": "UpdateAgentReplicationInfoForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent replication info",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgentReplicationProcessStateForDrs": {
+    "name": "UpdateAgentReplicationProcessStateForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent replication process state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgentSourcePropertiesForDrs": {
+    "name": "UpdateAgentSourcePropertiesForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update agent source properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFailbackClientDeviceMappingForDrs": {
+    "name": "UpdateFailbackClientDeviceMappingForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update failback client device mapping",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFailbackClientLastSeenForDrs": {
+    "name": "UpdateFailbackClientLastSeenForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update failback client last seen",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFailbackReplicationConfiguration": {
+    "name": "UpdateFailbackReplicationConfiguration",
+    "description": "Grants permission to update failback replication configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateLaunchConfiguration": {
+    "name": "UpdateLaunchConfiguration",
+    "description": "Grants permission to update launch configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeInstances"
+    ]
+  },
+  "UpdateLaunchConfigurationTemplate": {
+    "name": "UpdateLaunchConfigurationTemplate",
+    "description": "Grants permission to update launch configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateReplicationCertificateForDrs": {
+    "name": "UpdateReplicationCertificateForDrs",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update a replication certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateReplicationConfiguration": {
+    "name": "UpdateReplicationConfiguration",
+    "description": "Grants permission to update replication configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateSecurityGroup",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:GetEbsDefaultKmsKeyId",
+      "ec2:GetEbsEncryptionByDefault",
+      "kms:CreateGrant",
+      "kms:DescribeKey"
+    ]
+  },
+  "UpdateReplicationConfigurationTemplate": {
+    "name": "UpdateReplicationConfigurationTemplate",
+    "description": "Grants permission to update replication configuration template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ReplicationConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateSecurityGroup",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:GetEbsDefaultKmsKeyId",
+      "ec2:GetEbsEncryptionByDefault",
+      "kms:CreateGrant",
+      "kms:DescribeKey"
+    ]
+  }
+}

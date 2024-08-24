@@ -1,0 +1,23 @@
+{
+  "response-plan": {
+    "key": "response-plan",
+    "arn": "arn:${Partition}:ssm-incidents::${Account}:response-plan/${ResponsePlan}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "incident-record": {
+    "key": "incident-record",
+    "arn": "arn:${Partition}:ssm-incidents::${Account}:incident-record/${ResponsePlan}/${IncidentRecord}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "replication-set": {
+    "key": "replication-set",
+    "arn": "arn:${Partition}:ssm-incidents::${Account}:replication-set/${ReplicationSet}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

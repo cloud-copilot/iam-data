@@ -1,0 +1,1011 @@
+{
+  "AccessKubernetesApi": {
+    "name": "AccessKubernetesApi",
+    "isPermissionOnly": true,
+    "description": "Grants permission to view Kubernetes objects via AWS EKS console",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateAccessPolicy": {
+    "name": "AssociateAccessPolicy",
+    "description": "Grants permission to associate an Amazon EKS access policy to an Amazon EKS access entry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "eks:policyArn",
+      "eks:namespaces",
+      "eks:accessScope"
+    ],
+    "dependentActions": []
+  },
+  "AssociateEncryptionConfig": {
+    "name": "AssociateEncryptionConfig",
+    "description": "Grants permission to associate encryption configuration to a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateIdentityProviderConfig": {
+    "name": "AssociateIdentityProviderConfig",
+    "description": "Grants permission to associate an identity provider configuration to a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "eks:clientId",
+      "eks:issuerUrl"
+    ],
+    "dependentActions": []
+  },
+  "CreateAccessEntry": {
+    "name": "CreateAccessEntry",
+    "description": "Grants permission to create an Amazon EKS access entry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "eks:principalArn",
+      "eks:kubernetesGroups",
+      "eks:username",
+      "eks:accessEntryType"
+    ],
+    "dependentActions": []
+  },
+  "CreateAddon": {
+    "name": "CreateAddon",
+    "description": "Grants permission to create an Amazon EKS add-on",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "podidentityassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateCluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create an Amazon EKS cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "eks:bootstrapClusterCreatorAdminPermissions",
+      "eks:bootstrapSelfManagedAddons",
+      "eks:authenticationMode",
+      "eks:supportType"
+    ],
+    "dependentActions": []
+  },
+  "CreateEksAnywhereSubscription": {
+    "name": "CreateEksAnywhereSubscription",
+    "description": "Grants permission to create an EKS Anywhere subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateFargateProfile": {
+    "name": "CreateFargateProfile",
+    "description": "Grants permission to create an AWS Fargate profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateNodegroup": {
+    "name": "CreateNodegroup",
+    "description": "Grants permission to create an Amazon EKS Nodegroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreatePodIdentityAssociation": {
+    "name": "CreatePodIdentityAssociation",
+    "description": "Grants permission to create an EKS Pod Identity association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAccessEntry": {
+    "name": "DeleteAccessEntry",
+    "description": "Grants permission to delete an Amazon EKS access entry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAddon": {
+    "name": "DeleteAddon",
+    "description": "Grants permission to delete an Amazon EKS add-on",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addon",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "podidentityassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete an Amazon EKS cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEksAnywhereSubscription": {
+    "name": "DeleteEksAnywhereSubscription",
+    "description": "Grants permission to describe an EKS Anywhere subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eks-anywhere-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFargateProfile": {
+    "name": "DeleteFargateProfile",
+    "description": "Grants permission to delete an AWS Fargate profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fargateprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteNodegroup": {
+    "name": "DeleteNodegroup",
+    "description": "Grants permission to delete an Amazon EKS Nodegroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "nodegroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePodIdentityAssociation": {
+    "name": "DeletePodIdentityAssociation",
+    "description": "Grants permission to delete an EKS Pod Identity association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "podidentityassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterCluster": {
+    "name": "DeregisterCluster",
+    "description": "Grants permission to deregister an External cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccessEntry": {
+    "name": "DescribeAccessEntry",
+    "description": "Grants permission to describe an Amazon EKS access entry",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAddon": {
+    "name": "DescribeAddon",
+    "description": "Grants permission to retrieve descriptive information about an Amazon EKS add-on",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "addon",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAddonConfiguration": {
+    "name": "DescribeAddonConfiguration",
+    "description": "Grants permission to list configuration options about an Amazon EKS add-on",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAddonVersions": {
+    "name": "DescribeAddonVersions",
+    "description": "Grants permission to retrieve descriptive version information about the add-ons that Amazon EKS Add-ons supports",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCluster": {
+    "name": "DescribeCluster",
+    "description": "Grants permission to retrieve descriptive information about an Amazon EKS cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEksAnywhereSubscription": {
+    "name": "DescribeEksAnywhereSubscription",
+    "description": "Grants permission to describe an EKS Anywhere subscription",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eks-anywhere-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFargateProfile": {
+    "name": "DescribeFargateProfile",
+    "description": "Grants permission to retrieve descriptive information about an AWS Fargate profile associated with a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fargateprofile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeIdentityProviderConfig": {
+    "name": "DescribeIdentityProviderConfig",
+    "description": "Grants permission to retrieve descriptive information about an Idp config associated with a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identityproviderconfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInsight": {
+    "name": "DescribeInsight",
+    "description": "Grants permission to retrieve descriptive information of a detected insight for a specified cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeNodegroup": {
+    "name": "DescribeNodegroup",
+    "description": "Grants permission to retrieve descriptive information about an Amazon EKS nodegroup",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "nodegroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePodIdentityAssociation": {
+    "name": "DescribePodIdentityAssociation",
+    "description": "Grants permission to describe an EKS Pod Identity association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "podidentityassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeUpdate": {
+    "name": "DescribeUpdate",
+    "description": "Grants permission to retrieve a given update for a given Amazon EKS cluster/nodegroup/add-on (in the specified or default region)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "addon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "nodegroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateAccessPolicy": {
+    "name": "DisassociateAccessPolicy",
+    "description": "Grants permission to disassociate an Amazon EKS access policy from an Amazon EKS acces entry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "eks:policyArn",
+      "eks:namespaces",
+      "eks:accessScope"
+    ],
+    "dependentActions": []
+  },
+  "DisassociateIdentityProviderConfig": {
+    "name": "DisassociateIdentityProviderConfig",
+    "description": "Grants permission to delete an asssociated Idp config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identityproviderconfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccessEntries": {
+    "name": "ListAccessEntries",
+    "description": "Grants permission to list all Amazon EKS access entries",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccessPolicies": {
+    "name": "ListAccessPolicies",
+    "description": "Grants permission to list Amazon EKS access policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAddons": {
+    "name": "ListAddons",
+    "description": "Grants permission to list the Amazon EKS add-ons in your AWS account (in the specified or default region) for a given cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAssociatedAccessPolicies": {
+    "name": "ListAssociatedAccessPolicies",
+    "description": "Grants permission to list associated access policy on and Amazon EKS access entry",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListClusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to list the Amazon EKS clusters in your AWS account (in the specified or default region)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEksAnywhereSubscriptions": {
+    "name": "ListEksAnywhereSubscriptions",
+    "description": "Grants permission to list EKS Anywhere subscriptions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFargateProfiles": {
+    "name": "ListFargateProfiles",
+    "description": "Grants permission to list the AWS Fargate profiles in your AWS account (in the specified or default region) associated with a given cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIdentityProviderConfigs": {
+    "name": "ListIdentityProviderConfigs",
+    "description": "Grants permission to list the Idp configs in your AWS account (in the specified or default region) associated with a given cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListInsights": {
+    "name": "ListInsights",
+    "description": "Grants permission to list all detected insights for a specified cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListNodegroups": {
+    "name": "ListNodegroups",
+    "description": "Grants permission to list the Amazon EKS nodegroups in your AWS account (in the specified or default region) attached to given cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPodIdentityAssociations": {
+    "name": "ListPodIdentityAssociations",
+    "description": "Grants permission to list EKS Pod Identity associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "addon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eks-anywhere-subscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fargateprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identityproviderconfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "nodegroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListUpdates": {
+    "name": "ListUpdates",
+    "description": "Grants permission to list the updates for a given Amazon EKS cluster/nodegroup/add-on (in the specified or default region)",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "addon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "nodegroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterCluster": {
+    "name": "RegisterCluster",
+    "description": "Grants permission to register an External cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "addon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eks-anywhere-subscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fargateprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identityproviderconfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "nodegroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "podidentityassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "addon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eks-anywhere-subscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fargateprofile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identityproviderconfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "nodegroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "podidentityassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAccessEntry": {
+    "name": "UpdateAccessEntry",
+    "description": "Grants permission to update an Amazon EKS access entry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-entry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAddon": {
+    "name": "UpdateAddon",
+    "description": "Grants permission to update Amazon EKS add-on configurations, such as the VPC-CNI version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "addon",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "podidentityassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateClusterConfig": {
+    "name": "UpdateClusterConfig",
+    "description": "Grants permission to update Amazon EKS cluster configurations (eg: API server endpoint access)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "eks:authenticationMode",
+      "eks:supportType"
+    ],
+    "dependentActions": []
+  },
+  "UpdateClusterVersion": {
+    "name": "UpdateClusterVersion",
+    "description": "Grants permission to update the Kubernetes version of an Amazon EKS cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateEksAnywhereSubscription": {
+    "name": "UpdateEksAnywhereSubscription",
+    "description": "Grants permission to update an EKS Anywhere subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eks-anywhere-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateNodegroupConfig": {
+    "name": "UpdateNodegroupConfig",
+    "description": "Grants permission to update Amazon EKS nodegroup configurations (eg: min/max/desired capacity or labels)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "nodegroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateNodegroupVersion": {
+    "name": "UpdateNodegroupVersion",
+    "description": "Grants permission to update the Kubernetes version of an Amazon EKS nodegroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "nodegroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdatePodIdentityAssociation": {
+    "name": "UpdatePodIdentityAssociation",
+    "description": "Grants permission to update an EKS Pod Identity association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "podidentityassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

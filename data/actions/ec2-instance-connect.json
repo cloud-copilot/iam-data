@@ -1,0 +1,61 @@
+{
+  "OpenTunnel": {
+    "name": "OpenTunnel",
+    "description": "Grants permission to establish SSH connection to an EC2 instance using EC2 Instance Connect Endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance-connect-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance-connect-endpoint",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2-instance-connect:remotePort",
+          "ec2-instance-connect:privateIpAddress",
+          "ec2-instance-connect:MaxTunnelDuration"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendSSHPublicKey": {
+    "name": "SendSSHPublicKey",
+    "description": "Grants permission to push an SSH public key to the specified EC2 instance to be used for standard SSH",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:osuser"
+    ],
+    "dependentActions": []
+  },
+  "SendSerialConsoleSSHPublicKey": {
+    "name": "SendSerialConsoleSSHPublicKey",
+    "description": "Grants permission to push an SSH public key to the specified EC2 instance to be used for serial console SSH",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

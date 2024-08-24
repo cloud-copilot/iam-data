@@ -1,0 +1,281 @@
+{
+  "DeleteRecommendationPreferences": {
+    "name": "DeleteRecommendationPreferences",
+    "description": "Grants permission to delete recommendation preferences",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "compute-optimizer:ResourceType"
+    ],
+    "dependentActions": [
+      "autoscaling:DescribeAutoScalingGroups",
+      "ec2:DescribeInstances",
+      "rds:DescribeDBClusters",
+      "rds:DescribeDBInstances"
+    ]
+  },
+  "DescribeRecommendationExportJobs": {
+    "name": "DescribeRecommendationExportJobs",
+    "description": "Grants permission to view the status of recommendation export jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ExportAutoScalingGroupRecommendations": {
+    "name": "ExportAutoScalingGroupRecommendations",
+    "description": "Grants permission to export AutoScaling group recommendations to S3 for the provided accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "autoscaling:DescribeAutoScalingGroups",
+      "compute-optimizer:GetAutoScalingGroupRecommendations"
+    ]
+  },
+  "ExportEBSVolumeRecommendations": {
+    "name": "ExportEBSVolumeRecommendations",
+    "description": "Grants permission to export EBS volume recommendations to S3 for the provided accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "compute-optimizer:GetEBSVolumeRecommendations",
+      "ec2:DescribeVolumes"
+    ]
+  },
+  "ExportEC2InstanceRecommendations": {
+    "name": "ExportEC2InstanceRecommendations",
+    "description": "Grants permission to export EC2 instance recommendations to S3 for the provided accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "compute-optimizer:GetEC2InstanceRecommendations",
+      "ec2:DescribeInstances"
+    ]
+  },
+  "ExportECSServiceRecommendations": {
+    "name": "ExportECSServiceRecommendations",
+    "description": "Grants permission to export ECS service recommendations to S3 for the provided accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "compute-optimizer:GetECSServiceRecommendations",
+      "ecs:ListClusters",
+      "ecs:ListServices"
+    ]
+  },
+  "ExportLambdaFunctionRecommendations": {
+    "name": "ExportLambdaFunctionRecommendations",
+    "description": "Grants permission to export Lambda function recommendations to S3 for the provided accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "compute-optimizer:GetLambdaFunctionRecommendations",
+      "lambda:ListFunctions",
+      "lambda:ListProvisionedConcurrencyConfigs"
+    ]
+  },
+  "ExportLicenseRecommendations": {
+    "name": "ExportLicenseRecommendations",
+    "description": "Grants permission to export license recommendations to S3 for the provided account(s)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "compute-optimizer:GetLicenseRecommendations",
+      "ec2:DescribeInstances"
+    ]
+  },
+  "ExportRDSDatabaseRecommendations": {
+    "name": "ExportRDSDatabaseRecommendations",
+    "description": "Grants permission to export rds recommendations to S3 for the provided accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "compute-optimizer:GetRDSDatabaseRecommendations",
+      "rds:DescribeDBClusters",
+      "rds:DescribeDBInstances"
+    ]
+  },
+  "GetAutoScalingGroupRecommendations": {
+    "name": "GetAutoScalingGroupRecommendations",
+    "description": "Grants permission to get recommendations for the provided AutoScaling groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "autoscaling:DescribeAutoScalingGroups"
+    ]
+  },
+  "GetEBSVolumeRecommendations": {
+    "name": "GetEBSVolumeRecommendations",
+    "description": "Grants permission to get recommendations for the provided EBS volumes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVolumes"
+    ]
+  },
+  "GetEC2InstanceRecommendations": {
+    "name": "GetEC2InstanceRecommendations",
+    "description": "Grants permission to get recommendations for the provided EC2 instances",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeInstances"
+    ]
+  },
+  "GetEC2RecommendationProjectedMetrics": {
+    "name": "GetEC2RecommendationProjectedMetrics",
+    "description": "Grants permission to get the recommendation projected metrics of the specified instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeInstances"
+    ]
+  },
+  "GetECSServiceRecommendationProjectedMetrics": {
+    "name": "GetECSServiceRecommendationProjectedMetrics",
+    "description": "Grants permission to get the recommendation projected metrics of the specified ECS service",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetECSServiceRecommendations": {
+    "name": "GetECSServiceRecommendations",
+    "description": "Grants permission to get recommendations for the provided ECS services",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ecs:ListClusters",
+      "ecs:ListServices"
+    ]
+  },
+  "GetEffectiveRecommendationPreferences": {
+    "name": "GetEffectiveRecommendationPreferences",
+    "description": "Grants permission to get recommendation preferences that are in effect",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "compute-optimizer:ResourceType"
+    ],
+    "dependentActions": [
+      "autoscaling:DescribeAutoScalingGroups",
+      "autoscaling:DescribeAutoScalingInstances",
+      "ec2:DescribeInstances",
+      "rds:DescribeDBClusters",
+      "rds:DescribeDBInstances"
+    ]
+  },
+  "GetEnrollmentStatus": {
+    "name": "GetEnrollmentStatus",
+    "description": "Grants permission to get the enrollment status for the specified account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEnrollmentStatusesForOrganization": {
+    "name": "GetEnrollmentStatusesForOrganization",
+    "description": "Grants permission to get the enrollment statuses for member accounts of the organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLambdaFunctionRecommendations": {
+    "name": "GetLambdaFunctionRecommendations",
+    "description": "Grants permission to get recommendations for the provided Lambda functions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lambda:ListFunctions",
+      "lambda:ListProvisionedConcurrencyConfigs"
+    ]
+  },
+  "GetLicenseRecommendations": {
+    "name": "GetLicenseRecommendations",
+    "description": "Grants permission to get license recommendations for the specified account(s)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeInstances"
+    ]
+  },
+  "GetRDSDatabaseRecommendationProjectedMetrics": {
+    "name": "GetRDSDatabaseRecommendationProjectedMetrics",
+    "description": "Grants permission to get the recommendation projected metrics of the specified instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "rds:DescribeDBClusters",
+      "rds:DescribeDBInstances"
+    ]
+  },
+  "GetRDSDatabaseRecommendations": {
+    "name": "GetRDSDatabaseRecommendations",
+    "description": "Grants permission to get rds recommendations for the specified account(s)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "rds:DescribeDBClusters",
+      "rds:DescribeDBInstances"
+    ]
+  },
+  "GetRecommendationPreferences": {
+    "name": "GetRecommendationPreferences",
+    "description": "Grants permission to get recommendation preferences",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "compute-optimizer:ResourceType"
+    ],
+    "dependentActions": []
+  },
+  "GetRecommendationSummaries": {
+    "name": "GetRecommendationSummaries",
+    "description": "Grants permission to get the recommendation summaries for the specified account(s)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutRecommendationPreferences": {
+    "name": "PutRecommendationPreferences",
+    "description": "Grants permission to put recommendation preferences",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "compute-optimizer:ResourceType"
+    ],
+    "dependentActions": [
+      "autoscaling:DescribeAutoScalingGroups",
+      "autoscaling:DescribeAutoScalingInstances",
+      "ec2:DescribeInstances",
+      "rds:DescribeDBClusters",
+      "rds:DescribeDBInstances"
+    ]
+  },
+  "UpdateEnrollmentStatus": {
+    "name": "UpdateEnrollmentStatus",
+    "description": "Grants permission to update the enrollment status",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

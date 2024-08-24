@@ -1,0 +1,1369 @@
+{
+  "CancelLegalHold": {
+    "name": "CancelLegalHold",
+    "description": "Grants permission to cancel a legal hold",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "legalHold",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CopyFromBackupVault": {
+    "name": "CopyFromBackupVault",
+    "isPermissionOnly": true,
+    "description": "Grants permission to copy from a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "backup:CopyTargets",
+      "backup:CopyTargetOrgPaths"
+    ],
+    "dependentActions": []
+  },
+  "CopyIntoBackupVault": {
+    "name": "CopyIntoBackupVault",
+    "isPermissionOnly": true,
+    "description": "Grants permission to copy into a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateBackupPlan": {
+    "name": "CreateBackupPlan",
+    "description": "Grants permission to create a new backup plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateBackupSelection": {
+    "name": "CreateBackupSelection",
+    "description": "Grants permission to create a new resource assignment in a backup plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CreateBackupVault": {
+    "name": "CreateBackupVault",
+    "description": "Grants permission to create a new backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateFramework": {
+    "name": "CreateFramework",
+    "description": "Grants permission to create a new framework",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "framework",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateLegalHold": {
+    "name": "CreateLegalHold",
+    "description": "Grants permission to create a new legal hold",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "legalHold",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateLogicallyAirGappedBackupVault": {
+    "name": "CreateLogicallyAirGappedBackupVault",
+    "description": "Grants permission to create a new logically air-gapped backup vault, a logical container where backups are stored",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "backup:MinRetentionDays",
+      "backup:MaxRetentionDays"
+    ],
+    "dependentActions": []
+  },
+  "CreateReportPlan": {
+    "name": "CreateReportPlan",
+    "description": "Grants permission to create a new report plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reportPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "backup:FrameworkArns"
+    ],
+    "dependentActions": []
+  },
+  "CreateRestoreTestingPlan": {
+    "name": "CreateRestoreTestingPlan",
+    "description": "Grants permission to create a new restore testing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateRestoreTestingSelection": {
+    "name": "CreateRestoreTestingSelection",
+    "description": "Grants permission to create a new resource assignment in a restore testing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "DeleteBackupPlan": {
+    "name": "DeleteBackupPlan",
+    "description": "Grants permission to delete a backup plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBackupSelection": {
+    "name": "DeleteBackupSelection",
+    "description": "Grants permission to delete a resource assignment from a backup plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBackupVault": {
+    "name": "DeleteBackupVault",
+    "description": "Grants permission to delete a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBackupVaultAccessPolicy": {
+    "name": "DeleteBackupVaultAccessPolicy",
+    "description": "Grants permission to delete backup vault access policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBackupVaultLockConfiguration": {
+    "name": "DeleteBackupVaultLockConfiguration",
+    "description": "Grants permission to remove the lock configuration from a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBackupVaultNotifications": {
+    "name": "DeleteBackupVaultNotifications",
+    "description": "Grants permission to remove the notifications from a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteBackupVaultSharingPolicy": {
+    "name": "DeleteBackupVaultSharingPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete backup vault sharing policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFramework": {
+    "name": "DeleteFramework",
+    "description": "Grants permission to delete a framework",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "framework",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRecoveryPoint": {
+    "name": "DeleteRecoveryPoint",
+    "description": "Grants permission to delete a recovery point from a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteReportPlan": {
+    "name": "DeleteReportPlan",
+    "description": "Grants permission to delete a report plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reportPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRestoreTestingPlan": {
+    "name": "DeleteRestoreTestingPlan",
+    "description": "Grants permission to delete a restore testing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRestoreTestingSelection": {
+    "name": "DeleteRestoreTestingSelection",
+    "description": "Grants permission to delete a resource assignment from a restore testing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBackupJob": {
+    "name": "DescribeBackupJob",
+    "description": "Grants permission to describe a backup job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBackupVault": {
+    "name": "DescribeBackupVault",
+    "description": "Grants permission to describe a new backup vault with the specified name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCopyJob": {
+    "name": "DescribeCopyJob",
+    "description": "Grants permission to describe a copy job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeFramework": {
+    "name": "DescribeFramework",
+    "description": "Grants permission to describe a framework with the specified name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "framework",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGlobalSettings": {
+    "name": "DescribeGlobalSettings",
+    "description": "Grants permission to describe global settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeProtectedResource": {
+    "name": "DescribeProtectedResource",
+    "description": "Grants permission to describe a protected resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRecoveryPoint": {
+    "name": "DescribeRecoveryPoint",
+    "description": "Grants permission to describe a recovery point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegionSettings": {
+    "name": "DescribeRegionSettings",
+    "description": "Grants permission to describe region settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReportJob": {
+    "name": "DescribeReportJob",
+    "description": "Grants permission to describe a report job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeReportPlan": {
+    "name": "DescribeReportPlan",
+    "description": "Grants permission to describe a report plan with the specified name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reportPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRestoreJob": {
+    "name": "DescribeRestoreJob",
+    "description": "Grants permission to describe a restore job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateRecoveryPoint": {
+    "name": "DisassociateRecoveryPoint",
+    "description": "Grants permission to disassociate a recovery point from a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateRecoveryPointFromParent": {
+    "name": "DisassociateRecoveryPointFromParent",
+    "description": "Grants permission to disassociate a recovery point from its parent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ExportBackupPlanTemplate": {
+    "name": "ExportBackupPlanTemplate",
+    "description": "Grants permission to export a backup plan as a JSON",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBackupPlan": {
+    "name": "GetBackupPlan",
+    "description": "Grants permission to get a backup plan",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBackupPlanFromJSON": {
+    "name": "GetBackupPlanFromJSON",
+    "description": "Grants permission to transform a JSON to a backup plan",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBackupPlanFromTemplate": {
+    "name": "GetBackupPlanFromTemplate",
+    "description": "Grants permission to transform a template to a backup plan",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBackupSelection": {
+    "name": "GetBackupSelection",
+    "description": "Grants permission to get a backup plan resource assignment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBackupVaultAccessPolicy": {
+    "name": "GetBackupVaultAccessPolicy",
+    "description": "Grants permission to get backup vault access policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBackupVaultNotifications": {
+    "name": "GetBackupVaultNotifications",
+    "description": "Grants permission to get backup vault notifications",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBackupVaultSharingPolicy": {
+    "name": "GetBackupVaultSharingPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get backup vault sharing policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLegalHold": {
+    "name": "GetLegalHold",
+    "description": "Grants permission to get a legal hold",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "legalHold",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRecoveryPointRestoreMetadata": {
+    "name": "GetRecoveryPointRestoreMetadata",
+    "description": "Grants permission to get recovery point restore metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRestoreJobMetadata": {
+    "name": "GetRestoreJobMetadata",
+    "description": "Grants permission to get the restore metadata associated with a restore job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRestoreTestingInferredMetadata": {
+    "name": "GetRestoreTestingInferredMetadata",
+    "description": "Grants permission to get inferred metadata generated by restore testing",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRestoreTestingPlan": {
+    "name": "GetRestoreTestingPlan",
+    "description": "Grants permission to get a restore testing plan",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRestoreTestingSelection": {
+    "name": "GetRestoreTestingSelection",
+    "description": "Grants permission to get a restore testing plan resource assignment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSupportedResourceTypes": {
+    "name": "GetSupportedResourceTypes",
+    "description": "Grants permission to get supported resource types",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBackupJobSummaries": {
+    "name": "ListBackupJobSummaries",
+    "description": "Grants permission to list backup job summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBackupJobs": {
+    "name": "ListBackupJobs",
+    "description": "Grants permission to list backup jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBackupPlanTemplates": {
+    "name": "ListBackupPlanTemplates",
+    "description": "Grants permission to list backup plan templates provided by AWS Backup",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBackupPlanVersions": {
+    "name": "ListBackupPlanVersions",
+    "description": "Grants permission to list backup plan versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBackupPlans": {
+    "name": "ListBackupPlans",
+    "description": "Grants permission to list backup plans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBackupSelections": {
+    "name": "ListBackupSelections",
+    "description": "Grants permission to list resource assignments for a specific backup plan",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBackupVaults": {
+    "name": "ListBackupVaults",
+    "description": "Grants permission to list backup vaults",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCopyJobSummaries": {
+    "name": "ListCopyJobSummaries",
+    "description": "Grants permission to list copy job summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCopyJobs": {
+    "name": "ListCopyJobs",
+    "description": "Grants permission to list copy jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFrameworks": {
+    "name": "ListFrameworks",
+    "description": "Grants permission to list frameworks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLegalHolds": {
+    "name": "ListLegalHolds",
+    "description": "Grants permission to list legal holds",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProtectedResources": {
+    "name": "ListProtectedResources",
+    "description": "Grants permission to list protected resources by AWS Backup",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProtectedResourcesByBackupVault": {
+    "name": "ListProtectedResourcesByBackupVault",
+    "description": "Grants permission to list protected resources inside a backup vault",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRecoveryPointsByBackupVault": {
+    "name": "ListRecoveryPointsByBackupVault",
+    "description": "Grants permission to list recovery points inside a backup vault",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRecoveryPointsByLegalHold": {
+    "name": "ListRecoveryPointsByLegalHold",
+    "description": "Grants permission to list recovery points by legal hold",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "legalHold",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRecoveryPointsByResource": {
+    "name": "ListRecoveryPointsByResource",
+    "description": "Grants permission to list recovery points for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListReportJobs": {
+    "name": "ListReportJobs",
+    "description": "Grants permission to list report jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListReportPlans": {
+    "name": "ListReportPlans",
+    "description": "Grants permission to list report plans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRestoreJobSummaries": {
+    "name": "ListRestoreJobSummaries",
+    "description": "Grants permission to list restore job summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRestoreJobs": {
+    "name": "ListRestoreJobs",
+    "description": "Grants permission to list restore jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRestoreJobsByProtectedResource": {
+    "name": "ListRestoreJobsByProtectedResource",
+    "description": "Grants permission to list restore jobs for a protected resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRestoreTestingPlans": {
+    "name": "ListRestoreTestingPlans",
+    "description": "Grants permission to list restore testing plans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRestoreTestingSelections": {
+    "name": "ListRestoreTestingSelections",
+    "description": "Grants permission to list resource assignments for a specific restore testing plan",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTags": {
+    "name": "ListTags",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "backupVault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "framework",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "legalHold",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recoveryPoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reportPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "restoreTestingPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutBackupVaultAccessPolicy": {
+    "name": "PutBackupVaultAccessPolicy",
+    "description": "Grants permission to add an access policy to the backup vault",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutBackupVaultLockConfiguration": {
+    "name": "PutBackupVaultLockConfiguration",
+    "description": "Grants permission to add a lock configuration to the backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "backup:ChangeableForDays",
+      "backup:MinRetentionDays",
+      "backup:MaxRetentionDays"
+    ],
+    "dependentActions": []
+  },
+  "PutBackupVaultNotifications": {
+    "name": "PutBackupVaultNotifications",
+    "description": "Grants permission to add an SNS topic to the backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutBackupVaultSharingPolicy": {
+    "name": "PutBackupVaultSharingPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to add a sharing policy to the backup vault",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutRestoreValidationResult": {
+    "name": "PutRestoreValidationResult",
+    "description": "Grants permission to put a restore validation result",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartBackupJob": {
+    "name": "StartBackupJob",
+    "description": "Grants permission to start a new backup job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "StartCopyJob": {
+    "name": "StartCopyJob",
+    "description": "Grants permission to copy a backup from a source backup vault to a destination backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "StartReportJob": {
+    "name": "StartReportJob",
+    "description": "Grants permission to start a new report job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reportPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartRestoreJob": {
+    "name": "StartRestoreJob",
+    "description": "Grants permission to start a new restore job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "StopBackupJob": {
+    "name": "StopBackupJob",
+    "description": "Grants permission to stop a backup job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "backupVault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "framework",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "legalHold",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recoveryPoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reportPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "restoreTestingPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "backupVault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "framework",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "legalHold",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recoveryPoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "reportPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "restoreTestingPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateBackupPlan": {
+    "name": "UpdateBackupPlan",
+    "description": "Grants permission to update a backup plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFramework": {
+    "name": "UpdateFramework",
+    "description": "Grants permission to update a framework",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "framework",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateGlobalSettings": {
+    "name": "UpdateGlobalSettings",
+    "description": "Grants permission to update the current global settings for the AWS Account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateRecoveryPointLifecycle": {
+    "name": "UpdateRecoveryPointLifecycle",
+    "description": "Grants permission to update the lifecycle of the recovery point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateRegionSettings": {
+    "name": "UpdateRegionSettings",
+    "description": "Grants permission to update the current service opt-in settings for the Region",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateReportPlan": {
+    "name": "UpdateReportPlan",
+    "description": "Grants permission to update a report plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reportPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "backup:FrameworkArns"
+    ],
+    "dependentActions": []
+  },
+  "UpdateRestoreTestingPlan": {
+    "name": "UpdateRestoreTestingPlan",
+    "description": "Grants permission to update a restore testing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateRestoreTestingSelection": {
+    "name": "UpdateRestoreTestingSelection",
+    "description": "Grants permission to update a resource assignment in a restore testing plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "restoreTestingPlan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  }
+}

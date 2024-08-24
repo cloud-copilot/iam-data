@@ -1,0 +1,23 @@
+{
+  "domain": {
+    "key": "domain",
+    "arn": "arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "es_role": {
+    "key": "es_role",
+    "arn": "arn:${Partition}:iam::${Account}:role/aws-service-role/es.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "opensearchservice_role": {
+    "key": "opensearchservice_role",
+    "arn": "arn:${Partition}:iam::${Account}:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

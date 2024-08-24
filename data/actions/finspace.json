@@ -1,0 +1,1068 @@
+{
+  "ConnectKxCluster": {
+    "name": "ConnectKxCluster",
+    "isPermissionOnly": true,
+    "description": "Grants permission to connect to a kdb cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateEnvironment": {
+    "name": "CreateEnvironment",
+    "description": "Grants permission to create a FinSpace environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateKxChangeset": {
+    "name": "CreateKxChangeset",
+    "description": "Grants permission to create a changeset for a kdb database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateKxCluster": {
+    "name": "CreateKxCluster",
+    "description": "Grants permission to create a cluster in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeSubnets",
+          "finspace:MountKxDatabase"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateKxDatabase": {
+    "name": "CreateKxDatabase",
+    "description": "Grants permission to create a kdb database in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateKxDataview": {
+    "name": "CreateKxDataview",
+    "description": "Grants permission to create a dataview in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDataview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateKxEnvironment": {
+    "name": "CreateKxEnvironment",
+    "description": "Grants permission to create a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateKxScalingGroup": {
+    "name": "CreateKxScalingGroup",
+    "description": "Grants permission to create a scaling group in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateKxUser": {
+    "name": "CreateKxUser",
+    "description": "Grants permission to create a user in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateKxVolume": {
+    "name": "CreateKxVolume",
+    "description": "Grants permission to create a volume in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxVolume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateUser": {
+    "name": "CreateUser",
+    "description": "Grants permission to create a FinSpace user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteEnvironment": {
+    "name": "DeleteEnvironment",
+    "description": "Grants permission to delete a FinSpace environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxCluster": {
+    "name": "DeleteKxCluster",
+    "description": "Grants permission to delete a kdb cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxClusterNode": {
+    "name": "DeleteKxClusterNode",
+    "description": "Grants permission to delete a node from a kdb cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxDatabase": {
+    "name": "DeleteKxDatabase",
+    "description": "Grants permission to delete a kdb database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxDataview": {
+    "name": "DeleteKxDataview",
+    "description": "Grants permission to delete a dataview in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDataview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxEnvironment": {
+    "name": "DeleteKxEnvironment",
+    "description": "Grants permission to delete a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxScalingGroup": {
+    "name": "DeleteKxScalingGroup",
+    "description": "Grants permission to delete a scaling group in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxUser": {
+    "name": "DeleteKxUser",
+    "description": "Grants permission to delete a kdb user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxUser",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKxVolume": {
+    "name": "DeleteKxVolume",
+    "description": "Grants permission to delete a volume in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxVolume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEnvironment": {
+    "name": "GetEnvironment",
+    "description": "Grants permission to describe a FinSpace environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxChangeset": {
+    "name": "GetKxChangeset",
+    "description": "Grants permission to describe a changeset for a kdb database",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxCluster": {
+    "name": "GetKxCluster",
+    "description": "Grants permission to describe a cluster in a managed kdb environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxConnectionString": {
+    "name": "GetKxConnectionString",
+    "description": "Grants permission to retrieve a connection string for kdb clusters",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "finspace:ConnectKxCluster"
+    ]
+  },
+  "GetKxDatabase": {
+    "name": "GetKxDatabase",
+    "description": "Grants permission to describe a kdb database",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxDataview": {
+    "name": "GetKxDataview",
+    "description": "Grants permission to describe a databiew in a managed kdb environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxDataview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxEnvironment": {
+    "name": "GetKxEnvironment",
+    "description": "Grants permission to describe a managed kdb environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxScalingGroup": {
+    "name": "GetKxScalingGroup",
+    "description": "Grants permission to describe a scaling group in a managed kdb environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxUser": {
+    "name": "GetKxUser",
+    "description": "Grants permission to describe a kdb user",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxUser",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKxVolume": {
+    "name": "GetKxVolume",
+    "description": "Grants permission to describe a volume in a managed kdb environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "kxVolume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLoadSampleDataSetGroupIntoEnvironmentStatus": {
+    "name": "GetLoadSampleDataSetGroupIntoEnvironmentStatus",
+    "description": "Grants permission to request status of the loading of sample data bundle",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetUser": {
+    "name": "GetUser",
+    "description": "Grants permission to describe a FinSpace user",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEnvironments": {
+    "name": "ListEnvironments",
+    "description": "Grants permission to list FinSpace environments in the AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxChangesets": {
+    "name": "ListKxChangesets",
+    "description": "Grants permission to list changesets for a kdb database",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxClusterNodes": {
+    "name": "ListKxClusterNodes",
+    "description": "Grants permission to list cluster nodes in a managed kdb environment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxClusters": {
+    "name": "ListKxClusters",
+    "description": "Grants permission to list clusters in a managed kdb environment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxDatabases": {
+    "name": "ListKxDatabases",
+    "description": "Grants permission to list kdb databases in a managed kdb environment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxDataviews": {
+    "name": "ListKxDataviews",
+    "description": "Grants permission to list dataviews in a database",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxEnvironments": {
+    "name": "ListKxEnvironments",
+    "description": "Grants permission to list managed kdb environments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxScalingGroups": {
+    "name": "ListKxScalingGroups",
+    "description": "Grants permission to list scaling groups in a managed kdb environment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxUsers": {
+    "name": "ListKxUsers",
+    "description": "Grants permission to list users in a managed kdb environment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKxVolumes": {
+    "name": "ListKxVolumes",
+    "description": "Grants permission to list volumes in a managed kdb environment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to return a list of tags for a resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxDataview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxUser",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxVolume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListUsers": {
+    "name": "ListUsers",
+    "description": "Grants permission to list FinSpace users in an environment",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "LoadSampleDataSetGroupIntoEnvironment": {
+    "name": "LoadSampleDataSetGroupIntoEnvironment",
+    "description": "Grants permission to load sample data bundle into your FinSpace environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "MountKxDatabase": {
+    "name": "MountKxDatabase",
+    "isPermissionOnly": true,
+    "description": "Grants permission to mount a database to a kdb cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ResetUserPassword": {
+    "name": "ResetUserPassword",
+    "description": "Grants permission to reset the password for a FinSpace user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxCluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxDatabase",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxDataview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxEnvironment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxScalingGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxUser",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxVolume",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxCluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxDatabase",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxDataview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxEnvironment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxScalingGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxUser",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "kxVolume",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateEnvironment": {
+    "name": "UpdateEnvironment",
+    "description": "Grants permission to update a FinSpace environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxClusterCodeConfiguration": {
+    "name": "UpdateKxClusterCodeConfiguration",
+    "description": "Grants permission to update code configuration for a cluster in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxClusterDatabases": {
+    "name": "UpdateKxClusterDatabases",
+    "description": "Grants permission to update databases for a cluster in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxDatabase": {
+    "name": "UpdateKxDatabase",
+    "description": "Grants permission to update a kdb database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxDataview": {
+    "name": "UpdateKxDataview",
+    "description": "Grants permission to update a dataview in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDataview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxEnvironment": {
+    "name": "UpdateKxEnvironment",
+    "description": "Grants permission to update a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxEnvironmentNetwork": {
+    "name": "UpdateKxEnvironmentNetwork",
+    "description": "Grants permission to update the network for a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxEnvironment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxUser": {
+    "name": "UpdateKxUser",
+    "description": "Grants permission to update a kdb user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxUser",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKxVolume": {
+    "name": "UpdateKxVolume",
+    "description": "Grants permission to update a volume in a managed kdb environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxVolume",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateUser": {
+    "name": "UpdateUser",
+    "description": "Grants permission to update a FinSpace user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

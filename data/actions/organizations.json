@@ -1,0 +1,902 @@
+{
+  "AcceptHandshake": {
+    "name": "AcceptHandshake",
+    "description": "Grants permission to send a response to the originator of a handshake agreeing to the action proposed by the handshake request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "handshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "AttachPolicy": {
+    "name": "AttachPolicy",
+    "description": "Grants permission to attach a policy to a root, an organizational unit, or an individual account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "CancelHandshake": {
+    "name": "CancelHandshake",
+    "description": "Grants permission to cancel a handshake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "handshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CloseAccount": {
+    "name": "CloseAccount",
+    "description": "Grants permission to close an AWS account that is now a part of an Organizations, either created within the organization, or invited to join the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateAccount": {
+    "name": "CreateAccount",
+    "description": "Grants permission to create an AWS account that is automatically a member of the organization with the credentials that made the request",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateGovCloudAccount": {
+    "name": "CreateGovCloudAccount",
+    "description": "Grants permission to create an AWS GovCloud (US) account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateOrganization": {
+    "name": "CreateOrganization",
+    "description": "Grants permission to create an organization. The account with the credentials that calls the CreateOrganization operation automatically becomes the management account of the new organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "CreateOrganizationalUnit": {
+    "name": "CreateOrganizationalUnit",
+    "description": "Grants permission to create an organizational unit (OU) within a root or parent OU",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreatePolicy": {
+    "name": "CreatePolicy",
+    "description": "Grants permission to create a policy that you can attach to a root, an organizational unit (OU), or an individual AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:PolicyType",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeclineHandshake": {
+    "name": "DeclineHandshake",
+    "description": "Grants permission to decline a handshake request. This sets the handshake state to DECLINED and effectively deactivates the request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "handshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteOrganization": {
+    "name": "DeleteOrganization",
+    "description": "Grants permission to delete the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteOrganizationalUnit": {
+    "name": "DeleteOrganizationalUnit",
+    "description": "Grants permission to delete an organizational unit from a root or another OU",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organizationalunit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePolicy": {
+    "name": "DeletePolicy",
+    "description": "Grants permission to delete a policy from your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy from your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterDelegatedAdministrator": {
+    "name": "DeregisterDelegatedAdministrator",
+    "description": "Grants permission to deregister the specified member AWS account as a delegated administrator for the AWS service that is specified by ServicePrincipal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:ServicePrincipal"
+    ],
+    "dependentActions": []
+  },
+  "DescribeAccount": {
+    "name": "DescribeAccount",
+    "description": "Grants permission to retrieve Organizations-related details about the specified account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCreateAccountStatus": {
+    "name": "DescribeCreateAccountStatus",
+    "description": "Grants permission to retrieve the current status of an asynchronous request to create an account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEffectivePolicy": {
+    "name": "DescribeEffectivePolicy",
+    "description": "Grants permission to retrieve the effective policy for an account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "DescribeHandshake": {
+    "name": "DescribeHandshake",
+    "description": "Grants permission to retrieve details about a previously requested handshake",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "handshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeOrganization": {
+    "name": "DescribeOrganization",
+    "description": "Grants permission to retrieves details about the organization that the calling credentials belong to",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeOrganizationalUnit": {
+    "name": "DescribeOrganizationalUnit",
+    "description": "Grants permission to retrieve details about an organizational unit (OU)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "organizationalunit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePolicy": {
+    "name": "DescribePolicy",
+    "description": "Grants permission to retrieves details about a policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "DescribeResourcePolicy": {
+    "name": "DescribeResourcePolicy",
+    "description": "Grants permission to retrieve information about a resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetachPolicy": {
+    "name": "DetachPolicy",
+    "description": "Grants permission to detach a policy from a target root, organizational unit, or account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "DisableAWSServiceAccess": {
+    "name": "DisableAWSServiceAccess",
+    "description": "Grants permission to disable integration of an AWS service (the service that is specified by ServicePrincipal) with AWS Organizations",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:ServicePrincipal"
+    ],
+    "dependentActions": []
+  },
+  "DisablePolicyType": {
+    "name": "DisablePolicyType",
+    "description": "Grants permission to disable an organization policy type in a root",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "root",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "EnableAWSServiceAccess": {
+    "name": "EnableAWSServiceAccess",
+    "description": "Grants permission to enable integration of an AWS service (the service that is specified by ServicePrincipal) with AWS Organizations",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:ServicePrincipal"
+    ],
+    "dependentActions": []
+  },
+  "EnableAllFeatures": {
+    "name": "EnableAllFeatures",
+    "description": "Grants permission to start the process to enable all features in an organization, upgrading it from supporting only Consolidated Billing features",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "EnablePolicyType": {
+    "name": "EnablePolicyType",
+    "description": "Grants permission to enable a policy type in a root",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "root",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "InviteAccountToOrganization": {
+    "name": "InviteAccountToOrganization",
+    "description": "Grants permission to send an invitation to another AWS account, asking it to join your organization as a member account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "LeaveOrganization": {
+    "name": "LeaveOrganization",
+    "description": "Grants permission to remove a member account from its parent organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAWSServiceAccessForOrganization": {
+    "name": "ListAWSServiceAccessForOrganization",
+    "description": "Grants permission to retrieve the list of the AWS services for which you enabled integration with your organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccounts": {
+    "name": "ListAccounts",
+    "description": "Grants permission to list all of the the accounts in the organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccountsForParent": {
+    "name": "ListAccountsForParent",
+    "description": "Grants permission to list the accounts in an organization that are contained by a root or organizational unit (OU)",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListChildren": {
+    "name": "ListChildren",
+    "description": "Grants permission to list all of the OUs or accounts that are contained in a parent OU or root",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCreateAccountStatus": {
+    "name": "ListCreateAccountStatus",
+    "description": "Grants permission to list the asynchronous account creation requests that are currently being tracked for the organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDelegatedAdministrators": {
+    "name": "ListDelegatedAdministrators",
+    "description": "Grants permission to list the AWS accounts that are designated as delegated administrators in this organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:ServicePrincipal"
+    ],
+    "dependentActions": []
+  },
+  "ListDelegatedServicesForAccount": {
+    "name": "ListDelegatedServicesForAccount",
+    "description": "Grants permission to list the AWS services for which the specified account is a delegated administrator in this organization",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListHandshakesForAccount": {
+    "name": "ListHandshakesForAccount",
+    "description": "Grants permission to list all of the handshakes that are associated with an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListHandshakesForOrganization": {
+    "name": "ListHandshakesForOrganization",
+    "description": "Grants permission to list the handshakes that are associated with the organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListOrganizationalUnitsForParent": {
+    "name": "ListOrganizationalUnitsForParent",
+    "description": "Grants permission to lists all of the organizational units (OUs) in a parent organizational unit or root",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListParents": {
+    "name": "ListParents",
+    "description": "Grants permission to list the root or organizational units (OUs) that serve as the immediate parent of a child OU or account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPolicies": {
+    "name": "ListPolicies",
+    "description": "Grants permission to list all of the policies in an organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "ListPoliciesForTarget": {
+    "name": "ListPoliciesForTarget",
+    "description": "Grants permission to list all of the policies that are directly attached to a root, organizational unit (OU), or account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "ListRoots": {
+    "name": "ListRoots",
+    "description": "Grants permission to list all of the roots that are defined in the organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags for the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resourcepolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTargetsForPolicy": {
+    "name": "ListTargetsForPolicy",
+    "description": "Grants permission to list all the roots, OUs, and accounts to which a policy is attached",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "MoveAccount": {
+    "name": "MoveAccount",
+    "description": "Grants permission to move an account from its current root or OU to another parent root or OU",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create or update a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "resourcepolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RegisterDelegatedAdministrator": {
+    "name": "RegisterDelegatedAdministrator",
+    "description": "Grants permission to register the specified member account to administer the Organizations features of the AWS service that is specified by ServicePrincipal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:ServicePrincipal"
+    ],
+    "dependentActions": []
+  },
+  "RemoveAccountFromOrganization": {
+    "name": "RemoveAccountFromOrganization",
+    "description": "Grants permission to removes the specified account from the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resourcepolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "organizationalunit",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resourcepolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "root",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateOrganizationalUnit": {
+    "name": "UpdateOrganizationalUnit",
+    "description": "Grants permission to rename an organizational unit (OU)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organizationalunit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdatePolicy": {
+    "name": "UpdatePolicy",
+    "description": "Grants permission to update an existing policy with a new name, description, or content",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  }
+}

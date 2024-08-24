@@ -1,0 +1,37 @@
+{
+  "action": {
+    "key": "action",
+    "arn": "arn:${Partition}:codepipeline:${Region}:${Account}:${PipelineName}/${StageName}/${ActionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "actiontype": {
+    "key": "actiontype",
+    "arn": "arn:${Partition}:codepipeline:${Region}:${Account}:actiontype:${Owner}/${Category}/${Provider}/${Version}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "pipeline": {
+    "key": "pipeline",
+    "arn": "arn:${Partition}:codepipeline:${Region}:${Account}:${PipelineName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "stage": {
+    "key": "stage",
+    "arn": "arn:${Partition}:codepipeline:${Region}:${Account}:${PipelineName}/${StageName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "webhook": {
+    "key": "webhook",
+    "arn": "arn:${Partition}:codepipeline:${Region}:${Account}:webhook:${WebhookName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

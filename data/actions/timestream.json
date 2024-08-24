@@ -1,0 +1,596 @@
+{
+  "CancelQuery": {
+    "name": "CancelQuery",
+    "description": "Grants permission to cancel queries in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "CreateBatchLoadTask": {
+    "name": "CreateBatchLoadTask",
+    "description": "Grants permission to create a batch load task in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints",
+      "timestream:WriteRecords"
+    ]
+  },
+  "CreateDatabase": {
+    "name": "CreateDatabase",
+    "description": "Grants permission to create a database in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream:DescribeEndpoints"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateScheduledQuery": {
+    "name": "CreateScheduledQuery",
+    "description": "Grants permission to create a scheduled query in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:PassRole",
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "CreateTable": {
+    "name": "CreateTable",
+    "description": "Grants permission to create a table in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream:DescribeEndpoints"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteDatabase": {
+    "name": "DeleteDatabase",
+    "description": "Grants permission to delete a database in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "DeleteScheduledQuery": {
+    "name": "DeleteScheduledQuery",
+    "description": "Grants permission to delete a scheduled query in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "DeleteTable": {
+    "name": "DeleteTable",
+    "description": "Grants permission to delete a table in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "DescribeAccountSettings": {
+    "name": "DescribeAccountSettings",
+    "description": "Grants permission to describe your account settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "DescribeBatchLoadTask": {
+    "name": "DescribeBatchLoadTask",
+    "description": "Grants permission to describe a batch load task in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "DescribeDatabase": {
+    "name": "DescribeDatabase",
+    "description": "Grants permission to describe a database in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "DescribeEndpoints": {
+    "name": "DescribeEndpoints",
+    "description": "Grants permission to describe timestream endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeScheduledQuery": {
+    "name": "DescribeScheduledQuery",
+    "description": "Grants permission to describe a scheduled query in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "DescribeTable": {
+    "name": "DescribeTable",
+    "description": "Grants permission to describe a table in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "ExecuteScheduledQuery": {
+    "name": "ExecuteScheduledQuery",
+    "description": "Grants permission to execute a scheduled query in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "GetAwsBackupStatus": {
+    "name": "GetAwsBackupStatus",
+    "description": "Grants permission to get Status of a Timestream Table Backup",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "GetAwsRestoreStatus": {
+    "name": "GetAwsRestoreStatus",
+    "description": "Grants permission to get Status of a Timestream Table Restore",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "ListBatchLoadTasks": {
+    "name": "ListBatchLoadTasks",
+    "description": "Grants permission to list batch load tasks in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "ListDatabases": {
+    "name": "ListDatabases",
+    "description": "Grants permission to list databases in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "ListMeasures": {
+    "name": "ListMeasures",
+    "description": "Grants permission to list measures of a table in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "ListScheduledQueries": {
+    "name": "ListScheduledQueries",
+    "description": "Grants permission to list scheduled queries in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "ListTables": {
+    "name": "ListTables",
+    "description": "Grants permission to list tables in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags of a resource in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream:DescribeEndpoints"
+        ]
+      },
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PrepareQuery": {
+    "name": "PrepareQuery",
+    "description": "Grants permission to issue prepare queries",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints",
+      "timestream:Select"
+    ]
+  },
+  "ResumeBatchLoadTask": {
+    "name": "ResumeBatchLoadTask",
+    "description": "Grants permission to resume a batch load task in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints",
+      "timestream:WriteRecords"
+    ]
+  },
+  "Select": {
+    "name": "Select",
+    "description": "Grants permission to issue 'select from table' queries",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "SelectValues": {
+    "name": "SelectValues",
+    "description": "Grants permission to issue 'select 1' queries",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "StartAwsBackupJob": {
+    "name": "StartAwsBackupJob",
+    "description": "Grants permission to start a Backup Job for a Timestream Table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "StartAwsRestoreJob": {
+    "name": "StartAwsRestoreJob",
+    "description": "Grants permission to start Restore Job for a Backup of Timestream Table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream:DescribeEndpoints"
+        ]
+      },
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "Unload": {
+    "name": "Unload",
+    "description": "Grants permission to issue Unload queries",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:AbortMultipartUpload",
+      "s3:GetObject",
+      "s3:PutObject",
+      "timestream:DescribeEndpoints",
+      "timestream:Select"
+    ]
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove a tag from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream:DescribeEndpoints"
+        ]
+      },
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAccountSettings": {
+    "name": "UpdateAccountSettings",
+    "description": "Grants permission to update your account settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "UpdateDatabase": {
+    "name": "UpdateDatabase",
+    "description": "Grants permission to update a database in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "UpdateScheduledQuery": {
+    "name": "UpdateScheduledQuery",
+    "description": "Grants permission to update a scheduled query in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "UpdateTable": {
+    "name": "UpdateTable",
+    "description": "Grants permission to update a table in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  },
+  "WriteRecords": {
+    "name": "WriteRecords",
+    "description": "Grants permission to ingest data to a table in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream:DescribeEndpoints"
+    ]
+  }
+}

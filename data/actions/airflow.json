@@ -1,0 +1,179 @@
+{
+  "CreateCliToken": {
+    "name": "CreateCliToken",
+    "description": "Grants permission to create a short-lived token that allows a user to invoke Airflow CLI via an endpoint on the Apache Airflow Webserver",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateEnvironment": {
+    "name": "CreateEnvironment",
+    "description": "Grants permission to create an Amazon MWAA environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateWebLoginToken": {
+    "name": "CreateWebLoginToken",
+    "description": "Grants permission to create a short-lived token that allows a user to log into Apache Airflow web UI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rbac-role",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEnvironment": {
+    "name": "DeleteEnvironment",
+    "description": "Grants permission to delete an Amazon MWAA environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetEnvironment": {
+    "name": "GetEnvironment",
+    "description": "Grants permission to view details about an Amazon MWAA environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListEnvironments": {
+    "name": "ListEnvironments",
+    "description": "Grants permission to list the Amazon MWAA environments in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to lists tag for an Amazon MWAA environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "PublishMetrics": {
+    "name": "PublishMetrics",
+    "description": "Grants permission to publish metrics for an Amazon MWAA environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an Amazon MWAA environment",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an Amazon MWAA environment",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateEnvironment": {
+    "name": "UpdateEnvironment",
+    "description": "Grants permission to modify an Amazon MWAA environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

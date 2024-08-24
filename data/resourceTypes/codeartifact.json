@@ -1,0 +1,27 @@
+{
+  "domain": {
+    "key": "domain",
+    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:domain/${DomainName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "repository": {
+    "key": "repository",
+    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:repository/${DomainName}/${RepositoryName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "package-group": {
+    "key": "package-group",
+    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:package-group/${DomainName}${EncodedPackageGroupPattern}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "package": {
+    "key": "package",
+    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:package/${DomainName}/${RepositoryName}/${PackageFormat}/${PackageNamespace}/${PackageName}"
+  }
+}

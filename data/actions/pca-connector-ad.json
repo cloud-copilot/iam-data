@@ -1,0 +1,401 @@
+{
+  "CreateConnector": {
+    "name": "CreateConnector",
+    "description": "Grants permission to create a Connector in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "acm-pca:DescribeCertificateAuthority",
+      "acm-pca:GetCertificate",
+      "acm-pca:GetCertificateAuthorityCertificate",
+      "acm-pca:IssueCertificate",
+      "ec2:CreateTags",
+      "ec2:CreateVpcEndpoint",
+      "ec2:DescribeVpcEndpoints"
+    ]
+  },
+  "CreateDirectoryRegistration": {
+    "name": "CreateDirectoryRegistration",
+    "description": "Grants permission to create a DirectoryRegistration in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ds:AuthorizeApplication",
+      "ds:DescribeDirectories"
+    ]
+  },
+  "CreateServicePrincipalName": {
+    "name": "CreateServicePrincipalName",
+    "description": "Grants permission to create a ServicePrincipalName for a DirectoryRegistration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DirectoryRegistration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:UpdateAuthorizedApplication"
+    ]
+  },
+  "CreateTemplate": {
+    "name": "CreateTemplate",
+    "description": "Grants permission to create a Template for a Connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateTemplateGroupAccessControlEntry": {
+    "name": "CreateTemplateGroupAccessControlEntry",
+    "description": "Grants permission to create a TemplateGroupAccessControlEntry for a Template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConnector": {
+    "name": "DeleteConnector",
+    "description": "Grants permission to delete a Connector in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteVpcEndpoints",
+      "ec2:DescribeVpcEndpoints"
+    ]
+  },
+  "DeleteDirectoryRegistration": {
+    "name": "DeleteDirectoryRegistration",
+    "description": "Grants permission to delete a DirectoryRegistration in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DirectoryRegistration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:UnauthorizeApplication",
+      "ds:UpdateAuthorizedApplication"
+    ]
+  },
+  "DeleteServicePrincipalName": {
+    "name": "DeleteServicePrincipalName",
+    "description": "Grants permission to delete a ServicePrincipalName for a DirectoryRegistration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DirectoryRegistration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:UpdateAuthorizedApplication"
+    ]
+  },
+  "DeleteTemplate": {
+    "name": "DeleteTemplate",
+    "description": "Grants permission to delete a Template for a Connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTemplateGroupAccessControlEntry": {
+    "name": "DeleteTemplateGroupAccessControlEntry",
+    "description": "Grants permission to delete a TemplateGroupAccessControlEntry for a Template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConnector": {
+    "name": "GetConnector",
+    "description": "Grants permission to get a Connector in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDirectoryRegistration": {
+    "name": "GetDirectoryRegistration",
+    "description": "Grants permission to get a DirectoryRegistration in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DirectoryRegistration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetServicePrincipalName": {
+    "name": "GetServicePrincipalName",
+    "description": "Grants permission to get a ServicePrincipalName for a DirectoryRegistration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DirectoryRegistration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTemplate": {
+    "name": "GetTemplate",
+    "description": "Grants permission to get a Template for a Connector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTemplateGroupAccessControlEntry": {
+    "name": "GetTemplateGroupAccessControlEntry",
+    "description": "Grants permission to get a TemplateGroupAccessControlEntry for a Template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConnectors": {
+    "name": "ListConnectors",
+    "description": "Grants permission to list the Connectors in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDirectoryRegistrations": {
+    "name": "ListDirectoryRegistrations",
+    "description": "Grants permission to list the DirectoryRegistrations in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListServicePrincipalNames": {
+    "name": "ListServicePrincipalNames",
+    "description": "Grants permission to list the ServicePrincipalNames for a DirectoryRegistration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "DirectoryRegistration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for a pca-connector-ad resource in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTemplateGroupAccessControlEntries": {
+    "name": "ListTemplateGroupAccessControlEntries",
+    "description": "Grants permission to list the TemplateGroupAccessControlEntries for a Template",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTemplates": {
+    "name": "ListTemplates",
+    "description": "Grants permission to list the Templates for a Connector",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a pca-connector-ad resource in your account",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DirectoryRegistration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a pca-connector-ad resource in your account",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DirectoryRegistration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateTemplate": {
+    "name": "UpdateTemplate",
+    "description": "Grants permission to update a Template for a Connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateTemplateGroupAccessControlEntry": {
+    "name": "UpdateTemplateGroupAccessControlEntry",
+    "description": "Grants permission to update a TemplateGroupAccessControlEntry for a Template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

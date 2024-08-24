@@ -1,0 +1,37 @@
+{
+  "datasource": {
+    "key": "datasource",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/datasources/${DatasourceName}"
+  },
+  "domain": {
+    "key": "domain",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:domainnames/${DomainName}"
+  },
+  "graphqlapi": {
+    "key": "graphqlapi",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "field": {
+    "key": "field",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/types/${TypeName}/fields/${FieldName}"
+  },
+  "type": {
+    "key": "type",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/types/${TypeName}"
+  },
+  "function": {
+    "key": "function",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/functions/${FunctionId}"
+  },
+  "sourceApiAssociation": {
+    "key": "sourceApiAssociation",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${MergedGraphQLAPIId}/sourceApiAssociations/${Associationid}"
+  },
+  "mergedApiAssociation": {
+    "key": "mergedApiAssociation",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${SourceGraphQLAPIId}/mergedApiAssociations/${Associationid}"
+  }
+}

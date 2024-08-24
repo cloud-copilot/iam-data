@@ -1,0 +1,20 @@
+{
+  "application": {
+    "key": "application",
+    "arn": "arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}"
+  },
+  "qapp": {
+    "key": "qapp",
+    "arn": "arn:${Partition}:qapps:${Region}:${Account}:application/${ApplicationId}/qapp/${AppId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "qapp-session": {
+    "key": "qapp-session",
+    "arn": "arn:${Partition}:qapps:${Region}:${Account}:application/${ApplicationId}/qapp/${AppId}/session/${SessionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

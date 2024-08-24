@@ -1,0 +1,849 @@
+{
+  "CancelTimer": {
+    "name": "CancelTimer",
+    "isPermissionOnly": true,
+    "description": "Grants permission to cancel a previously started timer and record a TimerCanceled event in the history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelWorkflowExecution": {
+    "name": "CancelWorkflowExecution",
+    "isPermissionOnly": true,
+    "description": "Grants permission to close the workflow execution and record a WorkflowExecutionCanceled event in the history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CompleteWorkflowExecution": {
+    "name": "CompleteWorkflowExecution",
+    "isPermissionOnly": true,
+    "description": "Grants permission to close the workflow execution and record a WorkflowExecutionCompleted event in the history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ContinueAsNewWorkflowExecution": {
+    "name": "ContinueAsNewWorkflowExecution",
+    "isPermissionOnly": true,
+    "description": "Grants permission to close the workflow execution and start a new workflow execution of the same type using the same workflow ID and a unique run Id",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CountClosedWorkflowExecutions": {
+    "name": "CountClosedWorkflowExecutions",
+    "description": "Grants permission to return the number of closed workflow executions within the given domain that meet the specified filtering criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:tagFilter.tag",
+      "swf:typeFilter.name",
+      "swf:typeFilter.version"
+    ],
+    "dependentActions": []
+  },
+  "CountOpenWorkflowExecutions": {
+    "name": "CountOpenWorkflowExecutions",
+    "description": "Grants permission to return the number of open workflow executions within the given domain that meet the specified filtering criteria",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:tagFilter.tag",
+      "swf:typeFilter.name",
+      "swf:typeFilter.version"
+    ],
+    "dependentActions": []
+  },
+  "CountPendingActivityTasks": {
+    "name": "CountPendingActivityTasks",
+    "description": "Grants permission to return the estimated number of activity tasks in the specified task list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:taskList.name"
+    ],
+    "dependentActions": []
+  },
+  "CountPendingDecisionTasks": {
+    "name": "CountPendingDecisionTasks",
+    "description": "Grants permission to return the estimated number of decision tasks in the specified task list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:taskList.name"
+    ],
+    "dependentActions": []
+  },
+  "DeleteActivityType": {
+    "name": "DeleteActivityType",
+    "description": "Grants permission to delete the specified activity type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:activityType.name",
+      "swf:activityType.version"
+    ],
+    "dependentActions": []
+  },
+  "DeleteWorkflowType": {
+    "name": "DeleteWorkflowType",
+    "description": "Grants permission to delete the specified workflow type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:workflowType.name",
+      "swf:workflowType.version"
+    ],
+    "dependentActions": []
+  },
+  "DeprecateActivityType": {
+    "name": "DeprecateActivityType",
+    "description": "Grants permission to deprecate the specified activity type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:activityType.name",
+      "swf:activityType.version"
+    ],
+    "dependentActions": []
+  },
+  "DeprecateDomain": {
+    "name": "DeprecateDomain",
+    "description": "Grants permission to deprecate the specified domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeprecateWorkflowType": {
+    "name": "DeprecateWorkflowType",
+    "description": "Grants permission to deprecate the specified workflow type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:workflowType.name",
+      "swf:workflowType.version"
+    ],
+    "dependentActions": []
+  },
+  "DescribeActivityType": {
+    "name": "DescribeActivityType",
+    "description": "Grants permission to return information about the specified activity type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:activityType.name",
+      "swf:activityType.version"
+    ],
+    "dependentActions": []
+  },
+  "DescribeDomain": {
+    "name": "DescribeDomain",
+    "description": "Grants permission to return information about the specified domain, including its description and status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkflowExecution": {
+    "name": "DescribeWorkflowExecution",
+    "description": "Grants permission to return information about the specified workflow execution including its type and some statistics",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeWorkflowType": {
+    "name": "DescribeWorkflowType",
+    "description": "Grants permission to return information about the specified workflow type",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:workflowType.name",
+      "swf:workflowType.version"
+    ],
+    "dependentActions": []
+  },
+  "FailWorkflowExecution": {
+    "name": "FailWorkflowExecution",
+    "isPermissionOnly": true,
+    "description": "Grants permission to close the workflow execution and record a WorkflowExecutionFailed event in the history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetWorkflowExecutionHistory": {
+    "name": "GetWorkflowExecutionHistory",
+    "description": "Grants permission to return the history of the specified workflow execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListActivityTypes": {
+    "name": "ListActivityTypes",
+    "description": "Grants permission to return information about all activities registered in the specified domain that match the specified name and registration status",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListClosedWorkflowExecutions": {
+    "name": "ListClosedWorkflowExecutions",
+    "description": "Grants permission to return a list of closed workflow executions in the specified domain that meet the filtering criteria",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:tagFilter.tag",
+      "swf:typeFilter.name",
+      "swf:typeFilter.version"
+    ],
+    "dependentActions": []
+  },
+  "ListDomains": {
+    "name": "ListDomains",
+    "description": "Grants permission to return the list of domains registered in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListOpenWorkflowExecutions": {
+    "name": "ListOpenWorkflowExecutions",
+    "description": "Grants permission to return a list of open workflow executions in the specified domain that meet the filtering criteria",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:tagFilter.tag",
+      "swf:typeFilter.name",
+      "swf:typeFilter.version"
+    ],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for an AWS SWF resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListWorkflowTypes": {
+    "name": "ListWorkflowTypes",
+    "description": "Grants permission to return information about workflow types in the specified domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PollForActivityTask": {
+    "name": "PollForActivityTask",
+    "description": "Grants permission to workers to get an ActivityTask from the specified activity taskList",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:taskList.name"
+    ],
+    "dependentActions": []
+  },
+  "PollForDecisionTask": {
+    "name": "PollForDecisionTask",
+    "description": "Grants permission to deciders to get a DecisionTask from the specified decision taskList",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:taskList.name"
+    ],
+    "dependentActions": []
+  },
+  "RecordActivityTaskHeartbeat": {
+    "name": "RecordActivityTaskHeartbeat",
+    "description": "Grants permission to workers to report to the service that the ActivityTask represented by the specified taskToken is still making progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RecordMarker": {
+    "name": "RecordMarker",
+    "isPermissionOnly": true,
+    "description": "Grants permission to record a MarkerRecorded event in the history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterActivityType": {
+    "name": "RegisterActivityType",
+    "description": "Grants permission to register a new activity type along with its configuration settings in the specified domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:defaultTaskList.name",
+      "swf:name",
+      "swf:version"
+    ],
+    "dependentActions": []
+  },
+  "RegisterDomain": {
+    "name": "RegisterDomain",
+    "description": "Grants permission to register a new domain",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RegisterWorkflowType": {
+    "name": "RegisterWorkflowType",
+    "description": "Grants permission to register a new workflow type and its configuration settings in the specified domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:defaultTaskList.name",
+      "swf:name",
+      "swf:version"
+    ],
+    "dependentActions": []
+  },
+  "RequestCancelActivityTask": {
+    "name": "RequestCancelActivityTask",
+    "isPermissionOnly": true,
+    "description": "Grants permission to attempt to cancel a previously scheduled activity task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RequestCancelExternalWorkflowExecution": {
+    "name": "RequestCancelExternalWorkflowExecution",
+    "isPermissionOnly": true,
+    "description": "Grants permission to request that a request be made to cancel the specified external workflow execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RequestCancelWorkflowExecution": {
+    "name": "RequestCancelWorkflowExecution",
+    "description": "Grants permission to record a WorkflowExecutionCancelRequested event in the currently running workflow execution identified by the given domain, workflowId, and runId",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RespondActivityTaskCanceled": {
+    "name": "RespondActivityTaskCanceled",
+    "description": "Grants permission to workers to tell the service that the ActivityTask identified by the taskToken was successfully canceled",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RespondActivityTaskCompleted": {
+    "name": "RespondActivityTaskCompleted",
+    "description": "Grants permission to workers to tell the service that the ActivityTask identified by the taskToken completed successfully with a result (if provided)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:activityType.name",
+      "swf:activityType.version",
+      "swf:tagList.member.0",
+      "swf:tagList.member.1",
+      "swf:tagList.member.2",
+      "swf:tagList.member.3",
+      "swf:tagList.member.4",
+      "swf:taskList.name",
+      "swf:workflowType.name",
+      "swf:workflowType.version"
+    ],
+    "dependentActions": []
+  },
+  "RespondActivityTaskFailed": {
+    "name": "RespondActivityTaskFailed",
+    "description": "Grants permission to workers to tell the service that the ActivityTask identified by the taskToken has failed with reason (if specified)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RespondDecisionTaskCompleted": {
+    "name": "RespondDecisionTaskCompleted",
+    "description": "Grants permission to deciders to tell the service that the DecisionTask identified by the taskToken has successfully completed",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ScheduleActivityTask": {
+    "name": "ScheduleActivityTask",
+    "isPermissionOnly": true,
+    "description": "Grants permission to schedule an activity task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SignalExternalWorkflowExecution": {
+    "name": "SignalExternalWorkflowExecution",
+    "isPermissionOnly": true,
+    "description": "Grants permission to request a signal to be delivered to the specified external workflow execution and records",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SignalWorkflowExecution": {
+    "name": "SignalWorkflowExecution",
+    "description": "Grants permission to record a WorkflowExecutionSignaled event in the workflow execution history and create a decision task for the workflow execution identified by the given domain, workflowId and runId",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartChildWorkflowExecution": {
+    "name": "StartChildWorkflowExecution",
+    "isPermissionOnly": true,
+    "description": "Grants permission to request that a child workflow execution be started",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartTimer": {
+    "name": "StartTimer",
+    "isPermissionOnly": true,
+    "description": "Grants permission to start a timer for a workflow execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartWorkflowExecution": {
+    "name": "StartWorkflowExecution",
+    "description": "Grants permission to start an execution of the workflow type in the specified domain using the provided workflowId and input data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:tagList.member.0",
+      "swf:tagList.member.1",
+      "swf:tagList.member.2",
+      "swf:tagList.member.3",
+      "swf:tagList.member.4",
+      "swf:taskList.name",
+      "swf:workflowType.name",
+      "swf:workflowType.version"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an AWS SWF resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TerminateWorkflowExecution": {
+    "name": "TerminateWorkflowExecution",
+    "description": "Grants permission to record a WorkflowExecutionTerminated event and force closure of the workflow execution identified by the given domain, runId, and workflowId",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UndeprecateActivityType": {
+    "name": "UndeprecateActivityType",
+    "description": "Grants permission to undeprecate a previously deprecated activity type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:activityType.name",
+      "swf:activityType.version"
+    ],
+    "dependentActions": []
+  },
+  "UndeprecateDomain": {
+    "name": "UndeprecateDomain",
+    "description": "Grants permission to undeprecate a previously deprecated domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UndeprecateWorkflowType": {
+    "name": "UndeprecateWorkflowType",
+    "description": "Grants permission to undeprecate a previously deprecated workflow type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "swf:workflowType.name",
+      "swf:workflowType.version"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove a tag from an AWS SWF resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

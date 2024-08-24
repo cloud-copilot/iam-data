@@ -1,0 +1,2029 @@
+{
+  "AllowVendedLogDeliveryForResource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to configure vended log delivery for a knowledge base",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ApplyGuardrail": {
+    "name": "ApplyGuardrail",
+    "description": "Grants permission to apply a guardrail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "guardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateAgentKnowledgeBase": {
+    "name": "AssociateAgentKnowledgeBase",
+    "description": "Grants permission to associate a knowledge base with an agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateThirdPartyKnowledgeBase": {
+    "name": "AssociateThirdPartyKnowledgeBase",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use 3rd party platform to store knowledge data",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "bedrock:ThirdPartyKnowledgeBaseCredentialsSecretArn"
+    ],
+    "dependentActions": []
+  },
+  "BatchDeleteEvaluationJob": {
+    "name": "BatchDeleteEvaluationJob",
+    "description": "Grants permission to batch delete list of bedrock evaluation jobs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateAgent": {
+    "name": "CreateAgent",
+    "description": "Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateAgentActionGroup": {
+    "name": "CreateAgentActionGroup",
+    "description": "Grants permission to create a new action group in an existing agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateAgentAlias": {
+    "name": "CreateAgentAlias",
+    "description": "Grants permission to create a new alias for an agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateDataSource": {
+    "name": "CreateDataSource",
+    "description": "Grants permission to create a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateEvaluationJob": {
+    "name": "CreateEvaluationJob",
+    "description": "Grants permission to create a job for evaluation foundation models or custom models",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateFlow": {
+    "name": "CreateFlow",
+    "description": "Grants permission to create a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateFlowAlias": {
+    "name": "CreateFlowAlias",
+    "description": "Grants permission to create an alias of a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateFlowVersion": {
+    "name": "CreateFlowVersion",
+    "description": "Grants permission to create an immutable version of a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateFoundationModelAgreement": {
+    "name": "CreateFoundationModelAgreement",
+    "description": "Grants permission to create a new foundation model agreement",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateGuardrail": {
+    "name": "CreateGuardrail",
+    "description": "Grants permission to create a new guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateGuardrailVersion": {
+    "name": "CreateGuardrailVersion",
+    "description": "Grants permission to create a new guardrail version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "guardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateKnowledgeBase": {
+    "name": "CreateKnowledgeBase",
+    "description": "Grants permission to create a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateModelCopyJob": {
+    "name": "CreateModelCopyJob",
+    "description": "Grants permission to create a job for copying a custom model across region or across account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateModelCustomizationJob": {
+    "name": "CreateModelCustomizationJob",
+    "description": "Grants permission to create a job for customizing the model with your custom training data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateModelEvaluationJob": {
+    "name": "CreateModelEvaluationJob",
+    "description": "Grants permission to create a job for evaluation foundation models or custom models",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateModelInvocationJob": {
+    "name": "CreateModelInvocationJob",
+    "description": "Grants permission to create a new model invocation job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-invocation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreatePrompt": {
+    "name": "CreatePrompt",
+    "description": "Grants permission to create a prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreatePromptVersion": {
+    "name": "CreatePromptVersion",
+    "description": "Grants permission to create a version of a prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "prompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateProvisionedModelThroughput": {
+    "name": "CreateProvisionedModelThroughput",
+    "description": "Grants permission to create a new provisioned model throughput",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAgent": {
+    "name": "DeleteAgent",
+    "description": "Grants permission to delete an Agent that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAgentActionGroup": {
+    "name": "DeleteAgentActionGroup",
+    "description": "Grants permission to delete an actionGroup that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAgentAlias": {
+    "name": "DeleteAgentAlias",
+    "description": "Grants permission to delete an AgentAlias that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAgentMemory": {
+    "name": "DeleteAgentMemory",
+    "description": "Grants permission to delete existing memory for an alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAgentVersion": {
+    "name": "DeleteAgentVersion",
+    "description": "Grants permission to delete an Agent Version that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCustomModel": {
+    "name": "DeleteCustomModel",
+    "description": "Grants permission to delete a custom model that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDataSource": {
+    "name": "DeleteDataSource",
+    "description": "Grants permission to delete a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFlow": {
+    "name": "DeleteFlow",
+    "description": "Grants permission to delete a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFlowAlias": {
+    "name": "DeleteFlowAlias",
+    "description": "Grants permission to delete an alias of a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFlowVersion": {
+    "name": "DeleteFlowVersion",
+    "description": "Grants permission to delete a version of a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFoundationModelAgreement": {
+    "name": "DeleteFoundationModelAgreement",
+    "description": "Grants permission to delete a foundation model agreement that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteGuardrail": {
+    "name": "DeleteGuardrail",
+    "description": "Grants permission to delete a guardrail or its version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "guardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKnowledgeBase": {
+    "name": "DeleteKnowledgeBase",
+    "description": "Grants permission to delete a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteModelInvocationLoggingConfiguration": {
+    "name": "DeleteModelInvocationLoggingConfiguration",
+    "description": "Grants permission to delete an existing Invocation logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePrompt": {
+    "name": "DeletePrompt",
+    "description": "Grants permission to delete a prompt or its version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "prompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteProvisionedModelThroughput": {
+    "name": "DeleteProvisionedModelThroughput",
+    "description": "Grants permission to delete a provisioned model throughput that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "provisioned-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Deletes a previously created Bedrock resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectGeneratedContent": {
+    "name": "DetectGeneratedContent",
+    "description": "Grants permission to detect if the provided content is generated using Amazon Bedrock",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateAgentKnowledgeBase": {
+    "name": "DisassociateAgentKnowledgeBase",
+    "description": "Grants permission to disassociate a knowledge base from the agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgent": {
+    "name": "GetAgent",
+    "description": "Grants permission to retrieve an existing agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentActionGroup": {
+    "name": "GetAgentActionGroup",
+    "description": "Grants permission to retrieve an existing action group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentAlias": {
+    "name": "GetAgentAlias",
+    "description": "Grants permission to retrieve an existing alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentKnowledgeBase": {
+    "name": "GetAgentKnowledgeBase",
+    "description": "Grants permission to describe a knowledge base associated with an agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentMemory": {
+    "name": "GetAgentMemory",
+    "description": "Grants permission to retrieve existing memory for an alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgentVersion": {
+    "name": "GetAgentVersion",
+    "description": "Grants permission to retrieve an existing version of an agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCustomModel": {
+    "name": "GetCustomModel",
+    "description": "Grants permission to get the properties associated with a Bedrock custom model that you have created",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDataSource": {
+    "name": "GetDataSource",
+    "description": "Grants permission to retrieve an existing data source",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEvaluationJob": {
+    "name": "GetEvaluationJob",
+    "description": "Grants permission to get the properties associated with a evaluation job. Use this operation to get the status of a evaluation job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFlow": {
+    "name": "GetFlow",
+    "description": "Grants permission to retrieve an existing prompt flow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFlowAlias": {
+    "name": "GetFlowAlias",
+    "description": "Grants permission to retrieve an existing alias of a prompt flow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFlowVersion": {
+    "name": "GetFlowVersion",
+    "description": "Grants permission to retrieve an existing version of a prompt flow",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFoundationModel": {
+    "name": "GetFoundationModel",
+    "description": "Grants permission to get the properties associated with a Bedrock foundation model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFoundationModelAvailability": {
+    "name": "GetFoundationModelAvailability",
+    "description": "Grants permission to get the availability of a foundation model",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetGuardrail": {
+    "name": "GetGuardrail",
+    "description": "Grants permission to retrieve a guardrail or its version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "guardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIngestionJob": {
+    "name": "GetIngestionJob",
+    "description": "Grants permission to retrieve an existing ingestion job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetKnowledgeBase": {
+    "name": "GetKnowledgeBase",
+    "description": "Grants permission to retrieve an existing knowledge base",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetModelCopyJob": {
+    "name": "GetModelCopyJob",
+    "description": "Grants permission to get the properties associated with a model-copy job. Use this operation to get the status of a model-copy job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model-copy-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetModelCustomizationJob": {
+    "name": "GetModelCustomizationJob",
+    "description": "Grants permission to get the properties associated with a model-customization job. Use this operation to get the status of a model-customization job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model-customization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetModelEvaluationJob": {
+    "name": "GetModelEvaluationJob",
+    "description": "Grants permission to get the properties associated with a model-evaluation job. Use this operation to get the status of a model-evaluation job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model-evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetModelInvocationJob": {
+    "name": "GetModelInvocationJob",
+    "description": "Grants permission to retrieve a model invocation job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model-invocation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetModelInvocationLoggingConfiguration": {
+    "name": "GetModelInvocationLoggingConfiguration",
+    "description": "Grants permission to retrieve an existing Invocation logging configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPrompt": {
+    "name": "GetPrompt",
+    "description": "Grants permission to retrieve an existing prompt or its version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "prompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProvisionedModelThroughput": {
+    "name": "GetProvisionedModelThroughput",
+    "description": "Grants permission to retrieve a provisioned model throughput",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "provisioned-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetResourcePolicy": {
+    "name": "GetResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Gets the resource policy document for a Bedrock resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetUseCaseForModelAccess": {
+    "name": "GetUseCaseForModelAccess",
+    "description": "Grants permission to retrieve a use case for model access",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeAgent": {
+    "name": "InvokeAgent",
+    "description": "Grants permission to send user input (text-only) to the alias of an agent for Bedrock",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeFlow": {
+    "name": "InvokeFlow",
+    "description": "Grants permission to invoke a prompt flow with user input",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeModel": {
+    "name": "InvokeModel",
+    "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioned-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeModelWithResponseStream": {
+    "name": "InvokeModelWithResponseStream",
+    "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioned-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAgentActionGroups": {
+    "name": "ListAgentActionGroups",
+    "description": "Grants permission to list action groups in an agent",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAgentAliases": {
+    "name": "ListAgentAliases",
+    "description": "Grants permission to list aliases for an agent",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAgentKnowledgeBases": {
+    "name": "ListAgentKnowledgeBases",
+    "description": "Grants permission to list knowledge bases associated with an agent",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAgentVersions": {
+    "name": "ListAgentVersions",
+    "description": "Grants permission to list existing versions of an agent",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAgents": {
+    "name": "ListAgents",
+    "description": "Grants permission to list existing agents",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCustomModels": {
+    "name": "ListCustomModels",
+    "description": "Grants permission to get a list of Bedrock custom models that you have created",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDataSources": {
+    "name": "ListDataSources",
+    "description": "Grants permission to list existing data sources in an knowledge base",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEvaluationJobs": {
+    "name": "ListEvaluationJobs",
+    "description": "Grants permission to get the list of evaluation jobs that you have submitted",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFlowAliases": {
+    "name": "ListFlowAliases",
+    "description": "Grants permission to list existing aliases of a prompt flow",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFlowVersions": {
+    "name": "ListFlowVersions",
+    "description": "Grants permission to list existing versions of a prompt flow",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFlows": {
+    "name": "ListFlows",
+    "description": "Grants permission to list existing prompt flows",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFoundationModelAgreementOffers": {
+    "name": "ListFoundationModelAgreementOffers",
+    "description": "Grants permission to get a list of foundation model agreement offers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFoundationModels": {
+    "name": "ListFoundationModels",
+    "description": "Grants permission to list Bedrock foundation models that you can use",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListGuardrails": {
+    "name": "ListGuardrails",
+    "description": "Grants permission to list guardrails or its versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "guardrail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIngestionJobs": {
+    "name": "ListIngestionJobs",
+    "description": "Grants permission to list ingestion jobs in a data source",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListKnowledgeBases": {
+    "name": "ListKnowledgeBases",
+    "description": "Grants permission to list existing knowledge bases",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListModelCopyJobs": {
+    "name": "ListModelCopyJobs",
+    "description": "Grants permission to get the list of model copy jobs that you have submitted",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListModelCustomizationJobs": {
+    "name": "ListModelCustomizationJobs",
+    "description": "Grants permission to get the list of model customization jobs that you have submitted",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListModelEvaluationJobs": {
+    "name": "ListModelEvaluationJobs",
+    "description": "Grants permission to get the list of model evaluation jobs that you have submitted",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListModelInvocationJobs": {
+    "name": "ListModelInvocationJobs",
+    "description": "Grants permission to list model invocation jobs that you created earlier",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPrompts": {
+    "name": "ListPrompts",
+    "description": "Grants permission to list existing prompts",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "prompt",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProvisionedModelThroughputs": {
+    "name": "ListProvisionedModelThroughputs",
+    "description": "Grants permission to list provisioned model throughputs that you created earlier",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a Bedrock resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "agent-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-copy-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-customization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-invocation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioned-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PrepareAgent": {
+    "name": "PrepareAgent",
+    "description": "Grants permission to prepare an existing agent to receive runtime requests",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PrepareFlow": {
+    "name": "PrepareFlow",
+    "description": "Grants permission to apply the latest changes made to a prompt flow, so that they are reflected at runtime",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutFoundationModelEntitlement": {
+    "name": "PutFoundationModelEntitlement",
+    "description": "Grants permission to put entitlement to access a foundation model",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutModelInvocationLoggingConfiguration": {
+    "name": "PutModelInvocationLoggingConfiguration",
+    "description": "Grants permission to create an existing Invocation logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Adds a resource policy for a Bedrock resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "PutUseCaseForModelAccess": {
+    "name": "PutUseCaseForModelAccess",
+    "description": "Grants permission to put a use case for model access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "Retrieve": {
+    "name": "Retrieve",
+    "description": "Grants permission to retrieve ingested data from a knowledge base",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RetrieveAndGenerate": {
+    "name": "RetrieveAndGenerate",
+    "description": "Grants permission to send user input to perform retrieval and generation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartIngestionJob": {
+    "name": "StartIngestionJob",
+    "description": "Grants permission to start an ingestion job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopEvaluationJob": {
+    "name": "StopEvaluationJob",
+    "description": "Grants permission to stop a evaluation job while in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopModelCustomizationJob": {
+    "name": "StopModelCustomizationJob",
+    "description": "Grants permission to stop a Bedrock model customization job while in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model-customization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopModelInvocationJob": {
+    "name": "StopModelInvocationJob",
+    "description": "Grants permission to stop a model invocation job that you started earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "model-invocation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to Tag a Bedrock resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "agent-alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-copy-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-customization-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-evaluation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-invocation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioned-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to Untag a Bedrock resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "agent-alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-copy-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-customization-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-evaluation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-invocation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioned-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAgent": {
+    "name": "UpdateAgent",
+    "description": "Grants permission to update an existing agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgentActionGroup": {
+    "name": "UpdateAgentActionGroup",
+    "description": "Grants permission to update an existing action group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgentAlias": {
+    "name": "UpdateAgentAlias",
+    "description": "Grants permission to update an existing alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgentKnowledgeBase": {
+    "name": "UpdateAgentKnowledgeBase",
+    "description": "Grants permission to update a knowledge base associated with an agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDataSource": {
+    "name": "UpdateDataSource",
+    "description": "Grants permission to update a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFlow": {
+    "name": "UpdateFlow",
+    "description": "Grants permission to update a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFlowAlias": {
+    "name": "UpdateFlowAlias",
+    "description": "Grants permission to update the configuration of an alias of a prompt flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateGuardrail": {
+    "name": "UpdateGuardrail",
+    "description": "Grants permission to update a guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "guardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateKnowledgeBase": {
+    "name": "UpdateKnowledgeBase",
+    "description": "Grants permission to update a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdatePrompt": {
+    "name": "UpdatePrompt",
+    "description": "Grants permission to update a prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "prompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateProvisionedModelThroughput": {
+    "name": "UpdateProvisionedModelThroughput",
+    "description": "Grants permission to update a provisioned model throughput that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "provisioned-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

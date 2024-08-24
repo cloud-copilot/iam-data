@@ -1,0 +1,259 @@
+{
+  "AssumeRole": {
+    "name": "AssumeRole",
+    "description": "Grants permission to obtain a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "role",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "sts:TransitiveTagKeys",
+      "sts:ExternalId",
+      "sts:RoleSessionName",
+      "iam:ResourceTag/${TagKey}",
+      "sts:SourceIdentity",
+      "cognito-identity.amazonaws.com:amr",
+      "cognito-identity.amazonaws.com:aud",
+      "cognito-identity.amazonaws.com:sub",
+      "www.amazon.com:app_id",
+      "www.amazon.com:user_id",
+      "graph.facebook.com:app_id",
+      "graph.facebook.com:id",
+      "accounts.google.com:aud",
+      "accounts.google.com:sub",
+      "saml:namequalifier",
+      "saml:sub",
+      "saml:sub_type"
+    ],
+    "dependentActions": []
+  },
+  "AssumeRoleWithSAML": {
+    "name": "AssumeRoleWithSAML",
+    "description": "Grants permission to obtain a set of temporary security credentials for users who have been authenticated via a SAML authentication response",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "role",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "saml:namequalifier",
+      "saml:sub",
+      "saml:sub_type",
+      "saml:aud",
+      "saml:iss",
+      "saml:doc",
+      "saml:cn",
+      "saml:commonName",
+      "saml:eduorghomepageuri",
+      "saml:eduorgidentityauthnpolicyuri",
+      "saml:eduorglegalname",
+      "saml:eduorgsuperioruri",
+      "saml:eduorgwhitepagesuri",
+      "saml:edupersonaffiliation",
+      "saml:edupersonassurance",
+      "saml:edupersonentitlement",
+      "saml:edupersonnickname",
+      "saml:edupersonorgdn",
+      "saml:edupersonorgunitdn",
+      "saml:edupersonprimaryaffiliation",
+      "saml:edupersonprimaryorgunitdn",
+      "saml:edupersonprincipalname",
+      "saml:edupersonscopedaffiliation",
+      "saml:edupersontargetedid",
+      "saml:givenName",
+      "saml:mail",
+      "saml:name",
+      "saml:organizationStatus",
+      "saml:primaryGroupSID",
+      "saml:surname",
+      "saml:uid",
+      "saml:x500UniqueIdentifier",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "sts:TransitiveTagKeys",
+      "sts:SourceIdentity",
+      "sts:RoleSessionName"
+    ],
+    "dependentActions": []
+  },
+  "AssumeRoleWithWebIdentity": {
+    "name": "AssumeRoleWithWebIdentity",
+    "description": "Grants permission to obtain a set of temporary security credentials for users who have been authenticated in a mobile or web application with a web identity provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "role",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "cognito-identity.amazonaws.com:amr",
+      "cognito-identity.amazonaws.com:aud",
+      "cognito-identity.amazonaws.com:sub",
+      "www.amazon.com:app_id",
+      "www.amazon.com:user_id",
+      "graph.facebook.com:app_id",
+      "graph.facebook.com:id",
+      "accounts.google.com:aud",
+      "accounts.google.com:oaud",
+      "accounts.google.com:sub",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "sts:TransitiveTagKeys",
+      "sts:SourceIdentity",
+      "sts:RoleSessionName"
+    ],
+    "dependentActions": []
+  },
+  "DecodeAuthorizationMessage": {
+    "name": "DecodeAuthorizationMessage",
+    "description": "Grants permission to decode additional information about the authorization status of a request from an encoded message returned in response to an AWS request",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAccessKeyInfo": {
+    "name": "GetAccessKeyInfo",
+    "description": "Grants permission to obtain details about the access key id passed as a parameter to the request",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCallerIdentity": {
+    "name": "GetCallerIdentity",
+    "description": "Grants permission to obtain details about the IAM identity whose credentials are used to call the API",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFederationToken": {
+    "name": "GetFederationToken",
+    "description": "Grants permission to obtain a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) for a federated user",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetServiceBearerToken": {
+    "name": "GetServiceBearerToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to obtain a STS bearer token for an AWS root user, IAM role, or an IAM user",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "sts:AWSServiceName",
+      "sts:DurationSeconds"
+    ],
+    "dependentActions": []
+  },
+  "GetSessionToken": {
+    "name": "GetSessionToken",
+    "description": "Grants permission to obtain a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) for an AWS account or IAM user",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetContext": {
+    "name": "SetContext",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set context keys on a STS session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "role",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "self-session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sts:RequestContext/${ContextKey}",
+      "sts:RequestContextProviders"
+    ],
+    "dependentActions": []
+  },
+  "SetSourceIdentity": {
+    "name": "SetSourceIdentity",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set a source identity on a STS session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "role",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sts:SourceIdentity"
+    ],
+    "dependentActions": []
+  },
+  "TagSession": {
+    "name": "TagSession",
+    "isPermissionOnly": true,
+    "description": "Grants permission to add tags to a STS session",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "role",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "sts:TransitiveTagKeys",
+      "saml:aud"
+    ],
+    "dependentActions": []
+  }
+}

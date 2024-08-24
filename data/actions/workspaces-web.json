@@ -1,0 +1,946 @@
+{
+  "AssociateBrowserSettings": {
+    "name": "AssociateBrowserSettings",
+    "description": "Grants permission to associate browser settings to web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "browserSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateIpAccessSettings": {
+    "name": "AssociateIpAccessSettings",
+    "description": "Grants permission to associate ip access settings with web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipAccessSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateNetworkSettings": {
+    "name": "AssociateNetworkSettings",
+    "description": "Grants permission to associate network settings to web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "networkSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:CreateNetworkInterfacePermission",
+          "ec2:CreateTags",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DeleteNetworkInterfacePermission",
+          "ec2:ModifyNetworkInterfaceAttribute"
+        ]
+      },
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateTrustStore": {
+    "name": "AssociateTrustStore",
+    "description": "Grants permission to associate trust stores with web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateUserAccessLoggingSettings": {
+    "name": "AssociateUserAccessLoggingSettings",
+    "description": "Grants permission to associate user access logging settings with web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kinesis:PutRecord",
+          "kinesis:PutRecords"
+        ]
+      },
+      {
+        "name": "userAccessLoggingSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateUserSettings": {
+    "name": "AssociateUserSettings",
+    "description": "Grants permission to associate user settings with web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "userSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateBrowserSettings": {
+    "name": "CreateBrowserSettings",
+    "description": "Grants permission to create browser settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "kms:CreateGrant",
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey"
+    ]
+  },
+  "CreateIdentityProvider": {
+    "name": "CreateIdentityProvider",
+    "description": "Grants permission to create identity providers",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identityProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateIpAccessSettings": {
+    "name": "CreateIpAccessSettings",
+    "description": "Grants permission to create ip access settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateNetworkSettings": {
+    "name": "CreateNetworkSettings",
+    "description": "Grants permission to create network settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "CreatePortal": {
+    "name": "CreatePortal",
+    "description": "Grants permission to create web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "kms:CreateGrant",
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey"
+    ]
+  },
+  "CreateTrustStore": {
+    "name": "CreateTrustStore",
+    "description": "Grants permission to create trust stores",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateUserAccessLoggingSettings": {
+    "name": "CreateUserAccessLoggingSettings",
+    "description": "Grants permission to create user access logging settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateUserSettings": {
+    "name": "CreateUserSettings",
+    "description": "Grants permission to create user settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteBrowserSettings": {
+    "name": "DeleteBrowserSettings",
+    "description": "Grants permission to delete browser settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "browserSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteIdentityProvider": {
+    "name": "DeleteIdentityProvider",
+    "description": "Grants permission to delete identity providers",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identityProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteIpAccessSettings": {
+    "name": "DeleteIpAccessSettings",
+    "description": "Grants permission to delete ip access settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipAccessSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteNetworkSettings": {
+    "name": "DeleteNetworkSettings",
+    "description": "Grants permission to delete network settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "networkSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePortal": {
+    "name": "DeletePortal",
+    "description": "Grants permission to delete web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTrustStore": {
+    "name": "DeleteTrustStore",
+    "description": "Grants permission to delete trust stores",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trustStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteUserAccessLoggingSettings": {
+    "name": "DeleteUserAccessLoggingSettings",
+    "description": "Grants permission to delete user access logging settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "userAccessLoggingSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteUserSettings": {
+    "name": "DeleteUserSettings",
+    "description": "Grants permission to delete user settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "userSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateBrowserSettings": {
+    "name": "DisassociateBrowserSettings",
+    "description": "Grants permission to disassociate browser settings from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateIpAccessSettings": {
+    "name": "DisassociateIpAccessSettings",
+    "description": "Grants permission to disassociate ip access logging from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateNetworkSettings": {
+    "name": "DisassociateNetworkSettings",
+    "description": "Grants permission to disassociate network settings from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateTrustStore": {
+    "name": "DisassociateTrustStore",
+    "description": "Grants permission to disassociate trust stores from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateUserAccessLoggingSettings": {
+    "name": "DisassociateUserAccessLoggingSettings",
+    "description": "Grants permission to disassociate user access logging settings from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateUserSettings": {
+    "name": "DisassociateUserSettings",
+    "description": "Grants permission to disassociate user settings from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBrowserSettings": {
+    "name": "GetBrowserSettings",
+    "description": "Grants permission to get details on browser settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "browserSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIdentityProvider": {
+    "name": "GetIdentityProvider",
+    "description": "Grants permission to get details on identity providers",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identityProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIpAccessSettings": {
+    "name": "GetIpAccessSettings",
+    "description": "Grants permission to get details on ip access settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipAccessSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNetworkSettings": {
+    "name": "GetNetworkSettings",
+    "description": "Grants permission to get details on network settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "networkSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPortal": {
+    "name": "GetPortal",
+    "description": "Grants permission to get details on web portals",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPortalServiceProviderMetadata": {
+    "name": "GetPortalServiceProviderMetadata",
+    "description": "Grants permission to get service provider metadata information for web portals",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTrustStore": {
+    "name": "GetTrustStore",
+    "description": "Grants permission to get details on trust stores",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trustStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTrustStoreCertificate": {
+    "name": "GetTrustStoreCertificate",
+    "description": "Grants permission to get certificates from trust stores",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trustStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetUserAccessLoggingSettings": {
+    "name": "GetUserAccessLoggingSettings",
+    "description": "Grants permission to get details on user access logging settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "userAccessLoggingSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetUserSettings": {
+    "name": "GetUserSettings",
+    "description": "Grants permission to get details on user settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "userSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBrowserSettings": {
+    "name": "ListBrowserSettings",
+    "description": "Grants permission to list browser settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIdentityProviders": {
+    "name": "ListIdentityProviders",
+    "description": "Grants permission to list identity providers",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identityProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListIpAccessSettings": {
+    "name": "ListIpAccessSettings",
+    "description": "Grants permission to list ip access settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListNetworkSettings": {
+    "name": "ListNetworkSettings",
+    "description": "Grants permission to list network settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPortals": {
+    "name": "ListPortals",
+    "description": "Grants permission to list web portals",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTrustStoreCertificates": {
+    "name": "ListTrustStoreCertificates",
+    "description": "Grants permission to list certificates in a trust store",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTrustStores": {
+    "name": "ListTrustStores",
+    "description": "Grants permission to list trust stores",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListUserAccessLoggingSettings": {
+    "name": "ListUserAccessLoggingSettings",
+    "description": "Grants permission to list user access logging settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListUserSettings": {
+    "name": "ListUserSettings",
+    "description": "Grants permission to list user settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "browserSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ipAccessSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "networkSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "userAccessLoggingSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "userSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "browserSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ipAccessSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "networkSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "userAccessLoggingSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "userSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateBrowserSettings": {
+    "name": "UpdateBrowserSettings",
+    "description": "Grants permission to update browser settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "browserSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateIdentityProvider": {
+    "name": "UpdateIdentityProvider",
+    "description": "Grants permission to update identity provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identityProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateIpAccessSettings": {
+    "name": "UpdateIpAccessSettings",
+    "description": "Grants permission to update ip access settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipAccessSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateNetworkSettings": {
+    "name": "UpdateNetworkSettings",
+    "description": "Grants permission to update network settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "networkSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateTags",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteNetworkInterfacePermission",
+      "ec2:ModifyNetworkInterfaceAttribute"
+    ]
+  },
+  "UpdatePortal": {
+    "name": "UpdatePortal",
+    "description": "Grants permission to update web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateTrustStore": {
+    "name": "UpdateTrustStore",
+    "description": "Grants permission to update trust stores",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trustStore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateUserAccessLoggingSettings": {
+    "name": "UpdateUserAccessLoggingSettings",
+    "description": "Grants permission to update user access logging settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "userAccessLoggingSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kinesis:PutRecord",
+      "kinesis:PutRecords"
+    ]
+  },
+  "UpdateUserSettings": {
+    "name": "UpdateUserSettings",
+    "description": "Grants permission to update user settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "userSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

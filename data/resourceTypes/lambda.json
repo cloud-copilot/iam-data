@@ -1,0 +1,39 @@
+{
+  "code signing config": {
+    "key": "code signing config",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:code-signing-config:${CodeSigningConfigId}"
+  },
+  "eventSourceMapping": {
+    "key": "eventSourceMapping",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:event-source-mapping:${UUID}"
+  },
+  "function": {
+    "key": "function",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "function alias": {
+    "key": "function alias",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Alias}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "function version": {
+    "key": "function version",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "layer": {
+    "key": "layer",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}"
+  },
+  "layerVersion": {
+    "key": "layerVersion",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}:${LayerVersion}"
+  }
+}

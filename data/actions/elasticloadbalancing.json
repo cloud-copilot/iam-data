@@ -1,0 +1,1138 @@
+{
+  "AddListenerCertificates": {
+    "name": "AddListenerCertificates",
+    "description": "Grants permission to add the specified certificates to the specified secure listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "AddTags": {
+    "name": "AddTags",
+    "description": "Grants permission to add the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:CreateAction"
+    ],
+    "dependentActions": []
+  },
+  "AddTrustStoreRevocations": {
+    "name": "AddTrustStoreRevocations",
+    "description": "Grants permission to add revocations to a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateListener": {
+    "name": "CreateListener",
+    "description": "Grants permission to create a listener for the specified Application Load Balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticloadbalancing:AddTags"
+        ]
+      },
+      {
+        "name": "loadbalancer/net/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:SecurityPolicy",
+      "elasticloadbalancing:ListenerProtocol"
+    ],
+    "dependentActions": []
+  },
+  "CreateLoadBalancer": {
+    "name": "CreateLoadBalancer",
+    "description": "Grants permission to create a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticloadbalancing:AddTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:SecurityGroup",
+      "elasticloadbalancing:Subnet",
+      "elasticloadbalancing:Scheme",
+      "elasticloadbalancing:ListenerProtocol"
+    ],
+    "dependentActions": []
+  },
+  "CreateRule": {
+    "name": "CreateRule",
+    "description": "Grants permission to create a rule for the specified listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticloadbalancing:AddTags"
+        ]
+      },
+      {
+        "name": "listener/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateTargetGroup": {
+    "name": "CreateTargetGroup",
+    "description": "Grants permission to create a target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticloadbalancing:AddTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateTrustStore": {
+    "name": "CreateTrustStore",
+    "description": "Grants permission to create a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "elasticloadbalancing:AddTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteListener": {
+    "name": "DeleteListener",
+    "description": "Grants permission to delete the specified listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteLoadBalancer": {
+    "name": "DeleteLoadBalancer",
+    "description": "Grants permission to delete the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteRule": {
+    "name": "DeleteRule",
+    "description": "Grants permission to delete the specified rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener-rule/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener-rule/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteSharedTrustStoreAssociation": {
+    "name": "DeleteSharedTrustStoreAssociation",
+    "description": "Grants permission to delete the specified shared trust store association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteTargetGroup": {
+    "name": "DeleteTargetGroup",
+    "description": "Grants permission to delete the specified target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteTrustStore": {
+    "name": "DeleteTrustStore",
+    "description": "Grants permission to delete the specified trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeregisterTargets": {
+    "name": "DeregisterTargets",
+    "description": "Grants permission to deregister the specified targets from the specified target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeAccountLimits": {
+    "name": "DescribeAccountLimits",
+    "description": "Grants permission to describe the Elastic Load Balancing resource limits for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeListenerCertificates": {
+    "name": "DescribeListenerCertificates",
+    "description": "Grants permission to describe the certificates for the specified secure listener",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeListeners": {
+    "name": "DescribeListeners",
+    "description": "Grants permission to describe the specified listeners or the listeners for the specified Application Load Balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLoadBalancerAttributes": {
+    "name": "DescribeLoadBalancerAttributes",
+    "description": "Grants permission to describe the attributes for the specified load balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLoadBalancers": {
+    "name": "DescribeLoadBalancers",
+    "description": "Grants permission to describe the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRules": {
+    "name": "DescribeRules",
+    "description": "Grants permission to describe the specified rules or the rules for the specified listener",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSSLPolicies": {
+    "name": "DescribeSSLPolicies",
+    "description": "Grants permission to describe the specified policies or all policies used for SSL negotiation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTags": {
+    "name": "DescribeTags",
+    "description": "Grants permission to describe the tags associated with the specified load balancers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTargetGroupAttributes": {
+    "name": "DescribeTargetGroupAttributes",
+    "description": "Grants permission to describe the attributes for the specified target group",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTargetGroups": {
+    "name": "DescribeTargetGroups",
+    "description": "Grants permission to describe the specified target groups or all of your target groups",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTargetHealth": {
+    "name": "DescribeTargetHealth",
+    "description": "Grants permission to describe the health of the specified targets or all of your targets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTrustStoreAssociations": {
+    "name": "DescribeTrustStoreAssociations",
+    "description": "Grants permission to describe the associations with a trust store",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTrustStoreRevocations": {
+    "name": "DescribeTrustStoreRevocations",
+    "description": "Grants permission to describe the specified trust stores revocations or all of your revocations related to a trust store",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTrustStores": {
+    "name": "DescribeTrustStores",
+    "description": "Grants permission to describe the specified trust stores or all of your trust stores",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetResourcePolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to retrieve the resource policy associated with the resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetTrustStoreCaCertificatesBundle": {
+    "name": "GetTrustStoreCaCertificatesBundle",
+    "description": "Grants permission to retrieve a trust store CA certificates bundle",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetTrustStoreRevocationContent": {
+    "name": "GetTrustStoreRevocationContent",
+    "description": "Grants permission to retrieve a trust store revocation content",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyListener": {
+    "name": "ModifyListener",
+    "description": "Grants permission to modify the specified properties of the specified listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:SecurityPolicy",
+      "elasticloadbalancing:ListenerProtocol"
+    ],
+    "dependentActions": []
+  },
+  "ModifyLoadBalancerAttributes": {
+    "name": "ModifyLoadBalancerAttributes",
+    "description": "Grants permission to modify the attributes of the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyRule": {
+    "name": "ModifyRule",
+    "description": "Grants permission to modify the specified rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener-rule/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener-rule/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyTargetGroup": {
+    "name": "ModifyTargetGroup",
+    "description": "Grants permission to modify the health checks used when evaluating the health state of the targets in the specified target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyTargetGroupAttributes": {
+    "name": "ModifyTargetGroupAttributes",
+    "description": "Grants permission to modify the specified attributes of the specified target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ModifyTrustStore": {
+    "name": "ModifyTrustStore",
+    "description": "Grants permission to modify the specified trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RegisterTargets": {
+    "name": "RegisterTargets",
+    "description": "Grants permission to register the specified targets with the specified target group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "targetgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RemoveListenerCertificates": {
+    "name": "RemoveListenerCertificates",
+    "description": "Grants permission to remove the specified certificates of the specified secure listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RemoveTags": {
+    "name": "RemoveTags",
+    "description": "Grants permission to remove one or more tags from the specified load balancer",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RemoveTrustStoreRevocations": {
+    "name": "RemoveTrustStoreRevocations",
+    "description": "Grants permission to remove revocations from a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "truststore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetIpAddressType": {
+    "name": "SetIpAddressType",
+    "description": "Grants permission to set the type of IP addresses used by the subnets of the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "loadbalancer/net/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetRulePriorities": {
+    "name": "SetRulePriorities",
+    "description": "Grants permission to set the priorities of the specified rules",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener-rule/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener-rule/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetSecurityGroups": {
+    "name": "SetSecurityGroups",
+    "description": "Grants permission to associate the specified security groups with the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "loadbalancer/net/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:SecurityGroup"
+    ],
+    "dependentActions": []
+  },
+  "SetSubnets": {
+    "name": "SetSubnets",
+    "description": "Grants permission to enable the Availability Zone for the specified subnets for the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "loadbalancer/net/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:Subnet"
+    ],
+    "dependentActions": []
+  },
+  "SetWebAcl": {
+    "name": "SetWebAcl",
+    "isPermissionOnly": true,
+    "description": "Grants permission to give WebAcl permission to WAF",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ApplySecurityGroupsToLoadBalancer": {
+    "name": "ApplySecurityGroupsToLoadBalancer",
+    "description": "Grants permission to associate one or more security groups with your load balancer in a virtual private cloud (VPC)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:SecurityGroup"
+    ],
+    "dependentActions": []
+  },
+  "AttachLoadBalancerToSubnets": {
+    "name": "AttachLoadBalancerToSubnets",
+    "description": "Grants permission to add one or more subnets to the set of configured subnets for the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:Subnet"
+    ],
+    "dependentActions": []
+  },
+  "ConfigureHealthCheck": {
+    "name": "ConfigureHealthCheck",
+    "description": "Grants permission to specify the health check settings to use when evaluating the health state of your back-end instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateAppCookieStickinessPolicy": {
+    "name": "CreateAppCookieStickinessPolicy",
+    "description": "Grants permission to generate a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateLBCookieStickinessPolicy": {
+    "name": "CreateLBCookieStickinessPolicy",
+    "description": "Grants permission to generate a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateLoadBalancerListeners": {
+    "name": "CreateLoadBalancerListeners",
+    "description": "Grants permission to create one or more listeners for the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ListenerProtocol"
+    ],
+    "dependentActions": []
+  },
+  "CreateLoadBalancerPolicy": {
+    "name": "CreateLoadBalancerPolicy",
+    "description": "Grants permission to create a policy with the specified attributes for the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:SecurityPolicy"
+    ],
+    "dependentActions": []
+  },
+  "DeleteLoadBalancerListeners": {
+    "name": "DeleteLoadBalancerListeners",
+    "description": "Grants permission to delete the specified listeners from the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteLoadBalancerPolicy": {
+    "name": "DeleteLoadBalancerPolicy",
+    "description": "Grants permission to delete the specified policy from the specified load balancer. This policy must not be enabled for any listeners",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeregisterInstancesFromLoadBalancer": {
+    "name": "DeregisterInstancesFromLoadBalancer",
+    "description": "Grants permission to deregister the specified instances from the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeInstanceHealth": {
+    "name": "DescribeInstanceHealth",
+    "description": "Grants permission to describe the state of the specified instances with respect to the specified load balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLoadBalancerPolicies": {
+    "name": "DescribeLoadBalancerPolicies",
+    "description": "Grants permission to describe the specified policies",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLoadBalancerPolicyTypes": {
+    "name": "DescribeLoadBalancerPolicyTypes",
+    "description": "Grants permission to describe the specified load balancer policy types",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetachLoadBalancerFromSubnets": {
+    "name": "DetachLoadBalancerFromSubnets",
+    "description": "Grants permission to remove the specified subnets from the set of configured subnets for the load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DisableAvailabilityZonesForLoadBalancer": {
+    "name": "DisableAvailabilityZonesForLoadBalancer",
+    "description": "Grants permission to remove the specified Availability Zones from the set of Availability Zones for the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "EnableAvailabilityZonesForLoadBalancer": {
+    "name": "EnableAvailabilityZonesForLoadBalancer",
+    "description": "Grants permission to add the specified Availability Zones to the set of Availability Zones for the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "RegisterInstancesWithLoadBalancer": {
+    "name": "RegisterInstancesWithLoadBalancer",
+    "description": "Grants permission to add the specified instances to the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetLoadBalancerListenerSSLCertificate": {
+    "name": "SetLoadBalancerListenerSSLCertificate",
+    "description": "Grants permission to set the certificate that terminates the specified listener's SSL connections",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetLoadBalancerPoliciesForBackendServer": {
+    "name": "SetLoadBalancerPoliciesForBackendServer",
+    "description": "Grants permission to replace the set of policies associated with the specified port on which the back-end server is listening with a new set of policies",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SetLoadBalancerPoliciesOfListener": {
+    "name": "SetLoadBalancerPoliciesOfListener",
+    "description": "Grants permission to replace the current set of policies for the specified load balancer port with the specified set of policies",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}",
+      "elasticloadbalancing:SecurityPolicy"
+    ],
+    "dependentActions": []
+  }
+}

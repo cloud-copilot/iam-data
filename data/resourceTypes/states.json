@@ -1,0 +1,47 @@
+{
+  "activity": {
+    "key": "activity",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:activity:${ActivityName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "execution": {
+    "key": "execution",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}:${ExecutionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "express": {
+    "key": "express",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:express:${StateMachineName}:${ExecutionId}:${ExpressId}"
+  },
+  "statemachine": {
+    "key": "statemachine",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:stateMachine:${StateMachineName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "statemachineversion": {
+    "key": "statemachineversion",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:stateMachine:${StateMachineName}:${StateMachineVersionId}"
+  },
+  "statemachinealias": {
+    "key": "statemachinealias",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:stateMachine:${StateMachineName}:${StateMachineAliasName}"
+  },
+  "maprun": {
+    "key": "maprun",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:mapRun:${StateMachineName}/${MapRunLabel}:${MapRunId}"
+  },
+  "labelled execution": {
+    "key": "labelled execution",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}/${MapRunLabel}:${ExecutionId}"
+  },
+  "labelled express": {
+    "key": "labelled express",
+    "arn": "arn:${Partition}:states:${Region}:${Account}:express:${StateMachineName}/${MapRunLabel}:${ExecutionId}:${ExpressId}"
+  }
+}

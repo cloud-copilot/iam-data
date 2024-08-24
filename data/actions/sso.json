@@ -1,0 +1,1817 @@
+{
+  "AssociateDirectory": {
+    "name": "AssociateDirectory",
+    "description": "Grants permission to connect a directory to be used by AWS IAM Identity Center",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:AuthorizeApplication"
+    ]
+  },
+  "AssociateProfile": {
+    "name": "AssociateProfile",
+    "description": "Grants permission to create an association between a directory user or group and a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AttachCustomerManagedPolicyReferenceToPermissionSet": {
+    "name": "AttachCustomerManagedPolicyReferenceToPermissionSet",
+    "description": "Grants permission to attach a customer managed policy reference to a permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AttachManagedPolicyToPermissionSet": {
+    "name": "AttachManagedPolicyToPermissionSet",
+    "description": "Grants permission to attach an AWS managed policy to a permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateAccountAssignment": {
+    "name": "CreateAccountAssignment",
+    "description": "Grants permission to assign access to a Principal for a specified AWS account using a specified permission set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateApplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ApplicationProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateApplicationAssignment": {
+    "name": "CreateApplicationAssignment",
+    "description": "Grants permission to create an application assignment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "CreateApplicationInstance": {
+    "name": "CreateApplicationInstance",
+    "description": "Grants permission to add an application instance to AWS IAM Identity Center",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateApplicationInstanceCertificate": {
+    "name": "CreateApplicationInstanceCertificate",
+    "description": "Grants permission to add a new certificate for an application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateInstance": {
+    "name": "CreateInstance",
+    "description": "Grants permission to create an identity center instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "organizations:DescribeOrganization"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateInstanceAccessControlAttributeConfiguration": {
+    "name": "CreateInstanceAccessControlAttributeConfiguration",
+    "description": "Grants permission to enable the instance for ABAC and specify the attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:AttachRolePolicy",
+      "iam:CreateRole",
+      "iam:DeleteRole",
+      "iam:DeleteRolePolicy",
+      "iam:DetachRolePolicy",
+      "iam:GetRole",
+      "iam:ListAttachedRolePolicies",
+      "iam:ListRolePolicies",
+      "iam:PutRolePolicy",
+      "iam:UpdateAssumeRolePolicy"
+    ]
+  },
+  "CreateManagedApplicationInstance": {
+    "name": "CreateManagedApplicationInstance",
+    "description": "Grants permission to add a managed application instance to AWS IAM Identity Center",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreatePermissionSet": {
+    "name": "CreatePermissionSet",
+    "description": "Grants permission to create a permission set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateProfile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a profile for an application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateTrust": {
+    "name": "CreateTrust",
+    "description": "Grants permission to create a federation trust in a target account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateTrustedTokenIssuer": {
+    "name": "CreateTrustedTokenIssuer",
+    "description": "Grants permission to create a trusted token issuer for an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAccountAssignment": {
+    "name": "DeleteAccountAssignment",
+    "description": "Grants permission to delete a Principal's access from a specified AWS account using a specified permission set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteApplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplicationAccessScope": {
+    "name": "DeleteApplicationAccessScope",
+    "description": "Grants permission to delete an access scope to an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplicationAssignment": {
+    "name": "DeleteApplicationAssignment",
+    "description": "Grants permission to delete an application assignment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplicationAuthenticationMethod": {
+    "name": "DeleteApplicationAuthenticationMethod",
+    "description": "Grants permission to delete an authentication method to an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplicationGrant": {
+    "name": "DeleteApplicationGrant",
+    "description": "Grants permission to delete a grant from an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "DeleteApplicationInstance": {
+    "name": "DeleteApplicationInstance",
+    "description": "Grants permission to delete the application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteApplicationInstanceCertificate": {
+    "name": "DeleteApplicationInstanceCertificate",
+    "description": "Grants permission to delete an inactive or expired certificate from the application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteInlinePolicyFromPermissionSet": {
+    "name": "DeleteInlinePolicyFromPermissionSet",
+    "description": "Grants permission to delete the inline policy from a specified permission set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteInstance": {
+    "name": "DeleteInstance",
+    "description": "Grants permission to delete an identity center instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteInstanceAccessControlAttributeConfiguration": {
+    "name": "DeleteInstanceAccessControlAttributeConfiguration",
+    "description": "Grants permission to disable ABAC and remove the attributes list for the instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteManagedApplicationInstance": {
+    "name": "DeleteManagedApplicationInstance",
+    "description": "Grants permission to delete the managed application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePermissionSet": {
+    "name": "DeletePermissionSet",
+    "description": "Grants permission to delete a permission set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePermissionsBoundaryFromPermissionSet": {
+    "name": "DeletePermissionsBoundaryFromPermissionSet",
+    "description": "Grants permission to remove permissions boundary from a permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePermissionsPolicy": {
+    "name": "DeletePermissionsPolicy",
+    "description": "Grants permission to delete the permission policy associated with a permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteProfile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete the profile for an application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTrustedTokenIssuer": {
+    "name": "DeleteTrustedTokenIssuer",
+    "description": "Grants permission to delete a trusted token issuer for an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TrustedTokenIssuer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccountAssignmentCreationStatus": {
+    "name": "DescribeAccountAssignmentCreationStatus",
+    "description": "Grants permission to describe the status of the assignment creation request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccountAssignmentDeletionStatus": {
+    "name": "DescribeAccountAssignmentDeletionStatus",
+    "description": "Grants permission to describe the status of an assignment deletion request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeApplication": {
+    "name": "DescribeApplication",
+    "description": "Grants permission to obtain information about an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "DescribeApplicationAssignment": {
+    "name": "DescribeApplicationAssignment",
+    "description": "Grants permission to retrieve an application assignment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "DescribeApplicationProvider": {
+    "name": "DescribeApplicationProvider",
+    "description": "Grants permission to describe an application provider",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ApplicationProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDirectories": {
+    "name": "DescribeDirectories",
+    "description": "Grants permission to obtain information about the directories for this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstance": {
+    "name": "DescribeInstance",
+    "description": "Grants permission to obtain information about an identity center instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeInstanceAccessControlAttributeConfiguration": {
+    "name": "DescribeInstanceAccessControlAttributeConfiguration",
+    "description": "Grants permission to get the list of attributes used by the instance for ABAC",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePermissionSet": {
+    "name": "DescribePermissionSet",
+    "description": "Grants permission to describe a permission set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePermissionSetProvisioningStatus": {
+    "name": "DescribePermissionSetProvisioningStatus",
+    "description": "Grants permission to describe the status for the given Permission Set Provisioning request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePermissionsPolicies": {
+    "name": "DescribePermissionsPolicies",
+    "description": "Grants permission to retrieve all the permissions policies associated with a permission set",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegisteredRegions": {
+    "name": "DescribeRegisteredRegions",
+    "description": "Grants permission to obtain the regions where your organization has enabled AWS IAM Identity Center",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTrustedTokenIssuer": {
+    "name": "DescribeTrustedTokenIssuer",
+    "description": "Grants permission to describe a trusted token issuer for an instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TrustedTokenIssuer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTrusts": {
+    "name": "DescribeTrusts",
+    "description": "Grants permission to obtain information about the trust relationships for this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetachCustomerManagedPolicyReferenceFromPermissionSet": {
+    "name": "DetachCustomerManagedPolicyReferenceFromPermissionSet",
+    "description": "Grants permission to detach a customer managed policy reference from a permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetachManagedPolicyFromPermissionSet": {
+    "name": "DetachManagedPolicyFromPermissionSet",
+    "description": "Grants permission to detach the attached AWS managed policy from the specified permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateDirectory": {
+    "name": "DisassociateDirectory",
+    "description": "Grants permission to disassociate a directory to be used by AWS IAM Identity Center",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:UnauthorizeApplication"
+    ]
+  },
+  "DisassociateProfile": {
+    "name": "DisassociateProfile",
+    "description": "Grants permission to disassociate a directory user or group from a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetApplicationAccessScope": {
+    "name": "GetApplicationAccessScope",
+    "description": "Grants permission to get an access scope to an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "GetApplicationAssignmentConfiguration": {
+    "name": "GetApplicationAssignmentConfiguration",
+    "description": "Grants permission to read assignment configurations for an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "GetApplicationAuthenticationMethod": {
+    "name": "GetApplicationAuthenticationMethod",
+    "description": "Grants permission to get an authentication method to an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "GetApplicationGrant": {
+    "name": "GetApplicationGrant",
+    "description": "Grants permission to obtain details about a grant belonging to an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "GetApplicationInstance": {
+    "name": "GetApplicationInstance",
+    "description": "Grants permission to retrieve details for an application instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetApplicationTemplate": {
+    "name": "GetApplicationTemplate",
+    "description": "Grants permission to retrieve application template details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetInlinePolicyForPermissionSet": {
+    "name": "GetInlinePolicyForPermissionSet",
+    "description": "Grants permission to obtain the inline policy assigned to the permission set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetManagedApplicationInstance": {
+    "name": "GetManagedApplicationInstance",
+    "description": "Grants permission to retrieve details for an application instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMfaDeviceManagementForDirectory": {
+    "name": "GetMfaDeviceManagementForDirectory",
+    "description": "Grants permission to retrieve Mfa Device Management settings for the directory",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPermissionSet": {
+    "name": "GetPermissionSet",
+    "description": "Grants permission to retrieve details of a permission set",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPermissionsBoundaryForPermissionSet": {
+    "name": "GetPermissionsBoundaryForPermissionSet",
+    "description": "Grants permission to get permissions boundary for a permission set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetPermissionsPolicy": {
+    "name": "GetPermissionsPolicy",
+    "description": "Grants permission to retrieve all permission policies associated with a permission set",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:DescribePermissionsPolicies"
+    ]
+  },
+  "GetProfile": {
+    "name": "GetProfile",
+    "description": "Grants permission to retrieve a profile for an application instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSSOStatus": {
+    "name": "GetSSOStatus",
+    "description": "Grants permission to check if AWS IAM Identity Center is enabled",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSharedSsoConfiguration": {
+    "name": "GetSharedSsoConfiguration",
+    "description": "Grants permission to retrieve shared configuration for the current SSO instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSsoConfiguration": {
+    "name": "GetSsoConfiguration",
+    "description": "Grants permission to retrieve configuration for the current SSO instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTrust": {
+    "name": "GetTrust",
+    "description": "Grants permission to retrieve the federation trust in a target account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportApplicationInstanceServiceProviderMetadata": {
+    "name": "ImportApplicationInstanceServiceProviderMetadata",
+    "description": "Grants permission to update the application instance by uploading an application SAML metadata file provided by the service provider",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccountAssignmentCreationStatus": {
+    "name": "ListAccountAssignmentCreationStatus",
+    "description": "Grants permission to list the status of the AWS account assignment creation requests for a specified SSO instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccountAssignmentDeletionStatus": {
+    "name": "ListAccountAssignmentDeletionStatus",
+    "description": "Grants permission to list the status of the AWS account assignment deletion requests for a specified SSO instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccountAssignments": {
+    "name": "ListAccountAssignments",
+    "description": "Grants permission to list the assignee of the specified AWS account with the specified permission set",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccountAssignmentsForPrincipal": {
+    "name": "ListAccountAssignmentsForPrincipal",
+    "description": "Grants permission to list accounts assigned to user or group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccountsForProvisionedPermissionSet": {
+    "name": "ListAccountsForProvisionedPermissionSet",
+    "description": "Grants permission to list all the AWS accounts where the specified permission set is provisioned",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListApplicationAccessScopes": {
+    "name": "ListApplicationAccessScopes",
+    "description": "Grants permission to list access scopes to an application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "ListApplicationAssignments": {
+    "name": "ListApplicationAssignments",
+    "description": "Grants permission to list application assignments",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "ListApplicationAssignmentsForPrincipal": {
+    "name": "ListApplicationAssignmentsForPrincipal",
+    "description": "Grants permission to list applications assigned to user or group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "ListApplicationAuthenticationMethods": {
+    "name": "ListApplicationAuthenticationMethods",
+    "description": "Grants permission to list authentication methods to an application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "ListApplicationGrants": {
+    "name": "ListApplicationGrants",
+    "description": "Grants permission to list grants from an application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "ListApplicationInstanceCertificates": {
+    "name": "ListApplicationInstanceCertificates",
+    "description": "Grants permission to retrieve all of the certificates for a given application instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListApplicationInstances": {
+    "name": "ListApplicationInstances",
+    "description": "Grants permission to retrieve all application instances",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:GetApplicationInstance"
+    ]
+  },
+  "ListApplicationProviders": {
+    "name": "ListApplicationProviders",
+    "description": "Grants permission to list application providers",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ApplicationProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListApplicationTemplates": {
+    "name": "ListApplicationTemplates",
+    "description": "Grants permission to retrieve all supported application templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:GetApplicationTemplate"
+    ]
+  },
+  "ListApplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to retrieve all applications associated with the instance of IAM Identity Center",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListCustomerManagedPolicyReferencesInPermissionSet": {
+    "name": "ListCustomerManagedPolicyReferencesInPermissionSet",
+    "description": "Grants permission to list the customer managed policy references that are attached to a permission set",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDirectoryAssociations": {
+    "name": "ListDirectoryAssociations",
+    "description": "Grants permission to retrieve details about the directory connected to AWS IAM Identity Center",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListInstances": {
+    "name": "ListInstances",
+    "description": "Grants permission to list the SSO Instances that the caller has access to",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListManagedPoliciesInPermissionSet": {
+    "name": "ListManagedPoliciesInPermissionSet",
+    "description": "Grants permission to list the AWS managed policies that are attached to a specified permission set",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPermissionSetProvisioningStatus": {
+    "name": "ListPermissionSetProvisioningStatus",
+    "description": "Grants permission to list the status of the Permission Set Provisioning requests for a specified SSO instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPermissionSets": {
+    "name": "ListPermissionSets",
+    "description": "Grants permission to retrieve all permission sets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPermissionSetsProvisionedToAccount": {
+    "name": "ListPermissionSetsProvisionedToAccount",
+    "description": "Grants permission to list all the permission sets that are provisioned to a specified AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfileAssociations": {
+    "name": "ListProfileAssociations",
+    "description": "Grants permission to retrieve the directory user or group associated with the profile",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfiles": {
+    "name": "ListProfiles",
+    "description": "Grants permission to retrieve all profiles for an application instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:GetProfile"
+    ]
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags that are attached to a specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrustedTokenIssuer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTrustedTokenIssuers": {
+    "name": "ListTrustedTokenIssuers",
+    "description": "Grants permission to list trusted token issuers for an instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ProvisionPermissionSet": {
+    "name": "ProvisionPermissionSet",
+    "description": "Grants permission to provision a specified permission set to the specified target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutApplicationAccessScope": {
+    "name": "PutApplicationAccessScope",
+    "description": "Grants permission to create/update an access scope to an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "PutApplicationAssignmentConfiguration": {
+    "name": "PutApplicationAssignmentConfiguration",
+    "description": "Grants permission to add assignment configurations to an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "PutApplicationAuthenticationMethod": {
+    "name": "PutApplicationAuthenticationMethod",
+    "description": "Grants permission to create/update an authentication method to an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "PutApplicationGrant": {
+    "name": "PutApplicationGrant",
+    "description": "Grants permission to create/update a grant to an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "PutInlinePolicyToPermissionSet": {
+    "name": "PutInlinePolicyToPermissionSet",
+    "description": "Grants permission to attach an IAM inline policy to a permission set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutMfaDeviceManagementForDirectory": {
+    "name": "PutMfaDeviceManagementForDirectory",
+    "description": "Grants permission to put Mfa Device Management settings for the directory",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutPermissionsBoundaryToPermissionSet": {
+    "name": "PutPermissionsBoundaryToPermissionSet",
+    "description": "Grants permission to add permissions boundary to a permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutPermissionsPolicy": {
+    "name": "PutPermissionsPolicy",
+    "description": "Grants permission to add a policy to a permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SearchGroups": {
+    "name": "SearchGroups",
+    "description": "Grants permission to search for groups within the associated directory",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:DescribeDirectories"
+    ]
+  },
+  "SearchUsers": {
+    "name": "SearchUsers",
+    "description": "Grants permission to search for users within the associated directory",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ds:DescribeDirectories"
+    ]
+  },
+  "StartSSO": {
+    "name": "StartSSO",
+    "description": "Grants permission to initialize AWS IAM Identity Center",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DescribeOrganization",
+      "organizations:EnableAWSServiceAccess"
+    ]
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to associate a set of tags with a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrustedTokenIssuer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to disassociate a set of tags from a specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TrustedTokenIssuer",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateApplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to update an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
+  "UpdateApplicationInstanceActiveCertificate": {
+    "name": "UpdateApplicationInstanceActiveCertificate",
+    "description": "Grants permission to set a certificate as the active one for this application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateApplicationInstanceDisplayData": {
+    "name": "UpdateApplicationInstanceDisplayData",
+    "description": "Grants permission to update display data of an application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateApplicationInstanceResponseConfiguration": {
+    "name": "UpdateApplicationInstanceResponseConfiguration",
+    "description": "Grants permission to update federation response configuration for the application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateApplicationInstanceResponseSchemaConfiguration": {
+    "name": "UpdateApplicationInstanceResponseSchemaConfiguration",
+    "description": "Grants permission to update federation response schema configuration for the application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateApplicationInstanceSecurityConfiguration": {
+    "name": "UpdateApplicationInstanceSecurityConfiguration",
+    "description": "Grants permission to update security details for the application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateApplicationInstanceServiceProviderConfiguration": {
+    "name": "UpdateApplicationInstanceServiceProviderConfiguration",
+    "description": "Grants permission to update service provider related configuration for the application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateApplicationInstanceStatus": {
+    "name": "UpdateApplicationInstanceStatus",
+    "description": "Grants permission to update the status of an application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDirectoryAssociation": {
+    "name": "UpdateDirectoryAssociation",
+    "description": "Grants permission to update the user attribute mappings for your connected directory",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateInstance": {
+    "name": "UpdateInstance",
+    "description": "Grants permission to update an identity center instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateInstanceAccessControlAttributeConfiguration": {
+    "name": "UpdateInstanceAccessControlAttributeConfiguration",
+    "description": "Grants permission to update the attributes to use with the instance for ABAC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateManagedApplicationInstanceStatus": {
+    "name": "UpdateManagedApplicationInstanceStatus",
+    "description": "Grants permission to update the status of a managed application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdatePermissionSet": {
+    "name": "UpdatePermissionSet",
+    "description": "Grants permission to update the permission set",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PermissionSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateProfile": {
+    "name": "UpdateProfile",
+    "description": "Grants permission to update the profile for an application instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSSOConfiguration": {
+    "name": "UpdateSSOConfiguration",
+    "description": "Grants permission to update the configuration for the current SSO instance",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateTrust": {
+    "name": "UpdateTrust",
+    "description": "Grants permission to update the federation trust in a target account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateTrustedTokenIssuer": {
+    "name": "UpdateTrustedTokenIssuer",
+    "description": "Grants permission to update a trusted token issuer for an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TrustedTokenIssuer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

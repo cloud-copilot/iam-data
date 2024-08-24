@@ -1,0 +1,559 @@
+{
+  "CancelChangeSet": {
+    "name": "CancelChangeSet",
+    "description": "Grants permission to cancel a running change set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ChangeSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CompleteTask": {
+    "name": "CompleteTask",
+    "description": "Grants permission to complete an existing task and submit the content to the associated change",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete the resource policy of an existing entity",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAssessment": {
+    "name": "DescribeAssessment",
+    "description": "Grants permission to return the details of an existing assessment",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeChangeSet": {
+    "name": "DescribeChangeSet",
+    "description": "Grants permission to return the details of an existing change set",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ChangeSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeEntity": {
+    "name": "DescribeEntity",
+    "description": "Grants permission to return the details of an existing entity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTask": {
+    "name": "DescribeTask",
+    "description": "Grants permission to return the details of an existing task",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetResourcePolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get the resource policy of an existing entity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAssessments": {
+    "name": "ListAssessments",
+    "description": "Grants permission to list existing assessments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListChangeSets": {
+    "name": "ListChangeSets",
+    "description": "Grants permission to list existing change sets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEntities": {
+    "name": "ListEntities",
+    "description": "Grants permission to list existing entities",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a deployment parameter resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DeploymentParameter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListTasks": {
+    "name": "ListTasks",
+    "description": "Grants permission to list existing tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach a resource policy to an existing entity",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartChangeSet": {
+    "name": "StartChangeSet",
+    "description": "Grants permission to request a new change set (Note: resource-level permissions for this action and condition context keys for this action are only supported when used with Catalog API and are not supported when used with AWS Marketplace Management Portal)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Entity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "catalog:ChangeType",
+      "aws-marketplace:Intent",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a deployment parameter resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "DeploymentParameter",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a deployment parameter resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "DeploymentParameter",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateTask": {
+    "name": "UpdateTask",
+    "description": "Grants permission to update the contents of an existing task",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutDeploymentParameter": {
+    "name": "PutDeploymentParameter",
+    "description": "Grants permission to create or update a deployment parameter resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DeploymentParameter",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "aws-marketplace:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "ListPrivateListings": {
+    "name": "ListPrivateListings",
+    "description": "Grants permission to users to list their private offers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEntitlements": {
+    "name": "GetEntitlements",
+    "description": "Grants permission to retrieve entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBuilds": {
+    "name": "DescribeBuilds",
+    "isPermissionOnly": true,
+    "description": "Describes Image Builds identified by a build Id",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBuilds": {
+    "name": "ListBuilds",
+    "isPermissionOnly": true,
+    "description": "Lists Image Builds.",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartBuild": {
+    "name": "StartBuild",
+    "isPermissionOnly": true,
+    "description": "Starts an Image Build",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchMeterUsage": {
+    "name": "BatchMeterUsage",
+    "description": "Grants permission to post metering records for a set of customers for SaaS applications",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "MeterUsage": {
+    "name": "MeterUsage",
+    "description": "Grants permission to emit metering records",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterUsage": {
+    "name": "RegisterUsage",
+    "description": "Grants permission to to verify that the customer running your paid software is subscribed to your product on AWS Marketplace, enabling you to guard against unauthorized use. Meters software use per ECS task, per hour, with usage prorated to the second",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ResolveCustomer": {
+    "name": "ResolveCustomer",
+    "description": "Grants permission to resolve a registration token to obtain a CustomerIdentifier and product code",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateProductsWithPrivateMarketplace": {
+    "name": "AssociateProductsWithPrivateMarketplace",
+    "isPermissionOnly": true,
+    "description": "Grants permission to approve a request for a product to be associated with the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreatePrivateMarketplaceRequests": {
+    "name": "CreatePrivateMarketplaceRequests",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a new request for a product or products to be associated with the Private Marketplace. This action can be performed by any account in an in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePrivateMarketplaceRequests": {
+    "name": "DescribePrivateMarketplaceRequests",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe requests and associated products in the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateProductsFromPrivateMarketplace": {
+    "name": "DisassociateProductsFromPrivateMarketplace",
+    "isPermissionOnly": true,
+    "description": "Grants permission to decline a request for a product to be associated with the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPrivateMarketplaceRequests": {
+    "name": "ListPrivateMarketplaceRequests",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get a queryable list for requests and associated products in the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeProcurementSystemConfiguration": {
+    "name": "DescribeProcurementSystemConfiguration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe the Procurement System integration configuration (e.g. Coupa) for the individual account, or for the entire AWS Organization if one exists. This action can only be performed by the master account if using an AWS Organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutProcurementSystemConfiguration": {
+    "name": "PutProcurementSystemConfiguration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create or update the Procurement System integration configuration (e.g. Coupa) for the individual account, or for the entire AWS Organization if one exists. This action can only be performed by the master account if using an AWS Organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSellerDashboard": {
+    "name": "GetSellerDashboard",
+    "description": "Grants permission to view a seller dashboard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SellerDashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AcceptAgreementApprovalRequest": {
+    "name": "AcceptAgreementApprovalRequest",
+    "description": "Grants permission to users to approve an incoming subscription request (for providers who provide products that require subscription verification)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AcceptAgreementRequest": {
+    "name": "AcceptAgreementRequest",
+    "description": "Grants permission to users to accept their agreement requests. Note that this action is not applicable to Marketplace purchases",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelAgreement": {
+    "name": "CancelAgreement",
+    "description": "Grants permission to users to cancel their agreements. Note that this action is not applicable to Marketplace purchases",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelAgreementRequest": {
+    "name": "CancelAgreementRequest",
+    "description": "Grants permission to users to cancel pending subscription requests for products that require subscription verification",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateAgreementRequest": {
+    "name": "CreateAgreementRequest",
+    "description": "Grants permission to users to create an agreement request. Note that this action is not applicable to Marketplace purchases",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAgreement": {
+    "name": "DescribeAgreement",
+    "description": "Grants permission to users to describe the metadata about the agreement",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgreementApprovalRequest": {
+    "name": "GetAgreementApprovalRequest",
+    "description": "Grants permission to users to view the details of their incoming subscription requests (for providers who provide products that require subscription verification)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgreementRequest": {
+    "name": "GetAgreementRequest",
+    "description": "Grants permission to users to view the details of their subscription requests for data products that require subscription verification",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAgreementTerms": {
+    "name": "GetAgreementTerms",
+    "description": "Grants permission to users to get a list of terms for an agreement",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAgreementApprovalRequests": {
+    "name": "ListAgreementApprovalRequests",
+    "description": "Grants permission to users to list their incoming subscription requests (for providers who provide products that require subscription verification)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAgreementRequests": {
+    "name": "ListAgreementRequests",
+    "description": "Grants permission to users to list their subscription requests for products that require subscription verification",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEntitlementDetails": {
+    "name": "ListEntitlementDetails",
+    "description": "Grants permission to users to view details of the entitlements associated with an agreement. Note that this action is not applicable to Marketplace purchases",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RejectAgreementApprovalRequest": {
+    "name": "RejectAgreementApprovalRequest",
+    "description": "Grants permission to users to decline an incoming subscription requests (for providers who provide products that require subscription verification)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SearchAgreements": {
+    "name": "SearchAgreements",
+    "description": "Grants permission to users to search their agreements",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "Subscribe": {
+    "name": "Subscribe",
+    "description": "Grants permission to users to subscribe to AWS Marketplace products. Includes the ability to send a subscription request for products that require subscription verification. Includes the ability to enable auto-renewal for an existing subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "Unsubscribe": {
+    "name": "Unsubscribe",
+    "description": "Grants permission to users to remove subscriptions to AWS Marketplace products. Includes the ability to disable auto-renewal for an existing subscription",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateAgreementApprovalRequest": {
+    "name": "UpdateAgreementApprovalRequest",
+    "description": "Grants permission to users to make changes to an incoming subscription request, including the ability to delete the prospective subscriber's information (for providers who provide products that require subscription verification)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ViewSubscriptions": {
+    "name": "ViewSubscriptions",
+    "description": "Grants permission to users to see their account's subscriptions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

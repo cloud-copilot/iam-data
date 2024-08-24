@@ -1,0 +1,856 @@
+{
+  "AddTags": {
+    "name": "AddTags",
+    "description": "Grants permission to add one or more tags to a trail, event data store, or channel, up to a limit of 50",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventdatastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CancelQuery": {
+    "name": "CancelQuery",
+    "description": "Grants permission to cancel a running query",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateChannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudtrail:AddTags"
+        ]
+      },
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateEventDataStore": {
+    "name": "CreateEventDataStore",
+    "description": "Grants permission to create an event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudtrail:AddTags",
+          "iam:CreateServiceLinkedRole",
+          "iam:GetRole",
+          "kms:Decrypt",
+          "kms:GenerateDataKey",
+          "organizations:ListAWSServiceAccessForOrganization"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateServiceLinkedChannel": {
+    "name": "CreateServiceLinkedChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a service-linked channel that specifies the settings for delivery of log data to an AWS service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateTrail": {
+    "name": "CreateTrail",
+    "description": "Grants permission to create a trail that specifies the settings for delivery of log data to an Amazon S3 bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudtrail:AddTags",
+          "iam:CreateServiceLinkedRole",
+          "iam:GetRole",
+          "organizations:ListAWSServiceAccessForOrganization"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteChannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEventDataStore": {
+    "name": "DeleteEventDataStore",
+    "description": "Grants permission to delete an event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy from the provided resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteServiceLinkedChannel": {
+    "name": "DeleteServiceLinkedChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete a service-linked channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTrail": {
+    "name": "DeleteTrail",
+    "description": "Grants permission to delete a trail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterOrganizationDelegatedAdmin": {
+    "name": "DeregisterOrganizationDelegatedAdmin",
+    "description": "Grants permission to deregister an AWS Organizations member account as a delegated administrator",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DeregisterDelegatedAdministrator",
+      "organizations:ListAWSServiceAccessForOrganization"
+    ]
+  },
+  "DescribeQuery": {
+    "name": "DescribeQuery",
+    "description": "Grants permission to list details for the query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTrails": {
+    "name": "DescribeTrails",
+    "description": "Grants permission to list settings for the trails associated with the current region for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisableFederation": {
+    "name": "DisableFederation",
+    "description": "Grants permission to disable federation of event data store data by using the AWS Glue Data Catalog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "glue:DeleteDatabase",
+      "glue:DeleteTable",
+      "glue:PassConnection",
+      "lakeformation:DeregisterResource",
+      "lakeformation:RegisterResource"
+    ]
+  },
+  "EnableFederation": {
+    "name": "EnableFederation",
+    "description": "Grants permission to enable federation of event data store data by using the AWS Glue Data Catalog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "glue:CreateDatabase",
+      "glue:CreateTable",
+      "iam:GetRole",
+      "iam:PassRole",
+      "lakeformation:DeregisterResource",
+      "lakeformation:RegisterResource"
+    ]
+  },
+  "GenerateQuery": {
+    "name": "GenerateQuery",
+    "description": "Grants permission to generate a query for a specified event data store using the CloudTrail Lake query generator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetChannel": {
+    "name": "GetChannel",
+    "description": "Grants permission to return information about a specific channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEventDataStore": {
+    "name": "GetEventDataStore",
+    "description": "Grants permission to list settings for the event data store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEventDataStoreData": {
+    "name": "GetEventDataStoreData",
+    "description": "Grants permission to get data from an event data store by using the AWS Glue Data Catalog",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ]
+  },
+  "GetEventSelectors": {
+    "name": "GetEventSelectors",
+    "description": "Grants permission to list settings for event selectors configured for a trail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetImport": {
+    "name": "GetImport",
+    "description": "Grants permission to return information about a specific import",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetInsightSelectors": {
+    "name": "GetInsightSelectors",
+    "description": "Grants permission to list CloudTrail Insights selectors that are configured for a trail or event data store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetQueryResults": {
+    "name": "GetQueryResults",
+    "description": "Grants permission to fetch results of a complete query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ]
+  },
+  "GetResourcePolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get the resource policy attached to the provided resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetServiceLinkedChannel": {
+    "name": "GetServiceLinkedChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list settings for the service-linked channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTrail": {
+    "name": "GetTrail",
+    "description": "Grants permission to list settings for the trail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetTrailStatus": {
+    "name": "GetTrailStatus",
+    "description": "Grants permission to retrieve a JSON-formatted list of information about the specified trail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListChannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to list the channels in the current account, and their source names",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEventDataStores": {
+    "name": "ListEventDataStores",
+    "description": "Grants permission to list event data stores associated with the current region for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImportFailures": {
+    "name": "ListImportFailures",
+    "description": "Grants permission to return a list of failures for the specified import",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListImports": {
+    "name": "ListImports",
+    "description": "Grants permission to return information on all imports, or a select set of imports by ImportStatus or Destination",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPublicKeys": {
+    "name": "ListPublicKeys",
+    "description": "Grants permission to list the public keys whose private keys were used to sign trail digest files within a specified time range",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListQueries": {
+    "name": "ListQueries",
+    "description": "Grants permission to list queries associated with an event data store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListServiceLinkedChannels": {
+    "name": "ListServiceLinkedChannels",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list service-linked channels associated with the current region for a specified account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTags": {
+    "name": "ListTags",
+    "description": "Grants permission to list the tags for trails, event data stores, or channels in the current region",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventdatastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTrails": {
+    "name": "ListTrails",
+    "description": "Grants permission to list trails associated with the current region for your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "LookupEvents": {
+    "name": "LookupEvents",
+    "description": "Grants permission to look up and retrieve metric data for API activity events captured by CloudTrail that create, update, or delete resources in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutEventSelectors": {
+    "name": "PutEventSelectors",
+    "description": "Grants permission to create and update event selectors for a trail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutInsightSelectors": {
+    "name": "PutInsightSelectors",
+    "description": "Grants permission to create and update CloudTrail Insights selectors for a trail or event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach a resource policy to the provided resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterOrganizationDelegatedAdmin": {
+    "name": "RegisterOrganizationDelegatedAdmin",
+    "description": "Grants permission to register an AWS Organizations member account as a delegated administrator",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:GetRole",
+      "organizations:ListAWSServiceAccessForOrganization",
+      "organizations:RegisterDelegatedAdministrator"
+    ]
+  },
+  "RemoveTags": {
+    "name": "RemoveTags",
+    "description": "Grants permission to remove tags from a trail, event data store, or channel",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventdatastore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RestoreEventDataStore": {
+    "name": "RestoreEventDataStore",
+    "description": "Grants permission to restore an event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartEventDataStoreIngestion": {
+    "name": "StartEventDataStoreIngestion",
+    "description": "Grants permission to start ingestion on an event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartImport": {
+    "name": "StartImport",
+    "description": "Grants permission to start an import of logged trail events from a source S3 bucket to a destination event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartLogging": {
+    "name": "StartLogging",
+    "description": "Grants permission to start the recording of AWS API calls and log file delivery for a trail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartQuery": {
+    "name": "StartQuery",
+    "description": "Grants permission to start a new query on a specified event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ]
+  },
+  "StopEventDataStoreIngestion": {
+    "name": "StopEventDataStoreIngestion",
+    "description": "Grants permission to stop ingestion on an event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopImport": {
+    "name": "StopImport",
+    "description": "Grants permission to stop a specified import",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StopLogging": {
+    "name": "StopLogging",
+    "description": "Grants permission to stop the recording of AWS API calls and log file delivery for a trail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateChannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to update a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateEventDataStore": {
+    "name": "UpdateEventDataStore",
+    "description": "Grants permission to update an event data store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:GetRole",
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "organizations:ListAWSServiceAccessForOrganization"
+    ]
+  },
+  "UpdateServiceLinkedChannel": {
+    "name": "UpdateServiceLinkedChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the service-linked channel settings for delivery of log data to an AWS service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateTrail": {
+    "name": "UpdateTrail",
+    "description": "Grants permission to update the settings that specify delivery of log files",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:GetRole",
+      "organizations:ListAWSServiceAccessForOrganization"
+    ]
+  }
+}

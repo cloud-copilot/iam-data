@@ -1,0 +1,310 @@
+{
+  "AnalyzeDocument": {
+    "name": "AnalyzeDocument",
+    "description": "Grants permission to detect instances of real-world document entities within an image provided as input",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "AnalyzeExpense": {
+    "name": "AnalyzeExpense",
+    "description": "Grants permission to detect instances of real-world document entities within an image provided as input",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "AnalyzeID": {
+    "name": "AnalyzeID",
+    "description": "Grants permission to detect relevant information from identity documents provided as input",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "CreateAdapter": {
+    "name": "CreateAdapter",
+    "description": "Grants permission to create an Amazon Textract adapter",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateAdapterVersion": {
+    "name": "CreateAdapterVersion",
+    "description": "Grants permission to create an Amazon Textract adapter version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "adapter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAdapter": {
+    "name": "DeleteAdapter",
+    "description": "Grants permission to delete an Amazon Textract adapter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "adapter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteAdapterVersion": {
+    "name": "DeleteAdapterVersion",
+    "description": "Grants permission to delete an Amazon Textract adapter version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "adapterversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DetectDocumentText": {
+    "name": "DetectDocumentText",
+    "description": "Grants permission to detect text in document images",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "GetAdapter": {
+    "name": "GetAdapter",
+    "description": "Grants permission to get an Amazon Textract adapter",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "adapter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAdapterVersion": {
+    "name": "GetAdapterVersion",
+    "description": "Grants permission to get an Amazon Textract adapter version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "adapterversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDocumentAnalysis": {
+    "name": "GetDocumentAnalysis",
+    "description": "Grants permission to return information about a document analysis job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDocumentTextDetection": {
+    "name": "GetDocumentTextDetection",
+    "description": "Grants permission to return information about a document text detection job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetExpenseAnalysis": {
+    "name": "GetExpenseAnalysis",
+    "description": "Grants permission to return information about an expense analysis job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLendingAnalysis": {
+    "name": "GetLendingAnalysis",
+    "description": "Grants permission to retrieve page-level information regarding a lending analysis job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLendingAnalysisSummary": {
+    "name": "GetLendingAnalysisSummary",
+    "description": "Grants permission to retrieve summarized information regarding a lending analysis job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAdapterVersions": {
+    "name": "ListAdapterVersions",
+    "description": "Grants permission to list Amazon Textract adapter versions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAdapters": {
+    "name": "ListAdapters",
+    "description": "Grants permission to list Amazon Textract adapters",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to return a list of tags associated with a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "adapter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "adapterversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "StartDocumentAnalysis": {
+    "name": "StartDocumentAnalysis",
+    "description": "Grants permission to start an asynchronous job to detect instances of real-world document entities within an image or pdf provided as input",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "StartDocumentTextDetection": {
+    "name": "StartDocumentTextDetection",
+    "description": "Grants permission to start an asynchronous job to detect text in document images or pdfs",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "StartExpenseAnalysis": {
+    "name": "StartExpenseAnalysis",
+    "description": "Grants permission to start an asynchronous job to detect instances of invoices or receipts within an image or pdf provided as input",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "StartLendingAnalysis": {
+    "name": "StartLendingAnalysis",
+    "description": "Grants permission to start an asynchronous job for detection of entities in a lending document, takes a provided image or PDF as input",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "adapter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "adapterversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "adapter",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "adapterversion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAdapter": {
+    "name": "UpdateAdapter",
+    "description": "Grants permission to update Amazon Textract adapter",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "adapter",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

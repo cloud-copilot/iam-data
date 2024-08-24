@@ -1,0 +1,201 @@
+{
+  "AssociateProfile": {
+    "name": "AssociateProfile",
+    "description": "Grants permission to associates a Profile to the customer VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeVpcs"
+    ]
+  },
+  "AssociateResourceToProfile": {
+    "name": "AssociateResourceToProfile",
+    "description": "Grants permission to associates a resource, such as DNS Firewall rule group, private hosted zone, resolver rule, etc. to a specified Profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateProfile": {
+    "name": "CreateProfile",
+    "description": "Grants permission to create a new Profile resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteProfile": {
+    "name": "DeleteProfile",
+    "description": "Grants permission to delete a Profile specified by the ProfileId",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateProfile": {
+    "name": "DisassociateProfile",
+    "description": "Grants permission to delete an association between a customer VPC and the specified Profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateResourceFromProfile": {
+    "name": "DisassociateResourceFromProfile",
+    "description": "Grants permission to delete the asoociation between the resource. such as DNS Firewall rule group, private hosted zone, resolver rule, etc. and the specified Profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProfile": {
+    "name": "GetProfile",
+    "description": "Grants permission to get a Profile",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProfileAssociation": {
+    "name": "GetProfileAssociation",
+    "description": "Grants permission to get a Profile to a VPC association specified by the Profile association ID",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProfilePolicy": {
+    "name": "GetProfilePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the RAM access control policy for a Profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProfileResourceAssociation": {
+    "name": "GetProfileResourceAssociation",
+    "description": "Grants permission to get a Profile resource association based on the ProfileResourceAssociationId",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfileAssociations": {
+    "name": "ListProfileAssociations",
+    "description": "Grants permission to list all VPCs the specified Profile is associated to",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfileResourceAssociations": {
+    "name": "ListProfileResourceAssociations",
+    "description": "Grants permission to list all the associations between the resources, such as DNS Firewall rule groups, private hosted zones, resolver rules, etc. for the given Profile ID",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProfiles": {
+    "name": "ListProfiles",
+    "description": "Grants permission to list all the Profiles created by, and shared to the customer",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags associated with the resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutProfilePolicy": {
+    "name": "PutProfilePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to define the RAM access control policy for a Profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add a tag to the given resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to delete a tag from the given resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "profile-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateProfileResourceAssociation": {
+    "name": "UpdateProfileResourceAssociation",
+    "description": "Grants permission to update the Profile resource association name or the resource properties or both, if both name and resource properties are null, the api returns the existing Profile resource association",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

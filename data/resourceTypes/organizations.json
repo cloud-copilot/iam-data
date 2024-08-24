@@ -1,0 +1,49 @@
+{
+  "account": {
+    "key": "account",
+    "arn": "arn:${Partition}:organizations::${Account}:account/o-${OrganizationId}/${AccountId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "handshake": {
+    "key": "handshake",
+    "arn": "arn:${Partition}:organizations::${Account}:handshake/o-${OrganizationId}/${HandshakeType}/h-${HandshakeId}"
+  },
+  "organization": {
+    "key": "organization",
+    "arn": "arn:${Partition}:organizations::${Account}:organization/o-${OrganizationId}"
+  },
+  "organizationalunit": {
+    "key": "organizationalunit",
+    "arn": "arn:${Partition}:organizations::${Account}:ou/o-${OrganizationId}/ou-${OrganizationalUnitId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "policy": {
+    "key": "policy",
+    "arn": "arn:${Partition}:organizations::${Account}:policy/o-${OrganizationId}/${PolicyType}/p-${PolicyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "resourcepolicy": {
+    "key": "resourcepolicy",
+    "arn": "arn:${Partition}:organizations::${Account}:resourcepolicy/o-${OrganizationId}/rp-${ResourcePolicyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "awspolicy": {
+    "key": "awspolicy",
+    "arn": "arn:${Partition}:organizations::aws:policy/${PolicyType}/p-${PolicyId}"
+  },
+  "root": {
+    "key": "root",
+    "arn": "arn:${Partition}:organizations::${Account}:root/o-${OrganizationId}/r-${RootId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

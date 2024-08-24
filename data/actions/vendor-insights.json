@@ -1,0 +1,389 @@
+{
+  "ActivateSecurityProfile": {
+    "name": "ActivateSecurityProfile",
+    "description": "Grants permission to activate the security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "AssociateDataSource": {
+    "name": "AssociateDataSource",
+    "description": "Grants permission to associate security profile with a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "vendor-insights:GetDataSource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateDataSource": {
+    "name": "CreateDataSource",
+    "description": "Grants permission to create a new data source",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "vendor-insights:TagResource"
+    ]
+  },
+  "CreateSecurityProfile": {
+    "name": "CreateSecurityProfile",
+    "description": "Grants permission to create a new security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "vendor-insights:TagResource"
+    ]
+  },
+  "DeactivateSecurityProfile": {
+    "name": "DeactivateSecurityProfile",
+    "description": "Grants permission to deactivate the security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteDataSource": {
+    "name": "DeleteDataSource",
+    "description": "Grants permission to delete a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DisassociateDataSource": {
+    "name": "DisassociateDataSource",
+    "description": "Grants permission to disassociate security profile from a data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "vendor-insights:GetDataSource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetDataSource": {
+    "name": "GetDataSource",
+    "description": "Grants permission to retrieve the details of an existing data source",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DataSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetEntitledSecurityProfileSnapshot": {
+    "name": "GetEntitledSecurityProfileSnapshot",
+    "description": "Grants permission to return the details of a security profile snapshot that requester is entitled to read",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProfileAccessTerms": {
+    "name": "GetProfileAccessTerms",
+    "description": "Grants permission to get the access terms for a vendor insights profile",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSecurityProfile": {
+    "name": "GetSecurityProfile",
+    "description": "Grants permission to return the details of an existing security profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "GetSecurityProfileSnapshot": {
+    "name": "GetSecurityProfileSnapshot",
+    "description": "Grants permission to return the details of a security profile snapshot",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListDataSources": {
+    "name": "ListDataSources",
+    "description": "Grants permission to list existing data sources",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEntitledSecurityProfileSnapshots": {
+    "name": "ListEntitledSecurityProfileSnapshots",
+    "description": "Grants permission to return the snapshot summary list for an existing security profile that requester is entitled to list",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEntitledSecurityProfiles": {
+    "name": "ListEntitledSecurityProfiles",
+    "description": "Grants permission to list entitled security profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSecurityProfileSnapshots": {
+    "name": "ListSecurityProfileSnapshots",
+    "description": "Grants permission to return the snapshot summary list for an existing security profile",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListSecurityProfiles": {
+    "name": "ListSecurityProfiles",
+    "description": "Grants permission to list existing security profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for vendor insights resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DataSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SecurityProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag vendor insights resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "DataSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SecurityProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag vendor insights resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "DataSource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SecurityProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateDataSource": {
+    "name": "UpdateDataSource",
+    "description": "Grants permission to update an existing data source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DataSource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateSecurityProfile": {
+    "name": "UpdateSecurityProfile",
+    "description": "Grants permission to update the security profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateSecurityProfileSnapshotCreationConfiguration": {
+    "name": "UpdateSecurityProfileSnapshotCreationConfiguration",
+    "description": "Grants permission to update the security profile snapshot creation configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateSecurityProfileSnapshotReleaseConfiguration": {
+    "name": "UpdateSecurityProfileSnapshotReleaseConfiguration",
+    "description": "Grants permission to update the security profile snapshot release configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  }
+}

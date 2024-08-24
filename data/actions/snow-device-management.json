@@ -1,0 +1,179 @@
+{
+  "CancelTask": {
+    "name": "CancelTask",
+    "description": "Grants permission to cancel tasks on remote devices",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateTask": {
+    "name": "CreateTask",
+    "description": "Grants permission to create tasks on remote devices",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DescribeDevice": {
+    "name": "DescribeDevice",
+    "description": "Grants permission to describe a remotely-managed device",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeDeviceEc2Instances": {
+    "name": "DescribeDeviceEc2Instances",
+    "description": "Grants permission to describe a remotely-managed device's EC2 instances",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeExecution": {
+    "name": "DescribeExecution",
+    "description": "Grants permission to describe task executions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTask": {
+    "name": "DescribeTask",
+    "description": "Grants permission to describe a task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDeviceResources": {
+    "name": "ListDeviceResources",
+    "description": "Grants permission to list a remotely-managed device's resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "managed-device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDevices": {
+    "name": "ListDevices",
+    "description": "Grants permission to list remotely-managed devices",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListExecutions": {
+    "name": "ListExecutions",
+    "description": "Grants permission to list task executions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for a resource (device or task)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "ListTasks": {
+    "name": "ListTasks",
+    "description": "Grants permission to list tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "managed-device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "managed-device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "CopyBackupToRegion": {
+    "name": "CopyBackupToRegion",
+    "description": "Grants permission to create a copy of a backup in the specified region",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudhsm:CopyBackupToRegion",
+          "cloudhsm:TagResource",
+          "cloudhsm:UntagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateCluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create a new AWS CloudHSM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudhsm:TagResource",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:CreateSecurityGroup",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:RevokeSecurityGroupEgress",
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateHsm": {
+    "name": "CreateHsm",
+    "description": "Grants permission to create a new hardware security module (HSM) in the specified AWS CloudHSM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateSecurityGroup",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:RevokeSecurityGroupEgress"
+    ]
+  },
+  "DeleteBackup": {
+    "name": "DeleteBackup",
+    "description": "Grants permission to delete the specified CloudHSM backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete the specified AWS CloudHSM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteSecurityGroup"
+    ]
+  },
+  "DeleteHsm": {
+    "name": "DeleteHsm",
+    "description": "Grants permission to delete the specified HSM",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface"
+    ]
+  },
+  "DeleteResourcePolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete the policy attached to CloudHSM resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeBackups": {
+    "name": "DescribeBackups",
+    "description": "Grants permission to get information about backups of AWS CloudHSM clusters",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeClusters": {
+    "name": "DescribeClusters",
+    "description": "Grants permission to get information about AWS CloudHSM clusters",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetResourcePolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get information about the policy attached to a AWS CloudHSM resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InitializeCluster": {
+    "name": "InitializeCluster",
+    "description": "Grants permission to claim an AWS CloudHSM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTags": {
+    "name": "ListTags",
+    "description": "Grants permission to get a list of tags for the specified AWS CloudHSM cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyBackupAttributes": {
+    "name": "ModifyBackupAttributes",
+    "description": "Grants permission to modify attributes for an AWS CloudHSM backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ModifyCluster": {
+    "name": "ModifyCluster",
+    "description": "Grants permission to modify AWS CloudHSM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutResourcePolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach a policy to an AWS CloudHSM resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RestoreBackup": {
+    "name": "RestoreBackup",
+    "description": "Grants permission to restore the specified CloudHSM backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or overwrite one or more tags for the specified AWS CloudHSM cluster",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the specified tag or tags from the specified AWS CloudHSM cluster",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

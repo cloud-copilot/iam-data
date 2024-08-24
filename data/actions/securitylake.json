@@ -1,0 +1,617 @@
+{
+  "CreateAwsLogSource": {
+    "name": "CreateAwsLogSource",
+    "description": "Grants permission to enable any source type in any region for accounts that are either part of a trusted organization or standalone account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "glue:CreateDatabase",
+      "glue:CreateTable",
+      "glue:GetDatabase",
+      "glue:GetTable",
+      "iam:CreateServiceLinkedRole",
+      "kms:CreateGrant",
+      "kms:DescribeKey"
+    ]
+  },
+  "CreateCustomLogSource": {
+    "name": "CreateCustomLogSource",
+    "description": "Grants permission to add a custom source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "glue:CreateCrawler",
+      "glue:CreateDatabase",
+      "glue:CreateTable",
+      "glue:StartCrawlerSchedule",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:PassRole",
+      "iam:PutRolePolicy",
+      "kms:CreateGrant",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey",
+      "lakeformation:GrantPermissions",
+      "lakeformation:RegisterResource",
+      "s3:ListBucket",
+      "s3:PutObject"
+    ]
+  },
+  "CreateDataLake": {
+    "name": "CreateDataLake",
+    "description": "Grants permission to create a new security data lake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "events:PutRule",
+          "events:PutTargets",
+          "iam:CreateServiceLinkedRole",
+          "iam:DeleteRolePolicy",
+          "iam:GetRole",
+          "iam:ListAttachedRolePolicies",
+          "iam:PassRole",
+          "iam:PutRolePolicy",
+          "kms:CreateGrant",
+          "kms:DescribeKey",
+          "lakeformation:GetDataLakeSettings",
+          "lakeformation:PutDataLakeSettings",
+          "lambda:AddPermission",
+          "lambda:CreateEventSourceMapping",
+          "lambda:CreateFunction",
+          "organizations:DescribeOrganization",
+          "organizations:ListAccounts",
+          "organizations:ListDelegatedServicesForAccount",
+          "s3:CreateBucket",
+          "s3:GetObject",
+          "s3:GetObjectVersion",
+          "s3:ListBucket",
+          "s3:PutBucketPolicy",
+          "s3:PutBucketPublicAccessBlock",
+          "s3:PutBucketVersioning",
+          "sqs:CreateQueue",
+          "sqs:GetQueueAttributes",
+          "sqs:SetQueueAttributes"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateDataLakeExceptionSubscription": {
+    "name": "CreateDataLakeExceptionSubscription",
+    "description": "Grants permission to get instant notifications about exceptions. Subscribes to the SNS topics for exception notifications",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateDataLakeOrganizationConfiguration": {
+    "name": "CreateDataLakeOrganizationConfiguration",
+    "description": "Grants permission to automatically enable Amazon Security Lake for new member accounts in your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateSubscriber": {
+    "name": "CreateSubscriber",
+    "description": "Grants permission to create a subscriber",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateRole",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:PutRolePolicy",
+      "lakeformation:GrantPermissions",
+      "lakeformation:ListPermissions",
+      "lakeformation:RegisterResource",
+      "lakeformation:RevokePermissions",
+      "ram:GetResourceShareAssociations",
+      "ram:GetResourceShares",
+      "ram:UpdateResourceShare",
+      "s3:PutObject"
+    ]
+  },
+  "CreateSubscriberNotification": {
+    "name": "CreateSubscriberNotification",
+    "description": "Grants permission to create a webhook invocation to notify a client when there is new data in the data lake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subscriber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "events:CreateApiDestination",
+      "events:CreateConnection",
+      "events:DescribeRule",
+      "events:ListApiDestinations",
+      "events:ListConnections",
+      "events:PutRule",
+      "events:PutTargets",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:PassRole",
+      "s3:GetBucketNotification",
+      "s3:PutBucketNotification",
+      "sqs:CreateQueue",
+      "sqs:DeleteQueue",
+      "sqs:GetQueueAttributes",
+      "sqs:GetQueueUrl",
+      "sqs:SetQueueAttributes"
+    ]
+  },
+  "DeleteAwsLogSource": {
+    "name": "DeleteAwsLogSource",
+    "description": "Grants permission to disable any source type in any region for accounts that are part of a trusted organization or standalone accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteCustomLogSource": {
+    "name": "DeleteCustomLogSource",
+    "description": "Grants permission to remove a custom source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "glue:StopCrawlerSchedule"
+    ]
+  },
+  "DeleteDataLake": {
+    "name": "DeleteDataLake",
+    "description": "Grants permission to delete security data lake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DescribeOrganization",
+      "organizations:ListDelegatedAdministrators",
+      "organizations:ListDelegatedServicesForAccount"
+    ]
+  },
+  "DeleteDataLakeExceptionSubscription": {
+    "name": "DeleteDataLakeExceptionSubscription",
+    "description": "Grants permission to unsubscribe from SNS topics for exception notifications. Removes exception notifications for the SNS topic",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDataLakeOrganizationConfiguration": {
+    "name": "DeleteDataLakeOrganizationConfiguration",
+    "description": "Grants permission to remove the automatic enablement of Amazon Security Lake access for new organization accounts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteSubscriber": {
+    "name": "DeleteSubscriber",
+    "description": "Grants permission to delete the specified subscriber",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subscriber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "events:DeleteApiDestination",
+      "events:DeleteConnection",
+      "events:DeleteRule",
+      "events:DescribeRule",
+      "events:ListApiDestinations",
+      "events:ListTargetsByRule",
+      "events:RemoveTargets",
+      "iam:DeleteRole",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:ListRolePolicies",
+      "lakeformation:ListPermissions",
+      "lakeformation:RevokePermissions",
+      "sqs:DeleteQueue",
+      "sqs:GetQueueUrl"
+    ]
+  },
+  "DeleteSubscriberNotification": {
+    "name": "DeleteSubscriberNotification",
+    "description": "Grants permission to remove a webhook invocation to notify a client when there is new data in the data lake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subscriber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "events:DeleteApiDestination",
+      "events:DeleteConnection",
+      "events:DeleteRule",
+      "events:DescribeRule",
+      "events:ListApiDestinations",
+      "events:ListTargetsByRule",
+      "events:RemoveTargets",
+      "iam:DeleteRole",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:ListRolePolicies",
+      "lakeformation:RevokePermissions",
+      "sqs:DeleteQueue",
+      "sqs:GetQueueUrl"
+    ]
+  },
+  "DeregisterDataLakeDelegatedAdministrator": {
+    "name": "DeregisterDataLakeDelegatedAdministrator",
+    "description": "Grants permission to remove the Delegated Administrator account and disable Amazon Security Lake as a service for this organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DeregisterDelegatedAdministrator",
+      "organizations:DescribeOrganization",
+      "organizations:ListDelegatedServicesForAccount"
+    ]
+  },
+  "GetDataLakeExceptionSubscription": {
+    "name": "GetDataLakeExceptionSubscription",
+    "description": "Grants permission to query the protocol and endpoint that were provided when subscribing to SNS topics for exception notifications",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDataLakeOrganizationConfiguration": {
+    "name": "GetDataLakeOrganizationConfiguration",
+    "description": "Grants permission to get an organization’s configuration setting for automatically enabling Amazon Security Lake access for new organization accounts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DescribeOrganization"
+    ]
+  },
+  "GetDataLakeSources": {
+    "name": "GetDataLakeSources",
+    "description": "Grants permission to get a static snapshot of the security data lake in the current region. The snapshot includes enabled accounts and log sources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSubscriber": {
+    "name": "GetSubscriber",
+    "description": "Grants permission to get information about subscriber that is already created",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "subscriber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDataLakeExceptions": {
+    "name": "ListDataLakeExceptions",
+    "description": "Grants permission to get the list of all non-retryable failures",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDataLakes": {
+    "name": "ListDataLakes",
+    "description": "Grants permission to list information about the security data lakes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLogSources": {
+    "name": "ListLogSources",
+    "description": "Grants permission to view the enabled accounts. You can view the enabled sources in the enabled regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSubscribers": {
+    "name": "ListSubscribers",
+    "description": "Grants permission to list all subscribers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags for the resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subscriber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterDataLakeDelegatedAdministrator": {
+    "name": "RegisterDataLakeDelegatedAdministrator",
+    "description": "Grants permission to designate an account as the Amazon Security Lake administrator account for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "organizations:DescribeOrganization",
+      "organizations:EnableAWSServiceAccess",
+      "organizations:ListDelegatedAdministrators",
+      "organizations:ListDelegatedServicesForAccount",
+      "organizations:RegisterDelegatedAdministrator"
+    ]
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to the resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subscriber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subscriber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateDataLake": {
+    "name": "UpdateDataLake",
+    "description": "Grants permission to update a security data lake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-lake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "events:PutRule",
+      "events:PutTargets",
+      "iam:CreateServiceLinkedRole",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:ListAttachedRolePolicies",
+      "iam:PutRolePolicy",
+      "kms:CreateGrant",
+      "kms:DescribeKey",
+      "lakeformation:GetDataLakeSettings",
+      "lakeformation:PutDataLakeSettings",
+      "lambda:AddPermission",
+      "lambda:CreateEventSourceMapping",
+      "lambda:CreateFunction",
+      "organizations:DescribeOrganization",
+      "organizations:ListDelegatedServicesForAccount",
+      "s3:CreateBucket",
+      "s3:GetObject",
+      "s3:GetObjectVersion",
+      "s3:ListBucket",
+      "s3:PutBucketPolicy",
+      "s3:PutBucketPublicAccessBlock",
+      "s3:PutBucketVersioning",
+      "sqs:CreateQueue",
+      "sqs:GetQueueAttributes",
+      "sqs:SetQueueAttributes"
+    ]
+  },
+  "UpdateDataLakeExceptionSubscription": {
+    "name": "UpdateDataLakeExceptionSubscription",
+    "description": "Grants permission to update subscriptions to the SNS topics for exception notifications",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSubscriber": {
+    "name": "UpdateSubscriber",
+    "description": "Grants permission to update subscriber",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subscriber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "events:CreateApiDestination",
+      "events:CreateConnection",
+      "events:DescribeRule",
+      "events:ListApiDestinations",
+      "events:ListConnections",
+      "events:PutRule",
+      "events:PutTargets",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:PutRolePolicy"
+    ]
+  },
+  "UpdateSubscriberNotification": {
+    "name": "UpdateSubscriberNotification",
+    "description": "Grants permission to update a webhook invocation to notify a client when there is new data in the data lake",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "subscriber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "events:CreateApiDestination",
+      "events:CreateConnection",
+      "events:DescribeRule",
+      "events:ListApiDestinations",
+      "events:ListConnections",
+      "events:PutRule",
+      "events:PutTargets",
+      "iam:CreateServiceLinkedRole",
+      "iam:DeleteRolePolicy",
+      "iam:GetRole",
+      "iam:PassRole",
+      "iam:PutRolePolicy",
+      "s3:CreateBucket",
+      "s3:GetBucketNotification",
+      "s3:ListBucket",
+      "s3:PutBucketNotification",
+      "s3:PutBucketPolicy",
+      "s3:PutBucketPublicAccessBlock",
+      "s3:PutBucketVersioning",
+      "s3:PutLifecycleConfiguration",
+      "sqs:CreateQueue",
+      "sqs:DeleteQueue",
+      "sqs:GetQueueAttributes",
+      "sqs:GetQueueUrl",
+      "sqs:SetQueueAttributes"
+    ]
+  }
+}

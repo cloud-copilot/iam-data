@@ -1,0 +1,52 @@
+{
+  "device": {
+    "key": "device",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/device/${Vtldevice}"
+  },
+  "fs-association": {
+    "key": "fs-association",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:fs-association/${FsaId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "gateway": {
+    "key": "gateway",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "share": {
+    "key": "share",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:share/${ShareId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "tape": {
+    "key": "tape",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "tapepool": {
+    "key": "tapepool",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:tapepool/${PoolId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "target": {
+    "key": "target",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/target/${IscsiTarget}"
+  },
+  "volume": {
+    "key": "volume",
+    "arn": "arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "BatchCheckLayerAvailability": {
+    "name": "BatchCheckLayerAvailability",
+    "description": "Grants permission to check the availability of multiple image layers in a specified registry and repository",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchDeleteImage": {
+    "name": "BatchDeleteImage",
+    "description": "Grants permission to delete a list of specified images within a specified repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CompleteLayerUpload": {
+    "name": "CompleteLayerUpload",
+    "description": "Grants permission to inform Amazon ECR that the image layer upload for a specified registry, repository name, and upload ID, has completed",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateRepository": {
+    "name": "CreateRepository",
+    "description": "Grants permission to create an image repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ecr-public:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteRepository": {
+    "name": "DeleteRepository",
+    "description": "Grants permission to delete an existing image repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRepositoryPolicy": {
+    "name": "DeleteRepositoryPolicy",
+    "description": "Grants permission to delete the repository policy from a specified repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeImageTags": {
+    "name": "DescribeImageTags",
+    "description": "Grants permission to describe all the image tags for a given repository",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeImages": {
+    "name": "DescribeImages",
+    "description": "Grants permission to get metadata about the images in a repository, including image size, image tags, and creation date",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistries": {
+    "name": "DescribeRegistries",
+    "description": "Grants permission to retrieve the catalog data associated with a registry",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "registry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRepositories": {
+    "name": "DescribeRepositories",
+    "description": "Grants permission to describe image repositories in a registry",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAuthorizationToken": {
+    "name": "GetAuthorizationToken",
+    "description": "Grants permission to retrieve a token that is valid for a specified registry for 12 hours",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRegistryCatalogData": {
+    "name": "GetRegistryCatalogData",
+    "description": "Grants permission to retrieve the catalog data associated with a registry",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "registry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRepositoryCatalogData": {
+    "name": "GetRepositoryCatalogData",
+    "description": "Grants permission to retrieve the catalog data associated with a repository",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRepositoryPolicy": {
+    "name": "GetRepositoryPolicy",
+    "description": "Grants permission to retrieve the repository policy for a specified repository",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InitiateLayerUpload": {
+    "name": "InitiateLayerUpload",
+    "description": "Grants permission to notify Amazon ECR that you intend to upload an image layer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for an Amazon ECR resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutImage": {
+    "name": "PutImage",
+    "description": "Grants permission to create or update the image manifest associated with an image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutRegistryCatalogData": {
+    "name": "PutRegistryCatalogData",
+    "description": "Grants permission to create and update the catalog data associated with a registry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "registry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutRepositoryCatalogData": {
+    "name": "PutRepositoryCatalogData",
+    "description": "Grants permission to update the catalog data associated with a repository",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetRepositoryPolicy": {
+    "name": "SetRepositoryPolicy",
+    "description": "Grants permission to apply a repository policy on a specified repository to control access permissions",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag an Amazon ECR resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag an Amazon ECR resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UploadLayerPart": {
+    "name": "UploadLayerPart",
+    "description": "Grants permission to upload an image layer part to Amazon ECR Public",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,1056 @@
+{
+  "CreateCapacityProvider": {
+    "name": "CreateCapacityProvider",
+    "description": "Grants permission to create a new capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateCluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create a new Amazon ECS cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:capacity-provider",
+      "ecs:fargate-ephemeral-storage-kms-key"
+    ],
+    "dependentActions": []
+  },
+  "CreateService": {
+    "name": "CreateService",
+    "description": "Grants permission to run and maintain a desired number of tasks from a specified task definition via service creation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:cluster",
+      "ecs:capacity-provider",
+      "ecs:task-definition",
+      "ecs:enable-ebs-volumes",
+      "ecs:enable-execute-command",
+      "ecs:enable-service-connect",
+      "ecs:namespace"
+    ],
+    "dependentActions": []
+  },
+  "CreateTaskSet": {
+    "name": "CreateTaskSet",
+    "description": "Grants permission to create a new Amazon ECS task set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:cluster",
+      "ecs:capacity-provider",
+      "ecs:service",
+      "ecs:task-definition"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAccountSetting": {
+    "name": "DeleteAccountSetting",
+    "description": "Grants permission to modify the ARN and resource ID format of a resource for a specified IAM user, IAM role, or the root user for an account. You can specify whether the new ARN and resource ID format are disabled for new resources that are created",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ecs:account-setting"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAttributes": {
+    "name": "DeleteAttributes",
+    "description": "Grants permission to delete one or more custom attributes from an Amazon ECS resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "DeleteCapacityProvider": {
+    "name": "DeleteCapacityProvider",
+    "description": "Grants permission to delete the specified capacity provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteCluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete the specified cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteService": {
+    "name": "DeleteService",
+    "description": "Grants permission to delete a specified service within a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "DeleteTaskDefinitions": {
+    "name": "DeleteTaskDefinitions",
+    "description": "Grants permission to delete the specified task definitions by family and revision",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteTaskSet": {
+    "name": "DeleteTaskSet",
+    "description": "Grants permission to delete the specified task set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:service"
+    ],
+    "dependentActions": []
+  },
+  "DeregisterContainerInstance": {
+    "name": "DeregisterContainerInstance",
+    "description": "Grants permission to deregister an Amazon ECS container instance from the specified cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeregisterTaskDefinition": {
+    "name": "DeregisterTaskDefinition",
+    "description": "Grants permission to deregister the specified task definition by family and revision",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCapacityProviders": {
+    "name": "DescribeCapacityProviders",
+    "description": "Grants permission to describe one or more Amazon ECS capacity providers",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeClusters": {
+    "name": "DescribeClusters",
+    "description": "Grants permission to describes one or more of your clusters",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DescribeContainerInstances": {
+    "name": "DescribeContainerInstances",
+    "description": "Grants permission to describes Amazon ECS container instances",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "DescribeServices": {
+    "name": "DescribeServices",
+    "description": "Grants permission to describe the specified services running in your cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "DescribeTaskDefinition": {
+    "name": "DescribeTaskDefinition",
+    "description": "Grants permission to describe a task definition. You can specify a family and revision to find information about a specific task definition, or you can simply specify the family to find the latest ACTIVE revision in that family",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeTaskSets": {
+    "name": "DescribeTaskSets",
+    "description": "Grants permission to describe Amazon ECS task sets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "task-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:service"
+    ],
+    "dependentActions": []
+  },
+  "DescribeTasks": {
+    "name": "DescribeTasks",
+    "description": "Grants permission to describe a specified task or tasks",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "DiscoverPollEndpoint": {
+    "name": "DiscoverPollEndpoint",
+    "description": "Grants permission to get an endpoint for the Amazon ECS agent to poll for updates",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ExecuteCommand": {
+    "name": "ExecuteCommand",
+    "description": "Grants permission to run a command remotely on an Amazon ECS container",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:container-name",
+      "ecs:task"
+    ],
+    "dependentActions": []
+  },
+  "GetTaskProtection": {
+    "name": "GetTaskProtection",
+    "description": "Grants permission to retrieve the protection status of tasks in an Amazon ECS service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "ListAccountSettings": {
+    "name": "ListAccountSettings",
+    "description": "Grants permission to list the account settings for an Amazon ECS resource for a specified principal",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAttributes": {
+    "name": "ListAttributes",
+    "description": "Grants permission to lists the attributes for Amazon ECS resources within a specified target type and cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListClusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to get a list of existing clusters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListContainerInstances": {
+    "name": "ListContainerInstances",
+    "description": "Grants permission to get a list of container instances in a specified cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListServices": {
+    "name": "ListServices",
+    "description": "Grants permission to get a list of services that are running in a specified cluster",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "ListServicesByNamespace": {
+    "name": "ListServicesByNamespace",
+    "description": "Grants permission to get a list of services that are running in a specified AWS Cloud Map Namespace",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ecs:namespace"
+    ],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to get a list of tags for the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "container-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "ListTaskDefinitionFamilies": {
+    "name": "ListTaskDefinitionFamilies",
+    "description": "Grants permission to get a list of task definition families that are registered to your account (which may include task definition families that no longer have any ACTIVE task definitions)",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTaskDefinitions": {
+    "name": "ListTaskDefinitions",
+    "description": "Grants permission to get a list of task definitions that are registered to your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTasks": {
+    "name": "ListTasks",
+    "description": "Grants permission to get a list of tasks for a specified cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "Poll": {
+    "name": "Poll",
+    "isPermissionOnly": true,
+    "description": "Grants permission to an agent to connect with the Amazon ECS service to report status and get commands",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "PutAccountSetting": {
+    "name": "PutAccountSetting",
+    "description": "Grants permission to modify the ARN and resource ID format of a resource for a specified IAM user, IAM role, or the root user for an account. You can specify whether the new ARN and resource ID format are enabled for new resources that are created. Enabling this setting is required to use new Amazon ECS features such as resource tagging",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ecs:account-setting"
+    ],
+    "dependentActions": []
+  },
+  "PutAccountSettingDefault": {
+    "name": "PutAccountSettingDefault",
+    "description": "Grants permission to modify the ARN and resource ID format of a resource type for all IAM users on an account for which no individual account setting has been set. Enabling this setting is required to use new Amazon ECS features such as resource tagging",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ecs:account-setting"
+    ],
+    "dependentActions": []
+  },
+  "PutAttributes": {
+    "name": "PutAttributes",
+    "description": "Grants permission to create or update an attribute on an Amazon ECS resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "PutClusterCapacityProviders": {
+    "name": "PutClusterCapacityProviders",
+    "description": "Grants permission to modify the available capacity providers and the default capacity provider strategy for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:capacity-provider"
+    ],
+    "dependentActions": []
+  },
+  "RegisterContainerInstance": {
+    "name": "RegisterContainerInstance",
+    "description": "Grants permission to register an EC2 instance into the specified cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RegisterTaskDefinition": {
+    "name": "RegisterTaskDefinition",
+    "description": "Grants permission to register a new task definition from the supplied family and containerDefinitions",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RunTask": {
+    "name": "RunTask",
+    "description": "Grants permission to start a task using random placement and the default Amazon ECS scheduler",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:cluster",
+      "ecs:capacity-provider",
+      "ecs:enable-ebs-volumes",
+      "ecs:enable-execute-command"
+    ],
+    "dependentActions": []
+  },
+  "StartTask": {
+    "name": "StartTask",
+    "description": "Grants permission to start a new task from the specified task definition on the specified container instance or instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:cluster",
+      "ecs:container-instances",
+      "ecs:enable-ebs-volumes",
+      "ecs:enable-execute-command"
+    ],
+    "dependentActions": []
+  },
+  "StartTelemetrySession": {
+    "name": "StartTelemetrySession",
+    "description": "Grants permission to start a telemetry session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "StopTask": {
+    "name": "StopTask",
+    "description": "Grants permission to stop a running task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "SubmitAttachmentStateChanges": {
+    "name": "SubmitAttachmentStateChanges",
+    "description": "Grants permission to send an acknowledgement that attachments changed states",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SubmitContainerStateChange": {
+    "name": "SubmitContainerStateChange",
+    "description": "Grants permission to send an acknowledgement that a container changed states",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "SubmitTaskStateChange": {
+    "name": "SubmitTaskStateChange",
+    "description": "Grants permission to send an acknowledgement that a task changed states",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "container-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "ecs:CreateAction"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "container-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "task-set",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateCapacityProvider": {
+    "name": "UpdateCapacityProvider",
+    "description": "Grants permission to update the specified capacity provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateCluster": {
+    "name": "UpdateCluster",
+    "description": "Grants permission to modify the configuration or settings to use for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:fargate-ephemeral-storage-kms-key"
+    ],
+    "dependentActions": []
+  },
+  "UpdateClusterSettings": {
+    "name": "UpdateClusterSettings",
+    "description": "Grants permission to modify the settings to use for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UpdateContainerAgent": {
+    "name": "UpdateContainerAgent",
+    "description": "Grants permission to update the Amazon ECS container agent on a specified container instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "UpdateContainerInstancesState": {
+    "name": "UpdateContainerInstancesState",
+    "description": "Grants permission to the user to modify the status of an Amazon ECS container instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "UpdateService": {
+    "name": "UpdateService",
+    "description": "Grants permission to modify the parameters of a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:capacity-provider",
+      "ecs:enable-ebs-volumes",
+      "ecs:enable-execute-command",
+      "ecs:enable-service-connect",
+      "ecs:namespace",
+      "ecs:task-definition"
+    ],
+    "dependentActions": []
+  },
+  "UpdateServicePrimaryTaskSet": {
+    "name": "UpdateServicePrimaryTaskSet",
+    "description": "Grants permission to modify the primary task set used in a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "UpdateTaskProtection": {
+    "name": "UpdateTaskProtection",
+    "description": "Grants permission to modify the protection status of a task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "UpdateTaskSet": {
+    "name": "UpdateTaskSet",
+    "description": "Grants permission to update the specified task set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:service"
+    ],
+    "dependentActions": []
+  }
+}

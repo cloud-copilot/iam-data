@@ -1,0 +1,220 @@
+{
+  "AcceptUserAgreement": {
+    "name": "AcceptUserAgreement",
+    "isPermissionOnly": true,
+    "description": "Grants permission to accept the Amazon Braket user agreement",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AccessBraketFeature": {
+    "name": "AccessBraketFeature",
+    "isPermissionOnly": true,
+    "description": "Grants permission to check if an Amazon Braket feature is enabled for an account. Customers need this permission to use all features available in the console",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelJob": {
+    "name": "CancelJob",
+    "description": "Grants permission to cancel a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CancelQuantumTask": {
+    "name": "CancelQuantumTask",
+    "description": "Grants permission to cancel a quantum task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "quantum-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateJob": {
+    "name": "CreateJob",
+    "description": "Grants permission to create a job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateQuantumTask": {
+    "name": "CreateQuantumTask",
+    "description": "Grants permission to create a quantum task",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "GetDevice": {
+    "name": "GetDevice",
+    "description": "Grants permission to retrieve information about the devices available in Amazon Braket",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetJob": {
+    "name": "GetJob",
+    "description": "Grants permission to retrieve jobs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetQuantumTask": {
+    "name": "GetQuantumTask",
+    "description": "Grants permission to retrieve quantum tasks",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "quantum-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetServiceLinkedRoleStatus": {
+    "name": "GetServiceLinkedRoleStatus",
+    "isPermissionOnly": true,
+    "description": "Grants permission to check if the Amazon Braket service linked role has been created",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetUserAgreementStatus": {
+    "name": "GetUserAgreementStatus",
+    "isPermissionOnly": true,
+    "description": "Grants permission to check if the account has accepted the Amazon Braket user agreement",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to listing the tags that have been applied to the quantum task resource or the job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quantum-task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SearchDevices": {
+    "name": "SearchDevices",
+    "description": "Grants permission to search for devices available in Amazon Braket",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SearchJobs": {
+    "name": "SearchJobs",
+    "description": "Grants permission to search for jobs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SearchQuantumTasks": {
+    "name": "SearchQuantumTasks",
+    "description": "Grants permission to search for quantum tasks",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to a quantum task or a hybrid job",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quantum-task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from a quantum task resource or a job. A tag consists of a key-value pair",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quantum-task",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

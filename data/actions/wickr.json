@@ -1,0 +1,92 @@
+{
+  "CreateAdminSession": {
+    "name": "CreateAdminSession",
+    "description": "Grants permission to create and manage Wickr networks",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateNetwork": {
+    "name": "CreateNetwork",
+    "description": "Grants permission to create a new wickr network",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListNetworks": {
+    "name": "ListNetworks",
+    "description": "Grants permission to view Wickr networks",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags applied to a Wickr resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a specified wickr resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag the specified tags from the specified wickr resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateNetworkDetails": {
+    "name": "UpdateNetworkDetails",
+    "description": "Grants permission to update Wickr network details",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

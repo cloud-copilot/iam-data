@@ -1,0 +1,557 @@
+{
+  "CreateConnection": {
+    "name": "CreateConnection",
+    "description": "Grants permission to create a Connection resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codeconnections:ProviderType"
+    ],
+    "dependentActions": []
+  },
+  "CreateHost": {
+    "name": "CreateHost",
+    "description": "Grants permission to create a host resource",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "codeconnections:ProviderType"
+    ],
+    "dependentActions": []
+  },
+  "CreateRepositoryLink": {
+    "name": "CreateRepositoryLink",
+    "description": "Grants permission to create a repository link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "codeconnections:PassConnection",
+          "codeconnections:UseConnection"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSyncConfiguration": {
+    "name": "CreateSyncConfiguration",
+    "description": "Grants permission to create a template sync config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RepositoryLink",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "codeconnections:PassRepository",
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "codeconnections:Branch"
+    ],
+    "dependentActions": []
+  },
+  "DeleteConnection": {
+    "name": "DeleteConnection",
+    "description": "Grants permission to delete a Connection resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteHost": {
+    "name": "DeleteHost",
+    "description": "Grants permission to delete a host resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Host",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRepositoryLink": {
+    "name": "DeleteRepositoryLink",
+    "description": "Grants permission to delete a repository link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RepositoryLink",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteSyncConfiguration": {
+    "name": "DeleteSyncConfiguration",
+    "description": "Grants permission to delete a sync configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConnection": {
+    "name": "GetConnection",
+    "description": "Grants permission to get details about a Connection resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConnectionToken": {
+    "name": "GetConnectionToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get a Connection token to call provider actions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetHost": {
+    "name": "GetHost",
+    "description": "Grants permission to get details about a host resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Host",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetIndividualAccessToken": {
+    "name": "GetIndividualAccessToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codeconnections:ProviderType"
+    ],
+    "dependentActions": [
+      "codeconnections:StartOAuthHandshake"
+    ]
+  },
+  "GetInstallationUrl": {
+    "name": "GetInstallationUrl",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codeconnections:ProviderType"
+    ],
+    "dependentActions": []
+  },
+  "GetRepositoryLink": {
+    "name": "GetRepositoryLink",
+    "description": "Grants permission to describe a repository link",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RepositoryLink",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRepositorySyncStatus": {
+    "name": "GetRepositorySyncStatus",
+    "description": "Grants permission to get the latest sync status for a repository",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RepositoryLink",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codeconnections:Branch"
+    ],
+    "dependentActions": []
+  },
+  "GetResourceSyncStatus": {
+    "name": "GetResourceSyncStatus",
+    "description": "Grants permission to get the latest sync status for a resource (cfn stack or other resources)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSyncBlockerSummary": {
+    "name": "GetSyncBlockerSummary",
+    "description": "Grants permission to describe service sync blockers on a resource (cfn stack or other resources)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSyncConfiguration": {
+    "name": "GetSyncConfiguration",
+    "description": "Grants permission to describe a sync configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConnections": {
+    "name": "ListConnections",
+    "description": "Grants permission to list Connection resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codeconnections:ProviderTypeFilter"
+    ],
+    "dependentActions": []
+  },
+  "ListHosts": {
+    "name": "ListHosts",
+    "description": "Grants permission to list host resources",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codeconnections:ProviderTypeFilter"
+    ],
+    "dependentActions": []
+  },
+  "ListInstallationTargets": {
+    "name": "ListInstallationTargets",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "codeconnections:GetIndividualAccessToken",
+      "codeconnections:StartOAuthHandshake"
+    ]
+  },
+  "ListRepositoryLinks": {
+    "name": "ListRepositoryLinks",
+    "description": "Grants permission to list repository links",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRepositorySyncDefinitions": {
+    "name": "ListRepositorySyncDefinitions",
+    "description": "Grants permission to list repository sync definitions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSyncConfigurations": {
+    "name": "ListSyncConfigurations",
+    "description": "Grants permission to list sync configurations for a repository link",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to the set of key-value pairs that are used to manage the resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Host",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RepositoryLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PassConnection": {
+    "name": "PassConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to pass a Connection resource to an AWS service that accepts a Connection ARN as input, such as codepipeline:CreatePipeline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codeconnections:PassedToService"
+    ],
+    "dependentActions": []
+  },
+  "PassRepository": {
+    "name": "PassRepository",
+    "isPermissionOnly": true,
+    "description": "Grants permission to pass a repository link resource to an AWS service that accepts a RepositoryLinkId as input, such as codeconnections:CreateSyncConfiguration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RepositoryLink",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codeconnections:PassedToService"
+    ],
+    "dependentActions": []
+  },
+  "RegisterAppCode": {
+    "name": "RegisterAppCode",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a third party server, such as a GitHub Enterprise Server instance, with a Host",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codeconnections:HostArn"
+    ],
+    "dependentActions": []
+  },
+  "StartAppRegistrationHandshake": {
+    "name": "StartAppRegistrationHandshake",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a third party server, such as a GitHub Enterprise Server instance, with a Host",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codeconnections:HostArn"
+    ],
+    "dependentActions": []
+  },
+  "StartOAuthHandshake": {
+    "name": "StartOAuthHandshake",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codeconnections:ProviderType"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or modify the tags of the given resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Host",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RepositoryLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an AWS resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Host",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RepositoryLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateConnectionInstallation": {
+    "name": "UpdateConnectionInstallation",
+    "description": "Grants permission to update a Connection resource with an installation of the CodeStar Connections App",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "codeconnections:GetIndividualAccessToken",
+          "codeconnections:GetInstallationUrl",
+          "codeconnections:ListInstallationTargets",
+          "codeconnections:StartOAuthHandshake"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "codeconnections:InstallationId"
+    ],
+    "dependentActions": []
+  },
+  "UpdateHost": {
+    "name": "UpdateHost",
+    "description": "Grants permission to update a host resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Host",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateRepositoryLink": {
+    "name": "UpdateRepositoryLink",
+    "description": "Grants permission to update a repository link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RepositoryLink",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSyncBlocker": {
+    "name": "UpdateSyncBlocker",
+    "description": "Grants permission to update a sync blocker for a resource (cfn stack or other resources)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSyncConfiguration": {
+    "name": "UpdateSyncConfiguration",
+    "description": "Grants permission to update a sync configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "codeconnections:Branch"
+    ],
+    "dependentActions": []
+  },
+  "UseConnection": {
+    "name": "UseConnection",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use a Connection resource to call provider actions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "codeconnections:BranchName",
+      "codeconnections:FullRepositoryId",
+      "codeconnections:OwnerId",
+      "codeconnections:ProviderAction",
+      "codeconnections:ProviderPermissionsRequired",
+      "codeconnections:RepositoryName"
+    ],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "CreateLifecyclePolicy": {
+    "name": "CreateLifecyclePolicy",
+    "description": "Grants permission to create a data lifecycle policy to manage the scheduled creation and retention of Amazon EBS snapshots. You may have up to 100 policies",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteLifecyclePolicy": {
+    "name": "DeleteLifecyclePolicy",
+    "description": "Grants permission to delete an existing data lifecycle policy. In addition, this action halts the creation and deletion of snapshots that the policy specified. Existing snapshots are not affected",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLifecyclePolicies": {
+    "name": "GetLifecyclePolicies",
+    "description": "Grants permission to returns a list of summary descriptions of data lifecycle policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLifecyclePolicy": {
+    "name": "GetLifecyclePolicy",
+    "description": "Grants permission to return a complete description of a single data lifecycle policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags associated with a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or update tags of a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags associated with a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateLifecyclePolicy": {
+    "name": "UpdateLifecyclePolicy",
+    "description": "Grants permission to update an existing data lifecycle policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

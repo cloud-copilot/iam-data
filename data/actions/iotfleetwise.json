@@ -1,0 +1,928 @@
+{
+  "AssociateVehicleFleet": {
+    "name": "AssociateVehicleFleet",
+    "description": "Grants permission to associate the given vehicle to a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "BatchCreateVehicle": {
+    "name": "BatchCreateVehicle",
+    "description": "Grants permission to create a batch of vehicles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iot:CreateThing",
+          "iot:DescribeThing"
+        ]
+      },
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "BatchUpdateVehicle": {
+    "name": "BatchUpdateVehicle",
+    "description": "Grants permission to update a batch of vehicles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "decodermanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "modelmanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iotfleetwise:UpdateToModelManifestArn",
+      "iotfleetwise:UpdateToDecoderManifestArn"
+    ],
+    "dependentActions": []
+  },
+  "CreateCampaign": {
+    "name": "CreateCampaign",
+    "description": "Grants permission to create a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "iotfleetwise:DestinationArn"
+    ],
+    "dependentActions": []
+  },
+  "CreateDecoderManifest": {
+    "name": "CreateDecoderManifest",
+    "description": "Grants permission to create a decoder manifest for an existing model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateFleet": {
+    "name": "CreateFleet",
+    "description": "Grants permission to create a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateModelManifest": {
+    "name": "CreateModelManifest",
+    "description": "Grants permission to create a model manifest definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateSignalCatalog": {
+    "name": "CreateSignalCatalog",
+    "description": "Grants permission to create a signal catalog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateVehicle": {
+    "name": "CreateVehicle",
+    "description": "Grants permission to create a vehicle",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iot:CreateThing",
+          "iot:DescribeThing"
+        ]
+      },
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "DeleteCampaign": {
+    "name": "DeleteCampaign",
+    "description": "Grants permission to delete a campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDecoderManifest": {
+    "name": "DeleteDecoderManifest",
+    "description": "Grants permission to delete the given decoder manifest",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteFleet": {
+    "name": "DeleteFleet",
+    "description": "Grants permission to delete a fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteModelManifest": {
+    "name": "DeleteModelManifest",
+    "description": "Grants permission to delete the given model manifest",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteSignalCatalog": {
+    "name": "DeleteSignalCatalog",
+    "description": "Grants permission to delete a specific signal catalog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteVehicle": {
+    "name": "DeleteVehicle",
+    "description": "Grants permission to delete a vehicle",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateVehicleFleet": {
+    "name": "DisassociateVehicleFleet",
+    "description": "Grants permission to disassociate a vehicle from an existing fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetCampaign": {
+    "name": "GetCampaign",
+    "description": "Grants permission to get summary information for a given campaign",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetDecoderManifest": {
+    "name": "GetDecoderManifest",
+    "description": "Grants permission to get summary information for a given decoder manifest definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEncryptionConfiguration": {
+    "name": "GetEncryptionConfiguration",
+    "description": "Grants permission to get KMS-based encryption status for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetFleet": {
+    "name": "GetFleet",
+    "description": "Grants permission to get summary information for a fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLoggingOptions": {
+    "name": "GetLoggingOptions",
+    "description": "Grants permission to get the logging options for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetModelManifest": {
+    "name": "GetModelManifest",
+    "description": "Grants permission to get summary information for a given model manifest definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetRegisterAccountStatus": {
+    "name": "GetRegisterAccountStatus",
+    "description": "Grants permission to get the account registration status with IoT FleetWise",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetSignalCatalog": {
+    "name": "GetSignalCatalog",
+    "description": "Grants permission to get summary information for a specific signal catalog",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetVehicle": {
+    "name": "GetVehicle",
+    "description": "Grants permission to get summary information for a vehicle",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetVehicleStatus": {
+    "name": "GetVehicleStatus",
+    "description": "Grants permission to get the status of the campaigns running on a specific vehicle",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportDecoderManifest": {
+    "name": "ImportDecoderManifest",
+    "description": "Grants permission to import an existing decoder manifest",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ImportSignalCatalog": {
+    "name": "ImportSignalCatalog",
+    "description": "Grants permission to create a signal catalog by importing existing definitions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "ListCampaigns": {
+    "name": "ListCampaigns",
+    "description": "Grants permission to list campaigns",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDecoderManifestNetworkInterfaces": {
+    "name": "ListDecoderManifestNetworkInterfaces",
+    "description": "Grants permission to list network interfaces associated to the existing decoder manifest",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDecoderManifestSignals": {
+    "name": "ListDecoderManifestSignals",
+    "description": "Grants permission to list decoder manifest signals",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDecoderManifests": {
+    "name": "ListDecoderManifests",
+    "description": "Grants permission to list all decoder manifests, with an optional filter on model manifest",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFleets": {
+    "name": "ListFleets",
+    "description": "Grants permission to list all fleets",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListFleetsForVehicle": {
+    "name": "ListFleetsForVehicle",
+    "description": "Grants permission to list all the fleets that the given vehicle is associated with",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListModelManifestNodes": {
+    "name": "ListModelManifestNodes",
+    "description": "Grants permission to list all nodes for the given model manifest",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListModelManifests": {
+    "name": "ListModelManifests",
+    "description": "Grants permission to list all model manifests, with an optional filter on signal catalog",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSignalCatalogNodes": {
+    "name": "ListSignalCatalogNodes",
+    "description": "Grants permission to list all nodes for a given signal catalog",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListSignalCatalogs": {
+    "name": "ListSignalCatalogs",
+    "description": "Grants permission to list all signal catalogs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "decodermanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "modelmanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signalcatalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListVehicles": {
+    "name": "ListVehicles",
+    "description": "Grants permission to list all vehicles, with an optional filter on model manifest",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListVehiclesInFleet": {
+    "name": "ListVehiclesInFleet",
+    "description": "Grants permission to list vehicles in the given fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutEncryptionConfiguration": {
+    "name": "PutEncryptionConfiguration",
+    "description": "Grants permission to enable or disable KMS-based encryption for the AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutLoggingOptions": {
+    "name": "PutLoggingOptions",
+    "description": "Grants permission to put the logging options for the AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterAccount": {
+    "name": "RegisterAccount",
+    "description": "Grants permission to register an AWS account to IoT FleetWise",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "decodermanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "modelmanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signalcatalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "decodermanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "modelmanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "signalcatalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateCampaign": {
+    "name": "UpdateCampaign",
+    "description": "Grants permission to update the given campaign",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateDecoderManifest": {
+    "name": "UpdateDecoderManifest",
+    "description": "Grants permission to update a decoder manifest defnition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "decodermanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateFleet": {
+    "name": "UpdateFleet",
+    "description": "Grants permission to update the fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateModelManifest": {
+    "name": "UpdateModelManifest",
+    "description": "Grants permission to update the given model manifest definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "modelmanifest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSignalCatalog": {
+    "name": "UpdateSignalCatalog",
+    "description": "Grants permission to update a specific signal catalog definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateVehicle": {
+    "name": "UpdateVehicle",
+    "description": "Grants permission to update the vehicle",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "decodermanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "modelmanifest",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iotfleetwise:UpdateToModelManifestArn",
+      "iotfleetwise:UpdateToDecoderManifestArn"
+    ],
+    "dependentActions": []
+  }
+}

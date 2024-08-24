@@ -1,0 +1,716 @@
+{
+  "CreateLandingZone": {
+    "name": "CreateLandingZone",
+    "description": "Grants permission to create a landing zone",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "controltower:TagResource"
+    ]
+  },
+  "CreateManagedAccount": {
+    "name": "CreateManagedAccount",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an account managed by AWS Control Tower",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteLandingZone": {
+    "name": "DeleteLandingZone",
+    "description": "Grants permission to delete AWS Control Tower landing zone",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LandingZone",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterManagedAccount": {
+    "name": "DeregisterManagedAccount",
+    "isPermissionOnly": true,
+    "description": "Grants permission to deregister an account created through the account factory from AWS Control Tower",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterOrganizationalUnit": {
+    "name": "DeregisterOrganizationalUnit",
+    "isPermissionOnly": true,
+    "description": "Grants permission to deregister an organizational unit from AWS Control Tower management",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccountFactoryConfig": {
+    "name": "DescribeAccountFactoryConfig",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe the current account factory configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeCoreService": {
+    "name": "DescribeCoreService",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe resources managed by core accounts in AWS Control Tower",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGuardrail": {
+    "name": "DescribeGuardrail",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe a guardrail",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeGuardrailForTarget": {
+    "name": "DescribeGuardrailForTarget",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe a guardrail for a organizational unit",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeLandingZoneConfiguration": {
+    "name": "DescribeLandingZoneConfiguration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe the current Landing Zone configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeManagedAccount": {
+    "name": "DescribeManagedAccount",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe an account created through account factory",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeManagedOrganizationalUnit": {
+    "name": "DescribeManagedOrganizationalUnit",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe an AWS Organizations organizational unit managed by AWS Control Tower",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegisterOrganizationalUnitOperation": {
+    "name": "DescribeRegisterOrganizationalUnitOperation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe a Register Organizational Unit Operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSingleSignOn": {
+    "name": "DescribeSingleSignOn",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe the current AWS Control Tower IAM Identity Center configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisableBaseline": {
+    "name": "DisableBaseline",
+    "description": "Grants permission to disable a Baseline on a target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EnabledBaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisableControl": {
+    "name": "DisableControl",
+    "description": "Grants permission to remove a control from an organizational unit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EnabledControl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisableGuardrail": {
+    "name": "DisableGuardrail",
+    "isPermissionOnly": true,
+    "description": "Grants permission to disable a guardrail from an organizational unit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "EnableBaseline": {
+    "name": "EnableBaseline",
+    "description": "Grants permission to enable a Baseline on a target",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "controltower:TagResource"
+    ]
+  },
+  "EnableControl": {
+    "name": "EnableControl",
+    "description": "Grants permission to activate a control for an organizational unit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EnabledControl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "controltower:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "EnableGuardrail": {
+    "name": "EnableGuardrail",
+    "isPermissionOnly": true,
+    "description": "Grants permission to enable a guardrail to an organizational unit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAccountInfo": {
+    "name": "GetAccountInfo",
+    "isPermissionOnly": true,
+    "description": "Grants permission to describe an account email and validate that it exists",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAvailableUpdates": {
+    "name": "GetAvailableUpdates",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list available updates for the current AWS Control Tower deployment",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBaseline": {
+    "name": "GetBaseline",
+    "description": "Grants permission to get Baseline details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Baseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetBaselineOperation": {
+    "name": "GetBaselineOperation",
+    "description": "Grants permission to get the current status of a particular Baseline operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetControlOperation": {
+    "name": "GetControlOperation",
+    "description": "Grants permission to get the current status of a particular EnabledControl or DisableControl operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEnabledBaseline": {
+    "name": "GetEnabledBaseline",
+    "description": "Grants permission to get an enabled Baseline",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "EnabledBaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetEnabledControl": {
+    "name": "GetEnabledControl",
+    "description": "Grants permission to get an enabled control from an organizational unit",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "EnabledControl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetGuardrailComplianceStatus": {
+    "name": "GetGuardrailComplianceStatus",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the current compliance status of a guardrail",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetHomeRegion": {
+    "name": "GetHomeRegion",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the home region of the AWS Control Tower setup",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLandingZone": {
+    "name": "GetLandingZone",
+    "description": "Grants permission to get the current status of the landing zone setup",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "LandingZone",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLandingZoneDriftStatus": {
+    "name": "GetLandingZoneDriftStatus",
+    "description": "Grants permission to get the current landing zone drift status",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLandingZoneOperation": {
+    "name": "GetLandingZoneOperation",
+    "description": "Grants permission to get the current status of a particular landing zone operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetLandingZoneStatus": {
+    "name": "GetLandingZoneStatus",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get the current status of the landing zone setup",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListBaselines": {
+    "name": "ListBaselines",
+    "description": "Grants permission to list Baselines",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListControlOperations": {
+    "name": "ListControlOperations",
+    "description": "Grants permission to list all control operations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDirectoryGroups": {
+    "name": "ListDirectoryGroups",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list the current directory groups available through IAM Identity Center",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListDriftDetails": {
+    "name": "ListDriftDetails",
+    "description": "Grants permission to list occurrences of drift in AWS Control Tower",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEnabledBaselines": {
+    "name": "ListEnabledBaselines",
+    "description": "Grants permission to list enabled Baselines",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEnabledControls": {
+    "name": "ListEnabledControls",
+    "description": "Grants permission to list all enabled controls in a specified organizational unit",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListEnabledGuardrails": {
+    "name": "ListEnabledGuardrails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list currently enabled guardrails",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListExtendGovernancePrecheckDetails": {
+    "name": "ListExtendGovernancePrecheckDetails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list Precheck details for an Organizational Unit",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListExternalConfigRuleCompliance": {
+    "name": "ListExternalConfigRuleCompliance",
+    "description": "Grants permission to list the compliance of external AWS Config rules",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListGuardrailViolations": {
+    "name": "ListGuardrailViolations",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list existing guardrail violations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListGuardrails": {
+    "name": "ListGuardrails",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list all available guardrails",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListGuardrailsForTarget": {
+    "name": "ListGuardrailsForTarget",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list guardrails and their current state for a organizational unit",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLandingZoneOperations": {
+    "name": "ListLandingZoneOperations",
+    "description": "Grants permission to list all landing zone operations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListLandingZones": {
+    "name": "ListLandingZones",
+    "description": "Grants permission to list all landing zones",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListManagedAccounts": {
+    "name": "ListManagedAccounts",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list accounts managed through AWS Control Tower",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListManagedAccountsForGuardrail": {
+    "name": "ListManagedAccountsForGuardrail",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list managed accounts with a specified guardrail applied",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListManagedAccountsForParent": {
+    "name": "ListManagedAccountsForParent",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list managed accounts under an organizational unit",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListManagedOrganizationalUnits": {
+    "name": "ListManagedOrganizationalUnits",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list organizational units managed by AWS Control Tower",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListManagedOrganizationalUnitsForGuardrail": {
+    "name": "ListManagedOrganizationalUnitsForGuardrail",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list managed organizational units that have a specified guardrail applied",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "EnabledBaseline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EnabledControl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LandingZone",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ManageOrganizationalUnit": {
+    "name": "ManageOrganizationalUnit",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set up an organizational unit to be managed by AWS Control Tower",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PerformPreLaunchChecks": {
+    "name": "PerformPreLaunchChecks",
+    "isPermissionOnly": true,
+    "description": "Grants permission to perform validations in an account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ResetEnabledBaseline": {
+    "name": "ResetEnabledBaseline",
+    "description": "Grants permission to reset an enabled Baseline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EnabledBaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ResetLandingZone": {
+    "name": "ResetLandingZone",
+    "description": "Grants permission to reset a landing zone",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LandingZone",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetupLandingZone": {
+    "name": "SetupLandingZone",
+    "isPermissionOnly": true,
+    "description": "Grants permission to set up or update AWS Control Tower landing zone",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "EnabledBaseline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EnabledControl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LandingZone",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "EnabledBaseline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "EnabledControl",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LandingZone",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateAccountFactoryConfig": {
+    "name": "UpdateAccountFactoryConfig",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the account factory configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateEnabledBaseline": {
+    "name": "UpdateEnabledBaseline",
+    "description": "Grants permission to update an enabled Baseline",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EnabledBaseline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateEnabledControl": {
+    "name": "UpdateEnabledControl",
+    "description": "Grants permission to update an enabled control for an organizational unit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "EnabledControl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateLandingZone": {
+    "name": "UpdateLandingZone",
+    "description": "Grants permission to update a landing zone",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "LandingZone",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

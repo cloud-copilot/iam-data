@@ -1,0 +1,23 @@
+{
+  "application": {
+    "key": "application",
+    "arn": "arn:${Partition}:ssm-sap:${Region}:${Account}:${ApplicationType}/${ApplicationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "component": {
+    "key": "component",
+    "arn": "arn:${Partition}:ssm-sap:${Region}:${Account}:${ApplicationType}/${ApplicationId}/COMPONENT/${ComponentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "database": {
+    "key": "database",
+    "arn": "arn:${Partition}:ssm-sap:${Region}:${Account}:${ApplicationType}/${ApplicationId}/DB/${DatabaseId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

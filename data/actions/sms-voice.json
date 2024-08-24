@@ -1,0 +1,1419 @@
+{
+  "AssociateOriginationIdentity": {
+    "name": "AssociateOriginationIdentity",
+    "description": "Grants permission to associate an origination phone number or sender ID to a pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "AssociateProtectConfiguration": {
+    "name": "AssociateProtectConfiguration",
+    "description": "Grants permission to associate a protect configuration to a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConfigurationSet": {
+    "name": "CreateConfigurationSet",
+    "description": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateEventDestination": {
+    "name": "CreateEventDestination",
+    "description": "Grants permission to create an event destination within a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "CreateOptOutList": {
+    "name": "CreateOptOutList",
+    "description": "Grants permission to create an opt-out list",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "sms-voice:TagResource"
+    ]
+  },
+  "CreatePool": {
+    "name": "CreatePool",
+    "description": "Grants permission to create a pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "sms-voice:TagResource"
+        ]
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "CreateProtectConfiguration": {
+    "name": "CreateProtectConfiguration",
+    "description": "Grants permission to create a protect configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "sms-voice:TagResource"
+    ]
+  },
+  "CreateRegistration": {
+    "name": "CreateRegistration",
+    "description": "Grants permission to create a registration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "sms-voice:TagResource"
+    ]
+  },
+  "CreateRegistrationAssociation": {
+    "name": "CreateRegistrationAssociation",
+    "description": "Grants permission to associate a registration with a phone number or another registration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateRegistrationAttachment": {
+    "name": "CreateRegistrationAttachment",
+    "description": "Grants permission to create a registration attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "sms-voice:TagResource"
+    ]
+  },
+  "CreateRegistrationVersion": {
+    "name": "CreateRegistrationVersion",
+    "description": "Grants permission to create a registration version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateVerifiedDestinationNumber": {
+    "name": "CreateVerifiedDestinationNumber",
+    "description": "Grants permission to create a verified destination number",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "sms-voice:TagResource"
+    ]
+  },
+  "DeleteAccountDefaultProtectConfiguration": {
+    "name": "DeleteAccountDefaultProtectConfiguration",
+    "description": "Grants permission to delete the account default protect configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteConfigurationSet": {
+    "name": "DeleteConfigurationSet",
+    "description": "Deletes an existing configuration set.",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDefaultMessageType": {
+    "name": "DeleteDefaultMessageType",
+    "description": "Grants permission to delete the default message type for a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteDefaultSenderId": {
+    "name": "DeleteDefaultSenderId",
+    "description": "Grants permission to delete the default sender ID for a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteEventDestination": {
+    "name": "DeleteEventDestination",
+    "description": "Grants permission to delete an event destination within a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteKeyword": {
+    "name": "DeleteKeyword",
+    "description": "Grants permission to delete a keyword for a pool or origination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteMediaMessageSpendLimitOverride": {
+    "name": "DeleteMediaMessageSpendLimitOverride",
+    "description": "Grants permission to delete an override for your account's media messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteOptOutList": {
+    "name": "DeleteOptOutList",
+    "description": "Grants permission to delete an opt-out list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "OptOutList",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteOptedOutNumber": {
+    "name": "DeleteOptedOutNumber",
+    "description": "Grants permission to delete a destination phone number from an opt-out list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "OptOutList",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeletePool": {
+    "name": "DeletePool",
+    "description": "Grants permission to delete a pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteProtectConfiguration": {
+    "name": "DeleteProtectConfiguration",
+    "description": "Grants permission to delete a protect configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRegistration": {
+    "name": "DeleteRegistration",
+    "description": "Grants permission to delete a registration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRegistrationAttachment": {
+    "name": "DeleteRegistrationAttachment",
+    "description": "Grants permission to delete a registration attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RegistrationAttachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteRegistrationFieldValue": {
+    "name": "DeleteRegistrationFieldValue",
+    "description": "Grants permission to delete an optional registration field value",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteTextMessageSpendLimitOverride": {
+    "name": "DeleteTextMessageSpendLimitOverride",
+    "description": "Grants permission to delete an override for your account's text messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteVerifiedDestinationNumber": {
+    "name": "DeleteVerifiedDestinationNumber",
+    "description": "Grants permission to delete a verified destination number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VerifiedDestinationNumber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteVoiceMessageSpendLimitOverride": {
+    "name": "DeleteVoiceMessageSpendLimitOverride",
+    "description": "Grants permission to delete an override for your account's voice messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccountAttributes": {
+    "name": "DescribeAccountAttributes",
+    "description": "Grants permission to describe the attributes of your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeAccountLimits": {
+    "name": "DescribeAccountLimits",
+    "description": "Grants permission to describe the service quotas for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeConfigurationSets": {
+    "name": "DescribeConfigurationSets",
+    "description": "Grants permission to describe the configuration sets in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeKeywords": {
+    "name": "DescribeKeywords",
+    "description": "Grants permission to describe the keywords for a pool or origination phone number",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeOptOutLists": {
+    "name": "DescribeOptOutLists",
+    "description": "Grants permission to describe the opt-out lists in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "OptOutList",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeOptedOutNumbers": {
+    "name": "DescribeOptedOutNumbers",
+    "description": "Grants permission to describe the destination phone numbers in an opt-out list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "OptOutList",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePhoneNumbers": {
+    "name": "DescribePhoneNumbers",
+    "description": "Grants permission to describe the origination phone numbers in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribePools": {
+    "name": "DescribePools",
+    "description": "Grants permission to describe the pools in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeProtectConfigurations": {
+    "name": "DescribeProtectConfigurations",
+    "description": "Grants permission to describe the protect configurations in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistrationAttachments": {
+    "name": "DescribeRegistrationAttachments",
+    "description": "Grants permission to describe the registration attachments in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RegistrationAttachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistrationFieldDefinitions": {
+    "name": "DescribeRegistrationFieldDefinitions",
+    "description": "Grants permission to describe the field definitions for a given registration type",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistrationFieldValues": {
+    "name": "DescribeRegistrationFieldValues",
+    "description": "Grants permission to describe the field values for a given registration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistrationSectionDefinitions": {
+    "name": "DescribeRegistrationSectionDefinitions",
+    "description": "Grants permission to describe the section definitions for a given registration type",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistrationTypeDefinitions": {
+    "name": "DescribeRegistrationTypeDefinitions",
+    "description": "Grants permission to describe the registration types supported by the service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistrationVersions": {
+    "name": "DescribeRegistrationVersions",
+    "description": "Grants permission to describe the versions for a given registration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeRegistrations": {
+    "name": "DescribeRegistrations",
+    "description": "Grants permission to describe the registrations in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSenderIds": {
+    "name": "DescribeSenderIds",
+    "description": "Grants permission to describe the sender IDs in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeSpendLimits": {
+    "name": "DescribeSpendLimits",
+    "description": "Grants permission to describe the monthly spend limits for your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DescribeVerifiedDestinationNumbers": {
+    "name": "DescribeVerifiedDestinationNumbers",
+    "description": "Grants permission to describe the verified destination numbers in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VerifiedDestinationNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateOriginationIdentity": {
+    "name": "DisassociateOriginationIdentity",
+    "description": "Grants permission to disassociate an origination phone number or sender ID from a pool",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DisassociateProtectConfiguration": {
+    "name": "DisassociateProtectConfiguration",
+    "description": "Grants permission to disassociate a protect configuration from a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DiscardRegistrationVersion": {
+    "name": "DiscardRegistrationVersion",
+    "description": "Grants permission to discard the latest version of a given registration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProtectConfigurationCountryRuleSet": {
+    "name": "GetProtectConfigurationCountryRuleSet",
+    "description": "Grants permission to get the country rule set for a protect configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListPoolOriginationIdentities": {
+    "name": "ListPoolOriginationIdentities",
+    "description": "Grants permission to list all origination phone numbers and sender IDs associated to a pool",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListRegistrationAssociations": {
+    "name": "ListRegistrationAssociations",
+    "description": "Grants permission to list all resources associated to a registration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OptOutList",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Registration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RegistrationAttachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VerifiedDestinationNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutKeyword": {
+    "name": "PutKeyword",
+    "description": "Grants permission to create or update a keyword for a pool or origination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutOptedOutNumber": {
+    "name": "PutOptedOutNumber",
+    "description": "Grants permission to put a destination phone number into an opt-out list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "OptOutList",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "PutRegistrationFieldValue": {
+    "name": "PutRegistrationFieldValue",
+    "description": "Grants permission to put a registration field value",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ReleasePhoneNumber": {
+    "name": "ReleasePhoneNumber",
+    "description": "Grants permission to release an origination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ReleaseSenderId": {
+    "name": "ReleaseSenderId",
+    "description": "Grants permission to release a sender ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SenderId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RequestPhoneNumber": {
+    "name": "RequestPhoneNumber",
+    "description": "Grants permission to request an origination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "sms-voice:AssociateOriginationIdentity",
+          "sms-voice:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "RequestSenderId": {
+    "name": "RequestSenderId",
+    "description": "Grants permission to request an unregistered sender ID",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "sms-voice:TagResource"
+    ]
+  },
+  "SendDestinationNumberVerificationCode": {
+    "name": "SendDestinationNumberVerificationCode",
+    "description": "Grants permission to send a text or voice message containing a verification code to a destination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "sms-voice:SendTextMessage",
+          "sms-voice:SendVoiceMessage"
+        ]
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendMediaMessage": {
+    "name": "SendMediaMessage",
+    "description": "Grants permission to send a media message to a destination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendTextMessage": {
+    "name": "SendTextMessage",
+    "description": "Grants permission to send a text message to a destination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SendVoiceMessage": {
+    "name": "SendVoiceMessage",
+    "description": "Create a new voice message and send it to a recipient's phone number.",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetAccountDefaultProtectConfiguration": {
+    "name": "SetAccountDefaultProtectConfiguration",
+    "description": "Grants permission to set a default protect configuration for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetDefaultMessageType": {
+    "name": "SetDefaultMessageType",
+    "description": "Grants permission to set the default message type for a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetDefaultSenderId": {
+    "name": "SetDefaultSenderId",
+    "description": "Grants permission to set the default sender ID for a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetMediaMessageSpendLimitOverride": {
+    "name": "SetMediaMessageSpendLimitOverride",
+    "description": "Grants permission to set an override for your account's media messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetTextMessageSpendLimitOverride": {
+    "name": "SetTextMessageSpendLimitOverride",
+    "description": "Grants permission to set an override for your account's text messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SetVoiceMessageSpendLimitOverride": {
+    "name": "SetVoiceMessageSpendLimitOverride",
+    "description": "Grants permission to set an override for your account's voice messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "SubmitRegistrationVersion": {
+    "name": "SubmitRegistrationVersion",
+    "description": "Grants permission to submit the latest version of a given registration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Registration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OptOutList",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Registration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RegistrationAttachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VerifiedDestinationNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OptOutList",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Registration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RegistrationAttachment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VerifiedDestinationNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateEventDestination": {
+    "name": "UpdateEventDestination",
+    "description": "Grants permission to update an event destination within a configuration set",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "UpdatePhoneNumber": {
+    "name": "UpdatePhoneNumber",
+    "description": "Grants permission to update an origination phone number's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PhoneNumber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "UpdatePool": {
+    "name": "UpdatePool",
+    "description": "Grants permission to update a pool's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Pool",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "UpdateProtectConfiguration": {
+    "name": "UpdateProtectConfiguration",
+    "description": "Grants permission to update a protect configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateProtectConfigurationCountryRuleSet": {
+    "name": "UpdateProtectConfigurationCountryRuleSet",
+    "description": "Grants permission to update a country rule set for a protect configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateSenderId": {
+    "name": "UpdateSenderId",
+    "description": "Grants permission to update a sender ID's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SenderId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "VerifyDestinationNumber": {
+    "name": "VerifyDestinationNumber",
+    "description": "Grants permission to verify a destination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VerifiedDestinationNumber",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "CreateConfigurationSetEventDestination": {
+    "name": "CreateConfigurationSetEventDestination",
+    "description": "Create a new event destination in a configuration set.",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "DeleteConfigurationSetEventDestination": {
+    "name": "DeleteConfigurationSetEventDestination",
+    "description": "Deletes an event destination in a configuration set.",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetConfigurationSetEventDestinations": {
+    "name": "GetConfigurationSetEventDestinations",
+    "description": "Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListConfigurationSets": {
+    "name": "ListConfigurationSets",
+    "description": "Return a list of configuration sets. This operation only returns the configuration sets that are associated with your account in the current AWS Region.",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateConfigurationSetEventDestination": {
+    "name": "UpdateConfigurationSetEventDestination",
+    "description": "Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "alarm": {
+    "key": "alarm",
+    "arn": "arn:${Partition}:cloudwatch:${Region}:${Account}:alarm:${AlarmName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "dashboard": {
+    "key": "dashboard",
+    "arn": "arn:${Partition}:cloudwatch::${Account}:dashboard/${DashboardName}"
+  },
+  "insight-rule": {
+    "key": "insight-rule",
+    "arn": "arn:${Partition}:cloudwatch:${Region}:${Account}:insight-rule/${InsightRuleName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "metric-stream": {
+    "key": "metric-stream",
+    "arn": "arn:${Partition}:cloudwatch:${Region}:${Account}:metric-stream/${MetricStreamName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "slo": {
+    "key": "slo",
+    "arn": "arn:${Partition}:cloudwatch:${Region}:${Account}:slo/${SloName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "service": {
+    "key": "service",
+    "arn": "arn:${Partition}:cloudwatch:${Region}:${Account}:service/${ServiceName}-${UniqueAttributesHex}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  }
+}

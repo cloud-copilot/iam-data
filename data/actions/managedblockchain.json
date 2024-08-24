@@ -1,0 +1,563 @@
+{
+  "CreateAccessor": {
+    "name": "CreateAccessor",
+    "description": "Grants permission to create an Amazon Managed Blockchain accessor",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateMember": {
+    "name": "CreateMember",
+    "description": "Grants permission to create a member of an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateNetwork": {
+    "name": "CreateNetwork",
+    "description": "Grants permission to create an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "CreateNode": {
+    "name": "CreateNode",
+    "description": "Grants permission to create a node within a member of an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "member",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateProposal": {
+    "name": "CreateProposal",
+    "description": "Grants permission to create a proposal that other blockchain network members can vote on to add or remove a member in an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteAccessor": {
+    "name": "DeleteAccessor",
+    "description": "Grants permission to delete an Amazon Managed Blockchain accessor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteMember": {
+    "name": "DeleteMember",
+    "description": "Grants permission to delete a member and all associated resources from an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "member",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteNode": {
+    "name": "DeleteNode",
+    "description": "Grants permission to delete a node from a member of an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GET": {
+    "name": "GET",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send HTTP GET requests to an Ethereum node",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetAccessor": {
+    "name": "GetAccessor",
+    "description": "Grants permission to return detailed information about an Amazon Managed Blockchain accessor",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetMember": {
+    "name": "GetMember",
+    "description": "Grants permission to return detailed information about a member of an Amazon Managed Blockchain network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "member",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNetwork": {
+    "name": "GetNetwork",
+    "description": "Grants permission to return detailed information about an Amazon Managed Blockchain network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetNode": {
+    "name": "GetNode",
+    "description": "Grants permission to return detailed information about a node within a member of an Amazon Managed Blockchain network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetProposal": {
+    "name": "GetProposal",
+    "description": "Grants permission to return detailed information about a proposal of an Amazon Managed Blockchain network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "proposal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "Invoke": {
+    "name": "Invoke",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create WebSocket connections to an Ethereum node",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeRpcBitcoinMainnet": {
+    "name": "InvokeRpcBitcoinMainnet",
+    "description": "Grants permission to invoke the Bitcoin Mainnet RPCs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeRpcBitcoinTestnet": {
+    "name": "InvokeRpcBitcoinTestnet",
+    "description": "Grants permission to invoke the Bitcoin Testnet RPCs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeRpcPolygonMainnet": {
+    "name": "InvokeRpcPolygonMainnet",
+    "description": "Grants permission to invoke the Polygon Mainnet RPCs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "InvokeRpcPolygonMumbaiTestnet": {
+    "name": "InvokeRpcPolygonMumbaiTestnet",
+    "description": "Grants permission to invoke the Polygon Mumbai Testnet RPCs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListAccessors": {
+    "name": "ListAccessors",
+    "description": "Grants permission to list the Amazon Managed Blockchain accessors owned by the current AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListInvitations": {
+    "name": "ListInvitations",
+    "description": "Grants permission to list the invitations extended to the active AWS account from any Managed Blockchain network",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListMembers": {
+    "name": "ListMembers",
+    "description": "Grants permission to list the members of an Amazon Managed Blockchain network and the properties of their memberships",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListNetworks": {
+    "name": "ListNetworks",
+    "description": "Grants permission to list the Amazon Managed Blockchain networks in which the current AWS account participates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListNodes": {
+    "name": "ListNodes",
+    "description": "Grants permission to list the nodes within a member of an Amazon Managed Blockchain network",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "member",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProposalVotes": {
+    "name": "ListProposalVotes",
+    "description": "Grants permission to list all votes for a proposal, including the value of the vote and the unique identifier of the member that cast the vote for the given Amazon Managed Blockchain network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "proposal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListProposals": {
+    "name": "ListProposals",
+    "description": "Grants permission to list proposals for the given Amazon Managed Blockchain network",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to view tags associated with an Amazon Managed Blockchain resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "invitation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "member",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "proposal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "POST": {
+    "name": "POST",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send HTTP POST requests to an Ethereum node",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RejectInvitation": {
+    "name": "RejectInvitation",
+    "description": "Grants permission to reject the invitation to join the blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "invitation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to an Amazon Managed Blockchain resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "invitation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "member",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "proposal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from an Amazon Managed Blockchain resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "accessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "invitation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "member",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "proposal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateMember": {
+    "name": "UpdateMember",
+    "description": "Grants permission to update a member of an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "member",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "UpdateNode": {
+    "name": "UpdateNode",
+    "description": "Grants permission to update a node from a member of an Amazon Managed Blockchain network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "VoteOnProposal": {
+    "name": "VoteOnProposal",
+    "description": "Grants permission to cast a vote for a proposal on behalf of the blockchain network member specified",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "proposal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

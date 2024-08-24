@@ -1,0 +1,337 @@
+{
+  "CreateHttpNamespace": {
+    "name": "CreateHttpNamespace",
+    "description": "Grants permission to create an HTTP namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreatePrivateDnsNamespace": {
+    "name": "CreatePrivateDnsNamespace",
+    "description": "Grants permission to create a private namespace based on DNS, which will be visible only inside a specified Amazon VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreatePublicDnsNamespace": {
+    "name": "CreatePublicDnsNamespace",
+    "description": "Grants permission to create a public namespace based on DNS, which will be visible on the internet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "CreateService": {
+    "name": "CreateService",
+    "description": "Grants permission to create a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "servicediscovery:NamespaceArn",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "DeleteNamespace": {
+    "name": "DeleteNamespace",
+    "description": "Grants permission to delete a specified namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeleteService": {
+    "name": "DeleteService",
+    "description": "Grants permission to delete a specified service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "DeregisterInstance": {
+    "name": "DeregisterInstance",
+    "description": "Grants permission to delete the records and the health check, if any, that Amazon Route 53 created for the specified instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "servicediscovery:ServiceArn"
+    ],
+    "dependentActions": []
+  },
+  "DiscoverInstances": {
+    "name": "DiscoverInstances",
+    "description": "Grants permission to discover registered instances for a specified namespace and service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "servicediscovery:NamespaceName",
+      "servicediscovery:ServiceName"
+    ],
+    "dependentActions": []
+  },
+  "DiscoverInstancesRevision": {
+    "name": "DiscoverInstancesRevision",
+    "description": "Grants permission to discover the revision of the instances for a specified namespace and service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "servicediscovery:NamespaceName",
+      "servicediscovery:ServiceName"
+    ],
+    "dependentActions": []
+  },
+  "GetInstance": {
+    "name": "GetInstance",
+    "description": "Grants permission to get information about a specified instance",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceArn"
+    ],
+    "dependentActions": []
+  },
+  "GetInstancesHealthStatus": {
+    "name": "GetInstancesHealthStatus",
+    "description": "Grants permission to get the current health status (Healthy, Unhealthy, or Unknown) of one or more instances",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceArn"
+    ],
+    "dependentActions": []
+  },
+  "GetNamespace": {
+    "name": "GetNamespace",
+    "description": "Grants permission to get information about a namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetOperation": {
+    "name": "GetOperation",
+    "description": "Grants permission to get information about a specific operation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "GetService": {
+    "name": "GetService",
+    "description": "Grants permission to get the settings for a specified service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListInstances": {
+    "name": "ListInstances",
+    "description": "Grants permission to get summary information about the instances that were registered with a specified service",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceArn"
+    ],
+    "dependentActions": []
+  },
+  "ListNamespaces": {
+    "name": "ListNamespaces",
+    "description": "Grants permission to get information about the namespaces",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListOperations": {
+    "name": "ListOperations",
+    "description": "Grants permission to list operations that match the criteria that you specify",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListServices": {
+    "name": "ListServices",
+    "description": "Grants permission to get settings for all the services that match specified filters",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "ListTagsForResource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to lists tags for the specified resource",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "RegisterInstance": {
+    "name": "RegisterInstance",
+    "description": "Grants permission to register an instance based on the settings in a specified service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "servicediscovery:ServiceArn"
+    ],
+    "dependentActions": []
+  },
+  "TagResource": {
+    "name": "TagResource",
+    "description": "Grants permission to add one or more tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "UntagResource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove one or more tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "UpdateHttpNamespace": {
+    "name": "UpdateHttpNamespace",
+    "description": "Grants permission to update the settings for a HTTP namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateInstanceCustomHealthStatus": {
+    "name": "UpdateInstanceCustomHealthStatus",
+    "description": "Grants permission to update the current health status for an instance that has a custom health check",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceArn"
+    ],
+    "dependentActions": []
+  },
+  "UpdatePrivateDnsNamespace": {
+    "name": "UpdatePrivateDnsNamespace",
+    "description": "Grants permission to update the settings for a private DNS namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdatePublicDnsNamespace": {
+    "name": "UpdatePublicDnsNamespace",
+    "description": "Grants permission to update the settings for a public DNS namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "UpdateService": {
+    "name": "UpdateService",
+    "description": "Grants permission to update the settings in a specified service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}
