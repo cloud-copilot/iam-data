@@ -43,3 +43,8 @@ for(const serviceKey of allServiceKeys()) {
 * `allConditionKeys(serviceKey: string)` - Returns an array of all condition keys for a given service key.
 * `getConditionKeyDetails(serviceKey: string, conditionKey: string)` - Returns an object with the condition key details such as `description`, `conditionValueTypes`, and `conditionOperators`.
 * `conditionKeyExists(serviceKey: string, conditionKey: string)` - Returns true if the condition key exists.
+
+### Version Info
+The version is numper is formatted as `major.minor.updatedAt`. The updatedAt is the date the data was last updated in the format `YYYYMMDDX` where `X` is a counter to enable deploying more than once per day if necessary. For example version `0.1.202408291` has data updated on August 29th, 2024.
+
+The version can be accessed using the `getVersion()` method.
