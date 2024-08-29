@@ -3,6 +3,10 @@
     "key": "foundation-model",
     "arn": "arn:${Partition}:bedrock:${Region}::foundation-model/${ResourceId}"
   },
+  "inference-profile": {
+    "key": "inference-profile",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:inference-profile/${ResourceId}"
+  },
   "custom-model": {
     "key": "custom-model",
     "arn": "arn:${Partition}:bedrock:${Region}:${Account}:custom-model/${ResourceId}",
@@ -104,6 +108,20 @@
   "prompt-version": {
     "key": "prompt-version",
     "arn": "arn:${Partition}:bedrock:${Region}:${Account}:prompt/${PromptId}:${PromptVersion}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "model-import-job": {
+    "key": "model-import-job",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:model-import-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "imported-model": {
+    "key": "imported-model",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:imported-model/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
