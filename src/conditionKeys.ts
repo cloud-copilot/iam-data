@@ -1,4 +1,4 @@
-import { readConditionKeys } from "./data"
+import { readConditionKeys } from "./data.js"
 
 export interface ConditionKey {
   key: string,

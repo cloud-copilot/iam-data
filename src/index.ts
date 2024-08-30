@@ -1,6 +1,6 @@
-export * from './actions';
-export * from './conditionKeys';
-export * from './resourceTypes';
-export * from './services';
-export * from './version';
+export * from './actions.js'
+export * from './conditionKeys.js'
+export * from './resourceTypes.js'
+export * from './services.js'
+export * from './version.js'
 

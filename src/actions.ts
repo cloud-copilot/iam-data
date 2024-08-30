@@ -1,4 +1,4 @@
-import { readActionData } from "./data"
+import { readActionData } from "./data.js"
 
 interface ActionResourceType {
   "name": string,

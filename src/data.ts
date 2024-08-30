@@ -1,32 +1,13 @@
-import { readFileSync } from "fs";
 import { join } from "path";
-
-let dataRoot = join(__dirname, '..', '..', 'data');
-if(__dirname.endsWith('src')) {
-  dataRoot = join(__dirname, '..', 'data');
-}
-
-/**
- * Get the root path to the data directory
- *
- * @returns the root path to the data directory
- */
-// function dataRoot(): string {
-//   console.log(__dirname);
-//   return join(__dirname, '..', 'data');
-// }
+import { readRelativeFile } from "./readRelativeFile.js";
 
 const dataCache: Record<string, any> = {};
 
-/**
- * Get a data file from the data directory
- *
- * @param file the path to the file to retrieve data for.
- * @returns the data from the file
- */
-export function readDataFile<T>(file: string): T {
+export function readDataFile<T>(...pathParts: string[]): T {
+  pathParts.unshift('data');
+  const file = join(...pathParts);
   if(!dataCache[file]) {
-    const data = readFileSync(join(dataRoot, file), 'utf8');
+    const data = readRelativeFile(pathParts)
     dataCache[file] = JSON.parse(data);
   }
   return dataCache[file];
@@ -39,7 +20,7 @@ export function readDataFile<T>(file: string): T {
  * @returns the action data for the service
  */
 export function readActionData<T>(serviceKey: string): T {
-  return readDataFile<T>(join('actions', `${serviceKey}.json`));
+  return readDataFile<T>('actions', `${serviceKey}.json`);
 }
 
 /**
@@ -49,7 +30,7 @@ export function readActionData<T>(serviceKey: string): T {
  * @returns the condition key data
  */
 export function readConditionKeys<T>(serviceKey: string): T {
-  return readDataFile<T>(join('conditionKeys', `${serviceKey}.json`));
+  return readDataFile<T>('conditionKeys', `${serviceKey}.json`);
 }
 
 /**
@@ -59,5 +40,5 @@ export function readConditionKeys<T>(serviceKey: string): T {
  * @returns the resource type data
  */
 export function readResourceTypes<T>(serviceKey: string): T {
-  return readDataFile<T>(join('resourceTypes', `${serviceKey}.json`));
+  return readDataFile<T>('resourceTypes', `${serviceKey}.json`);
 }

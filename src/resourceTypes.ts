@@ -1,4 +1,4 @@
-import { readResourceTypes } from "./data";
+import { readResourceTypes } from "./data.js";
 
 export interface ResourceType {
   readonly key: string;

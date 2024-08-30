@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { allServiceKeys, getServiceName, serviceExists } from "./services";
 
 describe('services', () => {

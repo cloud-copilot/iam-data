@@ -1,4 +1,4 @@
-import { readDataFile } from './data';
+import { readDataFile } from './data.js';
 
 /**
  * Get keys for all services

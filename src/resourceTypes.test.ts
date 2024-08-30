@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest'
 import { getResourceTypeDetails, resourceTypeExists, resourceTypesForService } from "./resourceTypes"
 
 describe("resourceTypes", () => {
