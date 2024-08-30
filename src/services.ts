@@ -5,7 +5,7 @@ import { readDataFile } from './data.js';
  *
  * @returns an array of all service keys
  */
-export function allServiceKeys(): string[] {
+export function iamServiceKeys(): string[] {
   return readDataFile<string[]>('services.json')
 }
 
@@ -15,7 +15,7 @@ export function allServiceKeys(): string[] {
  * @param serviceKey the service key to check
  * @returns true if the service exists, false otherwise
  */
-export function serviceExists(serviceKey: string): boolean {
+export function iamServiceExists(serviceKey: string): boolean {
   const data = readDataFile<Record<string, string>>('serviceNames.json')
   return !!data[serviceKey];
 }
@@ -27,7 +27,7 @@ export function serviceExists(serviceKey: string): boolean {
  * @throws error if the service does not exist
  * @returns the name of the service
  */
-export function getServiceName(serviceKey: string): string {
+export function iamServiceName(serviceKey: string): string {
   const data = readDataFile<Record<string, string>>('serviceNames.json')
   if(!data[serviceKey]) {
     throw new Error(`Service ${serviceKey} does not exist`)

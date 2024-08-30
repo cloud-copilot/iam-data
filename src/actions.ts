@@ -22,7 +22,7 @@ interface Action {
  * @param serviceKey the service key to get actions for
  * @returns the actions for the service
  */
-export function getActionsForService(serviceKey: string): string[] {
+export function iamActionsForService(serviceKey: string): string[] {
   const data = readActionData<Record<string, Action>>(serviceKey)
   return Object.keys(data)
 }
@@ -34,7 +34,7 @@ export function getActionsForService(serviceKey: string): string[] {
  * @param actionKey the action key to check for
  * @returns true if the action exists, false otherwise
  */
-export function actionExists(serviceKey: string, actionKey: string): boolean {
+export function iamActionExists(serviceKey: string, actionKey: string): boolean {
   const data = readActionData<Record<string, Action>>(serviceKey)
   return !!data[actionKey]
 }
@@ -47,7 +47,7 @@ export function actionExists(serviceKey: string, actionKey: string): boolean {
  * @throws error if the service or action does not exist
  * @returns the details for the action
  */
-export function getActionDetails(serviceKey: string, actionKey: string): Action {
+export function iamActionDetails(serviceKey: string, actionKey: string): Action {
   const data = readActionData<Record<string, Action>>(serviceKey)
   if(!data[actionKey]) {
     throw new Error(`Action ${actionKey} does not exist for service ${serviceKey}`)

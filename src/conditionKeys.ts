@@ -12,7 +12,7 @@ export interface ConditionKey {
  * @param serviceKey the service key to read the condition keys for
  * @returns the condition keys for the service
  */
-export function getConditionKeysForService(serviceKey: string): string[] {
+export function iamConditionKeysForService(serviceKey: string): string[] {
   const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey)
   return Object.keys(data)
 }
@@ -24,7 +24,7 @@ export function getConditionKeysForService(serviceKey: string): string[] {
  * @param conditionKey the condition key to check for
  * @returns true if the condition key exists, false otherwise
  */
-export function conditionKeyExists(serviceKey: string, conditionKey: string): boolean {
+export function iamConditionKeyExists(serviceKey: string, conditionKey: string): boolean {
   const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey)
   return !!data[conditionKey]
 }
@@ -37,7 +37,7 @@ export function conditionKeyExists(serviceKey: string, conditionKey: string): bo
  * @throws error if the service or condition key does not exist
  * @returns the details for the condition key
  */
-export function getConditionKeyDetails(serviceKey: string, conditionKey: string): ConditionKey {
+export function iamConditionKeyDetails(serviceKey: string, conditionKey: string): ConditionKey {
   const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey)
   if(!data[conditionKey]) {
     throw new Error(`Condition key ${conditionKey} does not exist for service ${serviceKey}`)

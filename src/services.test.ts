@@ -1,23 +1,25 @@
 import { describe, expect, it } from 'vitest';
-import { allServiceKeys, getServiceName, serviceExists } from "./services";
+import { iamServiceExists, iamServiceKeys, iamServiceName } from "./services";
 
 describe('services', () => {
-  describe('allServiceKeys', () => {
+  describe('iamServiceKeys', () => {
     it('should return an array of strings', () => {
-      //Given allServiceKeys exists
-      //When allServiceKeys is called
-      const result = allServiceKeys();
+      //Given iamServiceKeys exists
+      //When iamServiceKeys is called
+      const result = iamServiceKeys();
 
       //Then result should be an array of strings
       expect(Array.isArray(result)).toBe(true);
     })
   })
 
-  describe('serviceExists', () => {
+  describe('iamServiceExists', () => {
     it('should return true if the service exists', () => {
       //Given a service that exists
-      //When serviceExists is called
-      const result = serviceExists('s3');
+      const serviceName = 's3'
+
+      //When iamServiceExists is called
+      const result = iamServiceExists(serviceName);
 
       //Then result should be true
       expect(result).toBe(true);
@@ -25,19 +27,23 @@ describe('services', () => {
 
     it('should return false if the service does not exist', () => {
       //Given a service that does not exist
-      //When serviceExists is called
-      const result = serviceExists('FakeService');
+      const serviceName = 'FakeService'
+
+      //When iamServiceExists is called
+      const result = iamServiceExists(serviceName);
 
       //Then result should be false
       expect(result).toBe(false);
     })
   })
 
-  describe('getServiceName', () => {
+  describe('iamServiceName', () => {
     it('should return the name of the service', () => {
       //Given a service that exists
-      //When getServiceName is called
-      const result = getServiceName('s3');
+      const serviceName = 's3'
+
+      //When iamServiceName is called
+      const result = iamServiceName(serviceName);
 
       //Then result should be the name of the service
       expect(result).toBe('Amazon S3');
@@ -45,9 +51,10 @@ describe('services', () => {
 
     it('should throw an error if the service does not exist', () => {
       //Given a service that does not exist
-      //When getServiceName is called
+      const serviceName = 'FakeService'
+      //When iamServiceName is called
       //Then an error should be thrown
-      expect(() => getServiceName('FakeService')).toThrow('Service FakeService does not exist');
+      expect(() => iamServiceName(serviceName)).toThrow('Service FakeService does not exist');
     })
   })
 })

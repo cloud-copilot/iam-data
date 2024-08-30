@@ -1,23 +1,28 @@
 import { describe, expect, it } from 'vitest'
-import { getResourceTypeDetails, resourceTypeExists, resourceTypesForService } from "./resourceTypes"
+import { iamResourceTypeDetails, iamResourceTypeExists, iamResourceTypesForService } from "./resourceTypes"
 
 describe("resourceTypes", () => {
-  describe("resourceTypesForService", () => {
+  describe("iamResourceTypesForService", () => {
     it("should return an array of strings", () => {
-      //Given resourceTypesForService exists
-      //When resourceTypesForService is called
-      const result = resourceTypesForService("s3")
+      //Given iamResourceTypesForService exists
+      const serviceKey = "s3"
+
+      //When iamResourceTypesForService is called
+      const result = iamResourceTypesForService(serviceKey)
 
       //Then result should be an array of strings
       expect(Array.isArray(result)).toBe(true)
     })
   })
 
-  describe("resourceTypeExists", () => {
+  describe("iamResourceTypeExists", () => {
     it("should return true if the resource type exists", () => {
       //Given a resource type that exists
-      //When resourceTypeExists is called
-      const result = resourceTypeExists("s3", "bucket")
+      const serviceKey = "s3"
+      const resourceTypeKey = "bucket"
+
+      //When iamResourceTypeExists is called
+      const result = iamResourceTypeExists(serviceKey, resourceTypeKey)
 
       //Then result should be true
       expect(result).toBe(true)
@@ -25,19 +30,25 @@ describe("resourceTypes", () => {
 
     it("should return false if the resource type does not exist", () => {
       //Given a resource type that does not exist
-      //When resourceTypeExists is called
-      const result = resourceTypeExists("s3", "FakeResourceType")
+      const serviceKey = "s3"
+      const resourceTypeKey = "FakeResourceType"
+
+      //When iamResourceTypeExists is called
+      const result = iamResourceTypeExists(serviceKey, resourceTypeKey)
 
       //Then result should be false
       expect(result).toBe(false)
     })
   })
 
-  describe("getResourceTypeDetails", () => {
+  describe("iamResourceTypeDetails", () => {
     it("should return the details of the resource type", () => {
       //Given a resource type that exists
-      //When getResourceTypeDetails is called
-      const result = getResourceTypeDetails("s3", "bucket")
+      const serviceKey = "s3"
+      const resourceTypeKey = "bucket"
+
+      //When iamResourceTypeDetails is called
+      const result = iamResourceTypeDetails(serviceKey, resourceTypeKey)
 
       //Then result should be the details of the resource type
       expect(result).toHaveProperty("key", "bucket")
@@ -45,9 +56,12 @@ describe("resourceTypes", () => {
 
     it("should throw an error if the resource type does not exist", () => {
       //Given a resource type that does not exist
-      //When getResourceTypeDetails is called
+      const serviceKey = "s3"
+      const resourceTypeKey = "FakeResourceType"
+
+      //When iamResourceTypeDetails is called
       //Then an error should be thrown
-      expect(() => getResourceTypeDetails("s3", "FakeResourceType")).toThrow("Resource type FakeResourceType does not exist for service s3")
+      expect(() => iamResourceTypeDetails(serviceKey, resourceTypeKey)).toThrow("Resource type FakeResourceType does not exist for service s3")
     })
   })
 })
