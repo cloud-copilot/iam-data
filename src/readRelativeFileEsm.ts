@@ -15,9 +15,5 @@ root = resolve(root, join('..', '..'))
  */
 export function readRelativeFile(pathParts: string[]): string {
   const relativePath = join(...pathParts)
-  console.log("root", root)
-  console.log(relativePath)
   return readFileSync(fileURLToPath(resolve(root, relativePath)), 'utf-8')
-  // readFileSync()
-  // return readFileSync(join(dataRoot, ...pathParts), 'utf8');
 }
