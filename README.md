@@ -3,6 +3,8 @@
 ## Description
 Contains IAM data for AWS actions, resources, and conditions based on IAM policy documents. This is intended to be used in downstream projects to provide a reference for IAM policy documents.
 
+Published in ESM and CommonJS.
+
 ## Usage
 
 ```bash
