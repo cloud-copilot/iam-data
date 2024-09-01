@@ -318,6 +318,17 @@
     ],
     "dependentActions": []
   },
+  "createmodelimportjob": {
+    "name": "CreateModelImportJob",
+    "description": "Grants permission to create a job for importing model into Bedrock",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createmodelinvocationjob": {
     "name": "CreateModelInvocationJob",
     "description": "Grants permission to create a new model invocation job",
@@ -566,6 +577,21 @@
     "resourceTypes": [
       {
         "name": "guardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteimportedmodel": {
+    "name": "DeleteImportedModel",
+    "description": "Grants permission to delete previously created Bedrock imported model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imported-model",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -909,6 +935,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getimportedmodel": {
+    "name": "GetImportedModel",
+    "description": "Grants permission to get the properties associated with Bedrock imported model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "imported-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinferenceprofile": {
+    "name": "GetInferenceProfile",
+    "description": "Grants permission to get the properties associated with an inference profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getingestionjob": {
     "name": "GetIngestionJob",
     "description": "Grants permission to retrieve an existing ingestion job",
@@ -976,6 +1032,21 @@
     "resourceTypes": [
       {
         "name": "model-evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmodelimportjob": {
+    "name": "GetModelImportJob",
+    "description": "Grants permission to get the properties associated with a model import job and is used to get the status of a model import job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "model-import-job",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1109,13 +1180,27 @@
         "dependentActions": []
       },
       {
+        "name": "imported-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "provisioned-model",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "bedrock:InferenceProfileArn"
+    ],
     "dependentActions": []
   },
   "invokemodelwithresponsestream": {
@@ -1130,13 +1215,27 @@
         "dependentActions": []
       },
       {
+        "name": "imported-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "provisioned-model",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "bedrock:InferenceProfileArn"
+    ],
     "dependentActions": []
   },
   "listagentactiongroups": {
@@ -1307,6 +1406,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listimportedmodels": {
+    "name": "ListImportedModels",
+    "description": "Grants permission to get list of Bedrock imported models",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinferenceprofiles": {
+    "name": "ListInferenceProfiles",
+    "description": "Grants permission to list inference profiles that you can use",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listingestionjobs": {
     "name": "ListIngestionJobs",
     "description": "Grants permission to list ingestion jobs in a data source",
@@ -1349,6 +1464,14 @@
   "listmodelevaluationjobs": {
     "name": "ListModelEvaluationJobs",
     "description": "Grants permission to get the list of model evaluation jobs that you have submitted",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmodelimportjobs": {
+    "name": "ListModelImportJobs",
+    "description": "Grants permission to get list of model import jobs",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1433,6 +1556,12 @@
         "dependentActions": []
       },
       {
+        "name": "imported-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "knowledge-base",
         "required": true,
         "conditionKeys": [],
@@ -1452,6 +1581,12 @@
       },
       {
         "name": "model-evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-import-job",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1688,6 +1823,12 @@
         "dependentActions": []
       },
       {
+        "name": "imported-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "knowledge-base",
         "required": false,
         "conditionKeys": [],
@@ -1707,6 +1848,12 @@
       },
       {
         "name": "model-evaluation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-import-job",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1790,6 +1937,12 @@
         "dependentActions": []
       },
       {
+        "name": "imported-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "knowledge-base",
         "required": false,
         "conditionKeys": [],
@@ -1809,6 +1962,12 @@
       },
       {
         "name": "model-evaluation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "model-import-job",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

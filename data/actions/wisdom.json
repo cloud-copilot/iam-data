@@ -46,6 +46,30 @@
     ],
     "dependentActions": []
   },
+  "createcontentassociation": {
+    "name": "CreateContentAssociation",
+    "description": "Grants permission to create a content association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createknowledgebase": {
     "name": "CreateKnowledgeBase",
     "description": "Grants permission to create a knowledge base",
@@ -136,6 +160,33 @@
     "resourceTypes": [
       {
         "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecontentassociation": {
+    "name": "DeleteContentAssociation",
+    "description": "Grants permission to delete a content association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContentAssociation",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -244,6 +295,33 @@
     "resourceTypes": [
       {
         "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcontentassociation": {
+    "name": "GetContentAssociation",
+    "description": "Grants permission to retrieve information about a content association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContentAssociation",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -389,6 +467,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcontentassociations": {
+    "name": "ListContentAssociations",
+    "description": "Grants permission to list information about content associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcontents": {
     "name": "ListContents",
     "description": "Grants permission to list the content with a knowledge base",
@@ -453,6 +552,21 @@
   "notifyrecommendationsreceived": {
     "name": "NotifyRecommendationsReceived",
     "description": "Grants permission to remove the specified recommendations from the specified assistant's queue of newly available recommendations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putfeedback": {
+    "name": "PutFeedback",
+    "description": "Grants permission to submit feedback",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -735,120 +849,6 @@
       },
       {
         "name": "QuickResponse",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "createcontentassociation": {
-    "name": "CreateContentAssociation",
-    "description": "Grants permission to create a content association",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Content",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "KnowledgeBase",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
-  "deletecontentassociation": {
-    "name": "DeleteContentAssociation",
-    "description": "Grants permission to delete a content association",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Content",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "ContentAssociation",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "KnowledgeBase",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getcontentassociation": {
-    "name": "GetContentAssociation",
-    "description": "Grants permission to retrieve information about a content association",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "Content",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "ContentAssociation",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "KnowledgeBase",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listcontentassociations": {
-    "name": "ListContentAssociations",
-    "description": "Grants permission to list information about content associations",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "Content",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "KnowledgeBase",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "putfeedback": {
-    "name": "PutFeedback",
-    "description": "Grants permission to submit feedback",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Assistant",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

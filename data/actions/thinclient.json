@@ -8,7 +8,12 @@
       "aws:TagKeys",
       "aws:RequestTag/${TagKey}"
     ],
-    "dependentActions": []
+    "dependentActions": [
+      "appstream:DescribeStacks",
+      "workspaces-web:GetPortal",
+      "workspaces-web:GetUserSettings",
+      "workspaces:DescribeWorkspaceDirectories"
+    ]
   },
   "deletedevice": {
     "name": "DeleteDevice",
@@ -22,7 +27,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deleteenvironment": {
@@ -37,7 +44,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deregisterdevice": {
@@ -52,7 +61,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getdevice": {
@@ -67,7 +78,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getenvironment": {
@@ -82,7 +95,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getsoftwareset": {
@@ -97,7 +112,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listdevicesessions": {
@@ -113,7 +130,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listdevices": {
@@ -174,7 +193,8 @@
     ],
     "conditionKeys": [
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -203,7 +223,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -219,7 +240,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updateenvironment": {
@@ -231,10 +254,17 @@
         "name": "environment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "appstream:DescribeStacks",
+          "workspaces-web:GetPortal",
+          "workspaces-web:GetUserSettings",
+          "workspaces:DescribeWorkspaceDirectories"
+        ]
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updatesoftwareset": {
@@ -249,7 +279,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   }
 }
