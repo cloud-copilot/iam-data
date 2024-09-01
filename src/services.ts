@@ -12,12 +12,12 @@ export function iamServiceKeys(): string[] {
 /**
  * Check if a service exists
  *
- * @param serviceKey the service key to check
+ * @param serviceKey the service key to check, is case insensitive
  * @returns true if the service exists, false otherwise
  */
 export function iamServiceExists(serviceKey: string): boolean {
   const data = readDataFile<Record<string, string>>('serviceNames.json')
-  return !!data[serviceKey];
+  return !!data[serviceKey.toLowerCase()];
 }
 
 /**
@@ -29,8 +29,8 @@ export function iamServiceExists(serviceKey: string): boolean {
  */
 export function iamServiceName(serviceKey: string): string {
   const data = readDataFile<Record<string, string>>('serviceNames.json')
-  if(!data[serviceKey]) {
+  if(!data[serviceKey.toLowerCase()]) {
     throw new Error(`Service ${serviceKey} does not exist`)
   }
-  return data[serviceKey]
+  return data[serviceKey.toLowerCase()]
 }

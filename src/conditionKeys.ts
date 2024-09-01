@@ -9,38 +9,38 @@ export interface ConditionKey {
 /**
  * Reads the condition keys for a service
  *
- * @param serviceKey the service key to read the condition keys for
+ * @param serviceKey the service key to read the condition keys for, is case insensitive
  * @returns the condition keys for the service
  */
 export function iamConditionKeysForService(serviceKey: string): string[] {
-  const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey)
-  return Object.keys(data)
+  const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
+  return Object.values(data).map(conditionKey => conditionKey.key)
 }
 
 /**
  * Check if a condition key exists
  *
- * @param serviceKey the service key to check for the condition key
- * @param conditionKey the condition key to check for
+ * @param serviceKey the service key to check for the condition key, is case insensitive
+ * @param conditionKey the condition key to check for, is case insensitive
  * @returns true if the condition key exists, false otherwise
  */
 export function iamConditionKeyExists(serviceKey: string, conditionKey: string): boolean {
-  const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey)
-  return !!data[conditionKey]
+  const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
+  return !!data[conditionKey.toLowerCase()]
 }
 
 /**
  * Get the details for a condition key
  *
- * @param serviceKey the service key to get the condition key for
- * @param conditionKey the condition key to get the details for
+ * @param serviceKey the service key to get the condition key for, is case insensitive
+ * @param conditionKey the condition key to get the details for, is case insensitive
  * @throws error if the service or condition key does not exist
  * @returns the details for the condition key
  */
 export function iamConditionKeyDetails(serviceKey: string, conditionKey: string): ConditionKey {
-  const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey)
-  if(!data[conditionKey]) {
+  const data = readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
+  if(!data[conditionKey.toLowerCase()]) {
     throw new Error(`Condition key ${conditionKey} does not exist for service ${serviceKey}`)
   }
-  return data[conditionKey]
+  return data[conditionKey.toLowerCase()]
 }
