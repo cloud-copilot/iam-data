@@ -22,8 +22,8 @@ interface Action {
  * @param serviceKey the service key to get actions for, is case insensitive
  * @returns the actions for the service
  */
-export function iamActionsForService(serviceKey: string): string[] {
-  const data = readActionData<Record<string, Action>>(serviceKey.toLowerCase())
+export async function iamActionsForService(serviceKey: string): Promise<string[]> {
+  const data = await readActionData<Record<string, Action>>(serviceKey.toLowerCase())
   return Object.values(data).map(action => action.name)
 }
 
@@ -34,8 +34,8 @@ export function iamActionsForService(serviceKey: string): string[] {
  * @param actionKey the action key to check for, is case insensitive
  * @returns true if the action exists, false otherwise
  */
-export function iamActionExists(serviceKey: string, actionKey: string): boolean {
-  const data = readActionData<Record<string, Action>>(serviceKey.toLowerCase())
+export async function iamActionExists(serviceKey: string, actionKey: string): Promise<boolean> {
+  const data = await readActionData<Record<string, Action>>(serviceKey.toLowerCase())
   return !!data[actionKey.toLowerCase()]
 }
 
@@ -47,8 +47,8 @@ export function iamActionExists(serviceKey: string, actionKey: string): boolean 
  * @throws error if the service or action does not exist
  * @returns the details for the action
  */
-export function iamActionDetails(serviceKey: string, actionKey: string): Action {
-  const data = readActionData<Record<string, Action>>(serviceKey.toLowerCase())
+export async function iamActionDetails(serviceKey: string, actionKey: string): Promise<Action> {
+  const data = await readActionData<Record<string, Action>>(serviceKey.toLowerCase())
   if(!data[actionKey.toLowerCase()]) {
     throw new Error(`Action ${actionKey} does not exist for service ${serviceKey}`)
   }

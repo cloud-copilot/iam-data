@@ -15,11 +15,13 @@ npm install @cloud-copilot/iam-data
 import { iamServiceKeys, iamActionDetails, iamActionsForService, iamServiceName } from '@cloud-copilot/iam-data';
 
 // Iterate through all actions in all services
-for(const serviceKey of iamServiceKeys()) {
-  console.log(`Getting Actions for ${iamServiceName(serviceKey)}`);
-  const actions = iamActionsForService(serviceKey);
+const serviceKeys = await iamServiceKeys()
+for(const serviceKey of serviceKeys) {
+  const serviceName = await iamServiceName(serviceKey);
+  console.log(`Getting Actions for ${serviceName}`);
+  const actions = await iamActionsForService(serviceKey);
   for(const action of actions) {
-    const actionDetails = iamActionDetails(serviceKey, action);
+    const actionDetails = await iamActionDetails(serviceKey, action);
     console.log(actionDetails);
   }
 }

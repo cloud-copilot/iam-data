@@ -5,7 +5,7 @@ import { readDataFile } from './data.js';
  *
  * @returns an array of all service keys
  */
-export function iamServiceKeys(): string[] {
+export async function iamServiceKeys(): Promise<string[]> {
   return readDataFile<string[]>('services.json')
 }
 
@@ -15,8 +15,8 @@ export function iamServiceKeys(): string[] {
  * @param serviceKey the service key to check, is case insensitive
  * @returns true if the service exists, false otherwise
  */
-export function iamServiceExists(serviceKey: string): boolean {
-  const data = readDataFile<Record<string, string>>('serviceNames.json')
+export async function iamServiceExists(serviceKey: string): Promise<boolean> {
+  const data = await readDataFile<Record<string, string>>('serviceNames.json')
   return !!data[serviceKey.toLowerCase()];
 }
 
@@ -27,8 +27,8 @@ export function iamServiceExists(serviceKey: string): boolean {
  * @throws error if the service does not exist
  * @returns the name of the service
  */
-export function iamServiceName(serviceKey: string): string {
-  const data = readDataFile<Record<string, string>>('serviceNames.json')
+export async function iamServiceName(serviceKey: string): Promise<string> {
+  const data = await readDataFile<Record<string, string>>('serviceNames.json')
   if(!data[serviceKey.toLowerCase()]) {
     throw new Error(`Service ${serviceKey} does not exist`)
   }

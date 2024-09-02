@@ -11,8 +11,8 @@ export interface ResourceType {
  * @param serviceKey the service key to get the resource types for, is case insensitive
  * @returns the resource types for the service
  */
-export function iamResourceTypesForService(serviceKey: string): string[] {
-  const data = readResourceTypes<Record<string, ResourceType>>(serviceKey.toLowerCase());
+export async function iamResourceTypesForService(serviceKey: string): Promise<string[]> {
+  const data = await readResourceTypes<Record<string, ResourceType>>(serviceKey.toLowerCase());
   return Object.values(data).map(resourceType => resourceType.key);
 }
 
@@ -23,8 +23,8 @@ export function iamResourceTypesForService(serviceKey: string): string[] {
  * @param resourceTypeKey the resource type key to check for, is case insensitive
  * @returns true if the resource type exists, false otherwise
  */
-export function iamResourceTypeExists(serviceKey: string, resourceTypeKey: string): boolean {
-  const data = readResourceTypes<Record<string, ResourceType>>(serviceKey.toLowerCase());
+export async function iamResourceTypeExists(serviceKey: string, resourceTypeKey: string): Promise<boolean> {
+  const data = await readResourceTypes<Record<string, ResourceType>>(serviceKey.toLowerCase());
   return !!data[resourceTypeKey.toLowerCase()];
 }
 
@@ -36,8 +36,8 @@ export function iamResourceTypeExists(serviceKey: string, resourceTypeKey: strin
  * @throws an error if the resource type does not exist
  * @returns the resource type
  */
-export function iamResourceTypeDetails(serviceKey: string, resourceTypeKey: string): ResourceType {
-  const data = readResourceTypes<Record<string, ResourceType>>(serviceKey.toLowerCase());
+export async function iamResourceTypeDetails(serviceKey: string, resourceTypeKey: string): Promise<ResourceType> {
+  const data = await readResourceTypes<Record<string, ResourceType>>(serviceKey.toLowerCase());
   if(!data[resourceTypeKey.toLowerCase()]) {
     throw new Error(`Resource type ${resourceTypeKey} does not exist for service ${serviceKey}`);
   }
