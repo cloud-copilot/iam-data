@@ -5,6 +5,9 @@ Contains IAM data for AWS actions, resources, and conditions based on IAM policy
 
 Published in ESM and CommonJS.
 
+## Data Updates
+Data is scanned daily and a new version is published if there are changes. The version number is updated to reflect the date of the last update and the function `iamDataUpdatedAt()` returns the date of the last data update. This process is managed outside this repo.
+
 ## Usage
 
 ```bash
@@ -52,3 +55,5 @@ for(const serviceKey of serviceKeys) {
 The version is numper is formatted as `major.minor.updatedAt`. The updatedAt is the date the data was last updated in the format `YYYYMMDDX` where `X` is a counter to enable deploying more than once per day if necessary. For example version `0.1.202408291` has data updated on August 29th, 2024.
 
 The version can be accessed using the `iamDataVersion()` method.
+
+There is also `iamDataUpdatedAt()` which returns the date the data was last updated.
