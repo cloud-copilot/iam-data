@@ -7,7 +7,7 @@ export async function readDataFile<T>(...pathParts: string[]): Promise<T> {
   pathParts.unshift('data');
   const file = join(...pathParts);
   if(!dataCache[file]) {
-    const data = readRelativeFile(pathParts)
+    const data = await readRelativeFile(pathParts)
     dataCache[file] = data
   }
   return dataCache[file];
