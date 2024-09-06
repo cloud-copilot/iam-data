@@ -336,6 +336,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describelistenerattributes": {
+    "name": "DescribeListenerAttributes",
+    "description": "Grants permission to describe the attributes for the specified listener",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describelistenercertificates": {
     "name": "DescribeListenerCertificates",
     "description": "Grants permission to describe the certificates for the specified secure listener",
@@ -517,6 +525,30 @@
       "elasticloadbalancing:ResourceTag/${TagKey}",
       "elasticloadbalancing:SecurityPolicy",
       "elasticloadbalancing:ListenerProtocol"
+    ],
+    "dependentActions": []
+  },
+  "modifylistenerattributes": {
+    "name": "ModifyListenerAttributes",
+    "description": "Grants permission to modify the attributes of the specified listener",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "listener/app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "listener/net",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },

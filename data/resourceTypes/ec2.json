@@ -37,11 +37,25 @@
       "aws:TagKeys",
       "ec2:Attribute",
       "ec2:Attribute/${AttributeName}",
+      "ec2:AvailabilityZone",
       "ec2:CapacityReservationFleet",
+      "ec2:CreateDate",
+      "ec2:DestinationCapacityReservationId",
+      "ec2:EbsOptimized",
+      "ec2:EndDate",
+      "ec2:EndDateType",
+      "ec2:InstanceCount",
+      "ec2:InstanceMatchCriteria",
+      "ec2:InstancePlatform",
+      "ec2:InstanceType",
       "ec2:IsLaunchTemplateResource",
       "ec2:LaunchTemplate",
+      "ec2:OutpostArn",
+      "ec2:PlacementGroup",
       "ec2:Region",
-      "ec2:ResourceTag/${TagKey}"
+      "ec2:ResourceTag/${TagKey}",
+      "ec2:SourceCapacityReservationId",
+      "ec2:Tenancy"
     ]
   },
   "carrier-gateway": {
@@ -827,6 +841,9 @@
     "key": "traffic-mirror-filter-rule",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:traffic-mirror-filter-rule/${TrafficMirrorFilterRuleId}",
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "ec2:Attribute",
       "ec2:Attribute/${AttributeName}",
       "ec2:Region"

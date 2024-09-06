@@ -188,6 +188,15 @@
         ]
       },
       {
+        "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "ipv4pool-ec2",
         "required": false,
         "conditionKeys": [
@@ -1294,8 +1303,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:CapacityReservationFleet",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:CapacityReservationFleet"
         ],
         "dependentActions": []
       }
@@ -1568,6 +1576,43 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:CapacityReservationFleet"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createcapacityreservationbysplitting": {
+    "name": "CreateCapacityReservationBySplitting",
+    "description": "Grants permission to create a new Capacity Reservation by splitting the available capacity of the source Capacity Reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:CapacityReservationFleet",
+          "ec2:CreateDate",
+          "ec2:DestinationCapacityReservationId",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:OutpostArn",
+          "ec2:PlacementGroup",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SourceCapacityReservationId",
+          "ec2:Tenancy"
         ],
         "dependentActions": [
           "ec2:CreateTags"
@@ -3488,8 +3533,7 @@
         "name": "capacity-reservation",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -4389,7 +4433,10 @@
       {
         "name": "traffic-mirror-filter-rule",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
@@ -7204,7 +7251,9 @@
       {
         "name": "traffic-mirror-filter-rule",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -11308,8 +11357,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:CapacityReservationFleet",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:CapacityReservationFleet"
         ],
         "dependentActions": []
       }
@@ -11472,8 +11520,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:CapacityReservationFleet",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:CapacityReservationFleet"
         ],
         "dependentActions": []
       }
@@ -12582,8 +12629,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
-          "ec2:CapacityReservationFleet",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:CapacityReservationFleet"
         ],
         "dependentActions": []
       }
@@ -12939,8 +12985,7 @@
         "name": "capacity-reservation",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -13731,6 +13776,7 @@
         "name": "traffic-mirror-filter-rule",
         "required": true,
         "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}"
         ],
@@ -14529,6 +14575,41 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "movecapacityreservationinstances": {
+    "name": "MoveCapacityReservationInstances",
+    "description": "Grants permission to move available capacity from a source Capacity Reservation to a destination Capacity Reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:CapacityReservationFleet",
+          "ec2:CreateDate",
+          "ec2:DestinationCapacityReservationId",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:OutpostArn",
+          "ec2:PlacementGroup",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SourceCapacityReservationId",
+          "ec2:Tenancy"
         ],
         "dependentActions": []
       }
@@ -16036,8 +16117,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:IsLaunchTemplateResource",
-          "ec2:LaunchTemplate",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:LaunchTemplate"
         ],
         "dependentActions": []
       },

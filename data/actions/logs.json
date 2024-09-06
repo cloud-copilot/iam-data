@@ -348,6 +348,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeconfigurationtemplates": {
+    "name": "DescribeConfigurationTemplates",
+    "description": "Grants permission to retrieve a list of configuration templates of available log types",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describedeliveries": {
     "name": "DescribeDeliveries",
     "description": "Grants permission to retrieve a list of deliveries an account",
@@ -1171,6 +1179,36 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedeliveryconfiguration": {
+    "name": "UpdateDeliveryConfiguration",
+    "description": "Grants permission to update configuration related to a delivery",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "delivery",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "delivery-destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "delivery-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updateloganomalydetector": {

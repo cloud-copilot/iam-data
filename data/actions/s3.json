@@ -1816,6 +1816,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
         "required": true,
         "conditionKeys": [],
@@ -2404,6 +2410,29 @@
       "s3:signatureversion",
       "s3:TlsVersion",
       "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listcalleraccessgrants": {
+    "name": "ListCallerAccessGrants",
+    "description": "Grants permission to list caller's Access Grant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
