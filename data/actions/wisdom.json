@@ -1,4 +1,25 @@
 {
+  "activatemessagetemplate": {
+    "name": "ActivateMessageTemplate",
+    "description": "Grants permission to activate a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createassistant": {
     "name": "CreateAssistant",
     "description": "Grants permission to create an assistant",
@@ -81,6 +102,66 @@
     ],
     "dependentActions": []
   },
+  "createmessagetemplate": {
+    "name": "CreateMessageTemplate",
+    "description": "Grants permission to create a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createmessagetemplateattachment": {
+    "name": "CreateMessageTemplateAttachment",
+    "description": "Grants permission to create an attachment to a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createmessagetemplateversion": {
+    "name": "CreateMessageTemplateVersion",
+    "description": "Grants permission to create a version of a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createquickresponse": {
     "name": "CreateQuickResponse",
     "description": "Grants permission to create quick response",
@@ -115,6 +196,27 @@
       "aws:TagKeys",
       "aws:RequestTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "deactivatemessagetemplate": {
+    "name": "DeactivateMessageTemplate",
+    "description": "Grants permission to deactivate a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteassistant": {
@@ -223,6 +325,48 @@
     "resourceTypes": [
       {
         "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemessagetemplate": {
+    "name": "DeleteMessageTemplate",
+    "description": "Grants permission to delete a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemessagetemplateattachment": {
+    "name": "DeleteMessageTemplateAttachment",
+    "description": "Grants permission to delete an attachment from a message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -387,6 +531,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getmessagetemplate": {
+    "name": "GetMessageTemplate",
+    "description": "Grants permission to retrieve a message template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "wisdom:MessageTemplate/RoutingProfileArn"
+    ],
+    "dependentActions": []
+  },
   "getquickresponse": {
     "name": "GetQuickResponse",
     "description": "Grants permission to retrieve content",
@@ -526,6 +693,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listmessagetemplateversions": {
+    "name": "ListMessageTemplateVersions",
+    "description": "Grants permission to list message template versions for the specified message template",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmessagetemplates": {
+    "name": "ListMessageTemplates",
+    "description": "Grants permission to list the message templates for a knowledge base",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listquickresponses": {
     "name": "ListQuickResponses",
     "description": "Grants permission to list the quick response with a knowledge base",
@@ -609,6 +812,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "rendermessagetemplate": {
+    "name": "RenderMessageTemplate",
+    "description": "Grants permission to render a message template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "wisdom:GetMessageTemplate"
+        ]
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "wisdom:MessageTemplate/RoutingProfileArn"
+    ],
+    "dependentActions": []
+  },
   "searchcontent": {
     "name": "SearchContent",
     "description": "Grants permission to search for content referencing a specified knowledge base. Can be used to get a specific content resource by its name",
@@ -622,6 +850,24 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchmessagetemplates": {
+    "name": "SearchMessageTemplates",
+    "description": "Grants permission to search for message templates referencing a specified knowledge base",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "wisdom:SearchFilter/RoutingProfileArn",
+      "wisdom:SearchFilter/Qualifier"
+    ],
     "dependentActions": []
   },
   "searchquickresponses": {
@@ -727,6 +973,12 @@
         "dependentActions": []
       },
       {
+        "name": "MessageTemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "QuickResponse",
         "required": false,
         "conditionKeys": [],
@@ -782,6 +1034,12 @@
         "dependentActions": []
       },
       {
+        "name": "MessageTemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "QuickResponse",
         "required": false,
         "conditionKeys": [],
@@ -828,6 +1086,48 @@
     "resourceTypes": [
       {
         "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemessagetemplate": {
+    "name": "UpdateMessageTemplate",
+    "description": "Grants permission to update content of the message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemessagetemplatemetadata": {
+    "name": "UpdateMessageTemplateMetadata",
+    "description": "Grants permission to update metadata of the message template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "MessageTemplate",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
