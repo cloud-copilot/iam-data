@@ -240,6 +240,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "copycustomdbengineversion": {
+    "name": "CopyCustomDBEngineVersion",
+    "isPermissionOnly": true,
+    "description": "Grants permission to copy a custom engine version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cev",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "copydbclusterparametergroup": {
     "name": "CopyDBClusterParameterGroup",
     "description": "Grants permission to copy the specified DB cluster parameter group",
@@ -310,7 +326,8 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
-          "rds:AddTagsToResource"
+          "rds:AddTagsToResource",
+          "rds:CopyCustomDBEngineVersion"
         ]
       }
     ],
@@ -968,7 +985,9 @@
         "dependentActions": [
           "rds:DeleteDBCluster",
           "rds:DeleteDBClusterEndpoint",
-          "rds:DeleteDBInstance"
+          "rds:DeleteDBInstance",
+          "rds:PromoteReadReplica",
+          "rds:PromoteReadReplicaDBCluster"
         ]
       }
     ],
@@ -1002,6 +1021,8 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "rds:AddTagsToResource",
+          "rds:CreateDBClusterSnapshot",
           "rds:DeleteDBInstance"
         ]
       },
@@ -1089,6 +1110,8 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "rds:AddTagsToResource",
+      "rds:CreateDBSnapshot",
       "rds:DeleteTenantDatabase"
     ]
   },
@@ -1281,7 +1304,10 @@
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "rds:AddTagsToResource",
+          "rds:CreateDBSnapshot"
+        ]
       },
       {
         "name": "tenant-database",
@@ -1709,6 +1735,33 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describedbsnapshottenantdatabases": {
+    "name": "DescribeDBSnapshotTenantDatabases",
+    "description": "Grants permission to return information about tenant databases in DB snapshots. You can filter by Region or snapshot",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "snapshot-tenant-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describedbsnapshots": {
     "name": "DescribeDBSnapshots",
     "description": "Grants permission to return information about DB snapshots",
@@ -1738,33 +1791,6 @@
       {
         "name": "subgrp",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describedbsnapshottenantdatabases": {
-    "name": "DescribeDbSnapshotTenantDatabases",
-    "description": "Grants permission to return information about tenant databases in DB snapshots. You can filter by Region or snapshot",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "snapshot-tenant-database",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "db",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "snapshot",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2316,6 +2342,12 @@
       },
       {
         "name": "og",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pg",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3470,6 +3502,15 @@
       {
         "name": "db",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "rds:AddTagsToResource",
+          "rds:CreateDBSnapshot"
+        ]
+      },
+      {
+        "name": "snapshot",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

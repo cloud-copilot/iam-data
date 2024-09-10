@@ -14,6 +14,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchgetcalculatedattributeforprofile": {
+    "name": "BatchGetCalculatedAttributeForProfile",
+    "description": "Grants permission to retrieve a calculated attribute for the specific profiles in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "calculated-attributes",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetprofile": {
+    "name": "BatchGetProfile",
+    "description": "Grants permission to get profiles in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createcalculatedattributedefinition": {
     "name": "CreateCalculatedAttributeDefinition",
     "description": "Grants permission to create a calculated attribute definition in the domain",
@@ -116,6 +152,66 @@
     "resourceTypes": [
       {
         "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsegmentdefinition": {
+    "name": "CreateSegmentDefinition",
+    "description": "Grants permission to create a segment definition in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsegmentestimate": {
+    "name": "CreateSegmentEstimate",
+    "description": "Grants permission to create a segment estimate in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsegmentsnapshot": {
+    "name": "CreateSegmentSnapshot",
+    "description": "Grants permission to create a segment snapshot in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -284,6 +380,27 @@
       },
       {
         "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesegmentdefinition": {
+    "name": "DeleteSegmentDefinition",
+    "description": "Grants permission to delete a segment definition in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -497,6 +614,84 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getsegmentdefinition": {
+    "name": "GetSegmentDefinition",
+    "description": "Grants permission to get a segment definition in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentestimate": {
+    "name": "GetSegmentEstimate",
+    "description": "Grants permission to get a segment estimate in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentmembership": {
+    "name": "GetSegmentMembership",
+    "description": "Grants permission to determine if the given profiles are part of a segment in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsegmentsnapshot": {
+    "name": "GetSegmentSnapshot",
+    "description": "Grants permission to get a segment snapshot in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getsimilarprofiles": {
     "name": "GetSimilarProfiles",
     "description": "Grants permission to get all the similar profiles in the domain",
@@ -649,6 +844,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listobjecttypeattributes": {
+    "name": "ListObjectTypeAttributes",
+    "description": "Grants permission to list all the attributes of a specific object type in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprofileattributevalues": {
+    "name": "ListProfileAttributeValues",
+    "description": "Grants permission to list all the values of a profile attribute in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listprofileobjecttypetemplates": {
     "name": "ListProfileObjectTypeTemplates",
     "description": "Grants permission to list all the profile object type templates in the account",
@@ -696,6 +927,21 @@
   "listrulebasedmatches": {
     "name": "ListRuleBasedMatches",
     "description": "Grants permission to list all the rule-based matching result in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsegmentdefinitions": {
+    "name": "ListSegmentDefinitions",
+    "description": "Grants permission to list all the segment definitions in the domain",
     "accessLevel": "List",
     "resourceTypes": [
       {

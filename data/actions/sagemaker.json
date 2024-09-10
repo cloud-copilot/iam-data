@@ -618,6 +618,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "eks:AssociateAccessPolicy",
+          "eks:CreateAccessEntry",
+          "eks:DeleteAccessEntry",
+          "eks:DescribeAccessEntry",
+          "eks:DescribeCluster",
+          "iam:CreateServiceLinkedRole",
           "iam:PassRole",
           "sagemaker:AddTags"
         ]
@@ -1982,7 +1988,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "eks:DeleteAccessEntry"
+    ]
   },
   "deletecoderepository": {
     "name": "DeleteCodeRepository",
@@ -5950,6 +5958,11 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "eks:AssociateAccessPolicy",
+      "eks:CreateAccessEntry",
+      "eks:DeleteAccessEntry",
+      "eks:DescribeAccessEntry",
+      "eks:DescribeCluster",
       "iam:PassRole"
     ]
   },
@@ -5966,7 +5979,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "eks:DescribeCluster"
+    ]
   },
   "updatecoderepository": {
     "name": "UpdateCodeRepository",
