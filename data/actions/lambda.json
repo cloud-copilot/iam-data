@@ -269,6 +269,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete the resource-based policy for an AWS Lambda function, version, or alias",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lambda:RemovePermission"
+    ]
+  },
   "disablereplication": {
     "name": "DisableReplication",
     "isPermissionOnly": true,
@@ -529,6 +546,38 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "getpublicaccessblockconfig": {
+    "name": "GetPublicAccessBlockConfig",
+    "description": "Grants permission to view the PublicAccessBlockConfig of an AWS Lambda function",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to view the resource-based policy for an AWS Lambda function, version, or alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lambda:GetPolicy"
+    ]
   },
   "getruntimemanagementconfig": {
     "name": "GetRuntimeManagementConfig",
@@ -862,6 +911,39 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "putpublicaccessblockconfig": {
+    "name": "PutPublicAccessBlockConfig",
+    "description": "Grants permission to update the PublicAccessBlockConfig of an AWS Lambda function",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to update the resource-based policy for an AWS Lambda function, version, or alias",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "lambda:AddPermission",
+      "lambda:RemovePermission"
+    ]
   },
   "putruntimemanagementconfig": {
     "name": "PutRuntimeManagementConfig",
