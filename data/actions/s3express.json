@@ -17,7 +17,9 @@
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256"
+      "s3express:x-amz-content-sha256",
+      "s3express:x-amz-server-side-encryption",
+      "s3express:x-amz-server-side-encryption-aws-kms-key-id"
     ],
     "dependentActions": []
   },
@@ -107,6 +109,27 @@
     ],
     "dependentActions": []
   },
+  "getencryptionconfiguration": {
+    "name": "GetEncryptionConfiguration",
+    "description": "Grants permission to return the default encryption configuration for a directory bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "listallmydirectorybuckets": {
     "name": "ListAllMyDirectoryBuckets",
     "description": "Grants permission to list all directory buckets owned by the authenticated sender of the request",
@@ -125,6 +148,27 @@
     "name": "PutBucketPolicy",
     "description": "Grants permission to add or replace a bucket policy on a bucket",
     "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putencryptionconfiguration": {
+    "name": "PutEncryptionConfiguration",
+    "description": "Grants permission to set the encryption configuration for a directory bucket",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "bucket",

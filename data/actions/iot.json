@@ -56,6 +56,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatesbomwithpackageversion": {
+    "name": "AssociateSbomWithPackageVersion",
+    "description": "Grants permission to associate SBOM files to a package version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iot:GetIndexingConfiguration"
+    ]
+  },
   "associatetargetswithjob": {
     "name": "AssociateTargetsWithJob",
     "description": "Grants permission to associate a group with a continuous job",
@@ -615,7 +632,8 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
-          "iot:GetIndexingConfiguration"
+          "iot:GetIndexingConfiguration",
+          "s3:GetObjectVersion"
         ]
       },
       {
@@ -1979,6 +1997,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disassociatesbomfrompackageversion": {
+    "name": "DisassociateSbomFromPackageVersion",
+    "description": "Grants permission to disassociate SBOM files from a package version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "enabletopicrule": {
     "name": "EnableTopicRule",
     "description": "Grants permission to enable the specified rule",
@@ -2675,6 +2708,21 @@
     "description": "Grants permission to list role aliases",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsbomvalidationresults": {
+    "name": "ListSbomValidationResults",
+    "description": "Grants permission to list SBOM validation results of a package version",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "packageversion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -3985,7 +4033,8 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
-          "iot:GetIndexingConfiguration"
+          "iot:GetIndexingConfiguration",
+          "s3:GetObjectVersion"
         ]
       },
       {
