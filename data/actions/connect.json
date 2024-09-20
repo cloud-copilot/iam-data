@@ -611,6 +611,29 @@
     ],
     "dependentActions": []
   },
+  "createhoursofoperationoverride": {
+    "name": "CreateHoursOfOperationOverride",
+    "description": "Grants permission to create an hours of operation override in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "createinstance": {
     "name": "CreateInstance",
     "description": "Grants permission to create a new Amazon Connect instance",
@@ -1217,6 +1240,29 @@
     ],
     "dependentActions": []
   },
+  "deletehoursofoperationoverride": {
+    "name": "DeleteHoursOfOperationOverride",
+    "description": "Grants permission to delete an hours of operation override in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "deleteinstance": {
     "name": "DeleteInstance",
     "description": "Grants permission to delete an Amazon Connect instance. When you remove an instance, the link to an existing AWS directory is also removed",
@@ -1701,6 +1747,29 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "describehoursofoperationoverride": {
+    "name": "DescribeHoursOfOperationOverride",
+    "description": "Grants permission to describe an hours of operation override in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
       "connect:InstanceId"
     ],
     "dependentActions": []
@@ -2409,6 +2478,29 @@
     ],
     "dependentActions": []
   },
+  "geteffectivehoursofoperations": {
+    "name": "GetEffectiveHoursOfOperations",
+    "description": "Grants permission to get effective hours of operation resources in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "getfederationtoken": {
     "name": "GetFederationToken",
     "description": "Grants permission to federate into an Amazon Connect instance when using SAML-based authentication for identity management",
@@ -2763,6 +2855,29 @@
     "description": "Grants permission to list summary information about the flow associations for the specified Amazon Connect instance",
     "accessLevel": "List",
     "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listhoursofoperationoverrides": {
+    "name": "ListHoursOfOperationOverrides",
+    "description": "Grants permission to list hours of operation override resources in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "instance",
         "required": true,
@@ -3723,6 +3838,33 @@
     ],
     "dependentActions": []
   },
+  "searchhoursofoperationoverrides": {
+    "name": "SearchHoursOfOperationOverrides",
+    "description": "Grants permission to search hours of operation override resources in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeHoursOfOperation",
+          "connect:ListHoursOfOperationOverrides"
+        ]
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "searchhoursofoperations": {
     "name": "SearchHoursOfOperations",
     "description": "Grants permission to search hours of operation resources in an Amazon Connect instance",
@@ -3944,6 +4086,29 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendoutboundemail": {
+    "name": "SendOutboundEmail",
+    "description": "Grants permission to send outbound email using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
     "dependentActions": []
   },
   "startattachedfileupload": {
@@ -4836,6 +5001,29 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updatehoursofoperationoverride": {
+    "name": "UpdateHoursOfOperationOverride",
+    "description": "Grants permission to update an hours of operation override in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
       "connect:InstanceId"
     ],
     "dependentActions": []

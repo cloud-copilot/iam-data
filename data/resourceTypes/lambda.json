@@ -1,11 +1,17 @@
 {
   "code signing config": {
     "key": "code signing config",
-    "arn": "arn:${Partition}:lambda:${Region}:${Account}:code-signing-config:${CodeSigningConfigId}"
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:code-signing-config:${CodeSigningConfigId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "eventsourcemapping": {
     "key": "eventSourceMapping",
-    "arn": "arn:${Partition}:lambda:${Region}:${Account}:event-source-mapping:${UUID}"
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:event-source-mapping:${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "function": {
     "key": "function",

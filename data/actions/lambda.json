@@ -52,7 +52,10 @@
     "description": "Grants permission to create an AWS Lambda code signing config",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createeventsourcemapping": {
@@ -61,7 +64,9 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "lambda:FunctionArn"
+      "lambda:FunctionArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -765,12 +770,24 @@
   },
   "listtags": {
     "name": "ListTags",
-    "description": "Grants permission to retrieve a list of tags for an AWS Lambda function",
+    "description": "Grants permission to retrieve a list of tags for an AWS Lambda function, event source mapping or code signing configuration resource",
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "code signing config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventSourceMapping",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "function",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -995,12 +1012,24 @@
   },
   "tagresource": {
     "name": "TagResource",
-    "description": "Grants permission to add tags to an AWS Lambda function",
+    "description": "Grants permission to add tags to an AWS Lambda function, event source mapping or code signing configuration resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "code signing config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventSourceMapping",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "function",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1013,12 +1042,24 @@
   },
   "untagresource": {
     "name": "UntagResource",
-    "description": "Grants permission to remove tags from an AWS Lambda function",
+    "description": "Grants permission to remove tags from an AWS Lambda function, event source mapping or code signing configuration resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "code signing config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventSourceMapping",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "function",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
