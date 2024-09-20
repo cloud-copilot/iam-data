@@ -1,11 +1,10 @@
-import { join } from "path";
 import { readRelativeFile } from "./readRelativeFile.js";
 
 const dataCache: Record<string, any> = {};
 
 export async function readDataFile<T>(...pathParts: string[]): Promise<T> {
   pathParts.unshift('data');
-  const file = join(...pathParts);
+  const file = pathParts.join('/');
   if(!dataCache[file]) {
     const data = await readRelativeFile(pathParts)
     dataCache[file] = data
