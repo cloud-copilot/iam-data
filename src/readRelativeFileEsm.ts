@@ -1,10 +1,6 @@
-import { readFile } from "fs/promises";
-import { join } from "node:path";
-import { fileURLToPath, resolve } from "node:url";
-
 // @ts-ignore
-let root = import.meta.url
-root = resolve(root, join('..', '..'))
+const root = import.meta.url
+let resolvedRoot : string | undefined = undefined
 const fileSystem = root.startsWith('file://')
 
 /**
@@ -14,12 +10,30 @@ const fileSystem = root.startsWith('file://')
  * @returns the data from the file
  */
 export async function readRelativeFile<T>(pathParts: string[]): Promise<T> {
-  const relativePath = join(...pathParts)
+  /*
+   * Maybe a little too optimized here. Want to only resolve the root once, but we have to do it inside the
+   * function, so caching it here.
+   */
+  if(!resolvedRoot) {
+    if(fileSystem) {
+      const { join } = await import('node:path');
+      const { resolve } = await import('node:url');
+      resolvedRoot = resolve(root, join('..', '..'))
+    } else {
+      resolvedRoot = '../../'
+    }
+  }
+
   if(fileSystem) {
-    const contents = await readFile(fileURLToPath(resolve(root, relativePath)), 'utf-8')
+    const { readFile } = await import('fs/promises');
+    const { join } = await import('node:path');
+    const { fileURLToPath, resolve } = await import('node:url');
+
+    const relativePath = join(...pathParts)
+    const contents = await readFile(fileURLToPath(resolve(resolvedRoot, relativePath)), 'utf-8')
     return JSON.parse(contents);
   } else {
-    const contents = await fetch(relativePath)
-    return await contents.json()
+    const contents = await import(resolvedRoot + pathParts.join('/'))
+    return await contents.default
   }
 }
