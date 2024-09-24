@@ -107,6 +107,30 @@
     ],
     "dependentActions": []
   },
+  "createchannelplacementgroup": {
+    "name": "CreateChannelPlacementGroup",
+    "description": "Grants permission to create a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcloudwatchalarmtemplate": {
     "name": "CreateCloudWatchAlarmTemplate",
     "description": "Grants permission to create a cloudwatch alarm template",
@@ -138,6 +162,24 @@
     "resourceTypes": [
       {
         "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -266,6 +308,63 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createnetwork": {
+    "name": "CreateNetwork",
+    "description": "Grants permission to create a network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnode": {
+    "name": "CreateNode",
+    "description": "Grants permission to create a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnoderegistrationscript": {
+    "name": "CreateNodeRegistrationScript",
+    "description": "Grants permission to create a node registration script",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createpartnerinput": {
     "name": "CreatePartnerInput",
     "description": "Grants permission to create a partner input",
@@ -304,11 +403,17 @@
   },
   "createtags": {
     "name": "CreateTags",
-    "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
+    "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, nodes, networks, clusters, channel placement groups, signal maps, template groups, and templates",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel-placement-group",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -321,6 +426,12 @@
       },
       {
         "name": "cloudwatch-alarm-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -351,6 +462,18 @@
       },
       {
         "name": "multiplex",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -389,6 +512,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletechannelplacementgroup": {
+    "name": "DeleteChannelPlacementGroup",
+    "description": "Grants permission to delete a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecloudwatchalarmtemplate": {
     "name": "DeleteCloudWatchAlarmTemplate",
     "description": "Grants permission to delete a cloudwatch alarm template",
@@ -411,6 +549,21 @@
     "resourceTypes": [
       {
         "name": "cloudwatch-alarm-template-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -509,6 +662,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletenetwork": {
+    "name": "DeleteNetwork",
+    "description": "Grants permission to delete a network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenode": {
+    "name": "DeleteNode",
+    "description": "Grants permission to delete a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletereservation": {
     "name": "DeleteReservation",
     "description": "Grants permission to delete an expired reservation",
@@ -556,11 +739,17 @@
   },
   "deletetags": {
     "name": "DeleteTags",
-    "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
+    "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel-placement-group",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -573,6 +762,12 @@
       },
       {
         "name": "cloudwatch-alarm-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -603,6 +798,18 @@
       },
       {
         "name": "multiplex",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -640,6 +847,36 @@
     "resourceTypes": [
       {
         "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describechannelplacementgroup": {
+    "name": "DescribeChannelPlacementGroup",
+    "description": "Grants permission to describe a channel placement group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecluster": {
+    "name": "DescribeCluster",
+    "description": "Grants permission to describe a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -730,6 +967,36 @@
     "resourceTypes": [
       {
         "name": "multiplex",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describenetwork": {
+    "name": "DescribeNetwork",
+    "description": "Grants permission to describe a network",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describenode": {
+    "name": "DescribeNode",
+    "description": "Grants permission to describe a node",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "node",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -873,6 +1140,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listchannelplacementgroups": {
+    "name": "ListChannelPlacementGroups",
+    "description": "Grants permission to list channel placement groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listchannels": {
     "name": "ListChannels",
     "description": "Grants permission to list channels",
@@ -892,6 +1167,14 @@
   "listcloudwatchalarmtemplates": {
     "name": "ListCloudWatchAlarmTemplates",
     "description": "Grants permission to list cloudwatch alarm templates",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to list clusters",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -961,6 +1244,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listnetworks": {
+    "name": "ListNetworks",
+    "description": "Grants permission to list networks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnodes": {
+    "name": "ListNodes",
+    "description": "Grants permission to list nodes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listofferings": {
     "name": "ListOfferings",
     "description": "Grants permission to list reservation offerings",
@@ -987,11 +1286,17 @@
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
+    "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
     "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channel-placement-group",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1004,6 +1309,12 @@
       },
       {
         "name": "cloudwatch-alarm-template-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1039,6 +1350,18 @@
         "dependentActions": []
       },
       {
+        "name": "network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "reservation",
         "required": false,
         "conditionKeys": [],
@@ -1051,6 +1374,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "pollanywhere": {
+    "name": "PollAnywhere",
+    "description": "Grants permission to the node to poll the cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1273,6 +1604,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "submitanywherestatechange": {
+    "name": "SubmitAnywhereStateChange",
+    "description": "Grants permission to the node to submit state changes to the cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "transferinputdevice": {
     "name": "TransferInputDevice",
     "description": "Grants permission to transfer an input device",
@@ -1326,6 +1665,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatechannelplacementgroup": {
+    "name": "UpdateChannelPlacementGroup",
+    "description": "Grants permission to update a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel-placement-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "updatecloudwatchalarmtemplate": {
     "name": "UpdateCloudWatchAlarmTemplate",
     "description": "Grants permission to update a cloudwatch alarm template",
@@ -1360,6 +1717,24 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecluster": {
+    "name": "UpdateCluster",
+    "description": "Grants permission to update a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updateeventbridgeruletemplate": {
@@ -1474,6 +1849,60 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenetwork": {
+    "name": "UpdateNetwork",
+    "description": "Grants permission to update the state of a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatenode": {
+    "name": "UpdateNode",
+    "description": "Grants permission to update a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatenodestate": {
+    "name": "UpdateNodeState",
+    "description": "Grants permission to update the state of a node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updatereservation": {
