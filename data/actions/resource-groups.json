@@ -15,6 +15,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "canceltagsynctask": {
+    "name": "CancelTagSyncTask",
+    "description": "Grants permission to cancel a tag-sync task for an application group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "resource-groups:DeleteGroup"
+    ]
+  },
   "creategroup": {
     "name": "CreateGroup",
     "description": "Grants permission to create a resource group with a specified name, description, and resource query",
@@ -41,7 +58,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "tag:GetResources"
+    ]
   },
   "deletegrouppolicy": {
     "name": "DeleteGroupPolicy",
@@ -144,6 +163,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "gettagsynctask": {
+    "name": "GetTagSyncTask",
+    "description": "Grants permission to get information of a specified tag-sync task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "gettags": {
     "name": "GetTags",
     "description": "Grants permission to get the tags associated with a specified resource group",
@@ -172,7 +206,10 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "resource-groups:Tag",
+      "tag:TagResources"
+    ]
   },
   "listgroupresources": {
     "name": "ListGroupResources",
@@ -193,6 +230,21 @@
       "tag:GetResources"
     ]
   },
+  "listgroupingstatuses": {
+    "name": "ListGroupingStatuses",
+    "description": "Grants permission to list grouping statuses for a specified application group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listgroups": {
     "name": "ListGroups",
     "description": "Grants permission to list all resource groups in your account",
@@ -207,6 +259,21 @@
     "description": "Grants permission to list supported resource types",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsynctasks": {
+    "name": "ListTagSyncTasks",
+    "description": "Grants permission to list all tag-sync tasks in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -253,6 +320,24 @@
       "tag:GetResources"
     ]
   },
+  "starttagsynctask": {
+    "name": "StartTagSyncTask",
+    "description": "Grants permission to create a tag-sync task for an application group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole",
+      "resource-groups:CreateGroup"
+    ]
+  },
   "tag": {
     "name": "Tag",
     "description": "Grants permission to tag a specified resource group",
@@ -284,7 +369,10 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "resource-groups:Untag",
+      "tag:UntagResources"
+    ]
   },
   "untag": {
     "name": "Untag",

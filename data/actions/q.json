@@ -4,8 +4,18 @@
     "isPermissionOnly": true,
     "description": "Grants permission to create a user or group assignment for an Amazon Q Developer Profile",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:UserId",
+      "identitystore:GroupId"
+    ],
     "dependentActions": []
   },
   "deleteassignment": {
@@ -13,8 +23,18 @@
     "isPermissionOnly": true,
     "description": "Grants permission to delete a user or group assignment for an Amazon Q Developer Profile",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:UserId",
+      "identitystore:GroupId"
+    ],
     "dependentActions": []
   },
   "getconversation": {
