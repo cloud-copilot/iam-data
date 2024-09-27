@@ -46,7 +46,10 @@
       {
         "name": "job-queue",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       },
       {
@@ -56,10 +59,7 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createschedulingpolicy": {
@@ -287,6 +287,17 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [
+          "batch:ShareIdentifier",
+          "batch:EKSImage",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "job-definition",
         "required": true,
         "conditionKeys": [],
@@ -299,12 +310,7 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "batch:ShareIdentifier",
-      "batch:EKSImage"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "tagresource": {

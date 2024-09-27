@@ -1,7 +1,10 @@
 {
   "stream": {
     "key": "stream",
-    "arn": "arn:${Partition}:kinesis:${Region}:${Account}:stream/${StreamName}"
+    "arn": "arn:${Partition}:kinesis:${Region}:${Account}:stream/${StreamName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "consumer": {
     "key": "consumer",
