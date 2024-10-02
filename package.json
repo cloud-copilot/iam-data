@@ -1,6 +1,6 @@
 {
   "name": "@cloud-copilot/iam-data",
-  "version": "0.6.202410011",
+  "version": "0.7.202410011",
   "description": "AWS IAM Data",
   "repository": "github:cloud-copilot/iam-data",
   "updatedAt": "2024-10-01T04:48:40.009Z",
@@ -18,8 +18,9 @@
   "types": "dist/cjs/index.d.ts",
   "scripts": {
     "test": "npx vitest --run --coverage",
+    "clean": "rm -rf dist",
     "build": "npx tsc -p tsconfig.cjs.json && npx tsc -p tsconfig.esm.json && ./postbuild.sh",
-    "prepare": "npm run build"
+    "release": "npm install && npm run clean && npm run build && npm run test && npm publish"
   },
   "keywords": [
     "AWS",
