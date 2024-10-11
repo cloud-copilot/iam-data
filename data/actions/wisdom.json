@@ -20,6 +20,90 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createaiagent": {
+    "name": "CreateAIAgent",
+    "description": "Grants permission to create an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaiagentversion": {
+    "name": "CreateAIAgentVersion",
+    "description": "Grants permission to create an ai agent version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaiprompt": {
+    "name": "CreateAIPrompt",
+    "description": "Grants permission to create an ai prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaipromptversion": {
+    "name": "CreateAIPromptVersion",
+    "description": "Grants permission to create an ai prompt version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createassistant": {
     "name": "CreateAssistant",
     "description": "Grants permission to create an assistant",
@@ -219,6 +303,90 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteaiagent": {
+    "name": "DeleteAIAgent",
+    "description": "Grants permission to delete an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiagentversion": {
+    "name": "DeleteAIAgentVersion",
+    "description": "Grants permission to delete an ai agent version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiprompt": {
+    "name": "DeleteAIPrompt",
+    "description": "Grants permission to delete an ai prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaipromptversion": {
+    "name": "DeleteAIPromptVersion",
+    "description": "Grants permission to delete an ai prompt version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteassistant": {
     "name": "DeleteAssistant",
     "description": "Grants permission to delete an assistant",
@@ -388,6 +556,48 @@
       },
       {
         "name": "QuickResponse",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaiagent": {
+    "name": "GetAIAgent",
+    "description": "Grants permission to retrieve information about an ai agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaiprompt": {
+    "name": "GetAIPrompt",
+    "description": "Grants permission to retrieve information about an ai prompt",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -611,6 +821,78 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listaiagentversions": {
+    "name": "ListAIAgentVersions",
+    "description": "Grants permission to list information about ai agent versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiagents": {
+    "name": "ListAIAgents",
+    "description": "Grants permission to list information about ai agents",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaipromptversions": {
+    "name": "ListAIPromptVersions",
+    "description": "Grants permission to list information about ai prompt versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiprompts": {
+    "name": "ListAIPrompts",
+    "description": "Grants permission to list information about ai prompts",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listassistantassociations": {
     "name": "ListAssistantAssociations",
     "description": "Grants permission to list information about assistant associations",
@@ -786,6 +1068,21 @@
     "name": "QueryAssistant",
     "description": "Grants permission to perform a manual search against the specified assistant",
     "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removeassistantaiagent": {
+    "name": "RemoveAssistantAIAgent",
+    "description": "Grants permission to remove an ai agent from an assistant",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "Assistant",
@@ -1058,6 +1355,63 @@
     ],
     "dependentActions": []
   },
+  "updateaiagent": {
+    "name": "UpdateAIAgent",
+    "description": "Grants permission to update information about an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaiprompt": {
+    "name": "UpdateAIPrompt",
+    "description": "Grants permission to update information about an ai prompt",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIPrompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateassistantaiagent": {
+    "name": "UpdateAssistantAIAgent",
+    "description": "Grants permission to update assistant information about an ai agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatecontent": {
     "name": "UpdateContent",
     "description": "Grants permission to update information about the content",
@@ -1160,6 +1514,27 @@
   "updatesession": {
     "name": "UpdateSession",
     "description": "Grants permission to update a session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesessiondata": {
+    "name": "UpdateSessionData",
+    "description": "Grants permission to update data stored in a session",
     "accessLevel": "Write",
     "resourceTypes": [
       {
