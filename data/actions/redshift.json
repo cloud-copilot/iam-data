@@ -80,6 +80,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "authorizeinboundintegration": {
+    "name": "AuthorizeInboundIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to Amazon Redshift to continuously validate that the target data warehouse can receive data replicated from the source ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "authorizesnapshotaccess": {
     "name": "AuthorizeSnapshotAccess",
     "description": "Grants permission to the specified AWS account to restore a snapshot",
@@ -383,6 +399,38 @@
     ],
     "dependentActions": []
   },
+  "createinboundintegration": {
+    "name": "CreateInboundIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target data warehouse",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createintegration": {
+    "name": "CreateIntegration",
+    "description": "Grants permission to create an Amazon Redshift zero-ETL integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:CreateGrant",
+          "kms:DescribeKey"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "redshift:IntegrationSourceArn",
+      "redshift:IntegrationTargetArn"
+    ],
+    "dependentActions": []
+  },
   "createqev2idcapplication": {
     "name": "CreateQev2IdcApplication",
     "isPermissionOnly": true,
@@ -488,6 +536,12 @@
       },
       {
         "name": "hsmconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -739,6 +793,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteintegration": {
+    "name": "DeleteIntegration",
+    "description": "Grants permission to delete an Amazon Redshift zero-ETL integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deletepartner": {
     "name": "DeletePartner",
     "description": "Grants permission to delete a partner integration from a cluster",
@@ -869,6 +940,12 @@
       },
       {
         "name": "hsmconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1149,6 +1226,23 @@
     ],
     "dependentActions": []
   },
+  "describeintegrations": {
+    "name": "DescribeIntegrations",
+    "description": "Grants permission to describe an Amazon Redshift zero-ETL integration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "describeloggingstatus": {
     "name": "DescribeLoggingStatus",
     "description": "Grants permission to describe whether information, such as queries and connection attempts, is being logged for a cluster",
@@ -1346,6 +1440,12 @@
       },
       {
         "name": "hsmconfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1860,6 +1960,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifyintegration": {
+    "name": "ModifyIntegration",
+    "description": "Grants permission to modify an Amazon Redshift zero-ETL integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "modifyqev2idcapplication": {
