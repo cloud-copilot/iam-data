@@ -89,10 +89,18 @@
   },
   "replicationtaskassessmentrun": {
     "key": "ReplicationTaskAssessmentRun",
-    "arn": "arn:${Partition}:dms:${Region}:${Account}:assessment-run:*"
+    "arn": "arn:${Partition}:dms:${Region}:${Account}:assessment-run:*",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "dms:assessment-run-tag/${TagKey}"
+    ]
   },
   "replicationtaskindividualassessment": {
     "key": "ReplicationTaskIndividualAssessment",
-    "arn": "arn:${Partition}:dms:${Region}:${Account}:individual-assessment:*"
+    "arn": "arn:${Partition}:dms:${Region}:${Account}:individual-assessment:*",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "dms:individual-assessment-tag/${TagKey}"
+    ]
   }
 }

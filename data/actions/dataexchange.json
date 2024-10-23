@@ -1,4 +1,19 @@
 {
+  "acceptdatagrant": {
+    "name": "AcceptDataGrant",
+    "description": "Grants permission to accept a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "canceljob": {
     "name": "CancelJob",
     "description": "Grants permission to cancel a job",
@@ -29,6 +44,19 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "createdatagrant": {
+    "name": "CreateDataGrant",
+    "description": "Grants permission to create a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "dataexchange:PublishToDataGrant"
+    ]
   },
   "createdataset": {
     "name": "CreateDataSet",
@@ -82,6 +110,21 @@
     "resourceTypes": [
       {
         "name": "assets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatagrant": {
+    "name": "DeleteDataGrant",
+    "description": "Grants permission to delete a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -162,6 +205,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdatagrant": {
+    "name": "GetDataGrant",
+    "description": "Grants permission to get a data grant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getdataset": {
     "name": "GetDataSet",
     "description": "Grants permission to get information about a data set",
@@ -213,6 +271,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getreceiveddatagrant": {
+    "name": "GetReceivedDataGrant",
+    "description": "Grants permission to get a received data grant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getrevision": {
     "name": "GetRevision",
     "description": "Grants permission to get information about a revision",
@@ -231,6 +304,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatagrants": {
+    "name": "ListDataGrants",
+    "description": "Grants permission to list data grants for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -279,6 +360,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listreceiveddatagrants": {
+    "name": "ListReceivedDataGrants",
+    "description": "Grants permission to list received data grants for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listrevisionassets": {
     "name": "ListRevisionAssets",
     "description": "Grants permission to get list the assets of a revision",
@@ -306,6 +395,12 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "data-grants",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "data-sets",
         "required": false,
         "conditionKeys": [],
@@ -324,7 +419,23 @@
   "publishdataset": {
     "name": "PublishDataSet",
     "isPermissionOnly": true,
-    "description": "Grants permission to publish a data set",
+    "description": "Grants permission to publish a data set to a product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishtodatagrant": {
+    "name": "PublishToDataGrant",
+    "isPermissionOnly": true,
+    "description": "Grants permission to publish a data set to a data grant",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -417,6 +528,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "data-grants",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "data-sets",
         "required": false,
         "conditionKeys": [],
@@ -440,6 +557,12 @@
     "description": "Grants permission to remove one or more tags from a specified resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "data-sets",
         "required": false,
@@ -517,7 +640,8 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
-      "dataexchange:PublishDataSet"
+      "dataexchange:PublishDataSet",
+      "dataexchange:PublishToDataGrant"
     ]
   }
 }
