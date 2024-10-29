@@ -2,8 +2,8 @@ import { readResourceTypes } from "./data.js";
 
 export interface ResourceType {
   readonly key: string;
-  readonly name: string;
-  readonly description: string;
+  readonly arn: string;
+  readonly conditionKeys: string[];
 }
 
 /**
