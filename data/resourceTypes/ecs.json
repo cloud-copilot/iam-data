@@ -23,6 +23,24 @@
       "ecs:ResourceTag/${TagKey}"
     ]
   },
+  "service-deployment": {
+    "key": "service-deployment",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service-deployment/${ClusterName}/${ServiceName}/${ServiceDeploymentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:service"
+    ]
+  },
+  "service-revision": {
+    "key": "service-revision",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service-revision/${ClusterName}/${ServiceName}/${ServiceRevisionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:service"
+    ]
+  },
   "task": {
     "key": "task",
     "arn": "arn:${Partition}:ecs:${Region}:${Account}:task/${ClusterName}/${TaskId}",

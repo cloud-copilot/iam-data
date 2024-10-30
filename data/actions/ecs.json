@@ -264,6 +264,62 @@
     ],
     "dependentActions": []
   },
+  "describeservicedeployments": {
+    "name": "DescribeServiceDeployments",
+    "description": "Grants permission to describe one or more of your service deployments",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service-deployment",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "ecs:service",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeservicerevisions": {
+    "name": "DescribeServiceRevisions",
+    "description": "Grants permission to describe one or more of your service revisions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service-revision",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "ecs:service",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeservices": {
     "name": "DescribeServices",
     "description": "Grants permission to describe the specified services running in your cluster",
@@ -426,6 +482,24 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listservicedeployments": {
+    "name": "ListServiceDeployments",
+    "description": "Grants permission to get a list of service deployments for a specified service",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
     ],
     "dependentActions": []
   },
