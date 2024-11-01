@@ -7,6 +7,13 @@
     "key": "inference-profile",
     "arn": "arn:${Partition}:bedrock:${Region}:${Account}:inference-profile/${ResourceId}"
   },
+  "application-inference-profile": {
+    "key": "application-inference-profile",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:application-inference-profile/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "custom-model": {
     "key": "custom-model",
     "arn": "arn:${Partition}:bedrock:${Region}:${Account}:custom-model/${ResourceId}",

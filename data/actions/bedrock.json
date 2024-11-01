@@ -241,6 +241,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createinferenceprofile": {
+    "name": "CreateInferenceProfile",
+    "description": "Grants permission to create inference profiles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createknowledgebase": {
     "name": "CreateKnowledgeBase",
     "description": "Grants permission to create a knowledge base",
@@ -592,6 +622,21 @@
     "resourceTypes": [
       {
         "name": "imported-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteinferenceprofile": {
+    "name": "DeleteInferenceProfile",
+    "description": "Grants permission to delete inference profiles",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-inference-profile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -956,6 +1001,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "application-inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "inference-profile",
         "required": true,
         "conditionKeys": [],
@@ -1183,6 +1234,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "application-inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "foundation-model",
         "required": true,
         "conditionKeys": [],
@@ -1217,6 +1274,12 @@
     "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "application-inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "foundation-model",
         "required": true,
@@ -1535,6 +1598,12 @@
         "dependentActions": []
       },
       {
+        "name": "application-inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "custom-model",
         "required": true,
         "conditionKeys": [],
@@ -1817,6 +1886,12 @@
         "dependentActions": []
       },
       {
+        "name": "application-inference-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "custom-model",
         "required": false,
         "conditionKeys": [],
@@ -1926,6 +2001,12 @@
       },
       {
         "name": "agent-alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "application-inference-profile",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

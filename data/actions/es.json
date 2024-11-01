@@ -36,6 +36,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "domain",
         "required": true,
         "conditionKeys": [],
@@ -114,6 +120,17 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create an OpenSearch Application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createdomain": {
@@ -211,6 +228,21 @@
     "description": "Grants permission to create an Amazon OpenSearch Service-managed VPC endpoint",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an OpenSearch Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -696,6 +728,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getapplication": {
+    "name": "GetApplication",
+    "description": "Grants permission to get information about an OpenSearch Application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getcompatibleelasticsearchversions": {
     "name": "GetCompatibleElasticsearchVersions",
     "description": "Grants permission to fetch a list of compatible OpenSearch and Elasticsearch versions to which an OpenSearch Service domain can be upgraded. This permission is deprecated. Use GetCompatibleVersions instead",
@@ -786,6 +833,21 @@
     "resourceTypes": [
       {
         "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list OpenSearch Applications",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -908,6 +970,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "domain",
         "required": true,
         "conditionKeys": [],
@@ -987,6 +1055,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "domain",
         "required": true,
         "conditionKeys": [],
@@ -1043,6 +1117,21 @@
     "resourceTypes": [
       {
         "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to update an OpenSearch Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
