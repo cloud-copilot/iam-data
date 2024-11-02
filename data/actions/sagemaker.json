@@ -378,6 +378,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchdeleteclusternodes": {
+    "name": "BatchDeleteClusterNodes",
+    "description": "Grants permission to batch delete SageMaker HyperPod cluster nodes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "eks:DescribeCluster"
+    ]
+  },
   "batchdescribemodelpackage": {
     "name": "BatchDescribeModelPackage",
     "description": "Grants permission to describe one or more ModelPackages",
@@ -5962,7 +5979,8 @@
       "eks:DeleteAccessEntry",
       "eks:DescribeAccessEntry",
       "eks:DescribeCluster",
-      "iam:PassRole"
+      "iam:PassRole",
+      "sagemaker:BatchDeleteClusterNodes"
     ]
   },
   "updateclustersoftware": {
