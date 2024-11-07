@@ -33,5 +33,19 @@
   "mergedapiassociation": {
     "key": "mergedApiAssociation",
     "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${SourceGraphQLAPIId}/mergedApiAssociations/${Associationid}"
+  },
+  "api": {
+    "key": "api",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "channelnamespace": {
+    "key": "channelNamespace",
+    "arn": "arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId}/channelNamespace/${ChannelNamespaceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

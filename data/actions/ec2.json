@@ -24,6 +24,41 @@
     ],
     "dependentActions": []
   },
+  "acceptcapacityreservationbillingownership": {
+    "name": "AcceptCapacityReservationBillingOwnership",
+    "description": "Grants permission to accept assign billing of the available capacity of a shared Capacity Reservation to the calling account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:CapacityReservationFleet",
+          "ec2:CreateDate",
+          "ec2:DestinationCapacityReservationId",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:OutpostArn",
+          "ec2:PlacementGroup",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SourceCapacityReservationId",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "acceptreservedinstancesexchangequote": {
     "name": "AcceptReservedInstancesExchangeQuote",
     "description": "Grants permission to accept a Convertible Reserved Instance exchange quote",
@@ -435,6 +470,41 @@
     ],
     "dependentActions": []
   },
+  "associatecapacityreservationbillingowner": {
+    "name": "AssociateCapacityReservationBillingOwner",
+    "description": "Grants permission to assign billing of the unused capacity of a shared Capacity Reservation to a consumer account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:CapacityReservationFleet",
+          "ec2:CreateDate",
+          "ec2:DestinationCapacityReservationId",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:OutpostArn",
+          "ec2:PlacementGroup",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SourceCapacityReservationId",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "associateclientvpntargetnetwork": {
     "name": "AssociateClientVpnTargetNetwork",
     "description": "Grants permission to associate a target network with a Client VPN endpoint",
@@ -711,6 +781,41 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "associatesecuritygroupvpc": {
+    "name": "AssociateSecurityGroupVpc",
+    "description": "Grants permission to associate a security group with another VPC in the same Region",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "security-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SecurityGroupID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -8098,6 +8203,16 @@
     ],
     "dependentActions": []
   },
+  "describecapacityreservationbillingrequests": {
+    "name": "DescribeCapacityReservationBillingRequests",
+    "description": "Grants permission to describe one or more requests to assign the billing of the unused capacity of a Capacity Reservation",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describecapacityreservationfleets": {
     "name": "DescribeCapacityReservationFleets",
     "description": "Grants permission to describe one or more Capacity Reservation Fleets",
@@ -8644,6 +8759,16 @@
     ],
     "dependentActions": []
   },
+  "describeinstanceimagemetadata": {
+    "name": "DescribeInstanceImageMetadata",
+    "description": "Grants permission to describe the AMI that was used to launch an instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describeinstancestatus": {
     "name": "DescribeInstanceStatus",
     "description": "Grants permission to describe the status of one or more instances",
@@ -9172,6 +9297,16 @@
   "describesecuritygrouprules": {
     "name": "DescribeSecurityGroupRules",
     "description": "Grants permission to describe one or more of your security group rules",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describesecuritygroupvpcassociations": {
+    "name": "DescribeSecurityGroupVpcAssociations",
+    "description": "Grants permission to describe security group VPC associations",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -10380,6 +10515,41 @@
     ],
     "dependentActions": []
   },
+  "disassociatecapacityreservationbillingowner": {
+    "name": "DisassociateCapacityReservationBillingOwner",
+    "description": "Grants permission to cancel a pending request to assign billing of the unused capacity of a Capacity Reservation to a consumer account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:CapacityReservationFleet",
+          "ec2:CreateDate",
+          "ec2:DestinationCapacityReservationId",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:OutpostArn",
+          "ec2:PlacementGroup",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SourceCapacityReservationId",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "disassociateclientvpntargetnetwork": {
     "name": "DisassociateClientVpnTargetNetwork",
     "description": "Grants permission to disassociate a target network from a Client VPN endpoint",
@@ -10624,6 +10794,41 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "disassociatesecuritygroupvpc": {
+    "name": "DisassociateSecurityGroupVpc",
+    "description": "Grants permission to disassociate a security group from a VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "security-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SecurityGroupID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -12995,6 +13200,44 @@
     ],
     "dependentActions": []
   },
+  "modifyinstancecpuoptions": {
+    "name": "ModifyInstanceCpuOptions",
+    "description": "Grants permission to modify the CPU options on an instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:AvailabilityZone",
+          "ec2:CpuOptionsAmdSevSnp",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceID",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:PlacementGroup",
+          "ec2:ProductCode",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "modifyinstancecreditspecification": {
     "name": "ModifyInstanceCreditSpecification",
     "description": "Grants permission to modify the credit option for CPU usage on an instance",
@@ -15010,6 +15253,41 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayMulticastDomainId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "rejectcapacityreservationbillingownership": {
+    "name": "RejectCapacityReservationBillingOwnership",
+    "description": "Grants permission to reject a request to assign billing of the available capacity of a shared Capacity Reservation to your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:CapacityReservationFleet",
+          "ec2:CreateDate",
+          "ec2:DestinationCapacityReservationId",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:OutpostArn",
+          "ec2:PlacementGroup",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SourceCapacityReservationId",
+          "ec2:Tenancy"
         ],
         "dependentActions": []
       }

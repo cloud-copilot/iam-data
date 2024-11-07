@@ -716,6 +716,32 @@
     ],
     "dependentActions": []
   },
+  "updatescraper": {
+    "name": "UpdateScraper",
+    "description": "Grants permission to update a scraper",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "aps:CreateScraper",
+          "aps:TagResource"
+        ]
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "updateworkspacealias": {
     "name": "UpdateWorkspaceAlias",
     "description": "Grants permission to modify the alias of existing AMP workspace",

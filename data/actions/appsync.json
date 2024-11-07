@@ -44,6 +44,20 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createapi": {
+    "name": "CreateApi",
+    "description": "Grants permission to create an API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
   "createapicache": {
     "name": "CreateApiCache",
     "description": "Grants permission to create an API cache in AppSync",
@@ -58,6 +72,25 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createchannelnamespace": {
+    "name": "CreateChannelNamespace",
+    "description": "Grants permission to create a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createdatasource": {
@@ -114,6 +147,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteapi": {
+    "name": "DeleteApi",
+    "description": "Grants permission to delete a API. This will also clean up every AppSync resource below that API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleteapicache": {
     "name": "DeleteApiCache",
     "description": "Grants permission to delete an API cache in AppSync",
@@ -128,6 +178,23 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletechannelnamespace": {
+    "name": "DeleteChannelNamespace",
+    "description": "Grants permission to delete a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletedatasource": {
@@ -264,12 +331,74 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "eventconnect": {
+    "name": "EventConnect",
+    "description": "Grants permission to connect to an Event API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eventpublish": {
+    "name": "EventPublish",
+    "description": "Grants permission to publish events to a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "eventsubscribe": {
+    "name": "EventSubscribe",
+    "description": "Grants permission to subscribe to a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "flushapicache": {
     "name": "FlushApiCache",
     "description": "Grants permission to flush an API cache in AppSync",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getapi": {
+    "name": "GetApi",
+    "description": "Grants permission to retrieve an API",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getapiassociation": {
@@ -293,6 +422,23 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getchannelnamespace": {
+    "name": "GetChannelNamespace",
+    "description": "Grants permission to retrieve a channel namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getdatasource": {
@@ -444,6 +590,33 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listapis": {
+    "name": "ListApis",
+    "description": "Grants permission to list APIs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listchannelnamespaces": {
+    "name": "ListChannelNamespaces",
+    "description": "Grants permission to list channel namespace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listdatasources": {
     "name": "ListDataSources",
     "description": "Grants permission to list the data sources for a given API",
@@ -505,6 +678,18 @@
     "description": "Grants permission to list the tags for a resource",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "graphqlapi",
         "required": false,
@@ -617,8 +802,32 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "graphqlapi",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -642,8 +851,32 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "graphqlapi",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "channelNamespace",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -655,7 +888,27 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateapi": {
+    "name": "UpdateApi",
+    "description": "Grants permission to update an API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -673,6 +926,23 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannelnamespace": {
+    "name": "UpdateChannelNamespace",
+    "description": "Grants permission to update a channel namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channelNamespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updatedatasource": {

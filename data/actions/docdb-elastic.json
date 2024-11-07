@@ -1,4 +1,21 @@
 {
+  "applypendingmaintenanceaction": {
+    "name": "ApplyPendingMaintenanceAction",
+    "description": "Grants permission to apply pending maintenance actions on Amazon DocDB-Elastic cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "copyclustersnapshot": {
     "name": "CopyClusterSnapshot",
     "description": "Grants permission to copy a new Amazon DocDB-Elastic cluster snapshot",
@@ -186,6 +203,23 @@
     ],
     "dependentActions": []
   },
+  "getpendingmaintenanceaction": {
+    "name": "GetPendingMaintenanceAction",
+    "description": "Grants permission to view details about pending maintenance actions on Amazon DocDB-Elastic cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listclustersnapshots": {
     "name": "ListClusterSnapshots",
     "description": "Grants permission to list the cluster snapshots in your account",
@@ -200,6 +234,16 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpendingmaintenanceactions": {
+    "name": "ListPendingMaintenanceActions",
+    "description": "Grants permission to list details about pending maintenance actions on any Amazon DocDB-Elastic cluster",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listtagsforresource": {
