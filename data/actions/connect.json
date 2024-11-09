@@ -35,6 +35,23 @@
       "ds:DescribeDirectories"
     ]
   },
+  "associateanalyticsdataset": {
+    "name": "AssociateAnalyticsDataSet",
+    "description": "Grants permission to grant access and to associate a dataset with the specified AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "associateapprovedorigin": {
     "name": "AssociateApprovedOrigin",
     "description": "Grants permission to associate approved origin for an existing Amazon Connect instance",
@@ -357,7 +374,6 @@
   },
   "batchassociateanalyticsdataset": {
     "name": "BatchAssociateAnalyticsDataSet",
-    "isPermissionOnly": true,
     "description": "Grants permission to grant access and to associate the datasets with the specified AWS account",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -375,7 +391,6 @@
   },
   "batchdisassociateanalyticsdataset": {
     "name": "BatchDisassociateAnalyticsDataSet",
-    "isPermissionOnly": true,
     "description": "Grants permission to revoke access and to disassociate the datasets with the specified AWS account",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -2095,6 +2110,23 @@
     ],
     "dependentActions": []
   },
+  "disassociateanalyticsdataset": {
+    "name": "DisassociateAnalyticsDataSet",
+    "description": "Grants permission to revoke access and to disassociate a dataset with the specified AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "disassociateapprovedorigin": {
     "name": "DisassociateApprovedOrigin",
     "description": "Grants permission to disassociate approved origin for an existing Amazon Connect instance",
@@ -2682,6 +2714,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listanalyticsdataassociations": {
+    "name": "ListAnalyticsDataAssociations",
+    "description": "Grants permission to list the association status of a dataset for a given Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
     "dependentActions": []
   },
   "listapprovedorigins": {
@@ -4227,6 +4276,42 @@
     ],
     "dependentActions": []
   },
+  "startoutboundchatcontact": {
+    "name": "StartOutboundChatContact",
+    "description": "Grants permission to initiate an outbound chat using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "phone-number",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:Subtype"
+    ],
+    "dependentActions": []
+  },
   "startoutboundvoicecontact": {
     "name": "StartOutboundVoiceContact",
     "description": "Grants permission to initiate outbound calls using the Amazon Connect API",
@@ -4240,6 +4325,29 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startscreensharing": {
+    "name": "StartScreenSharing",
+    "description": "Grants permission to start screen sharing for contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
     "dependentActions": []
   },
   "starttaskcontact": {
