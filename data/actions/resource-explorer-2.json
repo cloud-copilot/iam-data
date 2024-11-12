@@ -3,14 +3,7 @@
     "name": "AssociateDefaultView",
     "description": "Grants permission to set the specified view as the default for this AWS Region in this AWS account",
     "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "view",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -33,6 +26,15 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "createmanagedview": {
+    "name": "CreateManagedView",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create managed view",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createview": {
@@ -124,6 +126,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getmanagedview": {
+    "name": "GetManagedView",
+    "description": "Grants permission to get managed view",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "managed-view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getresourcepolicy": {
     "name": "GetResourcePolicy",
     "isPermissionOnly": true,
@@ -166,6 +183,14 @@
   "listindexesformembers": {
     "name": "ListIndexesForMembers",
     "description": "Grants permission to list the organization member account's indexes in all AWS Regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagedviews": {
+    "name": "ListManagedViews",
+    "description": "Grants permission to list managed views",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -236,7 +261,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "resource-explorer-2:Operation"
+    ],
     "dependentActions": []
   },
   "tagresource": {
