@@ -50,9 +50,25 @@
       "s3:GetObject"
     ]
   },
+  "createcontainerfleet": {
+    "name": "CreateContainerFleet",
+    "description": "Grants permission to create a new container fleet of computing resources to run your game servers",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeRegions",
+      "gamelift:TagResource",
+      "iam:PassRole"
+    ]
+  },
   "createcontainergroupdefinition": {
     "name": "CreateContainerGroupDefinition",
-    "description": "Grants permission to create a new container group definition for a container fleet",
+    "description": "Grants permission to create a new container group definition using images stored in an Amazon ECR repository",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -62,6 +78,7 @@
     "dependentActions": [
       "ecr:BatchGetImage",
       "ecr:DescribeImages",
+      "ecr:GetAuthorizationToken",
       "ecr:GetDownloadUrlForLayer",
       "gamelift:TagResource"
     ]
@@ -88,17 +105,23 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeRegions"
+        ]
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeAvailabilityZones",
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "creategameservergroup": {
     "name": "CreateGameServerGroup",
@@ -269,9 +292,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletecontainerfleet": {
+    "name": "DeleteContainerFleet",
+    "description": "Grants permission to delete a container fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "containerFleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecontainergroupdefinition": {
     "name": "DeleteContainerGroupDefinition",
-    "description": "Grants permission to delete a container group definition that is not being used in a fleet",
+    "description": "Grants permission to delete a container group definition",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -305,8 +343,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -402,8 +446,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -504,11 +554,32 @@
   },
   "describecompute": {
     "name": "DescribeCompute",
-    "description": "Grants permission to retrieve general properties of the compute such as ARN, fleet details, SDK endpoints, and location",
+    "description": "Grants permission to retrieve information for a compute in a fleet",
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecontainerfleet": {
+    "name": "DescribeContainerFleet",
+    "description": "Grants permission to retrieve the properties of an existing container fleet",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "containerFleet",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -519,7 +590,7 @@
   },
   "describecontainergroupdefinition": {
     "name": "DescribeContainerGroupDefinition",
-    "description": "Grants permission to retrieve general properties, including status, for a container group definition",
+    "description": "Grants permission to retrieve the properties of an existing container group definition",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -550,9 +621,24 @@
   },
   "describefleetcapacity": {
     "name": "DescribeFleetCapacity",
-    "description": "Grants permission to retrieve the current capacity setting for fleets",
+    "description": "Grants permission to retrieve the current capacity settings for managed fleets",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefleetdeployment": {
+    "name": "DescribeFleetDeployment",
+    "description": "Grants permission to retrieve the properties of an existing fleet deployment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "containerFleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -562,8 +648,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -577,8 +669,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -592,8 +690,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -718,12 +822,18 @@
   },
   "describeinstances": {
     "name": "DescribeInstances",
-    "description": "Grants permission to retrieve information about instances in a fleet",
+    "description": "Grants permission to retrieve information about instances in a managed fleet",
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -784,8 +894,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -826,12 +942,18 @@
   },
   "getcomputeaccess": {
     "name": "GetComputeAccess",
-    "description": "Grants permission to retrieve access credentials of the compute",
+    "description": "Grants permission to retrieve credentials to remotely access a compute in a managed fleet",
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -841,12 +963,18 @@
   },
   "getcomputeauthtoken": {
     "name": "GetComputeAuthToken",
-    "description": "Grants permission to retrieve an authorization token for a compute and fleet to use in game server processes",
+    "description": "Grants permission to retrieve an authentication token that allows processes on a compute to send requests to the Amazon GameLift service",
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -899,7 +1027,36 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcontainerfleets": {
+    "name": "ListContainerFleets",
+    "description": "Grants permission to retrieve the properties of all existing container fleets in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcontainergroupdefinitionversions": {
+    "name": "ListContainerGroupDefinitionVersions",
+    "description": "Grants permission to retrieve the properties of all versions of an existing container group definition",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "containerGroupDefinition",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -910,7 +1067,15 @@
   },
   "listcontainergroupdefinitions": {
     "name": "ListContainerGroupDefinitions",
-    "description": "Grants permission to retrieve a list of names for all container group definitions in the current Region",
+    "description": "Grants permission to retrieve the properties of all existing container group definitions in the current Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfleetdeployments": {
+    "name": "ListFleetDeployments",
+    "description": "Grants permission to retrieve the properties of all existing fleet deployments in the current Region",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -981,6 +1146,12 @@
         "dependentActions": []
       },
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "containerGroupDefinition",
         "required": false,
         "conditionKeys": [],
@@ -1038,8 +1209,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1136,8 +1313,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1182,8 +1365,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1235,6 +1424,12 @@
       },
       {
         "name": "build",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "containerFleet",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1307,6 +1502,12 @@
       },
       {
         "name": "build",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "containerFleet",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1395,6 +1596,41 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatecontainerfleet": {
+    "name": "UpdateContainerFleet",
+    "description": "Grants permission to update an existing container fleet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "containerFleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecontainergroupdefinition": {
+    "name": "UpdateContainerGroupDefinition",
+    "description": "Grants permission to update the properties of an existing container group definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "containerGroupDefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ecr:BatchGetImage",
+      "ecr:DescribeImages",
+      "ecr:GetAuthorizationToken",
+      "ecr:GetDownloadUrlForLayer"
+    ]
+  },
   "updatefleetattributes": {
     "name": "UpdateFleetAttributes",
     "description": "Grants permission to update the general properties of an existing fleet",
@@ -1412,12 +1648,18 @@
   },
   "updatefleetcapacity": {
     "name": "UpdateFleetCapacity",
-    "description": "Grants permission to adjust a fleet's capacity settings",
+    "description": "Grants permission to adjust a managed fleet's capacity settings",
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "containerFleet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "fleet",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

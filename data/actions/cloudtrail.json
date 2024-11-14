@@ -302,6 +302,26 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "generatequeryresultssummary": {
+    "name": "GenerateQueryResultsSummary",
+    "isPermissionOnly": true,
+    "description": "Grants permission to generate a results summary for specified queries using the CloudTrail natural language generator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "eventdatastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudtrail:GetQueryResults",
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ]
+  },
   "getchannel": {
     "name": "GetChannel",
     "description": "Grants permission to return information about a specific channel",
