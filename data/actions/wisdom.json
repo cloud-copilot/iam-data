@@ -78,6 +78,48 @@
     ],
     "dependentActions": []
   },
+  "createaiguardrail": {
+    "name": "CreateAIGuardrail",
+    "description": "Grants permission to create an ai guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createaiguardrailversion": {
+    "name": "CreateAIGuardrailVersion",
+    "description": "Grants permission to create an ai guardrail version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createaiprompt": {
     "name": "CreateAIPrompt",
     "description": "Grants permission to create an ai prompt",
@@ -361,6 +403,48 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteaiguardrail": {
+    "name": "DeleteAIGuardrail",
+    "description": "Grants permission to delete an ai guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiguardrailversion": {
+    "name": "DeleteAIGuardrailVersion",
+    "description": "Grants permission to delete an ai guardrail version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteaiprompt": {
     "name": "DeleteAIPrompt",
     "description": "Grants permission to delete an ai prompt",
@@ -601,6 +685,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getaiguardrail": {
+    "name": "GetAIGuardrail",
+    "description": "Grants permission to retrieve information about an ai guardrail",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getaiprompt": {
     "name": "GetAIPrompt",
     "description": "Grants permission to retrieve information about an ai prompt",
@@ -780,6 +885,27 @@
     ],
     "dependentActions": []
   },
+  "getnextmessage": {
+    "name": "GetNextMessage",
+    "description": "Grants permission to retrieve for next message in a session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getquickresponse": {
     "name": "GetQuickResponse",
     "description": "Grants permission to retrieve content",
@@ -861,6 +987,42 @@
   "listaiagents": {
     "name": "ListAIAgents",
     "description": "Grants permission to list information about ai agents",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiguardrailversions": {
+    "name": "ListAIGuardrailVersions",
+    "description": "Grants permission to list information about ai guardrail versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiguardrails": {
+    "name": "ListAIGuardrails",
+    "description": "Grants permission to list information about ai guardrails",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -1019,6 +1181,27 @@
     "resourceTypes": [
       {
         "name": "KnowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmessages": {
+    "name": "ListMessages",
+    "description": "Grants permission to list messages in a session",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1217,6 +1400,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "sendmessage": {
+    "name": "SendMessage",
+    "description": "Grants permission to send a message",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "startcontentupload": {
     "name": "StartContentUpload",
     "description": "Grants permission to get a URL to upload content to a knowledge base",
@@ -1378,6 +1582,27 @@
     "resourceTypes": [
       {
         "name": "AIAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Assistant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateaiguardrail": {
+    "name": "UpdateAIGuardrail",
+    "description": "Grants permission to update information about an ai guardrail",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AIGuardrail",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -3,7 +3,56 @@
     "name": "AssociateUser",
     "description": "Grants permission to associate a subscribed user to an instance launched with license manager user subscriptions products",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlicenseserverendpoint": {
+    "name": "CreateLicenseServerEndpoint",
+    "description": "Grants permission to create a license server endpoint for a given server type for a given Identity Provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletelicenseserverendpoint": {
+    "name": "DeleteLicenseServerEndpoint",
+    "description": "Grants permission to delete a license server endpoint for a given server type for a given Identity Provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-server-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -11,7 +60,14 @@
     "name": "DeregisterIdentityProvider",
     "description": "Grants permission to deregister Microsoft Active Directory with license-manager-user-subscriptions for a product",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -19,7 +75,20 @@
     "name": "DisassociateUser",
     "description": "Grants permission to disassociate a subscribed user from an instance launched with license manager user subscriptions products",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance-user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -39,11 +108,59 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listlicenseserverendpoints": {
+    "name": "ListLicenseServerEndpoints",
+    "description": "Grants permission to list license server endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listproductsubscriptions": {
     "name": "ListProductSubscriptions",
     "description": "Grants permission to lists all the product subscriptions for a product and identity provider",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a selected resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance-user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-server-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "product-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -51,7 +168,14 @@
     "name": "ListUserAssociations",
     "description": "Grants permission to list all the users associated to an instance launched for a product",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -60,22 +184,117 @@
     "description": "Grants permission to registers Microsoft Active Directory with license-manager-user-subscriptions for a product",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "startproductsubscription": {
     "name": "StartProductSubscription",
     "description": "Grants permission to start product subscription for a user on a registered active directory for a product",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "stopproductsubscription": {
     "name": "StopProductSubscription",
     "description": "Grants permission to stop product subscription for a user on a registered active directory for a product",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "product-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a selected resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance-user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-server-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "product-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a selected resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance-user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-server-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "product-subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -83,7 +302,14 @@
     "name": "UpdateIdentityProviderSettings",
     "description": "Grants permission to update the identity provider configuration",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "identity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   }
