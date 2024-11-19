@@ -1,7 +1,10 @@
 {
   "index": {
     "key": "index",
-    "arn": "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/index/${IndexName}"
+    "arn": "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/index/${IndexName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "stream": {
     "key": "stream",
@@ -9,7 +12,10 @@
   },
   "table": {
     "key": "table",
-    "arn": "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}"
+    "arn": "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "backup": {
     "key": "backup",

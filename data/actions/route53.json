@@ -23,13 +23,15 @@
         "name": "hostedzone",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:DescribeVpcs"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeVpcs"
-    ]
+    "conditionKeys": [
+      "route53:VPCs"
+    ],
+    "dependentActions": []
   },
   "changecidrcollection": {
     "name": "ChangeCidrCollection",
@@ -107,7 +109,9 @@
     "description": "Grants permission to create a public hosted zone, which you use to specify how the Domain Name System (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53:VPCs"
+    ],
     "dependentActions": [
       "ec2:DescribeVpcs"
     ]
@@ -206,7 +210,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53:VPCs"
+    ],
     "dependentActions": []
   },
   "deactivatekeysigningkey": {
@@ -356,7 +362,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53:VPCs"
+    ],
     "dependentActions": []
   },
   "disablehostedzonednssec": {
@@ -383,13 +391,15 @@
         "name": "hostedzone",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:DescribeVpcs"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeVpcs"
-    ]
+    "conditionKeys": [
+      "route53:VPCs"
+    ],
+    "dependentActions": []
   },
   "enablehostedzonednssec": {
     "name": "EnableHostedZoneDNSSEC",
@@ -709,7 +719,9 @@
     "description": "Grants permission to get a list of all the private hosted zones that a specified VPC is associated with",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53:VPCs"
+    ],
     "dependentActions": [
       "ec2:DescribeVpcs"
     ]
