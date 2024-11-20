@@ -1,15 +1,25 @@
 {
+  "authorizeinboundintegration": {
+    "name": "AuthorizeInboundIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to Glue to continuously validate that the target Arn can receive data replicated from the source ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchcreatepartition": {
     "name": "BatchCreatePartition",
     "description": "Grants permission to create one or more partitions",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "catalog",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
       {
         "name": "database",
         "required": true,
@@ -17,8 +27,20 @@
         "dependentActions": []
       },
       {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -32,13 +54,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -53,13 +75,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -67,6 +89,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -80,13 +108,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -94,6 +122,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -107,13 +141,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -121,6 +155,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -202,13 +242,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -216,6 +256,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -237,7 +283,7 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -245,7 +291,7 @@
         ]
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -311,13 +357,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -325,6 +371,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -418,11 +470,53 @@
     ],
     "dependentActions": []
   },
+  "createcatalog": {
+    "name": "CreateCatalog",
+    "description": "Grants permission to create a catalog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createclassifier": {
     "name": "CreateClassifier",
     "description": "Grants permission to create a classifier",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcolumnstatisticstasksettings": {
+    "name": "CreateColumnStatisticsTaskSettings",
+    "description": "Grants permission to create settings for a column statistics task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -432,7 +526,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -483,14 +577,20 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -507,6 +607,108 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "createinboundintegration": {
+    "name": "CreateInboundIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createintegration": {
+    "name": "CreateIntegration",
+    "description": "Grants permission to create an integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:CreateGrant",
+          "kms:DescribeKey"
+        ]
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createintegrationresourceproperty": {
+    "name": "CreateIntegrationResourceProperty",
+    "description": "Grants permission to create integration resource property",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createintegrationtableproperties": {
+    "name": "CreateIntegrationTableProperties",
+    "description": "Grants permission to create integration table properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createjob": {
@@ -547,13 +749,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -561,6 +763,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -574,13 +782,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -588,6 +796,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -680,13 +894,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -694,6 +908,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -707,7 +927,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -715,7 +935,7 @@
         ]
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -772,14 +992,20 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -820,6 +1046,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletecatalog": {
+    "name": "DeleteCatalog",
+    "description": "Grants permission to delete a catalog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteclassifier": {
     "name": "DeleteClassifier",
     "description": "Grants permission to delete a classifier",
@@ -834,13 +1081,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -848,6 +1095,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -861,11 +1114,38 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecolumnstatisticstasksettings": {
+    "name": "DeleteColumnStatisticsTaskSettings",
+    "description": "Grants permission to delete settings for a column statistics task",
+    "accessLevel": "Write",
+    "resourceTypes": [
       {
         "name": "database",
         "required": true,
@@ -888,13 +1168,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -947,13 +1227,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -969,6 +1249,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -981,6 +1267,50 @@
     "resourceTypes": [
       {
         "name": "devendpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteintegration": {
+    "name": "DeleteIntegration",
+    "description": "Grants permission to delete an integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteintegrationtableproperties": {
+    "name": "DeleteIntegrationTableProperties",
+    "description": "Grants permission to delete integration table properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1025,13 +1355,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1039,6 +1369,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1052,13 +1388,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1066,6 +1402,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1094,7 +1436,7 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1174,13 +1516,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1188,6 +1530,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1201,7 +1549,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -1209,7 +1557,7 @@
         ]
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1230,13 +1578,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1244,6 +1592,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1287,13 +1641,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1301,6 +1655,12 @@
       {
         "name": "userdefinedfunction",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1345,19 +1705,44 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeinboundintegrations": {
+    "name": "DescribeInboundIntegrations",
+    "description": "Grants permission to list the inbound integrations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeintegrations": {
+    "name": "DescribeIntegrations",
+    "description": "Grants permission to describe zero-ETL integrations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getblueprint": {
@@ -1405,19 +1790,65 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getcatalog": {
+    "name": "GetCatalog",
+    "description": "Grants permission to retrieve a catalog",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "glue:EnabledForRedshiftAutoDiscovery"
+    ],
+    "dependentActions": []
+  },
   "getcatalogimportstatus": {
     "name": "GetCatalogImportStatus",
     "description": "Grants permission to retrieve the catalog import status",
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcatalogs": {
+    "name": "GetCatalogs",
+    "description": "Grants permission to retrieve all catalogs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "glue:EnabledForRedshiftAutoDiscovery"
+    ],
     "dependentActions": []
   },
   "getclassifier": {
@@ -1442,13 +1873,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1456,6 +1887,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1469,13 +1906,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1483,6 +1920,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1501,6 +1944,14 @@
   "getcolumnstatisticstaskruns": {
     "name": "GetColumnStatisticsTaskRuns",
     "description": "Grants permission to retrieve Column Statistics run information for the table based on run-ids",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcolumnstatisticstasksettings": {
+    "name": "GetColumnStatisticsTaskSettings",
+    "description": "Grants permission to retrieve settings for a column statistics task",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1527,13 +1978,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1548,13 +1999,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1608,7 +2059,7 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1733,14 +2184,20 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1754,14 +2211,20 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1821,6 +2284,60 @@
     "description": "Grants permission to get executor threads for SparkUI",
     "accessLevel": "Permissions management",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintegrationresourceproperty": {
+    "name": "GetIntegrationResourceProperty",
+    "description": "Grants permission to retrieve the integration resource property",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintegrationtableproperties": {
+    "name": "GetIntegrationTableProperties",
+    "description": "Grants permission to retrieve the integration table properties",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1975,13 +2492,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1989,6 +2506,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2002,13 +2525,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2016,6 +2539,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2029,13 +2558,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2043,6 +2572,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2103,7 +2638,7 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2118,7 +2653,7 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2327,13 +2862,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2341,6 +2876,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2354,7 +2895,7 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -2362,7 +2903,7 @@
         ]
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2383,13 +2924,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2397,6 +2938,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2410,13 +2957,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2424,6 +2971,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2437,13 +2990,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2451,6 +3004,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2559,13 +3118,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2573,6 +3132,12 @@
       {
         "name": "userdefinedfunction",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2586,13 +3151,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2600,6 +3165,12 @@
       {
         "name": "userdefinedfunction",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2689,7 +3260,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2820,13 +3391,13 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2931,7 +3502,7 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -2939,7 +3510,7 @@
         ]
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2976,6 +3547,23 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifyintegration": {
+    "name": "ModifyIntegration",
+    "description": "Grants permission to modify a zero-ETL integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "notifyevent": {
@@ -3031,7 +3619,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3088,7 +3676,7 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3160,13 +3748,13 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3277,13 +3865,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3291,6 +3879,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3342,6 +3936,27 @@
           "glue:GetSecurityConfiguration",
           "glue:GetTable"
         ]
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcolumnstatisticstaskrunschedule": {
+    "name": "StartColumnStatisticsTaskRunSchedule",
+    "description": "Grants permission to start a column statistics task run schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
         "name": "table",
@@ -3548,6 +4163,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "stopcolumnstatisticstaskrunschedule": {
+    "name": "StopColumnStatisticsTaskRunSchedule",
+    "description": "Grants permission to stop a column statistics task run schedule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "stopcrawler": {
     "name": "StopCrawler",
     "description": "Grants permission to stop a running crawler",
@@ -3653,6 +4289,12 @@
       },
       {
         "name": "devendpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3770,6 +4412,12 @@
         "dependentActions": []
       },
       {
+        "name": "integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "job",
         "required": false,
         "conditionKeys": [],
@@ -3838,6 +4486,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatecatalog": {
+    "name": "UpdateCatalog",
+    "description": "Grants permission to update a catalog",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updateclassifier": {
     "name": "UpdateClassifier",
     "description": "Grants permission to update a classifier",
@@ -3852,13 +4521,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3866,6 +4535,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3879,11 +4554,38 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecolumnstatisticstasksettings": {
+    "name": "UpdateColumnStatisticsTaskSettings",
+    "description": "Grants permission to update settings for a column statistics task",
+    "accessLevel": "Write",
+    "resourceTypes": [
       {
         "name": "database",
         "required": true,
@@ -3906,13 +4608,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3965,14 +4667,20 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3987,6 +4695,60 @@
     "resourceTypes": [
       {
         "name": "devendpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateintegrationresourceproperty": {
+    "name": "UpdateIntegrationResourceProperty",
+    "description": "Grants permission to update the integration resource property",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateintegrationtableproperties": {
+    "name": "UpdateIntegrationTableProperties",
+    "description": "Grants permission to update the integration table properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4050,13 +4812,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4064,6 +4826,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -4128,13 +4896,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4142,6 +4910,12 @@
       {
         "name": "table",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -4155,7 +4929,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -4163,7 +4937,7 @@
         ]
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4214,13 +4988,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "catalog",
+        "name": "database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "database",
+        "name": "rootcatalog",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4228,6 +5002,12 @@
       {
         "name": "userdefinedfunction",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

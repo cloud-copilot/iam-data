@@ -1,23 +1,16 @@
 {
-  "annotationimportjob": {
-    "key": "AnnotationImportJob",
-    "arn": "arn:${Partition}:omics:${Region}:${Account}:annotationImportJob/${AnnotationImportJobId}",
-    "conditionKeys": [
-      "omics:AnnotationImportJobJobId"
-    ]
-  },
   "annotationstore": {
     "key": "AnnotationStore",
-    "arn": "arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreId}",
+    "arn": "arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName}",
     "conditionKeys": [
-      "omics:AnnotationStoreName"
+      "aws:ResourceTag/${TagKey}"
     ]
   },
   "annotationstoreversion": {
     "key": "AnnotationStoreVersion",
     "arn": "arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName}/version/${AnnotationStoreVersionName}",
     "conditionKeys": [
-      "omics:AnnotationStoreVersionName"
+      "aws:ResourceTag/${TagKey}"
     ]
   },
   "readset": {
@@ -48,6 +41,13 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "runcache": {
+    "key": "runCache",
+    "arn": "arn:${Partition}:omics:${Region}:${Account}:runCache/${Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "rungroup": {
     "key": "runGroup",
     "arn": "arn:${Partition}:omics:${Region}:${Account}:runGroup/${Id}",
@@ -70,18 +70,11 @@
     "key": "TaskResource",
     "arn": "arn:${Partition}:omics:${Region}:${Account}:task/${Id}"
   },
-  "variantimportjob": {
-    "key": "VariantImportJob",
-    "arn": "arn:${Partition}:omics:${Region}:${Account}:variantImportJob/${VariantImportJobId}",
-    "conditionKeys": [
-      "omics:VariantImportJobJobId"
-    ]
-  },
   "variantstore": {
     "key": "VariantStore",
-    "arn": "arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreId}",
+    "arn": "arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreName}",
     "conditionKeys": [
-      "omics:VariantStoreName"
+      "aws:ResourceTag/${TagKey}"
     ]
   },
   "workflow": {

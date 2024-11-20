@@ -1,7 +1,11 @@
 {
+  "rootcatalog": {
+    "key": "rootcatalog",
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:catalog"
+  },
   "catalog": {
     "key": "catalog",
-    "arn": "arn:${Partition}:glue:${Region}:${Account}:catalog"
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:catalog/${CatalogName}"
   },
   "database": {
     "key": "database",
@@ -120,5 +124,12 @@
   "completion": {
     "key": "completion",
     "arn": "arn:${Partition}:glue:${Region}:${Account}:completion/${CompletionId}"
+  },
+  "integration": {
+    "key": "integration",
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:integration:${IntegrationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }
