@@ -60,7 +60,7 @@ describe("conditionKeys", () => {
 
       // When iamConditionKeyDetails is called
       // Then an error should be thrown
-      expect(
+      await expect(
          iamConditionKeyDetails(serviceKey, conditionKey)
       ).rejects.toThrow('Condition key FakeConditionKey does not exist for service s3')
     })

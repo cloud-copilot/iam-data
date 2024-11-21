@@ -61,7 +61,7 @@ describe("resourceTypes", () => {
 
       //When iamResourceTypeDetails is called
       //Then an error should be thrown
-      expect(
+      await expect(
         () => iamResourceTypeDetails(serviceKey, resourceTypeKey)
       ).rejects.toThrow("Resource type FakeResourceType does not exist for service s3")
     })

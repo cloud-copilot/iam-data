@@ -54,7 +54,7 @@ describe('services', () => {
       const serviceName = 'FakeService'
       //When iamServiceName is called
       //Then an error should be thrown
-      expect(
+      await expect(
         iamServiceName(serviceName)
       ).rejects.toThrow('Service FakeService does not exist');
     })
