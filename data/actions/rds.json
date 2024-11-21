@@ -144,6 +144,12 @@
         "dependentActions": []
       },
       {
+        "name": "shardgrp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "snapshot",
         "required": false,
         "conditionKeys": [],
@@ -778,7 +784,9 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "rds:AddTagsToResource"
+        ]
       },
       {
         "name": "shardgrp",
@@ -787,7 +795,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createdbsnapshot": {
@@ -2227,6 +2238,12 @@
         "dependentActions": []
       },
       {
+        "name": "shardgrp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "snapshot",
         "required": false,
         "conditionKeys": [],
@@ -2959,6 +2976,12 @@
       },
       {
         "name": "secgrp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "shardgrp",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

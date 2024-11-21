@@ -296,6 +296,12 @@
         "dependentActions": []
       },
       {
+        "name": "partner-app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "pipeline",
         "required": false,
         "conditionKeys": [],
@@ -1527,6 +1533,41 @@
     ],
     "dependentActions": []
   },
+  "createpartnerapp": {
+    "name": "CreatePartnerApp",
+    "description": "Grants permission to create an Amazon SageMaker Partner AI App",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "partner-app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "sagemaker:AddTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpartnerapppresignedurl": {
+    "name": "CreatePartnerAppPresignedUrl",
+    "description": "Grants permission to return a URL that you can use from your browser to connect to the Amazon SageMaker Partner AI App",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "partner-app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createpipeline": {
     "name": "CreatePipeline",
     "description": "Grants permission to create a pipeline",
@@ -2570,6 +2611,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletepartnerapp": {
+    "name": "DeletePartnerApp",
+    "description": "Grants permission to delete an Amazon SageMaker Partner AI App",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "partner-app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletepipeline": {
     "name": "DeletePipeline",
     "description": "Grants permission to delete a pipeline",
@@ -2910,6 +2966,12 @@
       },
       {
         "name": "optimization-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "partner-app",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3811,6 +3873,21 @@
     "resourceTypes": [
       {
         "name": "optimization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepartnerapp": {
+    "name": "DescribePartnerApp",
+    "description": "Grants permission to describe an Amazon SageMaker Partner AI App",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "partner-app",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4850,6 +4927,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listpartnerapps": {
+    "name": "ListPartnerApps",
+    "description": "Grants permission to list the Amazon SageMaker Partner AI Apps in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpipelineexecutionsteps": {
     "name": "ListPipelineExecutionSteps",
     "description": "Grants permission to list steps for a pipeline execution",
@@ -5246,6 +5331,12 @@
       },
       {
         "name": "optimization-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "partner-app",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -6374,6 +6465,21 @@
     "resourceTypes": [
       {
         "name": "notebook-instance-lifecycle-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepartnerapp": {
+    "name": "UpdatePartnerApp",
+    "description": "Grants permission to update an Amazon SageMaker Partner AI App",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "partner-app",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -9,7 +9,10 @@
   },
   "shardgrp": {
     "key": "shardgrp",
-    "arn": "arn:${Partition}:rds:${Region}:${Account}:shard-group:${DbShardGroupResourceId}"
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:shard-group:${DbShardGroupResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "cluster-auto-backup": {
     "key": "cluster-auto-backup",
