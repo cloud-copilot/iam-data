@@ -336,6 +336,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describecapacityreservation": {
+    "name": "DescribeCapacityReservation",
+    "description": "Grants permission to describe the capacity reservation for a load balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describelistenerattributes": {
     "name": "DescribeListenerAttributes",
     "description": "Grants permission to describe the attributes for the specified listener",
@@ -492,6 +500,30 @@
       {
         "name": "truststore",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "modifycapacityreservation": {
+    "name": "ModifyCapacityReservation",
+    "description": "Grants permission to modify the capacity reservation for a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "loadbalancer/net/",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

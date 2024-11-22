@@ -567,7 +567,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },
@@ -587,6 +588,25 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "createcontactflowversion": {
+    "name": "CreateContactFlowVersion",
+    "description": "Grants permission to create a version a flow in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },
@@ -1197,7 +1217,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },
@@ -1690,7 +1711,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },
@@ -2816,6 +2838,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcontactflowversions": {
+    "name": "ListContactFlowVersions",
+    "description": "Grants permission to list all the versions a flow in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "contact-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:FlowType"
+    ],
+    "dependentActions": []
+  },
   "listcontactflows": {
     "name": "ListContactFlows",
     "description": "Grants permission to list contact flow resources in an Amazon Connect instance",
@@ -3863,7 +3904,8 @@
     ],
     "conditionKeys": [
       "connect:InstanceId",
-      "connect:SearchTag/${TagKey}"
+      "connect:SearchTag/${TagKey}",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },
@@ -4962,7 +5004,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },
@@ -4980,7 +5023,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },
@@ -5034,7 +5078,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:FlowType"
     ],
     "dependentActions": []
   },

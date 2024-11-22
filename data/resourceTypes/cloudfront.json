@@ -56,5 +56,19 @@
   "continuous-deployment-policy": {
     "key": "continuous-deployment-policy",
     "arn": "arn:${Partition}:cloudfront::${Account}:continuous-deployment-policy/${Id}"
+  },
+  "anycast-ip-list": {
+    "key": "anycast-ip-list",
+    "arn": "arn:${Partition}:cloudfront::${Account}:anycast-ip-list/${Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "vpcorigin": {
+    "key": "vpcorigin",
+    "arn": "arn:${Partition}:cloudfront::${Account}:vpcorigin/${Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }
