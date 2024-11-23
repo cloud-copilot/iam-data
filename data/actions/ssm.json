@@ -986,6 +986,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "executeapi": {
+    "name": "ExecuteAPI",
+    "description": "Grants permission to a Systems Manager delegated administrator to view related resource details about OpsItems across multiple AWS accounts in the AWS Management Console",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getautomationexecution": {
     "name": "GetAutomationExecution",
     "description": "Grants permission to view details of a specified Automation execution",
@@ -1108,6 +1116,14 @@
     "conditionKeys": [
       "ssm:DocumentCategories"
     ],
+    "dependentActions": []
+  },
+  "getexecutionpreview": {
+    "name": "GetExecutionPreview",
+    "description": "Grants permission to retrieve an existing preview that shows the effects that running a specified Automation runbook would have on the targeted resources",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getinventory": {
@@ -1501,6 +1517,36 @@
     "description": "Grants permission to view a list of specified inventory types for a specified instance",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnodes": {
+    "name": "ListNodes",
+    "description": "Grants permission to view details about managed nodes based on specified filters",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "resourcedatasync",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnodessummary": {
+    "name": "ListNodesSummary",
+    "description": "Grants permission to view summary information about managed nodes based on specified filters and aggregators",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "resourcedatasync",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2011,6 +2057,14 @@
     ],
     "dependentActions": []
   },
+  "startexecutionpreview": {
+    "name": "StartExecutionPreview",
+    "description": "Grants permission to create a preview showing the effects that running a specified Automation runbook would have on the targeted resources",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "startsession": {
     "name": "StartSession",
     "description": "Grants permission to initiate a connection to a specified target for a Session Manager session",
@@ -2042,7 +2096,6 @@
       }
     ],
     "conditionKeys": [
-      "ssm:SessionDocumentAccessCheck",
       "ssm:resourceTag/${TagKey}",
       "aws:ResourceTag/${TagKey}"
     ],

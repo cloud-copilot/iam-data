@@ -210,6 +210,30 @@
     ],
     "dependentActions": []
   },
+  "createstatetemplate": {
+    "name": "CreateStateTemplate",
+    "description": "Grants permission to create a state template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "statetemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createvehicle": {
     "name": "CreateVehicle",
     "description": "Grants permission to create a vehicle",
@@ -318,6 +342,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletestatetemplate": {
+    "name": "DeleteStateTemplate",
+    "description": "Grants permission to delete a state template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statetemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletevehicle": {
     "name": "DeleteVehicle",
     "description": "Grants permission to delete a vehicle",
@@ -352,6 +391,30 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "generatecommandpayload": {
+    "name": "GenerateCommandPayload",
+    "isPermissionOnly": true,
+    "description": "Grants permission to generate the payload for running a command on a vehicle",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "statetemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iotfleetwise:Signals"
+    ],
     "dependentActions": []
   },
   "getcampaign": {
@@ -445,6 +508,21 @@
     "resourceTypes": [
       {
         "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstatetemplate": {
+    "name": "GetStateTemplate",
+    "description": "Grants permission to get summary information for a given state template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "statetemplate",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -631,6 +709,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "liststatetemplates": {
+    "name": "ListStateTemplates",
+    "description": "Grants permission to list state templates",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a resource",
@@ -761,6 +847,12 @@
         "dependentActions": []
       },
       {
+        "name": "statetemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "vehicle",
         "required": false,
         "conditionKeys": [],
@@ -804,6 +896,12 @@
       },
       {
         "name": "signalcatalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "statetemplate",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -887,6 +985,21 @@
     "resourceTypes": [
       {
         "name": "signalcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestatetemplate": {
+    "name": "UpdateStateTemplate",
+    "description": "Grants permission to update the given state template",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "statetemplate",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -1,11 +1,17 @@
 {
   "addtags": {
     "name": "AddTags",
-    "description": "Grants permission to add one or more tags to a trail, event data store, or channel, up to a limit of 50",
+    "description": "Grants permission to add one or more tags to a trail, event data store, channel or dashboard, up to a limit of 50",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -62,6 +68,28 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdashboard": {
+    "name": "CreateDashboard",
+    "description": "Grants permission to create a dashboard",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cloudtrail:AddTags",
+          "cloudtrail:StartDashboardRefresh",
+          "cloudtrail:StartQuery"
+        ]
       }
     ],
     "conditionKeys": [
@@ -149,6 +177,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletedashboard": {
+    "name": "DeleteDashboard",
+    "description": "Grants permission to delete a dashboard",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteeventdatastore": {
     "name": "DeleteEventDataStore",
     "description": "Grants permission to delete an event data store",
@@ -171,7 +214,19 @@
     "resourceTypes": [
       {
         "name": "channel",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventdatastore",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -337,6 +392,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdashboard": {
+    "name": "GetDashboard",
+    "description": "Grants permission to list settings for the dashboard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "geteventdatastore": {
     "name": "GetEventDataStore",
     "description": "Grants permission to list settings for the event data store",
@@ -439,7 +509,19 @@
     "resourceTypes": [
       {
         "name": "channel",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventdatastore",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -496,6 +578,14 @@
   "listchannels": {
     "name": "ListChannels",
     "description": "Grants permission to list the channels in the current account, and their source names",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdashboards": {
+    "name": "ListDashboards",
+    "description": "Grants permission to list dashboards associated with the current region for your account",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -559,11 +649,17 @@
   },
   "listtags": {
     "name": "ListTags",
-    "description": "Grants permission to list the tags for trails, event data stores, or channels in the current region",
+    "description": "Grants permission to list the tags for trails, event data stores, channels or dashboards in the current region",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -643,7 +739,19 @@
     "resourceTypes": [
       {
         "name": "channel",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "eventdatastore",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -666,11 +774,17 @@
   },
   "removetags": {
     "name": "RemoveTags",
-    "description": "Grants permission to remove tags from a trail, event data store, or channel",
+    "description": "Grants permission to remove tags from a trail, event data store, channel or dashboard",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "channel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dashboard",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -707,6 +821,23 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "startdashboardrefresh": {
+    "name": "StartDashboardRefresh",
+    "description": "Grants permission to start a refresh on the specified dashboard",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudtrail:StartQuery"
+    ]
   },
   "starteventdatastoreingestion": {
     "name": "StartEventDataStoreIngestion",
@@ -816,6 +947,24 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "updatedashboard": {
+    "name": "UpdateDashboard",
+    "description": "Grants permission to update a dashboard",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudtrail:StartDashboardRefresh",
+      "cloudtrail:StartQuery"
+    ]
   },
   "updateeventdatastore": {
     "name": "UpdateEventDataStore",

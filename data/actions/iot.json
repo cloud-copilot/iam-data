@@ -377,6 +377,24 @@
     ],
     "dependentActions": []
   },
+  "createcommand": {
+    "name": "CreateCommand",
+    "description": "Grants permission to create a command that can be used to start new executions against a device",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcustommetric": {
     "name": "CreateCustomMetric",
     "description": "Grants permission to create a custom metric for device side metric reporting and monitoring",
@@ -992,6 +1010,42 @@
       {
         "name": "certificateprovider",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecommand": {
+    "name": "DeleteCommand",
+    "description": "Grants permission to delete a command",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecommandexecution": {
+    "name": "DeleteCommandExecution",
+    "description": "Grants permission to delete a command execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2072,6 +2126,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getcommand": {
+    "name": "GetCommand",
+    "description": "Grants permission to get the information about the command",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcommandexecution": {
+    "name": "GetCommandExecution",
+    "description": "Grants permission to get the information of a command execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "geteffectivepolicies": {
     "name": "GetEffectivePolicies",
     "description": "Grants permission to get effective policies",
@@ -2425,6 +2515,41 @@
   "listcertificatesbyca": {
     "name": "ListCertificatesByCA",
     "description": "Grants permission to list the device certificates signed by the specified CA certificate",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcommandexecutions": {
+    "name": "ListCommandExecutions",
+    "description": "Grants permission to list commands executions in the account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcommands": {
+    "name": "ListCommands",
+    "description": "Grants permission to list commands in the account",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -2803,6 +2928,12 @@
       },
       {
         "name": "certificateprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3366,6 +3497,37 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startcommandexecution": {
+    "name": "StartCommandExecution",
+    "description": "Grants permission to start a new command execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "client",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:CommandExecutionParameterString/${CommandParameterName}",
+      "iot:CommandExecutionParameterBoolean/${CommandParameterName}",
+      "iot:CommandExecutionParameterNumber/${CommandParameterName}"
+    ],
+    "dependentActions": []
+  },
   "startdetectmitigationactionstask": {
     "name": "StartDetectMitigationActionsTask",
     "description": "Grants permission to start a Device Defender ML Detect mitigation actions task",
@@ -3445,6 +3607,12 @@
       },
       {
         "name": "certificateprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3646,6 +3814,12 @@
       },
       {
         "name": "certificateprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "command",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3861,6 +4035,21 @@
     "resourceTypes": [
       {
         "name": "certificateprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecommand": {
+    "name": "UpdateCommand",
+    "description": "Grants permission to update a command",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "command",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

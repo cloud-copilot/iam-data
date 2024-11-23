@@ -160,6 +160,32 @@
     ],
     "dependentActions": []
   },
+  "createpresignedurl": {
+    "name": "CreatePresignedUrl",
+    "description": "Grants permission to create a presigned URL for uploading a file to a Q App or Q App Session in the Q Business application environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "qapp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "qapp-session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "qapps:UserIsAppOwner",
+      "qapps:AppIsPublished",
+      "qapps:UserIsSessionModerator",
+      "qapps:SessionIsShared"
+    ],
+    "dependentActions": []
+  },
   "createqapp": {
     "name": "CreateQApp",
     "description": "Grants permission to create Q App in the Q Business application environment",
@@ -222,6 +248,30 @@
     "name": "DeleteQApp",
     "description": "Grants permission to delete Q App in the Q Business application environment",
     "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "qapp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "qapps:UserIsAppOwner",
+      "qapps:AppIsPublished"
+    ],
+    "dependentActions": []
+  },
+  "describeqapppermissions": {
+    "name": "DescribeQAppPermissions",
+    "description": "Grants permission to get Q App sharing permissions in the Q Business application environment",
+    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "application",
@@ -734,6 +784,30 @@
   "updateqapp": {
     "name": "UpdateQApp",
     "description": "Grants permission to update Q App in the Q Business application environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "qapp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "qapps:UserIsAppOwner",
+      "qapps:AppIsPublished"
+    ],
+    "dependentActions": []
+  },
+  "updateqapppermissions": {
+    "name": "UpdateQAppPermissions",
+    "description": "Grants permission to update Q App sharing permissions in the Q Business application environment",
     "accessLevel": "Write",
     "resourceTypes": [
       {
