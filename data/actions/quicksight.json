@@ -118,12 +118,36 @@
     ],
     "dependentActions": []
   },
+  "createbrand": {
+    "name": "CreateBrand",
+    "description": "Grants permission to create an Amazon QuickSight brand",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brand",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcustompermissions": {
     "name": "CreateCustomPermissions",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create a custom permissions resource for restricting user access",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
+    "description": "Grants permission to create a QuickSight custom permissions resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custompermissions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -369,7 +393,10 @@
     "description": "Grants permission to add a group member to a role",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "quicksight:Group",
+      "identitystore:GroupId"
+    ],
     "dependentActions": []
   },
   "createtemplate": {
@@ -553,11 +580,33 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletebrand": {
+    "name": "DeleteBrand",
+    "description": "Grants permission to delete an Amazon QuickSight brand",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brand",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebrandassignment": {
+    "name": "DeleteBrandAssignment",
+    "description": "Grants permission to delete a brand assignment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecustompermissions": {
     "name": "DeleteCustomPermissions",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete a custom permissions resource",
-    "accessLevel": "Permissions management",
+    "description": "Grants permission to delete a QuickSight custom permissions resource",
+    "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -792,7 +841,10 @@
     "description": "Grants permission to remove a group member from a role",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "quicksight:Group",
+      "identitystore:GroupId"
+    ],
     "dependentActions": []
   },
   "deletetemplate": {
@@ -906,6 +958,21 @@
   "deleteuserbyprincipalid": {
     "name": "DeleteUserByPrincipalId",
     "description": "Grants permission to deletes a user identified by its principal ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteusercustompermission": {
+    "name": "DeleteUserCustomPermission",
+    "description": "Grants permission to remove the custom permission associated with a user",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1034,12 +1101,56 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describebrand": {
+    "name": "DescribeBrand",
+    "description": "Grants permission to describe a brand",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "brand",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebrandassignment": {
+    "name": "DescribeBrandAssignment",
+    "description": "Grants permission to describe a brand assignment",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebrandpublishedversion": {
+    "name": "DescribeBrandPublishedVersion",
+    "description": "Grants permission to describes the published version of the brand",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "brand",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describecustompermissions": {
     "name": "DescribeCustomPermissions",
-    "isPermissionOnly": true,
     "description": "Grants permission to describe a custom permissions resource in a QuickSight account",
-    "accessLevel": "Write",
-    "resourceTypes": [],
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custompermissions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1100,6 +1211,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedashboardsqaconfiguration": {
+    "name": "DescribeDashboardsQAConfiguration",
+    "description": "Grants permission to describe dashboards qa configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1726,11 +1845,18 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listbrands": {
+    "name": "ListBrands",
+    "description": "Grants permission to lists all brands in an Amazon QuickSight account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcustompermissions": {
     "name": "ListCustomPermissions",
-    "isPermissionOnly": true,
     "description": "Grants permission to list custom permissions resources in QuickSight account",
-    "accessLevel": "Write",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2395,6 +2521,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "searchtopics": {
+    "name": "SearchTopics",
+    "description": "Grants permission to search for a sub-set of topics",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "searchusers": {
     "name": "SearchUsers",
     "isPermissionOnly": true,
@@ -2497,7 +2638,19 @@
         "dependentActions": []
       },
       {
+        "name": "brand",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "customization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custompermissions",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2584,7 +2737,19 @@
         "dependentActions": []
       },
       {
+        "name": "brand",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "customization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custompermissions",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2702,12 +2867,56 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatebrand": {
+    "name": "UpdateBrand",
+    "description": "Grants permission to update a brand",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brand",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebrandassignment": {
+    "name": "UpdateBrandAssignment",
+    "description": "Grants permission to update a brand assignment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebrandpublishedversion": {
+    "name": "UpdateBrandPublishedVersion",
+    "description": "Grants permission to update the published version of a brand",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brand",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatecustompermissions": {
     "name": "UpdateCustomPermissions",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update a custom permissions resource",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
+    "description": "Grants permission to update a QuickSight custom permissions resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custompermissions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2768,6 +2977,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedashboardsqaconfiguration": {
+    "name": "UpdateDashboardsQAConfiguration",
+    "description": "Grants permission to update dashboards qa configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -3161,6 +3378,21 @@
   "updateuser": {
     "name": "UpdateUser",
     "description": "Grants permission to update an Amazon QuickSight user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateusercustompermission": {
+    "name": "UpdateUserCustomPermission",
+    "description": "Grants permission to update the custom permission associated with a user",
     "accessLevel": "Write",
     "resourceTypes": [
       {

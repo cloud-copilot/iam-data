@@ -121,6 +121,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createeventtrigger": {
+    "name": "CreateEventTrigger",
+    "description": "Grants permission to create an event trigger in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-triggers",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createintegrationworkflow": {
     "name": "CreateIntegrationWorkflow",
     "description": "Grants permission to create an integration workflow in a domain",
@@ -287,6 +311,27 @@
       },
       {
         "name": "event-streams",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventtrigger": {
+    "name": "DeleteEventTrigger",
+    "description": "Grants permission to delete an event trigger in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-triggers",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -526,6 +571,27 @@
       },
       {
         "name": "event-streams",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "geteventtrigger": {
+    "name": "GetEventTrigger",
+    "description": "Grants permission to get an event trigger in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-triggers",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -802,6 +868,21 @@
   "listeventstreams": {
     "name": "ListEventStreams",
     "description": "Grants permission to list all the event streams in a specific domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeventtriggers": {
+    "name": "ListEventTriggers",
+    "description": "Grants permission to list all the event triggers in the domain",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -1227,6 +1308,27 @@
     "dependentActions": [
       "iam:CreateServiceLinkedRole"
     ]
+  },
+  "updateeventtrigger": {
+    "name": "UpdateEventTrigger",
+    "description": "Grants permission to update an event trigger in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-triggers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "updateprofile": {
     "name": "UpdateProfile",
