@@ -231,6 +231,29 @@
     ],
     "dependentActions": []
   },
+  "createdirectconnectgatewayattachment": {
+    "name": "CreateDirectConnectGatewayAttachment",
+    "description": "Grants permission to create a Direct Connect gateway attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "core-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions",
+          "networkmanager:TagResource"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "networkmanager:directConnectGatewayArn",
+      "networkmanager:edgeLocations"
+    ],
+    "dependentActions": []
+  },
   "createglobalnetwork": {
     "name": "CreateGlobalNetwork",
     "description": "Grants permission to create a new global network",
@@ -857,6 +880,21 @@
       {
         "name": "device",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdirectconnectgatewayattachment": {
+    "name": "GetDirectConnectGatewayAttachment",
+    "description": "Grants permission to retrieve a Direct Connect gateway attachment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1553,6 +1591,27 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedirectconnectgatewayattachment": {
+    "name": "UpdateDirectConnectGatewayAttachment",
+    "description": "Grants permission to update a Direct Connect gateway attachment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "attachment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeRegions"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "networkmanager:edgeLocations"
+    ],
     "dependentActions": []
   },
   "updateglobalnetwork": {
