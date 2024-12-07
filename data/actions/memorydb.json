@@ -123,10 +123,38 @@
         "dependentActions": []
       },
       {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "snapshot",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "memorydb:TLSEnabled"
+    ],
+    "dependentActions": []
+  },
+  "createmultiregioncluster": {
+    "name": "CreateMultiRegionCluster",
+    "description": "Grants permissions to create a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregionparametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "memorydb:TagResource"
+        ]
       }
     ],
     "conditionKeys": [
@@ -236,8 +264,31 @@
         ]
       },
       {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "snapshot",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletemultiregioncluster": {
+    "name": "DeleteMultiRegionCluster",
+    "description": "Grants permissions to delete a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -368,6 +419,53 @@
     "description": "Grants permissions to retrieve events related to clusters, subnet groups, and parameter groups",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemultiregionclusters": {
+    "name": "DescribeMultiRegionClusters",
+    "description": "Grants permissions to retrieve information about all Multi-Region clusters if no cluster identifier is specified, or about a specific Multi-Region cluster if a cluster identifier is supplied",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describemultiregionparametergroups": {
+    "name": "DescribeMultiRegionParameterGroups",
+    "description": "Grants permissions to retrieve information about Multi-Region parameter groups",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionparametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describemultiregionparameters": {
+    "name": "DescribeMultiRegionParameters",
+    "description": "Grants permissions to retrieve a detailed parameter list for a particular Multi-Region parameter group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregionparametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -512,6 +610,23 @@
     ],
     "dependentActions": []
   },
+  "listallowedmultiregionclusterupdates": {
+    "name": "ListAllowedMultiRegionClusterUpdates",
+    "description": "Grants permissions to list available Multi-Region cluster updates",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listallowednodetypeupdates": {
     "name": "ListAllowedNodeTypeUpdates",
     "description": "Grants permissions to list available node type updates",
@@ -542,6 +657,12 @@
       },
       {
         "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiregioncluster",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -632,6 +753,12 @@
         "dependentActions": []
       },
       {
+        "name": "multiregioncluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "parametergroup",
         "required": false,
         "conditionKeys": [],
@@ -682,6 +809,12 @@
       },
       {
         "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "multiregioncluster",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -765,6 +898,35 @@
       },
       {
         "name": "parametergroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatemultiregioncluster": {
+    "name": "UpdateMultiRegionCluster",
+    "description": "Grants permissions to update the settings for a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:CreateNetworkInterface",
+          "ec2:DeleteNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      },
+      {
+        "name": "multiregionparametergroup",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

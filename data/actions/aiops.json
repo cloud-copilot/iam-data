@@ -1,0 +1,384 @@
+{
+  "createinvestigation": {
+    "name": "CreateInvestigation",
+    "description": "Grants permission to create a new investigation in the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
+    ]
+  },
+  "createinvestigationevent": {
+    "name": "CreateInvestigationEvent",
+    "description": "Grants permission to create a new investigation event in the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
+    ]
+  },
+  "createinvestigationgroup": {
+    "name": "CreateInvestigationGroup",
+    "description": "Grants permission to create a new investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "aiops:TagResource",
+      "cloudtrail:DescribeTrails",
+      "iam:PassRole",
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey",
+      "sso:CreateApplication",
+      "sso:DeleteApplication",
+      "sso:PutApplicationAccessScope",
+      "sso:PutApplicationAssignmentConfiguration",
+      "sso:PutApplicationAuthenticationMethod",
+      "sso:PutApplicationGrant",
+      "sso:TagResource"
+    ]
+  },
+  "createinvestigationresource": {
+    "name": "CreateInvestigationResource",
+    "description": "Grants permission to create an investigation resource in the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudwatch:DescribeAlarmHistory",
+      "cloudwatch:DescribeAlarms",
+      "cloudwatch:GetInsightRuleReport",
+      "cloudwatch:GetMetricData",
+      "kms:GenerateDataKey",
+      "logs:GetQueryResults"
+    ]
+  },
+  "deleteinvestigation": {
+    "name": "DeleteInvestigation",
+    "description": "Grants permission to delete an investigation in the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sts:SetContext"
+    ]
+  },
+  "deleteinvestigationgroup": {
+    "name": "DeleteInvestigationGroup",
+    "description": "Grants permission to delete the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "sso:DeleteApplication"
+    ]
+  },
+  "deleteinvestigationgrouppolicy": {
+    "name": "DeleteInvestigationGroupPolicy",
+    "description": "Grants permission to delete the investigation group policy attached to an investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvestigation": {
+    "name": "GetInvestigation",
+    "description": "Grants permission to retrieve an investigation in the specified investigation group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvestigationevent": {
+    "name": "GetInvestigationEvent",
+    "description": "Grants permission to retrieve an investigation event in the specified investigation group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "getinvestigationgroup": {
+    "name": "GetInvestigationGroup",
+    "description": "Grants permission to retrieve the specified investigation group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvestigationgrouppolicy": {
+    "name": "GetInvestigationGroupPolicy",
+    "description": "Grants permission to retrieve the investigation group policy attached to an investigation group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinvestigationresource": {
+    "name": "GetInvestigationResource",
+    "description": "Grants permission to retrieve an investigation resource in the specified investigation group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "listinvestigationevents": {
+    "name": "ListInvestigationEvents",
+    "description": "Grants permission to list all investigation events in the specified investigation group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvestigationgroups": {
+    "name": "ListInvestigationGroups",
+    "description": "Grants permission to list all investigation groups in the AWS account making the request",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvestigations": {
+    "name": "ListInvestigations",
+    "description": "Grants permission to list all investigations that are in the specified investigation group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putinvestigationgrouppolicy": {
+    "name": "PutInvestigationGroupPolicy",
+    "description": "Grants permission to create/update the investigation group policy attached to an investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or update the specified tags for the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the specified tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateinvestigation": {
+    "name": "UpdateInvestigation",
+    "description": "Grants permission to update an investigation in the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
+    ]
+  },
+  "updateinvestigationevent": {
+    "name": "UpdateInvestigationEvent",
+    "description": "Grants permission to update an investigation event in the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
+    ]
+  },
+  "updateinvestigationgroup": {
+    "name": "UpdateInvestigationGroup",
+    "description": "Grants permission to update the specified investigation group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "cloudtrail:DescribeTrails",
+      "iam:PassRole",
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey",
+      "sso:CreateApplication",
+      "sso:DeleteApplication",
+      "sso:PutApplicationAccessScope",
+      "sso:PutApplicationAssignmentConfiguration",
+      "sso:PutApplicationAuthenticationMethod",
+      "sso:PutApplicationGrant",
+      "sso:TagResource"
+    ]
+  }
+}

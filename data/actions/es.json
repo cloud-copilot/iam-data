@@ -30,13 +30,37 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "adddirectquerydatasource": {
+    "name": "AddDirectQueryDataSource",
+    "description": "Grants permission to add the data source for the provided OpenSearch arns",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "addtags": {
     "name": "AddTags",
-    "description": "Grants permission to attach resource tags to an OpenSearch Service domain",
+    "description": "Grants permission to attach resource tags to an OpenSearch Service domain, data source, or application",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -268,6 +292,21 @@
     "resourceTypes": [
       {
         "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedirectquerydatasource": {
+    "name": "DeleteDirectQueryDataSource",
+    "description": "Grants permission to delete the data source for the provided OpenSearch arns",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -818,6 +857,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdirectquerydatasource": {
+    "name": "GetDirectQueryDataSource",
+    "description": "Grants permission to get the data source for the provided OpenSearch arns",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "datasource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getdomainmaintenancestatus": {
     "name": "GetDomainMaintenanceStatus",
     "description": "Grants permission to retrieve the status of maintenance action for the node",
@@ -893,6 +947,21 @@
     "resourceTypes": [
       {
         "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdirectquerydatasources": {
+    "name": "ListDirectQueryDataSources",
+    "description": "Grants permission to retrieve a list of data source for the provided OpenSearch arns",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "datasource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -996,11 +1065,17 @@
   },
   "listtags": {
     "name": "ListTags",
-    "description": "Grants permission to display all resource tags for an OpenSearch Service domain",
+    "description": "Grants permission to display all resource tags for an OpenSearch Service domain, data source, or application",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1081,11 +1156,17 @@
   },
   "removetags": {
     "name": "RemoveTags",
-    "description": "Grants permission to remove resource tags from an OpenSearch Service domain",
+    "description": "Grants permission to remove resource tags from an OpenSearch Service domain, data source, or application",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "datasource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1177,6 +1258,21 @@
     "resourceTypes": [
       {
         "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedirectquerydatasource": {
+    "name": "UpdateDirectQueryDataSource",
+    "description": "Grants permission to update the data source for the provided OpenSearch arns",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "datasource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

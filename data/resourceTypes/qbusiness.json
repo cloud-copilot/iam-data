@@ -6,6 +6,13 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "integration": {
+    "key": "integration",
+    "arn": "arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/integration/${IntegrationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "retriever": {
     "key": "retriever",
     "arn": "arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/retriever/${RetrieverId}",
@@ -48,5 +55,12 @@
   "subscription": {
     "key": "subscription",
     "arn": "arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/subscription/${SubscriptionId}"
+  },
+  "data-accessor": {
+    "key": "data-accessor",
+    "arn": "arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/data-accessor/${DataAccessorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

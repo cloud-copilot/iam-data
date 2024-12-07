@@ -249,6 +249,33 @@
     ],
     "dependentActions": []
   },
+  "createbucketmetadatatableconfiguration": {
+    "name": "CreateBucketMetadataTableConfiguration",
+    "description": "Grants permission to create a new S3 Metadata configuration for a specified bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "s3tables:CreateNamespace",
+          "s3tables:CreateTable",
+          "s3tables:GetTable",
+          "s3tables:PutTablePolicy"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "createjob": {
     "name": "CreateJob",
     "description": "Grants permission to create a new Amazon S3 Batch Operations job",
@@ -506,6 +533,28 @@
   "deletebucket": {
     "name": "DeleteBucket",
     "description": "Grants permission to delete the bucket named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deletebucketmetadatatableconfiguration": {
+    "name": "DeleteBucketMetadataTableConfiguration",
+    "description": "Grants permission to delete the S3 Metadata configuration for a specified bucket",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1266,6 +1315,28 @@
   "getbucketlogging": {
     "name": "GetBucketLogging",
     "description": "Grants permission to return the logging status of an Amazon S3 bucket and the permissions users have to view or modify that status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketmetadatatableconfiguration": {
+    "name": "GetBucketMetadataTableConfiguration",
+    "description": "Grants permission to return the S3 Metadata configuration for a specified bucket",
     "accessLevel": "Read",
     "resourceTypes": [
       {

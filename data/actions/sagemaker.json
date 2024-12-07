@@ -86,6 +86,12 @@
         "dependentActions": []
       },
       {
+        "name": "cluster-scheduler-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "code-repository",
         "required": false,
         "conditionKeys": [],
@@ -93,6 +99,12 @@
       },
       {
         "name": "compilation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "compute-quota",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -320,6 +332,12 @@
         "dependentActions": []
       },
       {
+        "name": "reserved-capacity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "space",
         "required": false,
         "conditionKeys": [],
@@ -333,6 +351,12 @@
       },
       {
         "name": "training-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "training-plan",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -465,6 +489,21 @@
       },
       {
         "name": "training-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "callpartnerappapi": {
+    "name": "CallPartnerAppApi",
+    "description": "Grants permission for Partner App SDK to access the Partner App for reading or writing data use cases",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "partner-app",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -649,6 +688,48 @@
           "iam:PassRole",
           "sagemaker:AddTags"
         ]
+      },
+      {
+        "name": "reserved-capacity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "training-plan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createclusterschedulerconfig": {
+    "name": "CreateClusterSchedulerConfig",
+    "description": "Grants permission to create a cluster scheduler config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "eks:AssociateAccessPolicy",
+          "eks:DescribeCluster",
+          "eks:ListAssociatedAccessPolicies",
+          "sagemaker:AddTags",
+          "sagemaker:DescribeCluster"
+        ]
+      },
+      {
+        "name": "cluster-scheduler-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -690,6 +771,36 @@
           "iam:PassRole",
           "sagemaker:AddTags"
         ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcomputequota": {
+    "name": "CreateComputeQuota",
+    "description": "Grants permission to create a compute quota",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "eks:AssociateAccessPolicy",
+          "eks:DescribeCluster",
+          "eks:ListAssociatedAccessPolicies",
+          "sagemaker:AddTags",
+          "sagemaker:DescribeCluster"
+        ]
+      },
+      {
+        "name": "compute-quota",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1683,6 +1794,27 @@
     ],
     "dependentActions": []
   },
+  "createreservedcapacity": {
+    "name": "CreateReservedCapacity",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a reserved capacity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reserved-capacity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "sagemaker:AddTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createsharedmodel": {
     "name": "CreateSharedModel",
     "isPermissionOnly": true,
@@ -1757,6 +1889,18 @@
           "iam:PassRole",
           "sagemaker:AddTags"
         ]
+      },
+      {
+        "name": "reserved-capacity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "training-plan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1776,6 +1920,27 @@
       "sagemaker:VpcSubnets",
       "sagemaker:KeepAlivePeriod",
       "sagemaker:EnableRemoteDebug"
+    ],
+    "dependentActions": []
+  },
+  "createtrainingplan": {
+    "name": "CreateTrainingPlan",
+    "description": "Grants permission to create a training plan that allocates resources for scheduling workloads within a specified time range",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "training-plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "sagemaker:AddTags",
+          "sagemaker:CreateReservedCapacity"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -2049,6 +2214,21 @@
       "eks:DeleteAccessEntry"
     ]
   },
+  "deleteclusterschedulerconfig": {
+    "name": "DeleteClusterSchedulerConfig",
+    "description": "Grants permission to delete a cluster scheduler config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster-scheduler-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecoderepository": {
     "name": "DeleteCodeRepository",
     "description": "Grants permission to delete a CodeRepository",
@@ -2071,6 +2251,21 @@
     "resourceTypes": [
       {
         "name": "compilation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecomputequota": {
+    "name": "DeleteComputeQuota",
+    "description": "Grants permission to delete a compute quota",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "compute-quota",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2761,6 +2956,12 @@
         "dependentActions": []
       },
       {
+        "name": "cluster-scheduler-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "code-repository",
         "required": false,
         "conditionKeys": [],
@@ -2768,6 +2969,12 @@
       },
       {
         "name": "compilation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "compute-quota",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2995,6 +3202,12 @@
         "dependentActions": []
       },
       {
+        "name": "reserved-capacity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "space",
         "required": false,
         "conditionKeys": [],
@@ -3008,6 +3221,12 @@
       },
       {
         "name": "training-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "training-plan",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3282,6 +3501,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeclusterschedulerconfig": {
+    "name": "DescribeClusterSchedulerConfig",
+    "description": "Grants permission to get information about a cluster scheduler config",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster-scheduler-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describecoderepository": {
     "name": "DescribeCodeRepository",
     "description": "Grants permission to describe a CodeRepository",
@@ -3304,6 +3538,21 @@
     "resourceTypes": [
       {
         "name": "compilation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecomputequota": {
+    "name": "DescribeComputeQuota",
+    "description": "Grants permission to get information about a compute quota",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "compute-quota",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4047,6 +4296,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describetrainingplan": {
+    "name": "DescribeTrainingPlan",
+    "description": "Grants permission to return information about a specified training plan",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "training-plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describetransformjob": {
     "name": "DescribeTransformJob",
     "description": "Grants permission to return information about a transform job",
@@ -4488,6 +4752,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listclusterschedulerconfigs": {
+    "name": "ListClusterSchedulerConfigs",
+    "description": "Grants permission to list cluster scheduler configs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listclusters": {
     "name": "ListClusters",
     "description": "Grants permission to list SageMaker HyperPod clusters",
@@ -4507,6 +4779,14 @@
   "listcompilationjobs": {
     "name": "ListCompilationJobs",
     "description": "Grants permission to list compilation jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomputequotas": {
+    "name": "ListComputeQuotas",
+    "description": "Grants permission to list compute quotas",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -5126,6 +5406,12 @@
         "dependentActions": []
       },
       {
+        "name": "cluster-scheduler-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "code-repository",
         "required": false,
         "conditionKeys": [],
@@ -5133,6 +5419,12 @@
       },
       {
         "name": "compilation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "compute-quota",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -5360,6 +5652,12 @@
         "dependentActions": []
       },
       {
+        "name": "reserved-capacity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "space",
         "required": false,
         "conditionKeys": [],
@@ -5373,6 +5671,12 @@
       },
       {
         "name": "training-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "training-plan",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -5419,6 +5723,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtrainingplans": {
+    "name": "ListTrainingPlans",
+    "description": "Grants permission to list all the training plans that have been created in a specified account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -5576,6 +5888,14 @@
     "conditionKeys": [
       "sagemaker:SearchVisibilityCondition/${FilterKey}"
     ],
+    "dependentActions": []
+  },
+  "searchtrainingplanofferings": {
+    "name": "SearchTrainingPlanOfferings",
+    "description": "Grants permissions to search for the available training plan offerings that best match specified capacity requirements",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "sendheartbeat": {
@@ -6053,19 +6373,46 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": [
+          "eks:AssociateAccessPolicy",
+          "eks:CreateAccessEntry",
+          "eks:DeleteAccessEntry",
+          "eks:DescribeAccessEntry",
+          "eks:DescribeCluster",
+          "iam:PassRole",
+          "sagemaker:BatchDeleteClusterNodes"
+        ]
+      },
+      {
+        "name": "reserved-capacity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "training-plan",
+        "required": false,
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "eks:AssociateAccessPolicy",
-      "eks:CreateAccessEntry",
-      "eks:DeleteAccessEntry",
-      "eks:DescribeAccessEntry",
-      "eks:DescribeCluster",
-      "iam:PassRole",
-      "sagemaker:BatchDeleteClusterNodes"
-    ]
+    "dependentActions": []
+  },
+  "updateclusterschedulerconfig": {
+    "name": "UpdateClusterSchedulerConfig",
+    "description": "Grants permission to update a cluster scheduler config",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster-scheduler-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "updateclustersoftware": {
     "name": "UpdateClusterSoftware",
@@ -6091,6 +6438,21 @@
     "resourceTypes": [
       {
         "name": "code-repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecomputequota": {
+    "name": "UpdateComputeQuota",
+    "description": "Grants permission to update a compute quota",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "compute-quota",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

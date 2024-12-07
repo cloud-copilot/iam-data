@@ -227,6 +227,22 @@
       "sagemaker:ResourceTag/${TagKey}"
     ]
   },
+  "training-plan": {
+    "key": "training-plan",
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:training-plan/${TrainingPlanName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
+  },
+  "reserved-capacity": {
+    "key": "reserved-capacity",
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:reserved-capacity/${RandomString}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
+  },
   "project": {
     "key": "project",
     "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:project/${ProjectName}",
@@ -466,6 +482,22 @@
   "mlflow-tracking-server": {
     "key": "mlflow-tracking-server",
     "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:mlflow-tracking-server/${MlflowTrackingServerName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
+  },
+  "compute-quota": {
+    "key": "compute-quota",
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:compute-quota/${ComputeQuotaId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
+  },
+  "cluster-scheduler-config": {
+    "key": "cluster-scheduler-config",
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:cluster-scheduler-config/${ClusterSchedulerConfigId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "sagemaker:ResourceTag/${TagKey}"

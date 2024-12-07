@@ -1,12 +1,62 @@
 {
-  "servicenetwork": {
-    "key": "ServiceNetwork",
-    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetwork/${ServiceNetworkId}",
+  "accesslogsubscription": {
+    "key": "AccessLogSubscription",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:accesslogsubscription/${AccessLogSubscriptionId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "listener": {
+    "key": "Listener",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/listener/${ListenerId}",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
-      "vpc-lattice:AuthType"
+      "vpc-lattice:Protocol",
+      "vpc-lattice:TargetGroupArns"
+    ]
+  },
+  "resourceconfiguration": {
+    "key": "ResourceConfiguration",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:resourceconfiguration/${ResourceConfigurationId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "resourceendpointassociation": {
+    "key": "ResourceEndpointAssociation",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:resourceendpointassociation/${ResourceEndpointAssociationId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:ResourceConfigurationArn",
+      "vpc-lattice:VpcEndpointId"
+    ]
+  },
+  "resourcegateway": {
+    "key": "ResourceGateway",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:resourcegateway/${ResourceGatewayId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:VpcId"
+    ]
+  },
+  "rule": {
+    "key": "Rule",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/listener/${ListenerId}/rule/${RuleId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:TargetGroupArns"
     ]
   },
   "service": {
@@ -17,6 +67,38 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "vpc-lattice:AuthType"
+    ]
+  },
+  "servicenetwork": {
+    "key": "ServiceNetwork",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetwork/${ServiceNetworkId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:AuthType"
+    ]
+  },
+  "servicenetworkresourceassociation": {
+    "key": "ServiceNetworkResourceAssociation",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetworkresourceassociation/${ServiceNetworkResourceAssociationId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:ResourceConfigurationArn",
+      "vpc-lattice:ServiceNetworkArn"
+    ]
+  },
+  "servicenetworkserviceassociation": {
+    "key": "ServiceNetworkServiceAssociation",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetworkserviceassociation/${ServiceNetworkServiceAssociationId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:ServiceArn",
+      "vpc-lattice:ServiceNetworkArn"
     ]
   },
   "servicenetworkvpcassociation": {
@@ -31,17 +113,6 @@
       "vpc-lattice:VpcId"
     ]
   },
-  "servicenetworkserviceassociation": {
-    "key": "ServiceNetworkServiceAssociation",
-    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetworkserviceassociation/${ServiceNetworkServiceAssociationId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "vpc-lattice:ServiceArn",
-      "vpc-lattice:ServiceNetworkArn"
-    ]
-  },
   "targetgroup": {
     "key": "TargetGroup",
     "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:targetgroup/${TargetGroupId}",
@@ -50,36 +121,6 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "vpc-lattice:VpcId"
-    ]
-  },
-  "listener": {
-    "key": "Listener",
-    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/listener/${ListenerId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "vpc-lattice:Protocol",
-      "vpc-lattice:TargetGroupArns"
-    ]
-  },
-  "rule": {
-    "key": "Rule",
-    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/listener/${ListenerId}/rule/${RuleId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "vpc-lattice:TargetGroupArns"
-    ]
-  },
-  "accesslogsubscription": {
-    "key": "AccessLogSubscription",
-    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:accesslogsubscription/${AccessLogSubscriptionId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
     ]
   }
 }

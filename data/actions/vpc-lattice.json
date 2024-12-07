@@ -1,4 +1,13 @@
 {
+  "associateviaawsservice-eventsandstates": {
+    "name": "AssociateViaAWSService-EventsAndStates",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate a resource configuration through Amazon EventBridge and AWS Step Functions service networks",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createaccesslogsubscription": {
     "name": "CreateAccessLogSubscription",
     "description": "Grants permission to create an access log subscription",
@@ -12,11 +21,29 @@
           "logs:CreateLogDelivery",
           "logs:GetLogDelivery"
         ]
+      },
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -33,10 +60,57 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:Protocol",
-      "vpc-lattice:TargetGroupArns",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "vpc-lattice:Protocol",
+      "vpc-lattice:TargetGroupArns"
+    ],
+    "dependentActions": []
+  },
+  "createresourceconfiguration": {
+    "name": "CreateResourceConfiguration",
+    "description": "Grants permission to create a resource configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createresourcegateway": {
+    "name": "CreateResourceGateway",
+    "description": "Grants permission to create a resource gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:VpcId"
     ],
     "dependentActions": []
   },
@@ -53,9 +127,9 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:TargetGroupArns",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "vpc-lattice:TargetGroupArns"
     ],
     "dependentActions": []
   },
@@ -74,9 +148,9 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:AuthType",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "vpc-lattice:AuthType"
     ],
     "dependentActions": []
   },
@@ -95,9 +169,41 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:AuthType",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "vpc-lattice:AuthType"
+    ],
+    "dependentActions": []
+  },
+  "createservicenetworkresourceassociation": {
+    "name": "CreateServiceNetworkResourceAssociation",
+    "description": "Grants permission to create an association between a service network and a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetwork",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:ResourceConfigurationArn",
+      "vpc-lattice:ServiceNetworkArn"
     ],
     "dependentActions": []
   },
@@ -126,10 +232,10 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:ServiceNetworkArn",
-      "vpc-lattice:ServiceArn",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "vpc-lattice:ServiceArn",
+      "vpc-lattice:ServiceNetworkArn"
     ],
     "dependentActions": []
   },
@@ -154,12 +260,21 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:VpcId",
-      "vpc-lattice:ServiceNetworkArn",
-      "vpc-lattice:SecurityGroupIds",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "vpc-lattice:SecurityGroupIds",
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
     ],
+    "dependentActions": []
+  },
+  "createservicenetworkvpcendpointassociation": {
+    "name": "CreateServiceNetworkVpcEndpointAssociation",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an association between a service network and VPC endpoint",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createtargetgroup": {
@@ -177,9 +292,9 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:VpcId",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "vpc-lattice:VpcId"
     ],
     "dependentActions": []
   },
@@ -241,11 +356,68 @@
     ],
     "dependentActions": []
   },
+  "deleteresourceconfiguration": {
+    "name": "DeleteResourceConfiguration",
+    "description": "Grants permission to delete a resource configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourceendpointassociation": {
+    "name": "DeleteResourceEndpointAssociation",
+    "description": "Grants permission to delete a resource endpoint association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcegateway": {
+    "name": "DeleteResourceGateway",
+    "description": "Grants permission to delete a resource gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete a resource policy",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "Service",
         "required": false,
@@ -313,6 +485,23 @@
     ],
     "dependentActions": []
   },
+  "deleteservicenetworkresourceassociation": {
+    "name": "DeleteServiceNetworkResourceAssociation",
+    "description": "Grants permission to delete the association between a service network and resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleteservicenetworkserviceassociation": {
     "name": "DeleteServiceNetworkServiceAssociation",
     "description": "Grants permission to delete a service network service association",
@@ -326,9 +515,9 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:ServiceNetworkArn",
+      "aws:ResourceTag/${TagKey}",
       "vpc-lattice:ServiceArn",
-      "aws:ResourceTag/${TagKey}"
+      "vpc-lattice:ServiceNetworkArn"
     ],
     "dependentActions": []
   },
@@ -345,9 +534,9 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:VpcId",
+      "aws:ResourceTag/${TagKey}",
       "vpc-lattice:ServiceNetworkArn",
-      "aws:ResourceTag/${TagKey}"
+      "vpc-lattice:VpcId"
     ],
     "dependentActions": []
   },
@@ -440,11 +629,51 @@
     ],
     "dependentActions": []
   },
+  "getresourceconfiguration": {
+    "name": "GetResourceConfiguration",
+    "description": "Grants permission to get information about a resource configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getresourcegateway": {
+    "name": "GetResourceGateway",
+    "description": "Grants permission to get information about a resource gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getresourcepolicy": {
     "name": "GetResourcePolicy",
     "description": "Grants permission to get information about a resource policy",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "Service",
         "required": false,
@@ -512,6 +741,23 @@
     ],
     "dependentActions": []
   },
+  "getservicenetworkresourceassociation": {
+    "name": "GetServiceNetworkResourceAssociation",
+    "description": "Grants permission to get information about an association between a service network and resource configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ServiceNetworkResourceAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getservicenetworkserviceassociation": {
     "name": "GetServiceNetworkServiceAssociation",
     "description": "Grants permission to get information about a service network and service association",
@@ -525,9 +771,9 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:ServiceNetworkArn",
+      "aws:ResourceTag/${TagKey}",
       "vpc-lattice:ServiceArn",
-      "aws:ResourceTag/${TagKey}"
+      "vpc-lattice:ServiceNetworkArn"
     ],
     "dependentActions": []
   },
@@ -544,9 +790,9 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:VpcId",
+      "aws:ResourceTag/${TagKey}",
       "vpc-lattice:ServiceNetworkArn",
-      "aws:ResourceTag/${TagKey}"
+      "vpc-lattice:VpcId"
     ],
     "dependentActions": []
   },
@@ -583,9 +829,44 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listresourceconfigurations": {
+    "name": "ListResourceConfigurations",
+    "description": "Grants permission to list some or all resource configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourceendpointassociations": {
+    "name": "ListResourceEndpointAssociations",
+    "description": "Grants permission to list some or all associations between a resource configuration and VPC endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "vpc-lattice:ResourceConfigurationArn",
+      "vpc-lattice:VpcEndpointId"
+    ],
+    "dependentActions": []
+  },
+  "listresourcegateways": {
+    "name": "ListResourceGateways",
+    "description": "Grants permission to list some or all resource gateways",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listrules": {
     "name": "ListRules",
     "description": "Grants permission to list some or all rules",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listservicenetworkresourceassociations": {
+    "name": "ListServiceNetworkResourceAssociations",
+    "description": "Grants permission to list some or all associations between a service network and resource configuration",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -597,8 +878,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "vpc-lattice:ServiceNetworkArn",
-      "vpc-lattice:ServiceArn"
+      "vpc-lattice:ServiceArn",
+      "vpc-lattice:ServiceNetworkArn"
     ],
     "dependentActions": []
   },
@@ -608,9 +889,17 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "vpc-lattice:VpcId",
-      "vpc-lattice:ServiceNetworkArn"
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
     ],
+    "dependentActions": []
+  },
+  "listservicenetworkvpcendpointassociations": {
+    "name": "ListServiceNetworkVpcEndpointAssociations",
+    "description": "Grants permission to list some or all associations between a service network and VPC endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listservicenetworks": {
@@ -683,9 +972,15 @@
   },
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
-    "description": "Grants permission to create a resource policy for a service network or a service",
+    "description": "Grants permission to create a resource policy for a resource configuration, service, or service network",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "Service",
         "required": false,
@@ -735,6 +1030,24 @@
         "dependentActions": []
       },
       {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Rule",
         "required": false,
         "conditionKeys": [],
@@ -748,6 +1061,12 @@
       },
       {
         "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkResourceAssociation",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -772,9 +1091,9 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -796,6 +1115,24 @@
         "dependentActions": []
       },
       {
+        "name": "ResourceConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResourceGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Rule",
         "required": false,
         "conditionKeys": [],
@@ -809,6 +1146,12 @@
       },
       {
         "name": "ServiceNetwork",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceNetworkResourceAssociation",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -870,8 +1213,43 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:TargetGroupArns",
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:TargetGroupArns"
+    ],
+    "dependentActions": []
+  },
+  "updateresourceconfiguration": {
+    "name": "UpdateResourceConfiguration",
+    "description": "Grants permission to update a resource configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateresourcegateway": {
+    "name": "UpdateResourceGateway",
+    "description": "Grants permission to update a resource gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResourceGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:SecurityGroupIds"
     ],
     "dependentActions": []
   },
@@ -888,8 +1266,8 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:TargetGroupArns",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:TargetGroupArns"
     ],
     "dependentActions": []
   },
@@ -906,8 +1284,8 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:AuthType",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:AuthType"
     ],
     "dependentActions": []
   },
@@ -924,8 +1302,8 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:AuthType",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "vpc-lattice:AuthType"
     ],
     "dependentActions": []
   },
@@ -945,10 +1323,11 @@
       }
     ],
     "conditionKeys": [
-      "vpc-lattice:VpcId",
-      "vpc-lattice:ServiceNetworkArn",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "vpc-lattice:SecurityGroupIds",
-      "aws:ResourceTag/${TagKey}"
+      "vpc-lattice:ServiceNetworkArn",
+      "vpc-lattice:VpcId"
     ],
     "dependentActions": []
   },

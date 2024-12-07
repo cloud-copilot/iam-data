@@ -93,6 +93,19 @@
     ],
     "dependentActions": []
   },
+  "createwebapp": {
+    "name": "CreateWebApp",
+    "description": "Grants permission to create a webapp",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
   "createworkflow": {
     "name": "CreateWorkflow",
     "description": "Grants permission to create a workflow",
@@ -231,6 +244,36 @@
     "resourceTypes": [
       {
         "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletewebapp": {
+    "name": "DeleteWebApp",
+    "description": "Grants permission to delete webapp",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletewebappcustomization": {
+    "name": "DeleteWebAppCustomization",
+    "description": "Grants permission to delete webapp customization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -389,6 +432,36 @@
     "resourceTypes": [
       {
         "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describewebapp": {
+    "name": "DescribeWebApp",
+    "description": "Grants permission to describe a webapp",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describewebappcustomization": {
+    "name": "DescribeWebAppCustomization",
+    "description": "Grants permission to describe a webapp customization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "webapp",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -643,6 +716,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listwebapps": {
+    "name": "ListWebApps",
+    "description": "Grants permission to list webapps",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listworkflows": {
     "name": "ListWorkflows",
     "description": "Grants permission to list workflows",
@@ -774,6 +855,12 @@
         "dependentActions": []
       },
       {
+        "name": "webapp",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "workflow",
         "required": false,
         "conditionKeys": [],
@@ -859,6 +946,12 @@
       },
       {
         "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webapp",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -988,6 +1081,40 @@
     "resourceTypes": [
       {
         "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatewebapp": {
+    "name": "UpdateWebApp",
+    "description": "Grants permission to update the configuration of a webapp",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatewebappcustomization": {
+    "name": "UpdateWebAppCustomization",
+    "description": "Grants permission to update the configuration of a webapp cutomization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webapp",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

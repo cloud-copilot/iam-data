@@ -706,6 +706,10 @@
           "app-integrations:CreateEventIntegrationAssociation",
           "app-integrations:GetApplication",
           "cases:GetDomain",
+          "chime:AssociateVoiceConnectorConnect",
+          "chime:DisassociateVoiceConnectorConnect",
+          "chime:TagResource",
+          "chime:UntagResource",
           "connect:DescribeInstance",
           "ds:DescribeDirectories",
           "events:PutRule",
@@ -2707,7 +2711,9 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
-          "sms-voice:DescribePhoneNumbers"
+          "sms-voice:DescribePhoneNumbers",
+          "social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber",
+          "social-messaging:TagResource"
         ]
       },
       {
@@ -4179,6 +4185,15 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "sendintegrationevent": {
+    "name": "SendIntegrationEvent",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send integration events using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "sendoutboundemail": {
     "name": "SendOutboundEmail",
     "description": "Grants permission to send outbound email using the Amazon Connect API",
@@ -4298,6 +4313,30 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startemailcontact": {
+    "name": "StartEmailContact",
+    "description": "Grants permission to initiate an inbound email using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact-flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
     "dependentActions": []
   },
   "startforecastingplanningschedulingintegration": {

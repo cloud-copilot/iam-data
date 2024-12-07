@@ -1,0 +1,461 @@
+{
+  "createnamespace": {
+    "name": "CreateNamespace",
+    "description": "Grants permission to create a namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtable": {
+    "name": "CreateTable",
+    "description": "Grants permission to create a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace"
+    ],
+    "dependentActions": []
+  },
+  "createtablebucket": {
+    "name": "CreateTableBucket",
+    "description": "Grants permission to create a table bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenamespace": {
+    "name": "DeleteNamespace",
+    "description": "Grants permission to delete a namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace"
+    ],
+    "dependentActions": []
+  },
+  "deletetable": {
+    "name": "DeleteTable",
+    "description": "Grants permission to delete a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "deletetablebucket": {
+    "name": "DeleteTableBucket",
+    "description": "Grants permission to delete a table bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetablebucketpolicy": {
+    "name": "DeleteTableBucketPolicy",
+    "description": "Grants permission to delete a policy on a table bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetablepolicy": {
+    "name": "DeleteTablePolicy",
+    "description": "Grants permission to delete a policy on a table",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "getnamespace": {
+    "name": "GetNamespace",
+    "description": "Grants permission to get a namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace"
+    ],
+    "dependentActions": []
+  },
+  "gettable": {
+    "name": "GetTable",
+    "description": "Grants permission to retrieve a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablebucket": {
+    "name": "GetTableBucket",
+    "description": "Grants permission to retrieve a table bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettablebucketmaintenanceconfiguration": {
+    "name": "GetTableBucketMaintenanceConfiguration",
+    "description": "Grants permission to retrieve a maintenance configuration on a table bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettablebucketpolicy": {
+    "name": "GetTableBucketPolicy",
+    "description": "Grants permission to retrieve a policy on a table bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettabledata": {
+    "name": "GetTableData",
+    "description": "Grants permission to read metadata and data objects from a table storage endpoint using S3 APIs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablemaintenanceconfiguration": {
+    "name": "GetTableMaintenanceConfiguration",
+    "description": "Grants permission to retrieve a maintenance configuration on a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablemaintenancejobstatus": {
+    "name": "GetTableMaintenanceJobStatus",
+    "description": "Grants permission to retrieve the status of maintenance jobs on a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablemetadatalocation": {
+    "name": "GetTableMetadataLocation",
+    "description": "Grants permission to retrieve the metadata location of a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablepolicy": {
+    "name": "GetTablePolicy",
+    "description": "Grants permission to retrieve a policy on a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "listnamespaces": {
+    "name": "ListNamespaces",
+    "description": "Grants permission to list namespaces",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtablebuckets": {
+    "name": "ListTableBuckets",
+    "description": "Grants permission to list table buckets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtables": {
+    "name": "ListTables",
+    "description": "Grants permission to list tables",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace"
+    ],
+    "dependentActions": []
+  },
+  "puttablebucketmaintenanceconfiguration": {
+    "name": "PutTableBucketMaintenanceConfiguration",
+    "description": "Grants permission to put a maintenance configuration on a table bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttablebucketpolicy": {
+    "name": "PutTableBucketPolicy",
+    "description": "Grants permission to create or overwrite a policy on a table bucket",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttabledata": {
+    "name": "PutTableData",
+    "description": "Grants permission to write metadata and data objects to a table storage endpoint using S3 APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "puttablemaintenanceconfiguration": {
+    "name": "PutTableMaintenanceConfiguration",
+    "description": "Grants permission to put a maintenance configuration on a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "puttablepolicy": {
+    "name": "PutTablePolicy",
+    "description": "Grants permission to create or overwrite a policy on a table",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "renametable": {
+    "name": "RenameTable",
+    "description": "Grants permission to rename a table or move a table across namespaces",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace"
+    ],
+    "dependentActions": []
+  },
+  "updatetablemetadatalocation": {
+    "name": "UpdateTableMetadataLocation",
+    "description": "Grants permission to update the metadata location of a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  }
+}

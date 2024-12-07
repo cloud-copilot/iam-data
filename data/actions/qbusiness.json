@@ -25,6 +25,23 @@
     ],
     "dependentActions": []
   },
+  "associatepermission": {
+    "name": "AssociatePermission",
+    "description": "Associate resource based policy statement to the application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "qbusiness:PutResourcePolicy"
+    ]
+  },
   "batchdeletedocument": {
     "name": "BatchDeleteDocument",
     "description": "Grants permission to batch delete document",
@@ -129,6 +146,21 @@
     ],
     "dependentActions": []
   },
+  "createdataaccessor": {
+    "name": "CreateDataAccessor",
+    "description": "Create DataAccessor to the application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createdatasource": {
     "name": "CreateDataSource",
     "description": "Grants permission to create a data source for a given application and index",
@@ -156,6 +188,24 @@
   "createindex": {
     "name": "CreateIndex",
     "description": "Grants permission to create an index for a given application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createintegration": {
+    "name": "CreateIntegration",
+    "description": "Grants permission to create a new integration for a Q Business application",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -311,6 +361,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletedataaccessor": {
+    "name": "DeleteDataAccessor",
+    "description": "Delete DataAccessor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-accessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletedatasource": {
     "name": "DeleteDataSource",
     "description": "Grants permission to delete a DataSource",
@@ -372,6 +443,27 @@
       },
       {
         "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteintegration": {
+    "name": "DeleteIntegration",
+    "description": "Grants permission to delete an integration for a Q Business application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -474,6 +566,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disassociatepermission": {
+    "name": "DisassociatePermission",
+    "description": "Disassociate resource based policy statement to the application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "qbusiness:PutResourcePolicy"
+    ]
+  },
   "getapplication": {
     "name": "GetApplication",
     "description": "Grants permission to get an application",
@@ -496,6 +605,27 @@
     "resourceTypes": [
       {
         "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataaccessor": {
+    "name": "GetDataAccessor",
+    "description": "Get DataAccessor",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-accessor",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -573,6 +703,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getintegration": {
+    "name": "GetIntegration",
+    "description": "Grants permission to get an integration for a Q Business application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getlicense": {
     "name": "GetLicense",
     "description": "Grants permission to get a license",
@@ -580,6 +731,21 @@
     "resourceTypes": [
       {
         "name": "user-license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmedia": {
+    "name": "GetMedia",
+    "description": "Grants permission to get the media associated to a system message",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -601,6 +767,21 @@
       },
       {
         "name": "plugin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicy": {
+    "name": "GetPolicy",
+    "description": "Get resource based policy of the application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -692,6 +873,21 @@
   "listconversations": {
     "name": "ListConversations",
     "description": "Grants permission to list all conversations for an application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdataaccessors": {
+    "name": "ListDataAccessors",
+    "description": "List DataAccessor for the application",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -809,6 +1005,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listintegrations": {
+    "name": "ListIntegrations",
+    "description": "Grants permission to list all integrations for a Q Business application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listmessages": {
     "name": "ListMessages",
     "description": "Grants permission to list all messages",
@@ -821,6 +1032,43 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpluginactions": {
+    "name": "ListPluginActions",
+    "description": "Grants permission to list the plugins actions of a plugin within application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "plugin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listplugintypeactions": {
+    "name": "ListPluginTypeActions",
+    "description": "Grants permission to list all the actions for a plugin type",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listplugintypemetadata": {
+    "name": "ListPluginTypeMetadata",
+    "description": "Grants permission to list all the plugin type metadata",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -881,6 +1129,12 @@
         "dependentActions": []
       },
       {
+        "name": "data-accessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "data-source",
         "required": false,
         "conditionKeys": [],
@@ -888,6 +1142,12 @@
       },
       {
         "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -973,11 +1233,41 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Put resource based policy statement to the application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "removeuserlicenses": {
     "name": "RemoveUserLicenses",
     "description": "Grants permission to remove licenses for one or more users",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchrelevantcontent": {
+    "name": "SearchRelevantContent",
+    "description": "Search relevant content from the Amazon Q Business Application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1000,6 +1290,27 @@
       },
       {
         "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdeployment": {
+    "name": "StartDeployment",
+    "description": "Grants permission to start deployment for an integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1047,6 +1358,12 @@
         "dependentActions": []
       },
       {
+        "name": "data-accessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "data-source",
         "required": false,
         "conditionKeys": [],
@@ -1054,6 +1371,12 @@
       },
       {
         "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1095,6 +1418,12 @@
         "dependentActions": []
       },
       {
+        "name": "data-accessor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "data-source",
         "required": false,
         "conditionKeys": [],
@@ -1102,6 +1431,12 @@
       },
       {
         "name": "index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1160,6 +1495,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatedataaccessor": {
+    "name": "UpdateDataAccessor",
+    "description": "Update DataAccessor",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-accessor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatedatasource": {
     "name": "UpdateDataSource",
     "description": "Grants permission to update a DataSource",
@@ -1200,6 +1556,27 @@
       },
       {
         "name": "index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateintegration": {
+    "name": "UpdateIntegration",
+    "description": "Grants permission to update an integration for a Q Business application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

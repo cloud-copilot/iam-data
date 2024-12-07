@@ -1,4 +1,43 @@
 {
+  "batchgetinvoiceprofile": {
+    "name": "BatchGetInvoiceProfile",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get invoice profile details for an account in your organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinvoiceunit": {
+    "name": "CreateInvoiceUnit",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create an invoice unit for your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteinvoiceunit": {
+    "name": "DeleteInvoiceUnit",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an invoice unit for your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "invoice-unit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getinvoiceemaildeliverypreferences": {
     "name": "GetInvoiceEmailDeliveryPreferences",
     "isPermissionOnly": true,
@@ -17,6 +56,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getinvoiceunit": {
+    "name": "GetInvoiceUnit",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get invoice units for your organization",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "invoice-unit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listinvoicesummaries": {
     "name": "ListInvoiceSummaries",
     "isPermissionOnly": true,
@@ -26,6 +81,32 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listinvoiceunits": {
+    "name": "ListInvoiceUnits",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list invoice units for your organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "invoice-unit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "putinvoiceemaildeliverypreferences": {
     "name": "PutInvoiceEmailDeliveryPreferences",
     "isPermissionOnly": true,
@@ -33,6 +114,61 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "invoice-unit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "invoice-unit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateinvoiceunit": {
+    "name": "UpdateInvoiceUnit",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an invoice unit for your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "invoice-unit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   }
 }

@@ -1,0 +1,191 @@
+{
+  "createcluster": {
+    "name": "CreateCluster",
+    "description": "Grants permission to create new clusters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmultiregionclusters": {
+    "name": "CreateMultiRegionClusters",
+    "description": "Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "dsql:CreateCluster"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "dsql:WitnessRegion"
+    ],
+    "dependentActions": []
+  },
+  "dbconnect": {
+    "name": "DbConnect",
+    "description": "Grants permission to connect to the database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "dbconnectadmin": {
+    "name": "DbConnectAdmin",
+    "description": "Grants permission to connect to the database with admin role. Connecting with any other role requires DbConnect permission",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecluster": {
+    "name": "DeleteCluster",
+    "description": "Grants permission to delete a cluster and all of its data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemultiregionclusters": {
+    "name": "DeleteMultiRegionClusters",
+    "description": "Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:DeleteCluster"
+    ]
+  },
+  "getcluster": {
+    "name": "GetCluster",
+    "description": "Grants permission to get information about a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusters": {
+    "name": "ListClusters",
+    "description": "Grants permission to retrieve a list of clusters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags on an Aurora DSQL resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to Aurora DSQL resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from Aurora DSQL resources",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecluster": {
+    "name": "UpdateCluster",
+    "description": "Grants permission to modify cluster attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "tablebucket": {
+    "key": "TableBucket",
+    "arn": "arn:${Partition}:s3tables:${Region}:${Account}:bucket/${TableBucketName}"
+  },
+  "table": {
+    "key": "Table",
+    "arn": "arn:${Partition}:s3tables:${Region}:${Account}:bucket/${TableBucketName}/table/${TableID}",
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ]
+  }
+}

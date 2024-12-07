@@ -1,4 +1,8 @@
 {
+  "multiregionparametergroup": {
+    "key": "multiregionparametergroup",
+    "arn": "arn:${Partition}:memorydb::${Account}:multiregionparametergroup/${MultiRegionParameterGroupName}"
+  },
   "parametergroup": {
     "key": "parametergroup",
     "arn": "arn:${Partition}:memorydb:${Region}:${Account}:parametergroup/${ParameterGroupName}",
@@ -11,6 +15,14 @@
     "arn": "arn:${Partition}:memorydb:${Region}:${Account}:subnetgroup/${SubnetGroupName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "multiregioncluster": {
+    "key": "multiregioncluster",
+    "arn": "arn:${Partition}:memorydb::${Account}:multiregioncluster/${ClusterName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "memorydb:TLSEnabled"
     ]
   },
   "cluster": {

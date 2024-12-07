@@ -3,9 +3,20 @@
     "key": "foundation-model",
     "arn": "arn:${Partition}:bedrock:${Region}::foundation-model/${ResourceId}"
   },
+  "async-invoke": {
+    "key": "async-invoke",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:async-invoke/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "inference-profile": {
     "key": "inference-profile",
     "arn": "arn:${Partition}:bedrock:${Region}:${Account}:inference-profile/${ResourceId}"
+  },
+  "default-prompt-router": {
+    "key": "default-prompt-router",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:default-prompt-router/${ResourceId}"
   },
   "application-inference-profile": {
     "key": "application-inference-profile",
@@ -132,5 +143,21 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
+  },
+  "bedrock-marketplace-model-endpoint": {
+    "key": "bedrock-marketplace-model-endpoint",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:marketplace/model-endpoint/all-access"
+  },
+  "data-automation-project": {
+    "key": "data-automation-project",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:data-automation-project/${ProjectId}"
+  },
+  "blueprint": {
+    "key": "blueprint",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:blueprint/${BlueprintId}"
+  },
+  "data-automation-invocation-job": {
+    "key": "data-automation-invocation-job",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:data-automation-invocation/${JobId}"
   }
 }

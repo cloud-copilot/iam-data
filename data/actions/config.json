@@ -1,4 +1,19 @@
 {
+  "associateresourcetypes": {
+    "name": "AssociateResourceTypes",
+    "description": "Grants permission to add all specified resource types to the RecordingGroup of configuration recorder and includes those resource types when recording",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchgetaggregateresourceconfig": {
     "name": "BatchGetAggregateResourceConfig",
     "description": "Grants permission to return the current configuration items for resources that are present in your AWS Config aggregator",
@@ -69,9 +84,16 @@
   },
   "deleteconfigurationrecorder": {
     "name": "DeleteConfigurationRecorder",
-    "description": "Grants permission to delete the configuration recorder",
+    "description": "Grants permission to delete the customer managed configuration recorder",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -188,6 +210,23 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservicelinkedconfigurationrecorder": {
+    "name": "DeleteServiceLinkedConfigurationRecorder",
+    "description": "Grants permission to delete the service-linked configuration recorder",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "config:ConfigurationRecorderServicePrincipal"
+    ],
     "dependentActions": []
   },
   "deletestoredquery": {
@@ -310,16 +349,34 @@
     "name": "DescribeConfigurationRecorderStatus",
     "description": "Grants permission to return the current status of the specified configuration recorder",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "config:ConfigurationRecorderServicePrincipal"
+    ],
     "dependentActions": []
   },
   "describeconfigurationrecorders": {
     "name": "DescribeConfigurationRecorders",
     "description": "Grants permission to return the names of one or more specified configuration recorders",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "config:ConfigurationRecorderServicePrincipal"
+    ],
     "dependentActions": []
   },
   "describeconformancepackcompliance": {
@@ -452,6 +509,21 @@
     "description": "Grants permission to return the details of one or more retention configurations",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateresourcetypes": {
+    "name": "DisassociateResourceTypes",
+    "description": "Grants permission to remove all specified resource types from the RecordingGroup of configuration recorder and excludes these resource types when recording",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -713,6 +785,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listconfigurationrecorders": {
+    "name": "ListConfigurationRecorders",
+    "description": "Grants permission to list the configuration recorder summaries for an AWS account in an AWS Region",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listconformancepackcompliancescores": {
     "name": "ListConformancePackComplianceScores",
     "description": "Grants permission to return the percentage of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations",
@@ -764,6 +844,12 @@
       },
       {
         "name": "ConfigurationAggregator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ConfigurationRecorder",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -856,11 +942,16 @@
   },
   "putconfigurationrecorder": {
     "name": "PutConfigurationRecorder",
-    "description": "Grants permission to create a new configuration recorder to record the selected resource configurations",
+    "description": "Grants permission to create or update a customer managed configuration recorder to record the selected resource configurations",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
   },
   "putconformancepack": {
     "name": "PutConformancePack",
@@ -996,6 +1087,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putservicelinkedconfigurationrecorder": {
+    "name": "PutServiceLinkedConfigurationRecorder",
+    "description": "Grants permission to create a new service-linked configuration recorder to record the resource configurations in scope for the linked service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "config:ConfigurationRecorderServicePrincipal"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole"
+    ]
+  },
   "putstoredquery": {
     "name": "PutStoredQuery",
     "description": "Grants permission to save a new query or updates an existing saved query",
@@ -1054,9 +1160,16 @@
   },
   "startconfigurationrecorder": {
     "name": "StartConfigurationRecorder",
-    "description": "Grants permission to start recording configurations of the AWS resources you have selected to record in your AWS account",
+    "description": "Grants permission to the customer managed configuration recorder to start recording configurations of the AWS resources you have selected to record in your AWS account",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1082,9 +1195,16 @@
   },
   "stopconfigurationrecorder": {
     "name": "StopConfigurationRecorder",
-    "description": "Grants permission to stop recording configurations of the AWS resources you have selected to record in your AWS account",
+    "description": "Grants permission to the customer managed configuration recorder to stop recording configurations of the AWS resources you have selected to record in your AWS account",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1107,6 +1227,12 @@
       },
       {
         "name": "ConfigurationAggregator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ConfigurationRecorder",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1161,6 +1287,12 @@
       },
       {
         "name": "ConfigurationAggregator",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ConfigurationRecorder",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
