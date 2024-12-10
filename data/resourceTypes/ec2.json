@@ -105,6 +105,17 @@
       "ec2:ResourceTag/${TagKey}"
     ]
   },
+  "declarative-policies-report": {
+    "key": "declarative-policies-report",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:declarative-policies-report/${DeclarativePoliciesReportId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "dedicated-host": {
     "key": "dedicated-host",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:dedicated-host/${DedicatedHostId}",
@@ -977,6 +988,17 @@
       "ec2:ResourceTag/${TagKey}"
     ]
   },
+  "verified-access-endpoint-target": {
+    "key": "verified-access-endpoint-target",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:verified-access-endpoint-target/${VerifiedAccessEndpointTargetId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "verified-access-group": {
     "key": "verified-access-group",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:verified-access-group/${VerifiedAccessGroupId}",
@@ -1046,6 +1068,17 @@
       "ec2:VolumeType"
     ]
   },
+  "vpc-block-public-access-exclusion": {
+    "key": "vpc-block-public-access-exclusion",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:vpc-block-public-access-exclusion/${VpcBlockPublicAccessExclusionId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "vpc-endpoint-connection": {
     "key": "vpc-endpoint-connection",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:vpc-endpoint-connection/${VpcEndpointConnectionId}",
@@ -1083,7 +1116,10 @@
       "ec2:Attribute/${AttributeName}",
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}",
-      "ec2:VpceServicePrivateDnsName"
+      "ec2:VpceServicePrivateDnsName",
+      "ec2:vpceMultiRegion",
+      "ec2:vpceServiceRegion",
+      "ec2:vpceSupportedRegion"
     ]
   },
   "vpc-endpoint-service-permission": {
