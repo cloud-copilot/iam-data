@@ -1,4 +1,37 @@
 {
+  "acceptconnection": {
+    "name": "AcceptConnection",
+    "description": "Grants permission to accept a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "associateautomationunitrole": {
+    "name": "AssociateAutomationUnitRole",
+    "description": "Grants permission to associate an IAM role to an automation unit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AutomationUnitResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associatecreatedartifact": {
     "name": "AssociateCreatedArtifact",
     "description": "Grants permission to associate a given AWS artifact to a MigrationTask",
@@ -29,6 +62,67 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatesourceresource": {
+    "name": "AssociateSourceResource",
+    "description": "Grants permission to associate source resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "migrationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchassociateiamrolewithconnection": {
+    "name": "BatchAssociateIamRoleWithConnection",
+    "description": "Grants permission to batch-associate IAM roles with a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdisassociateiamrolefromconnection": {
+    "name": "BatchDisassociateIamRoleFromConnection",
+    "description": "Grants permission to batch-disassociate IAM roles from a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createautomationrun": {
+    "name": "CreateAutomationRun",
+    "description": "Grants permission to create an automation unit run",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createautomationunit": {
+    "name": "CreateAutomationUnit",
+    "description": "Grants permission to create an automation unit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createhomeregioncontrol": {
     "name": "CreateHomeRegionControl",
     "description": "Grants permission to create a Migration Hub Home Region Control",
@@ -44,6 +138,51 @@
     "resourceTypes": [
       {
         "name": "progressUpdateStream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautomationrun": {
+    "name": "DeleteAutomationRun",
+    "description": "Grants permission to delete an automation unit run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AutomationRunResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautomationunit": {
+    "name": "DeleteAutomationUnit",
+    "description": "Grants permission to delete an automation unit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AutomationUnitResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnection": {
+    "name": "DeleteConnection",
+    "description": "Grants permission to delete a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionResource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -83,6 +222,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeautomationrun": {
+    "name": "DescribeAutomationRun",
+    "description": "Grants permission to describe an automation unit run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AutomationRunResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeautomationunit": {
+    "name": "DescribeAutomationUnit",
+    "description": "Grants permission to describe an automation unit",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AutomationUnitResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describehomeregioncontrols": {
     "name": "DescribeHomeRegionControls",
     "description": "Grants permission to list Home Region Controls",
@@ -98,6 +267,21 @@
     "resourceTypes": [
       {
         "name": "migrationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateautomationunitrole": {
+    "name": "DisassociateAutomationUnitRole",
+    "description": "Grants permission to disassociate an IAM role from an automation unit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AutomationUnitResource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -128,6 +312,36 @@
     "resourceTypes": [
       {
         "name": "migrationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatesourceresource": {
+    "name": "DisassociateSourceResource",
+    "description": "Grants permission to diassociate source resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "migrationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnection": {
+    "name": "GetConnection",
+    "description": "Grants permission to get a connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConnectionResource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -167,6 +381,45 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listautomationruns": {
+    "name": "ListAutomationRuns",
+    "description": "Grants permission to list automation unit runs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationunits": {
+    "name": "ListAutomationUnits",
+    "description": "Grants permission to list automation units",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectionroles": {
+    "name": "ListConnectionRoles",
+    "description": "Grants permission to list connection roles",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ConnectionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnections": {
+    "name": "ListConnections",
+    "description": "Grants permission to list connections",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcreatedartifacts": {
     "name": "ListCreatedArtifacts",
     "description": "Grants permission to list associated created artifacts for a MigrationTask",
@@ -197,6 +450,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listmigrationtaskupdates": {
+    "name": "ListMigrationTaskUpdates",
+    "description": "Grants permission to list migration tasks updates",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "migrationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listmigrationtasks": {
     "name": "ListMigrationTasks",
     "description": "Grants permission to list MigrationTasks",
@@ -208,6 +476,29 @@
   "listprogressupdatestreams": {
     "name": "ListProgressUpdateStreams",
     "description": "Grants permission to to list ProgressUpdateStreams",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsourceresources": {
+    "name": "ListSourceResources",
+    "description": "Grants permission to list source resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "migrationTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -249,6 +540,42 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectconnection": {
+    "name": "RejectConnection",
+    "description": "Grants permission to reject a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   }
 }

@@ -6,5 +6,27 @@
   "migrationtask": {
     "key": "migrationTask",
     "arn": "arn:${Partition}:mgh:${Region}:${Account}:progressUpdateStream/${Stream}/migrationTask/${Task}"
+  },
+  "automationrunresource": {
+    "key": "AutomationRunResource",
+    "arn": "arn:${Partition}:mgh:${Region}:${Account}:automation-run/${RunID}",
+    "conditionKeys": [
+      "mgh:AutomationRunResourceRunID"
+    ]
+  },
+  "automationunitresource": {
+    "key": "AutomationUnitResource",
+    "arn": "arn:${Partition}:mgh:${Region}:${Account}:automation-unit/${AutomationUnitId}",
+    "conditionKeys": [
+      "mgh:AutomationUnitResourceAutomationUnitArn"
+    ]
+  },
+  "connectionresource": {
+    "key": "ConnectionResource",
+    "arn": "arn:${Partition}:mgh:${Region}:${Account}:${ConnectionArn}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "mgh:ConnectionResourceConnectionArn"
+    ]
   }
 }
