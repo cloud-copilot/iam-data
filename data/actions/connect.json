@@ -824,6 +824,23 @@
     ],
     "dependentActions": []
   },
+  "createpushnotificationregistration": {
+    "name": "CreatePushNotificationRegistration",
+    "description": "Grants permission to create a push notification registration for an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "createqueue": {
     "name": "CreateQueue",
     "description": "Grants permission to create a queue in an Amazon Connect instance",
@@ -1387,6 +1404,23 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "deletepushnotificationregistration": {
+    "name": "DeletePushNotificationRegistration",
+    "description": "Grants permission to delete a push notification registration for an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
       "connect:InstanceId"
     ],
     "dependentActions": []
@@ -2875,7 +2909,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
     "dependentActions": []
   },
   "listcontactreferences": {
