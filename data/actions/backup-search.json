@@ -1,0 +1,192 @@
+{
+  "getsearchjob": {
+    "name": "GetSearchJob",
+    "description": "Grants permission to get details of a search job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "searchJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsearchresultexportjob": {
+    "name": "GetSearchResultExportJob",
+    "description": "Grants permission to get details of a search result export job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "searchExportJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsearchjobbackups": {
+    "name": "ListSearchJobBackups",
+    "description": "Grants permission to list backups in scope of a search job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "searchJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsearchjobresults": {
+    "name": "ListSearchJobResults",
+    "description": "Grants permission to list results of a search job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "searchJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsearchjobs": {
+    "name": "ListSearchJobs",
+    "description": "Grants permission to list search jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsearchresultexportjobs": {
+    "name": "ListSearchResultExportJobs",
+    "description": "Grants permission to list search result export jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "searchExportJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "searchJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsearchjob": {
+    "name": "StartSearchJob",
+    "description": "Grants permission to create a search job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startsearchresultexportjob": {
+    "name": "StartSearchResultExportJob",
+    "description": "Grants permission to start an export job for an existing search job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "searchJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "stopsearchjob": {
+    "name": "StopSearchJob",
+    "description": "Grants permission to stop an in-progress search job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "searchJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "searchExportJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "searchJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "searchExportJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "searchJob",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}
