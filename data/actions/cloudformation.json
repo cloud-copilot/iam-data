@@ -734,6 +734,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listhookresults": {
+    "name": "ListHookResults",
+    "description": "Grants permission to return Hook invocations result information for the specified target",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "stack",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "cloudformation:ChangeSetName"
+    ],
+    "dependentActions": []
+  },
   "listimports": {
     "name": "ListImports",
     "description": "Grants permission to list all stacks that are importing an exported output value",
@@ -1049,7 +1066,8 @@
     ],
     "conditionKeys": [
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "cloudformation:CreateAction"
     ],
     "dependentActions": []
   },
@@ -1086,7 +1104,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "cloudformation:CreateAction"
     ],
     "dependentActions": []
   },
