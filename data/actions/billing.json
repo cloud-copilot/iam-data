@@ -1,4 +1,57 @@
 {
+  "createbillingview": {
+    "name": "CreateBillingView",
+    "description": "Grants permission to create a billing view",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletebillingview": {
+    "name": "DeleteBillingView",
+    "description": "Grants permission to delete a billing view",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete a billing view resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getbillingdata": {
     "name": "GetBillingData",
     "isPermissionOnly": true,
@@ -35,6 +88,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getbillingview": {
+    "name": "GetBillingView",
+    "description": "Grants permission to get the metadata for a specified billing view",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getcontractinformation": {
     "name": "GetContractInformation",
     "isPermissionOnly": true,
@@ -62,6 +132,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get the resource policy specified billing view",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getsellerofrecord": {
     "name": "GetSellerOfRecord",
     "isPermissionOnly": true,
@@ -73,10 +160,44 @@
   },
   "listbillingviews": {
     "name": "ListBillingViews",
-    "description": "Grants permission to get a list of all your available billing views such as pro forma billing group related billing views",
+    "description": "Grants permission to get a list of all your available billing views",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsourceviewsforbillingview": {
+    "name": "ListSourceViewsForBillingView",
+    "description": "Grants permission to get the list of source views for a specified billing view",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to get the list of tags for a specified billing view",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "putcontractinformation": {
@@ -88,6 +209,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to put a billing view resource policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "redeemcredits": {
     "name": "RedeemCredits",
     "isPermissionOnly": true,
@@ -97,6 +236,43 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a specified billing view",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove a tag from a specified billing view",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "updatebillingpreferences": {
     "name": "UpdateBillingPreferences",
     "isPermissionOnly": true,
@@ -104,6 +280,23 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatebillingview": {
+    "name": "UpdateBillingView",
+    "description": "Grants permission to update a billing view",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updateiamaccesspreference": {

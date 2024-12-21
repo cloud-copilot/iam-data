@@ -1,4 +1,21 @@
 {
+  "cancelexporttask": {
+    "name": "CancelExportTask",
+    "description": "Grants permission to cancel an ongoing export task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "cancelimporttask": {
     "name": "CancelImportTask",
     "description": "Grants permission to cancel an ongoing import task",
@@ -68,7 +85,7 @@
       },
       {
         "name": "graph-snapshot",
-        "required": false,
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -86,7 +103,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "import-task",
+        "name": "graph",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -98,8 +115,8 @@
         ]
       },
       {
-        "name": "graph",
-        "required": false,
+        "name": "import-task",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -235,6 +252,23 @@
     ],
     "dependentActions": []
   },
+  "getexporttask": {
+    "name": "GetExportTask",
+    "description": "Grants permission to get details about an export task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getgraph": {
     "name": "GetGraph",
     "description": "Grants permission to get details about a graph",
@@ -350,6 +384,21 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "listexporttasks": {
+    "name": "ListExportTasks",
+    "description": "Grants permission to list the export tasks in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listgraphsnapshots": {
@@ -494,7 +543,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "graph-snapshot",
+        "name": "graph",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -504,8 +553,8 @@
         ]
       },
       {
-        "name": "graph",
-        "required": false,
+        "name": "graph-snapshot",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -518,6 +567,33 @@
     ],
     "dependentActions": []
   },
+  "startexporttask": {
+    "name": "StartExportTask",
+    "description": "Grants permission to export data from an existing graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "export-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "startimporttask": {
     "name": "StartImportTask",
     "description": "Grants permission to import data into an existing graph",
@@ -527,13 +603,19 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "import-task",
+        "required": true,
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
