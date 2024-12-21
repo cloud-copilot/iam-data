@@ -1,9 +1,9 @@
-import { readFile } from "fs/promises";
-import { join } from "path";
+import { readFile } from 'fs/promises'
+import { join } from 'path'
 
-let root = join(__dirname, '..', '..');
-if(__dirname.endsWith('src')) {
-  root = join(__dirname, '..');
+let root = join(__dirname, '..', '..')
+if (__dirname.endsWith('src')) {
+  root = join(__dirname, '..')
 }
 
 /**
@@ -13,6 +13,6 @@ if(__dirname.endsWith('src')) {
  * @returns the data from the file
  */
 export async function readRelativeFile<T>(pathParts: string[]): Promise<T> {
-  const contents = await readFile(join(root, ...pathParts), 'utf8');
-  return JSON.parse(contents);
+  const contents = await readFile(join(root, ...pathParts), 'utf8')
+  return JSON.parse(contents)
 }

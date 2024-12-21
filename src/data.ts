@@ -1,34 +1,34 @@
-import { readRelativeFile } from "./readRelativeFile.js";
+import { readRelativeFile } from './readRelativeFile.js'
 
-const dataCache: Record<string, any> = {};
-const requestCache: Record<string, Promise<any>> = {};
+const dataCache: Record<string, any> = {}
+const requestCache: Record<string, Promise<any>> = {}
 
 export async function readDataFile<T>(...pathParts: string[]): Promise<T> {
-  pathParts.unshift('data');
-  const file = pathParts.join('/');
+  pathParts.unshift('data')
+  const file = pathParts.join('/')
 
   // If the data is already cached, return it immediately.
   if (dataCache[file]) {
-    return dataCache[file];
+    return dataCache[file]
   }
 
   // If there's an ongoing request, return the existing Promise.
   if (requestCache[file] !== undefined) {
-    return requestCache[file];
+    return requestCache[file]
   }
 
   // Create a new Promise and store it in dataQueues synchronously.
   requestCache[file] = (async () => {
     try {
-      const data = await readRelativeFile(pathParts);
-      dataCache[file] = data; // Cache the fetched data.
-      return data;
+      const data = await readRelativeFile(pathParts)
+      dataCache[file] = data // Cache the fetched data.
+      return data
     } finally {
-      delete requestCache[file]; // Clean up the queue regardless of success or failure.
+      delete requestCache[file] // Clean up the queue regardless of success or failure.
     }
-  })();
+  })()
 
-  return requestCache[file];
+  return requestCache[file]
 }
 
 /**
@@ -38,7 +38,7 @@ export async function readDataFile<T>(...pathParts: string[]): Promise<T> {
  * @returns the action data for the service
  */
 export async function readActionData<T>(serviceKey: string): Promise<T> {
-  return readDataFile<T>('actions', `${serviceKey}.json`);
+  return readDataFile<T>('actions', `${serviceKey}.json`)
 }
 
 /**
@@ -48,7 +48,7 @@ export async function readActionData<T>(serviceKey: string): Promise<T> {
  * @returns the condition key data
  */
 export async function readConditionKeys<T>(serviceKey: string): Promise<T> {
-  return readDataFile<T>('conditionKeys', `${serviceKey}.json`);
+  return readDataFile<T>('conditionKeys', `${serviceKey}.json`)
 }
 
 /**
@@ -58,5 +58,5 @@ export async function readConditionKeys<T>(serviceKey: string): Promise<T> {
  * @returns the resource type data
  */
 export async function readResourceTypes<T>(serviceKey: string): Promise<T> {
-  return readDataFile<T>('resourceTypes', `${serviceKey}.json`);
+  return readDataFile<T>('resourceTypes', `${serviceKey}.json`)
 }

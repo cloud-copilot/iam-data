@@ -1,11 +1,11 @@
-import { readRelativeFile } from "./readRelativeFile.js";
+import { readRelativeFile } from './readRelativeFile.js'
 
 interface PackageInfo {
-  version: string;
-  updatedAt: string;
+  version: string
+  updatedAt: string
 }
 
-let packageCache: PackageInfo | undefined = undefined;
+let packageCache: PackageInfo | undefined = undefined
 
 /**
  * Get the package data version
@@ -13,19 +13,19 @@ let packageCache: PackageInfo | undefined = undefined;
  * @returns the package data version
  */
 async function getPackageData(): Promise<PackageInfo> {
-  if(!packageCache) {
-    const packageInfo = await readRelativeFile<typeof packageCache>(['package.json']);
-    packageCache = packageInfo;
+  if (!packageCache) {
+    const packageInfo = await readRelativeFile<typeof packageCache>(['package.json'])
+    packageCache = packageInfo
   }
-  return packageCache!;
+  return packageCache!
 }
 
 /**
  * Get the version of the package
  */
 export async function iamDataVersion(): Promise<string> {
-  const data = await getPackageData();
-  return data.version;
+  const data = await getPackageData()
+  return data.version
 }
 
 /**
@@ -34,6 +34,6 @@ export async function iamDataVersion(): Promise<string> {
  * @returns the date the data was last updated
  */
 export async function iamDataUpdatedAt(): Promise<Date> {
-  const data = await getPackageData();
-  return new Date(data.updatedAt);
+  const data = await getPackageData()
+  return new Date(data.updatedAt)
 }

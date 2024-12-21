@@ -1,19 +1,19 @@
-import { readActionData } from "./data.js"
+import { readActionData } from './data.js'
 
 interface ActionResourceType {
-  "name": string,
-  "required": boolean,
-  "conditionKeys": string[],
-  "dependentActions": string[]
+  name: string
+  required: boolean
+  conditionKeys: string[]
+  dependentActions: string[]
 }
 
 interface Action {
-  "name": string
-  "description": string
-  "accessLevel": "Read" | "Write" | "List" | "Tagging",
-  "resourceTypes": ActionResourceType[],
-  "conditionKeys": string[],
-  "dependentActions": string[]
+  name: string
+  description: string
+  accessLevel: 'Read' | 'Write' | 'List' | 'Tagging'
+  resourceTypes: ActionResourceType[]
+  conditionKeys: string[]
+  dependentActions: string[]
 }
 
 /**
@@ -24,7 +24,7 @@ interface Action {
  */
 export async function iamActionsForService(serviceKey: string): Promise<string[]> {
   const data = await readActionData<Record<string, Action>>(serviceKey.toLowerCase())
-  return Object.values(data).map(action => action.name)
+  return Object.values(data).map((action) => action.name)
 }
 
 /**
@@ -49,7 +49,7 @@ export async function iamActionExists(serviceKey: string, actionKey: string): Pr
  */
 export async function iamActionDetails(serviceKey: string, actionKey: string): Promise<Action> {
   const data = await readActionData<Record<string, Action>>(serviceKey.toLowerCase())
-  if(!data[actionKey.toLowerCase()]) {
+  if (!data[actionKey.toLowerCase()]) {
     throw new Error(`Action ${actionKey} does not exist for service ${serviceKey}`)
   }
   return data[actionKey.toLowerCase()]

@@ -20,7 +20,9 @@
     "test": "npx vitest --run --coverage",
     "clean": "rm -rf dist",
     "build": "npx tsc -p tsconfig.cjs.json && npx tsc -p tsconfig.esm.json && ./postbuild.sh",
-    "release": "npm install && npm run clean && npm run build && npm run test && npm publish"
+    "release": "npm install && npm run clean && npm run build && npm run test && npm run format-check && npm publish",
+    "format": "npx prettier --write src/",
+    "format-check": "npx prettier --check src/"
   },
   "keywords": [
     "AWS",
@@ -29,9 +31,11 @@
   "author": "David Kerber <dave@cloudcopilot.io>",
   "license": "MIT",
   "devDependencies": {
+    "@cloud-copilot/prettier-config": "^0.1.1",
     "@types/node": "^22.5.0",
     "@vitest/coverage-v8": "^2.0.5",
     "typescript": "^5.5.4",
     "vitest": "^2.0.5"
-  }
+  },
+  "prettier": "@cloud-copilot/prettier-config"
 }

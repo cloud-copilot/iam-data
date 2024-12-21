@@ -1,4 +1,4 @@
-import { readDataFile } from './data.js';
+import { readDataFile } from './data.js'
 
 /**
  * Get keys for all services
@@ -17,7 +17,7 @@ export async function iamServiceKeys(): Promise<string[]> {
  */
 export async function iamServiceExists(serviceKey: string): Promise<boolean> {
   const data = await readDataFile<Record<string, string>>('serviceNames.json')
-  return !!data[serviceKey.toLowerCase()];
+  return !!data[serviceKey.toLowerCase()]
 }
 
 /**
@@ -29,7 +29,7 @@ export async function iamServiceExists(serviceKey: string): Promise<boolean> {
  */
 export async function iamServiceName(serviceKey: string): Promise<string> {
   const data = await readDataFile<Record<string, string>>('serviceNames.json')
-  if(!data[serviceKey.toLowerCase()]) {
+  if (!data[serviceKey.toLowerCase()]) {
     throw new Error(`Service ${serviceKey} does not exist`)
   }
   return data[serviceKey.toLowerCase()]

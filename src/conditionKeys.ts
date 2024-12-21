@@ -1,8 +1,8 @@
-import { readConditionKeys } from "./data.js"
+import { readConditionKeys } from './data.js'
 
 export interface ConditionKey {
-  key: string,
-  description: string,
+  key: string
+  description: string
   type: string
 }
 
@@ -14,7 +14,7 @@ export interface ConditionKey {
  */
 export async function iamConditionKeysForService(serviceKey: string): Promise<string[]> {
   const data = await readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
-  return Object.values(data).map(conditionKey => conditionKey.key)
+  return Object.values(data).map((conditionKey) => conditionKey.key)
 }
 
 /**
@@ -24,7 +24,10 @@ export async function iamConditionKeysForService(serviceKey: string): Promise<st
  * @param conditionKey the condition key to check for, is case insensitive
  * @returns true if the condition key exists, false otherwise
  */
-export async function iamConditionKeyExists(serviceKey: string, conditionKey: string): Promise<boolean> {
+export async function iamConditionKeyExists(
+  serviceKey: string,
+  conditionKey: string
+): Promise<boolean> {
   const data = await readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
   return !!data[conditionKey.toLowerCase()]
 }
@@ -37,9 +40,12 @@ export async function iamConditionKeyExists(serviceKey: string, conditionKey: st
  * @throws error if the service or condition key does not exist
  * @returns the details for the condition key
  */
-export async function iamConditionKeyDetails(serviceKey: string, conditionKey: string): Promise<ConditionKey> {
+export async function iamConditionKeyDetails(
+  serviceKey: string,
+  conditionKey: string
+): Promise<ConditionKey> {
   const data = await readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
-  if(!data[conditionKey.toLowerCase()]) {
+  if (!data[conditionKey.toLowerCase()]) {
     throw new Error(`Condition key ${conditionKey} does not exist for service ${serviceKey}`)
   }
   return data[conditionKey.toLowerCase()]
