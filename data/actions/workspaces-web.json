@@ -20,6 +20,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatedataprotectionsettings": {
+    "name": "AssociateDataProtectionSettings",
+    "description": "Grants permission to associate data protection settings with web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataProtectionSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associateipaccesssettings": {
     "name": "AssociateIpAccessSettings",
     "description": "Grants permission to associate ip access settings with web portals",
@@ -151,6 +172,17 @@
       "kms:GenerateDataKey"
     ]
   },
+  "createdataprotectionsettings": {
+    "name": "CreateDataProtectionSettings",
+    "description": "Grants permission to create data protection settings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createidentityprovider": {
     "name": "CreateIdentityProvider",
     "description": "Grants permission to create identity providers",
@@ -169,7 +201,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createipaccesssettings": {
@@ -253,6 +288,21 @@
     "resourceTypes": [
       {
         "name": "browserSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataprotectionsettings": {
+    "name": "DeleteDataProtectionSettings",
+    "description": "Grants permission to delete data protection settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataProtectionSettings",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -387,6 +437,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disassociatedataprotectionsettings": {
+    "name": "DisassociateDataProtectionSettings",
+    "description": "Grants permission to disassociate data protection logging from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "disassociateipaccesssettings": {
     "name": "DisassociateIpAccessSettings",
     "description": "Grants permission to disassociate ip access logging from web portals",
@@ -484,6 +549,21 @@
     "resourceTypes": [
       {
         "name": "browserSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataprotectionsettings": {
+    "name": "GetDataProtectionSettings",
+    "description": "Grants permission to get details on data protection settings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataProtectionSettings",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -650,6 +730,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdataprotectionsettings": {
+    "name": "ListDataProtectionSettings",
+    "description": "Grants permission to list data protection settings",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listidentityproviders": {
     "name": "ListIdentityProviders",
     "description": "Grants permission to list identity providers",
@@ -756,6 +844,18 @@
         "dependentActions": []
       },
       {
+        "name": "dataProtectionSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identityProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ipAccessSettings",
         "required": false,
         "conditionKeys": [],
@@ -810,6 +910,18 @@
         "dependentActions": []
       },
       {
+        "name": "dataProtectionSettings",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identityProvider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ipAccessSettings",
         "required": false,
         "conditionKeys": [],
@@ -858,6 +970,21 @@
     "resourceTypes": [
       {
         "name": "browserSettings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedataprotectionsettings": {
+    "name": "UpdateDataProtectionSettings",
+    "description": "Grants permission to update data protection settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataProtectionSettings",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -8,7 +8,10 @@
   },
   "identityprovider": {
     "key": "identityProvider",
-    "arn": "arn:${Partition}:workspaces-web:${Region}:${Account}:identityProvider/${PortalId}/${IdentityProviderId}"
+    "arn": "arn:${Partition}:workspaces-web:${Region}:${Account}:identityProvider/${PortalId}/${IdentityProviderId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "networksettings": {
     "key": "networkSettings",
@@ -48,6 +51,13 @@
   "ipaccesssettings": {
     "key": "ipAccessSettings",
     "arn": "arn:${Partition}:workspaces-web:${Region}:${Account}:ipAccessSettings/${IpAccessSettingsId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "dataprotectionsettings": {
+    "key": "dataProtectionSettings",
+    "arn": "arn:${Partition}:workspaces-web:${Region}:${Account}:dataProtectionSettings/${DataProtectionSettingsId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
