@@ -6,7 +6,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": [
       "appstream:DescribeStacks",
@@ -181,8 +182,29 @@
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a resource",
     "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "softwareset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "tagresource": {
