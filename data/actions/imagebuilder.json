@@ -674,6 +674,32 @@
       "kms:GenerateDataKeyWithoutPlaintext"
     ]
   },
+  "importdiskimage": {
+    "name": "ImportDiskImage",
+    "description": "Grants permission to import a disk image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "imageVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "iam:PassRole",
+      "imagebuilder:GetInfrastructureConfiguration",
+      "imagebuilder:GetWorkflow",
+      "imagebuilder:TagResource",
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+  },
   "importvmimage": {
     "name": "ImportVmImage",
     "description": "Grants permission to import an image",

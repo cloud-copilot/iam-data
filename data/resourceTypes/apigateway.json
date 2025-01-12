@@ -342,6 +342,19 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "domainnameaccessassociation": {
+    "key": "DomainNameAccessAssociation",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/domainnameaccessassociations/domainname/${DomainName}/${SourceType}/${SourceId}"
+  },
+  "domainnameaccessassociations": {
+    "key": "DomainNameAccessAssociations",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/domainnameaccessassociations",
+    "conditionKeys": [
+      "apigateway:Request/AccessAssociationSource",
+      "apigateway:Request/DomainNameArn",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "gatewayresponse": {
     "key": "GatewayResponse",
     "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/gatewayresponses/${ResponseType}",
@@ -371,6 +384,29 @@
     "key": "MethodResponse",
     "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/responses/${StatusCode}",
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "privatebasepathmapping": {
+    "key": "PrivateBasePathMapping",
+    "arn": "arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}+${DomainIdentifier}/basepathmappings/${BasePath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "privatebasepathmappings": {
+    "key": "PrivateBasePathMappings",
+    "arn": "arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}+${DomainIdentifier}/basepathmappings",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "privatedomainname": {
+    "key": "PrivateDomainName",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}+${DomainIdentifier}",
+    "conditionKeys": [
+      "apigateway:Request/EndpointType",
+      "apigateway:Resource/EndpointType",
       "aws:ResourceTag/${TagKey}"
     ]
   },
