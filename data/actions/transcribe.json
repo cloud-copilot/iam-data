@@ -4,7 +4,10 @@
     "description": "Grants permission to create an analytics category. Amazon Transcribe applies the conditions specified by your analytics categories to your call analytics jobs",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createlanguagemodel": {
@@ -64,7 +67,14 @@
     "name": "DeleteCallAnalyticsCategory",
     "description": "Grants permission to delete a call analytics category using its name from Amazon Transcribe",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "callanalyticscategory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -72,7 +82,14 @@
     "name": "DeleteCallAnalyticsJob",
     "description": "Grants permission to delete a previously submitted call analytics job along with any other generated results such as the transcription, models, and so on",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "callanalyticsjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -200,7 +217,14 @@
     "name": "GetCallAnalyticsCategory",
     "description": "Grants permission to retrieve information about a call analytics category",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "callanalyticscategory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -208,7 +232,14 @@
     "name": "GetCallAnalyticsJob",
     "description": "Grants permission to return information about a call analytics job",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "callanalyticsjob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -389,7 +420,9 @@
     "resourceTypes": [],
     "conditionKeys": [
       "transcribe:OutputEncryptionKMSKeyId",
-      "transcribe:OutputLocation"
+      "transcribe:OutputLocation",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": [
       "s3:GetObject"
@@ -515,7 +548,14 @@
     "name": "UpdateCallAnalyticsCategory",
     "description": "Grants permission to update the call analytics category with new values. The UpdateCallAnalyticsCategory operation overwrites all of the existing information with the values that you provide in the request",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "callanalyticscategory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },

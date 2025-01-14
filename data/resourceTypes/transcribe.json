@@ -43,11 +43,17 @@
   },
   "callanalyticsjob": {
     "key": "callanalyticsjob",
-    "arn": "arn:${Partition}:transcribe:${Region}:${Account}:analytics-job/${JobName}"
+    "arn": "arn:${Partition}:transcribe:${Region}:${Account}:analytics-job/${JobName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "callanalyticscategory": {
     "key": "callanalyticscategory",
-    "arn": "arn:${Partition}:transcribe:${Region}:${Account}:analytics-category/${CategoryName}"
+    "arn": "arn:${Partition}:transcribe:${Region}:${Account}:analytics-category/${CategoryName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "medicalscribejob": {
     "key": "medicalscribejob",
