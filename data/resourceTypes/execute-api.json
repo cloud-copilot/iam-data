@@ -1,6 +1,13 @@
 {
   "execute-api-general": {
     "key": "execute-api-general",
-    "arn": "arn:${Partition}:execute-api:${Region}:${Account}:${ApiId}/${Stage}/${Method}/${ApiSpecificResourcePath}"
+    "arn": "arn:${Partition}:execute-api:${Region}:${Account}:${ApiId}/${Stage}/${Method}/${ApiSpecificResourcePath}",
+    "conditionKeys": [
+      "execute-api:viaDomainArn"
+    ]
+  },
+  "execute-api-domain": {
+    "key": "execute-api-domain",
+    "arn": "arn:${Partition}:execute-api:${Region}:${Account}:/domainnames/${DomainName}+${DomainIdentifier}"
   }
 }
