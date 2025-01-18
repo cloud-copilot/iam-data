@@ -14,6 +14,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatemanagednotificationaccountcontact": {
+    "name": "AssociateManagedNotificationAccountContact",
+    "description": "Grants permission to associate an Account contact to a particular Managed Notification Configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatemanagednotificationadditionalchannel": {
+    "name": "AssociateManagedNotificationAdditionalChannel",
+    "description": "Grants permission to associate a Channel to a particular Managed Notification Configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createeventrule": {
     "name": "CreateEventRule",
     "description": "Grants permission to create a new EventRule, associating it with a NotificationConfiguration",
@@ -71,6 +101,16 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disablenotificationsaccessfororganization": {
+    "name": "DisableNotificationsAccessForOrganization",
+    "description": "Grants permission to disable Service Trust for AWS User Notifications",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "organizations:DisableAWSServiceAccess"
+    ]
+  },
   "disassociatechannel": {
     "name": "DisassociateChannel",
     "description": "Grants permission to remove a Channel from a NotificationConfiguration",
@@ -86,6 +126,47 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disassociatemanagednotificationaccountcontact": {
+    "name": "DisassociateManagedNotificationAccountContact",
+    "description": "Grants permission to remove an Account contact from a Managed Notification Configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatemanagednotificationadditionalchannel": {
+    "name": "DisassociateManagedNotificationAdditionalChannel",
+    "description": "Grants permission to remove a Channel from a Managed Notification Configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enablenotificationsaccessfororganization": {
+    "name": "EnableNotificationsAccessForOrganization",
+    "description": "Grants permission to enable Service Trust for AWS User Notifications",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole",
+      "organizations:EnableAWSServiceAccess"
+    ]
+  },
   "geteventrule": {
     "name": "GetEventRule",
     "description": "Grants permission to get an EventRule",
@@ -93,6 +174,60 @@
     "resourceTypes": [
       {
         "name": "EventRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfeatureoptinstatus": {
+    "name": "GetFeatureOptInStatus",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the opt-in status of an AWS User Notification Service feature",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagednotificationchildevent": {
+    "name": "GetManagedNotificationChildEvent",
+    "description": "Grants permission to get a Managed Notification Child Event",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationChildEvent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagednotificationconfiguration": {
+    "name": "GetManagedNotificationConfiguration",
+    "description": "Grants permission to get a Managed Notification Configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagednotificationevent": {
+    "name": "GetManagedNotificationEvent",
+    "description": "Grants permission to get a Managed NotificationEvent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationEvent",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -131,17 +266,71 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getnotificationsaccessfororganization": {
+    "name": "GetNotificationsAccessForOrganization",
+    "description": "Grants permission to read Service Trust for AWS User Notifications",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listchannels": {
     "name": "ListChannels",
     "description": "Grants permission to list Channels by NotificationConfiguration",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "NotificationConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
   "listeventrules": {
     "name": "ListEventRules",
     "description": "Grants permission to list EventRules",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagednotificationchannelassociations": {
+    "name": "ListManagedNotificationChannelAssociations",
+    "description": "Grants permission to list Account contacts and Channels associated with a Managed Notification Configuration",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ManagedNotificationConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagednotificationchildevents": {
+    "name": "ListManagedNotificationChildEvents",
+    "description": "Grants permission to list Managed Notification Child Events",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagednotificationconfigurations": {
+    "name": "ListManagedNotificationConfigurations",
+    "description": "Grants permission to list Managed Notification Configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmanagednotificationevents": {
+    "name": "ListManagedNotificationEvents",
+    "description": "Grants permission to list Managed Notification Events",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -174,7 +363,16 @@
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to get tags for a resource",
-    "accessLevel": "Read",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putfeatureoptinstatus": {
+    "name": "PutFeatureOptInStatus",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the opt-in status of an AWS User Notification Service feature",
+    "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []

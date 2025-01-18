@@ -53,7 +53,7 @@
   },
   "createengagement": {
     "name": "CreateEngagement",
-    "description": "Grants permission to create engagements on AWS Partner Central",
+    "description": "Grants permission to creating engagements in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -63,7 +63,7 @@
   },
   "createengagementinvitation": {
     "name": "CreateEngagementInvitation",
-    "description": "Grants permission to create engagement invitations on AWS Partner Central",
+    "description": "Grants permission to creating engagement invitations in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -83,7 +83,7 @@
   },
   "createresourcesnapshot": {
     "name": "CreateResourceSnapshot",
-    "description": "Grants permission to create resource snapshots on AWS Partner Central",
+    "description": "Grants permission to creating resource snapshots in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -100,15 +100,19 @@
   },
   "createresourcesnapshotjob": {
     "name": "CreateResourceSnapshotJob",
-    "description": "Grants permission to create resource snapshot jobs on AWS Partner Central",
+    "description": "Grants permission to creating resource snapshot jobs in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
     "dependentActions": []
   },
   "deleteresourcesnapshotjob": {
     "name": "DeleteResourceSnapshotJob",
-    "description": "Grants permission to delete resource snapshot jobs on AWS Partner Central",
+    "description": "Grants permission to deleting resource snapshot jobs on AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -118,7 +122,11 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
     "dependentActions": []
   },
   "disassociateopportunity": {
@@ -158,7 +166,7 @@
   },
   "getengagement": {
     "name": "GetEngagement",
-    "description": "Grants permission to retrieve engagement details on AWS Partner Central",
+    "description": "Grants permission to retrieval of engagement details in AWS Partner Central",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -209,7 +217,7 @@
   },
   "getresourcesnapshot": {
     "name": "GetResourceSnapshot",
-    "description": "Grants permission to retrieve resource snapshot details on AWS Partner Central",
+    "description": "Grants permission to retrieving resource snapshot details in AWS Partner Central",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -226,7 +234,7 @@
   },
   "getresourcesnapshotjob": {
     "name": "GetResourceSnapshotJob",
-    "description": "Grants permission to retrieve resource snapshot job details on AWS Partner Central",
+    "description": "Grants permission to retrieving resource snapshot job details in AWS Partner Central",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -237,15 +245,24 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
   },
   "getsellingsystemsettings": {
     "name": "GetSellingSystemSettings",
-    "description": "Grants permission to retrieve system settings settings on AWS Partner Central",
+    "description": "Grants permission to retrieving system settings settings in AWS Partner Central",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "selling-system-settings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "partnercentral:Catalog"
     ],
@@ -253,7 +270,7 @@
   },
   "listengagementbyacceptinginvitationtasks": {
     "name": "ListEngagementByAcceptingInvitationTasks",
-    "description": "Grants permission to list engagements by accepting invitation tasks on AWS Partner Central",
+    "description": "Grants permission to listing engagements by accepting invitation tasks in AWS Partner\nCentral",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -263,7 +280,7 @@
   },
   "listengagementfromopportunitytasks": {
     "name": "ListEngagementFromOpportunityTasks",
-    "description": "Grants permission to list engagements from opportunity tasks on AWS Partner Central",
+    "description": "Grants permission to listing engagements from opportunity tasks in AWS Partner Central",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -283,7 +300,7 @@
   },
   "listengagementmembers": {
     "name": "ListEngagementMembers",
-    "description": "Grants permission to list engagement members on AWS Partner Central",
+    "description": "Grants permission to listing engagement members in AWS Partner Central",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -300,7 +317,7 @@
   },
   "listengagementresourceassociations": {
     "name": "ListEngagementResourceAssociations",
-    "description": "Grants permission to list engagement resource associations on AWS Partner Central",
+    "description": "Grants permission to listing engagement resource associations in AWS Partner Central",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -317,7 +334,7 @@
   },
   "listengagements": {
     "name": "ListEngagements",
-    "description": "Grants permission to list engagements on AWS Partner Central",
+    "description": "Grants permission to listing engagements in AWS Partner Central",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -337,7 +354,7 @@
   },
   "listresourcesnapshotjobs": {
     "name": "ListResourceSnapshotJobs",
-    "description": "Grants permission to list resource snapshot jobs on AWS Partner Central",
+    "description": "Grants permission to listing resource snapshot jobs in AWS Partner Central",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -347,7 +364,7 @@
   },
   "listresourcesnapshots": {
     "name": "ListResourceSnapshots",
-    "description": "Grants permission to list resource snapshots on AWS Partner Central",
+    "description": "Grants permission to listing resource snapshots in AWS Partner Central",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -372,11 +389,30 @@
     ],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to add lists tags to a resource. Supported resource: ResourceSnapshotJob",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "putsellingsystemsettings": {
     "name": "PutSellingSystemSettings",
-    "description": "Grants permission to put system settings settings on AWS Partner Central",
+    "description": "Grants permission to put system settings settings in AWS Partner Central",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "selling-system-settings",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -403,6 +439,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": [
@@ -420,6 +458,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": [
@@ -433,7 +473,7 @@
   },
   "startresourcesnapshotjob": {
     "name": "StartResourceSnapshotJob",
-    "description": "Grants permission to start resource snapshot jobs on AWS Partner Central",
+    "description": "Grants permission to starting resource snapshot jobs in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -443,12 +483,16 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
     "dependentActions": []
   },
   "stopresourcesnapshotjob": {
     "name": "StopResourceSnapshotJob",
-    "description": "Grants permission to stop resource snapshot jobs on AWS Partner Central",
+    "description": "Grants permission to stopping resource snapshot jobs in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -458,7 +502,11 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
     "dependentActions": []
   },
   "submitopportunity": {
@@ -474,6 +522,31 @@
       }
     ],
     "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add new tags to a resource. Supported resource: ResourceSnapshotJob",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource. Supported resource: ResourceSnapshotJob",
+    "accessLevel": "Tagging",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
