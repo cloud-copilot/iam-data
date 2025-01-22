@@ -610,6 +610,25 @@
     ],
     "dependentActions": []
   },
+  "createemailaddress": {
+    "name": "CreateEmailAddress",
+    "description": "Grants permission to create an email address resource in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "createevaluationform": {
     "name": "CreateEvaluationForm",
     "description": "Grants permission to create an evaluation form in the specified Amazon Connect instance. The form can be used to define questions related to agent performance, and create sections to organize such questions. Question and section identifiers cannot be duplicated within the same evaluation form",
@@ -1261,6 +1280,24 @@
     ],
     "dependentActions": []
   },
+  "deleteemailaddress": {
+    "name": "DeleteEmailAddress",
+    "description": "Grants permission to delete an email address resource in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "email-address",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "deleteevaluationform": {
     "name": "DeleteEvaluationForm",
     "description": "Grants permission to delete an evaluation form in the specified Amazon Connect instance. If the version property is provided, only the specified version of the evaluation form is deleted",
@@ -1761,6 +1798,24 @@
     "resourceTypes": [
       {
         "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "describeemailaddress": {
+    "name": "DescribeEmailAddress",
+    "description": "Grants permission to describe an email address resource in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "email-address",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2802,6 +2857,23 @@
     "resourceTypes": [
       {
         "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listassociatedcontacts": {
+    "name": "ListAssociatedContacts",
+    "description": "Grants permission to list the contacts associated with an email address in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "contact",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3971,6 +4043,26 @@
     ],
     "dependentActions": []
   },
+  "searchemailaddresses": {
+    "name": "SearchEmailAddresses",
+    "description": "Grants permission to search email address resources in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeEmailAddress"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "searchhoursofoperationoverrides": {
     "name": "SearchHoursOfOperationOverrides",
     "description": "Grants permission to search hours of operation override resources in an Amazon Connect instance",
@@ -4426,6 +4518,30 @@
     "conditionKeys": [
       "connect:InstanceId",
       "connect:Subtype"
+    ],
+    "dependentActions": []
+  },
+  "startoutboundemailcontact": {
+    "name": "StartOutboundEmailContact",
+    "description": "Grants permission to initiate an outbound email using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact-flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -5193,6 +5309,24 @@
     ],
     "dependentActions": []
   },
+  "updateemailaddressmetadata": {
+    "name": "UpdateEmailAddressMetadata",
+    "description": "Grants permission to update the metadata of an email address resource in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "email-address",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "updateevaluationform": {
     "name": "UpdateEvaluationForm",
     "description": "Grants permission to update details about a specific evaluation form version in the specified Amazon Connect instance. Question and section identifiers cannot be duplicated within the same evaluation form",
@@ -5510,6 +5644,24 @@
       {
         "name": "phone-number",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updatequeueoutboundemailconfig": {
+    "name": "UpdateQueueOutboundEmailConfig",
+    "description": "Grants permission to update the outbound email configuration for a queue in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
