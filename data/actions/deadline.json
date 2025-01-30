@@ -281,6 +281,7 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "deadline:GetJobTemplate",
       "identitystore:ListGroupMembershipsForMember"
     ]
   },
@@ -306,6 +307,23 @@
       "aws:TagKeys"
     ],
     "dependentActions": []
+  },
+  "createlimit": {
+    "name": "CreateLimit",
+    "description": "Grants permission to create a limit for a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
   },
   "createmonitor": {
     "name": "CreateMonitor",
@@ -377,6 +395,29 @@
     "resourceTypes": [
       {
         "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createqueuelimitassociation": {
+    "name": "CreateQueueLimitAssociation",
+    "description": "Grants permission to create a queue-limit association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -494,6 +535,23 @@
       "ec2:DescribeVpcEndpoints"
     ]
   },
+  "deletelimit": {
+    "name": "DeleteLimit",
+    "description": "Grants permission to delete a limit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
   "deletemeteredproduct": {
     "name": "DeleteMeteredProduct",
     "description": "Grants permission to delete a metered product",
@@ -567,6 +625,29 @@
     "resourceTypes": [
       {
         "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletequeuelimitassociation": {
+    "name": "DeleteQueueLimitAssociation",
+    "description": "Grants permission to delete a queue-limit association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -778,7 +859,7 @@
     "name": "GetJobTemplate",
     "isPermissionOnly": true,
     "description": "Grants permission to read job template",
-    "accessLevel": "Write",
+    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "job",
@@ -804,6 +885,23 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "getlimit": {
+    "name": "GetLimit",
+    "description": "Grants permission to get a limit",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
   },
   "getmonitor": {
     "name": "GetMonitor",
@@ -861,6 +959,29 @@
     "resourceTypes": [
       {
         "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getqueuelimitassociation": {
+    "name": "GetQueueLimitAssociation",
+    "description": "Grants permission to get a queue-limit association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "farm",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
@@ -1199,6 +1320,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listlimits": {
+    "name": "ListLimits",
+    "description": "Grants permission to list all limits in a farm",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
   "listmeteredproducts": {
     "name": "ListMeteredProducts",
     "description": "Grants permission to list all metered products in a license endpoint",
@@ -1268,6 +1406,29 @@
       {
         "name": "queue",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listqueuelimitassociations": {
+    "name": "ListQueueLimitAssociations",
+    "description": "Grants permission to list all queue-limit associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1775,6 +1936,23 @@
       "identitystore:ListGroupMembershipsForMember"
     ]
   },
+  "updatelimit": {
+    "name": "UpdateLimit",
+    "description": "Grants permission to update a limit for a farm",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:ListGroupMembershipsForMember"
+    ]
+  },
   "updatemonitor": {
     "name": "UpdateMonitor",
     "description": "Grants permission to update a monitor",
@@ -1836,6 +2014,29 @@
     "resourceTypes": [
       {
         "name": "fleet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "identitystore:ListGroupMembershipsForMember"
+        ]
+      },
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatequeuelimitassociation": {
+    "name": "UpdateQueueLimitAssociation",
+    "description": "Grants permission to update a queue-limit association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "farm",
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
