@@ -1516,6 +1516,34 @@
     ],
     "dependentActions": []
   },
+  "createaddresslist": {
+    "name": "CreateAddressList",
+    "description": "Grants permission to create an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaddresslistimportjob": {
+    "name": "CreateAddressListImportJob",
+    "description": "Grants permission to create an import job on an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createarchive": {
     "name": "CreateArchive",
     "description": "Grants permission to create an archive",
@@ -1609,6 +1637,23 @@
     ],
     "dependentActions": []
   },
+  "deleteaddresslist": {
+    "name": "DeleteAddressList",
+    "description": "Grants permission to delete an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deletearchive": {
     "name": "DeleteArchive",
     "description": "Grants permission to delete an archive",
@@ -1694,6 +1739,23 @@
     ],
     "dependentActions": []
   },
+  "deregistermemberfromaddresslist": {
+    "name": "DeregisterMemberFromAddressList",
+    "description": "Grants permission to remove a member from an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getaddoninstance": {
     "name": "GetAddonInstance",
     "description": "Grants permission to get information about an addon instance",
@@ -1725,6 +1787,40 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaddresslist": {
+    "name": "GetAddressList",
+    "description": "Grants permission to get information about an address list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaddresslistimportjob": {
+    "name": "GetAddressListImportJob",
+    "description": "Grants permission to get information about an import job on an address list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1837,6 +1933,23 @@
     ],
     "dependentActions": []
   },
+  "getmemberofaddresslist": {
+    "name": "GetMemberOfAddressList",
+    "description": "Grants permission to get information about a member in an address list",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getrelay": {
     "name": "GetRelay",
     "description": "Grants permission to get information about a SMTP relay",
@@ -1904,6 +2017,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listaddresslistimportjobs": {
+    "name": "ListAddressListImportJobs",
+    "description": "Grants permission to list all of the import jobs associated with an address list",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listaddresslists": {
+    "name": "ListAddressLists",
+    "description": "Grants permission to list all of the address lists associated with your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listarchiveexports": {
     "name": "ListArchiveExports",
     "description": "Grants permission to list all of the archive exports associated with your account",
@@ -1936,6 +2074,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listmembersofaddresslist": {
+    "name": "ListMembersOfAddressList",
+    "description": "Grants permission to list all of the members associated with an address list",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listrelays": {
     "name": "ListRelays",
     "description": "Grants permission to list all of the SMTP relays associated with your account",
@@ -1958,6 +2113,40 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registermembertoaddresslist": {
+    "name": "RegisterMemberToAddressList",
+    "description": "Grants permission to add a member to an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startaddresslistimportjob": {
+    "name": "StartAddressListImportJob",
+    "description": "Grants permission to start an import job on an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "startarchiveexport": {
@@ -1988,6 +2177,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopaddresslistimportjob": {
+    "name": "StopAddressListImportJob",
+    "description": "Grants permission to stop an ongoing import job on an address list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "stoparchiveexport": {
