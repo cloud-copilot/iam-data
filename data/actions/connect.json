@@ -552,6 +552,37 @@
     ],
     "dependentActions": []
   },
+  "createcontact": {
+    "name": "CreateContact",
+    "description": "Grants permission to create a new contact using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:ContactInitiationMethod"
+    ],
+    "dependentActions": []
+  },
   "createcontactflow": {
     "name": "CreateContactFlow",
     "description": "Grants permission to create a contact flow in an Amazon Connect instance",
