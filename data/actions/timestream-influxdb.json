@@ -1,4 +1,24 @@
 {
+  "createdbcluster": {
+    "name": "CreateDbCluster",
+    "description": "Grants permission to create a new Timestream InfluxDB Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream-influxdb:CreateDbInstance"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createdbinstance": {
     "name": "CreateDbInstance",
     "description": "Grants permission to create a new Timestream InfluxDB instance",
@@ -28,6 +48,23 @@
     ],
     "dependentActions": []
   },
+  "deletedbcluster": {
+    "name": "DeleteDbCluster",
+    "description": "Grants permission to delete a Timestream InfluxDB Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "timestream-influxdb:DeleteDbInstance"
+    ]
+  },
   "deletedbinstance": {
     "name": "DeleteDbInstance",
     "description": "Grants permission to delete a Timestream InfluxDB instance",
@@ -35,6 +72,21 @@
     "resourceTypes": [
       {
         "name": "db-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdbcluster": {
+    "name": "GetDbCluster",
+    "description": "Grants permission to get information about a Timestream InfluxDB Cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -73,11 +125,34 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdbclusters": {
+    "name": "ListDbClusters",
+    "description": "Grants permission to list information about all Timestream InfluxDB clusters in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdbinstances": {
     "name": "ListDbInstances",
     "description": "Grants permission to list information about all Timestream InfluxDB instances in the account",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdbinstancesforcluster": {
+    "name": "ListDbInstancesForCluster",
+    "description": "Grants permission to list information about all Timestream InfluxDB Instances belonging to a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -93,7 +168,26 @@
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a Timestream InfluxDB resource",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ],
@@ -104,6 +198,12 @@
     "description": "Grants permission to tag a Timestream InfluxDB resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "db-instance",
         "required": false,
@@ -130,6 +230,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "db-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "db-instance",
         "required": false,
         "conditionKeys": [],
@@ -146,6 +252,29 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "updatedbcluster": {
+    "name": "UpdateDbCluster",
+    "description": "Grants permission to update a Timestream InfluxDB Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream-influxdb:UpdateDbInstance"
+        ]
+      },
+      {
+        "name": "db-parameter-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatedbinstance": {
