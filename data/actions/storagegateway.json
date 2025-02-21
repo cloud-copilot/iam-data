@@ -31,6 +31,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "cache-report",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "gateway",
         "required": false,
         "conditionKeys": [],
@@ -188,6 +194,21 @@
       },
       {
         "name": "tape",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelcachereport": {
+    "name": "CancelCacheReport",
+    "description": "Grants permission to cancel a cache report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cache-report",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -420,6 +441,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletecachereport": {
+    "name": "DeleteCacheReport",
+    "description": "Grants permission to delete the metadata associated with a cache report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cache-report",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletechapcredentials": {
     "name": "DeleteChapCredentials",
     "description": "Grants permission to delete Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair",
@@ -591,6 +627,21 @@
     "resourceTypes": [
       {
         "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecachereport": {
+    "name": "DescribeCacheReport",
+    "description": "Grants permission to get a description of a cache report",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cache-report",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -900,6 +951,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcachereports": {
+    "name": "ListCacheReports",
+    "description": "Grants permission to get a list of the cache reports owned by your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listfileshares": {
     "name": "ListFileShares",
     "description": "Grants permission to get a list of the file shares for a specific file gateway, or the list of file shares owned by your AWS account",
@@ -1062,6 +1121,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "cache-report",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "gateway",
         "required": false,
         "conditionKeys": [],
@@ -1206,6 +1271,24 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startcachereport": {
+    "name": "StartCacheReport",
+    "description": "Grants permission to start a cache report for an existing file share",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "startgateway": {
