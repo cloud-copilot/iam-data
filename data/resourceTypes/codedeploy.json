@@ -1,7 +1,10 @@
 {
   "application": {
     "key": "application",
-    "arn": "arn:${Partition}:codedeploy:${Region}:${Account}:application:${ApplicationName}"
+    "arn": "arn:${Partition}:codedeploy:${Region}:${Account}:application:${ApplicationName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "deploymentconfig": {
     "key": "deploymentconfig",
@@ -9,7 +12,10 @@
   },
   "deploymentgroup": {
     "key": "deploymentgroup",
-    "arn": "arn:${Partition}:codedeploy:${Region}:${Account}:deploymentgroup:${ApplicationName}/${DeploymentGroupName}"
+    "arn": "arn:${Partition}:codedeploy:${Region}:${Account}:deploymentgroup:${ApplicationName}/${DeploymentGroupName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "instance": {
     "key": "instance",
