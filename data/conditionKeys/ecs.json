@@ -29,15 +29,25 @@
     "description": "Filters access by the Amazon ECS account setting name",
     "type": "String"
   },
+  "ecs:auto-assign-public-ip": {
+    "key": "ecs:auto-assign-public-ip",
+    "description": "Filters access by the public IP assignment configuration of your Amazon ECS task or Amazon ECS service that uses awsvpc network mode",
+    "type": "Bool"
+  },
   "ecs:capacity-provider": {
     "key": "ecs:capacity-provider",
     "description": "Filters access by the ARN of an Amazon ECS capacity provider",
-    "type": "ARN"
+    "type": "ArrayOfARN"
   },
   "ecs:cluster": {
     "key": "ecs:cluster",
     "description": "Filters access by the ARN of an Amazon ECS cluster",
     "type": "ARN"
+  },
+  "ecs:compute-compatibility": {
+    "key": "ecs:compute-compatibility",
+    "description": "Filters access by the required compatibilities field provided in the request",
+    "type": "ArrayOfString"
   },
   "ecs:container-instances": {
     "key": "ecs:container-instances",
@@ -53,6 +63,11 @@
     "key": "ecs:enable-ebs-volumes",
     "description": "Filters access by the Amazon ECS managed Amazon EBS volume capability of your ECS task or service",
     "type": "String"
+  },
+  "ecs:enable-ecs-managed-tags": {
+    "key": "ecs:enable-ecs-managed-tags",
+    "description": "Filters access by the enableECSManagedTags configuration of your Amazon ECS task or Amazon ECS service",
+    "type": "Bool"
   },
   "ecs:enable-execute-command": {
     "key": "ecs:enable-execute-command",
@@ -79,19 +94,44 @@
     "description": "Filters access by the ARN of AWS Cloud Map namespace which is defined in the Service Connect Configuration",
     "type": "ARN"
   },
+  "ecs:privileged": {
+    "key": "ecs:privileged",
+    "description": "Filters access by the privileged field provided in the request",
+    "type": "String"
+  },
+  "ecs:propagate-tags": {
+    "key": "ecs:propagate-tags",
+    "description": "Filters access by the tag propagation configuration of your Amazon ECS task or Amazon ECS service",
+    "type": "String"
+  },
   "ecs:service": {
     "key": "ecs:service",
     "description": "Filters access by the ARN of an Amazon ECS service",
     "type": "ARN"
+  },
+  "ecs:subnet": {
+    "key": "ecs:subnet",
+    "description": "Filters access by the subnet configuration of your Amazon ECS task or Amazon ECS service that uses awsvpc network mode",
+    "type": "ArrayOfString"
   },
   "ecs:task": {
     "key": "ecs:task",
     "description": "Filters access by the ARN of an Amazon ECS task",
     "type": "ARN"
   },
+  "ecs:task-cpu": {
+    "key": "ecs:task-cpu",
+    "description": "Filters access by the task cpu, as an integer with 1024 = 1 vCPU, provided in the request",
+    "type": "Numeric"
+  },
   "ecs:task-definition": {
     "key": "ecs:task-definition",
     "description": "Filters access by the ARN of an Amazon ECS task definition",
     "type": "ARN"
+  },
+  "ecs:task-memory": {
+    "key": "ecs:task-memory",
+    "description": "Filters access by the task memory, as an integer representing MiB, provided in the request",
+    "type": "Numeric"
   }
 }

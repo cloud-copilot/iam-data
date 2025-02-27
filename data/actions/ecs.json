@@ -38,22 +38,29 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
-      "ecs:cluster",
       "ecs:capacity-provider",
       "ecs:task-definition",
       "ecs:enable-ebs-volumes",
       "ecs:enable-execute-command",
       "ecs:enable-service-connect",
       "ecs:namespace",
-      "ecs:enable-vpc-lattice"
+      "ecs:enable-vpc-lattice",
+      "ecs:enable-ecs-managed-tags",
+      "ecs:propagate-tags",
+      "ecs:auto-assign-public-ip",
+      "ecs:subnet",
+      "ecs:task-cpu",
+      "ecs:task-memory"
     ],
     "dependentActions": []
   },
@@ -708,10 +715,23 @@
     "name": "RegisterTaskDefinition",
     "description": "Grants permission to register a new task definition from the supplied family and containerDefinitions",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "task-definition",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "ecs:compute-compatibility",
+      "ecs:privileged",
+      "ecs:task-cpu",
+      "ecs:task-memory"
     ],
     "dependentActions": []
   },
@@ -1057,20 +1077,27 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster",
       "ecs:capacity-provider",
       "ecs:enable-ebs-volumes",
       "ecs:enable-execute-command",
       "ecs:enable-service-connect",
       "ecs:namespace",
       "ecs:task-definition",
-      "ecs:enable-vpc-lattice"
+      "ecs:enable-vpc-lattice",
+      "ecs:enable-ecs-managed-tags",
+      "ecs:propagate-tags",
+      "ecs:auto-assign-public-ip",
+      "ecs:subnet",
+      "ecs:task-cpu",
+      "ecs:task-memory"
     ],
     "dependentActions": []
   },
