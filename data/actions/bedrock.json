@@ -324,6 +324,21 @@
     ],
     "dependentActions": []
   },
+  "createinvocation": {
+    "name": "CreateInvocation",
+    "description": "Grants permission to create a new invocation in an existing session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createknowledgebase": {
     "name": "CreateKnowledgeBase",
     "description": "Grants permission to create a knowledge base",
@@ -497,6 +512,17 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsession": {
+    "name": "CreateSession",
+    "description": "Grants permission to create a new session",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -849,6 +875,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletesession": {
+    "name": "DeleteSession",
+    "description": "Grants permission to delete a Session that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deregistermarketplacemodelendpoint": {
     "name": "DeregisterMarketplaceModelEndpoint",
     "description": "Grants permission to deregister a marketplace model endpoint to make it unusable in Bedrock Marketplace",
@@ -907,6 +948,21 @@
       },
       {
         "name": "knowledge-base",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "endsession": {
+    "name": "EndSession",
+    "description": "Grants permission to end a Session that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1282,6 +1338,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getinvocationstep": {
+    "name": "GetInvocationStep",
+    "description": "Grants permission to get an invocation step from a session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getknowledgebase": {
     "name": "GetKnowledgeBase",
     "description": "Grants permission to retrieve an existing knowledge base",
@@ -1469,6 +1540,21 @@
     "resourceTypes": [
       {
         "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsession": {
+    "name": "GetSession",
+    "description": "Grants permission to retrieve an existing session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "session",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1945,6 +2031,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listinvocationsteps": {
+    "name": "ListInvocationSteps",
+    "description": "Grants permission to get list of invocation step from a session",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvocations": {
+    "name": "ListInvocations",
+    "description": "Grants permission to list invocations in a session",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listknowledgebasedocuments": {
     "name": "ListKnowledgeBaseDocuments",
     "description": "Grants permission to list documents in a knowledge base",
@@ -2042,6 +2158,14 @@
   "listprovisionedmodelthroughputs": {
     "name": "ListProvisionedModelThroughputs",
     "description": "Grants permission to list provisioned model throughputs that you created earlier",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsessions": {
+    "name": "ListSessions",
+    "description": "Grants permission to list existing sessions",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -2165,6 +2289,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -2213,6 +2343,21 @@
     "description": "Grants permission to put entitlement to access a foundation model",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putinvocationstep": {
+    "name": "PutInvocationStep",
+    "description": "Grants permission to put an invocation step into an invocation in session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2512,6 +2657,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2635,6 +2786,12 @@
       },
       {
         "name": "provisioned-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2886,6 +3043,21 @@
       },
       {
         "name": "provisioned-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesession": {
+    "name": "UpdateSession",
+    "description": "Grants permission to update an existing session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
