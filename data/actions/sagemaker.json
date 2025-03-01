@@ -1376,7 +1376,8 @@
       "aws:TagKeys",
       "sagemaker:NetworkIsolation",
       "sagemaker:VpcSecurityGroupIds",
-      "sagemaker:VpcSubnets"
+      "sagemaker:VpcSubnets",
+      "sagemaker:DirectGatedModelAccess"
     ],
     "dependentActions": []
   },
@@ -1919,7 +1920,8 @@
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets",
       "sagemaker:KeepAlivePeriod",
-      "sagemaker:EnableRemoteDebug"
+      "sagemaker:EnableRemoteDebug",
+      "sagemaker:DirectGatedModelAccess"
     ],
     "dependentActions": []
   },
@@ -6319,6 +6321,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "trainhubmodel": {
+    "name": "TrainHubModel",
+    "description": "Grants permission to train a model in hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hub-content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updateaction": {
     "name": "UpdateAction",
     "description": "Grants permission to update an action",
@@ -6617,6 +6640,48 @@
     "resourceTypes": [
       {
         "name": "hub",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatehubcontent": {
+    "name": "UpdateHubContent",
+    "description": "Grants permission to update hub content",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hub-content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatehubcontentreference": {
+    "name": "UpdateHubContentReference",
+    "description": "Grants permission to update hub content reference",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hub-content",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
