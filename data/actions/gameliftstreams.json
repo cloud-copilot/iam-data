@@ -1,0 +1,378 @@
+{
+  "addstreamgrouplocations": {
+    "name": "AddStreamGroupLocations",
+    "description": "Grants permission to attach a StreamGroup remote location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeRegions"
+    ]
+  },
+  "associateapplications": {
+    "name": "AssociateApplications",
+    "description": "Grants permission to associate Applications to a StreamGroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gameliftstreams:TagResource",
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+  },
+  "createstreamgroup": {
+    "name": "CreateStreamGroup",
+    "description": "Grants permission to create a StreamGroup",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "gameliftstreams:TagResource"
+    ]
+  },
+  "createstreamsessionconnection": {
+    "name": "CreateStreamSessionConnection",
+    "description": "Grants permission to create a stream session connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestreamgroup": {
+    "name": "DeleteStreamGroup",
+    "description": "Grants permission to delete a StreamGroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateapplications": {
+    "name": "DisassociateApplications",
+    "description": "Grants permission to disassociate Applications from a StreamGroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportstreamsessionfiles": {
+    "name": "ExportStreamSessionFiles",
+    "description": "Grants permission to export stream session files that your application generates",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:PutObject"
+    ]
+  },
+  "getapplication": {
+    "name": "GetApplication",
+    "description": "Grants permission to get an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamgroup": {
+    "name": "GetStreamGroup",
+    "description": "Grants `permission` to get a StreamGroup",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamsession": {
+    "name": "GetStreamSession",
+    "description": "Grants permission to get a stream session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list applications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamgroups": {
+    "name": "ListStreamGroups",
+    "description": "Grants permission to list StreamGroups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamsessions": {
+    "name": "ListStreamSessions",
+    "description": "Grants permission to list stream sessions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreamsessionsbyaccount": {
+    "name": "ListStreamSessionsByAccount",
+    "description": "Grants permission to list stream sessions",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "removestreamgrouplocations": {
+    "name": "RemoveStreamGroupLocations",
+    "description": "Grants permission to detach a StreamGroup remote location",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startstreamsession": {
+    "name": "StartStreamSession",
+    "description": "Grants permission to create a stream session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "terminatestreamsession": {
+    "name": "TerminateStreamSession",
+    "description": "Grants permission to terminate a stream session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateapplication": {
+    "name": "UpdateApplication",
+    "description": "Grants permission to update an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestreamgroup": {
+    "name": "UpdateStreamGroup",
+    "description": "Grants permission to update a StreamGroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}
