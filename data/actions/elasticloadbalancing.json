@@ -534,6 +534,24 @@
     ],
     "dependentActions": []
   },
+  "modifyippools": {
+    "name": "ModifyIpPools",
+    "description": "Grants permission to modify the ip pools for a load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "modifylistener": {
     "name": "ModifyListener",
     "description": "Grants permission to modify the specified properties of the specified listener",
