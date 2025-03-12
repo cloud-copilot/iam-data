@@ -204,7 +204,19 @@
         "dependentActions": []
       },
       {
+        "name": "default-prompt-router",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-router",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -470,6 +482,36 @@
     "description": "Grants permission to create a prompt",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpromptrouter": {
+    "name": "CreatePromptRouter",
+    "description": "Grants permission to create a custom prompt router",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "foundation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -836,6 +878,21 @@
       },
       {
         "name": "prompt-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepromptrouter": {
+    "name": "DeletePromptRouter",
+    "description": "Grants permission to delete a custom prompt router",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "prompt-router",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1512,6 +1569,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "prompt-router",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -1724,6 +1787,12 @@
         "dependentActions": []
       },
       {
+        "name": "prompt-router",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "provisioned-model",
         "required": true,
         "conditionKeys": [],
@@ -1776,6 +1845,12 @@
       },
       {
         "name": "inference-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-router",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2312,6 +2387,12 @@
         "dependentActions": []
       },
       {
+        "name": "prompt-router",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "prompt-version",
         "required": true,
         "conditionKeys": [],
@@ -2698,6 +2779,12 @@
         "dependentActions": []
       },
       {
+        "name": "prompt-router",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "prompt-version",
         "required": false,
         "conditionKeys": [],
@@ -2843,6 +2930,12 @@
       },
       {
         "name": "prompt",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-router",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
