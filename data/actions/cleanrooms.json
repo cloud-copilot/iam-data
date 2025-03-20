@@ -870,6 +870,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getprotectedjob": {
+    "name": "GetProtectedJob",
+    "description": "Grants permission to view a protected job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getprotectedquery": {
     "name": "GetProtectedQuery",
     "description": "Grants permission to view a protected query",
@@ -1184,6 +1199,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listprotectedjobs": {
+    "name": "ListProtectedJobs",
+    "description": "Grants permission to list protected jobs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listprotectedqueries": {
     "name": "ListProtectedQueries",
     "description": "Grants permission to list protected queries",
@@ -1328,6 +1358,36 @@
       {
         "name": "membership",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startprotectedjob": {
+    "name": "StartProtectedJob",
+    "description": "Grants permission to start protected jobs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cleanrooms:GetCollaborationAnalysisTemplate",
+          "cleanrooms:GetSchema"
+        ]
+      },
+      {
+        "name": "analysistemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1690,6 +1750,21 @@
     "resourceTypes": [
       {
         "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprotectedjob": {
+    "name": "UpdateProtectedJob",
+    "description": "Grants permission to update protected jobs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
