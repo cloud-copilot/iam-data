@@ -106,7 +106,11 @@
     "description": "Grants permission to create a custom domain name in AppSync",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createfunction": {
@@ -217,7 +221,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletefunction": {
@@ -469,7 +475,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getfunction": {
@@ -631,7 +639,9 @@
     "description": "Grants permission to enumerate custom domain names in AppSync",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listfunctions": {
@@ -687,6 +697,12 @@
       },
       {
         "name": "channelNamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -815,6 +831,12 @@
         "dependentActions": []
       },
       {
+        "name": "domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "graphqlapi",
         "required": false,
         "conditionKeys": [],
@@ -841,6 +863,12 @@
       },
       {
         "name": "channelNamespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domain",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -930,7 +958,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updatefunction": {
