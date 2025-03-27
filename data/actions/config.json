@@ -944,14 +944,21 @@
     "name": "PutConfigurationRecorder",
     "description": "Grants permission to create or update a customer managed configuration recorder to record the selected resource configurations",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ConfigurationRecorder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "putconformancepack": {
     "name": "PutConformancePack",
