@@ -327,7 +327,10 @@
     "description": "Grants permission to create a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createdirectconnectgatewayassociation": {
@@ -810,6 +813,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "dx-gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "dxcon",
         "required": false,
         "conditionKeys": [],
@@ -959,6 +968,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "dx-gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "dxcon",
         "required": false,
         "conditionKeys": [],
@@ -988,6 +1003,12 @@
     "description": "Grants permission to remove one or more tags from the specified AWS Direct Connect resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "dx-gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "dxcon",
         "required": false,
