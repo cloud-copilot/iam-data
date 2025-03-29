@@ -9,13 +9,22 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "amplify:AssociateWebACL",
           "apigateway:SetWebACL",
           "apprunner:AssociateWebAcl",
           "appsync:SetWebACL",
           "cognito-idp:AssociateWebACL",
           "ec2:AssociateVerifiedAccessInstanceWebAcl",
-          "elasticloadbalancing:SetWebAcl"
+          "elasticloadbalancing:SetWebAcl",
+          "wafv2:GetPermissionPolicy",
+          "wafv2:PutPermissionPolicy"
         ]
+      },
+      {
+        "name": "amplify-app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
         "name": "apigateway",
@@ -350,17 +359,25 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "apigateway",
+        "name": "amplify-app",
         "required": false,
         "conditionKeys": [],
         "dependentActions": [
+          "amplify:DisassociateWebACL",
           "apigateway:SetWebACL",
           "apprunner:DisassociateWebAcl",
           "appsync:SetWebACL",
           "cognito-idp:DisassociateWebACL",
           "ec2:DisassociateVerifiedAccessInstanceWebAcl",
-          "elasticloadbalancing:SetWebAcl"
+          "elasticloadbalancing:SetWebAcl",
+          "wafv2:PutPermissionPolicy"
         ]
+      },
+      {
+        "name": "apigateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
         "name": "apprunner",
@@ -578,11 +595,18 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "amplify:GetWebACLForResource",
           "apprunner:DescribeWebAclForService",
           "cognito-idp:GetWebACLForResource",
           "ec2:GetVerifiedAccessInstanceWebAcl",
           "wafv2:GetWebACL"
         ]
+      },
+      {
+        "name": "amplify-app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
         "name": "apigateway",
@@ -700,10 +724,17 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "amplify:ListResourcesForWebACL",
           "apprunner:ListAssociatedServicesForWebAcl",
           "cognito-idp:ListResourcesForWebACL",
           "ec2:DescribeVerifiedAccessInstanceWebAclAssociations"
         ]
+      },
+      {
+        "name": "amplify-app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
         "name": "apprunner",

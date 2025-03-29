@@ -173,8 +173,17 @@
     "name": "AttachThingPrincipal",
     "description": "Grants permission to attach the specified principal to the specified thing",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:thingArn"
+    ],
     "dependentActions": []
   },
   "cancelauditmitigationactionstask": {
@@ -2025,8 +2034,17 @@
     "name": "DetachThingPrincipal",
     "description": "Grants permission to detach the specified principal from the specified thing",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iot:thingArn"
+    ],
     "dependentActions": []
   },
   "disabletopicrule": {
@@ -2793,7 +2811,29 @@
     "name": "ListPrincipalThings",
     "description": "Grants permission to list the things associated with the specified principal",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listprincipalthingsv2": {
+    "name": "ListPrincipalThingsV2",
+    "description": "Grants permission to list the things associated with the specified principal",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cert",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -3115,7 +3155,29 @@
     "name": "ListThingPrincipals",
     "description": "Grants permission to list the principals associated with the specified thing",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listthingprincipalsv2": {
+    "name": "ListThingPrincipalsV2",
+    "description": "Grants permission to list the principals associated with the specified thing",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
