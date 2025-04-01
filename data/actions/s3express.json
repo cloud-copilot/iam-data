@@ -1,4 +1,29 @@
 {
+  "createaccesspoint": {
+    "name": "CreateAccessPoint",
+    "description": "Grants permission to create a new access point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
+      "s3express:authType",
+      "s3express:LocationName",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "createbucket": {
     "name": "CreateBucket",
     "description": "Grants permission to create a new bucket",
@@ -42,7 +67,80 @@
       "s3express:TlsVersion",
       "s3express:x-amz-content-sha256",
       "s3express:x-amz-server-side-encryption",
-      "s3express:x-amz-server-side-encryption-aws-kms-key-id"
+      "s3express:x-amz-server-side-encryption-aws-kms-key-id",
+      "s3express:AllAccessRestrictedToLocalZoneGroup"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspoint": {
+    "name": "DeleteAccessPoint",
+    "description": "Grants permission to delete the access point named in the URI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspointpolicy": {
+    "name": "DeleteAccessPointPolicy",
+    "description": "Grants permission to delete the policy on a specified access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteaccesspointscope": {
+    "name": "DeleteAccessPointScope",
+    "description": "Grants permission to delete the scope configuration on a specified access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -80,6 +178,71 @@
       }
     ],
     "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspoint": {
+    "name": "GetAccessPoint",
+    "description": "Grants permission to return configuration information about the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointpolicy": {
+    "name": "GetAccessPointPolicy",
+    "description": "Grants permission to return the access point policy associated with the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getaccesspointscope": {
+    "name": "GetAccessPointScope",
+    "description": "Grants permission to return the scope configuration associated with the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
@@ -151,12 +314,74 @@
     ],
     "dependentActions": []
   },
+  "listaccesspointsfordirectorybuckets": {
+    "name": "ListAccessPointsForDirectoryBuckets",
+    "description": "Grants permission to list access points",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "listallmydirectorybuckets": {
     "name": "ListAllMyDirectoryBuckets",
     "description": "Grants permission to list all directory buckets owned by the authenticated sender of the request",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putaccesspointpolicy": {
+    "name": "PutAccessPointPolicy",
+    "description": "Grants permission to associate an access policy with a specified access point",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putaccesspointscope": {
+    "name": "PutAccessPointScope",
+    "description": "Grants permission to associate an access point with a specified access point scope configuration",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
+      "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
