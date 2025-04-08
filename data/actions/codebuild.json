@@ -44,6 +44,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchgetcommandexecutions": {
+    "name": "BatchGetCommandExecutions",
+    "description": "Grants permission to get information about one or more command executions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchgetfleets": {
     "name": "BatchGetFleets",
     "description": "Grants permission to return an array of the Fleet objects specified by the input parameter",
@@ -96,6 +111,21 @@
     "resourceTypes": [
       {
         "name": "report-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchgetsandboxes": {
+    "name": "BatchGetSandboxes",
+    "description": "Grants permission to get information about one or more sandboxes",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -484,6 +514,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcommandexecutionsforsandbox": {
+    "name": "ListCommandExecutionsForSandbox",
+    "description": "Grants permission to get a list of command execution IDs for the specified sandbox, with each command execution ID representing a single command execution",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listconnectedoauthaccounts": {
     "name": "ListConnectedOAuthAccounts",
     "isPermissionOnly": true,
@@ -554,6 +599,29 @@
     "description": "Grants permission to list source code repositories from a connected third-party OAuth provider. Only used in the AWS CodeBuild console",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsandboxes": {
+    "name": "ListSandboxes",
+    "description": "Grants permission to get a list of sandbox IDs, with each sandbox ID representing a single sandbox",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsandboxesforproject": {
+    "name": "ListSandboxesForProject",
+    "description": "Grants permission to get a list of sandbox IDs for the specified sandbox project, with each sandbox ID representing a single sandbox",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -671,6 +739,51 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startcommandexecution": {
+    "name": "StartCommandExecution",
+    "description": "Grants permission to start running a command execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsandbox": {
+    "name": "StartSandbox",
+    "description": "Grants permission to start running a sandbox",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsandboxconnection": {
+    "name": "StartSandboxConnection",
+    "description": "Grants permission to establish a connection to the sandbox",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sandbox",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "stopbuild": {
     "name": "StopBuild",
     "description": "Grants permission to attempt to stop running a build",
@@ -689,6 +802,21 @@
   "stopbuildbatch": {
     "name": "StopBuildBatch",
     "description": "Grants permission to attempt to stop running a build batch",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopsandbox": {
+    "name": "StopSandbox",
+    "description": "Grants permission to attempt to stop running a sandbox",
     "accessLevel": "Write",
     "resourceTypes": [
       {
