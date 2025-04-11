@@ -1,4 +1,12 @@
 {
+  "listener/gwy": {
+    "key": "listener/gwy",
+    "arn": "arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener/gwy/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ]
+  },
   "listener/app": {
     "key": "listener/app",
     "arn": "arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener/app/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}",
@@ -26,6 +34,14 @@
   "listener-rule/net": {
     "key": "listener-rule/net",
     "arn": "arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener-rule/net/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}/${ListenerRuleId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ]
+  },
+  "loadbalancer/gwy/": {
+    "key": "loadbalancer/gwy/",
+    "arn": "arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/gwy/${LoadBalancerName}/${LoadBalancerId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "elasticloadbalancing:ResourceTag/${TagKey}"
