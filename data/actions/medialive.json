@@ -383,6 +383,24 @@
     ],
     "dependentActions": []
   },
+  "createsdisource": {
+    "name": "CreateSdiSource",
+    "description": "Grants permission to create a SDI source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createsignalmap": {
     "name": "CreateSignalMap",
     "description": "Grants permission to create a signal map",
@@ -403,7 +421,7 @@
   },
   "createtags": {
     "name": "CreateTags",
-    "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, nodes, networks, clusters, channel placement groups, signal maps, template groups, and templates",
+    "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, nodes, networks, clusters, channel placement groups, signal maps, SDI sources, template groups, and templates",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
@@ -480,6 +498,12 @@
       },
       {
         "name": "reservation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sdi-source",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -722,6 +746,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletesdisource": {
+    "name": "DeleteSdiSource",
+    "description": "Grants permission to delete a SDI source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletesignalmap": {
     "name": "DeleteSignalMap",
     "description": "Grants permission to delete a signal map",
@@ -739,7 +778,7 @@
   },
   "deletetags": {
     "name": "DeleteTags",
-    "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
+    "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, SDI source, signal maps, template groups, and templates",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
@@ -816,6 +855,12 @@
       },
       {
         "name": "reservation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sdi-source",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1050,6 +1095,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describesdisource": {
+    "name": "DescribeSdiSource",
+    "description": "Grants permission to describe a SDI source",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describethumbnails": {
     "name": "DescribeThumbnails",
     "description": "Grants permission to view the thumbnails for a channel",
@@ -1276,6 +1336,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listsdisource": {
+    "name": "ListSdiSource",
+    "description": "Grants permission to list SDI sources",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listsignalmaps": {
     "name": "ListSignalMaps",
     "description": "Grants permission to list signal maps",
@@ -1286,7 +1354,7 @@
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
+    "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, SDI sources, signal maps, template groups, and templates",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -1363,6 +1431,12 @@
       },
       {
         "name": "reservation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sdi-source",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1926,6 +2000,24 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesdisource": {
+    "name": "UpdateSdiSource",
+    "description": "Grants permission to update the state of a sdi source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sdi-source",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   }
 }

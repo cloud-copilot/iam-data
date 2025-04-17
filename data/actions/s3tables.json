@@ -27,7 +27,9 @@
       }
     ],
     "conditionKeys": [
-      "s3tables:namespace"
+      "s3tables:namespace",
+      "s3tables:SSEAlgorithm",
+      "s3tables:KMSKeyArn"
     ],
     "dependentActions": []
   },
@@ -43,7 +45,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "s3tables:SSEAlgorithm",
+      "s3tables:KMSKeyArn"
+    ],
     "dependentActions": []
   },
   "deletenamespace": {
@@ -84,6 +89,21 @@
   "deletetablebucket": {
     "name": "DeleteTableBucket",
     "description": "Grants permission to delete a table bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetablebucketencryption": {
+    "name": "DeleteTableBucketEncryption",
+    "description": "Grants permission to delete encryption configuration on a table bucket",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -179,6 +199,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "gettablebucketencryption": {
+    "name": "GetTableBucketEncryption",
+    "description": "Grants permission to retrieve encryption configuration on a table bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "gettablebucketmaintenanceconfiguration": {
     "name": "GetTableBucketMaintenanceConfiguration",
     "description": "Grants permission to retrieve a maintenance configuration on a table bucket",
@@ -211,7 +246,26 @@
   },
   "gettabledata": {
     "name": "GetTableData",
+    "isPermissionOnly": true,
     "description": "Grants permission to read metadata and data objects from a table storage endpoint using S3 APIs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettableencryption": {
+    "name": "GetTableEncryption",
+    "description": "Grants permission to retrieve encryption configuration on a table",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -339,6 +393,24 @@
     ],
     "dependentActions": []
   },
+  "puttablebucketencryption": {
+    "name": "PutTableBucketEncryption",
+    "description": "Grants permission to put or overwrite encryption configuration on a table bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:KMSKeyArn",
+      "s3tables:SSEAlgorithm"
+    ],
+    "dependentActions": []
+  },
   "puttablebucketmaintenanceconfiguration": {
     "name": "PutTableBucketMaintenanceConfiguration",
     "description": "Grants permission to put a maintenance configuration on a table bucket",
@@ -371,6 +443,7 @@
   },
   "puttabledata": {
     "name": "PutTableData",
+    "isPermissionOnly": true,
     "description": "Grants permission to write metadata and data objects to a table storage endpoint using S3 APIs",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -384,6 +457,26 @@
     "conditionKeys": [
       "s3tables:namespace",
       "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "puttableencryption": {
+    "name": "PutTableEncryption",
+    "isPermissionOnly": true,
+    "description": "Grants permission to put encryption configuration on a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:SSEAlgorithm",
+      "s3tables:KMSKeyArn"
     ],
     "dependentActions": []
   },
@@ -436,7 +529,8 @@
       }
     ],
     "conditionKeys": [
-      "s3tables:namespace"
+      "s3tables:namespace",
+      "s3tables:tableName"
     ],
     "dependentActions": []
   },
