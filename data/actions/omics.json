@@ -201,6 +201,24 @@
     ],
     "dependentActions": []
   },
+  "createworkflowversion": {
+    "name": "CreateWorkflowVersion",
+    "description": "Grants permission to create a new workflow version with a workflow definition and template of workflow parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "deleteannotationstore": {
     "name": "DeleteAnnotationStore",
     "description": "Grants permission to delete an Annotation Store",
@@ -376,6 +394,27 @@
     "description": "Grants permission to delete a workflow",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkflowversion": {
+    "name": "DeleteWorkflowVersion",
+    "description": "Grants permission to delete a workflow version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WorkflowVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "workflow",
         "required": true,
@@ -725,6 +764,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getworkflowversion": {
+    "name": "GetWorkflowVersion",
+    "description": "Grants permission to retrieve workflow version details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "WorkflowVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listannotationimportjobs": {
     "name": "ListAnnotationImportJobs",
     "description": "Grants permission to get a list of Annotation Import Jobs",
@@ -963,6 +1023,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listworkflowversions": {
+    "name": "ListWorkflowVersions",
+    "description": "Grants permission to retrieve a list of available versions for a workflow",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listworkflows": {
     "name": "ListWorkflows",
     "description": "Grants permission to retrieve a list of available workflows",
@@ -1144,6 +1219,12 @@
         "dependentActions": []
       },
       {
+        "name": "WorkflowVersion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "readSet",
         "required": false,
         "conditionKeys": [],
@@ -1217,6 +1298,12 @@
       },
       {
         "name": "VariantStore",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "WorkflowVersion",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1370,6 +1457,27 @@
     "description": "Grants permission to update workflow details",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "workflow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateworkflowversion": {
+    "name": "UpdateWorkflowVersion",
+    "description": "Grants permission to update workflow version details",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WorkflowVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "workflow",
         "required": true,
