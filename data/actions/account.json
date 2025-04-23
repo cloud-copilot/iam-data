@@ -103,12 +103,17 @@
   },
   "getaccountinformation": {
     "name": "GetAccountInformation",
-    "isPermissionOnly": true,
     "description": "Grants permission to retrieve the account information for an account",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -203,6 +208,27 @@
     "name": "ListRegions",
     "description": "Grants permission to list the available Regions",
     "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accountInOrganization",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccountname": {
+    "name": "PutAccountName",
+    "description": "Grants permission to update the name for an account",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "account",

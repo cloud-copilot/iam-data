@@ -88,7 +88,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -99,7 +100,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -145,7 +147,8 @@
     "conditionKeys": [
       "organizations:PolicyType",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -804,7 +807,9 @@
       {
         "name": "policy",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "organizations:PolicyType"
+        ],
         "dependentActions": []
       },
       {

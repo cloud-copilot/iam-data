@@ -802,6 +802,34 @@
     ],
     "dependentActions": []
   },
+  "stopservicedeployment": {
+    "name": "StopServiceDeployment",
+    "description": "Grants permission to stop an ongoing service deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service-deployment",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "ecs:service",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "stoptask": {
     "name": "StopTask",
     "description": "Grants permission to stop a running task",
