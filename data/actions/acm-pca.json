@@ -6,6 +6,7 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -316,7 +317,9 @@
       {
         "name": "certificate-authority",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
