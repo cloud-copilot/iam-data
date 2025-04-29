@@ -78,7 +78,8 @@
       "imagebuilder:TagResource",
       "kms:Encrypt",
       "kms:GenerateDataKey",
-      "kms:GenerateDataKeyWithoutPlaintext"
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "ssm:GetParameter"
     ]
   },
   "createdistributionconfiguration": {
@@ -99,7 +100,8 @@
     ],
     "dependentActions": [
       "iam:CreateServiceLinkedRole",
-      "imagebuilder:TagResource"
+      "imagebuilder:TagResource",
+      "ssm:GetParameter"
     ]
   },
   "createimage": {
@@ -177,7 +179,8 @@
       "iam:CreateServiceLinkedRole",
       "imagebuilder:GetComponent",
       "imagebuilder:GetImage",
-      "imagebuilder:TagResource"
+      "imagebuilder:TagResource",
+      "ssm:GetParameter"
     ]
   },
   "createinfrastructureconfiguration": {
@@ -1386,7 +1389,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "ssm:GetParameter"
+    ]
   },
   "updateimagepipeline": {
     "name": "UpdateImagePipeline",

@@ -30,6 +30,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatedistributiontenantwebacl": {
+    "name": "AssociateDistributionTenantWebACL",
+    "description": "Grants permission to associate a distribution tenant with an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatedistributionwebacl": {
+    "name": "AssociateDistributionWebACL",
+    "description": "Grants permission to associate a distribution with an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "copydistribution": {
     "name": "CopyDistribution",
     "description": "Grants permission to copy an existing distribution and create a new web distribution",
@@ -97,6 +127,17 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createconnectiongroup": {
+    "name": "CreateConnectionGroup",
+    "description": "Grants permission to create a connection group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcontinuousdeploymentpolicy": {
     "name": "CreateContinuousDeploymentPolicy",
     "description": "Grants permission to add a new continuous-deployment policy to CloudFront",
@@ -125,6 +166,19 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": [
+      "cloudfront:CreateConnectionGroup"
+    ]
+  },
+  "createdistributiontenant": {
+    "name": "CreateDistributionTenant",
+    "description": "Grants permission to create a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createfieldlevelencryptionconfig": {
@@ -165,6 +219,21 @@
     "resourceTypes": [
       {
         "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createinvalidationfordistributiontenant": {
+    "name": "CreateInvalidationForDistributionTenant",
+    "description": "Grants permission to create an invalidation for a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -363,6 +432,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteconnectiongroup": {
+    "name": "DeleteConnectionGroup",
+    "description": "Grants permission to delete a connection group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecontinuousdeploymentpolicy": {
     "name": "DeleteContinuousDeploymentPolicy",
     "description": "Grants permission to delete a continuous-deployment policy",
@@ -385,6 +469,21 @@
     "resourceTypes": [
       {
         "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedistributiontenant": {
+    "name": "DeleteDistributionTenant",
+    "description": "Grants permission to delete a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -597,6 +696,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disassociatedistributiontenantwebacl": {
+    "name": "DisassociateDistributionTenantWebACL",
+    "description": "Grants permission to disassociate a distribution tenant from an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatedistributionwebacl": {
+    "name": "DisassociateDistributionWebACL",
+    "description": "Grants permission to disassociate a distribution from an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getanycastiplist": {
     "name": "GetAnycastIpList",
     "description": "Grants permission to get an Anycast static IP list",
@@ -672,6 +801,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getconnectiongroup": {
+    "name": "GetConnectionGroup",
+    "description": "Grants permission to get information about a connection group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectiongroupbyroutingendpoint": {
+    "name": "GetConnectionGroupByRoutingEndpoint",
+    "description": "Grants permission to get information about a connection group by the specified routing endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getcontinuousdeploymentpolicy": {
     "name": "GetContinuousDeploymentPolicy",
     "description": "Grants permission to get the continuous-deployment policy",
@@ -724,6 +883,36 @@
     "resourceTypes": [
       {
         "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributiontenant": {
+    "name": "GetDistributionTenant",
+    "description": "Grants permission to get information about a distribution tenant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdistributiontenantbydomain": {
+    "name": "GetDistributionTenantByDomain",
+    "description": "Grants permission to get information about a distribution tenant by the associated domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -822,6 +1011,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getinvalidationfordistributiontenant": {
+    "name": "GetInvalidationForDistributionTenant",
+    "description": "Grants permission to get information about an invalidation for a distribution tenant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getkeygroup": {
     "name": "GetKeyGroup",
     "description": "Grants permission to get a key group",
@@ -835,6 +1039,21 @@
     "description": "Grants permission to get a key group configuration",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanagedcertificatedetails": {
+    "name": "GetManagedCertificateDetails",
+    "description": "Grants permission to get details about a CloudFront managed certificate",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1060,9 +1279,33 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listconnectiongroups": {
+    "name": "ListConnectionGroups",
+    "description": "Grants permission to list the connection groups in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcontinuousdeploymentpolicies": {
     "name": "ListContinuousDeploymentPolicies",
     "description": "Grants permission to list all continuous-deployment policies in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributiontenants": {
+    "name": "ListDistributionTenants",
+    "description": "Grants permission to list the distribution tenants in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributiontenantsbycustomization": {
+    "name": "ListDistributionTenantsByCustomization",
+    "description": "Grants permission to list the distribution tenants by the customization that you specify",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1087,6 +1330,14 @@
   "listdistributionsbycachepolicyid": {
     "name": "ListDistributionsByCachePolicyId",
     "description": "Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified cache policy",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbyconnectionmode": {
+    "name": "ListDistributionsByConnectionMode",
+    "description": "Grants permission to list the distributions by the specified connection mode",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1149,6 +1400,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdomainconflicts": {
+    "name": "ListDomainConflicts",
+    "description": "Grants permission to list domain conflicts for a specified domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listfieldlevelencryptionconfigs": {
     "name": "ListFieldLevelEncryptionConfigs",
     "description": "Grants permission to list all field-level encryption configurations that have been created in CloudFront for this account",
@@ -1180,6 +1452,21 @@
     "resourceTypes": [
       {
         "name": "distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvalidationsfordistributiontenant": {
+    "name": "ListInvalidationsForDistributionTenant",
+    "description": "Grants permission to list the invalidations for a distribution tenant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1282,7 +1569,19 @@
         "dependentActions": []
       },
       {
+        "name": "connection-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1341,7 +1640,19 @@
         "dependentActions": []
       },
       {
+        "name": "connection-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1392,7 +1703,19 @@
         "dependentActions": []
       },
       {
+        "name": "connection-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1445,6 +1768,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updateconnectiongroup": {
+    "name": "UpdateConnectionGroup",
+    "description": "Grants permission to update a connection group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatecontinuousdeploymentpolicy": {
     "name": "UpdateContinuousDeploymentPolicy",
     "description": "Grants permission to update a continuous-deployment policy",
@@ -1475,6 +1813,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatedistributiontenant": {
+    "name": "UpdateDistributionTenant",
+    "description": "Grants permission to update a distribution tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatedistributionwithstagingconfig": {
     "name": "UpdateDistributionWithStagingConfig",
     "description": "Grants permission to copy the configuration from a staging web distribution to its corresponding primary web distribution",
@@ -1483,6 +1836,27 @@
       {
         "name": "distribution",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedomainassociation": {
+    "name": "UpdateDomainAssociation",
+    "description": "Grants permission to update a domain association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "distribution-tenant",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1651,6 +2025,21 @@
       {
         "name": "vpcorigin",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "verifydnsconfiguration": {
+    "name": "VerifyDnsConfiguration",
+    "description": "Grants permission to verify the DNS configuration for a specified domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "distribution-tenant",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

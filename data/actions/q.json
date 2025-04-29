@@ -393,6 +393,25 @@
       "kms:ReEncryptTo"
     ]
   },
+  "updateplugin": {
+    "name": "UpdatePlugin",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update a third party plugin in Amazon Q",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "plugin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "updatetroubleshootingcommandresult": {
     "name": "UpdateTroubleshootingCommandResult",
     "isPermissionOnly": true,
