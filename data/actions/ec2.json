@@ -746,6 +746,39 @@
     ],
     "dependentActions": []
   },
+  "associaterouteserver": {
+    "name": "AssociateRouteServer",
+    "description": "Grants permission to associate a route server with a VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "associateroutetable": {
     "name": "AssociateRouteTable",
     "description": "Grants permission to associate a subnet or gateway with a route table",
@@ -1717,7 +1750,20 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
-          "ec2:CapacityReservationFleet"
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:CapacityReservationFleet",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:EphemeralStorage",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:OutpostArn",
+          "ec2:PlacementGroup",
+          "ec2:Tenancy"
         ],
         "dependentActions": [
           "ec2:CreateTags"
@@ -3404,6 +3450,112 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RouteTableID",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createrouteserver": {
+    "name": "CreateRouteServer",
+    "description": "Grants permission to create a route server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags",
+          "sns:CreateTopic"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createrouteserverendpoint": {
+    "name": "CreateRouteServerEndpoint",
+    "description": "Grants permission to create a route server endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:CreateNetworkInterface",
+          "ec2:CreateNetworkInterfacePermission",
+          "ec2:CreateSecurityGroup",
+          "ec2:CreateTags",
+          "ec2:DescribeSecurityGroups"
+        ]
+      },
+      {
+        "name": "route-server-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AvailabilityZone"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "subnet",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SubnetID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createrouteserverpeer": {
+    "name": "CreateRouteServerPeer",
+    "description": "Grants permission to create a route server peer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "route-server-peer",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AvailabilityZone"
         ],
         "dependentActions": []
       }
@@ -6777,6 +6929,76 @@
     ],
     "dependentActions": []
   },
+  "deleterouteserver": {
+    "name": "DeleteRouteServer",
+    "description": "Grants permission to delete a route server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "sns:DeleteTopic"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleterouteserverendpoint": {
+    "name": "DeleteRouteServerEndpoint",
+    "description": "Grants permission to delete a route server endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:DeleteNetworkInterface",
+          "ec2:DeleteSecurityGroup",
+          "ec2:RevokeSecurityGroupIngress"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleterouteserverpeer": {
+    "name": "DeleteRouteServerPeer",
+    "description": "Grants permission to delete a route server peer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server-peer",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:RevokeSecurityGroupIngress"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deleteroutetable": {
     "name": "DeleteRouteTable",
     "description": "Grants permission to delete a route table",
@@ -8766,32 +8988,7 @@
     "name": "DescribeCapacityBlockExtensionHistory",
     "description": "Grants permission to describe Capacity Block extensions history",
     "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "capacity-reservation",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:CapacityReservationFleet",
-          "ec2:CreateDate",
-          "ec2:DestinationCapacityReservationId",
-          "ec2:EbsOptimized",
-          "ec2:EndDate",
-          "ec2:EndDateType",
-          "ec2:InstanceCount",
-          "ec2:InstanceMatchCriteria",
-          "ec2:InstancePlatform",
-          "ec2:InstanceType",
-          "ec2:OutpostArn",
-          "ec2:PlacementGroup",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:SourceCapacityReservationId",
-          "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -8942,23 +9139,7 @@
     "name": "DescribeClientVpnEndpoints",
     "description": "Grants permission to describe one or more Client VPN endpoints",
     "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "client-vpn-endpoint",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ClientRootCertificateChainArn",
-          "ec2:CloudwatchLogGroupArn",
-          "ec2:CloudwatchLogStreamArn",
-          "ec2:DirectoryArn",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:SamlProviderArn",
-          "ec2:ServerCertificateArn"
-        ],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -9893,6 +10074,36 @@
     ],
     "dependentActions": []
   },
+  "describerouteserverendpoints": {
+    "name": "DescribeRouteServerEndpoints",
+    "description": "Grants permission to describe one or more route server endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describerouteserverpeers": {
+    "name": "DescribeRouteServerPeers",
+    "description": "Grants permission to describe one or more route server peers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describerouteservers": {
+    "name": "DescribeRouteServers",
+    "description": "Grants permission to describe one or more route servers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describeroutetables": {
     "name": "DescribeRouteTables",
     "description": "Grants permission to describe one or more route tables",
@@ -10479,19 +10690,7 @@
     "name": "DescribeVpcEndpointAssociations",
     "description": "Grants permission to describe the VPC endpoint associations",
     "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "vpc-endpoint",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:VpceServiceName",
-          "ec2:VpceServiceOwner"
-        ],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -11057,6 +11256,37 @@
       "organizations:DeregisterDelegatedAdministrator"
     ]
   },
+  "disablerouteserverpropagation": {
+    "name": "DisableRouteServerPropagation",
+    "description": "Grants permission to disable route server propagation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RouteTableID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "disableserialconsoleaccess": {
     "name": "DisableSerialConsoleAccess",
     "description": "Grants permission to disable access to the EC2 serial console of all instances for your account",
@@ -11441,6 +11671,39 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:Subnet",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "disassociaterouteserver": {
+    "name": "DisassociateRouteServer",
+    "description": "Grants permission to disassociate a route server from a VPC",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -11981,6 +12244,37 @@
       "iam:CreateServiceLinkedRole",
       "organizations:EnableAWSServiceAccess"
     ]
+  },
+  "enablerouteserverpropagation": {
+    "name": "EnableRouteServerPropagation",
+    "description": "Grants permission to enable route server propagation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RouteTableID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
   },
   "enableserialconsoleaccess": {
     "name": "EnableSerialConsoleAccess",
@@ -12978,6 +13272,77 @@
       {
         "name": "verified-access-group",
         "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getrouteserverassociations": {
+    "name": "GetRouteServerAssociations",
+    "description": "Grants permission to get associations for a route server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getrouteserverpropagations": {
+    "name": "GetRouteServerPropagations",
+    "description": "Grants permission to get propagations for a route server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-table",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RouteTableID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getrouteserverroutingdatabase": {
+    "name": "GetRouteServerRoutingDatabase",
+    "description": "Grants permission to get the routing database for a route server",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
@@ -14682,6 +15047,26 @@
           "ec2:ReservedInstancesOfferingType",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyrouteserver": {
+    "name": "ModifyRouteServer",
+    "description": "Grants permission to modify a route server",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "route-server",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }

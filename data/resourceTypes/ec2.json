@@ -38,12 +38,14 @@
       "ec2:Attribute",
       "ec2:Attribute/${AttributeName}",
       "ec2:AvailabilityZone",
+      "ec2:AvailabilityZoneId",
       "ec2:CapacityReservationFleet",
       "ec2:CreateDate",
       "ec2:DestinationCapacityReservationId",
       "ec2:EbsOptimized",
       "ec2:EndDate",
       "ec2:EndDateType",
+      "ec2:EphemeralStorage",
       "ec2:InstanceCount",
       "ec2:InstanceMatchCriteria",
       "ec2:InstancePlatform",
@@ -714,6 +716,41 @@
   "role": {
     "key": "role",
     "arn": "arn:${Partition}:iam::${Account}:role/${RoleNameWithPath}"
+  },
+  "route-server-endpoint": {
+    "key": "route-server-endpoint",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:route-server-endpoint/${RouteServerEndpointId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:AvailabilityZone",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
+  "route-server": {
+    "key": "route-server",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:route-server/${RouteServerId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
+  "route-server-peer": {
+    "key": "route-server-peer",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:route-server-peer/${RouteServerPeerId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:AvailabilityZone",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
   },
   "route-table": {
     "key": "route-table",
