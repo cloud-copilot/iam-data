@@ -462,6 +462,12 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "opsitemgroup",
         "required": false,
         "conditionKeys": [],
@@ -1013,6 +1019,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getaccesstoken": {
+    "name": "GetAccessToken",
+    "description": "Grants permission to return a credentials set to be used with just-in-time node access",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "opsitem",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getautomationexecution": {
     "name": "GetAutomationExecution",
     "description": "Grants permission to view details of a specified Automation execution",
@@ -1368,6 +1389,12 @@
     "description": "Grants permission to retrieve lists of Systems Manager resource policies",
     "accessLevel": "List",
     "resourceTypes": [
+      {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "opsitemgroup",
         "required": false,
@@ -1783,6 +1810,12 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
+        "name": "document",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "opsitemgroup",
         "required": false,
         "conditionKeys": [],
@@ -2033,6 +2066,30 @@
     ],
     "dependentActions": []
   },
+  "startaccessrequest": {
+    "name": "StartAccessRequest",
+    "description": "Grants permission to start the workflow for just-in-time node access sessions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "startassociationsonce": {
     "name": "StartAssociationsOnce",
     "description": "Grants permission to run a specified association manually",
@@ -2139,7 +2196,8 @@
     ],
     "conditionKeys": [
       "ssm:resourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "ssm:AccessRequestId"
     ],
     "dependentActions": []
   },

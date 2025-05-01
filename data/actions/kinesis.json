@@ -1,7 +1,7 @@
 {
   "addtagstostream": {
     "name": "AddTagsToStream",
-    "description": "Grants permission to add or update tags for the specified Amazon Kinesis stream. Each stream can have up to 10 tags",
+    "description": "Grants permission to add or update tags for the specified Amazon Kinesis stream. Each stream can have up to 50 tags",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
@@ -62,7 +62,9 @@
       {
         "name": "consumer",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
@@ -106,7 +108,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "describelimits": {
@@ -146,7 +150,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "describestreamsummary": {
@@ -207,7 +213,9 @@
       {
         "name": "consumer",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
@@ -298,6 +306,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for the specified Amazon Kinesis resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforstream": {
     "name": "ListTagsForStream",
     "description": "Grants permission to list the tags for the specified Amazon Kinesis stream",
@@ -374,7 +407,9 @@
       {
         "name": "consumer",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
@@ -402,6 +437,8 @@
       }
     ],
     "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
@@ -496,6 +533,64 @@
         "name": "consumer",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or update tags for the specified Amazon Kinesis resource. Each resource can have up to 50 tags",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the specified Kinesis data resource. Removed tags are deleted and cannot be recovered after this operation successfully completes",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "consumer",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:TagKeys",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],

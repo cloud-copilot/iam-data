@@ -460,10 +460,16 @@
         "name": "worker",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "deadline:ListTagsForResource",
+          "deadline:TagResource"
+        ]
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "deletebudget": {
@@ -1639,9 +1645,17 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "worker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "deadline:CalledAction"
+    ],
     "dependentActions": []
   },
   "listtasks": {
@@ -1824,11 +1838,18 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "worker",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "deadline:CalledAction"
     ],
     "dependentActions": []
   },
@@ -1857,6 +1878,12 @@
       },
       {
         "name": "queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "worker",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
