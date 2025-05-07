@@ -34,7 +34,11 @@
     "description": "Grants permission to create a Cedar policy and save it in the specified policy store",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createpolicytemplate": {
@@ -155,7 +159,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "verifiedpermissions:ListTagsForResource"
+    ]
   },
   "getpolicytemplate": {
     "name": "GetPolicyTemplate",
@@ -270,6 +276,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to view a list of resource tags for the specified policy store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "putschema": {
     "name": "PutSchema",
     "description": "Grants permission to create or update the policy schema in the specified policy store",
@@ -283,6 +304,41 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to the specified policy store",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "policy-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from the specified policy store",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "policy-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updateidentitysource": {
