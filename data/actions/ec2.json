@@ -1717,7 +1717,7 @@
   },
   "copysnapshot": {
     "name": "CopySnapshot",
-    "description": "Grants permission to copy a point-in-time snapshot of an EBS volume and store it in Amazon S3. Resource-level permissions specified for this action apply to the new snapshot only. They do not apply to the source snapshot",
+    "description": "Grants permission to copy a point-in-time snapshot of an EBS volume and store it in Amazon S3. Resource-level permissions specified for this action apply to both the snapshot copy and the source snapshot",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1726,8 +1726,14 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
+          "ec2:Encrypted",
           "ec2:OutpostArn",
-          "ec2:SnapshotID"
+          "ec2:Owner",
+          "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
+          "ec2:SnapshotID",
+          "ec2:SnapshotTime",
+          "ec2:VolumeSize"
         ],
         "dependentActions": [
           "ec2:CreateTags"
@@ -2923,6 +2929,77 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createlocalgatewayvirtualinterface": {
+    "name": "CreateLocalGatewayVirtualInterface",
+    "description": "Grants permission to create a local gateway virtual interface",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "local-gateway-virtual-interface",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "local-gateway-virtual-interface-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "outpost-lag",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createlocalgatewayvirtualinterfacegroup": {
+    "name": "CreateLocalGatewayVirtualInterfaceGroup",
+    "description": "Grants permission to create a local gateway virtual interface group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "local-gateway",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "local-gateway-virtual-interface-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
@@ -6600,6 +6677,46 @@
     ],
     "dependentActions": []
   },
+  "deletelocalgatewayvirtualinterface": {
+    "name": "DeleteLocalGatewayVirtualInterface",
+    "description": "Grants permission to delete a local gateway virtual interface",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "local-gateway-virtual-interface",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletelocalgatewayvirtualinterfacegroup": {
+    "name": "DeleteLocalGatewayVirtualInterfaceGroup",
+    "description": "Grants permission to delete a local gateway virtual interface group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "local-gateway-virtual-interface-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deletemanagedprefixlist": {
     "name": "DeleteManagedPrefixList",
     "description": "Grants permission to delete a managed prefix list",
@@ -9974,6 +10091,16 @@
     ],
     "dependentActions": []
   },
+  "describeoutpostlags": {
+    "name": "DescribeOutpostLags",
+    "description": "Grants permission to describe Outpost LAGs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describeplacementgroups": {
     "name": "DescribePlacementGroups",
     "description": "Grants permission to describe one or more placement groups",
@@ -10179,6 +10306,16 @@
   "describesecuritygroups": {
     "name": "DescribeSecurityGroups",
     "description": "Grants permission to describe one or more security groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeservicelinkvirtualinterfaces": {
+    "name": "DescribeServiceLinkVirtualInterfaces",
+    "description": "Grants permission to describe service link virtual interfaces",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [

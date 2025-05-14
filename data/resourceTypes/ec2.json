@@ -653,6 +653,17 @@
       "ec2:Vpc"
     ]
   },
+  "outpost-lag": {
+    "key": "outpost-lag",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:outpost-lag/${OutpostLagId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "placement-group": {
     "key": "placement-group",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:placement-group/${PlacementGroupName}",
@@ -811,6 +822,7 @@
       "ec2:Location",
       "ec2:OutpostArn",
       "ec2:Owner",
+      "ec2:ParentSnapshot",
       "ec2:ParentVolume",
       "ec2:Region",
       "ec2:Remove/group",

@@ -258,6 +258,24 @@
     ],
     "dependentActions": []
   },
+  "startcanarydryrun": {
+    "name": "StartCanaryDryRun",
+    "description": "Grants permission to start a canary dry run, so that Amazon CloudWatch Synthetics can execute a test execution of a canary with provided parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "canary",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "stopcanary": {
     "name": "StopCanary",
     "description": "Grants permission to stop a canary",
