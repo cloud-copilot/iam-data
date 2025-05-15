@@ -57,7 +57,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "creategrantversion": {
@@ -80,7 +83,10 @@
     "description": "Grants permission to create a new license",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createlicenseconfiguration": {
@@ -464,8 +470,26 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "grant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "license-configuration",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-generator",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -517,15 +541,33 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "grant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "license-configuration",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-generator",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -535,13 +577,33 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "grant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "license-configuration",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "report-generator",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updatelicenseconfiguration": {

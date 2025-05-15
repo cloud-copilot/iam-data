@@ -3,21 +3,29 @@
     "key": "license-configuration",
     "arn": "arn:${Partition}:license-manager:${Region}:${Account}:license-configuration:${LicenseConfigurationId}",
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "license-manager:ResourceTag/${TagKey}"
     ]
   },
   "license": {
     "key": "license",
-    "arn": "arn:${Partition}:license-manager::${Account}:license:${LicenseId}"
+    "arn": "arn:${Partition}:license-manager::${Account}:license:${LicenseId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "grant": {
     "key": "grant",
-    "arn": "arn:${Partition}:license-manager::${Account}:grant:${GrantId}"
+    "arn": "arn:${Partition}:license-manager::${Account}:grant:${GrantId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "report-generator": {
     "key": "report-generator",
     "arn": "arn:${Partition}:license-manager:${Region}:${Account}:report-generator:${ReportGeneratorId}",
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "license-manager:ResourceTag/${TagKey}"
     ]
   }

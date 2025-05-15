@@ -1,4 +1,21 @@
 {
+  "addpeercluster": {
+    "name": "AddPeerCluster",
+    "description": "Grants permission to add a peer cluster to a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:PutMultiRegionProperties"
+    ]
+  },
   "createcluster": {
     "name": "CreateCluster",
     "description": "Grants permission to create new clusters",
@@ -21,7 +38,7 @@
   },
   "createmultiregionclusters": {
     "name": "CreateMultiRegionClusters",
-    "description": "Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region",
+    "description": "Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region. **This action is deprecated as of 05/09/2025 and will be removed on 05/21/2025.**",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -85,7 +102,7 @@
   },
   "deletemultiregionclusters": {
     "name": "DeleteMultiRegionClusters",
-    "description": "Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region",
+    "description": "Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region. **This action is deprecated as of 05/09/2025 and will be removed on 05/21/2025.**",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -117,7 +134,7 @@
   },
   "getvpcendpointservicename": {
     "name": "GetVpcEndpointServiceName",
-    "description": "Grants permission to retrieve endpoint service name specific to a cluster",
+    "description": "Grants permission to retrieve the VPC endpoint service name for a cluster",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -152,6 +169,55 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "putmultiregionproperties": {
+    "name": "PutMultiRegionProperties",
+    "description": "Grants permission to update multi-Region properties of a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putwitnessregion": {
+    "name": "PutWitnessRegion",
+    "description": "Grants permission to configure and update the witness Region of a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:PutMultiRegionProperties"
+    ]
+  },
+  "removepeercluster": {
+    "name": "RemovePeerCluster",
+    "description": "Grants permission to remove a peer cluster from a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:PutMultiRegionProperties"
+    ]
   },
   "tagresource": {
     "name": "TagResource",
