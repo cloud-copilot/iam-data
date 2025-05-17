@@ -94,6 +94,30 @@
       "iam:CreateServiceLinkedRole"
     ]
   },
+  "createdomainlayout": {
+    "name": "CreateDomainLayout",
+    "description": "Grants permission to create a layout in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "layouts",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createeventstream": {
     "name": "CreateEventStream",
     "description": "Grants permission to put an event stream in a domain",
@@ -288,6 +312,27 @@
     "resourceTypes": [
       {
         "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomainlayout": {
+    "name": "DeleteDomainLayout",
+    "description": "Grants permission to delete a layout in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "layouts",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -548,6 +593,27 @@
     "resourceTypes": [
       {
         "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdomainlayout": {
+    "name": "GetDomainLayout",
+    "description": "Grants permission to get a layout in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "layouts",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -845,6 +911,21 @@
   "listcalculatedattributesforprofile": {
     "name": "ListCalculatedAttributesForProfile",
     "description": "Grants permission to list all calculated attributes for a specific profile in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainlayouts": {
+    "name": "ListDomainLayouts",
+    "description": "Grants permission to list all the layouts in the domain",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -1308,6 +1389,27 @@
     "dependentActions": [
       "iam:CreateServiceLinkedRole"
     ]
+  },
+  "updatedomainlayout": {
+    "name": "UpdateDomainLayout",
+    "description": "Grants permission to update a layout in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "layouts",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "updateeventtrigger": {
     "name": "UpdateEventTrigger",

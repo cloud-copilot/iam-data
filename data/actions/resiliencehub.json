@@ -55,14 +55,21 @@
     "name": "CreateApp",
     "description": "Grants permission to create application",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createappversionappcomponent": {
     "name": "CreateAppVersionAppComponent",
@@ -120,7 +127,14 @@
     "name": "CreateResiliencyPolicy",
     "description": "Grants permission to create resiliency policy",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "resiliency-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
