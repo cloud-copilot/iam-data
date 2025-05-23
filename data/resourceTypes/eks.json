@@ -63,5 +63,12 @@
   "access-policy": {
     "key": "access-policy",
     "arn": "arn:${Partition}:eks::aws:cluster-access-policy/${AccessPolicyName}"
+  },
+  "dashboard": {
+    "key": "dashboard",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:dashboard/${DashboardName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

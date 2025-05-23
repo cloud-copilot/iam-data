@@ -20,69 +20,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "batchcreatevehicle": {
-    "name": "BatchCreateVehicle",
-    "description": "Grants permission to create a batch of vehicles",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "decodermanifest",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "iot:CreateThing",
-          "iot:DescribeThing"
-        ]
-      },
-      {
-        "name": "modelmanifest",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "vehicle",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
-  "batchupdatevehicle": {
-    "name": "BatchUpdateVehicle",
-    "description": "Grants permission to update a batch of vehicles",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "vehicle",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "decodermanifest",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "modelmanifest",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "iotfleetwise:UpdateToModelManifestArn",
-      "iotfleetwise:UpdateToDecoderManifestArn"
-    ],
-    "dependentActions": []
-  },
   "createcampaign": {
     "name": "CreateCampaign",
     "description": "Grants permission to create a campaign",

@@ -36,25 +36,6 @@
     ],
     "dependentActions": []
   },
-  "createmultiregionclusters": {
-    "name": "CreateMultiRegionClusters",
-    "description": "Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region. **This action is deprecated as of 05/09/2025 and will be removed on 05/21/2025.**",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "dsql:CreateCluster"
-        ]
-      }
-    ],
-    "conditionKeys": [
-      "dsql:WitnessRegion"
-    ],
-    "dependentActions": []
-  },
   "dbconnect": {
     "name": "DbConnect",
     "description": "Grants permission to connect to the database",
@@ -100,10 +81,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deletemultiregionclusters": {
-    "name": "DeleteMultiRegionClusters",
-    "description": "Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region. **This action is deprecated as of 05/09/2025 and will be removed on 05/21/2025.**",
-    "accessLevel": "Write",
+  "getbackupjob": {
+    "name": "GetBackupJob",
+    "description": "Grants permission to get the status of an Aurora DSQL cluster backup job",
+    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "Cluster",
@@ -113,13 +94,26 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "dsql:DeleteCluster"
-    ]
+    "dependentActions": []
   },
   "getcluster": {
     "name": "GetCluster",
     "description": "Grants permission to get information about a cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrestorejob": {
+    "name": "GetRestoreJob",
+    "description": "Grants permission to get the status of an Aurora DSQL cluster restore job",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -218,6 +212,69 @@
     "dependentActions": [
       "dsql:PutMultiRegionProperties"
     ]
+  },
+  "startbackupjob": {
+    "name": "StartBackupJob",
+    "description": "Grants permission to start a backup job for an Aurora DSQL cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startrestorejob": {
+    "name": "StartRestoreJob",
+    "description": "Grants permission to start a restore job for an Aurora DSQL cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "dsql:CreateCluster",
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
+  "stopbackupjob": {
+    "name": "StopBackupJob",
+    "description": "Grants permission to stop a backup job for an Aurora DSQL cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoprestorejob": {
+    "name": "StopRestoreJob",
+    "description": "Grants permission to stop a restore job for an Aurora DSQL Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",

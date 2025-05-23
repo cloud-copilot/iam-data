@@ -727,7 +727,8 @@
       "aws:TagKeys"
     ],
     "dependentActions": [
-      "iam:PassRole"
+      "iam:PassRole",
+      "rds:AddTagsToResource"
     ]
   },
   "createdbproxyendpoint": {
@@ -739,7 +740,9 @@
         "name": "proxy",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "rds:AddTagsToResource"
+        ]
       },
       {
         "name": "proxy-endpoint",
@@ -965,7 +968,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:TenantDatabaseName"
+      "rds:TenantDatabaseName",
+      "rds:ManageMasterUserPassword"
     ],
     "dependentActions": []
   },
@@ -2695,7 +2699,8 @@
       }
     ],
     "conditionKeys": [
-      "rds:TenantDatabaseName"
+      "rds:TenantDatabaseName",
+      "rds:ManageMasterUserPassword"
     ],
     "dependentActions": []
   },
@@ -2738,7 +2743,9 @@
         "name": "ri",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "rds:AddTagsToResource"
+        ]
       }
     ],
     "conditionKeys": [
@@ -3254,7 +3261,8 @@
       "rds:BackupTarget",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}"
+      "rds:req-tag/${TagKey}",
+      "rds:ManageMasterUserPassword"
     ],
     "dependentActions": []
   },
@@ -3355,7 +3363,8 @@
       "rds:BackupTarget",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}"
+      "rds:req-tag/${TagKey}",
+      "rds:ManageMasterUserPassword"
     ],
     "dependentActions": []
   },
