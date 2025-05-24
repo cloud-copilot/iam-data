@@ -25,6 +25,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "guardrail-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -290,7 +296,14 @@
     "name": "CreateGuardrail",
     "description": "Grants permission to create a new guardrail",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "guardrail-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1267,6 +1280,33 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getexecutionflowsnapshot": {
+    "name": "GetExecutionFlowSnapshot",
+    "description": "Grants permission to retrieve the flow definition for a flow execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getflow": {
     "name": "GetFlow",
     "description": "Grants permission to retrieve an existing prompt flow",
@@ -1289,6 +1329,33 @@
     "resourceTypes": [
       {
         "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getflowexecution": {
+    "name": "GetFlowExecution",
+    "description": "Grants permission to retrieve an existing execution of a flow alias",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-execution",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2047,6 +2114,54 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listflowexecutionevents": {
+    "name": "ListFlowExecutionEvents",
+    "description": "Grants permission to retrieve events for a flow execution",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listflowexecutions": {
+    "name": "ListFlowExecutions",
+    "description": "Grants permission to list executions of a flow or a flow alias",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listflowversions": {
     "name": "ListFlowVersions",
     "description": "Grants permission to list existing versions of a prompt flow",
@@ -2589,6 +2704,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startflowexecution": {
+    "name": "StartFlowExecution",
+    "description": "Grants permission to start an execution of a flow alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "startingestionjob": {
     "name": "StartIngestionJob",
     "description": "Grants permission to start an ingestion job",
@@ -2611,6 +2747,33 @@
     "resourceTypes": [
       {
         "name": "evaluation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopflowexecution": {
+    "name": "StopFlowExecution",
+    "description": "Grants permission to stop an execution of a flow alias",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flow-execution",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3145,6 +3308,12 @@
       {
         "name": "guardrail",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail-profile",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
