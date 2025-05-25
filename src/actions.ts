@@ -14,6 +14,7 @@ interface Action {
   resourceTypes: ActionResourceType[]
   conditionKeys: string[]
   dependentActions: string[]
+  isWildcardOnly: boolean
 }
 
 /**
@@ -52,5 +53,11 @@ export async function iamActionDetails(serviceKey: string, actionKey: string): P
   if (!data[actionKey.toLowerCase()]) {
     throw new Error(`Action ${actionKey} does not exist for service ${serviceKey}`)
   }
-  return data[actionKey.toLowerCase()]
+
+  const actionData = data[actionKey.toLowerCase()]
+
+  return {
+    ...actionData,
+    isWildcardOnly: actionData.resourceTypes.length === 0
+  }
 }

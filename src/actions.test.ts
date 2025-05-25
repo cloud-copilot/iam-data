@@ -40,6 +40,30 @@ describe('actions', () => {
         'Action GetBunchesOfObjects does not exist for service s3'
       )
     })
+
+    it('should return if the action is wildcard only', async () => {
+      //Given a service and action that exists
+      const service = 's3'
+      const action = 'ListAllMyBuckets'
+
+      //When iamActionDetails is called
+      const result = await iamActionDetails(service, action)
+
+      //Then result should be an object with the correct keys
+      expect(result.isWildcardOnly).toBe(true)
+    })
+
+    it('should return if the action is not wildcard only', async () => {
+      //Given a service and action that exists
+      const service = 's3'
+      const action = 'GetObject'
+
+      //When iamActionDetails is called
+      const result = await iamActionDetails(service, action)
+
+      //Then result should be an object with the correct keys
+      expect(result.isWildcardOnly).toBe(false)
+    })
   })
 
   describe('iamActionExists', () => {
