@@ -141,6 +141,32 @@
     ],
     "dependentActions": []
   },
+  "createvpcendpointassociation": {
+    "name": "CreateVpcEndpointAssociation",
+    "description": "Grants permission to create an AWS Network Firewall vpc endpoint association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      },
+      {
+        "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "deletefirewall": {
     "name": "DeleteFirewall",
     "description": "Grants permission to delete a firewall",
@@ -173,9 +199,15 @@
   },
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
-    "description": "Grants permission to delete a resource policy for a firewall policy or rule group",
+    "description": "Grants permission to delete a resource policy for a firewall policy or rule group or firewall",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "FirewallPolicy",
         "required": false,
@@ -234,9 +266,39 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletevpcendpointassociation": {
+    "name": "DeleteVpcEndpointAssociation",
+    "description": "Grants permission to delete a vpc endpoint association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describefirewall": {
     "name": "DescribeFirewall",
     "description": "Grants permission to retrieve the data objects that define a firewall",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describefirewallmetadata": {
+    "name": "DescribeFirewallMetadata",
+    "description": "Grants permission to retrieve the high-level information about a firewall",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -317,9 +379,15 @@
   },
   "describeresourcepolicy": {
     "name": "DescribeResourcePolicy",
-    "description": "Grants permission to describe a resource policy for a firewall policy or rule group",
+    "description": "Grants permission to describe a resource policy for a firewall policy or rule group or firewall",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "FirewallPolicy",
         "required": false,
@@ -391,6 +459,21 @@
     "resourceTypes": [
       {
         "name": "TLSInspectionConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describevpcendpointassociation": {
+    "name": "DescribeVpcEndpointAssociation",
+    "description": "Grants permission to retrieve the data objects that define a vpc endpoint association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VpcEndpointAssociation",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -561,6 +644,27 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "VpcEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvpcendpointassociations": {
+    "name": "ListVpcEndpointAssociations",
+    "description": "Grants permission to retrieve the metadata for vpc endpoint associations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -568,9 +672,15 @@
   },
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
-    "description": "Grants permission to put a resource policy for a firewall policy or rule group",
+    "description": "Grants permission to put a resource policy for a firewall policy or rule group or firewall",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "Firewall",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "FirewallPolicy",
         "required": false,
@@ -672,6 +782,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "VpcEndpointAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -711,6 +827,12 @@
       },
       {
         "name": "TLSInspectionConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VpcEndpointAssociation",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
