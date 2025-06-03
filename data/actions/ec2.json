@@ -63,7 +63,21 @@
     "name": "AcceptReservedInstancesExchangeQuote",
     "description": "Grants permission to accept a Convertible Reserved Instance exchange quote",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "reserved-instances",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:InstanceType",
+          "ec2:ReservedInstancesOfferingType",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -878,6 +892,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -1552,7 +1567,7 @@
   "cancelimagelaunchpermission": {
     "name": "CancelImageLaunchPermission",
     "description": "Grants permission to remove your AWS account from the launch permissions for the specified AMI",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "image",
@@ -1731,6 +1746,7 @@
           "ec2:Owner",
           "ec2:ParentSnapshot",
           "ec2:ParentVolume",
+          "ec2:ProductCode",
           "ec2:SnapshotID",
           "ec2:SnapshotTime",
           "ec2:VolumeSize"
@@ -2015,7 +2031,7 @@
     "name": "CreateCoipPoolPermission",
     "isPermissionOnly": true,
     "description": "Grants permission to allow a service to access a customer-owned IP (CoIP) pool",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "coip-pool",
@@ -2069,6 +2085,50 @@
     "description": "Grants permission to create a default VPC with a default subnet in each Availability Zone",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createdelegatemacvolumeownershiptask": {
+    "name": "CreateDelegateMacVolumeOwnershipTask",
+    "description": "Grants permission to create a volume ownership delegation task for an Apple silicon Mac instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "mac-modification-task",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -2839,7 +2899,7 @@
     "name": "CreateLocalGatewayRouteTablePermission",
     "isPermissionOnly": true,
     "description": "Grants permission to allow a service to access a local gateway route table",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "local-gateway-route-table",
@@ -2996,6 +3056,50 @@
       },
       {
         "name": "local-gateway-virtual-interface-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createmacsystemintegrityprotectionmodificationtask": {
+    "name": "CreateMacSystemIntegrityProtectionModificationTask",
+    "description": "Grants permission to create a System Integrity Protection (SIP) modification task for an Amazon EC2 Mac instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "mac-modification-task",
         "required": true,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -3863,6 +3967,8 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
           "ec2:SubnetID"
         ],
         "dependentActions": [
@@ -3899,7 +4005,22 @@
     "name": "CreateSubnetCidrReservation",
     "description": "Grants permission to create a subnet CIDR reservation",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "subnet",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SubnetID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -4527,6 +4648,39 @@
           "ec2:ReservedInstancesOfferingType",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-server",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-server-endpoint",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-server-peer",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -5821,7 +5975,9 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:VpceServiceName",
-          "ec2:VpceServiceOwner"
+          "ec2:VpceServiceOwner",
+          "ec2:vpceMultiRegion",
+          "ec2:vpceServiceRegion"
         ],
         "dependentActions": []
       },
@@ -6201,7 +6357,7 @@
     "name": "DeleteCoipPoolPermission",
     "isPermissionOnly": true,
     "description": "Grants permission to deny a service from accessing a customer-owned IP (CoIP) pool",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "coip-pool",
@@ -6620,7 +6776,7 @@
     "name": "DeleteLocalGatewayRouteTablePermission",
     "isPermissionOnly": true,
     "description": "Grants permission to deny a service from accessing a local gateway route table",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "local-gateway-route-table",
@@ -6977,7 +7133,20 @@
     "name": "DeleteQueuedReservedInstances",
     "description": "Grants permission to delete the queued purchases for the specified Reserved Instances",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "reserved-instances",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:InstanceType",
+          "ec2:ReservedInstancesOfferingType",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -6987,7 +7156,7 @@
     "name": "DeleteResourcePolicy",
     "isPermissionOnly": true,
     "description": "Grants permission to remove an IAM policy that enables cross-account sharing from a resource",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "ipam-pool",
@@ -7787,6 +7956,39 @@
       },
       {
         "name": "reserved-instances",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-server",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-server-endpoint",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-server-peer",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -8743,7 +8945,9 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:VpceServiceName"
+          "ec2:VpceServiceName",
+          "ec2:vpceMultiRegion",
+          "ec2:vpceServiceRegion"
         ],
         "dependentActions": []
       }
@@ -9974,6 +10178,16 @@
   "describemachosts": {
     "name": "DescribeMacHosts",
     "description": "Grants permission to describe your EC2 Mac Dedicated hosts",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describemacmodificationtasks": {
+    "name": "DescribeMacModificationTasks",
+    "description": "Grants permission to describe a System Integrity Protection (SIP) modification task or volume ownership delegation task for an Amazon EC2 Mac instance",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -11324,7 +11538,7 @@
   "disableimageblockpublicaccess": {
     "name": "DisableImageBlockPublicAccess",
     "description": "Grants permission to disable block public access for AMIs at the account level in the specified AWS Region",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -11437,7 +11651,7 @@
   "disablesnapshotblockpublicaccess": {
     "name": "DisableSnapshotBlockPublicAccess",
     "description": "Grants permission to disable the block public access for snapshots setting for a Region",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -12298,7 +12512,7 @@
   "enableimageblockpublicaccess": {
     "name": "EnableImageBlockPublicAccess",
     "description": "Grants permission to enable block public access for AMIs at the account level in the specified AWS Region",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -12426,7 +12640,7 @@
   "enablesnapshotblockpublicaccess": {
     "name": "EnableSnapshotBlockPublicAccess",
     "description": "Grants permission to enable or modify the block public access for snapshots setting for a Region",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -12727,7 +12941,17 @@
     "name": "GetAssociatedIpv6PoolCidrs",
     "description": "Grants permission to get information about the IPv6 CIDR block associations for a specified IPv6 address pool",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ipv6pool-ec2",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -13374,7 +13598,21 @@
     "name": "GetReservedInstancesExchangeQuote",
     "description": "Grants permission to return a quote and exchange information for exchanging one or more Convertible Reserved Instances for a new Convertible Reserved Instance",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "reserved-instances",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:InstanceType",
+          "ec2:ReservedInstancesOfferingType",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -14653,6 +14891,8 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -14930,6 +15170,8 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -14995,6 +15237,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15158,6 +15401,31 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RootDeviceType",
           "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifypublicipdnsnameoptions": {
+    "name": "ModifyPublicIpDnsNameOptions",
+    "description": "Grants permission to modify public hostname options for a network interface",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "network-interface",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:AvailabilityZone",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Subnet",
+          "ec2:Vpc"
         ],
         "dependentActions": []
       }
@@ -15599,6 +15867,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15640,6 +15909,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15660,6 +15930,8 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15689,6 +15961,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15709,6 +15982,8 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15729,6 +16004,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15749,6 +16025,8 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15855,6 +16133,8 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15887,7 +16167,9 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:vpceMultiRegion",
+          "ec2:vpceServiceRegion"
         ],
         "dependentActions": []
       },
@@ -16542,7 +16824,7 @@
     "name": "PutResourcePolicy",
     "isPermissionOnly": true,
     "description": "Grants permission to attach an IAM policy that enables cross-account sharing to a resource",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "ipam-pool",
