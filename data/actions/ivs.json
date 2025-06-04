@@ -711,6 +711,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listparticipantreplicas": {
+    "name": "ListParticipantReplicas",
+    "description": "Grants permission to get summary information about participant replicas",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listparticipants": {
     "name": "ListParticipants",
     "description": "Grants permission to list participants for a specified stage ARN and session",
@@ -990,6 +1005,24 @@
     ],
     "dependentActions": []
   },
+  "startparticipantreplication": {
+    "name": "StartParticipantReplication",
+    "description": "Grants permission to start a new participant replication",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "startviewersessionrevocation": {
     "name": "StartViewerSessionRevocation",
     "description": "Grants permission to start the process of revoking the viewer session associated with a specified channel ARN and viewer ID",
@@ -1012,6 +1045,21 @@
     "resourceTypes": [
       {
         "name": "Composition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopparticipantreplication": {
+    "name": "StopParticipantReplication",
+    "description": "Grants permission to stop the participant replication for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stage",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
