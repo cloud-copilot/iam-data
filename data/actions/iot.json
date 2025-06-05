@@ -679,7 +679,7 @@
   "createpolicy": {
     "name": "CreatePolicy",
     "description": "Grants permission to create an AWS IoT policy",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "policy",
@@ -697,7 +697,7 @@
   "createpolicyversion": {
     "name": "CreatePolicyVersion",
     "description": "Grants permission to create a new version of the specified AWS IoT policy",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "policy",
@@ -1250,7 +1250,7 @@
   "deletepolicy": {
     "name": "DeletePolicy",
     "description": "Grants permission to delete the specified policy",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "policy",
@@ -1265,7 +1265,7 @@
   "deletepolicyversion": {
     "name": "DeletePolicyVersion",
     "description": "Grants permission to Delete the specified version of the specified policy",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "policy",
@@ -3354,7 +3354,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": [
       "iam:PassRole"
