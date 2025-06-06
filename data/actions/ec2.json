@@ -12011,7 +12011,7 @@
       },
       {
         "name": "network-interface",
-        "required": true,
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AuthorizedUser",
@@ -12900,6 +12900,25 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getactivevpntunnelstatus": {
+    "name": "GetActiveVpnTunnelStatus",
+    "description": "Grants permission to retrieve the current security parameters for an active VPN tunnel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "vpn-connection",
+        "required": true,
+        "conditionKeys": [
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
