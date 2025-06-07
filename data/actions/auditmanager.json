@@ -39,6 +39,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "assessmentControlSet",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -51,6 +57,12 @@
     "resourceTypes": [
       {
         "name": "assessment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "assessmentControlSet",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -96,7 +108,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -107,7 +120,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -133,7 +147,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -611,6 +626,12 @@
         "dependentActions": []
       },
       {
+        "name": "assessmentFramework",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "control",
         "required": false,
         "conditionKeys": [],
@@ -631,13 +652,25 @@
       {
         "name": "assessment",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "assessmentFramework",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "control",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -710,7 +743,14 @@
     "name": "UpdateAssessmentFrameworkShare",
     "description": "Grants permission to update a share request for a custom framework in AWS Audit Manager",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "assessmentFramework",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
