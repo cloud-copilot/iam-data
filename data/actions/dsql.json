@@ -32,7 +32,8 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "dsql:WitnessRegion"
     ],
     "dependentActions": []
   },
@@ -188,13 +189,15 @@
         "name": "Cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "dsql:PutMultiRegionProperties"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "dsql:PutMultiRegionProperties"
-    ]
+    "conditionKeys": [
+      "dsql:WitnessRegion"
+    ],
+    "dependentActions": []
   },
   "removepeercluster": {
     "name": "RemovePeerCluster",
@@ -323,7 +326,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "dsql:WitnessRegion"
+    ],
     "dependentActions": []
   }
 }
