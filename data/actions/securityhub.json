@@ -175,10 +175,17 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}"
+      "securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}",
+      "securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}"
     ],
     "dependentActions": []
   },
@@ -191,6 +198,21 @@
     "dependentActions": [
       "securityhub:UpdateStandardsControl"
     ]
+  },
+  "connectorregistrationsv2": {
+    "name": "ConnectorRegistrationsV2",
+    "description": "Grants permission to complete the OAuth 2.0 authorization code flow based on input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "createactiontarget": {
     "name": "CreateActionTarget",
@@ -207,6 +229,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createaggregatorv2": {
+    "name": "CreateAggregatorV2",
+    "description": "Grants permission to create an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createautomationrule": {
     "name": "CreateAutomationRule",
     "description": "Grants permission to create an automation rule based on input parameters",
@@ -218,9 +248,31 @@
     ],
     "dependentActions": []
   },
+  "createautomationrulev2": {
+    "name": "CreateAutomationRuleV2",
+    "description": "Grants permission to create an automation rule V2 based on input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createconfigurationpolicy": {
     "name": "CreateConfigurationPolicy",
     "description": "Grants permission to create a configuration policy to manage organization member settings in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconnectorv2": {
+    "name": "CreateConnectorV2",
+    "description": "Grants permission to create a connector V2 based on input parameters",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -267,6 +319,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createticketv2": {
+    "name": "CreateTicketV2",
+    "description": "Grants permission to create ticket for a selected OCSF finding",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "declineinvitations": {
     "name": "DeclineInvitations",
     "description": "Grants permission to decline Security Hub invitations to become a member account",
@@ -297,6 +370,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteaggregatorv2": {
+    "name": "DeleteAggregatorV2",
+    "description": "Grants permission to delete an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautomationrulev2": {
+    "name": "DeleteAutomationRuleV2",
+    "description": "Grants permission to delete an automation rule V2 in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-rulev2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteconfigurationpolicy": {
     "name": "DeleteConfigurationPolicy",
     "description": "Grants permission to delete an existing configuration policy",
@@ -304,6 +407,21 @@
     "resourceTypes": [
       {
         "name": "configuration-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnectorv2": {
+    "name": "DeleteConnectorV2",
+    "description": "Grants permission to delete a connector V2 in Security Hub",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -432,6 +550,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeproductsv2": {
+    "name": "DescribeProductsV2",
+    "description": "Grants permission to retrieve information about the available Security Hub V2 product integrations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesecurityhubv2": {
+    "name": "DescribeSecurityHubV2",
+    "description": "Grants permission to retrieve information about the hub V2 resource in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describestandards": {
     "name": "DescribeStandards",
     "description": "Grants permission to retrieve information about Security Hub standards",
@@ -491,7 +632,9 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
-      "organizations:DescribeOrganization"
+      "organizations:DeregisterDelegatedAdministrator",
+      "organizations:DescribeOrganization",
+      "organizations:ListDelegatedAdministrators"
     ]
   },
   "disablesecurityhub": {
@@ -506,6 +649,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disablesecurityhubv2": {
+    "name": "DisableSecurityHubV2",
+    "description": "Grants permission to disable Security Hub V2",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -585,6 +736,8 @@
     "dependentActions": [
       "organizations:DescribeOrganization",
       "organizations:EnableAWSServiceAccess",
+      "organizations:ListAWSServiceAccessForOrganization",
+      "organizations:ListDelegatedAdministrators",
       "organizations:RegisterDelegatedAdministrator"
     ]
   },
@@ -606,14 +759,31 @@
     ],
     "dependentActions": []
   },
+  "enablesecurityhubv2": {
+    "name": "EnableSecurityHubV2",
+    "description": "Grants permission to enable Security Hub V2",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "getadhocinsightresults": {
     "name": "GetAdhocInsightResults",
     "isPermissionOnly": true,
-    "description": "Grants permission to retrieve insight results by providing a set of filters instead of an insight ARN",
+    "description": "Grants permission to retrieve aggregated statistical data about the findings",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -630,6 +800,36 @@
       {
         "name": "hub",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaggregatorv2": {
+    "name": "GetAggregatorV2",
+    "description": "Grants permission to retrieve details for an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomationrulev2": {
+    "name": "GetAutomationRuleV2",
+    "description": "Grants permission to retrieve details for an automation rule V2 from Security Hub based on rule Amazon Resource Name (ARN)",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automation-rulev2",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -657,6 +857,21 @@
     "description": "Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectorv2": {
+    "name": "GetConnectorV2",
+    "description": "Grants permission to retrieve details for a connector V2 from Security Hub based on connector id",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -728,6 +943,12 @@
     "resourceTypes": [
       {
         "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -859,6 +1080,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getresourcestatisticsv2": {
+    "name": "GetResourceStatisticsV2",
+    "description": "Grants permission to retrieve aggregate statistics about resources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcesv2": {
+    "name": "GetResourcesV2",
+    "description": "Grants permission to retrieve a list of resources",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getsecuritycontroldefinition": {
     "name": "GetSecurityControlDefinition",
     "description": "Grants permission to get the definition details of a specific security control identified by ID",
@@ -900,9 +1151,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listaggregatorv2s": {
+    "name": "ListAggregatorV2s",
+    "description": "Grants permission to retrieve a list of aggregatorsV2, which configures data aggregation across Regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listautomationrules": {
     "name": "ListAutomationRules",
     "description": "Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationrulesv2": {
+    "name": "ListAutomationRulesV2",
+    "description": "Grants permission to retrieve a list of automation rules V2 and their metadata for the calling account from Security Hub",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -919,6 +1186,14 @@
   "listconfigurationpolicyassociations": {
     "name": "ListConfigurationPolicyAssociations",
     "description": "Grants permission to retrieve information about all configuration policies associationed with all member accounts and organizational units of the calling account's organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectorsv2": {
+    "name": "ListConnectorsV2",
+    "description": "Grants permission to retrieve a list of connectors V2 and their metadata for the calling account from Security Hub",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1007,7 +1282,8 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
-      "organizations:DescribeOrganization"
+      "organizations:DescribeOrganization",
+      "organizations:ListDelegatedAdministrators"
     ]
   },
   "listsecuritycontroldefinitions": {
@@ -1129,13 +1405,31 @@
         "dependentActions": []
       },
       {
+        "name": "automation-rulev2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "configuration-policy",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
+        "name": "connectorv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1156,13 +1450,31 @@
         "dependentActions": []
       },
       {
+        "name": "automation-rulev2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "configuration-policy",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
+        "name": "connectorv2",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "hub",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hubv2",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1186,6 +1498,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updateaggregatorv2": {
+    "name": "UpdateAggregatorV2",
+    "description": "Grants permission to update an aggregatorV2, which configures data aggregation across Regions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "aggregatorv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateautomationrulev2": {
+    "name": "UpdateAutomationRuleV2",
+    "description": "Grants permission to update an automation rule V2 in Security Hub based on rule Amazon Resource Name (ARN) and input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automation-rulev2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updateconfigurationpolicy": {
     "name": "UpdateConfigurationPolicy",
     "description": "Grants permission to update an existing configuration policy",
@@ -1193,6 +1535,21 @@
     "resourceTypes": [
       {
         "name": "configuration-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnectorv2": {
+    "name": "UpdateConnectorV2",
+    "description": "Grants permission to update a connector V2 in Security Hub based on connector id and input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectorv2",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
