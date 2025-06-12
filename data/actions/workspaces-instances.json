@@ -1,0 +1,186 @@
+{
+  "associatevolume": {
+    "name": "AssociateVolume",
+    "description": "Grants permission to associate a workspace managed volume to a workspace managed instance in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WorkspaceInstanceId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AttachVolume",
+      "ec2:DescribeVolumes"
+    ]
+  },
+  "createvolume": {
+    "name": "CreateVolume",
+    "description": "Grants permission to create a workspace managed volume in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateVolume"
+    ]
+  },
+  "createworkspaceinstance": {
+    "name": "CreateWorkspaceInstance",
+    "description": "Grants permission to create a workspace managed instance in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeInstances",
+      "ec2:RunInstances"
+    ]
+  },
+  "deletevolume": {
+    "name": "DeleteVolume",
+    "description": "Grants permission to delete a workspace managed volume in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VolumeId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DeleteVolume",
+      "ec2:DescribeVolumes"
+    ]
+  },
+  "deleteworkspaceinstance": {
+    "name": "DeleteWorkspaceInstance",
+    "description": "Grants permission to delete a workspace managed instance in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WorkspaceInstanceId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:TerminateInstances"
+    ]
+  },
+  "disassociatevolume": {
+    "name": "DisassociateVolume",
+    "description": "Grants permission to disassociate a workspace managed volume from a workspace managed instance in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "WorkspaceInstanceId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVolumes",
+      "ec2:DetachVolume"
+    ]
+  },
+  "getworkspaceinstance": {
+    "name": "GetWorkspaceInstance",
+    "description": "Grants permission to get details for a specific workspace managed instance in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "WorkspaceInstanceId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinstancetypes": {
+    "name": "ListInstanceTypes",
+    "description": "Grants permission to list all supported instance types",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listregions": {
+    "name": "ListRegions",
+    "description": "Grants permission to list all supported AWS regions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list user tags for resources in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "WorkspaceInstanceId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkspaceinstances": {
+    "name": "ListWorkspaceInstances",
+    "description": "Grants permission to list workspace managed instances in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add user tags to resources in your account",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "WorkspaceInstanceId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove user tags from resources in your account",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "WorkspaceInstanceId",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}
