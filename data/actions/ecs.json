@@ -18,7 +18,9 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -682,12 +684,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "ecs:capacity-provider"
     ],
     "dependentActions": []
@@ -700,13 +703,14 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -1034,12 +1038,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "ecs:fargate-ephemeral-storage-kms-key"
     ],
     "dependentActions": []
