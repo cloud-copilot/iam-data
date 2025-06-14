@@ -48,13 +48,21 @@
   },
   "createsession": {
     "name": "CreateSession",
-    "description": "Grants permission to Create Session token which is used for object APIs such as PutObject, GetObject, ect",
+    "description": "Grants permission to Create Session token which is used for object APIs such as PutObject, GetObject, etc",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "bucket",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [
+          "s3express:Permissions"
+        ],
         "dependentActions": []
       }
     ],
@@ -68,7 +76,8 @@
       "s3express:x-amz-content-sha256",
       "s3express:x-amz-server-side-encryption",
       "s3express:x-amz-server-side-encryption-aws-kms-key-id",
-      "s3express:AllAccessRestrictedToLocalZoneGroup"
+      "s3express:AllAccessRestrictedToLocalZoneGroup",
+      "s3express:Permissions"
     ],
     "dependentActions": []
   },
