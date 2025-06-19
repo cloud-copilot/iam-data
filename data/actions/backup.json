@@ -1,4 +1,21 @@
 {
+  "associatebackupvaultmpaapprovalteam": {
+    "name": "AssociateBackupVaultMpaApprovalTeam",
+    "description": "Grants permission to associate an MPA approval team with a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "backup:MpaApprovalTeamArn"
+    ],
+    "dependentActions": []
+  },
   "cancellegalhold": {
     "name": "CancelLegalHold",
     "description": "Grants permission to cancel a legal hold",
@@ -176,6 +193,24 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "backup:FrameworkArns"
+    ],
+    "dependentActions": []
+  },
+  "createrestoreaccessbackupvault": {
+    "name": "CreateRestoreAccessBackupVault",
+    "description": "Grants permission to create a restore access backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -508,6 +543,21 @@
     "description": "Grants permission to describe a restore job",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatebackupvaultmpaapprovalteam": {
+    "name": "DisassociateBackupVaultMpaApprovalTeam",
+    "description": "Grants permission to disassociate an MPA approval team from a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -936,6 +986,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listrestoreaccessbackupvaults": {
+    "name": "ListRestoreAccessBackupVaults",
+    "description": "Grants permission to list a restore access backup vaults associated with a backup vault",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listrestorejobsummaries": {
     "name": "ListRestoreJobSummaries",
     "description": "Grants permission to list restore job summaries",
@@ -1104,6 +1169,21 @@
     "description": "Grants permission to put a restore validation result",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokerestoreaccessbackupvault": {
+    "name": "RevokeRestoreAccessBackupVault",
+    "description": "Grants permission to revoke a restore access backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },

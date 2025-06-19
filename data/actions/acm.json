@@ -49,7 +49,7 @@
   },
   "exportcertificate": {
     "name": "ExportCertificate",
-    "description": "Grants permission to export a private certificate issued by a private certificate authority (CA) for use anywhere",
+    "description": "Grants permission to export an exportable certificate for use anywhere",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -59,7 +59,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "acm:DomainNames"
+    ],
     "dependentActions": []
   },
   "getaccountconfiguration": {
@@ -179,7 +181,8 @@
       "acm:CertificateTransparencyLogging",
       "acm:ValidationMethod",
       "acm:KeyAlgorithm",
-      "acm:CertificateAuthority"
+      "acm:CertificateAuthority",
+      "acm:Export"
     ],
     "dependentActions": []
   },
@@ -196,6 +199,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokecertificate": {
+    "name": "RevokeCertificate",
+    "description": "Grants permission to revoke an exportable certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "acm:DomainNames"
+    ],
     "dependentActions": []
   },
   "updatecertificateoptions": {
