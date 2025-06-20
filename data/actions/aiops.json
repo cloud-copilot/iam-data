@@ -32,8 +32,13 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "cloudwatch:DescribeAlarmHistory",
+      "cloudwatch:DescribeAlarms",
+      "cloudwatch:GetInsightRuleReport",
+      "cloudwatch:GetMetricData",
       "kms:Decrypt",
       "kms:GenerateDataKey",
+      "logs:GetQueryResults",
       "sts:SetContext"
     ]
   },
@@ -44,7 +49,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": [
       "aiops:TagResource",
