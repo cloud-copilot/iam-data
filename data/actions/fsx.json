@@ -102,6 +102,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createandattachs3accesspoint": {
+    "name": "CreateAndAttachS3AccessPoint",
+    "description": "Grants permission to create and attach a S3 Access Point to a FSx File System",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:CreateAccessPoint",
+      "s3:GetAccessPoint",
+      "s3:PutAccessPointPolicy"
+    ]
+  },
   "createbackup": {
     "name": "CreateBackup",
     "description": "Grants permission to create a new backup of an Amazon FSx file system or an Amazon FSx volume",
@@ -613,6 +632,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describes3accesspointattachments": {
+    "name": "DescribeS3AccessPointAttachments",
+    "description": "Grants permission to return the descriptions of S3 Access Point Attachments",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describesharedvpcconfiguration": {
     "name": "DescribeSharedVpcConfiguration",
     "description": "Grants permission to return the descriptions of whether FSx route table updates from participant accounts are allowed in your account",
@@ -644,6 +671,23 @@
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "detachanddeletes3accesspoint": {
+    "name": "DetachAndDeleteS3AccessPoint",
+    "description": "Grants permission to detach an S3 Access Point from an Amazon FSx File System and delete the S3 Access Point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:DeleteAccessPoint"
+    ]
   },
   "disassociatefilegateway": {
     "name": "DisassociateFileGateway",

@@ -5965,6 +5965,9 @@
         ],
         "dependentActions": [
           "ec2:CreateTags",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
           "route53:AssociateVPCWithHostedZone"
         ]
       },
@@ -15378,6 +15381,17 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SecurityGroupID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "subnet",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:ResourceTag/${TagKey}",
           "ec2:Vpc"
         ],
         "dependentActions": []
