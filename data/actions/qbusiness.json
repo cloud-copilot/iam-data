@@ -197,6 +197,27 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": [
+          "qbusiness:CreateDataAccessorWithTti"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdataaccessorwithtti": {
+    "name": "CreateDataAccessorWithTti",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create AWS IAM Identity center Trusted Token Issuer based DataAccessor to the application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
@@ -1292,6 +1313,7 @@
   },
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
+    "isPermissionOnly": true,
     "description": "Grants permission to put resource based policy statement to the application",
     "accessLevel": "Write",
     "resourceTypes": [
