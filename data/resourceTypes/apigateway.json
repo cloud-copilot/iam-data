@@ -211,6 +211,15 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "routingrule": {
+    "key": "RoutingRule",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}/routingrules/${RoutingRuleId}",
+    "conditionKeys": [
+      "apigateway:Resource/ConditionBasePaths",
+      "apigateway:Resource/Priority",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "stage": {
     "key": "Stage",
     "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages/${StageName}",
@@ -330,6 +339,7 @@
       "apigateway:Resource/EndpointType",
       "apigateway:Resource/MtlsTrustStoreUri",
       "apigateway:Resource/MtlsTrustStoreVersion",
+      "apigateway:Resource/RoutingMode",
       "apigateway:Resource/SecurityPolicy",
       "aws:ResourceTag/${TagKey}"
     ]
@@ -342,6 +352,7 @@
       "apigateway:Request/MtlsTrustStoreUri",
       "apigateway:Request/MtlsTrustStoreVersion",
       "apigateway:Request/SecurityPolicy",
+      "apigateway:Resource/RoutingMode",
       "aws:ResourceTag/${TagKey}"
     ]
   },
@@ -410,6 +421,7 @@
     "conditionKeys": [
       "apigateway:Request/EndpointType",
       "apigateway:Resource/EndpointType",
+      "apigateway:Resource/RoutingMode",
       "aws:ResourceTag/${TagKey}"
     ]
   },

@@ -137,6 +137,59 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getrecords": {
+    "name": "GetRecords",
+    "description": "Grants permission to retrieve the CDC stream records from a given shard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsharditerator": {
+    "name": "GetShardIterator",
+    "description": "Grants permission to return a shard iterator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstream": {
+    "name": "GetStream",
+    "description": "Grants permission to return information about a CDC stream, including the composition of its shards",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "liststreams": {
+    "name": "ListStreams",
+    "description": "Grants permission to return an array of CDC stream ARNs associated with the current account and endpoint",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "modify": {
     "name": "Modify",
     "description": "Grants permission to INSERT, UPDATE or DELETE data in a table",
@@ -253,11 +306,17 @@
   },
   "tagresource": {
     "name": "TagResource",
-    "description": "Grants permission to tag a keyspace or table",
+    "description": "Grants permission to tag a keyspace, table, or stream",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -300,11 +359,17 @@
   },
   "untagresource": {
     "name": "UntagResource",
-    "description": "Grants permission to untag a keyspace or table",
+    "description": "Grants permission to untag a keyspace, table or stream",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
         "name": "keyspace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

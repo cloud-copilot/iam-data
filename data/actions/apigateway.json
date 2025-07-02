@@ -1,4 +1,26 @@
 {
+  "createroutingrule": {
+    "name": "CreateRoutingRule",
+    "description": "Grants permission to create a routing rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RoutingRule",
+        "required": true,
+        "conditionKeys": [
+          "apigateway:Request/Priority",
+          "apigateway:Request/ConditionBasePaths"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "apigateway:Request/Priority",
+      "apigateway:Request/ConditionBasePaths"
+    ],
+    "dependentActions": []
+  },
   "delete": {
     "name": "DELETE",
     "description": "Grants permission to delete a particular resource",
@@ -164,6 +186,28 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteroutingrule": {
+    "name": "DeleteRoutingRule",
+    "description": "Grants permission to delete a routing rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RoutingRule",
+        "required": true,
+        "conditionKeys": [
+          "apigateway:Resource/Priority",
+          "apigateway:Resource/ConditionBasePaths"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "apigateway:Resource/Priority",
+      "apigateway:Resource/ConditionBasePaths"
     ],
     "dependentActions": []
   },
@@ -444,6 +488,40 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getroutingrule": {
+    "name": "GetRoutingRule",
+    "description": "Grants permission to read a routing rule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RoutingRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listroutingrule": {
+    "name": "ListRoutingRule",
+    "description": "Grants permission to list routing rules under a domain name",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "RoutingRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "patch": {
@@ -791,6 +869,32 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateroutingrule": {
+    "name": "UpdateRoutingRule",
+    "description": "Grants permission to update a routing rule using the PutRoutingRule API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RoutingRule",
+        "required": true,
+        "conditionKeys": [
+          "apigateway:Request/Priority",
+          "apigateway:Request/ConditionBasePaths",
+          "apigateway:Resource/Priority",
+          "apigateway:Resource/ConditionBasePaths"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "apigateway:Request/Priority",
+      "apigateway:Request/ConditionBasePaths",
+      "apigateway:Resource/Priority",
+      "apigateway:Resource/ConditionBasePaths"
     ],
     "dependentActions": []
   },
