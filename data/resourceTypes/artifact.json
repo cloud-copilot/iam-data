@@ -1,8 +1,4 @@
 {
-  "report-package": {
-    "key": "report-package",
-    "arn": "arn:${Partition}:artifact:::report-package/*"
-  },
   "customer-agreement": {
     "key": "customer-agreement",
     "arn": "arn:${Partition}:artifact::${Account}:customer-agreement/*"
@@ -13,6 +9,10 @@
   },
   "report": {
     "key": "report",
-    "arn": "arn:${Partition}:artifact:${Region}::report/${ReportId}:${Version}"
+    "arn": "arn:${Partition}:artifact:${Region}::report/${ReportId}:${Version}",
+    "conditionKeys": [
+      "artifact:ReportCategory",
+      "artifact:ReportSeries"
+    ]
   }
 }
