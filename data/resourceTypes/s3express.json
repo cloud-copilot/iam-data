@@ -1,7 +1,11 @@
 {
   "bucket": {
     "key": "bucket",
-    "arn": "arn:${Partition}:s3express:${Region}:${Account}:bucket/${BucketName}"
+    "arn": "arn:${Partition}:s3express:${Region}:${Account}:bucket/${BucketName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3express:BucketTag/${TagKey}"
+    ]
   },
   "accesspoint": {
     "key": "accesspoint",

@@ -42,7 +42,9 @@
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256"
+      "s3express:x-amz-content-sha256",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -199,7 +201,14 @@
     "name": "GetAccessPoint",
     "description": "Grants permission to return configuration information about the specified access point",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "accesspoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "s3express:DataAccessPointAccount",
       "s3express:DataAccessPointArn",
@@ -351,6 +360,27 @@
     ],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to lists all of the tags for a specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "putaccesspointpolicy": {
     "name": "PutAccessPointPolicy",
     "description": "Grants permission to associate an access policy with a specified access point",
@@ -459,6 +489,51 @@
       "s3express:signatureversion",
       "s3express:TlsVersion",
       "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to create a new user-defined tag or update an existing tag",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the specified user-defined tags from an S3 resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   }
