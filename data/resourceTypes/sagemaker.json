@@ -165,7 +165,11 @@
   },
   "notebook-instance-lifecycle-config": {
     "key": "notebook-instance-lifecycle-config",
-    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:notebook-instance-lifecycle-config/${NotebookInstanceLifecycleConfigName}"
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:notebook-instance-lifecycle-config/${NotebookInstanceLifecycleConfigName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
   },
   "code-repository": {
     "key": "code-repository",
@@ -417,7 +421,11 @@
   },
   "pipeline-execution": {
     "key": "pipeline-execution",
-    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:pipeline/${PipelineName}/execution/${RandomString}"
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:pipeline/${PipelineName}/execution/${RandomString}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
   },
   "artifact": {
     "key": "artifact",

@@ -302,6 +302,12 @@
         "dependentActions": []
       },
       {
+        "name": "notebook-instance-lifecycle-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "optimization-job",
         "required": false,
         "conditionKeys": [],
@@ -1121,6 +1127,27 @@
     ],
     "dependentActions": []
   },
+  "createhubcontentpresignedurls": {
+    "name": "CreateHubContentPresignedUrls",
+    "description": "Grants permission to generate S3 presigned URLs with GetObject permission for accessing model artifacts",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "hub",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "hub-content",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createhubcontentreference": {
     "name": "CreateHubContentReference",
     "description": "Grants permission to create hub content reference",
@@ -1623,10 +1650,15 @@
         "name": "notebook-instance-lifecycle-config",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "sagemaker:AddTags"
+        ]
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createoptimizationjob": {
@@ -1858,6 +1890,7 @@
       "sagemaker:ImageArns",
       "sagemaker:ImageVersionArns",
       "sagemaker:OwnerUserProfileArn",
+      "sagemaker:RemoteAccess",
       "sagemaker:SpaceSharingType"
     ],
     "dependentActions": []
@@ -3179,6 +3212,12 @@
         "dependentActions": []
       },
       {
+        "name": "notebook-instance-lifecycle-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "optimization-job",
         "required": false,
         "conditionKeys": [],
@@ -3481,6 +3520,22 @@
   "describecluster": {
     "name": "DescribeCluster",
     "description": "Grants permission to return information about a SageMaker HyperPod cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeclusterinference": {
+    "name": "DescribeClusterInference",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get information about the inference operator for a SageMaker HyperPod cluster",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -4164,7 +4219,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "sagemaker:PipelineVersionId"
+    ],
     "dependentActions": []
   },
   "describepipelinedefinitionforexecution": {
@@ -5267,6 +5324,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listpipelineversions": {
+    "name": "ListPipelineVersions",
+    "description": "Grants permission to list versions of a pipeline",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpipelines": {
     "name": "ListPipelines",
     "description": "Grants permission to list pipelines",
@@ -5629,6 +5701,12 @@
         "dependentActions": []
       },
       {
+        "name": "notebook-instance-lifecycle-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "optimization-job",
         "required": false,
         "conditionKeys": [],
@@ -5642,6 +5720,12 @@
       },
       {
         "name": "pipeline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "pipeline-execution",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -6068,6 +6152,23 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "sagemaker:PipelineVersionId"
+    ],
+    "dependentActions": []
+  },
+  "startsession": {
+    "name": "StartSession",
+    "description": "Grants permission to start a remote session for a SageMaker space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "space",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -6430,6 +6531,28 @@
       "sagemaker:VpcSubnets"
     ],
     "dependentActions": []
+  },
+  "updateclusterinference": {
+    "name": "UpdateClusterInference",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the inference operator for a SageMaker HyperPod cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "eks:AssociateAccessPolicy",
+      "eks:DescribeCluster",
+      "eks:ListAssociatedAccessPolicies",
+      "iam:PassRole",
+      "sagemaker:DescribeCluster"
+    ]
   },
   "updateclusterschedulerconfig": {
     "name": "UpdateClusterSchedulerConfig",
@@ -6958,6 +7081,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatepipelineversion": {
+    "name": "UpdatePipelineVersion",
+    "description": "Grants permission to update a pipeline version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sagemaker:PipelineVersionId"
+    ],
+    "dependentActions": []
+  },
   "updateproject": {
     "name": "UpdateProject",
     "description": "Grants permission to update a Project",
@@ -7009,6 +7149,7 @@
       "sagemaker:ImageArns",
       "sagemaker:ImageVersionArns",
       "sagemaker:OwnerUserProfileArn",
+      "sagemaker:RemoteAccess",
       "sagemaker:SpaceSharingType"
     ],
     "dependentActions": []

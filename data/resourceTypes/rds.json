@@ -71,7 +71,10 @@
   },
   "global-cluster": {
     "key": "global-cluster",
-    "arn": "arn:${Partition}:rds::${Account}:global-cluster:${GlobalCluster}"
+    "arn": "arn:${Partition}:rds::${Account}:global-cluster:${GlobalCluster}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "og": {
     "key": "og",

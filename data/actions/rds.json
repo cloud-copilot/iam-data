@@ -102,6 +102,12 @@
         "dependentActions": []
       },
       {
+        "name": "global-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "integration",
         "required": false,
         "conditionKeys": [],
@@ -883,7 +889,9 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "rds:AddTagsToResource"
+        ]
       },
       {
         "name": "global-cluster",
@@ -892,7 +900,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createintegration": {
@@ -2202,6 +2213,12 @@
         "dependentActions": []
       },
       {
+        "name": "global-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "integration",
         "required": false,
         "conditionKeys": [],
@@ -2943,6 +2960,12 @@
       },
       {
         "name": "es",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "global-cluster",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

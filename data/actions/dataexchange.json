@@ -49,20 +49,34 @@
     "name": "CreateDataGrant",
     "description": "Grants permission to create a data grant",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "data-grants",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "dataexchange:PublishToDataGrant"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "dataexchange:PublishToDataGrant"
-    ]
+    "dependentActions": []
   },
   "createdataset": {
     "name": "CreateDataSet",
     "description": "Grants permission to create a data set",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -73,15 +87,32 @@
     "name": "CreateEventAction",
     "description": "Grants permission to create an event action",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "event-actions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createjob": {
     "name": "CreateJob",
     "description": "Grants permission to create a job to import or export assets",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "jobs",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "dataexchange:JobType"
     ],
@@ -409,6 +440,12 @@
         "dependentActions": []
       },
       {
+        "name": "event-actions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "revisions",
         "required": false,
         "conditionKeys": [],
@@ -447,7 +484,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "revokerevision": {
@@ -542,6 +582,12 @@
         "dependentActions": []
       },
       {
+        "name": "event-actions",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "revisions",
         "required": false,
         "conditionKeys": [],
@@ -567,6 +613,12 @@
       },
       {
         "name": "data-sets",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-actions",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

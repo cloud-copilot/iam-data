@@ -1,0 +1,242 @@
+{
+  "createindex": {
+    "name": "CreateIndex",
+    "description": "Grants permission to create a new vector index within a specified vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createvectorbucket": {
+    "name": "CreateVectorBucket",
+    "description": "Grants permission to create a new vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3vectors:sseType",
+      "s3vectors:kmsKeyArn"
+    ],
+    "dependentActions": []
+  },
+  "deleteindex": {
+    "name": "DeleteIndex",
+    "description": "Grants permission to delete a specified vector index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevectorbucket": {
+    "name": "DeleteVectorBucket",
+    "description": "Grants permission to delete a specified vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevectorbucketpolicy": {
+    "name": "DeleteVectorBucketPolicy",
+    "description": "Grants permission to delete the IAM resource policy from a specified vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletevectors": {
+    "name": "DeleteVectors",
+    "description": "Grants permission to delete a batch of vectors from a specified vector index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getindex": {
+    "name": "GetIndex",
+    "description": "Grants permission to get the attributes of a specified vector index",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvectorbucket": {
+    "name": "GetVectorBucket",
+    "description": "Grants permission to get the attributes of a specified vector bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvectorbucketpolicy": {
+    "name": "GetVectorBucketPolicy",
+    "description": "Grants permission to get the IAM resource policy for a specific vector bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getvectors": {
+    "name": "GetVectors",
+    "description": "Grants permission to get a batch of vectors by their vector keys",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listindexes": {
+    "name": "ListIndexes",
+    "description": "Grants permission to get a paginated list of all indexes in a specified vector bucket",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvectorbuckets": {
+    "name": "ListVectorBuckets",
+    "description": "Grants permission to get a paginated list of all vector buckets in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listvectors": {
+    "name": "ListVectors",
+    "description": "Grants permission to get a paginated list of all vectors in a specified vector index",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3vectors:GetVectors"
+    ]
+  },
+  "putvectorbucketpolicy": {
+    "name": "PutVectorBucketPolicy",
+    "description": "Grants permission to add an IAM resource policy to a specified vector bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VectorBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putvectors": {
+    "name": "PutVectors",
+    "description": "Grants permission to add a batch of vectors to a specified vector index",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "queryvectors": {
+    "name": "QueryVectors",
+    "description": "Grants permission to find approximate nearest neighbors within a specified search vector index for a given query vector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3vectors:GetVectors"
+    ]
+  }
+}
