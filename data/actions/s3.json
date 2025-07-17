@@ -249,7 +249,7 @@
   },
   "createbucketmetadatatableconfiguration": {
     "name": "CreateBucketMetadataTableConfiguration",
-    "description": "Grants permission to create a new S3 Metadata configuration for a specified bucket",
+    "description": "Grants permission to create a new S3 Metadata configuration for a specified general purpose bucket",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -257,9 +257,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "kms:DescribeKey",
           "s3tables:CreateNamespace",
           "s3tables:CreateTable",
+          "s3tables:CreateTableBucket",
           "s3tables:GetTable",
+          "s3tables:PutTableEncryption",
           "s3tables:PutTablePolicy"
         ]
       }
@@ -554,7 +557,7 @@
   },
   "deletebucketmetadatatableconfiguration": {
     "name": "DeleteBucketMetadataTableConfiguration",
-    "description": "Grants permission to delete the S3 Metadata configuration for a specified bucket",
+    "description": "Grants permission to delete the S3 Metadata configuration for a specified general purpose bucket",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1338,7 +1341,7 @@
   },
   "getbucketmetadatatableconfiguration": {
     "name": "GetBucketMetadataTableConfiguration",
-    "description": "Grants permission to return the S3 Metadata configuration for a specified bucket",
+    "description": "Grants permission to return the S3 Metadata configuration for a specified general purpose bucket",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -3796,6 +3799,58 @@
       "s3:TlsVersion",
       "s3:x-amz-content-sha256",
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatebucketmetadatainventorytableconfiguration": {
+    "name": "UpdateBucketMetadataInventoryTableConfiguration",
+    "description": "Grants permission to update the inventory table configuration on an existing S3 Metadata configuration for a specified general purpose bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:DescribeKey",
+          "s3tables:CreateNamespace",
+          "s3tables:CreateTable",
+          "s3tables:CreateTableBucket",
+          "s3tables:GetTable",
+          "s3tables:PutTableEncryption",
+          "s3tables:PutTablePolicy"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "updatebucketmetadatajournaltableconfiguration": {
+    "name": "UpdateBucketMetadataJournalTableConfiguration",
+    "description": "Grants permission to update the journal table configuration on an existing S3 Metadata configuration for a specified general purpose bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
