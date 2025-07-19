@@ -190,6 +190,24 @@
     ],
     "dependentActions": []
   },
+  "createcustommodeldeployment": {
+    "name": "CreateCustomModelDeployment",
+    "description": "Grants permission to create a custom model deployment for custom model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createdataautomationproject": {
     "name": "CreateDataAutomationProject",
     "description": "Grants permission to create a data automation project",
@@ -706,6 +724,21 @@
     "resourceTypes": [
       {
         "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustommodeldeployment": {
+    "name": "DeleteCustomModelDeployment",
+    "description": "Grants permission to delete a custom model deployment that you created earlier",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model-deployment",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1231,6 +1264,21 @@
     "resourceTypes": [
       {
         "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcustommodeldeployment": {
+    "name": "GetCustomModelDeployment",
+    "description": "Grants permission to get the properties associated with a custom model deployment. Use this operation to get the status of a custom model deployment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custom-model-deployment",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1860,6 +1908,12 @@
         "dependentActions": []
       },
       {
+        "name": "custom-model-deployment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "default-prompt-router",
         "required": true,
         "conditionKeys": [],
@@ -1918,6 +1972,12 @@
       },
       {
         "name": "bedrock-marketplace-model-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-model-deployment",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2069,6 +2129,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustommodeldeployments": {
+    "name": "ListCustomModelDeployments",
+    "description": "Grants permission to get the list of custom model deployments that you have submitted",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2443,6 +2511,12 @@
       },
       {
         "name": "custom-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-model-deployment",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2888,6 +2962,12 @@
         "dependentActions": []
       },
       {
+        "name": "custom-model-deployment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "data-automation-invocation-job",
         "required": false,
         "conditionKeys": [],
@@ -3039,6 +3119,12 @@
       },
       {
         "name": "custom-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-model-deployment",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
