@@ -15,6 +15,19 @@
       "ec2:ResourceTag/${TagKey}"
     ]
   },
+  "capacity-block": {
+    "key": "capacity-block",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:capacity-block/${CapacityBlockId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "capacity-reservation-fleet": {
     "key": "capacity-reservation-fleet",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:capacity-reservation-fleet/${CapacityReservationFleetId}",
@@ -1139,6 +1152,7 @@
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}",
       "ec2:VolumeID",
+      "ec2:VolumeInitializationRate",
       "ec2:VolumeIops",
       "ec2:VolumeSize",
       "ec2:VolumeThroughput",

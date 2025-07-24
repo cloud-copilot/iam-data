@@ -1307,6 +1307,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -3546,7 +3547,8 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
-          "ec2:VolumeID"
+          "ec2:VolumeID",
+          "ec2:VolumeInitializationRate"
         ],
         "dependentActions": []
       },
@@ -3845,6 +3847,7 @@
           "ec2:Encrypted",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -3908,6 +3911,7 @@
           "ec2:Encrypted",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -4031,6 +4035,17 @@
     "description": "Grants permission to add or overwrite one or more tags for Amazon EC2 resources",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "capacity-block",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
       {
         "name": "capacity-reservation",
         "required": false,
@@ -4991,6 +5006,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -5831,6 +5847,7 @@
           "ec2:KmsKeyId",
           "ec2:ParentSnapshot",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -7408,6 +7425,17 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "capacity-block",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "capacity-reservation",
         "required": false,
         "conditionKeys": [
@@ -8829,6 +8857,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -9356,6 +9385,26 @@
   "describecapacityblockofferings": {
     "name": "DescribeCapacityBlockOfferings",
     "description": "Grants permission to describe Capacity Block offerings available for purchase",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describecapacityblockstatus": {
+    "name": "DescribeCapacityBlockStatus",
+    "description": "Grants permission to describe the availability of capacity for the specified Capacity blocks, or all of your Capacity Blocks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describecapacityblocks": {
+    "name": "DescribeCapacityBlocks",
+    "description": "Grants permission to describe details about Capacity Blocks in the AWS Region that you're currently using",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -10935,6 +10984,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -11337,6 +11387,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -14723,6 +14774,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -16088,6 +16140,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -16119,6 +16172,7 @@
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
@@ -18318,6 +18372,7 @@
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
           "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
           "ec2:VolumeIops",
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
