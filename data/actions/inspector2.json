@@ -7,6 +7,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchassociatecodesecurityscanconfiguration": {
+    "name": "BatchAssociateCodeSecurityScanConfiguration",
+    "description": "Grants permission to associate multiple code repositories with an Amazon Inspector code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdisassociatecodesecurityscanconfiguration": {
+    "name": "BatchDisassociateCodeSecurityScanConfiguration",
+    "description": "Grants permission to disassociate multiple code repositories from an Amazon Inspector code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchgetaccountstatus": {
     "name": "BatchGetAccountStatus",
     "description": "Grants permission to retrieve information about Amazon Inspector accounts for an account",
@@ -90,6 +106,42 @@
     ],
     "dependentActions": []
   },
+  "createcodesecurityintegration": {
+    "name": "CreateCodeSecurityIntegration",
+    "description": "Grants permission to create a code security integration with a source code repository provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcodesecurityscanconfiguration": {
+    "name": "CreateCodeSecurityScanConfiguration",
+    "description": "Grants permission to create a scan configuration for code security scanning",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createfilter": {
     "name": "CreateFilter",
     "description": "Grants permission to create and define the settings for a findings filter",
@@ -139,6 +191,36 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "deletecodesecurityintegration": {
+    "name": "DeleteCodeSecurityIntegration",
+    "description": "Grants permission to delete a code security integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecodesecurityscanconfiguration": {
+    "name": "DeleteCodeSecurityScanConfiguration",
+    "description": "Grants permission to delete a code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletefilter": {
@@ -223,6 +305,30 @@
   "getclustersforimage": {
     "name": "GetClustersForImage",
     "description": "Grants permission to get cluster information for a given a continuously scanned amazon Ecr image",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcodesecurityintegration": {
+    "name": "GetCodeSecurityIntegration",
+    "description": "Grants permission to retrieve information about a code security integration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcodesecurityscan": {
+    "name": "GetCodeSecurityScan",
+    "description": "Grants permission to retrieve information about a specific code security scan",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcodesecurityscanconfiguration": {
+    "name": "GetCodeSecurityScanConfiguration",
+    "description": "Grants permission to retrieve information about a code security scan configuration",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -319,6 +425,30 @@
   "listcisscans": {
     "name": "ListCisScans",
     "description": "Grants permission to retrieve information about completed CIS scans",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcodesecurityintegrations": {
+    "name": "ListCodeSecurityIntegrations",
+    "description": "Grants permission to list all code security integrations in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcodesecurityscanconfigurationassociations": {
+    "name": "ListCodeSecurityScanConfigurationAssociations",
+    "description": "Grants permission to list the associations between code repositories and Amazon Inspector code security scan configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcodesecurityscanconfigurations": {
+    "name": "ListCodeSecurityScanConfigurations",
+    "description": "Grants permission to list all code security scan configurations in your account",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -436,6 +566,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startcodesecurityscan": {
+    "name": "StartCodeSecurityScan",
+    "description": "Grants permission to initiate a code security scan on a specified repository",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "stopcissession": {
     "name": "StopCisSession",
     "description": "Grants permission to stop a CIS scan session",
@@ -451,6 +589,18 @@
     "resourceTypes": [
       {
         "name": "CIS Scan Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Code Security Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Code Security Scan Configuration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -481,6 +631,18 @@
         "dependentActions": []
       },
       {
+        "name": "Code Security Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Code Security Scan Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Filter",
         "required": false,
         "conditionKeys": [],
@@ -500,6 +662,40 @@
     "resourceTypes": [
       {
         "name": "CIS Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatecodesecurityintegration": {
+    "name": "UpdateCodeSecurityIntegration",
+    "description": "Grants permission to update an existing code security integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatecodesecurityscanconfiguration": {
+    "name": "UpdateCodeSecurityScanConfiguration",
+    "description": "Grants permission to update an existing code security scan configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Code Security Scan Configuration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
