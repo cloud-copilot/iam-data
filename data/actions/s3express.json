@@ -20,7 +20,9 @@
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256"
+      "s3express:x-amz-content-sha256",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -366,8 +368,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -498,8 +506,14 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -521,8 +535,14 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

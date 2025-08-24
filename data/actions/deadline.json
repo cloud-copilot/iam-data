@@ -337,18 +337,22 @@
         "name": "monitor",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "deadline:TagResource",
+          "iam:PassRole",
+          "sso:CreateApplication",
+          "sso:DeleteApplication",
+          "sso:PutApplicationAssignmentConfiguration",
+          "sso:PutApplicationAuthenticationMethod",
+          "sso:PutApplicationGrant"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "sso:CreateApplication",
-      "sso:DeleteApplication",
-      "sso:PutApplicationAssignmentConfiguration",
-      "sso:PutApplicationAuthenticationMethod",
-      "sso:PutApplicationGrant"
-    ]
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
   },
   "createqueue": {
     "name": "CreateQueue",
@@ -1644,6 +1648,12 @@
         "dependentActions": []
       },
       {
+        "name": "monitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "queue",
         "required": false,
         "conditionKeys": [],
@@ -1837,6 +1847,12 @@
         "dependentActions": []
       },
       {
+        "name": "monitor",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "queue",
         "required": false,
         "conditionKeys": [],
@@ -1875,6 +1891,12 @@
       },
       {
         "name": "license-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "monitor",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

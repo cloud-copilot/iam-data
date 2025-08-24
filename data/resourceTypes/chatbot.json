@@ -1,10 +1,16 @@
 {
   "chatbotconfiguration": {
     "key": "ChatbotConfiguration",
-    "arn": "arn:${Partition}:chatbot::${Account}:chat-configuration/${ConfigurationType}/${ChatbotConfigurationName}"
+    "arn": "arn:${Partition}:chatbot::${Account}:chat-configuration/${ConfigurationType}/${ChatbotConfigurationName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "custom-action": {
     "key": "custom-action",
-    "arn": "arn:${Partition}:chatbot::${Account}:custom-action/${ActionName}"
+    "arn": "arn:${Partition}:chatbot::${Account}:custom-action/${ActionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

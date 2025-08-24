@@ -9,6 +9,10 @@
   },
   "accesspoint": {
     "key": "accesspoint",
-    "arn": "arn:${Partition}:s3express:${Region}:${Account}:accesspoint/${AccessPointName}"
+    "arn": "arn:${Partition}:s3express:${Region}:${Account}:accesspoint/${AccessPointName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3express:AccessPointTag/${TagKey}"
+    ]
   }
 }

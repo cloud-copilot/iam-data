@@ -225,6 +225,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createcomputationmodel": {
+    "name": "CreateComputationModel",
+    "description": "Grants permission to create a computation model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createdashboard": {
     "name": "CreateDashboard",
     "description": "Grants permission to create a dashboard in a project",
@@ -357,6 +381,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteassetmodelinterfacerelationship": {
+    "name": "DeleteAssetModelInterfaceRelationship",
+    "description": "Grants permission to delete a relationship between asset model and interface",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecomputationmodel": {
+    "name": "DeleteComputationModel",
+    "description": "Grants permission to delete a computation model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletedashboard": {
     "name": "DeleteDashboard",
     "description": "Grants permission to delete a dashboard",
@@ -480,6 +534,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -545,6 +605,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeassetmodelinterfacerelationship": {
+    "name": "DescribeAssetModelInterfaceRelationship",
+    "description": "Grants permission to describe a relationship between asset model and interface",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeassetproperty": {
     "name": "DescribeAssetProperty",
     "description": "Grants permission to describe an asset property",
@@ -565,6 +640,42 @@
     "description": "Grants permission to describe bulk import job",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecomputationmodel": {
+    "name": "DescribeComputationModel",
+    "description": "Grants permission to describe a computation model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecomputationmodelexecutionsummary": {
+    "name": "DescribeComputationModelExecutionSummary",
+    "description": "Grants permission to describe computation model execution summary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -601,6 +712,14 @@
   "describedefaultencryptionconfiguration": {
     "name": "DescribeDefaultEncryptionConfiguration",
     "description": "Grants permission to describe the default encryption configuration for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeexecution": {
+    "name": "DescribeExecution",
+    "description": "Grants permission to describe an execution",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -761,6 +880,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -897,6 +1022,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -1023,6 +1154,50 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcomputationmodeldatabindingusages": {
+    "name": "ListComputationModelDataBindingUsages",
+    "description": "Grants permission to list computation model data binding usages",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomputationmodelresolvetoresources": {
+    "name": "ListComputationModelResolveToResources",
+    "description": "Grants permission to list computation model resolve to resources",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomputationmodels": {
+    "name": "ListComputationModels",
+    "description": "Grants permission to list all computation models",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdashboards": {
     "name": "ListDashboards",
     "description": "Grants permission to list all dashboards in a project",
@@ -1046,11 +1221,47 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listexecutions": {
+    "name": "ListExecutions",
+    "description": "Grants permission to list executions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listgateways": {
     "name": "ListGateways",
     "description": "Grants permission to list all gateways",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinterfacerelationships": {
+    "name": "ListInterfaceRelationships",
+    "description": "Grants permission to list all asset models that are enforced by an interface",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1116,6 +1327,12 @@
         "dependentActions": []
       },
       {
+        "name": "computation-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "dashboard",
         "required": false,
         "conditionKeys": [],
@@ -1172,6 +1389,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putassetmodelinterfacerelationship": {
+    "name": "PutAssetModelInterfaceRelationship",
+    "description": "Grants permission to create a relationship between asset model and interface",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "putdefaultencryptionconfiguration": {
     "name": "PutDefaultEncryptionConfiguration",
     "description": "Grants permission to set the default encryption configuration for the AWS account",
@@ -1215,6 +1447,12 @@
       },
       {
         "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1281,6 +1519,12 @@
       },
       {
         "name": "asset-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1411,6 +1655,33 @@
       {
         "name": "asset",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecomputationmodel": {
+    "name": "UpdateComputationModel",
+    "description": "Grants permission to update a computation model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "computation-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "asset-model",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

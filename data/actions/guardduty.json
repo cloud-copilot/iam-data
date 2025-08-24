@@ -107,6 +107,19 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createthreatentityset": {
+    "name": "CreateThreatEntitySet",
+    "description": "Grants permission to create GuardDuty ThreatEntitySets, where a ThreatEntitySet consists of known malicious IP addresses and/or domains used by GuardDuty to generate findings",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
   "createthreatintelset": {
     "name": "CreateThreatIntelSet",
     "description": "Grants permission to create GuardDuty ThreatIntelSets, where a ThreatIntelSet consists of known malicious IP addresses used by GuardDuty to generate findings",
@@ -117,6 +130,20 @@
       "aws:TagKeys"
     ],
     "dependentActions": []
+  },
+  "createtrustedentityset": {
+    "name": "CreateTrustedEntitySet",
+    "description": "Grants permission to create a TrustedEntitySet",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
   },
   "declineinvitations": {
     "name": "DeclineInvitations",
@@ -217,6 +244,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletethreatentityset": {
+    "name": "DeleteThreatEntitySet",
+    "description": "Grants permission to delete GuardDuty ThreatEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "threatentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletethreatintelset": {
     "name": "DeleteThreatIntelSet",
     "description": "Grants permission to delete GuardDuty ThreatIntelSets",
@@ -224,6 +266,21 @@
     "resourceTypes": [
       {
         "name": "threatintelset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetrustedentityset": {
+    "name": "DeleteTrustedEntitySet",
+    "description": "Grants permission to delete GuardDuty TrustedEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trustedentityset",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -458,6 +515,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getthreatentityset": {
+    "name": "GetThreatEntitySet",
+    "description": "Grants permission to retrieve GuardDuty ThreatEntitySets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "threatentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getthreatintelset": {
     "name": "GetThreatIntelSet",
     "description": "Grants permission to retrieve GuardDuty ThreatIntelSets",
@@ -465,6 +537,21 @@
     "resourceTypes": [
       {
         "name": "threatintelset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettrustedentityset": {
+    "name": "GetTrustedEntitySet",
+    "description": "Grants permission to retrieve GuardDuty TrustedEntitySets",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trustedentityset",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -606,7 +693,19 @@
         "dependentActions": []
       },
       {
+        "name": "threatentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "threatintelset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustedentityset",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -615,9 +714,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listthreatentitysets": {
+    "name": "ListThreatEntitySets",
+    "description": "Grants permission to retrieve a list of GuardDuty ThreatEntitySets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listthreatintelsets": {
     "name": "ListThreatIntelSets",
     "description": "Grants permission to retrieve a list of GuardDuty ThreatIntelSets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtrustedentitysets": {
+    "name": "ListTrustedEntitySets",
+    "description": "Grants permission to retrieve a list of GuardDuty TrustedEntitySets",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -685,7 +800,19 @@
         "dependentActions": []
       },
       {
+        "name": "threatentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "threatintelset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustedentityset",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -735,7 +862,19 @@
         "dependentActions": []
       },
       {
+        "name": "threatentityset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "threatintelset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trustedentityset",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -859,6 +998,23 @@
       "s3:ListBucket"
     ]
   },
+  "updatethreatentityset": {
+    "name": "UpdateThreatEntitySet",
+    "description": "Grants permission to update GuardDuty ThreatEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "threatentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
+    ]
+  },
   "updatethreatintelset": {
     "name": "UpdateThreatIntelSet",
     "description": "Grants permission to updates the GuardDuty ThreatIntelSets",
@@ -875,6 +1031,23 @@
     "dependentActions": [
       "iam:DeleteRolePolicy",
       "iam:PutRolePolicy"
+    ]
+  },
+  "updatetrustedentityset": {
+    "name": "UpdateTrustedEntitySet",
+    "description": "Grants permission to update GuardDuty TrustedEntitySets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trustedentityset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "s3:GetObject"
     ]
   }
 }

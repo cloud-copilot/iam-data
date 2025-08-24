@@ -414,6 +414,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "attachclusternodevolume": {
+    "name": "AttachClusterNodeVolume",
+    "description": "Grants permission to attach an Amazon EBS volume to a SageMaker HyperPod cluster node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AttachVolume",
+      "ec2:DescribeVolumes",
+      "eks:DescribeCluster"
+    ]
+  },
+  "batchaddclusternodes": {
+    "name": "BatchAddClusterNodes",
+    "description": "Grants permission to add multiple nodes at a time to a SageMaker HyperPod cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "eks:DescribeCluster"
+    ]
+  },
   "batchdeleteclusternodes": {
     "name": "BatchDeleteClusterNodes",
     "description": "Grants permission to batch delete SageMaker HyperPod cluster nodes",
@@ -685,6 +721,10 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "ec2:DescribeImages",
+          "ec2:DescribeSnapshots",
+          "ec2:ModifyImageAttribute",
+          "ec2:ModifySnapshotAttribute",
           "eks:AssociateAccessPolicy",
           "eks:CreateAccessEntry",
           "eks:DeleteAccessEntry",
@@ -3532,6 +3572,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeclusterevent": {
+    "name": "DescribeClusterEvent",
+    "description": "Grants permission to return information about an Event within a SageMaker HyperPod cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeclusterinference": {
     "name": "DescribeClusterInference",
     "isPermissionOnly": true,
@@ -4284,6 +4339,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describereservedcapacity": {
+    "name": "DescribeReservedCapacity",
+    "description": "Grants permission to return information about a specified Reserved Capacity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reserved-capacity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describesharedmodel": {
     "name": "DescribeSharedModel",
     "isPermissionOnly": true,
@@ -4464,6 +4534,25 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "detachclusternodevolume": {
+    "name": "DetachClusterNodeVolume",
+    "description": "Grants permission to detach an Amazon EBS volume from a SageMaker HyperPod cluster node",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVolumes",
+      "ec2:DetachVolume",
+      "eks:DescribeCluster"
+    ]
   },
   "disablesagemakerservicecatalogportfolio": {
     "name": "DisableSagemakerServicecatalogPortfolio",
@@ -4798,6 +4887,21 @@
     "description": "Grants permission to lists candidates for an AutoML job",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listclusterevents": {
+    "name": "ListClusterEvents",
+    "description": "Grants permission to list events within a SageMaker HyperPod cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -5849,6 +5953,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listultraserversbyreservedcapacity": {
+    "name": "ListUltraServersByReservedCapacity",
+    "description": "Grants permission to list all UltraServers in a specified Reserved Capacity",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "reserved-capacity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listuserprofiles": {
     "name": "ListUserProfiles",
     "description": "Grants permission to list the UserProfiles in your account",
@@ -6503,12 +6622,17 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": [
+          "ec2:DescribeImages",
+          "ec2:DescribeSnapshots",
+          "ec2:ModifyImageAttribute",
+          "ec2:ModifySnapshotAttribute",
           "eks:AssociateAccessPolicy",
           "eks:CreateAccessEntry",
           "eks:DeleteAccessEntry",
           "eks:DescribeAccessEntry",
           "eks:DescribeCluster",
           "iam:PassRole",
+          "sagemaker:BatchAddClusterNodes",
           "sagemaker:BatchDeleteClusterNodes"
         ]
       },
@@ -6583,6 +6707,10 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "ec2:DescribeImages",
+      "ec2:DescribeSnapshots",
+      "ec2:ModifyImageAttribute",
+      "ec2:ModifySnapshotAttribute",
       "eks:DescribeCluster"
     ]
   },

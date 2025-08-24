@@ -103,6 +103,20 @@
     "key": "guardrail-profile",
     "arn": "arn:${Partition}:bedrock:${Region}:${Account}:guardrail-profile/${ResourceId}"
   },
+  "automated-reasoning-policy": {
+    "key": "automated-reasoning-policy",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:automated-reasoning-policy/${AutomatedReasoningPolicyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "automated-reasoning-policy-version": {
+    "key": "automated-reasoning-policy-version",
+    "arn": "arn:${Partition}:bedrock:${Region}:${Account}:automated-reasoning-policy/${AutomatedReasoningPolicyId}:${AutomatedReasoningPolicyVersion}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "flow": {
     "key": "flow",
     "arn": "arn:${Partition}:bedrock:${Region}:${Account}:flow/${FlowId}",

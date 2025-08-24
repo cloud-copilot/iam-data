@@ -218,6 +218,35 @@
       "ec2:DescribeVpcs"
     ]
   },
+  "createhybridad": {
+    "name": "CreateHybridAD",
+    "description": "Grants permission to create a Hybrid Managed AD directory",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "iam:CreateServiceLinkedRole",
+      "iam:GetRole",
+      "secretsmanager:DescribeSecret",
+      "secretsmanager:GetSecretValue",
+      "ssm:GetCommandInvocation",
+      "ssm:GetConnectionStatus",
+      "ssm:ListCommands",
+      "ssm:SendCommand"
+    ]
+  },
   "createidentitypooldirectory": {
     "name": "CreateIdentityPoolDirectory",
     "isPermissionOnly": true,
@@ -292,6 +321,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteadassessment": {
+    "name": "DeleteADAssessment",
+    "description": "Grants permission to delete a directory assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -406,6 +443,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeadassessment": {
+    "name": "DescribeADAssessment",
+    "description": "Grants permission to describe a directory assessment",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describecertificate": {
     "name": "DescribeCertificate",
     "description": "Grants permission to display information about the certificate registered for a secured LDAP connection",
@@ -492,6 +537,21 @@
   "describeeventtopics": {
     "name": "DescribeEventTopics",
     "description": "Grants permission to obtain information about which SNS topics receive status messages from the specified directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describehybridadupdate": {
+    "name": "DescribeHybridADUpdate",
+    "description": "Grants permission to describe the updates of a specified hybrid directory",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -818,6 +878,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listadassessments": {
+    "name": "ListADAssessments",
+    "description": "Grants permission to list directory assessments",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listauthorizedapplications": {
     "name": "ListAuthorizedApplications",
     "isPermissionOnly": true,
@@ -1044,6 +1112,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startadassessment": {
+    "name": "StartADAssessment",
+    "description": "Grants permission to start a directory assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateSecurityGroup",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteSecurityGroup",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "ssm:GetCommandInvocation",
+      "ssm:GetConnectionStatus",
+      "ssm:ListCommands",
+      "ssm:SendCommand"
+    ]
+  },
   "startschemaextension": {
     "name": "StartSchemaExtension",
     "description": "Grants permission to apply a schema extension to a Microsoft AD directory",
@@ -1151,6 +1242,37 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "updatehybridad": {
+    "name": "UpdateHybridAD",
+    "description": "Grants permission to update configurations for a specified hybrid directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:CreateSecurityGroup",
+      "ec2:CreateTags",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "secretsmanager:DescribeSecret",
+      "secretsmanager:GetSecretValue",
+      "ssm:GetCommandInvocation",
+      "ssm:GetConnectionStatus",
+      "ssm:ListCommands",
+      "ssm:SendCommand"
+    ]
   },
   "updatenumberofdomaincontrollers": {
     "name": "UpdateNumberOfDomainControllers",

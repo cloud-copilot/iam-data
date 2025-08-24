@@ -55,7 +55,14 @@
     "name": "CreateEngagement",
     "description": "Grants permission to creating engagements in AWS Partner Central",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Engagement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "partnercentral:Catalog"
     ],
@@ -65,7 +72,14 @@
     "name": "CreateEngagementInvitation",
     "description": "Grants permission to creating engagement invitations in AWS Partner Central",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "engagement-invitation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "partnercentral:Catalog"
     ],
@@ -75,8 +89,17 @@
     "name": "CreateOpportunity",
     "description": "Grants permission to create new Opportunities on AWS Partner Central",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Opportunity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -102,7 +125,14 @@
     "name": "CreateResourceSnapshotJob",
     "description": "Grants permission to creating resource snapshot jobs in AWS Partner Central",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "resource-snapshot-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
@@ -123,8 +153,6 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -245,8 +273,6 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -423,39 +449,55 @@
     "name": "StartEngagementByAcceptingInvitationTask",
     "description": "Grants permission to initiate tasks that start Engagements on AWS Partner Central by accepting an Engagement Invitation",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "engagement-by-accepting-invitation-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "partnercentral:AcceptEngagementInvitation",
+          "partnercentral:CreateOpportunity",
+          "partnercentral:CreateResourceSnapshotJob",
+          "partnercentral:GetEngagementInvitation",
+          "partnercentral:StartResourceSnapshotJob",
+          "partnercentral:SubmitOpportunity"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "partnercentral:Catalog"
     ],
-    "dependentActions": [
-      "partnercentral:AcceptEngagementInvitation",
-      "partnercentral:CreateOpportunity",
-      "partnercentral:CreateResourceSnapshotJob",
-      "partnercentral:GetEngagementInvitation",
-      "partnercentral:StartResourceSnapshotJob",
-      "partnercentral:SubmitOpportunity"
-    ]
+    "dependentActions": []
   },
   "startengagementfromopportunitytask": {
     "name": "StartEngagementFromOpportunityTask",
     "description": "Grants permission to initiate tasks that start Engagements from Opportunities on AWS Partner Central",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "engagement-from-opportunity-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "partnercentral:CreateEngagement",
+          "partnercentral:CreateEngagementInvitation",
+          "partnercentral:CreateResourceSnapshotJob",
+          "partnercentral:GetOpportunity",
+          "partnercentral:StartResourceSnapshotJob",
+          "partnercentral:SubmitOpportunity"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "partnercentral:Catalog"
     ],
-    "dependentActions": [
-      "partnercentral:CreateEngagement",
-      "partnercentral:CreateEngagementInvitation",
-      "partnercentral:CreateResourceSnapshotJob",
-      "partnercentral:GetOpportunity",
-      "partnercentral:StartResourceSnapshotJob",
-      "partnercentral:SubmitOpportunity"
-    ]
+    "dependentActions": []
   },
   "startresourcesnapshotjob": {
     "name": "StartResourceSnapshotJob",
@@ -470,8 +512,6 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -489,8 +529,6 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -516,7 +554,20 @@
     "name": "TagResource",
     "description": "Grants permission to add new tags to a resource. Supported resource: ResourceSnapshotJob",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Opportunity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resource-snapshot-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -529,7 +580,20 @@
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource. Supported resource: ResourceSnapshotJob",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Opportunity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resource-snapshot-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",

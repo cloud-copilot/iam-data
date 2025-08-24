@@ -1,7 +1,25 @@
 {
   "accesspoint": {
     "key": "accesspoint",
-    "arn": "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}"
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3:AccessPointNetworkOrigin",
+      "s3:AccessPointTag/${TagKey}",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn"
+    ]
+  },
+  "accesspointobject": {
+    "key": "accesspointobject",
+    "arn": "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}/object/${ObjectName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3:AccessPointNetworkOrigin",
+      "s3:AccessPointTag/${TagKey}",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn"
+    ]
   },
   "bucket": {
     "key": "bucket",

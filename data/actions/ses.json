@@ -419,6 +419,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -646,7 +652,8 @@
       "ses:FromAddress",
       "ses:FromDisplayName",
       "ses:Recipients",
-      "ses:MultiRegionEndpointId"
+      "ses:MultiRegionEndpointId",
+      "ses:TenantName"
     ],
     "dependentActions": []
   },
@@ -681,6 +688,12 @@
       },
       {
         "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -724,6 +737,12 @@
       },
       {
         "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2481,6 +2500,62 @@
       "iam:CreateServiceLinkedRole"
     ]
   },
+  "createtenant": {
+    "name": "CreateTenant",
+    "description": "Grants permission to create a new tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createtenantresourceassociation": {
+    "name": "CreateTenantResourceAssociation",
+    "description": "Grants permission to associate a SES resource to a tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deletecontact": {
     "name": "DeleteContact",
     "description": "Grants permission to delete a contact from a contact list",
@@ -2577,6 +2652,60 @@
     "resourceTypes": [],
     "conditionKeys": [
       "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "deletetenant": {
+    "name": "DeleteTenant",
+    "description": "Grants permission to delete a tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletetenantresourceassociation": {
+    "name": "DeleteTenantResourceAssociation",
+    "description": "Grants permission to remove an associated SES resource from a tenant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2731,6 +2860,24 @@
     ],
     "dependentActions": []
   },
+  "getreputationentity": {
+    "name": "GetReputationEntity",
+    "description": "Grants permission to retrieve information about a reputation entity's status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getsuppresseddestination": {
     "name": "GetSuppressedDestination",
     "description": "Grants permission to retrieve information about a specific email address that's on the suppression list for your account",
@@ -2738,6 +2885,24 @@
     "resourceTypes": [],
     "conditionKeys": [
       "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "gettenant": {
+    "name": "GetTenant",
+    "description": "Grants permission to get information about a tenant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2827,10 +2992,86 @@
     ],
     "dependentActions": []
   },
+  "listreputationentities": {
+    "name": "ListReputationEntities",
+    "description": "Grants permission to retrieve a list of reputation entities",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listresourcetenants": {
+    "name": "ListResourceTenants",
+    "description": "Grants permission to list all the tenants associated to a SES resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "configuration-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listsuppresseddestinations": {
     "name": "ListSuppressedDestinations",
     "description": "Grants permission to list email addresses that are on the suppression list for your account",
     "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "listtenantresources": {
+    "name": "ListTenantResources",
+    "description": "Grants permission to list all the resources associated to a tenant",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtenants": {
+    "name": "ListTenants",
+    "description": "Grants permission to list all the tenants for your account",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
       "ses:ApiVersion"
@@ -3041,7 +3282,8 @@
     ],
     "conditionKeys": [
       "ses:ApiVersion",
-      "ses:MultiRegionEndpointId"
+      "ses:MultiRegionEndpointId",
+      "ses:TenantName"
     ],
     "dependentActions": []
   },
@@ -3130,6 +3372,48 @@
     ],
     "conditionKeys": [
       "ses:ApiVersion"
+    ],
+    "dependentActions": []
+  },
+  "updatereputationentitycustomermanagedstatus": {
+    "name": "UpdateReputationEntityCustomerManagedStatus",
+    "description": "Grants permission to update the customer-managed sending status",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatereputationentitypolicy": {
+    "name": "UpdateReputationEntityPolicy",
+    "description": "Grants permission to assign a reputation policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "reputation-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   }

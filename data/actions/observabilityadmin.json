@@ -1,4 +1,70 @@
 {
+  "createtelemetryrule": {
+    "name": "CreateTelemetryRule",
+    "description": "Grants permission to create a new telemetry rule with the specified name for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "telemetry-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createtelemetryrulefororganization": {
+    "name": "CreateTelemetryRuleForOrganization",
+    "description": "Grants permission to create a new organization telemetry rule with the specified name for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization-telemetry-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletetelemetryrule": {
+    "name": "DeleteTelemetryRule",
+    "description": "Grants permission to delete a telemetry rule with the specified name for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "telemetry-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetelemetryrulefororganization": {
+    "name": "DeleteTelemetryRuleForOrganization",
+    "description": "Grants permission to delete an organization telemetry rule with the specified name for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization-telemetry-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "gettelemetryevaluationstatus": {
     "name": "GetTelemetryEvaluationStatus",
     "description": "Grants permission to retrieve the Telemetry Config feature status for the account",
@@ -10,6 +76,22 @@
   "gettelemetryevaluationstatusfororganization": {
     "name": "GetTelemetryEvaluationStatusForOrganization",
     "description": "Grants permission to retrieve the Telemetry Config feature status for the organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettelemetryrule": {
+    "name": "GetTelemetryRule",
+    "description": "Grants permission to retrieve the specified telemetry rule for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettelemetryrulefororganization": {
+    "name": "GetTelemetryRuleForOrganization",
+    "description": "Grants permission to retrieve the specified organization telemetry rule for the organization",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -27,6 +109,43 @@
     "name": "ListResourceTelemetryForOrganization",
     "description": "Grants permission to retrieve telemetry configurations for resources associated with accounts in the organization",
     "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "organization-telemetry-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "telemetry-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtelemetryrules": {
+    "name": "ListTelemetryRules",
+    "description": "Grants permission to list the telemetry rules for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtelemetryrulesfororganization": {
+    "name": "ListTelemetryRulesForOrganization",
+    "description": "Grants permission to list the telemetry rules for the organization",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -60,6 +179,83 @@
     "description": "Grants permission to stop the Telemetry Config feature for the organization",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add or update the specified tags for the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "organization-telemetry-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "telemetry-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the specified tags from the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "organization-telemetry-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "telemetry-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatetelemetryrule": {
+    "name": "UpdateTelemetryRule",
+    "description": "Grants permission to update the specified telemetry rule for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "telemetry-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetelemetryrulefororganization": {
+    "name": "UpdateTelemetryRuleForOrganization",
+    "description": "Grants permission to retrieve the specified organization telemetry rule for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization-telemetry-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   }

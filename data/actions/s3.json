@@ -5,17 +5,20 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointArn",
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -54,16 +57,19 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
       "s3:authType",
@@ -188,7 +194,11 @@
       "s3:signatureversion",
       "s3:TlsVersion",
       "s3:x-amz-acl",
-      "s3:x-amz-content-sha256"
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -454,7 +464,9 @@
       "s3:signatureAge",
       "s3:signatureversion",
       "s3:TlsVersion",
-      "s3:x-amz-content-sha256"
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -504,7 +516,9 @@
       "s3:signatureAge",
       "s3:signatureversion",
       "s3:TlsVersion",
-      "s3:x-amz-content-sha256"
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -675,17 +689,20 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -701,16 +718,19 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -727,17 +747,20 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -754,16 +777,19 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -1060,7 +1086,9 @@
       "s3:signatureAge",
       "s3:signatureversion",
       "s3:TlsVersion",
-      "s3:x-amz-content-sha256"
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1135,7 +1163,9 @@
       "s3:signatureAge",
       "s3:signatureversion",
       "s3:TlsVersion",
-      "s3:x-amz-content-sha256"
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1185,7 +1215,9 @@
       "s3:signatureAge",
       "s3:signatureversion",
       "s3:TlsVersion",
-      "s3:x-amz-content-sha256"
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1257,8 +1289,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1279,8 +1317,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1301,8 +1345,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1367,8 +1417,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1433,8 +1489,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1838,17 +1900,20 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -1867,17 +1932,20 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -1894,22 +1962,19 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "accesspoint",
-        "required": true,
+        "name": "accesspointobject",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -1926,16 +1991,19 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -1951,16 +2019,19 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -1976,16 +2047,19 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -2024,17 +2098,20 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -2052,17 +2129,20 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -2080,16 +2160,19 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -2129,16 +2212,19 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -2413,17 +2499,20 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:delimiter",
       "s3:max-keys",
@@ -2458,7 +2547,9 @@
       "s3:signatureAge",
       "s3:signatureversion",
       "s3:TlsVersion",
-      "s3:x-amz-content-sha256"
+      "s3:x-amz-content-sha256",
+      "s3:AccessPointTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2468,17 +2559,20 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "bucket",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:delimiter",
       "s3:max-keys",
@@ -2549,17 +2643,20 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -2618,6 +2715,12 @@
       },
       {
         "name": "accessgrantslocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accesspoint",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2771,9 +2874,6 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -3289,17 +3389,20 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
       "s3:authType",
@@ -3337,17 +3440,20 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -3371,16 +3477,19 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -3397,16 +3506,19 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -3425,16 +3537,19 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
@@ -3453,17 +3568,20 @@
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:authType",
       "s3:ResourceAccount",
@@ -3488,16 +3606,19 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:ExistingObjectTag/<key>",
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
@@ -3652,16 +3773,19 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "object",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
       "s3:authType",
       "s3:ResourceAccount",
       "s3:signatureAge",
@@ -3719,6 +3843,12 @@
         "dependentActions": []
       },
       {
+        "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "storagelensgroup",
         "required": false,
         "conditionKeys": [],
@@ -3756,6 +3886,12 @@
       },
       {
         "name": "accessgrantslocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "accesspoint",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

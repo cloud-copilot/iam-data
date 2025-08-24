@@ -1623,6 +1623,34 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": [
+      "athena:GetTableMetadata",
+      "cleanrooms:UpdateConfiguredTableAllowedColumns",
+      "cleanrooms:UpdateConfiguredTableReference",
+      "glue:BatchGetPartition",
+      "glue:GetDatabase",
+      "glue:GetDatabases",
+      "glue:GetPartition",
+      "glue:GetPartitions",
+      "glue:GetSchemaVersion",
+      "glue:GetTable",
+      "glue:GetTables"
+    ]
+  },
+  "updateconfiguredtableallowedcolumns": {
+    "name": "UpdateConfiguredTableAllowedColumns",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the allowed columns of an existing configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateconfiguredtableanalysisrule": {
@@ -1664,6 +1692,22 @@
     "resourceTypes": [
       {
         "name": "configuredtableassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconfiguredtablereference": {
+    "name": "UpdateConfiguredTableReference",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update the table reference of an existing configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

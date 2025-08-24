@@ -48,7 +48,14 @@
     "name": "CreateCase",
     "description": "Grants permission to create a case",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "case",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -74,16 +81,23 @@
     "name": "CreateMembership",
     "description": "Grants permission to create a membership",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "organizations:DescribeOrganization",
+          "organizations:ListDelegatedAdministrators"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "organizations:DescribeOrganization",
-      "organizations:ListDelegatedAdministrators"
-    ]
+    "dependentActions": []
   },
   "getcase": {
     "name": "GetCase",
@@ -323,7 +337,8 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
-      "iam:CreateServiceLinkedRole"
+      "iam:CreateServiceLinkedRole",
+      "organizations:DescribeOrganizationalUnit"
     ]
   },
   "updateresolvertype": {

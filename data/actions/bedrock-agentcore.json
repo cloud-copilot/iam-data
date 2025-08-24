@@ -43,7 +43,7 @@
   },
   "createagentruntimeendpoint": {
     "name": "CreateAgentRuntimeEndpoint",
-    "description": "Grants permission to create a new agent endpoint",
+    "description": "Grants permission to create a new agent runtime endpoint",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -53,7 +53,20 @@
     "name": "CreateApiKeyCredentialProvider",
     "description": "Grants permission to create a new API Key Credential Provider",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "apikeycredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -130,7 +143,20 @@
     "name": "CreateOauth2CredentialProvider",
     "description": "Grants permission to create a new Credential Provider to access external resources with OAuth2 protocol",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -138,7 +164,20 @@
     "name": "CreateWorkloadIdentity",
     "description": "Grants permission to create a new Workload Identity",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -159,7 +198,7 @@
   },
   "deleteagentruntimeendpoint": {
     "name": "DeleteAgentRuntimeEndpoint",
-    "description": "Grants permission to delete an agent endpoint",
+    "description": "Grants permission to delete an agent runtime endpoint",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -182,7 +221,20 @@
     "name": "DeleteApiKeyCredentialProvider",
     "description": "Grants permission to delete a registered API Key Credential Provider",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "apikeycredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -298,7 +350,20 @@
     "name": "DeleteOauth2CredentialProvider",
     "description": "Grants permission to delete a registered OAuth2 Credential Provider",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -306,7 +371,20 @@
     "name": "DeleteWorkloadIdentity",
     "description": "Grants permission to delete a registered Workload Identity",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -327,7 +405,7 @@
   },
   "getagentruntimeendpoint": {
     "name": "GetAgentRuntimeEndpoint",
-    "description": "Grants permission to get details of an agent endpoint",
+    "description": "Grants permission to get details of an agent runtime endpoint",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -350,7 +428,20 @@
     "name": "GetApiKeyCredentialProvider",
     "description": "Grants permission to fetch a registered API Key Credential Provider by its name",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "apikeycredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -508,7 +599,20 @@
     "name": "GetOauth2CredentialProvider",
     "description": "Grants permission to fetch a registered OAuth2 Credential Provider by its name",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -516,7 +620,32 @@
     "name": "GetResourceApiKey",
     "description": "Grants permission to retrieve an API Key associated with an Api Key Credential Provider",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "apikeycredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -524,7 +653,32 @@
     "name": "GetResourceOauth2Token",
     "description": "Grants permission to retrieve access token with OAuth2 2LO or 3LO flow to access external resource",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -532,7 +686,14 @@
     "name": "GetTokenVault",
     "description": "Grants permission to fetch the current configuration of the TokenVault, including encryption settings",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -540,7 +701,20 @@
     "name": "GetWorkloadAccessToken",
     "description": "Grants permission to retrieve an Workload access token for agentic workloads not acting on behalf of a user",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -548,7 +722,20 @@
     "name": "GetWorkloadAccessTokenForJWT",
     "description": "Grants permission to retrieve an Workload access token for agentic workloads acting on behalf of user with JWT token",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -556,7 +743,20 @@
     "name": "GetWorkloadAccessTokenForUserId",
     "description": "Grants permission to retrieve an Workload access token for agentic workloads acting on behalf of user with User Id",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -564,13 +764,26 @@
     "name": "GetWorkloadIdentity",
     "description": "Grants permission to fetch details for a specific Workload identity, including its name and allowed OAuth2 return URLs",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
-  "invokeagentruntimeendpoint": {
-    "name": "InvokeAgentRuntimeEndpoint",
-    "description": "Grants permission to invoke an agent endpoint",
+  "invokeagentruntime": {
+    "name": "InvokeAgentRuntime",
+    "description": "Grants permission to invoke an agent runtime endpoint",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -627,7 +840,7 @@
   },
   "listagentruntimeendpoints": {
     "name": "ListAgentRuntimeEndpoints",
-    "description": "Grants permission to list agent endpoints",
+    "description": "Grants permission to list agent runtime endpoints",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -653,7 +866,20 @@
     "name": "ListApiKeyCredentialProviders",
     "description": "Grants permission to list all API Key Credential Providers in the Token Vault",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "apikeycredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -773,7 +999,20 @@
     "name": "ListOauth2CredentialProviders",
     "description": "Grants permission to list all OAuth2 Credential Providers in the Token Vault",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -798,7 +1037,20 @@
     "name": "ListWorkloadIdentities",
     "description": "Grants permission to list all Workload Identities in the caller's AWS account",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -824,7 +1076,14 @@
     "name": "SetTokenVaultCMK",
     "description": "Grants permission to associate a Customer Managed Key (CMK) or a Service Managed Key with a specific TokenVault",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -947,7 +1206,7 @@
   },
   "updateagentruntimeendpoint": {
     "name": "UpdateAgentRuntimeEndpoint",
-    "description": "Grants permission to update an agent endpoint",
+    "description": "Grants permission to update an agent runtime endpoint",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -970,7 +1229,20 @@
     "name": "UpdateApiKeyCredentialProvider",
     "description": "Grants permission to update an existing API Key Credential Provider",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "apikeycredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1048,7 +1320,20 @@
     "name": "UpdateOauth2CredentialProvider",
     "description": "Grants permission to update an existing OAuth2 Credential Provider",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1056,7 +1341,20 @@
     "name": "UpdateWorkloadIdentity",
     "description": "Grants permission to update the metadata of an existing Workload Identity",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   }

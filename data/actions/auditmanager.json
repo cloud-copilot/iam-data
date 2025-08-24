@@ -117,7 +117,14 @@
     "name": "CreateAssessmentFramework",
     "description": "Grants permission to create a framework for use in AWS Audit Manager",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "control",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
@@ -731,6 +738,12 @@
     "resourceTypes": [
       {
         "name": "assessmentFramework",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "control",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

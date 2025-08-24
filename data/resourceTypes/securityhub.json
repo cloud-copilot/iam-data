@@ -23,11 +23,17 @@
   },
   "aggregatorv2": {
     "key": "aggregatorv2",
-    "arn": "arn:${Partition}:securityhub:${Region}:${Account}:aggregatorv2/${AggregatorV2Id}"
+    "arn": "arn:${Partition}:securityhub:${Region}:${Account}:aggregatorv2/${AggregatorV2Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "automation-rule": {
     "key": "automation-rule",
-    "arn": "arn:${Partition}:securityhub:${Region}:${Account}:automation-rule/${AutomationRuleId}"
+    "arn": "arn:${Partition}:securityhub:${Region}:${Account}:automation-rule/${AutomationRuleId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "automation-rulev2": {
     "key": "automation-rulev2",
@@ -38,7 +44,10 @@
   },
   "configuration-policy": {
     "key": "configuration-policy",
-    "arn": "arn:${Partition}:securityhub:${Region}:${Account}:configuration-policy/${ConfigurationPolicyId}"
+    "arn": "arn:${Partition}:securityhub:${Region}:${Account}:configuration-policy/${ConfigurationPolicyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "connectorv2": {
     "key": "connectorv2",

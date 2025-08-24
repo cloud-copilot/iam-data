@@ -17,7 +17,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createchimewebhookconfiguration": {
@@ -25,7 +27,10 @@
     "description": "Grants permission to create an AWS Chatbot Chime Webhook Configuration",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createcustomaction": {
@@ -33,7 +38,10 @@
     "description": "Grants permission to create a custom action",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createmicrosoftteamschannelconfiguration": {
@@ -41,7 +49,10 @@
     "description": "Grants permission to create an AWS Chatbot Microsoft Teams Channel Configuration",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createslackchannelconfiguration": {
@@ -49,7 +60,10 @@
     "description": "Grants permission to create an AWS Chatbot Slack Channel Configuration",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletechimewebhookconfiguration": {
@@ -64,7 +78,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletecustomaction": {
@@ -79,7 +95,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletemicrosoftteamschannelconfiguration": {
@@ -94,7 +112,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletemicrosoftteamsconfiguredteam": {
@@ -125,7 +145,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deleteslackuseridentity": {
@@ -202,7 +224,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getaccountpreferences": {
@@ -225,7 +249,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getmicrosoftteamschannelconfiguration": {
@@ -233,7 +259,9 @@
     "description": "Grants permission to get a single AWS Chatbot Microsoft Teams Channel Configurations in an AWS account",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getmicrosoftteamsoauthparameters": {
@@ -327,16 +355,47 @@
     "name": "TagResource",
     "description": "Grants permission to create tags on AWS Chatbot Channel Configuration",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "ChatbotConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-action",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags on AWS Chatbot Channel Configuration",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "ChatbotConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "custom-action",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updateaccountpreferences": {
@@ -359,7 +418,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updatecustomaction": {
@@ -374,7 +435,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updatemicrosoftteamschannelconfiguration": {
@@ -389,7 +452,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updateslackchannelconfiguration": {
@@ -404,7 +469,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   }
 }

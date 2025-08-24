@@ -56,12 +56,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "compute-environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "job-queue",
         "required": true,
         "conditionKeys": [
@@ -71,7 +65,19 @@
         "dependentActions": []
       },
       {
+        "name": "compute-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-environment",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -90,6 +96,26 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createserviceenvironment": {
+    "name": "CreateServiceEnvironment",
+    "description": "Grants permission to create an AWS Batch service environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
       }
     ],
     "conditionKeys": [
@@ -150,6 +176,21 @@
     "resourceTypes": [
       {
         "name": "scheduling-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteserviceenvironment": {
+    "name": "DeleteServiceEnvironment",
+    "description": "Grants permission to delete an AWS Batch service environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-environment",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -228,6 +269,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeserviceenvironments": {
+    "name": "DescribeServiceEnvironments",
+    "description": "Grants permission to describe one or more AWS Batch service environments in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeservicejob": {
+    "name": "DescribeServiceJob",
+    "description": "Grants permission to describe a AWS Batch service job in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getjobqueuesnapshot": {
     "name": "GetJobQueueSnapshot",
     "description": "Grants permission to get a snapshot of an AWS Batch job queue in your account",
@@ -282,6 +339,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listservicejobs": {
+    "name": "ListServiceJobs",
+    "description": "Grants permission to list service jobs for a specified AWS Batch job queue in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for an AWS Batch resource in your account",
@@ -319,6 +384,18 @@
       },
       {
         "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -404,6 +481,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "submitservicejob": {
+    "name": "SubmitServiceJob",
+    "description": "Grants permission to submit an AWS Batch service job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
+        "required": true,
+        "conditionKeys": [
+          "batch:ShareIdentifier",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an AWS Batch resource in your account",
@@ -444,6 +546,18 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "service-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -459,6 +573,21 @@
     "resourceTypes": [
       {
         "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "terminateservicejob": {
+    "name": "TerminateServiceJob",
+    "description": "Grants permission to terminate a service job in an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-job",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -504,6 +633,18 @@
       },
       {
         "name": "scheduling-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service-job",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -578,6 +719,21 @@
     "resourceTypes": [
       {
         "name": "scheduling-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateserviceenvironment": {
+    "name": "UpdateServiceEnvironment",
+    "description": "Grants permission to update an AWS Batch service environment in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-environment",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

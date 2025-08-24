@@ -485,14 +485,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deletepermissionspolicy": {
-    "name": "DeletePermissionsPolicy",
-    "description": "Grants permission to delete the permission policy associated with a permission set",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deleteprofile": {
     "name": "DeleteProfile",
     "description": "Grants permission to delete the profile for an application instance",
@@ -595,14 +587,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describedirectories": {
-    "name": "DescribeDirectories",
-    "description": "Grants permission to obtain information about the directories for this account",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "describeinstance": {
     "name": "DescribeInstance",
     "description": "Grants permission to obtain information about an identity center instance",
@@ -669,14 +653,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describepermissionspolicies": {
-    "name": "DescribePermissionsPolicies",
-    "description": "Grants permission to retrieve all the permissions policies associated with a permission set",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "describeregisteredregions": {
     "name": "DescribeRegisteredRegions",
     "description": "Grants permission to obtain the regions where your organization has enabled AWS IAM Identity Center",
@@ -697,14 +673,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describetrusts": {
-    "name": "DescribeTrusts",
-    "description": "Grants permission to obtain information about the trust relationships for this account",
-    "accessLevel": "Read",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -844,6 +812,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getapplicationsessionconfiguration": {
+    "name": "GetApplicationSessionConfiguration",
+    "description": "Grants permission to get session configuration for an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
   "getapplicationtemplate": {
     "name": "GetApplicationTemplate",
     "description": "Grants permission to retrieve application template details",
@@ -917,16 +902,6 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
-  },
-  "getpermissionspolicy": {
-    "name": "GetPermissionsPolicy",
-    "description": "Grants permission to retrieve all permission policies associated with a permission set",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": [
-      "sso:DescribePermissionsPolicies"
-    ]
   },
   "getprofile": {
     "name": "GetProfile",
@@ -1475,6 +1450,23 @@
     ],
     "dependentActions": []
   },
+  "putapplicationsessionconfiguration": {
+    "name": "PutApplicationSessionConfiguration",
+    "description": "Grants permission to put session configuration for an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "sso:ApplicationAccount"
+    ],
+    "dependentActions": []
+  },
   "putinlinepolicytopermissionset": {
     "name": "PutInlinePolicyToPermissionSet",
     "description": "Grants permission to attach an IAM inline policy to a permission set",
@@ -1703,14 +1695,6 @@
   "updateapplicationinstancestatus": {
     "name": "UpdateApplicationInstanceStatus",
     "description": "Grants permission to update the status of an application instance",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatedirectoryassociation": {
-    "name": "UpdateDirectoryAssociation",
-    "description": "Grants permission to update the user attribute mappings for your connected directory",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],

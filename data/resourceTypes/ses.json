@@ -92,6 +92,10 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "reputation-policy": {
+    "key": "reputation-policy",
+    "arn": "arn:${Partition}:ses:${Region}:aws:reputation-policy/${ReputationPolicyName}"
+  },
   "contact-list": {
     "key": "contact-list",
     "arn": "arn:${Partition}:ses:${Region}:${Account}:contact-list/${ContactListName}",
@@ -110,5 +114,12 @@
   "multi-region-endpoint": {
     "key": "multi-region-endpoint",
     "arn": "arn:${Partition}:ses:${Region}:${Account}:multi-region-endpoint/${EndpointName}"
+  },
+  "tenant": {
+    "key": "tenant",
+    "arn": "arn:${Partition}:ses:${Region}:${Account}:tenant/${TenantName}/${TenantId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

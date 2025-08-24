@@ -72,6 +72,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete the RAM access control policy for a namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteservice": {
     "name": "DeleteService",
     "description": "Grants permission to delete a specified service",
@@ -84,7 +100,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceCreatedByAccount"
+    ],
     "dependentActions": []
   },
   "deleteserviceattributes": {
@@ -99,7 +117,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceCreatedByAccount"
+    ],
     "dependentActions": []
   },
   "deregisterinstance": {
@@ -115,7 +135,8 @@
       }
     ],
     "conditionKeys": [
-      "servicediscovery:ServiceArn"
+      "servicediscovery:ServiceArn",
+      "servicediscovery:ServiceCreatedByAccount"
     ],
     "dependentActions": []
   },
@@ -123,7 +144,20 @@
     "name": "DiscoverInstances",
     "description": "Grants permission to discover registered instances for a specified namespace and service",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "servicediscovery:NamespaceName",
       "servicediscovery:ServiceName"
@@ -134,7 +168,20 @@
     "name": "DiscoverInstancesRevision",
     "description": "Grants permission to discover the revision of the instances for a specified namespace and service",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "servicediscovery:NamespaceName",
       "servicediscovery:ServiceName"
@@ -145,7 +192,14 @@
     "name": "GetInstance",
     "description": "Grants permission to get information about a specified instance",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "servicediscovery:ServiceArn"
     ],
@@ -155,7 +209,14 @@
     "name": "GetInstancesHealthStatus",
     "description": "Grants permission to get the current health status (Healthy, Unhealthy, or Unknown) of one or more instances",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "servicediscovery:ServiceArn"
     ],
@@ -180,7 +241,36 @@
     "name": "GetOperation",
     "description": "Grants permission to get information about a specific operation",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to read the RAM access control policy for a namespace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -218,7 +308,14 @@
     "name": "ListInstances",
     "description": "Grants permission to get summary information about the instances that were registered with a specified service",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "servicediscovery:ServiceArn"
     ],
@@ -256,6 +353,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to define the RAM access control policy for a namespace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "registerinstance": {
     "name": "RegisterInstance",
     "description": "Grants permission to register an instance based on the settings in a specified service",
@@ -269,7 +382,8 @@
       }
     ],
     "conditionKeys": [
-      "servicediscovery:ServiceArn"
+      "servicediscovery:ServiceArn",
+      "servicediscovery:ServiceCreatedByAccount"
     ],
     "dependentActions": []
   },
@@ -313,9 +427,17 @@
     "name": "UpdateInstanceCustomHealthStatus",
     "description": "Grants permission to update the current health status for an instance that has a custom health check",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
-      "servicediscovery:ServiceArn"
+      "servicediscovery:ServiceArn",
+      "servicediscovery:ServiceCreatedByAccount"
     ],
     "dependentActions": []
   },
@@ -361,7 +483,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceCreatedByAccount"
+    ],
     "dependentActions": []
   },
   "updateserviceattributes": {
@@ -376,7 +500,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "servicediscovery:ServiceCreatedByAccount"
+    ],
     "dependentActions": []
   }
 }

@@ -38,20 +38,21 @@
         "name": "component",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "imagebuilder:TagResource",
+          "kms:Encrypt",
+          "kms:GenerateDataKey",
+          "kms:GenerateDataKeyWithoutPlaintext",
+          "s3:GetObject",
+          "s3:ListBucket"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "imagebuilder:TagResource",
-      "kms:Encrypt",
-      "kms:GenerateDataKey",
-      "kms:GenerateDataKeyWithoutPlaintext"
-    ]
+    "dependentActions": []
   },
   "createcontainerrecipe": {
     "name": "CreateContainerRecipe",
@@ -62,25 +63,27 @@
         "name": "containerRecipe",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:DescribeImages",
+          "ecr:DescribeImages",
+          "ecr:DescribeRepositories",
+          "imagebuilder:GetComponent",
+          "imagebuilder:GetImage",
+          "imagebuilder:TagResource",
+          "kms:Encrypt",
+          "kms:GenerateDataKey",
+          "kms:GenerateDataKeyWithoutPlaintext",
+          "s3:GetObject",
+          "s3:ListBucket",
+          "ssm:GetParameter"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ecr:DescribeImages",
-      "ecr:DescribeRepositories",
-      "iam:CreateServiceLinkedRole",
-      "imagebuilder:GetComponent",
-      "imagebuilder:GetImage",
-      "imagebuilder:TagResource",
-      "kms:Encrypt",
-      "kms:GenerateDataKey",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "ssm:GetParameter"
-    ]
+    "dependentActions": []
   },
   "createdistributionconfiguration": {
     "name": "CreateDistributionConfiguration",
@@ -91,18 +94,21 @@
         "name": "distributionConfiguration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:CreateLaunchTemplateVersion",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:ModifyLaunchTemplate",
+          "imagebuilder:TagResource",
+          "s3:ListBucket",
+          "ssm:GetParameter"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "imagebuilder:TagResource",
-      "ssm:GetParameter"
-    ]
+    "dependentActions": []
   },
   "createimage": {
     "name": "CreateImage",
@@ -113,23 +119,26 @@
         "name": "image",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ecr:BatchGetRepositoryScanningConfiguration",
+          "ecr:DescribeRepositories",
+          "iam:CreateServiceLinkedRole",
+          "iam:PassRole",
+          "imagebuilder:GetContainerRecipe",
+          "imagebuilder:GetDistributionConfiguration",
+          "imagebuilder:GetImageRecipe",
+          "imagebuilder:GetInfrastructureConfiguration",
+          "imagebuilder:GetWorkflow",
+          "imagebuilder:TagResource",
+          "inspector2:BatchGetAccountStatus"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "imagebuilder:GetContainerRecipe",
-      "imagebuilder:GetDistributionConfiguration",
-      "imagebuilder:GetImageRecipe",
-      "imagebuilder:GetInfrastructureConfiguration",
-      "imagebuilder:GetWorkflow",
-      "imagebuilder:TagResource"
-    ]
+    "dependentActions": []
   },
   "createimagepipeline": {
     "name": "CreateImagePipeline",
@@ -140,23 +149,26 @@
         "name": "imagePipeline",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ecr:BatchGetRepositoryScanningConfiguration",
+          "ecr:DescribeRepositories",
+          "iam:CreateServiceLinkedRole",
+          "iam:PassRole",
+          "imagebuilder:GetContainerRecipe",
+          "imagebuilder:GetDistributionConfiguration",
+          "imagebuilder:GetImageRecipe",
+          "imagebuilder:GetInfrastructureConfiguration",
+          "imagebuilder:GetWorkflow",
+          "imagebuilder:TagResource",
+          "inspector2:BatchGetAccountStatus"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "imagebuilder:GetContainerRecipe",
-      "imagebuilder:GetDistributionConfiguration",
-      "imagebuilder:GetImageRecipe",
-      "imagebuilder:GetInfrastructureConfiguration",
-      "imagebuilder:GetWorkflow",
-      "imagebuilder:TagResource"
-    ]
+    "dependentActions": []
   },
   "createimagerecipe": {
     "name": "CreateImageRecipe",
@@ -167,21 +179,20 @@
         "name": "imageRecipe",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:DescribeImages",
+          "imagebuilder:GetComponent",
+          "imagebuilder:GetImage",
+          "imagebuilder:TagResource",
+          "ssm:GetParameter"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:DescribeImages",
-      "iam:CreateServiceLinkedRole",
-      "imagebuilder:GetComponent",
-      "imagebuilder:GetImage",
-      "imagebuilder:TagResource",
-      "ssm:GetParameter"
-    ]
+    "dependentActions": []
   },
   "createinfrastructureconfiguration": {
     "name": "CreateInfrastructureConfiguration",
@@ -192,23 +203,25 @@
         "name": "infrastructureConfiguration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeHosts",
+          "iam:PassRole",
+          "imagebuilder:TagResource",
+          "resource-groups:GetGroup",
+          "sns:Publish"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "imagebuilder:CreatedResourceTagKeys",
-      "imagebuilder:CreatedResourceTag/<key>",
+      "imagebuilder:CreatedResourceTag/${TagKey}",
       "imagebuilder:Ec2MetadataHttpTokens",
       "imagebuilder:StatusTopicArn"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "imagebuilder:TagResource",
-      "sns:Publish"
-    ]
+    "dependentActions": []
   },
   "createlifecyclepolicy": {
     "name": "CreateLifecyclePolicy",
@@ -219,7 +232,10 @@
         "name": "lifecyclePolicy",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "iam:PassRole",
+          "imagebuilder:TagResource"
+        ]
       }
     ],
     "conditionKeys": [
@@ -227,10 +243,7 @@
       "aws:TagKeys",
       "imagebuilder:LifecyclePolicyResourceType"
     ],
-    "dependentActions": [
-      "iam:PassRole",
-      "imagebuilder:TagResource"
-    ]
+    "dependentActions": []
   },
   "createworkflow": {
     "name": "CreateWorkflow",
@@ -241,21 +254,21 @@
         "name": "workflow",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "imagebuilder:TagResource",
+          "kms:Encrypt",
+          "kms:GenerateDataKey",
+          "kms:GenerateDataKeyWithoutPlaintext",
+          "s3:GetObject",
+          "s3:ListBucket"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "imagebuilder:TagResource",
-      "kms:Encrypt",
-      "kms:GenerateDataKey",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "s3:GetObject",
-      "s3:ListBucket"
-    ]
+    "dependentActions": []
   },
   "deletecomponent": {
     "name": "DeleteComponent",
@@ -481,9 +494,7 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getimagepipeline": {
@@ -651,7 +662,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
   },
   "importcomponent": {
     "name": "ImportComponent",
@@ -662,20 +675,21 @@
         "name": "component",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "imagebuilder:TagResource",
+          "kms:Encrypt",
+          "kms:GenerateDataKey",
+          "kms:GenerateDataKeyWithoutPlaintext",
+          "s3:GetObject",
+          "s3:ListBucket"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "imagebuilder:TagResource",
-      "kms:Encrypt",
-      "kms:GenerateDataKey",
-      "kms:GenerateDataKeyWithoutPlaintext"
-    ]
+    "dependentActions": []
   },
   "importdiskimage": {
     "name": "ImportDiskImage",
@@ -686,22 +700,22 @@
         "name": "imageVersion",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "iam:PassRole",
+          "imagebuilder:GetInfrastructureConfiguration",
+          "imagebuilder:GetWorkflow",
+          "imagebuilder:TagResource",
+          "s3:GetObject",
+          "s3:ListBucket"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "imagebuilder:GetInfrastructureConfiguration",
-      "imagebuilder:GetWorkflow",
-      "imagebuilder:TagResource",
-      "s3:GetObject",
-      "s3:ListBucket"
-    ]
+    "dependentActions": []
   },
   "importvmimage": {
     "name": "ImportVmImage",
@@ -712,18 +726,19 @@
         "name": "imageVersion",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:DescribeImages",
+          "ec2:DescribeImportImageTasks",
+          "iam:CreateServiceLinkedRole",
+          "imagebuilder:TagResource"
+        ]
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:DescribeImages",
-      "ec2:DescribeImportImageTasks",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "listcomponentbuildversions": {
     "name": "ListComponentBuildVersions",
@@ -731,7 +746,7 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "componentVersion",
+        "name": "allComponentBuildVersions",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -770,7 +785,7 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "imageVersion",
+        "name": "allImageBuildVersions",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -791,9 +806,7 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listimagepipelineimages": {
@@ -939,73 +952,55 @@
       {
         "name": "component",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "containerRecipe",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "distributionConfiguration",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "image",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "imagePipeline",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "imageRecipe",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "infrastructureConfiguration",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "lifecyclePolicy",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "workflow",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
@@ -1026,7 +1021,7 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "workflowVersion",
+        "name": "allWorkflowBuildVersions",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1063,7 +1058,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
   },
   "listworkflows": {
     "name": "ListWorkflows",
@@ -1195,95 +1192,62 @@
       {
         "name": "component",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "containerRecipe",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "distributionConfiguration",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "image",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "imagePipeline",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "imageRecipe",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "infrastructureConfiguration",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "lifecyclePolicy",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "workflow",
         "required": false,
-        "conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "untagresource": {
@@ -1294,86 +1258,61 @@
       {
         "name": "component",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "containerRecipe",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "distributionConfiguration",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "image",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "imagePipeline",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "imageRecipe",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "infrastructureConfiguration",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "lifecyclePolicy",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "workflow",
         "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updatedistributionconfiguration": {
@@ -1390,6 +1329,10 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "ec2:CreateLaunchTemplateVersion",
+      "ec2:DescribeLaunchTemplates",
+      "ec2:ModifyLaunchTemplate",
+      "s3:ListBucket",
       "ssm:GetParameter"
     ]
   },
@@ -1407,13 +1350,16 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "ecr:BatchGetRepositoryScanningConfiguration",
+      "ecr:DescribeRepositories",
       "iam:CreateServiceLinkedRole",
       "iam:PassRole",
       "imagebuilder:GetContainerRecipe",
       "imagebuilder:GetDistributionConfiguration",
       "imagebuilder:GetImageRecipe",
       "imagebuilder:GetInfrastructureConfiguration",
-      "imagebuilder:GetWorkflow"
+      "imagebuilder:GetWorkflow",
+      "inspector2:BatchGetAccountStatus"
     ]
   },
   "updateinfrastructureconfiguration": {
@@ -1425,20 +1371,22 @@
         "name": "infrastructureConfiguration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeHosts",
+          "iam:PassRole",
+          "resource-groups:GetGroup",
+          "sns:Publish"
+        ]
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "imagebuilder:CreatedResourceTagKeys",
-      "imagebuilder:CreatedResourceTag/<key>",
+      "imagebuilder:CreatedResourceTag/${TagKey}",
       "imagebuilder:Ec2MetadataHttpTokens",
       "imagebuilder:StatusTopicArn"
     ],
-    "dependentActions": [
-      "iam:PassRole",
-      "sns:Publish"
-    ]
+    "dependentActions": []
   },
   "updatelifecyclepolicy": {
     "name": "UpdateLifecyclePolicy",
@@ -1449,14 +1397,14 @@
         "name": "lifecyclePolicy",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "iam:PassRole"
+        ]
       }
     ],
     "conditionKeys": [
       "imagebuilder:LifecyclePolicyResourceType"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   }
 }

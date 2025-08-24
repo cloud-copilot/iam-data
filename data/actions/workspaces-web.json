@@ -90,6 +90,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatesessionlogger": {
+    "name": "AssociateSessionLogger",
+    "description": "Grants permission to associate session logger with web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sessionLogger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associatetruststore": {
     "name": "AssociateTrustStore",
     "description": "Grants permission to associate trust stores with web portals",
@@ -248,6 +269,17 @@
       "kms:GenerateDataKey"
     ]
   },
+  "createsessionlogger": {
+    "name": "CreateSessionLogger",
+    "description": "Grants permission to create session logger",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createtruststore": {
     "name": "CreateTrustStore",
     "description": "Grants permission to create trust stores",
@@ -377,6 +409,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletesessionlogger": {
+    "name": "DeleteSessionLogger",
+    "description": "Grants permission to delete session logger",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sessionLogger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletetruststore": {
     "name": "DeleteTrustStore",
     "description": "Grants permission to delete trust stores",
@@ -470,6 +517,21 @@
   "disassociatenetworksettings": {
     "name": "DisassociateNetworkSettings",
     "description": "Grants permission to disassociate network settings from web portals",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatesessionlogger": {
+    "name": "DisassociateSessionLogger",
+    "description": "Grants permission to disassociate session logger from web portals",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -662,6 +724,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getsessionlogger": {
+    "name": "GetSessionLogger",
+    "description": "Grants permission to get details on session logger",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "sessionLogger",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "gettruststore": {
     "name": "GetTrustStore",
     "description": "Grants permission to get details on trust stores",
@@ -777,6 +854,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listsessionloggers": {
+    "name": "ListSessionLoggers",
+    "description": "Grants permission to list session loggers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listsessions": {
     "name": "ListSessions",
     "description": "Grants permission to list sessions for a Portal using optional filters",
@@ -874,6 +959,12 @@
         "dependentActions": []
       },
       {
+        "name": "sessionLogger",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "trustStore",
         "required": false,
         "conditionKeys": [],
@@ -935,6 +1026,12 @@
       },
       {
         "name": "portal",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "sessionLogger",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1058,6 +1155,21 @@
     "resourceTypes": [
       {
         "name": "portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesessionlogger": {
+    "name": "UpdateSessionLogger",
+    "description": "Grants permission to update session logger",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "sessionLogger",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -106,6 +106,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "cancelautomatedreasoningpolicybuildworkflow": {
+    "name": "CancelAutomatedReasoningPolicyBuildWorkflow",
+    "description": "Grants permission to cancel a build workflow for an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createagent": {
     "name": "CreateAgent",
     "description": "Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version",
@@ -142,6 +157,50 @@
     "resourceTypes": [
       {
         "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createautomatedreasoningpolicy": {
+    "name": "CreateAutomatedReasoningPolicy",
+    "description": "Grants permission to create a new automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createautomatedreasoningpolicytestcase": {
+    "name": "CreateAutomatedReasoningPolicyTestCase",
+    "description": "Grants permission to create a test case for an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createautomatedreasoningpolicyversion": {
+    "name": "CreateAutomatedReasoningPolicyVersion",
+    "description": "Grants permission to create a new automated reasoning policy version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -334,6 +393,18 @@
     "description": "Grants permission to create a new guardrail",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "guardrail-profile",
         "required": false,
@@ -694,6 +765,57 @@
     "resourceTypes": [
       {
         "name": "agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautomatedreasoningpolicy": {
+    "name": "DeleteAutomatedReasoningPolicy",
+    "description": "Grants permission to delete an automated reasoning policy or its version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautomatedreasoningpolicybuildworkflow": {
+    "name": "DeleteAutomatedReasoningPolicyBuildWorkflow",
+    "description": "Grants permission to delete a build workflow for an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautomatedreasoningpolicytestcase": {
+    "name": "DeleteAutomatedReasoningPolicyTestCase",
+    "description": "Grants permission to delete a test case for an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1099,6 +1221,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "exportautomatedreasoningpolicyversion": {
+    "name": "ExportAutomatedReasoningPolicyVersion",
+    "description": "Grants permission to retrieve an automated reasoning policy version artifact",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "generatequery": {
     "name": "GenerateQuery",
     "description": "Grants permission to generate queries associated with user input",
@@ -1225,6 +1368,117 @@
     "resourceTypes": [
       {
         "name": "async-invoke",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomatedreasoningpolicy": {
+    "name": "GetAutomatedReasoningPolicy",
+    "description": "Grants permission to retrieve an automated reasoning policy or its version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomatedreasoningpolicyannotations": {
+    "name": "GetAutomatedReasoningPolicyAnnotations",
+    "description": "Grants permission to retrieve annotations for a build workflow for an automated reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomatedreasoningpolicybuildworkflow": {
+    "name": "GetAutomatedReasoningPolicyBuildWorkflow",
+    "description": "Grants permission to retrieve a build workflow for an automated reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomatedreasoningpolicybuildworkflowresultassets": {
+    "name": "GetAutomatedReasoningPolicyBuildWorkflowResultAssets",
+    "description": "Grants permission to retrieve assets for a build workflow for an automated reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomatedreasoningpolicynextscenario": {
+    "name": "GetAutomatedReasoningPolicyNextScenario",
+    "description": "Grants permission to retrieve the next unreviewed generated scenario for a build workflow for an automated reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomatedreasoningpolicytestcase": {
+    "name": "GetAutomatedReasoningPolicyTestCase",
+    "description": "Grants permission to retrieve a test case for an automated reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomatedreasoningpolicytestresult": {
+    "name": "GetAutomatedReasoningPolicyTestResult",
+    "description": "Grants permission to retrieve result for a test case for an automated reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1804,6 +2058,28 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "invokeautomatedreasoningpolicy": {
+    "name": "InvokeAutomatedReasoningPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to invoke an Automated Reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "invokeblueprintrecommendationasync": {
     "name": "InvokeBlueprintRecommendationAsync",
     "isPermissionOnly": true,
@@ -2114,6 +2390,66 @@
     "description": "Grants permission to get a list of asynchronous invocations that you have submitted",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomatedreasoningpolicies": {
+    "name": "ListAutomatedReasoningPolicies",
+    "description": "Grants permission to list automated reasoning policies or its versions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomatedreasoningpolicybuildworkflows": {
+    "name": "ListAutomatedReasoningPolicyBuildWorkflows",
+    "description": "Grants permission to list build workflows for an automated reasoning policy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomatedreasoningpolicytestcases": {
+    "name": "ListAutomatedReasoningPolicyTestCases",
+    "description": "Grants permission to list test cases for an automated reasoning policy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomatedreasoningpolicytestresults": {
+    "name": "ListAutomatedReasoningPolicyTestResults",
+    "description": "Grants permission to list test result for an automated reasoning policy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2504,6 +2840,18 @@
         "dependentActions": []
       },
       {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "blueprint",
         "required": true,
         "conditionKeys": [],
@@ -2797,6 +3145,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startautomatedreasoningpolicybuildworkflow": {
+    "name": "StartAutomatedReasoningPolicyBuildWorkflow",
+    "description": "Grants permission to start a build workflow for an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startautomatedreasoningpolicytestworkflow": {
+    "name": "StartAutomatedReasoningPolicyTestWorkflow",
+    "description": "Grants permission to start a test workflow for an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "startflowexecution": {
     "name": "StartFlowExecution",
     "description": "Grants permission to start an execution of a flow alias",
@@ -2945,6 +3323,18 @@
       },
       {
         "name": "async-invoke",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3107,6 +3497,18 @@
       },
       {
         "name": "async-invoke",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3324,6 +3726,51 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updateautomatedreasoningpolicy": {
+    "name": "UpdateAutomatedReasoningPolicy",
+    "description": "Grants permission to update an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateautomatedreasoningpolicyannotations": {
+    "name": "UpdateAutomatedReasoningPolicyAnnotations",
+    "description": "Grants permission to update annotations for a build workflow for an automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateautomatedreasoningpolicytestcase": {
+    "name": "UpdateAutomatedReasoningPolicyTestCase",
+    "description": "Grants permission to update a test case for automated reasoning policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updateblueprint": {
     "name": "UpdateBlueprint",
     "description": "Grants permission to update a blueprint for data automation",
@@ -3413,6 +3860,18 @@
       {
         "name": "guardrail",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },

@@ -6,13 +6,6 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "componentversion": {
-    "key": "componentVersion",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:component/${ComponentName}/${ComponentVersion}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "distributionconfiguration": {
     "key": "distributionConfiguration",
     "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:distribution-configuration/${DistributionConfigurationName}",
@@ -62,10 +55,6 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "kmskey": {
-    "key": "kmsKey",
-    "arn": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
-  },
   "lifecycleexecution": {
     "key": "lifecycleExecution",
     "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:lifecycle-execution/${LifecycleExecutionId}"
@@ -84,13 +73,6 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "workflowversion": {
-    "key": "workflowVersion",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:workflow/${WorkflowType}/${WorkflowName}/${WorkflowVersion}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "workflowexecution": {
     "key": "workflowExecution",
     "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:workflow-execution/${WorkflowExecutionId}"
@@ -98,5 +80,17 @@
   "workflowstepexecution": {
     "key": "workflowStepExecution",
     "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:workflow-step-execution/${WorkflowStepExecutionId}"
+  },
+  "allcomponentbuildversions": {
+    "key": "allComponentBuildVersions",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:component/${ComponentName}/${ComponentVersion}/*"
+  },
+  "allimagebuildversions": {
+    "key": "allImageBuildVersions",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageName}/${ImageVersion}/*"
+  },
+  "allworkflowbuildversions": {
+    "key": "allWorkflowBuildVersions",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:workflow/${WorkflowType}/${WorkflowName}/${WorkflowVersion}/*"
   }
 }

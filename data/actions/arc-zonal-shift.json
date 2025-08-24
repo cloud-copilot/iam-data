@@ -1,4 +1,29 @@
 {
+  "cancelpracticerun": {
+    "name": "CancelPracticeRun",
+    "description": "Grants permission to cancel an active practice run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "cancelzonalshift": {
     "name": "CancelZonalShift",
     "description": "Grants permission to cancel an active zonal shift",
@@ -132,6 +157,31 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startpracticerun": {
+    "name": "StartPracticeRun",
+    "description": "Grants permission to start a practice run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ALB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NLB",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "arc-zonal-shift:ResourceIdentifier",
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "startzonalshift": {
