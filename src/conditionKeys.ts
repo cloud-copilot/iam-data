@@ -50,3 +50,10 @@ export async function iamConditionKeyDetails(
   }
   return data[conditionKey.toLowerCase()]
 }
+
+export async function getConditionKeysWithVariables(serviceKey: string): Promise<string[]> {
+  const data = await readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
+  return Object.values(data)
+    .filter((conditionKey) => conditionKey.key.includes('${'))
+    .map((conditionKey) => conditionKey.key)
+}

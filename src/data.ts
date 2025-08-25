@@ -60,3 +60,21 @@ export async function readConditionKeys<T>(serviceKey: string): Promise<T> {
 export async function readResourceTypes<T>(serviceKey: string): Promise<T> {
   return readDataFile<T>('resourceTypes', `${serviceKey}.json`)
 }
+
+/**
+ * Read the condition patterns data
+ *
+ * @returns the condition patterns data
+ */
+export async function readConditionPatterns(): Promise<Record<string, Record<string, string>>> {
+  return readDataFile<Record<string, Record<string, string>>>('conditionPatterns.json')
+}
+
+/**
+ * Read the unassociated conditions data
+ *
+ * @returns the unassociated conditions data
+ */
+export async function readUnassociatedConditions(): Promise<Record<string, string[]>> {
+  return readDataFile<Record<string, string[]>>('unassociatedConditions.json')
+}
