@@ -62,6 +62,17 @@ describe('findConditionKey', () => {
       // Then result should be undefined
       expect(result).toBeUndefined()
     })
+
+    it('should return undefined for a global key that accepts a variable in the key but there is nothing after the slash', async () => {
+      //Given a global context key missing the variable
+      const key = 'aws:PrincipalTag/'
+
+      //When the key is checked
+      const result = await findConditionKey(key)
+
+      //Then the result should be undefined
+      expect(result).toBeUndefined()
+    })
   })
 
   describe('Service-specific condition keys', () => {
@@ -111,6 +122,32 @@ describe('findConditionKey', () => {
 
       // Then result should be undefined
       expect(result).toBeUndefined()
+    })
+
+    it('should return true for a service key that accepts a variable in the key', async () => {
+      //Given a service context key
+      const conditionKey = 's3:ExistingObjectTag/Classification'
+
+      //When the key is checked
+      const result = await findConditionKey(conditionKey)
+
+      //Then the result should be true
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('s3:ExistingObjectTag/<key>')
+      expect(result?.type).toBe('String')
+    })
+
+    it('should return true for a service key that accepts a variable and there is a slash in the variable', async () => {
+      //Given a service context key
+      const conditionKey = 's3:ExistingObjectTag/Classification/Classification'
+
+      //When the key is checked
+      const result = await findConditionKey(conditionKey)
+
+      //Then the result should be true
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('s3:ExistingObjectTag/<key>')
+      expect(result?.type).toBe('String')
     })
   })
 

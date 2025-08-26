@@ -1,6 +1,9 @@
 import { ConditionKey, iamConditionKeyDetails, iamConditionKeyExists } from './conditionKeys.js'
 import { readConditionPatterns, readUnassociatedConditions } from './data.js'
-import { globalConditionKeys } from './globalConditionKeys.js'
+import {
+  globalConditionKeysByName,
+  globalVariableConditionKeysByPrefix
+} from './globalConditionKeys.js'
 import { iamServiceExists } from './services.js'
 
 /**
@@ -37,25 +40,19 @@ export async function findConditionKey(conditionKey: string): Promise<ConditionK
   // If it starts with 'aws', check global condition keys
   if (normalizedConditionKey.startsWith('aws:')) {
     // First check for exact match in global condition keys
-    const exactGlobalMatch = globalConditionKeys.find(
-      (gck) => gck.key.toLowerCase() === normalizedConditionKey
-    )
+    const exactGlobalMatch = globalConditionKeysByName[normalizedConditionKey]
     if (exactGlobalMatch) {
       return exactGlobalMatch
     }
 
     // Then check global condition keys with variables (like aws:PrincipalTag/tag-key)
-    const variableGlobalMatch = globalConditionKeys.find((gck) => {
-      const pattern = gck.key.toLowerCase()
-      if (pattern.includes('/')) {
-        // Handle patterns like 'aws:principaltag/tag-key' where 'tag-key' is a variable
-        const [prefix, suffix] = pattern.split('/')
-        return normalizedConditionKey.startsWith(prefix + '/') && suffix === 'tag-key'
+    const slashIndex = normalizedConditionKey.indexOf('/')
+    if (slashIndex !== -1) {
+      const prefix = normalizedConditionKey.substring(0, slashIndex)
+      const variableGlobalMatch = globalVariableConditionKeysByPrefix[prefix]
+      if (variableGlobalMatch && conditionKey.length > prefix.length + 1) {
+        return variableGlobalMatch
       }
-      return false
-    })
-    if (variableGlobalMatch) {
-      return variableGlobalMatch
     }
 
     return undefined
@@ -92,8 +89,6 @@ export async function findConditionKey(conditionKey: string): Promise<ConditionK
   if (servicePatterns) {
     for (const [patternStr, templateKey] of Object.entries(servicePatterns)) {
       const regex = new RegExp(`^${patternStr}$`, 'i')
-      console.log(patternStr)
-      console.log(normalizedConditionKey)
       if (regex.test(normalizedConditionKey)) {
         // Found a pattern match, try to get the template condition key
         const hasTemplateKey = await iamConditionKeyExists(servicePrefix, templateKey)
