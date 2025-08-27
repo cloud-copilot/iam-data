@@ -450,6 +450,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -551,6 +552,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID"
         ],
@@ -628,6 +630,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -820,11 +823,21 @@
         "dependentActions": []
       },
       {
+        "name": "ipv4pool-ec2",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "subnet",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -892,6 +905,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
@@ -925,6 +939,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -1103,6 +1118,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -1194,6 +1210,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -1275,6 +1292,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -1302,6 +1320,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -1966,6 +1985,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID"
         ],
@@ -2102,6 +2122,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
           "ec2:InstanceBandwidthWeighting",
@@ -2214,6 +2235,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceBandwidthWeighting",
@@ -2266,6 +2288,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -2279,6 +2302,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:KmsKeyId",
           "ec2:ParentSnapshot",
@@ -2406,7 +2430,7 @@
   },
   "createimage": {
     "name": "CreateImage",
-    "description": "Grants permission to create an Amazon EBS-backed AMI from a stopped or running Amazon EBS-backed instance",
+    "description": "Grants permission to create an Amazon EBS-backed AMI from a stopped or running Amazon EBS-backed instance. This action can reboot instances as part of the image creation process, even without RebootInstances permissions. To prevent instance reboots during image creation, use the NoReboot parameter",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -2428,6 +2452,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -2469,6 +2494,42 @@
     ],
     "dependentActions": []
   },
+  "createimageusagereport": {
+    "name": "CreateImageUsageReport",
+    "description": "Grants permission to create an AMI usage report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ImageID",
+          "ec2:ImageType",
+          "ec2:Owner",
+          "ec2:Public",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "image-usage-report",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createinstanceconnectendpoint": {
     "name": "CreateInstanceConnectEndpoint",
     "description": "Grants permission to create an EC2 Instance Connect Endpoint that allows you to connect to an instance without a public IPv4 address",
@@ -2492,6 +2553,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -2559,6 +2621,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -3081,6 +3144,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
           "ec2:InstanceBandwidthWeighting",
@@ -3158,6 +3222,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -3282,6 +3347,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -3403,6 +3469,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -3510,6 +3577,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -3702,6 +3770,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -3844,6 +3913,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
@@ -4016,6 +4086,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -4269,6 +4340,17 @@
         "dependentActions": []
       },
       {
+        "name": "image-usage-report",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "import-image-task",
         "required": false,
         "conditionKeys": [
@@ -4298,6 +4380,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -4783,6 +4866,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -5002,6 +5086,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
@@ -5744,6 +5829,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -5843,6 +5929,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:KmsKeyId",
           "ec2:ParentSnapshot",
@@ -5942,6 +6029,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -6321,6 +6409,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -6507,6 +6596,26 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:Owner",
           "ec2:Public",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleteimageusagereport": {
+    "name": "DeleteImageUsageReport",
+    "description": "Grants permission to delete an AMI usage report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image-usage-report",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -7397,6 +7506,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -7624,6 +7734,17 @@
       },
       {
         "name": "image",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "image-usage-report",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -8852,6 +8973,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -9856,6 +9978,36 @@
     ],
     "dependentActions": []
   },
+  "describeimagereferences": {
+    "name": "DescribeImageReferences",
+    "description": "Grants permission to describe your AWS resources that are referencing specified images",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeimageusagereportentries": {
+    "name": "DescribeImageUsageReportEntries",
+    "description": "Grants permission to describe the entries of an AMI usage report",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeimageusagereports": {
+    "name": "DescribeImageUsageReports",
+    "description": "Grants permission to describe the configuration and status of an AMI usage report",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describeimages": {
     "name": "DescribeImages",
     "description": "Grants permission to describe one or more images (AMIs, AKIs, and ARIs)",
@@ -9897,6 +10049,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -10979,6 +11132,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -11301,6 +11455,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -11382,6 +11537,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -11401,6 +11557,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -11960,6 +12117,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -12168,6 +12326,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -12235,6 +12394,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -12258,6 +12418,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -12784,6 +12945,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -13091,6 +13253,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -13129,6 +13292,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -13288,6 +13452,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -13334,6 +13499,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -13522,6 +13688,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -13640,6 +13807,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -14337,6 +14505,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -14613,6 +14782,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -14731,6 +14901,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -14769,6 +14940,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -14801,6 +14973,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -14836,6 +15009,39 @@
     ],
     "dependentActions": []
   },
+  "modifyinstanceconnectendpoint": {
+    "name": "ModifyInstanceConnectEndpoint",
+    "description": "Grants permission to modify an existing EC2 Instance Connect Endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance-connect-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "security-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SecurityGroupID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "modifyinstancecpuoptions": {
     "name": "ModifyInstanceCpuOptions",
     "description": "Grants permission to modify the CPU options on an instance",
@@ -14849,6 +15055,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -14889,6 +15096,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -14928,6 +15136,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -14990,6 +15199,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -15041,6 +15251,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -15081,6 +15292,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -15121,6 +15333,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -15405,6 +15618,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -15443,6 +15657,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Vpc"
         ],
@@ -15467,6 +15682,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -15698,6 +15914,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -15723,6 +15940,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -15930,6 +16148,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -15963,6 +16182,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -16135,6 +16355,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -16167,6 +16388,7 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -16287,6 +16509,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -16587,6 +16810,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -16691,6 +16915,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
@@ -16959,6 +17184,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -17333,6 +17559,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -17395,6 +17622,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -17501,6 +17729,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -17582,6 +17811,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [
+          "ec2:AvailabilityZoneId",
           "ec2:InstanceBandwidthWeighting",
           "ec2:InstanceID"
         ],
@@ -17688,6 +17918,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -17802,6 +18033,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
@@ -17911,6 +18143,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -18198,6 +18431,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -18257,6 +18491,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:IsLaunchTemplateResource",
           "ec2:LaunchTemplate",
           "ec2:ResourceTag/${TagKey}",
@@ -18366,6 +18601,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:IsLaunchTemplateResource",
           "ec2:LaunchTemplate",
@@ -18681,6 +18917,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -18718,6 +18955,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -18764,6 +19002,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceBandwidthWeighting",
@@ -18889,6 +19128,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -18952,6 +19192,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",
@@ -19088,6 +19329,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
           "ec2:CpuOptionsAmdSevSnp",
           "ec2:EbsOptimized",
           "ec2:InstanceAutoRecovery",

@@ -273,6 +273,17 @@
       "ec2:RootDeviceType"
     ]
   },
+  "image-usage-report": {
+    "key": "image-usage-report",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:image-usage-report/${ImageUsageReportId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "import-image-task": {
     "key": "import-image-task",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:import-image-task/${ImportImageTaskId}",
@@ -332,6 +343,7 @@
       "ec2:Attribute",
       "ec2:Attribute/${AttributeName}",
       "ec2:AvailabilityZone",
+      "ec2:AvailabilityZoneId",
       "ec2:CpuOptionsAmdSevSnp",
       "ec2:EbsOptimized",
       "ec2:InstanceAutoRecovery",
@@ -910,6 +922,7 @@
       "ec2:Attribute",
       "ec2:Attribute/${AttributeName}",
       "ec2:AvailabilityZone",
+      "ec2:AvailabilityZoneId",
       "ec2:Ipv4IpamPoolId",
       "ec2:Ipv6IpamPoolId",
       "ec2:IsLaunchTemplateResource",
@@ -1143,6 +1156,7 @@
       "ec2:Attribute",
       "ec2:Attribute/${AttributeName}",
       "ec2:AvailabilityZone",
+      "ec2:AvailabilityZoneId",
       "ec2:Encrypted",
       "ec2:IsLaunchTemplateResource",
       "ec2:KmsKeyId",

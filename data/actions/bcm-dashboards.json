@@ -50,17 +50,22 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to create a tag for a resource",
-    "accessLevel": "Write",
+    "accessLevel": "Tagging",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove a tag for a resource",
-    "accessLevel": "Write",
+    "accessLevel": "Tagging",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updatedashboard": {
