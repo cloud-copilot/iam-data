@@ -186,6 +186,24 @@ export const globalConditionKeys: GlobalConditionKey[] = [
     description: ''
   },
   {
+    key: 'aws:VpceAccount',
+    category: 'network',
+    type: 'String',
+    description: ''
+  },
+  {
+    key: 'aws:VpceOrgPaths',
+    category: 'network',
+    type: 'ArrayOfString',
+    description: ''
+  },
+  {
+    key: 'aws:VpceOrgID',
+    category: 'network',
+    type: 'String',
+    description: ''
+  },
+  {
     key: 'aws:VpcSourceIp',
     category: 'network',
     type: 'IPAddress',
