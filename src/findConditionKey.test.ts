@@ -63,6 +63,84 @@ describe('findConditionKey', () => {
       expect(result).toBeUndefined()
     })
 
+    it('finds VpceAccount global condition key', async () => {
+      // Given the VpceAccount global condition key
+      const conditionKey = 'aws:VpceAccount'
+
+      // When findConditionKey is called
+      const result = await findConditionKey(conditionKey)
+
+      // Then result should contain the condition key details
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('aws:VpceAccount')
+      expect(result?.type).toBe('String')
+    })
+
+    it('finds VpceOrgPaths global condition key', async () => {
+      // Given the VpceOrgPaths global condition key
+      const conditionKey = 'aws:VpceOrgPaths'
+
+      // When findConditionKey is called
+      const result = await findConditionKey(conditionKey)
+
+      // Then result should contain the condition key details
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('aws:VpceOrgPaths')
+      expect(result?.type).toBe('ArrayOfString')
+    })
+
+    it('finds VpceOrgID global condition key', async () => {
+      // Given the VpceOrgID global condition key
+      const conditionKey = 'aws:VpceOrgID'
+
+      // When findConditionKey is called
+      const result = await findConditionKey(conditionKey)
+
+      // Then result should contain the condition key details
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('aws:VpceOrgID')
+      expect(result?.type).toBe('String')
+    })
+
+    it('finds VpceAccount global condition key with different capitalization', async () => {
+      // Given the VpceAccount global condition key with mixed case
+      const conditionKey = 'AWS:VPCEACCOUNT'
+
+      // When findConditionKey is called
+      const result = await findConditionKey(conditionKey)
+
+      // Then result should contain the condition key details
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('aws:VpceAccount')
+      expect(result?.type).toBe('String')
+    })
+
+    it('finds VpceOrgPaths global condition key with different capitalization', async () => {
+      // Given the VpceOrgPaths global condition key with mixed case
+      const conditionKey = 'aws:vpceorgpaths'
+
+      // When findConditionKey is called
+      const result = await findConditionKey(conditionKey)
+
+      // Then result should contain the condition key details
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('aws:VpceOrgPaths')
+      expect(result?.type).toBe('ArrayOfString')
+    })
+
+    it('finds VpceOrgID global condition key with different capitalization', async () => {
+      // Given the VpceOrgID global condition key with mixed case
+      const conditionKey = 'Aws:VpceOrgId'
+
+      // When findConditionKey is called
+      const result = await findConditionKey(conditionKey)
+
+      // Then result should contain the condition key details
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('aws:VpceOrgID')
+      expect(result?.type).toBe('String')
+    })
+
     it('should return undefined for a global key that accepts a variable in the key but there is nothing after the slash', async () => {
       //Given a global context key missing the variable
       const key = 'aws:PrincipalTag/'
@@ -122,6 +200,21 @@ describe('findConditionKey', () => {
 
       // Then result should be undefined
       expect(result).toBeUndefined()
+    })
+  })
+
+  describe('Unassociated condition keys', () => {
+    it('finds SAML condition key through unassociated conditions', async () => {
+      // Given a SAML condition key that maps to STS service
+      const conditionKey = 'saml:aud'
+
+      // When findConditionKey is called
+      const result = await findConditionKey(conditionKey)
+
+      // Then result should contain the condition key details from STS service
+      expect(result).toBeDefined()
+      expect(result?.key).toBe('saml:aud')
+      expect(result?.description).toContain('SAML')
     })
 
     it('should return true for a service key that accepts a variable in the key', async () => {
