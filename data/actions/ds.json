@@ -451,6 +451,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describecaenrollmentpolicy": {
+    "name": "DescribeCAEnrollmentPolicy",
+    "description": "Grants permission to describe the ca enrollment status of a specified directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describecertificate": {
     "name": "DescribeCertificate",
     "description": "Grants permission to display information about the certificate registered for a secured LDAP connection",
@@ -655,6 +670,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disablecaenrollmentpolicy": {
+    "name": "DisableCAEnrollmentPolicy",
+    "description": "Grants permission to disable the ca enrollment of a specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "disableclientauthentication": {
     "name": "DisableClientAuthentication",
     "description": "Grants permission to disable alternative client authentication methods for the specified directory",
@@ -745,6 +775,24 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "enablecaenrollmentpolicy": {
+    "name": "EnableCAEnrollmentPolicy",
+    "description": "Grants permission to enable the ca enrollment of a specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "acm-pca:DescribeCertificateAuthority",
+      "pca-connector-ad:GetConnector"
+    ]
   },
   "enableclientauthentication": {
     "name": "EnableClientAuthentication",

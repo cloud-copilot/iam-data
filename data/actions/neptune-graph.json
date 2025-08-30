@@ -594,6 +594,26 @@
     ],
     "dependentActions": []
   },
+  "startgraph": {
+    "name": "StartGraph",
+    "description": "Grants permission to start a graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt",
+          "kms:DescribeKey"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "startimporttask": {
     "name": "StartImportTask",
     "description": "Grants permission to import data into an existing graph",
@@ -615,6 +635,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopgraph": {
+    "name": "StopGraph",
+    "description": "Grants permission to stop a graph",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "tagresource": {
