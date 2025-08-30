@@ -1,8 +1,8 @@
 import { ConditionKey, iamConditionKeyDetails, iamConditionKeyExists } from './conditionKeys.js'
 import { readConditionPatterns, readUnassociatedConditions } from './data.js'
 import {
-  globalConditionKeysByName,
-  globalVariableConditionKeysByPrefix
+  getGlobalConditionKeyByName,
+  getGlobalConditionKeyByPrefix
 } from './globalConditionKeys.js'
 import { iamServiceExists } from './services.js'
 
@@ -40,7 +40,7 @@ export async function findConditionKey(conditionKey: string): Promise<ConditionK
   // If it starts with 'aws', check global condition keys
   if (normalizedConditionKey.startsWith('aws:')) {
     // First check for exact match in global condition keys
-    const exactGlobalMatch = globalConditionKeysByName[normalizedConditionKey]
+    const exactGlobalMatch = getGlobalConditionKeyByName(normalizedConditionKey)
     if (exactGlobalMatch) {
       return exactGlobalMatch
     }
@@ -49,7 +49,7 @@ export async function findConditionKey(conditionKey: string): Promise<ConditionK
     const slashIndex = normalizedConditionKey.indexOf('/')
     if (slashIndex !== -1) {
       const prefix = normalizedConditionKey.substring(0, slashIndex)
-      const variableGlobalMatch = globalVariableConditionKeysByPrefix[prefix]
+      const variableGlobalMatch = getGlobalConditionKeyByPrefix(prefix)
       if (variableGlobalMatch && conditionKey.length > prefix.length + 1) {
         return variableGlobalMatch
       }
