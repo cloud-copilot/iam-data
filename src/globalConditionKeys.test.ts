@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
-  allGlobalConditionKeys,
+  getAllGlobalConditionKeys,
   getGlobalConditionKeyByName,
   getGlobalConditionKeyByPrefix,
   GlobalConditionKey,
@@ -260,11 +260,11 @@ describe('globalConditionKeys', () => {
     })
   })
 
-  describe('allGlobalConditionKeys', () => {
+  describe('getAllGlobalConditionKeys', () => {
     it('returns array of all condition key names', () => {
-      // Given the allGlobalConditionKeys function
+      // Given the getAllGlobalConditionKeys function
       // When calling the function
-      const result = allGlobalConditionKeys()
+      const result = getAllGlobalConditionKeys()
 
       // Then it should return an array of strings
       expect(Array.isArray(result)).toBe(true)
@@ -273,18 +273,18 @@ describe('globalConditionKeys', () => {
     })
 
     it('includes aws:PrincipalArn in the result', () => {
-      // Given the allGlobalConditionKeys function
+      // Given the getAllGlobalConditionKeys function
       // When calling the function
-      const result = allGlobalConditionKeys()
+      const result = getAllGlobalConditionKeys()
 
       // Then it should include aws:PrincipalArn
       expect(result).toContain('aws:PrincipalArn')
     })
 
     it('includes the new VPC endpoint condition keys', () => {
-      // Given the allGlobalConditionKeys function
+      // Given the getAllGlobalConditionKeys function
       // When calling the function
-      const result = allGlobalConditionKeys()
+      const result = getAllGlobalConditionKeys()
 
       // Then it should include all new VPC endpoint keys
       expect(result).toContain('aws:VpceAccount')
@@ -293,9 +293,9 @@ describe('globalConditionKeys', () => {
     })
 
     it('includes tag-based condition keys', () => {
-      // Given the allGlobalConditionKeys function
+      // Given the getAllGlobalConditionKeys function
       // When calling the function
-      const result = allGlobalConditionKeys()
+      const result = getAllGlobalConditionKeys()
 
       // Then it should include tag-based keys
       expect(result).toContain('aws:PrincipalTag/tag-key')
@@ -304,18 +304,18 @@ describe('globalConditionKeys', () => {
     })
 
     it('returns same number of keys as globalConditionKeys array', () => {
-      // Given the allGlobalConditionKeys function and globalConditionKeys array
+      // Given the getAllGlobalConditionKeys function and globalConditionKeys array
       // When calling the function
-      const result = allGlobalConditionKeys()
+      const result = getAllGlobalConditionKeys()
 
       // Then the length should match the globalConditionKeys array
       expect(result.length).toBe(globalConditionKeys.length)
     })
 
     it('contains no duplicate entries', () => {
-      // Given the allGlobalConditionKeys function
+      // Given the getAllGlobalConditionKeys function
       // When calling the function
-      const result = allGlobalConditionKeys()
+      const result = getAllGlobalConditionKeys()
 
       // Then there should be no duplicates
       const uniqueKeys = new Set(result)

@@ -2,7 +2,7 @@ export * from './actions.js'
 export * from './conditionKeys.js'
 export { findConditionKey } from './findConditionKey.js'
 export {
-  allGlobalConditionKeys,
+  getAllGlobalConditionKeys,
   getGlobalConditionKeyByName,
   getGlobalConditionKeyByPrefix,
   type GlobalConditionKey

@@ -355,6 +355,8 @@ const globalVariableConditionKeysByPrefix = globalConditionKeys.reduce(
   {} as Record<string, GlobalConditionKey>
 )
 
+const allGlobalConditionKeys = globalConditionKeys.map((c) => c.key)
+
 /**
  * Get a global condition key by its name.
  *
@@ -380,6 +382,6 @@ export function getGlobalConditionKeyByPrefix(prefix: string): GlobalConditionKe
  *
  * @returns An array of all global condition keys.
  */
-export function allGlobalConditionKeys(): string[] {
-  return globalConditionKeys.map((c) => c.key)
+export function getAllGlobalConditionKeys(): string[] {
+  return allGlobalConditionKeys
 }
