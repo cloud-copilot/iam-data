@@ -1,6 +1,6 @@
 import { ConditionKey } from './conditionKeys.js'
 
-interface GlobalConditionKey extends ConditionKey {
+export interface GlobalConditionKey extends ConditionKey {
   category: string
 }
 
@@ -337,7 +337,7 @@ export const globalConditionKeys: GlobalConditionKey[] = [
   }
 ]
 
-export const globalConditionKeysByName = globalConditionKeys.reduce(
+const globalConditionKeysByName = globalConditionKeys.reduce(
   (acc, key) => {
     acc[key.key.toLowerCase()] = key
     return acc
@@ -345,7 +345,7 @@ export const globalConditionKeysByName = globalConditionKeys.reduce(
   {} as Record<string, GlobalConditionKey>
 )
 
-export const globalVariableConditionKeysByPrefix = globalConditionKeys.reduce(
+const globalVariableConditionKeysByPrefix = globalConditionKeys.reduce(
   (acc, key) => {
     if (key.key.includes('/')) {
       acc[key.key.split('/')[0].toLowerCase()] = key
@@ -354,3 +354,32 @@ export const globalVariableConditionKeysByPrefix = globalConditionKeys.reduce(
   },
   {} as Record<string, GlobalConditionKey>
 )
+
+/**
+ * Get a global condition key by its name.
+ *
+ * @param name The name of the global condition key.
+ * @returns The global condition key, or undefined if not found.
+ */
+export function getGlobalConditionKeyByName(name: string): GlobalConditionKey | undefined {
+  return globalConditionKeysByName[name.toLowerCase()]
+}
+
+/**
+ * Get global condition keys by their prefix.
+ *
+ * @param prefix The prefix to filter global condition keys.
+ * @returns An array of global condition keys that match the prefix.
+ */
+export function getGlobalConditionKeyByPrefix(prefix: string): GlobalConditionKey | undefined {
+  return globalVariableConditionKeysByPrefix[prefix.toLowerCase()]
+}
+
+/**
+ * Get all global condition keys.
+ *
+ * @returns An array of all global condition keys.
+ */
+export function allGlobalConditionKeys(): string[] {
+  return globalConditionKeys.map((c) => c.key)
+}
