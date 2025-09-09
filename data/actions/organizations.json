@@ -495,6 +495,16 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listaccountswithinvalideffectivepolicy": {
+    "name": "ListAccountsWithInvalidEffectivePolicy",
+    "description": "Grants permission to list accounts that have invalid effective policies for a specified policy type",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
   "listchildren": {
     "name": "ListChildren",
     "description": "Grants permission to list all of the OUs or accounts that are contained in a parent OU or root",
@@ -547,6 +557,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listeffectivepolicyvalidationerrors": {
+    "name": "ListEffectivePolicyValidationErrors",
+    "description": "Grants permission to list validation errors found in the effective policy for a specific account and policy type",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:PolicyType"
+    ],
     "dependentActions": []
   },
   "listhandshakesforaccount": {
