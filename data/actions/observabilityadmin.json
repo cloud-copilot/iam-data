@@ -1,4 +1,25 @@
 {
+  "createcentralizationrulefororganization": {
+    "name": "CreateCentralizationRuleForOrganization",
+    "description": "Grants permission to create a new organization centralization rule with the specified name for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization-centralization-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "observabilityadmin:CentralizationSourceRegions",
+      "observabilityadmin:CentralizationDestinationRegion",
+      "observabilityadmin:CentralizationBackupRegion"
+    ],
+    "dependentActions": []
+  },
   "createtelemetryrule": {
     "name": "CreateTelemetryRule",
     "description": "Grants permission to create a new telemetry rule with the specified name for the account",
@@ -35,6 +56,21 @@
     ],
     "dependentActions": []
   },
+  "deletecentralizationrulefororganization": {
+    "name": "DeleteCentralizationRuleForOrganization",
+    "description": "Grants permission to delete an organization centralization rule with the specified name for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization-centralization-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletetelemetryrule": {
     "name": "DeleteTelemetryRule",
     "description": "Grants permission to delete a telemetry rule with the specified name for the account",
@@ -62,6 +98,22 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcentralizationrulefororganization": {
+    "name": "GetCentralizationRuleForOrganization",
+    "description": "Grants permission to retrieve the specified organization centralization rule for the organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettelemetryenrichmentstatus": {
+    "name": "GetTelemetryEnrichmentStatus",
+    "description": "Grants permission to retrieve the status of the Resource tags for telemetry feature for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -97,6 +149,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcentralizationrulesfororganization": {
+    "name": "ListCentralizationRulesForOrganization",
+    "description": "Grants permission to list the centralization rules for the organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listresourcetelemetry": {
     "name": "ListResourceTelemetry",
     "description": "Grants permission to retrieve telemetry configurations for resources associated with the account",
@@ -118,6 +178,12 @@
     "description": "Grants permission to list the tags for the specified resource",
     "accessLevel": "List",
     "resourceTypes": [
+      {
+        "name": "organization-centralization-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "organization-telemetry-rule",
         "required": false,
@@ -150,6 +216,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "starttelemetryenrichment": {
+    "name": "StartTelemetryEnrichment",
+    "description": "Grants permission to enable the Resource tags for telemetry feature for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "starttelemetryevaluation": {
     "name": "StartTelemetryEvaluation",
     "description": "Grants permission to start the Telemetry Config feature for the account",
@@ -161,6 +235,14 @@
   "starttelemetryevaluationfororganization": {
     "name": "StartTelemetryEvaluationForOrganization",
     "description": "Grants permission to start the Telemetry Config feature for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoptelemetryenrichment": {
+    "name": "StopTelemetryEnrichment",
+    "description": "Grants permission to disable the Resource tags for telemetry feature for the account",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -188,6 +270,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "organization-centralization-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "organization-telemetry-rule",
         "required": false,
         "conditionKeys": [],
@@ -212,6 +300,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "organization-centralization-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "organization-telemetry-rule",
         "required": false,
         "conditionKeys": [],
@@ -226,6 +320,25 @@
     ],
     "conditionKeys": [
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatecentralizationrulefororganization": {
+    "name": "UpdateCentralizationRuleForOrganization",
+    "description": "Grants permission to update the specified centralization rule for the organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "organization-centralization-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "observabilityadmin:CentralizationSourceRegions",
+      "observabilityadmin:CentralizationDestinationRegion",
+      "observabilityadmin:CentralizationBackupRegion"
     ],
     "dependentActions": []
   },
@@ -246,7 +359,7 @@
   },
   "updatetelemetryrulefororganization": {
     "name": "UpdateTelemetryRuleForOrganization",
-    "description": "Grants permission to retrieve the specified organization telemetry rule for the organization",
+    "description": "Grants permission to update the specified telemetry rule for the organization",
     "accessLevel": "Write",
     "resourceTypes": [
       {
