@@ -36,7 +36,10 @@
     "description": "Grants permission to create a new agent runtime",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": [
       "iam:PassRole"
     ]
@@ -45,8 +48,18 @@
     "name": "CreateAgentRuntimeEndpoint",
     "description": "Grants permission to create a new agent runtime endpoint",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "runtime",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createapikeycredentialprovider": {
@@ -75,7 +88,10 @@
     "description": "Grants permission to create a new custom browser",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createcodeinterpreter": {
@@ -83,7 +99,10 @@
     "description": "Grants permission to create a new custom code interpreter",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createevent": {
@@ -1033,6 +1052,39 @@
     ],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a Bedrock-AgentCore resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "browser-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "code-interpreter-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listworkloadidentities": {
     "name": "ListWorkloadIdentities",
     "description": "Grants permission to list all Workload Identities in the caller's AWS account",
@@ -1185,6 +1237,77 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to Tag a Bedrock-AgentCore resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "browser-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "code-interpreter-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to Untag a Bedrock-AgentCore resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "browser-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "code-interpreter-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updateagentruntime": {

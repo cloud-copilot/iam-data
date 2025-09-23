@@ -189,7 +189,11 @@
   },
   "image-version": {
     "key": "image-version",
-    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:image-version/${ImageName}/${Version}"
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:image-version/${ImageName}/${Version}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
   },
   "algorithm": {
     "key": "algorithm",
@@ -260,6 +264,9 @@
     "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:model-package/${ModelPackageName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
+      "sagemaker:CurrentCustomerMetadataProperties/${MetadataKey}",
+      "sagemaker:CurrentModelLifeCycleStage",
+      "sagemaker:CurrentModelLifeCycleStageStatus",
       "sagemaker:ResourceTag/${TagKey}"
     ]
   },
