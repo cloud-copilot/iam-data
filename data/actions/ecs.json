@@ -695,6 +695,33 @@
     ],
     "dependentActions": []
   },
+  "putsystemlogevents": {
+    "name": "PutSystemLogEvents",
+    "description": "Grants permission to collect system logs from the container instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster",
+          "ecs:capacity-provider"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "registercontainerinstance": {
     "name": "RegisterContainerInstance",
     "description": "Grants permission to register an EC2 instance into the specified cluster",
