@@ -94,6 +94,37 @@
     ],
     "dependentActions": []
   },
+  "associatecontactwithuser": {
+    "name": "AssociateContactWithUser",
+    "description": "Grants permission to associate a contact with a user using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:PreferredUserArn",
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "associatecustomerprofilesdomain": {
     "name": "AssociateCustomerProfilesDomain",
     "isPermissionOnly": true,
@@ -3457,6 +3488,24 @@
     ],
     "dependentActions": []
   },
+  "listroutingprofilemanualassignmentqueues": {
+    "name": "ListRoutingProfileManualAssignmentQueues",
+    "description": "Grants permission to list manual assignment queue resources in a routing profile in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "routing-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listroutingprofilequeues": {
     "name": "ListRoutingProfileQueues",
     "description": "Grants permission to list queue resources in a routing profile in an Amazon Connect instance",
@@ -4149,7 +4198,9 @@
     ],
     "conditionKeys": [
       "connect:InstanceId",
-      "connect:SearchContactsByContactAnalysis"
+      "connect:SearchContactsByContactAnalysis",
+      "connect:Channel",
+      "connect:PreferredUserArn"
     ],
     "dependentActions": []
   },

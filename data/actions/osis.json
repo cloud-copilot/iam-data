@@ -16,6 +16,26 @@
       "logs:CreateLogDelivery"
     ]
   },
+  "createpipelineendpoint": {
+    "name": "CreatePipelineEndpoint",
+    "description": "Grants permission to create an OpenSearch Ingestion pipeline endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deletepipeline": {
     "name": "DeletePipeline",
     "description": "Grants permission to delete an OpenSearch Ingestion pipeline",
@@ -34,6 +54,36 @@
       "logs:GetLogDelivery",
       "logs:ListLogDeliveries"
     ]
+  },
+  "deletepipelineendpoint": {
+    "name": "DeletePipelineEndpoint",
+    "description": "Grants permission to delete an OpenSearch Ingestion pipeline endpoint in the current account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy for an OpenSearch Ingestion resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "getpipeline": {
     "name": "GetPipeline",
@@ -80,6 +130,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get a resource policy for an OpenSearch Ingestion resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "ingest": {
     "name": "Ingest",
     "description": "Grants permission to ingest data through an OpenSearch Ingestion pipeline",
@@ -103,6 +168,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listpipelineendpointconnections": {
+    "name": "ListPipelineEndpointConnections",
+    "description": "Grants permission to list OpenSearch Ingestion pipeline endpoint connections to pipelines in the current account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpipelineendpoints": {
+    "name": "ListPipelineEndpoints",
+    "description": "Grants permission to list OpenSearch Ingestion pipeline endpoints in the current account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpipelines": {
     "name": "ListPipelines",
     "description": "Grants permission to list basic configuration for each OpenSearch Ingestion pipeline in the current account and Region",
@@ -115,6 +196,36 @@
     "name": "ListTagsForResource",
     "description": "Grants permission to list all resource tags associated with an OpenSearch Ingestion pipeline",
     "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to put a resource policy for an OpenSearch Ingestion resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokepipelineendpointconnections": {
+    "name": "RevokePipelineEndpointConnections",
+    "description": "Grants permission to revoke an OpenSearch Ingestion pipeline endpoint connection from a pipeline in the current account",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "pipeline",

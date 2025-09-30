@@ -1,4 +1,24 @@
 {
+  "associatesourceviews": {
+    "name": "AssociateSourceViews",
+    "description": "Grants permission to associate source views to a billing view",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "billing:UseSourceView",
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createbillingview": {
     "name": "CreateBillingView",
     "description": "Grants permission to create a billing view",
@@ -8,7 +28,10 @@
         "name": "billingview",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "billing:UseSourceView",
+          "iam:CreateServiceLinkedRole"
+        ]
       }
     ],
     "conditionKeys": [
@@ -39,6 +62,23 @@
     "isPermissionOnly": true,
     "description": "Grants permission to delete a billing view resource policy",
     "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "billingview",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disassociatesourceviews": {
+    "name": "DisassociateSourceViews",
+    "description": "Grants permission to disassociate source views from a billing view",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "billingview",
@@ -320,6 +360,15 @@
     "isPermissionOnly": true,
     "description": "Grants permission to update the Allow IAM Access billing preference",
     "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "usesourceview": {
+    "name": "UseSourceView",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use a billing view as a data source for other billing views",
+    "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
