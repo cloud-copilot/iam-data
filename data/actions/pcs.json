@@ -347,6 +347,32 @@
     ],
     "dependentActions": []
   },
+  "updatecluster": {
+    "name": "UpdateCluster",
+    "description": "Grants permission to update cluster properties",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateNetworkInterfacePermission",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "ec2:GetSecurityGroupsForVpc",
+      "iam:CreateServiceLinkedRole",
+      "secretsmanager:CreateSecret",
+      "secretsmanager:TagResource"
+    ]
+  },
   "updatecomputenodegroup": {
     "name": "UpdateComputeNodeGroup",
     "description": "Grants permission to update compute node group properties",

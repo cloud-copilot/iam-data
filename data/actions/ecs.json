@@ -3,8 +3,18 @@
     "name": "CreateCapacityProvider",
     "description": "Grants permission to create a new capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
+      "ecs:propagate-tags",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
@@ -70,7 +80,14 @@
     "name": "CreateTaskSet",
     "description": "Grants permission to create a new Amazon ECS task set",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "task-set",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
@@ -1053,6 +1070,7 @@
       }
     ],
     "conditionKeys": [
+      "ecs:propagate-tags",
       "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
