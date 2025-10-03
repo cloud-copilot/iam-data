@@ -5,7 +5,10 @@
   },
   "gateway": {
     "key": "gateway",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:gateway/${GatewayId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:gateway/${GatewayId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "workload-identity": {
     "key": "workload-identity",

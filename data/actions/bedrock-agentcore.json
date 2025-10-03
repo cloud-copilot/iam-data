@@ -128,7 +128,10 @@
     "description": "Grants permission to create a new gateway",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": [
       "iam:PassRole"
     ]
@@ -1070,6 +1073,12 @@
         "dependentActions": []
       },
       {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -1257,6 +1266,12 @@
         "dependentActions": []
       },
       {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -1288,6 +1303,12 @@
       },
       {
         "name": "code-interpreter-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "gateway",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
