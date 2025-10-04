@@ -1160,14 +1160,18 @@
         "name": "imagePipeline",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "imagebuilder:GetImagePipeline",
+          "imagebuilder:TagResource"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "imagebuilder:GetImagePipeline"
-    ]
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
   },
   "startresourcestateupdate": {
     "name": "StartResourceStateUpdate",
