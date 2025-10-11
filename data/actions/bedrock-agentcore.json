@@ -15,6 +15,55 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchcreatememoryrecords": {
+    "name": "BatchCreateMemoryRecords",
+    "description": "Grants permission to create one or more memory records",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "memory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-agentcore:namespace"
+    ],
+    "dependentActions": []
+  },
+  "batchdeletememoryrecords": {
+    "name": "BatchDeleteMemoryRecords",
+    "description": "Grants permission to delete one or more memory records",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "memory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchupdatememoryrecords": {
+    "name": "BatchUpdateMemoryRecords",
+    "description": "Grants permission to update one or more memory records",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "memory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-agentcore:namespace"
+    ],
+    "dependentActions": []
+  },
   "connectbrowserautomationstream": {
     "name": "ConnectBrowserAutomationStream",
     "description": "Grants permission to connect to a browser automation stream",
@@ -156,7 +205,10 @@
     "description": "Grants permission to create a Memory resource",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": [
       "iam:PassRole"
     ]
@@ -402,6 +454,27 @@
       },
       {
         "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagentcard": {
+    "name": "GetAgentCard",
+    "description": "Grants permission to retrieve an agent card for A2A",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "runtime",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -824,6 +897,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "invokeagentruntimeforuser": {
+    "name": "InvokeAgentRuntimeForUser",
+    "description": "Grants permission to invoke an agent runtime endpoint with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runtime",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "invokecodeinterpreter": {
     "name": "InvokeCodeInterpreter",
     "description": "Grants permission to invoke a code interpreter session",
@@ -837,6 +931,22 @@
       },
       {
         "name": "code-interpreter-custom",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokegateway": {
+    "name": "InvokeGateway",
+    "isPermissionOnly": true,
+    "description": "Grants permission to invoke a gateway",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "gateway",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1079,6 +1189,12 @@
         "dependentActions": []
       },
       {
+        "name": "memory",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -1232,6 +1348,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "stopruntimesession": {
+    "name": "StopRuntimeSession",
+    "description": "Grants permission to stop a runtime session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runtime",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "synchronizegatewaytargets": {
     "name": "SynchronizeGatewayTargets",
     "isPermissionOnly": true,
@@ -1267,6 +1404,12 @@
       },
       {
         "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "memory",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1309,6 +1452,12 @@
       },
       {
         "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "memory",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

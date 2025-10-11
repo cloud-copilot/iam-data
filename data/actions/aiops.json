@@ -90,6 +90,25 @@
       "logs:GetQueryResults"
     ]
   },
+  "createreport": {
+    "name": "CreateReport",
+    "description": "Grants permission to create a new report in the specified investigation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
+    ]
+  },
   "deleteinvestigation": {
     "name": "DeleteInvestigation",
     "description": "Grants permission to delete an investigation in the specified investigation group",
@@ -139,6 +158,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "generatereport": {
+    "name": "GenerateReport",
+    "description": "Grants permission to generate a report in the specified investigation report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
+    ]
+  },
   "getephemeralinvestigationresults": {
     "name": "GetEphemeralInvestigationResults",
     "description": "Grants permission to run and retrieve ephemeral investigation results",
@@ -146,6 +184,40 @@
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "getfact": {
+    "name": "GetFact",
+    "description": "Grants permission to retrieve a fact in the specified investigation report",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "getfactversions": {
+    "name": "GetFactVersions",
+    "description": "Grants permission to retrieve all versions of a fact token in the specified investigation report",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
   },
   "getinvestigation": {
     "name": "GetInvestigation",
@@ -226,6 +298,40 @@
       "kms:Decrypt"
     ]
   },
+  "getreport": {
+    "name": "GetReport",
+    "description": "Grants permission to retrieve a report in the specified investigation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "listfacts": {
+    "name": "ListFacts",
+    "description": "Grants permission to list all facts in the specified investigation report",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
   "listinvestigationevents": {
     "name": "ListInvestigationEvents",
     "description": "Grants permission to list all investigation events in the specified investigation group",
@@ -264,6 +370,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listreports": {
+    "name": "ListReports",
+    "description": "Grants permission to list all reports in the specified investigation",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list the tags for the specified resource",
@@ -278,6 +399,25 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "putfact": {
+    "name": "PutFact",
+    "description": "Grants permission to create or update a new fact in the specified investigation report",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
+    ]
   },
   "putinvestigationgrouppolicy": {
     "name": "PutInvestigationGroupPolicy",
@@ -393,6 +533,25 @@
       "sso:PutApplicationAuthenticationMethod",
       "sso:PutApplicationGrant",
       "sso:TagResource"
+    ]
+  },
+  "updatereport": {
+    "name": "UpdateReport",
+    "description": "Grants permission to update a report in the specified investigation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "investigation-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "sts:SetContext"
     ]
   },
   "validateinvestigationgroup": {
