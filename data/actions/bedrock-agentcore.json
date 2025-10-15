@@ -64,6 +64,46 @@
     ],
     "dependentActions": []
   },
+  "completeresourcetokenauth": {
+    "name": "CompleteResourceTokenAuth",
+    "description": "Grants permission to retrieve access token with OAuth2 for 3LO flow to access external resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-agentcore:InboundJwtClaim/iss",
+      "bedrock-agentcore:InboundJwtClaim/sub",
+      "bedrock-agentcore:InboundJwtClaim/aud",
+      "bedrock-agentcore:InboundJwtClaim/scope",
+      "bedrock-agentcore:InboundJwtClaim/client_id",
+      "bedrock-agentcore:userid"
+    ],
+    "dependentActions": []
+  },
   "connectbrowserautomationstream": {
     "name": "ConnectBrowserAutomationStream",
     "description": "Grants permission to connect to a browser automation stream",
@@ -129,7 +169,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createbrowser": {
@@ -231,7 +274,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createworkloadidentity": {
@@ -252,7 +298,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "deleteagentruntime": {
@@ -831,7 +880,13 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "bedrock-agentcore:InboundJwtClaim/iss",
+      "bedrock-agentcore:InboundJwtClaim/sub",
+      "bedrock-agentcore:InboundJwtClaim/aud",
+      "bedrock-agentcore:InboundJwtClaim/scope",
+      "bedrock-agentcore:InboundJwtClaim/client_id"
+    ],
     "dependentActions": []
   },
   "getworkloadaccesstokenforuserid": {
@@ -852,7 +907,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "bedrock-agentcore:userid"
+    ],
     "dependentActions": []
   },
   "getworkloadidentity": {
@@ -1171,6 +1228,12 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "apikeycredentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "browser-custom",
         "required": false,
         "conditionKeys": [],
@@ -1195,6 +1258,12 @@
         "dependentActions": []
       },
       {
+        "name": "oauth2credentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -1202,6 +1271,24 @@
       },
       {
         "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1391,6 +1478,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "apikeycredentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "browser-custom",
         "required": false,
         "conditionKeys": [],
@@ -1415,6 +1508,12 @@
         "dependentActions": []
       },
       {
+        "name": "oauth2credentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -1422,6 +1521,24 @@
       },
       {
         "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1439,6 +1556,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "apikeycredentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "browser-custom",
         "required": false,
         "conditionKeys": [],
@@ -1463,6 +1586,12 @@
         "dependentActions": []
       },
       {
+        "name": "oauth2credentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -1470,6 +1599,24 @@
       },
       {
         "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
