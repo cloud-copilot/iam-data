@@ -1,0 +1,55 @@
+name: Publish
+description: Publish to NPM if a new package version is pushed
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect version change
+        id: version_check
+        run: |
+          CURRENT=$(jq -r '.version' package.json)
+          PREV=$(git show HEAD^:package.json 2>/dev/null | jq -r '.version' 2>/dev/null || echo "")
+          if [ -z "$PREV" ]; then
+            # No previous package.json (new file or history shallow) — treat as changed
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Detected initial publish (no previous version)."
+          elif [ "$CURRENT" != "$PREV" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Version changed: $PREV -> $CURRENT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Version unchanged: $CURRENT"
+          fi
+
+      - name: Set up Node
+        if: steps.version_check.outputs.changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run publish
+        if: steps.version_check.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install -g npm@latest
+          npm ci
+          npm run build
+          npm run test
+          npm publish
