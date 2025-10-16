@@ -127,7 +127,9 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "bedrock-agentcore:subnets",
+      "bedrock-agentcore:securityGroups"
     ],
     "dependentActions": [
       "iam:PassRole"
@@ -182,7 +184,9 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "bedrock-agentcore:subnets",
+      "bedrock-agentcore:securityGroups"
     ],
     "dependentActions": []
   },
@@ -193,7 +197,9 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "bedrock-agentcore:subnets",
+      "bedrock-agentcore:securityGroups"
     ],
     "dependentActions": []
   },
@@ -1636,13 +1642,16 @@
         "name": "runtime",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "iam:PassRole"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "conditionKeys": [
+      "bedrock-agentcore:subnets",
+      "bedrock-agentcore:securityGroups"
+    ],
+    "dependentActions": []
   },
   "updateagentruntimeendpoint": {
     "name": "UpdateAgentRuntimeEndpoint",

@@ -161,7 +161,10 @@
       {
         "name": "association",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "fsx:NfsDataRepositoryAuthenticationEnabled",
+          "fsx:NfsDataRepositoryEncryptionInTransitEnabled"
+        ],
         "dependentActions": [
           "fsx:TagResource"
         ]
@@ -490,7 +493,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "isPermissionOnly": true,
-    "description": "Required to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). PutResourcePolicy and GetResourcePolicy are also required",
+    "description": "Grants permission to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). PutResourcePolicy and GetResourcePolicy are also required",
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
@@ -723,7 +726,7 @@
   "getresourcepolicy": {
     "name": "GetResourcePolicy",
     "isPermissionOnly": true,
-    "description": "Required to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). PutResourcePolicy and DeleteResourcePolicy are also required",
+    "description": "Grants permission to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). PutResourcePolicy and DeleteResourcePolicy are also required",
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
@@ -812,7 +815,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "isPermissionOnly": true,
-    "description": "Required to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). DeleteResourcePolicy and GetResourcePolicy are also required",
+    "description": "Grants permission to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). DeleteResourcePolicy and GetResourcePolicy are also required",
     "accessLevel": "Permissions management",
     "resourceTypes": [
       {
@@ -884,7 +887,10 @@
       {
         "name": "association",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "fsx:NfsDataRepositoryAuthenticationEnabled",
+          "fsx:NfsDataRepositoryEncryptionInTransitEnabled"
+        ],
         "dependentActions": []
       },
       {
@@ -926,7 +932,10 @@
       {
         "name": "volume",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "fsx:ParentVolumeId",
+          "fsx:StorageVirtualMachineId"
+        ],
         "dependentActions": []
       }
     ],
