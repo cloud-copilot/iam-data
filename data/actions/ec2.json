@@ -167,8 +167,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -1324,6 +1324,7 @@
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -1770,6 +1771,61 @@
           "ec2:SnapshotID",
           "ec2:SnapshotTime",
           "ec2:VolumeSize"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "copyvolumes": {
+    "name": "CopyVolumes",
+    "description": "Grants permission to create a copy of an EBS volume. Resource-level permissions specified for this action apply to the source and copied volume. Condition keys for the copied volume correspond to parameters specified in the CopyVolumes API request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:Encrypted",
+          "ec2:ManagedResourceOperator",
+          "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
+          "ec2:VolumeInitializationRate",
+          "ec2:VolumeIops",
+          "ec2:VolumeSize",
+          "ec2:VolumeThroughput",
+          "ec2:VolumeType"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createcapacitymanagerdataexport": {
+    "name": "CreateCapacityManagerDataExport",
+    "description": "Grants permission to create a new S3 Data Export for Capacity Manager",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-manager-data-export",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": [
           "ec2:CreateTags"
@@ -2462,6 +2518,7 @@
           "ec2:InstanceMetadataTags",
           "ec2:InstanceProfile",
           "ec2:InstanceType",
+          "ec2:ManagedResourceOperator",
           "ec2:MetadataHttpEndpoint",
           "ec2:MetadataHttpPutResponseHopLimit",
           "ec2:MetadataHttpTokens",
@@ -2631,6 +2688,7 @@
           "ec2:InstanceMetadataTags",
           "ec2:InstanceProfile",
           "ec2:InstanceType",
+          "ec2:ManagedResourceOperator",
           "ec2:MetadataHttpEndpoint",
           "ec2:MetadataHttpPutResponseHopLimit",
           "ec2:MetadataHttpTokens",
@@ -2865,6 +2923,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:ManagedResourceOperator",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": [
@@ -3506,6 +3565,7 @@
           "ec2:AuthorizedService",
           "ec2:AuthorizedUser",
           "ec2:AvailabilityZone",
+          "ec2:ManagedResourceOperator",
           "ec2:NetworkInterfaceID",
           "ec2:Permission",
           "ec2:ResourceTag/${TagKey}",
@@ -3587,6 +3647,7 @@
           "ec2:InstanceMetadataTags",
           "ec2:InstanceProfile",
           "ec2:InstanceType",
+          "ec2:ManagedResourceOperator",
           "ec2:MetadataHttpEndpoint",
           "ec2:MetadataHttpPutResponseHopLimit",
           "ec2:MetadataHttpTokens",
@@ -3915,6 +3976,8 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
+          "ec2:ManagedResourceOperator",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -4108,6 +4171,17 @@
     "resourceTypes": [
       {
         "name": "capacity-block",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "capacity-manager-data-export",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -4390,6 +4464,7 @@
           "ec2:InstanceMetadataTags",
           "ec2:InstanceProfile",
           "ec2:InstanceType",
+          "ec2:ManagedResourceOperator",
           "ec2:MetadataHttpEndpoint",
           "ec2:MetadataHttpPutResponseHopLimit",
           "ec2:MetadataHttpTokens",
@@ -4544,6 +4619,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys",
+          "ec2:ManagedResourceOperator",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -4691,6 +4767,7 @@
           "aws:TagKeys",
           "ec2:AuthorizedUser",
           "ec2:AvailabilityZone",
+          "ec2:ManagedResourceOperator",
           "ec2:NetworkInterfaceID",
           "ec2:Permission",
           "ec2:ResourceTag/${TagKey}",
@@ -5088,7 +5165,9 @@
           "ec2:AvailabilityZone",
           "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
+          "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -5153,9 +5232,9 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceServiceRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceServiceRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       },
@@ -5306,6 +5385,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
+          "ec2:ManagedResourceOperator",
           "ec2:NetworkInterfaceID",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Subnet",
@@ -6082,10 +6162,10 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
+          "ec2:VpceMultiRegion",
           "ec2:VpceServiceName",
           "ec2:VpceServiceOwner",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceServiceRegion"
+          "ec2:VpceServiceRegion"
         ],
         "dependentActions": []
       },
@@ -6145,8 +6225,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceServiceRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceServiceRegion"
         ],
         "dependentActions": []
       }
@@ -6167,9 +6247,9 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
+          "ec2:VpceMultiRegion",
           "ec2:VpceServicePrivateDnsName",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceServiceRegion"
+          "ec2:VpceServiceRegion"
         ],
         "dependentActions": [
           "ec2:CreateTags"
@@ -6330,6 +6410,26 @@
         "dependentActions": [
           "ec2:CreateTags"
         ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletecapacitymanagerdataexport": {
+    "name": "DeleteCapacityManagerDataExport",
+    "description": "Grants permission to delete an existing Capacity Manager data export configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-manager-data-export",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -7536,6 +7636,17 @@
     "resourceTypes": [
       {
         "name": "capacity-block",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "capacity-manager-data-export",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -8977,6 +9088,7 @@
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -9055,8 +9167,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -9077,8 +9189,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -9099,9 +9211,9 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
+          "ec2:VpceMultiRegion",
           "ec2:VpceServiceName",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceServiceRegion"
+          "ec2:VpceServiceRegion"
         ],
         "dependentActions": []
       }
@@ -9527,6 +9639,16 @@
   "describecapacityblocks": {
     "name": "DescribeCapacityBlocks",
     "description": "Grants permission to describe details about Capacity Blocks in the AWS Region that you're currently using",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describecapacitymanagerdataexports": {
+    "name": "DescribeCapacityManagerDataExports",
+    "description": "Grants permission to describe one or more Capacity Manager data export configurations",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -11136,6 +11258,7 @@
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -11295,8 +11418,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -11541,6 +11664,7 @@
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -11652,6 +11776,16 @@
   "disableawsnetworkperformancemetricsubscription": {
     "name": "DisableAwsNetworkPerformanceMetricSubscription",
     "description": "Grants permission to disable infrastructure performance metric subscriptions",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "disablecapacitymanager": {
+    "name": "DisableCapacityManager",
+    "description": "Grants permission to disable EC2 Capacity Manager for your account",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -12609,6 +12743,16 @@
     ],
     "dependentActions": []
   },
+  "enablecapacitymanager": {
+    "name": "EnableCapacityManager",
+    "description": "Grants permission to enable EC2 Capacity Manager for your account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "enableebsencryptionbydefault": {
     "name": "EnableEbsEncryptionByDefault",
     "description": "Grants permission to enable EBS encryption by default for your account",
@@ -13195,6 +13339,36 @@
   "getawsnetworkperformancedata": {
     "name": "GetAwsNetworkPerformanceData",
     "description": "Grants permission to get network performance data",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getcapacitymanagerattributes": {
+    "name": "GetCapacityManagerAttributes",
+    "description": "Grants permission to retrieve the current configuration and status of EC2 Capacity Manager",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getcapacitymanagermetricdata": {
+    "name": "GetCapacityManagerMetricData",
+    "description": "Grants permission to retrieve capacity usage metrics for your EC2 resources",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getcapacitymanagermetricdimensions": {
+    "name": "GetCapacityManagerMetricDimensions",
+    "description": "Grants permission to retrieve the available dimension values for capacity metrics within a specified time range",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
@@ -16359,6 +16533,7 @@
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -16392,6 +16567,7 @@
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
           "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
           "ec2:VolumeInitializationRate",
@@ -16477,8 +16653,8 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceServiceRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceServiceRegion"
         ],
         "dependentActions": []
       },
@@ -16542,8 +16718,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -16566,9 +16742,9 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}",
+          "ec2:VpceMultiRegion",
           "ec2:VpceServicePrivateDnsName",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -16591,8 +16767,8 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -16615,8 +16791,8 @@
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -17451,8 +17627,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -19106,8 +19282,8 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
-          "ec2:vpceMultiRegion",
-          "ec2:vpceSupportedRegion"
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
         ],
         "dependentActions": []
       }
@@ -19352,6 +19528,16 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "updatecapacitymanagerorganizationsaccess": {
+    "name": "UpdateCapacityManagerOrganizationsAccess",
+    "description": "Grants permission to update the Organizations access setting for EC2 Capacity Manager",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],

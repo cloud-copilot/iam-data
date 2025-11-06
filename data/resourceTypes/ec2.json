@@ -28,6 +28,19 @@
       "ec2:ResourceTag/${TagKey}"
     ]
   },
+  "capacity-manager-data-export": {
+    "key": "capacity-manager-data-export",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:capacity-manager-data-export/${CapacityManagerDataExportId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "capacity-reservation-fleet": {
     "key": "capacity-reservation-fleet",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:capacity-reservation-fleet/${CapacityReservationFleetId}",
@@ -1163,6 +1176,7 @@
       "ec2:LaunchTemplate",
       "ec2:ManagedResourceOperator",
       "ec2:ParentSnapshot",
+      "ec2:ParentVolume",
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}",
       "ec2:VolumeID",
@@ -1208,10 +1222,10 @@
       "ec2:Attribute/${AttributeName}",
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}",
+      "ec2:VpceMultiRegion",
       "ec2:VpceServiceName",
       "ec2:VpceServiceOwner",
-      "ec2:vpceMultiRegion",
-      "ec2:vpceServiceRegion"
+      "ec2:VpceServiceRegion"
     ]
   },
   "vpc-endpoint-service": {
@@ -1225,10 +1239,10 @@
       "ec2:Attribute/${AttributeName}",
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}",
+      "ec2:VpceMultiRegion",
       "ec2:VpceServicePrivateDnsName",
-      "ec2:vpceMultiRegion",
-      "ec2:vpceServiceRegion",
-      "ec2:vpceSupportedRegion"
+      "ec2:VpceServiceRegion",
+      "ec2:VpceSupportedRegion"
     ]
   },
   "vpc-endpoint-service-permission": {

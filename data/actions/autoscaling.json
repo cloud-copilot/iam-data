@@ -716,6 +716,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "launchinstances": {
+    "name": "LaunchInstances",
+    "description": "Grants permission to launch one or more EC2 instances in the specified Auto Scaling group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autoScalingGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "autoscaling:ResourceTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "putlifecyclehook": {
     "name": "PutLifecycleHook",
     "description": "Grants permission to create or update a lifecycle hook for the specified Auto Scaling Group",

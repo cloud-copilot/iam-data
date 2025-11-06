@@ -26,7 +26,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createlink": {
@@ -34,7 +37,10 @@
     "description": "Grants permission to create a new link between RTB applications",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createoutboundexternallink": {
@@ -49,7 +55,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createrequestergateway": {
@@ -57,7 +66,10 @@
     "description": "Grants permission to create a requester gateway",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createrespondergateway": {
@@ -65,7 +77,10 @@
     "description": "Grants permission to create a responder gateway",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "deleteinboundexternallink": {
@@ -270,10 +285,39 @@
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a resource",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
+    "resourceTypes": [
+      {
+        "name": "InboundExternalLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OutboundExternalLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RequesterGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResponderGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
     ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "rejectlink": {
@@ -295,10 +339,40 @@
     "name": "TagResource",
     "description": "Grants permission to assign one or more tags (key-value pairs) to the specified resource",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "InboundExternalLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OutboundExternalLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RequesterGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResponderGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -307,9 +381,39 @@
     "name": "UntagResource",
     "description": "Grants permission to remove a tag or tags from a resource",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "InboundExternalLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "OutboundExternalLink",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RequesterGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ResponderGateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []

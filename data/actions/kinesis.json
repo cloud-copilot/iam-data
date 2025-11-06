@@ -113,6 +113,14 @@
     ],
     "dependentActions": []
   },
+  "describeaccountsettings": {
+    "name": "DescribeAccountSettings",
+    "description": "Grants permission to describe the account-level settings for Amazon Kinesis Data Streams",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describelimits": {
     "name": "DescribeLimits",
     "description": "Grants permission to describe the shard limits and usage for the account",
@@ -610,6 +618,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updateaccountsettings": {
+    "name": "UpdateAccountSettings",
+    "description": "Grants permission to update the account-level settings for Amazon Kinesis Data Streams",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemaxrecordsize": {
+    "name": "UpdateMaxRecordSize",
+    "description": "Grants permission to update the maximum record size for a Kinesis data stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "updateshardcount": {
     "name": "UpdateShardCount",
     "description": "Grants permission to update the shard count of the specified stream to the specified number of shards",
@@ -624,6 +657,23 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatestreamwarmthroughput": {
+    "name": "UpdateStreamWarmThroughput",
+    "description": "Grants permission to update the warm throughput for a Kinesis on-demand data stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   }
 }

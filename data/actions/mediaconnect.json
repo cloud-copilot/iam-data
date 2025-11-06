@@ -34,7 +34,10 @@
     "description": "Grants permission to add media streams to any flow",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "addflowoutputs": {
@@ -42,7 +45,10 @@
     "description": "Grants permission to add outputs to any flow",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "addflowsources": {
@@ -50,7 +56,10 @@
     "description": "Grants permission to add sources to any flow",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "addflowvpcinterfaces": {
@@ -58,7 +67,10 @@
     "description": "Grants permission to add VPC interfaces to any flow",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createbridge": {
@@ -74,7 +86,10 @@
     "description": "Grants permission to create flows",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "creategateway": {
@@ -236,7 +251,10 @@
     "description": "Grants permission to grant entitlements on any flow",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listbridges": {
@@ -431,16 +449,71 @@
     "name": "TagResource",
     "description": "Grants permission to associate tags with resources",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "Entitlement",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Output",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from resources",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "Entitlement",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Flow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Output",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updatebridge": {

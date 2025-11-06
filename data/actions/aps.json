@@ -33,6 +33,24 @@
     ],
     "dependentActions": []
   },
+  "createanomalydetector": {
+    "name": "CreateAnomalyDetector",
+    "description": "Grants permission to create an anomaly detector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createloggingconfiguration": {
     "name": "CreateLoggingConfiguration",
     "description": "Grants permission to create a logging configuration",
@@ -161,6 +179,29 @@
     ],
     "dependentActions": []
   },
+  "deleteanomalydetector": {
+    "name": "DeleteAnomalyDetector",
+    "description": "Grants permission to delete an anomaly detector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleteloggingconfiguration": {
     "name": "DeleteLoggingConfiguration",
     "description": "Grants permission to delete a logging configuration",
@@ -246,6 +287,23 @@
     ],
     "dependentActions": []
   },
+  "deletescraperloggingconfiguration": {
+    "name": "DeleteScraperLoggingConfiguration",
+    "description": "Grants permission to delete a scraper logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleteworkspace": {
     "name": "DeleteWorkspace",
     "description": "Grants permission to delete a workspace",
@@ -268,6 +326,29 @@
     "description": "Grants permission to describe an alert manager definition",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeanomalydetector": {
+    "name": "DescribeAnomalyDetector",
+    "description": "Grants permission to describe an anomaly detector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "workspace",
         "required": true,
@@ -351,6 +432,23 @@
   "describescraper": {
     "name": "DescribeScraper",
     "description": "Grants permission to describe a scraper",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describescraperloggingconfiguration": {
+    "name": "DescribeScraperLoggingConfiguration",
+    "description": "Grants permission to describe a scraper logging configuration",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -577,6 +675,23 @@
     ],
     "dependentActions": []
   },
+  "listanomalydetectors": {
+    "name": "ListAnomalyDetectors",
+    "description": "Grants permission to list anomaly detectors",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listrulegroupsnamespaces": {
     "name": "ListRuleGroupsNamespaces",
     "description": "Grants permission to list rule groups namespaces",
@@ -625,6 +740,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "anomalydetector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "rulegroupsnamespace",
         "required": false,
         "conditionKeys": [],
@@ -657,6 +778,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "previewanomalydetector": {
+    "name": "PreviewAnomalyDetector",
+    "description": "Grants permission to preview anomaly detection on AMP workspace metrics",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "putalertmanagerdefinition": {
     "name": "PutAlertManagerDefinition",
     "description": "Grants permission to update an alert manager definition",
@@ -679,6 +817,29 @@
     "description": "Grants permission to create or update a silence",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "putanomalydetector": {
+    "name": "PutAnomalyDetector",
+    "description": "Grants permission to update an anomaly detector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "workspace",
         "required": true,
@@ -765,6 +926,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "anomalydetector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "rulegroupsnamespace",
         "required": false,
         "conditionKeys": [],
@@ -794,6 +961,12 @@
     "description": "Grants permission to untag an AMP resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "anomalydetector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "rulegroupsnamespace",
         "required": false,
@@ -869,6 +1042,23 @@
       {
         "name": "workspace",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatescraperloggingconfiguration": {
+    "name": "UpdateScraperLoggingConfiguration",
+    "description": "Grants permission to put a scraper logging configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scraper",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

@@ -163,6 +163,24 @@
     ],
     "dependentActions": []
   },
+  "associateemailaddressalias": {
+    "name": "AssociateEmailAddressAlias",
+    "description": "Grants permission to associate an alias with an email address resource in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "email-address",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "associateflow": {
     "name": "AssociateFlow",
     "description": "Grants permission to associate a resource with a flow in an Amazon Connect instance",
@@ -2392,6 +2410,24 @@
       "iam:GetPolicyVersion",
       "iam:GetRolePolicy"
     ]
+  },
+  "disassociateemailaddressalias": {
+    "name": "DisassociateEmailAddressAlias",
+    "description": "Grants permission to disassociate an alias from an email address resource in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "email-address",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
   },
   "disassociateflow": {
     "name": "DisassociateFlow",
@@ -4969,6 +5005,12 @@
         "dependentActions": []
       },
       {
+        "name": "email-address",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "evaluation-form",
         "required": false,
         "conditionKeys": [],
@@ -5166,6 +5208,12 @@
       },
       {
         "name": "customer-managed-view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "email-address",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
