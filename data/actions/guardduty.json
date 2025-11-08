@@ -93,7 +93,11 @@
     "description": "Grants permission to create a publishing destination",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": [
       "s3:GetObject",
       "s3:ListBucket"
@@ -693,6 +697,12 @@
         "dependentActions": []
       },
       {
+        "name": "publishingDestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "threatentityset",
         "required": false,
         "conditionKeys": [],
@@ -800,6 +810,12 @@
         "dependentActions": []
       },
       {
+        "name": "publishingDestination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "threatentityset",
         "required": false,
         "conditionKeys": [],
@@ -857,6 +873,12 @@
       },
       {
         "name": "malwareprotectionplan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "publishingDestination",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

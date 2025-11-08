@@ -82,6 +82,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "DomainVerification",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ResourceConfiguration",
         "required": false,
         "conditionKeys": [],
@@ -271,6 +277,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "vpc-lattice:PrivateDnsPreference",
+      "vpc-lattice:PrivateDnsSpecifiedDomains",
       "vpc-lattice:SecurityGroupIds",
       "vpc-lattice:ServiceNetworkArn",
       "vpc-lattice:VpcId"
@@ -346,6 +354,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomainverification": {
+    "name": "DeleteDomainVerification",
+    "description": "Grants permission to delete a domain verification",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DomainVerification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletelistener": {
@@ -621,6 +646,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdomainverification": {
+    "name": "GetDomainVerification",
+    "description": "Grants permission to get information about a domain verification",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "DomainVerification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getlistener": {
     "name": "GetListener",
     "description": "Grants permission to get information about a listener",
@@ -830,6 +872,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdomainverifications": {
+    "name": "ListDomainVerifications",
+    "description": "Grants permission to list some or all domain verifications",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listlisteners": {
     "name": "ListListeners",
     "description": "Grants permission to list some or all listeners",
@@ -1021,6 +1071,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startdomainverification": {
+    "name": "StartDomainVerification",
+    "description": "Grants permission to start a domain verification",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "DomainVerification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:DomainName"
+    ],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a vpc-lattice resource",
@@ -1028,6 +1097,12 @@
     "resourceTypes": [
       {
         "name": "AccessLogSubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DomainVerification",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1113,6 +1188,12 @@
     "resourceTypes": [
       {
         "name": "AccessLogSubscription",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DomainVerification",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

@@ -1,4 +1,19 @@
 {
+  "aws:requesttag/${tagkey}": {
+    "key": "aws:RequestTag/${TagKey}",
+    "description": "Filters access by the tags that are passed in the request",
+    "type": "String"
+  },
+  "aws:resourcetag/${tagkey}": {
+    "key": "aws:ResourceTag/${TagKey}",
+    "description": "Filters access by the tags associated with the resource",
+    "type": "String"
+  },
+  "aws:tagkeys": {
+    "key": "aws:TagKeys",
+    "description": "Filters access by the tag keys that are passed in the request",
+    "type": "ArrayOfString"
+  },
   "s3tables:kmskeyarn": {
     "key": "s3tables:KMSKeyArn",
     "description": "Filters access by the AWS KMS key ARN for the key used to encrypt a table",
@@ -7,6 +22,11 @@
   "s3tables:ssealgorithm": {
     "key": "s3tables:SSEAlgorithm",
     "description": "Filters access by the server-side encryption algorithm used to encrypt a table",
+    "type": "String"
+  },
+  "s3tables:tablebuckettag/${tagkey}": {
+    "key": "s3tables:TableBucketTag/${TagKey}",
+    "description": "Filters access by the tags associated with the table bucket",
     "type": "String"
   },
   "s3tables:namespace": {

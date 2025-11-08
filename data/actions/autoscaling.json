@@ -168,6 +168,7 @@
       }
     ],
     "conditionKeys": [
+      "autoscaling:ImageId",
       "autoscaling:CapacityReservationIds",
       "autoscaling:CapacityReservationResourceGroupArns",
       "autoscaling:InstanceTypes",
@@ -943,13 +944,15 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "autoscaling:ImageId"
     ],
     "dependentActions": []
   },
@@ -1007,6 +1010,7 @@
       }
     ],
     "conditionKeys": [
+      "autoscaling:ImageId",
       "autoscaling:CapacityReservationIds",
       "autoscaling:CapacityReservationResourceGroupArns",
       "autoscaling:InstanceTypes",

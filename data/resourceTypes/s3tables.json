@@ -1,12 +1,18 @@
 {
   "tablebucket": {
     "key": "TableBucket",
-    "arn": "arn:${Partition}:s3tables:${Region}:${Account}:bucket/${TableBucketName}"
+    "arn": "arn:${Partition}:s3tables:${Region}:${Account}:bucket/${TableBucketName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3tables:TableBucketTag/${TagKey}"
+    ]
   },
   "table": {
     "key": "Table",
     "arn": "arn:${Partition}:s3tables:${Region}:${Account}:bucket/${TableBucketName}/table/${TableID}",
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3tables:TableBucketTag/${TagKey}",
       "s3tables:namespace",
       "s3tables:tableName"
     ]

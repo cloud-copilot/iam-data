@@ -8,6 +8,16 @@
       "aws:TagKeys"
     ]
   },
+  "domainverification": {
+    "key": "DomainVerification",
+    "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:domainverification/${DomainVerificationId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "vpc-lattice:DomainName"
+    ]
+  },
   "listener": {
     "key": "Listener",
     "arn": "arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/listener/${ListenerId}",
@@ -108,6 +118,8 @@
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
+      "vpc-lattice:PrivateDnsPreference",
+      "vpc-lattice:PrivateDnsSpecifiedDomains",
       "vpc-lattice:SecurityGroupIds",
       "vpc-lattice:ServiceNetworkArn",
       "vpc-lattice:VpcId"

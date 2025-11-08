@@ -58,10 +58,7 @@
       {
         "name": "job-queue",
         "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
@@ -83,7 +80,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createschedulingpolicy": {
@@ -412,7 +412,9 @@
       {
         "name": "job-definition",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
@@ -453,16 +455,8 @@
         "conditionKeys": [
           "batch:ShareIdentifier",
           "batch:EKSImage",
-          "batch:EKSNamespace",
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
+          "batch:EKSNamespace"
         ],
-        "dependentActions": []
-      },
-      {
-        "name": "job-definition",
-        "required": true,
-        "conditionKeys": [],
         "dependentActions": []
       },
       {
@@ -476,9 +470,24 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "job-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-definition-revision",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "submitservicejob": {
@@ -496,14 +505,15 @@
         "name": "service-job",
         "required": true,
         "conditionKeys": [
-          "batch:ShareIdentifier",
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
+          "batch:ShareIdentifier"
         ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "tagresource": {

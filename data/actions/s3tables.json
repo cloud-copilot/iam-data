@@ -29,7 +29,11 @@
     "conditionKeys": [
       "s3tables:namespace",
       "s3tables:SSEAlgorithm",
-      "s3tables:KMSKeyArn"
+      "s3tables:KMSKeyArn",
+      "s3tables:TableBucketTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -47,7 +51,11 @@
     ],
     "conditionKeys": [
       "s3tables:SSEAlgorithm",
-      "s3tables:KMSKeyArn"
+      "s3tables:KMSKeyArn",
+      "s3tables:TableBucketTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -393,6 +401,30 @@
     ],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tag for a S3Table's resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TableBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3tables:TableBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "puttablebucketencryption": {
     "name": "PutTableBucketEncryption",
     "description": "Grants permission to put or overwrite encryption configuration on a table bucket",
@@ -531,6 +563,57 @@
     "conditionKeys": [
       "s3tables:namespace",
       "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a S3Table's resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TableBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "s3tables:TableBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a S3Table's resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TableBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3tables:TableBucketTag/${TagKey}"
     ],
     "dependentActions": []
   },

@@ -208,6 +208,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createrecommender": {
+    "name": "CreateRecommender",
+    "description": "Grants permission to create a Recommender in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createsegmentdefinition": {
     "name": "CreateSegmentDefinition",
     "description": "Grants permission to create a segment definition in the domain",
@@ -356,6 +380,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletedomainobjecttype": {
+    "name": "DeleteDomainObjectType",
+    "description": "Grants permission to delete a specific domain object type in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain-object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteeventstream": {
     "name": "DeleteEventStream",
     "description": "Grants permission to delete an event stream in a domain",
@@ -485,6 +530,27 @@
       },
       {
         "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecommender": {
+    "name": "DeleteRecommender",
+    "description": "Grants permission to delete a recommender in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -637,6 +703,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdomainobjecttype": {
+    "name": "GetDomainObjectType",
+    "description": "Grants permission to get a specific domain object type in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domain-object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "geteventstream": {
     "name": "GetEventStream",
     "description": "Grants permission to get a specific event stream in a domain",
@@ -732,9 +819,45 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getobjecttypeattributestatistics": {
+    "name": "GetObjectTypeAttributeStatistics",
+    "description": "Grants permission to get statistics of a specific attribute for object type in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getprofilehistoryrecord": {
     "name": "GetProfileHistoryRecord",
     "description": "Grants permission to get a profile history record for a profile in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprofileinsights": {
+    "name": "GetProfileInsights",
+    "description": "Grants permission to list insights for a profile",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -773,6 +896,48 @@
     "description": "Grants permission to get a specific object type template",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprofilerecommendations": {
+    "name": "GetProfileRecommendations",
+    "description": "Grants permission to list recommendations for a profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecommender": {
+    "name": "GetRecommender",
+    "description": "Grants permission to get Recommender details in a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -998,6 +1163,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdomainobjecttypes": {
+    "name": "ListDomainObjectTypes",
+    "description": "Grants permission to list all the domain object types in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomainobjects": {
+    "name": "ListDomainObjects",
+    "description": "Grants permission to list domain objects in a domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domain-object-types",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdomains": {
     "name": "ListDomains",
     "description": "Grants permission to list all the domains in an account",
@@ -1058,6 +1259,27 @@
     "resourceTypes": [
       {
         "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listobjecttypeattributevalues": {
+    "name": "ListObjectTypeAttributeValues",
+    "description": "Grants permission to list values of a specific attribute for object type in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object-types",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1161,6 +1383,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listrecommenderrecipes": {
+    "name": "ListRecommenderRecipes",
+    "description": "Grants permission to list all the Recommenders Recipes in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecommenders": {
+    "name": "ListRecommenders",
+    "description": "Grants permission to list all the Recommenders in the domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listrulebasedmatches": {
     "name": "ListRuleBasedMatches",
     "description": "Grants permission to list all the rule-based matching result in the domain",
@@ -1203,6 +1448,12 @@
         "dependentActions": []
       },
       {
+        "name": "domain-object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "domains",
         "required": false,
         "conditionKeys": [],
@@ -1234,6 +1485,12 @@
       },
       {
         "name": "object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1283,6 +1540,30 @@
     "description": "Grants permission to merge profiles in a domain",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putdomainobjecttype": {
+    "name": "PutDomainObjectType",
+    "description": "Grants permission to put a specific domain object type in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain-object-types",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
       {
         "name": "domains",
         "required": true,
@@ -1383,6 +1664,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startrecommender": {
+    "name": "StartRecommender",
+    "description": "Grants permission to start a recommender in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "startuploadjob": {
     "name": "StartUploadJob",
     "description": "Grants permission to start an upload job in the domain",
@@ -1390,6 +1692,27 @@
     "resourceTypes": [
       {
         "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoprecommender": {
+    "name": "StopRecommender",
+    "description": "Grants permission to stop a recommender in a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1425,6 +1748,12 @@
         "dependentActions": []
       },
       {
+        "name": "domain-object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "domains",
         "required": false,
         "conditionKeys": [],
@@ -1456,6 +1785,12 @@
       },
       {
         "name": "object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1485,6 +1820,12 @@
         "dependentActions": []
       },
       {
+        "name": "domain-object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "domains",
         "required": false,
         "conditionKeys": [],
@@ -1516,6 +1857,12 @@
       },
       {
         "name": "object-types",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1619,6 +1966,27 @@
     "resourceTypes": [
       {
         "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterecommender": {
+    "name": "UpdateRecommender",
+    "description": "Grants permission to update a Recommender in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommenders",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
