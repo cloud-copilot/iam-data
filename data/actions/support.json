@@ -183,6 +183,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listinteractionentries": {
+    "name": "ListInteractionEntries",
+    "description": "Grants permission to retrieve a list of entries within a specific interaction, including messages, status updates, or other relevant data points",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinteractions": {
+    "name": "ListInteractions",
+    "description": "Grants permission to retrieve a list of interactions, potentially with filters or pagination",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "putcaseattributes": {
     "name": "PutCaseAttributes",
     "description": "Grants permission to allow secondary services to attach attributes to AWS Support cases. This is an internally managed function",
@@ -215,6 +231,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "resolveinteraction": {
+    "name": "ResolveInteraction",
+    "description": "Grants permission to mark a specific interaction as resolved by its unique identifier, indicating that the issue has been addressed and no further action is needed",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "searchforcases": {
     "name": "SearchForCases",
     "description": "Grants permission to return a list of AWS Support cases that matches the given inputs",
@@ -229,7 +253,9 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "support:DescribeSupportLevel"
+    ]
   },
   "updatecaseseverity": {
     "name": "UpdateCaseSeverity",

@@ -4519,6 +4519,35 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "sendoutboundchatmessage": {
+    "name": "SendOutboundChatMessage",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send outbound chat messages using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "social-messaging:SendWhatsAppMessage",
+          "wisdom:GetMessageTemplate",
+          "wisdom:RenderMessageTemplate"
+        ]
+      },
+      {
+        "name": "phone-number",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:Subtype"
+    ],
+    "dependentActions": []
+  },
   "sendoutboundemail": {
     "name": "SendOutboundEmail",
     "description": "Grants permission to send outbound email using the Amazon Connect API",
