@@ -551,6 +551,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getresourcedashboard": {
+    "name": "GetResourceDashboard",
+    "description": "Grants permission to get a Live UI/Persistence UI for a session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getsession": {
     "name": "GetSession",
     "description": "Grants permission to get a session",
@@ -559,6 +580,33 @@
       {
         "name": "workgroup",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsessionendpoint": {
+    "name": "GetSessionEndpoint",
+    "description": "Grants permission to get a connection endpoint and authentication token for a given session Id",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -574,6 +622,12 @@
       {
         "name": "workgroup",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -835,6 +889,12 @@
         "dependentActions": []
       },
       {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "workgroup",
         "required": true,
         "conditionKeys": [],
@@ -921,9 +981,18 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "stopcalculationexecution": {
@@ -974,6 +1043,12 @@
         "dependentActions": []
       },
       {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "workgroup",
         "required": true,
         "conditionKeys": [],
@@ -996,6 +1071,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -1014,6 +1095,12 @@
       },
       {
         "name": "datacatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

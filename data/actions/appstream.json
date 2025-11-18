@@ -83,6 +83,23 @@
     ],
     "dependentActions": []
   },
+  "associatesoftwaretoimagebuilder": {
+    "name": "AssociateSoftwareToImageBuilder",
+    "description": "Grants permission to associate license included application(s) with an existing image builder instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image-builder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "batchassociateuserstack": {
     "name": "BatchAssociateUserStack",
     "description": "Grants permission to associate the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain",
@@ -223,6 +240,16 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createexportimagetask": {
+    "name": "CreateExportImageTask",
+    "description": "Grants permission to create an export task for an AppStream 2.0 image",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createfleet": {
     "name": "CreateFleet",
     "description": "Grants permission to create a fleet. A fleet is a group of streaming instances from which applications are launched and streamed to users",
@@ -285,6 +312,17 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createimportedimage": {
+    "name": "CreateImportedImage",
+    "description": "Grants permission to create an AppStream 2.0 image from an imported AMI",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -573,20 +611,7 @@
     "name": "DescribeAppBlockBuilderAppBlockAssociations",
     "description": "Grants permission to retrieve the associations that are associated with the specified app block builder or app block",
     "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "app-block",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "app-block-builder",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -606,24 +631,19 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeapplicenseusage": {
+    "name": "DescribeAppLicenseUsage",
+    "description": "Grants permission to retrieve license included application usage information",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeapplicationfleetassociations": {
     "name": "DescribeApplicationFleetAssociations",
     "description": "Grants permission to retrieve the associations that are associated with the specified application or fleet",
     "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "application",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "fleet",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -718,6 +738,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describesoftwareassociations": {
+    "name": "DescribeSoftwareAssociations",
+    "description": "Grants permission to retrieve license included application associations for a specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "image-builder",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describestacks": {
     "name": "DescribeStacks",
     "description": "Grants permission to retrieve a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described",
@@ -753,14 +794,7 @@
     "name": "DescribeUserStackAssociations",
     "description": "Grants permission to retrieve a list that describes the UserStackAssociation objects",
     "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "stack",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -864,6 +898,23 @@
     ],
     "dependentActions": []
   },
+  "disassociatesoftwarefromimagebuilder": {
+    "name": "DisassociateSoftwareFromImageBuilder",
+    "description": "Grants permission to remove license included application(s) association(s) from an image builder instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image-builder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "enableuser": {
     "name": "EnableUser",
     "description": "Grants permission to enable a user in the user pool",
@@ -876,6 +927,14 @@
     "name": "ExpireSession",
     "description": "Grants permission to immediately stop the specified streaming session",
     "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexportimagetask": {
+    "name": "GetExportImageTask",
+    "description": "Grants permission to retrieve details of a specific export image task",
+    "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -925,6 +984,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listexportimagetasks": {
+    "name": "ListExportImageTasks",
+    "description": "Grants permission to list export image tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to retrieve a list of all tags for the specified AppStream 2.0 resource. The following resources can be tagged: Image builders, images, fleets, and stacks",
@@ -970,6 +1037,23 @@
   "startimagebuilder": {
     "name": "StartImageBuilder",
     "description": "Grants permission to start the specified image builder",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image-builder",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startsoftwaredeploymenttoimagebuilder": {
+    "name": "StartSoftwareDeploymentToImageBuilder",
+    "description": "Grants permission to initiate license included applications deployment to an image builder instance",
     "accessLevel": "Write",
     "resourceTypes": [
       {
