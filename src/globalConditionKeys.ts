@@ -180,6 +180,12 @@ export const globalConditionKeys: GlobalConditionKey[] = [
     description: ''
   },
   {
+    key: 'aws:SourceVpcArn',
+    category: 'network',
+    type: 'String',
+    description: ''
+  },
+  {
     key: 'aws:SourceVpce',
     category: 'network',
     type: 'String',
