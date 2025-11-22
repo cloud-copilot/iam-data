@@ -1,4 +1,22 @@
 {
+  "acceptchannelhandshake": {
+    "name": "AcceptChannelHandshake",
+    "description": "Grants permission to accept channel handshakes in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ChannelHandshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:ChannelHandshakeType"
+    ],
+    "dependentActions": []
+  },
   "acceptengagementinvitation": {
     "name": "AcceptEngagementInvitation",
     "description": "Grants permission to accept Engagement Invitations on AWS Partner Central",
@@ -48,6 +66,52 @@
     "conditionKeys": [
       "partnercentral:Catalog",
       "partnercentral:RelatedEntityType"
+    ],
+    "dependentActions": []
+  },
+  "cancelchannelhandshake": {
+    "name": "CancelChannelHandshake",
+    "description": "Grants permission to cancel channel handshakes in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ChannelHandshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog",
+      "partnercentral:ChannelHandshakeType"
+    ],
+    "dependentActions": []
+  },
+  "createchannelhandshake": {
+    "name": "CreateChannelHandshake",
+    "description": "Grants permission to create channel handshakes in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProgramManagementAccount",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Relationship",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog",
+      "partnercentral:ChannelHandshakeType"
     ],
     "dependentActions": []
   },
@@ -104,6 +168,39 @@
     ],
     "dependentActions": []
   },
+  "createprogrammanagementaccount": {
+    "name": "CreateProgramManagementAccount",
+    "description": "Grants permission to create program management accounts in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "createrelationship": {
+    "name": "CreateRelationship",
+    "description": "Grants permission to create relationships in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProgramManagementAccount",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "createresourcesnapshot": {
     "name": "CreateResourceSnapshot",
     "description": "Grants permission to creating resource snapshots in AWS Partner Central",
@@ -136,6 +233,42 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "deleteprogrammanagementaccount": {
+    "name": "DeleteProgramManagementAccount",
+    "description": "Grants permission to delete program management accounts in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProgramManagementAccount",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "deleterelationship": {
+    "name": "DeleteRelationship",
+    "description": "Grants permission to delete relationships in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Relationship",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -243,6 +376,35 @@
     ],
     "dependentActions": []
   },
+  "getprogrammanagementaccount": {
+    "name": "GetProgramManagementAccount",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve program management account details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getrelationship": {
+    "name": "GetRelationship",
+    "description": "Grants permission to retrieve relationship details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Relationship",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "getresourcesnapshot": {
     "name": "GetResourceSnapshot",
     "description": "Grants permission to retrieving resource snapshot details in AWS Partner Central",
@@ -279,11 +441,29 @@
   },
   "getsellingsystemsettings": {
     "name": "GetSellingSystemSettings",
-    "description": "Grants permission to retrieving system settings settings in AWS Partner Central",
+    "description": "Grants permission to retrieving selling system settings in AWS Partner Central",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
       "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listchannelhandshakes": {
+    "name": "ListChannelHandshakes",
+    "description": "Grants permission to list channel handshakes in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ChannelHandshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:ChannelHandshakeType"
     ],
     "dependentActions": []
   },
@@ -371,6 +551,40 @@
     ],
     "dependentActions": []
   },
+  "listprogrammanagementaccounts": {
+    "name": "ListProgramManagementAccounts",
+    "description": "Grants permission to list program management accounts in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ProgramManagementAccount",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listrelationships": {
+    "name": "ListRelationships",
+    "description": "Grants permission to list relationships in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Relationship",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "listresourcesnapshotjobs": {
     "name": "ListResourceSnapshotJobs",
     "description": "Grants permission to listing resource snapshot jobs in AWS Partner Central",
@@ -384,7 +598,7 @@
   "listresourcesnapshots": {
     "name": "ListResourceSnapshots",
     "description": "Grants permission to listing resource snapshots in AWS Partner Central",
-    "accessLevel": "Read",
+    "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "ResourceSnapshot",
@@ -422,10 +636,28 @@
   },
   "putsellingsystemsettings": {
     "name": "PutSellingSystemSettings",
-    "description": "Grants permission to put system settings settings in AWS Partner Central",
+    "description": "Grants permission to put selling system settings in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rejectchannelhandshake": {
+    "name": "RejectChannelHandshake",
+    "description": "Grants permission to reject channel handshakes in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ChannelHandshake",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:ChannelHandshakeType"
+    ],
     "dependentActions": []
   },
   "rejectengagementinvitation": {
@@ -556,7 +788,25 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "ChannelHandshake",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Opportunity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProgramManagementAccount",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Relationship",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -582,7 +832,25 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "ChannelHandshake",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Opportunity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProgramManagementAccount",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Relationship",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -614,6 +882,42 @@
       }
     ],
     "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "updateprogrammanagementaccount": {
+    "name": "UpdateProgramManagementAccount",
+    "description": "Grants permission to update program management accounts in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProgramManagementAccount",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "updaterelationship": {
+    "name": "UpdateRelationship",
+    "description": "Grants permission to update relationships in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Relationship",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "partnercentral:Catalog"
     ],
     "dependentActions": []

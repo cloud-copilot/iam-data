@@ -17,17 +17,26 @@
       "aws:ResourceTag/${TagKey}",
       "s3:AccessPointNetworkOrigin",
       "s3:AccessPointTag/${TagKey}",
+      "s3:BucketTag/${TagKey}",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn"
     ]
   },
   "bucket": {
     "key": "bucket",
-    "arn": "arn:${Partition}:s3:::${BucketName}"
+    "arn": "arn:${Partition}:s3:::${BucketName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3:BucketTag/${TagKey}"
+    ]
   },
   "object": {
     "key": "object",
-    "arn": "arn:${Partition}:s3:::${BucketName}/${ObjectName}"
+    "arn": "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3:BucketTag/${TagKey}"
+    ]
   },
   "job": {
     "key": "job",

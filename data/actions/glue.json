@@ -4042,6 +4042,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "renametable": {
+    "name": "RenameTable",
+    "description": "Grants permission to rename a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rootcatalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "glue:LakeFormationPermissions",
+      "glue:FederatedAuthorizationSource"
+    ],
+    "dependentActions": []
+  },
   "requestlogparsing": {
     "name": "RequestLogParsing",
     "description": "Grants permission to request log parsing for SparkUI",
@@ -4996,7 +5032,8 @@
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions"
+      "glue:LakeFormationPermissions",
+      "glue:FederatedAuthorizationSource"
     ],
     "dependentActions": []
   },

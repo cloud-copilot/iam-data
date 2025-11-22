@@ -8,13 +8,16 @@
         "name": "Identitystore",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt"
-    ]
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
+    "dependentActions": []
   },
   "creategroupmembership": {
     "name": "CreateGroupMembership",
@@ -42,7 +45,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "createidentitystore": {
@@ -67,13 +72,17 @@
         "name": "Identitystore",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt"
-    ]
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers",
+      "identitystore:ReservedUserId"
+    ],
+    "dependentActions": []
   },
   "deletegroup": {
     "name": "DeleteGroup",
@@ -95,7 +104,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
     "dependentActions": []
   },
   "deletegroupmembership": {
@@ -130,7 +142,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "deleteidentitystore": {
@@ -161,7 +175,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
     "dependentActions": []
   },
   "describegroup": {
@@ -184,7 +201,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
     "dependentActions": []
   },
   "describegroupmembership": {
@@ -219,7 +239,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "describeuser": {
@@ -242,7 +264,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
     "dependentActions": []
   },
   "getgroupid": {
@@ -265,7 +290,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "getgroupmembershipid": {
@@ -300,7 +327,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "getuserid": {
@@ -323,7 +352,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "ismemberingroups": {
@@ -358,7 +389,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "listgroupmemberships": {
@@ -387,7 +420,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "listgroupmembershipsformember": {
@@ -416,7 +451,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
     "dependentActions": []
   },
   "listgroups": {
@@ -439,7 +476,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
     "dependentActions": []
   },
   "listusers": {
@@ -462,7 +502,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
     "dependentActions": []
   },
   "updategroup": {
@@ -485,7 +528,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:GroupExternalIdIssuers"
+    ],
     "dependentActions": []
   },
   "updateidentitystore": {
@@ -521,7 +567,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion",
+      "identitystore:UserExternalIdIssuers"
+    ],
     "dependentActions": []
   }
 }

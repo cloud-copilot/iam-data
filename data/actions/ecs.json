@@ -42,6 +42,36 @@
     ],
     "dependentActions": []
   },
+  "createexpressgatewayservice": {
+    "name": "CreateExpressGatewayService",
+    "description": "Grants permission to create a new Amazon ECS Express Gateway service with cluster and task definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ecs:RegisterTaskDefinition",
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:task-definition",
+      "ecs:subnet",
+      "ecs:enable-ecs-managed-tags",
+      "ecs:propagate-tags",
+      "ecs:task-cpu",
+      "ecs:task-memory"
+    ],
+    "dependentActions": []
+  },
   "createservice": {
     "name": "CreateService",
     "description": "Grants permission to run and maintain a desired number of tasks from a specified task definition via service creation",
@@ -156,6 +186,24 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteexpressgatewayservice": {
+    "name": "DeleteExpressGatewayService",
+    "description": "Grants permission to delete a specified Express Gateway service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster",
       "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
@@ -288,6 +336,24 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "describeexpressgatewayservice": {
+    "name": "DescribeExpressGatewayService",
+    "description": "Grants permission to describe the specified Express Gateway service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1144,6 +1210,30 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "updateexpressgatewayservice": {
+    "name": "UpdateExpressGatewayService",
+    "description": "Grants permission to modify the parameters of an Express Gateway service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:subnet",
+      "ecs:enable-ecs-managed-tags",
+      "ecs:propagate-tags",
+      "ecs:task-cpu",
+      "ecs:task-memory"
     ],
     "dependentActions": []
   },

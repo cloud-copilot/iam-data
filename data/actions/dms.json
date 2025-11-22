@@ -292,6 +292,22 @@
     ],
     "dependentActions": []
   },
+  "createoutboundintegration": {
+    "name": "CreateOutboundIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to DMS to create resources for zero-ETL integrations with self managed databases",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "dms:req-tag/${TagKey}"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
   "createreplicationconfig": {
     "name": "CreateReplicationConfig",
     "description": "Grants permission to create a replication config using the provided settings",
@@ -1344,6 +1360,17 @@
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "modifyoutboundintegration": {
+    "name": "ModifyOutboundIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to DMS to modify resources for zero-ETL integrations with self managed databases",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
   },
   "modifyreplicationconfig": {
     "name": "ModifyReplicationConfig",

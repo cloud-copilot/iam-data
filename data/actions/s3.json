@@ -253,7 +253,9 @@
       "s3:x-amz-grant-read-acp",
       "s3:x-amz-grant-write",
       "s3:x-amz-grant-write-acp",
-      "s3:x-amz-object-ownership"
+      "s3:x-amz-object-ownership",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -1265,6 +1267,28 @@
   "getanalyticsconfiguration": {
     "name": "GetAnalyticsConfiguration",
     "description": "Grants permission to get an analytics configuration from an Amazon S3 bucket, identified by the analytics configuration ID",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getbucketabac": {
+    "name": "GetBucketAbac",
+    "description": "Grants permission to retrieve ABAC configuration for a general purpose bucket",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -2725,6 +2749,12 @@
         "dependentActions": []
       },
       {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "storagelensgroup",
         "required": false,
         "conditionKeys": [],
@@ -2933,6 +2963,28 @@
   "putanalyticsconfiguration": {
     "name": "PutAnalyticsConfiguration",
     "description": "Grants permission to set an analytics configuration for the bucket, specified by the analytics configuration ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putbucketabac": {
+    "name": "PutBucketAbac",
+    "description": "Grants permission to set ABAC configuration for a general purpose bucket",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -3848,6 +3900,12 @@
         "dependentActions": []
       },
       {
+        "name": "bucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "storagelensgroup",
         "required": false,
         "conditionKeys": [],
@@ -3891,6 +3949,12 @@
       },
       {
         "name": "accesspoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

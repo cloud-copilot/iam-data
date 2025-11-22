@@ -89,6 +89,35 @@
     ],
     "dependentActions": []
   },
+  "createlicenseassetgroup": {
+    "name": "CreateLicenseAssetGroup",
+    "description": "Grants permission to create a license asset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlicenseassetruleset": {
+    "name": "CreateLicenseAssetRuleset",
+    "description": "Grants permission to create a license asset ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createlicenseconfiguration": {
     "name": "CreateLicenseConfiguration",
     "description": "Grants permission to create a new license configuration",
@@ -110,7 +139,7 @@
   },
   "createlicensemanagerreportgenerator": {
     "name": "CreateLicenseManagerReportGenerator",
-    "description": "Grants permission to create a report generator for a license configuration",
+    "description": "Grants permission to create a report generator for supported license manager resources",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -171,6 +200,36 @@
     "resourceTypes": [
       {
         "name": "license",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelicenseassetgroup": {
+    "name": "DeleteLicenseAssetGroup",
+    "description": "Grants permission to delete a license asset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelicenseassetruleset": {
+    "name": "DeleteLicenseAssetRuleset",
+    "description": "Grants permission to delete a license asset ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -263,6 +322,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getlicenseassetgroup": {
+    "name": "GetLicenseAssetGroup",
+    "description": "Grants permission to get a license asset group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlicenseassetruleset": {
+    "name": "GetLicenseAssetRuleset",
+    "description": "Grants permission to get a license asset ruleset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getlicenseconfiguration": {
     "name": "GetLicenseConfiguration",
     "description": "Grants permission to get a license configuration",
@@ -324,6 +413,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listassetsforlicenseassetgroup": {
+    "name": "ListAssetsForLicenseAssetGroup",
+    "description": "Grants permission to list assets for a license asset group",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listassociationsforlicenseconfiguration": {
     "name": "ListAssociationsForLicenseConfiguration",
     "description": "Grants permission to list associations for a selected license configuration",
@@ -362,10 +466,48 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listlicenseassetgroups": {
+    "name": "ListLicenseAssetGroups",
+    "description": "Grants permission to list license asset groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseassetrulesets": {
+    "name": "ListLicenseAssetRulesets",
+    "description": "Grants permission to list license asset rulesets",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listlicenseconfigurations": {
     "name": "ListLicenseConfigurations",
     "description": "Grants permission to list license configurations",
-    "accessLevel": "Read",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlicenseconfigurationsfororganization": {
+    "name": "ListLicenseConfigurationsForOrganization",
+    "description": "Grants permission to list license configurations for organization",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -482,6 +624,18 @@
         "dependentActions": []
       },
       {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "license-configuration",
         "required": false,
         "conditionKeys": [],
@@ -553,6 +707,18 @@
         "dependentActions": []
       },
       {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "license-configuration",
         "required": false,
         "conditionKeys": [],
@@ -589,6 +755,18 @@
         "dependentActions": []
       },
       {
+        "name": "license-asset-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "license-configuration",
         "required": false,
         "conditionKeys": [],
@@ -604,6 +782,42 @@
     "conditionKeys": [
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "updatelicenseassetgroup": {
+    "name": "UpdateLicenseAssetGroup",
+    "description": "Grants permission to update a license asset group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelicenseassetruleset": {
+    "name": "UpdateLicenseAssetRuleset",
+    "description": "Grants permission to update a license asset ruleset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "license-asset-ruleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatelicenseconfiguration": {
@@ -623,7 +837,7 @@
   },
   "updatelicensemanagerreportgenerator": {
     "name": "UpdateLicenseManagerReportGenerator",
-    "description": "Grants permission to update a report generator for a license configuration",
+    "description": "Grants permission to update a report generator for supported license manager resources",
     "accessLevel": "Write",
     "resourceTypes": [
       {

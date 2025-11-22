@@ -335,6 +335,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeresponsibilitytransfer": {
+    "name": "DescribeResponsibilityTransfer",
+    "description": "Grants permission to retrieve details about a previously responsibility transfer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "responsibilitytransfer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:TransferType",
+      "organizations:TransferDirection"
+    ],
+    "dependentActions": []
+  },
   "detachpolicy": {
     "name": "DetachPolicy",
     "description": "Grants permission to detach a policy from a target root, organizational unit, or account",
@@ -447,6 +465,23 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "inviteorganizationtotransferresponsibility": {
+    "name": "InviteOrganizationToTransferResponsibility",
+    "description": "Grants permission to send an invitation to another AWS account, asking it to transfer a particular responsibility to your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "account",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:TransferType"
     ],
     "dependentActions": []
   },
@@ -592,6 +627,17 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listinboundresponsibilitytransfers": {
+    "name": "ListInboundResponsibilityTransfers",
+    "description": "Grants permission to list all responsibilities of a particular type transfered to your organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:TransferType",
+      "organizations:TransferDirection"
+    ],
+    "dependentActions": []
+  },
   "listorganizationalunitsforparent": {
     "name": "ListOrganizationalUnitsForParent",
     "description": "Grants permission to list all of the organizational units (OUs) in a parent organizational unit or root",
@@ -611,6 +657,17 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoutboundresponsibilitytransfers": {
+    "name": "ListOutboundResponsibilityTransfers",
+    "description": "Grants permission to list all responsibilities of a particular type transfered to another organization",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "organizations:TransferType",
+      "organizations:TransferDirection"
+    ],
     "dependentActions": []
   },
   "listparents": {
@@ -706,6 +763,12 @@
       },
       {
         "name": "resourcepolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "responsibilitytransfer",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -848,6 +911,15 @@
         "dependentActions": []
       },
       {
+        "name": "responsibilitytransfer",
+        "required": false,
+        "conditionKeys": [
+          "organizations:TransferType",
+          "organizations:TransferDirection"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "root",
         "required": false,
         "conditionKeys": [],
@@ -858,6 +930,24 @@
       "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
       "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "terminateresponsibilitytransfer": {
+    "name": "TerminateResponsibilityTransfer",
+    "description": "Grants permission to end the transfer for a responsibility to or from your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "responsibilitytransfer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:TransferType",
+      "organizations:TransferDirection"
     ],
     "dependentActions": []
   },
@@ -888,6 +978,15 @@
         "name": "resourcepolicy",
         "required": false,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "responsibilitytransfer",
+        "required": false,
+        "conditionKeys": [
+          "organizations:TransferType",
+          "organizations:TransferDirection"
+        ],
         "dependentActions": []
       },
       {
@@ -932,6 +1031,24 @@
     ],
     "conditionKeys": [
       "organizations:PolicyType"
+    ],
+    "dependentActions": []
+  },
+  "updateresponsibilitytransfer": {
+    "name": "UpdateResponsibilityTransfer",
+    "description": "Grants permission to rename a responsibility transfer to or from your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "responsibilitytransfer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "organizations:TransferType",
+      "organizations:TransferDirection"
     ],
     "dependentActions": []
   }

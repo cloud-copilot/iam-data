@@ -405,6 +405,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "distributeimage": {
+    "name": "DistributeImage",
+    "description": "Grants permission to distribute an image",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:DescribeImages",
+          "iam:PassRole",
+          "imagebuilder:GetDistributionConfiguration",
+          "imagebuilder:GetImage",
+          "imagebuilder:TagResource",
+          "ssm:GetParameter"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "getcomponent": {
     "name": "GetComponent",
     "description": "Grants permission to view details about a component",
@@ -1122,6 +1147,21 @@
     "resourceTypes": [
       {
         "name": "imageRecipe",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retryimage": {
+    "name": "RetryImage",
+    "description": "Grants permission to retry an image creation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

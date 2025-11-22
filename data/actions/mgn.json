@@ -726,6 +726,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listimportfileenrichments": {
+    "name": "ListImportFileEnrichments",
+    "description": "Grants permission to list the import file enrichment tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listimports": {
     "name": "ListImports",
     "description": "Grants permission to list the import tasks",
@@ -888,6 +896,21 @@
   "listnetworkmigrationmappersegments": {
     "name": "ListNetworkMigrationMapperSegments",
     "description": "Grants permission to list network migration mapper segments",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listnetworkmigrationmappingupdates": {
+    "name": "ListNetworkMigrationMappingUpdates",
+    "description": "Grants permission to list network migration mapping updates",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -1358,7 +1381,10 @@
     "description": "Grants permission to create an import task",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": [
       "ec2:CreateLaunchTemplateVersion",
       "ec2:DescribeLaunchTemplateVersions",
@@ -1370,6 +1396,18 @@
       "mgn:TagResource",
       "mgn:UpdateLaunchConfiguration",
       "s3:PutObject"
+    ]
+  },
+  "startimportfileenrichment": {
+    "name": "StartImportFileEnrichment",
+    "description": "Grants permission to start import file enrichment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs"
     ]
   },
   "startnetworkmigrationanalysis": {
@@ -1677,6 +1715,21 @@
   "startnetworkmigrationmapping": {
     "name": "StartNetworkMigrationMapping",
     "description": "Grants permission to start a network migration mapping",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NetworkMigrationDefinitionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startnetworkmigrationmappingupdate": {
+    "name": "StartNetworkMigrationMappingUpdate",
+    "description": "Grants permission to start a network migration mapping update",
     "accessLevel": "Write",
     "resourceTypes": [
       {

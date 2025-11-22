@@ -68,6 +68,22 @@
     ],
     "dependentActions": []
   },
+  "createbackupaccesspoint": {
+    "name": "CreateBackupAccessPoint",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a new access point for backup instant access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createbackupplan": {
     "name": "CreateBackupPlan",
     "description": "Grants permission to create a new backup plan",
@@ -77,7 +93,9 @@
         "name": "backupPlan",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "iam:PassRole"
+        ]
       }
     ],
     "conditionKeys": [
@@ -248,6 +266,33 @@
     "dependentActions": [
       "iam:PassRole"
     ]
+  },
+  "createtieringconfiguration": {
+    "name": "CreateTieringConfiguration",
+    "description": "Grants permission to create a new tiering configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tieringConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletebackupaccesspoint": {
+    "name": "DeleteBackupAccessPoint",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete the access point",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "deletebackupplan": {
     "name": "DeleteBackupPlan",
@@ -430,6 +475,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletetieringconfiguration": {
+    "name": "DeleteTieringConfiguration",
+    "description": "Grants permission to delete a tiering configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tieringConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebackupaccesspoint": {
+    "name": "DescribeBackupAccessPoint",
+    "isPermissionOnly": true,
+    "description": "Grants permission to return information about the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describebackupjob": {
     "name": "DescribeBackupJob",
     "description": "Grants permission to describe a backup job",
@@ -541,6 +610,14 @@
   "describerestorejob": {
     "name": "DescribeRestoreJob",
     "description": "Grants permission to describe a restore job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describescanjob": {
+    "name": "DescribeScanJob",
+    "description": "Grants permission to describe a scan job",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -787,6 +864,21 @@
     "description": "Grants permission to get supported resource types",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettieringconfiguration": {
+    "name": "GetTieringConfiguration",
+    "description": "Grants permission to describe a tiering configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "tieringConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1048,6 +1140,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listscanjobsummaries": {
+    "name": "ListScanJobSummaries",
+    "description": "Grants permission to list scan job summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listscanjobs": {
+    "name": "ListScanJobs",
+    "description": "Grants permission to list scan jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtags": {
     "name": "ListTags",
     "description": "Grants permission to list tags for a resource",
@@ -1094,8 +1202,22 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "tieringConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtieringconfigurations": {
+    "name": "ListTieringConfigurations",
+    "description": "Grants permission to list tiering configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1269,6 +1391,23 @@
       "iam:PassRole"
     ]
   },
+  "startscanjob": {
+    "name": "StartScanJob",
+    "description": "Grants permission to start a new scan job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
   "stopbackupjob": {
     "name": "StopBackupJob",
     "description": "Grants permission to stop a backup job",
@@ -1320,6 +1459,12 @@
       },
       {
         "name": "restoreTestingPlan",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "tieringConfiguration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1377,6 +1522,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "tieringConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1397,7 +1548,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "iam:PassRole"
+    ]
   },
   "updateframework": {
     "name": "UpdateFramework",
@@ -1510,5 +1663,20 @@
     "dependentActions": [
       "iam:PassRole"
     ]
+  },
+  "updatetieringconfiguration": {
+    "name": "UpdateTieringConfiguration",
+    "description": "Grants permission to update a tiering configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tieringConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   }
 }

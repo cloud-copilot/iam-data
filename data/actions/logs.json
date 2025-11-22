@@ -127,6 +127,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createscheduledquery": {
+    "name": "CreateScheduledQuery",
+    "description": "Grants permission to create a scheduled query",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleteaccountpolicy": {
     "name": "DeleteAccountPolicy",
     "description": "Grants permission to delete an account policy",
@@ -333,6 +351,21 @@
     "resourceTypes": [
       {
         "name": "log-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletescheduledquery": {
+    "name": "DeleteScheduledQuery",
+    "description": "Grants permission to delete a scheduled query",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -717,6 +750,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getscheduledquery": {
+    "name": "GetScheduledQuery",
+    "description": "Grants permission to retrieve information about a specified scheduled query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getscheduledqueryhistory": {
+    "name": "GetScheduledQueryHistory",
+    "description": "Grants permission to return the execution history for a specified scheduled query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "gettransformer": {
     "name": "GetTransformer",
     "description": "Grants permission to return transformer associated with the specified log group",
@@ -817,6 +880,14 @@
   "listloggroupsforquery": {
     "name": "ListLogGroupsForQuery",
     "description": "Grants permission to return all the log groups that are associated with the specified query",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listscheduledqueries": {
+    "name": "ListScheduledQueries",
+    "description": "Grants permission to return all scheduled queries that are associated with the AWS account making the request",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1213,6 +1284,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "scheduled-query",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1310,6 +1387,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "scheduled-query",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1383,6 +1466,21 @@
     "description": "Grants permission to update the log delivery information for specified log delivery",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatescheduledquery": {
+    "name": "UpdateScheduledQuery",
+    "description": "Grants permission to update a scheduled query",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "scheduled-query",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   }

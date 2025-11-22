@@ -409,12 +409,18 @@
   },
   "geteventconfiguration": {
     "name": "GetEventConfiguration",
-    "description": "Grants permission to list event configurations that are configured for an event data store",
+    "description": "Grants permission to list event configurations that are configured for a trail or an event data store",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "eventdatastore",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trail",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -630,6 +636,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listinsightsdata": {
+    "name": "ListInsightsData",
+    "description": "Grants permission to retrieve data captured by CloudTrail Insights",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "trail",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpublickeys": {
     "name": "ListPublicKeys",
     "description": "Grants permission to list the public keys whose private keys were used to sign trail digest files within a specified time range",
@@ -713,21 +734,27 @@
   },
   "puteventconfiguration": {
     "name": "PutEventConfiguration",
-    "description": "Grants permission to create and update event configurations for an event data store",
+    "description": "Grants permission to create and update event configurations for a trail or an event data store",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "eventdatastore",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole",
+          "iam:GetRole"
+        ]
+      },
+      {
+        "name": "trail",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:GetRole"
-    ]
+    "dependentActions": []
   },
   "puteventselectors": {
     "name": "PutEventSelectors",

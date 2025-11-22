@@ -344,6 +344,44 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describetopic": {
+    "name": "DescribeTopic",
+    "description": "Grants permission to return metadata details about a specific Kafka topic",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic",
+      "kafka-cluster:DescribeTopicDynamicConfiguration"
+    ]
+  },
+  "describetopicpartitions": {
+    "name": "DescribeTopicPartitions",
+    "description": "Grants permission to list all partitions of a specific topic",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic",
+      "kafka-cluster:DescribeTopicDynamicConfiguration"
+    ]
+  },
   "describevpcconnection": {
     "name": "DescribeVpcConnection",
     "description": "Grants permission to describe a MSK VPC connection",
@@ -534,6 +572,24 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "listtopics": {
+    "name": "ListTopics",
+    "description": "Grants permission to list all Kafka topics for a specified MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic"
+    ]
   },
   "listvpcconnections": {
     "name": "ListVpcConnections",
@@ -774,7 +830,7 @@
   },
   "updaterebalancing": {
     "name": "UpdateRebalancing",
-    "description": "Grants permission to update the rebalancing status of the MSK cluster",
+    "description": "Grants permission to update the intelligent rebalancing status of the MSK cluster",
     "accessLevel": "Write",
     "resourceTypes": [
       {

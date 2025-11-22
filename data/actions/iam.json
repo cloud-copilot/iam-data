@@ -1,4 +1,19 @@
 {
+  "acceptdelegationrequest": {
+    "name": "AcceptDelegationRequest",
+    "description": "Accepts a delegation request resource, granting the requested temporary access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "delegation-request",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "addclientidtoopenidconnectprovider": {
     "name": "AddClientIDToOpenIDConnectProvider",
     "description": "Grants permission to add a new client ID (audience) to the list of registered IDs for the specified IAM OpenID Connect (OIDC) provider resource",
@@ -38,6 +53,21 @@
     "resourceTypes": [
       {
         "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatedelegationrequest": {
+    "name": "AssociateDelegationRequest",
+    "description": "Associates a delegation request resource with the calling identity",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "delegation-request",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -135,6 +165,25 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdelegationrequest": {
+    "name": "CreateDelegationRequest",
+    "description": "Creates an IAM delegation request resource for temporary access delegation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "delegation-request",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iam:DelegationDuration",
+      "iam:NotificationChannel",
+      "iam:TemplateArn"
+    ],
     "dependentActions": []
   },
   "creategroup": {
@@ -516,7 +565,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "iam:PermissionsBoundary"
+    ],
     "dependentActions": []
   },
   "deleterolepermissionsboundary": {
@@ -784,6 +835,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disableoutboundwebidentityfederation": {
+    "name": "DisableOutboundWebIdentityFederation",
+    "description": "Disables the outbound identity federation feature for the callers account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "enablemfadevice": {
     "name": "EnableMFADevice",
     "description": "Grants permission to enable an MFA device and associate it with the specified IAM user",
@@ -815,6 +874,14 @@
   "enableorganizationsrootsessions": {
     "name": "EnableOrganizationsRootSessions",
     "description": "Grants permission to enable privileged root actions in member accounts for an organization managed under the current account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableoutboundwebidentityfederation": {
+    "name": "EnableOutboundWebIdentityFederation",
+    "description": "Enables the outbound identity federation feature for the callers account",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -991,6 +1058,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdelegationrequest": {
+    "name": "GetDelegationRequest",
+    "description": "Retrieves information about a specific delegation request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "delegation-request",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getgroup": {
     "name": "GetGroup",
     "description": "Grants permission to retrieve a list of IAM users in the specified IAM group",
@@ -1013,6 +1095,21 @@
     "resourceTypes": [
       {
         "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gethumanreadablesummary": {
+    "name": "GetHumanReadableSummary",
+    "description": "Retrieves a human readable summary for a given entity. At this time, only delegation request are supported",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "delegation-request",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1089,6 +1186,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getoutboundwebidentityfederationinfo": {
+    "name": "GetOutboundWebIdentityFederationInfo",
+    "description": "Retrieves the configuration information for the outbound identity federation feature for the callers account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getpolicy": {
     "name": "GetPolicy",
     "description": "Grants permission to retrieve information about the specified managed policy, including the policy's default version and the total number of identities to which the policy is attached",
@@ -1131,7 +1236,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "iam:PermissionsBoundary"
+    ],
     "dependentActions": []
   },
   "getrolepolicy": {
@@ -1329,6 +1436,16 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdelegationrequests": {
+    "name": "ListDelegationRequests",
+    "description": "Lists delegation requests based on the specified criteria",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "iam:DelegationRequestOwner"
+    ],
     "dependentActions": []
   },
   "listentitiesforpolicy": {
@@ -1833,6 +1950,21 @@
     ],
     "dependentActions": []
   },
+  "rejectdelegationrequest": {
+    "name": "RejectDelegationRequest",
+    "description": "Rejects a delegation request, denying the requested temporary access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "delegation-request",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "removeclientidfromopenidconnectprovider": {
     "name": "RemoveClientIDFromOpenIDConnectProvider",
     "description": "Grants permission to remove the client ID (audience) from the list of client IDs in the specified IAM OpenID Connect (OIDC) provider resource",
@@ -1902,6 +2034,21 @@
     "resourceTypes": [
       {
         "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "senddelegationtoken": {
+    "name": "SendDelegationToken",
+    "description": "Sends the exchange token for an accepted delegation request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "delegation-request",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2307,7 +2454,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "iam:PermissionsBoundary"
+    ],
     "dependentActions": []
   },
   "updatecloudfrontpublickey": {
@@ -2375,7 +2524,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "iam:PermissionsBoundary"
+    ],
     "dependentActions": []
   },
   "updateroledescription": {
@@ -2390,7 +2541,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "iam:PermissionsBoundary"
+    ],
     "dependentActions": []
   },
   "updatesamlprovider": {
