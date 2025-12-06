@@ -89,6 +89,7 @@
         "dependentActions": [
           "iam:CreateServiceLinkedRole",
           "organizations:DescribeOrganization",
+          "organizations:ListAWSServiceAccessForOrganization",
           "organizations:ListDelegatedAdministrators"
         ]
       }
@@ -197,6 +198,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listinvestigations": {
+    "name": "ListInvestigations",
+    "description": "Grants permission to list investigations for a case",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "case",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listmemberships": {
     "name": "ListMemberships",
     "description": "Grants permission to list memberships",
@@ -227,6 +243,21 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "sendfeedback": {
+    "name": "SendFeedback",
+    "description": "Grants permission to send feedback for investigation results",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "case",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "tagresource": {

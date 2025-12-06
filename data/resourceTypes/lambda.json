@@ -1,10 +1,21 @@
 {
+  "capacityprovider": {
+    "key": "capacityProvider",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:capacity-provider:${CapacityProviderName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "code signing config": {
     "key": "code signing config",
     "arn": "arn:${Partition}:lambda:${Region}:${Account}:code-signing-config:${CodeSigningConfigId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
+  },
+  "durable execution": {
+    "key": "durable execution",
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}/durable-execution/${ExecutionName}/${ExecutionId}"
   },
   "eventsourcemapping": {
     "key": "eventSourceMapping",

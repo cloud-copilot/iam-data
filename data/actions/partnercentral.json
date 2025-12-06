@@ -17,6 +17,23 @@
     ],
     "dependentActions": []
   },
+  "acceptconnectioninvitation": {
+    "name": "AcceptConnectionInvitation",
+    "description": "Grants permission to accept connection invitations in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionInvitation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "acceptengagementinvitation": {
     "name": "AcceptEngagementInvitation",
     "description": "Grants permission to accept Engagement Invitations on AWS Partner Central",
@@ -34,6 +51,24 @@
     ],
     "dependentActions": []
   },
+  "amendbenefitapplication": {
+    "name": "AmendBenefitApplication",
+    "description": "Grants permission to amend benefit applications in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "assignopportunity": {
     "name": "AssignOpportunity",
     "description": "Grants permission to assign Opportunities on AWS Partner Central",
@@ -47,6 +82,54 @@
       }
     ],
     "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "associateawstrainingcertificationemaildomain": {
+    "name": "AssociateAwsTrainingCertificationEmailDomain",
+    "description": "Grants permission to associate AWS Training and Certification email domains in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "associatebenefitapplicationresource": {
+    "name": "AssociateBenefitApplicationResource",
+    "description": "Grants permission to associate benefit application resources in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "BenefitAllocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Opportunity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -69,6 +152,24 @@
     ],
     "dependentActions": []
   },
+  "cancelbenefitapplication": {
+    "name": "CancelBenefitApplication",
+    "description": "Grants permission to cancel benefit applications in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "cancelchannelhandshake": {
     "name": "CancelChannelHandshake",
     "description": "Grants permission to cancel channel handshakes in AWS Partner Central",
@@ -86,6 +187,81 @@
       "partnercentral:Catalog",
       "partnercentral:ChannelHandshakeType"
     ],
+    "dependentActions": []
+  },
+  "cancelconnection": {
+    "name": "CancelConnection",
+    "description": "Grants permission to cancel connections in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "cancelconnectioninvitation": {
+    "name": "CancelConnectionInvitation",
+    "description": "Grants permission to cancel connection invitations in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionInvitation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "cancelprofileupdatetask": {
+    "name": "CancelProfileUpdateTask",
+    "description": "Grants permission to cancel profile update tasks in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "createbenefitapplication": {
+    "name": "CreateBenefitApplication",
+    "description": "Grants permission to create benefit applications in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog",
+      "partnercentral:FulfillmentTypes"
+    ],
+    "dependentActions": []
+  },
+  "createbusinessplan": {
+    "name": "CreateBusinessPlan",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create business plans in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createchannelhandshake": {
@@ -115,9 +291,54 @@
     ],
     "dependentActions": []
   },
+  "createcollaborationchannelmembers": {
+    "name": "CreateCollaborationChannelMembers",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create collaboration channel members in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcollaborationchannelrequest": {
+    "name": "CreateCollaborationChannelRequest",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create collaboration channel requests in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createconnectioninvitation": {
+    "name": "CreateConnectionInvitation",
+    "description": "Grants permission to create connection invitations in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "createengagement": {
     "name": "CreateEngagement",
     "description": "Grants permission to creating engagements in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Engagement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "createengagementcontext": {
+    "name": "CreateEngagementContext",
+    "description": "Grants permission to create engagement contexts in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -163,6 +384,19 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "createpartner": {
+    "name": "CreatePartner",
+    "description": "Grants permission to create partners in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "partnercentral:Catalog"
     ],
@@ -290,6 +524,54 @@
     ],
     "dependentActions": []
   },
+  "disassociateawstrainingcertificationemaildomain": {
+    "name": "DisassociateAwsTrainingCertificationEmailDomain",
+    "description": "Grants permission to disassociate AWS Training and Certification email domains in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "disassociatebenefitapplicationresource": {
+    "name": "DisassociateBenefitApplicationResource",
+    "description": "Grants permission to disassociate benefit application resources in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "BenefitAllocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Opportunity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "disassociateopportunity": {
     "name": "DisassociateOpportunity",
     "description": "Grants permission to disassociate Opportunities on AWS Partner Central from other entities",
@@ -308,6 +590,33 @@
     ],
     "dependentActions": []
   },
+  "enrollinpartnerpath": {
+    "name": "EnrollInPartnerPath",
+    "isPermissionOnly": true,
+    "description": "Grants permission to enroll in partner paths in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getallianceleadcontact": {
+    "name": "GetAllianceLeadContact",
+    "description": "Grants permission to retrieve alliance lead contact information in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "getawsopportunitysummary": {
     "name": "GetAwsOpportunitySummary",
     "description": "Grants permission to retrieve AWS Opportunity Summaries for Opportunities on AWS Partner Central",
@@ -320,6 +629,122 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getbenefit": {
+    "name": "GetBenefit",
+    "description": "Grants permission to retrieve benefit details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Benefit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getbenefitallocation": {
+    "name": "GetBenefitAllocation",
+    "description": "Grants permission to retrieve benefit allocation details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "BenefitAllocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getbenefitapplication": {
+    "name": "GetBenefitApplication",
+    "description": "Grants permission to retrieve benefit application details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getbusinessplan": {
+    "name": "GetBusinessPlan",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve business plan details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcollaborationchannel": {
+    "name": "GetCollaborationChannel",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve collaboration channel details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnection": {
+    "name": "GetConnection",
+    "description": "Grants permission to retrieve connection details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getconnectioninvitation": {
+    "name": "GetConnectionInvitation",
+    "description": "Grants permission to retrieve connection invitation details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ConnectionInvitation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getconnectionpreferences": {
+    "name": "GetConnectionPreferences",
+    "description": "Grants permission to retrieve connection preferences in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [
       "partnercentral:Catalog"
     ],
@@ -372,6 +797,86 @@
       }
     ],
     "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getpartner": {
+    "name": "GetPartner",
+    "description": "Grants permission to retrieve partner details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getpartnerdashboard": {
+    "name": "GetPartnerDashboard",
+    "description": "Grants permission to retrieve partner dashboard information in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Dashboard",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getpartnerprofile": {
+    "name": "GetPartnerProfile",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve public partner profile details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getprofileupdatetask": {
+    "name": "GetProfileUpdateTask",
+    "description": "Grants permission to retrieve profile update task details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getprofilevisibility": {
+    "name": "GetProfileVisibility",
+    "description": "Grants permission to retrieve profile visibility settings in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -449,6 +954,82 @@
     ],
     "dependentActions": []
   },
+  "getverification": {
+    "name": "GetVerification",
+    "description": "Grants permission to retrieve verification details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:VerificationType"
+    ],
+    "dependentActions": []
+  },
+  "listbenefitallocations": {
+    "name": "ListBenefitAllocations",
+    "description": "Grants permission to list benefit allocations in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "BenefitAllocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:FulfillmentTypes"
+    ],
+    "dependentActions": []
+  },
+  "listbenefitapplications": {
+    "name": "ListBenefitApplications",
+    "description": "Grants permission to list benefit applications in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:FulfillmentTypes",
+      "partnercentral:Programs"
+    ],
+    "dependentActions": []
+  },
+  "listbenefits": {
+    "name": "ListBenefits",
+    "description": "Grants permission to list benefits in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Benefit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:FulfillmentTypes",
+      "partnercentral:Programs"
+    ],
+    "dependentActions": []
+  },
+  "listbusinessplans": {
+    "name": "ListBusinessPlans",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list business plans in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listchannelhandshakes": {
     "name": "ListChannelHandshakes",
     "description": "Grants permission to list channel handshakes in AWS Partner Central",
@@ -464,6 +1045,35 @@
     "conditionKeys": [
       "partnercentral:Catalog",
       "partnercentral:ChannelHandshakeType"
+    ],
+    "dependentActions": []
+  },
+  "listcollaborationchannels": {
+    "name": "ListCollaborationChannels",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list collaboration channels in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectioninvitations": {
+    "name": "ListConnectionInvitations",
+    "description": "Grants permission to list connection invitations in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listconnections": {
+    "name": "ListConnections",
+    "description": "Grants permission to list connections in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
     ],
     "dependentActions": []
   },
@@ -544,6 +1154,35 @@
   "listopportunities": {
     "name": "ListOpportunities",
     "description": "Grants permission to list Opportunities on AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listopportunityfromengagementtasks": {
+    "name": "ListOpportunityFromEngagementTasks",
+    "description": "Grants permission to list opportunity from engagement tasks in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listpartnerpaths": {
+    "name": "ListPartnerPaths",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list partner paths in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpartners": {
+    "name": "ListPartners",
+    "description": "Grants permission to list partners in AWS Partner Central",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -634,12 +1273,75 @@
     ],
     "dependentActions": []
   },
+  "putallianceleadcontact": {
+    "name": "PutAllianceLeadContact",
+    "description": "Grants permission to set alliance lead contact information in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "putbusinessplan": {
+    "name": "PutBusinessPlan",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update business plans in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putprofilevisibility": {
+    "name": "PutProfileVisibility",
+    "description": "Grants permission to set profile visibility in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "putsellingsystemsettings": {
     "name": "PutSellingSystemSettings",
     "description": "Grants permission to put selling system settings in AWS Partner Central",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "recallbenefitapplication": {
+    "name": "RecallBenefitApplication",
+    "description": "Grants permission to recall benefit applications in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
     "dependentActions": []
   },
   "rejectchannelhandshake": {
@@ -660,6 +1362,23 @@
     ],
     "dependentActions": []
   },
+  "rejectconnectioninvitation": {
+    "name": "RejectConnectionInvitation",
+    "description": "Grants permission to reject connection invitations in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConnectionInvitation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "rejectengagementinvitation": {
     "name": "RejectEngagementInvitation",
     "description": "Grants permission to reject Engagement Invitations on AWS Partner Central",
@@ -672,6 +1391,25 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "searchpartnerprofiles": {
+    "name": "SearchPartnerProfiles",
+    "isPermissionOnly": true,
+    "description": "Grants permission to search public partner profiles in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendemailverificationcode": {
+    "name": "SendEmailVerificationCode",
+    "description": "Grants permission to send email verification codes in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "partnercentral:Catalog"
     ],
@@ -731,6 +1469,51 @@
     ],
     "dependentActions": []
   },
+  "startopportunityfromengagementtask": {
+    "name": "StartOpportunityFromEngagementTask",
+    "description": "Grants permission to initiate tasks that start Opportunities from Engagements on AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "OpportunityFromEngagementTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "partnercentral:CreateEngagementContext",
+          "partnercentral:CreateOpportunity",
+          "partnercentral:CreateResourceSnapshot",
+          "partnercentral:CreateResourceSnapshotJob",
+          "partnercentral:GetEngagement",
+          "partnercentral:StartResourceSnapshotJob"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "startprofileupdatetask": {
+    "name": "StartProfileUpdateTask",
+    "description": "Grants permission to start profile update tasks in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Partner",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "startresourcesnapshotjob": {
     "name": "StartResourceSnapshotJob",
     "description": "Grants permission to starting resource snapshot jobs in AWS Partner Central",
@@ -748,6 +1531,17 @@
     ],
     "dependentActions": []
   },
+  "startverification": {
+    "name": "StartVerification",
+    "description": "Grants permission to start verification processes in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog",
+      "partnercentral:VerificationType"
+    ],
+    "dependentActions": []
+  },
   "stopresourcesnapshotjob": {
     "name": "StopResourceSnapshotJob",
     "description": "Grants permission to stopping resource snapshot jobs in AWS Partner Central",
@@ -761,6 +1555,24 @@
       }
     ],
     "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "submitbenefitapplication": {
+    "name": "SubmitBenefitApplication",
+    "description": "Grants permission to submit benefit applications in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "partnercentral:Catalog"
     ],
     "dependentActions": []
@@ -788,6 +1600,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "BenefitApplication",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ChannelHandshake",
         "required": false,
         "conditionKeys": [],
@@ -795,6 +1613,12 @@
       },
       {
         "name": "Opportunity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Partner",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -832,6 +1656,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "BenefitApplication",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ChannelHandshake",
         "required": false,
         "conditionKeys": [],
@@ -839,6 +1669,12 @@
       },
       {
         "name": "Opportunity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Partner",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -865,6 +1701,51 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "updatebenefitapplication": {
+    "name": "UpdateBenefitApplication",
+    "description": "Grants permission to update benefit applications in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "BenefitApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "updateconnectionpreferences": {
+    "name": "UpdateConnectionPreferences",
+    "description": "Grants permission to update connection preferences in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "updateengagementcontext": {
+    "name": "UpdateEngagementContext",
+    "description": "Grants permission to update engagement contexts in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Engagement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
       "partnercentral:Catalog"
     ],
     "dependentActions": []

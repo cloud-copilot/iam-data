@@ -37,6 +37,44 @@
     "key": "Solution",
     "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/solution/${Identifier}"
   },
+  "partner": {
+    "key": "Partner",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/partner/${Identifier}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "connection": {
+    "key": "Connection",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection/${Identifier}"
+  },
+  "connectioninvitation": {
+    "key": "ConnectionInvitation",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection-invitation/${Identifier}"
+  },
+  "connectionpreferences": {
+    "key": "ConnectionPreferences",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/connection-preferences"
+  },
+  "opportunityfromengagementtask": {
+    "key": "OpportunityFromEngagementTask",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/opportunity-from-engagement-task/${TaskId}"
+  },
+  "benefit": {
+    "key": "Benefit",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/benefit/${Identifier}"
+  },
+  "benefitallocation": {
+    "key": "BenefitAllocation",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-allocation/${Identifier}"
+  },
+  "benefitapplication": {
+    "key": "BenefitApplication",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-application/${Identifier}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "programmanagementaccount": {
     "key": "ProgramManagementAccount",
     "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${Identifier}",
@@ -57,5 +95,9 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
+  },
+  "dashboard": {
+    "key": "Dashboard",
+    "arn": "arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${TableId}/Dashboard/${DashboardId}"
   }
 }

@@ -139,10 +139,43 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletetablebucketreplication": {
+    "name": "DeleteTableBucketReplication",
+    "description": "Grants permission to delete table bucket replication configuration on a bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletetablepolicy": {
     "name": "DeleteTablePolicy",
     "description": "Grants permission to delete a policy on a table",
     "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "deletetablereplication": {
+    "name": "DeleteTableReplication",
+    "description": "Grants permission to delete table replication configuration on a table",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "Table",
@@ -240,6 +273,36 @@
   "gettablebucketpolicy": {
     "name": "GetTableBucketPolicy",
     "description": "Grants permission to retrieve a policy on a table bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettablebucketreplication": {
+    "name": "GetTableBucketReplication",
+    "description": "Grants permission to retrieve a table bucket replication configuration on a bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettablebucketstorageclass": {
+    "name": "GetTableBucketStorageClass",
+    "description": "Grants permission to retrieve the storage class configuration for a table bucket",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -361,6 +424,96 @@
     ],
     "dependentActions": []
   },
+  "gettablerecordexpirationconfiguration": {
+    "name": "GetTableRecordExpirationConfiguration",
+    "description": "Grants permission to retrieve a table maintenance configuration on a system table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablerecordexpirationjobstatus": {
+    "name": "GetTableRecordExpirationJobStatus",
+    "description": "Grants permission to retrieve the status of table record expiration jobs on a system table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablereplication": {
+    "name": "GetTableReplication",
+    "description": "Grants permission to retrieve a table replication configuration on a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablereplicationstatus": {
+    "name": "GetTableReplicationStatus",
+    "description": "Grants permission to retrieve a table replication status on a table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "gettablestorageclass": {
+    "name": "GetTableStorageClass",
+    "description": "Grants permission to retrieve the storage class configuration for a specific table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
   "listnamespaces": {
     "name": "ListNamespaces",
     "description": "Grants permission to list namespaces",
@@ -403,7 +556,7 @@
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "description": "Grants permission to list the tag for a S3Table's resource",
+    "description": "Grants permission to list the tags for an S3 Tables resource",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -471,6 +624,38 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttablebucketreplication": {
+    "name": "PutTableBucketReplication",
+    "description": "Grants permission to put table bucket replication configuration on a bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttablebucketstorageclass": {
+    "name": "PutTableBucketStorageClass",
+    "description": "Grants permission to set or update the storage class configuration for a table bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TableBucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:StorageClass"
+    ],
     "dependentActions": []
   },
   "puttabledata": {
@@ -548,6 +733,61 @@
     ],
     "dependentActions": []
   },
+  "puttablerecordexpirationconfiguration": {
+    "name": "PutTableRecordExpirationConfiguration",
+    "description": "Grants permission to put a table record expiration configuration on a system table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "puttablereplication": {
+    "name": "PutTableReplication",
+    "description": "Grants permission to put table replication configuration on a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "puttablestorageclass": {
+    "name": "PutTableStorageClass",
+    "description": "Grants permission to set or update the storage class configuration for a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName",
+      "s3tables:StorageClass"
+    ],
+    "dependentActions": []
+  },
   "renametable": {
     "name": "RenameTable",
     "description": "Grants permission to rename a table or move a table across namespaces",
@@ -568,7 +808,7 @@
   },
   "tagresource": {
     "name": "TagResource",
-    "description": "Grants permission to tag a S3Table's resource",
+    "description": "Grants permission to tag a S3 Tables resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
@@ -594,7 +834,7 @@
   },
   "untagresource": {
     "name": "UntagResource",
-    "description": "Grants permission to untag a S3Table's resource",
+    "description": "Grants permission to untag a S3 Tables resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {

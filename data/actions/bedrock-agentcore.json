@@ -15,6 +15,28 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "authorizeaction": {
+    "name": "AuthorizeAction",
+    "isPermissionOnly": true,
+    "description": "Grants permission to evaluate Cedar policies for authorization requests",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchcreatememoryrecords": {
     "name": "BatchCreateMemoryRecords",
     "description": "Grants permission to create one or more memory records",
@@ -197,6 +219,14 @@
     ],
     "dependentActions": []
   },
+  "createevaluator": {
+    "name": "CreateEvaluator",
+    "description": "Grants permission to create a new evaluator",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createevent": {
     "name": "CreateEvent",
     "description": "Grants permission to create an Event",
@@ -250,8 +280,7 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "bedrock-agentcore:KmsKeyArn"
+      "aws:TagKeys"
     ],
     "dependentActions": [
       "iam:PassRole"
@@ -279,6 +308,39 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "createonlineevaluationconfig": {
+    "name": "CreateOnlineEvaluationConfig",
+    "description": "Grants permission to create a new online evaluation configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createpolicy": {
+    "name": "CreatePolicy",
+    "description": "Grants permission to create a new policy within a policy engine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpolicyengine": {
+    "name": "CreatePolicyEngine",
+    "description": "Grants permission to create a new policy engine",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createworkloadidentity": {
@@ -392,6 +454,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteevaluator": {
+    "name": "DeleteEvaluator",
+    "description": "Grants permission to delete an evaluator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "evaluator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteevent": {
     "name": "DeleteEvent",
     "description": "Grants permission to delete an Event",
@@ -491,6 +568,84 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteonlineevaluationconfig": {
+    "name": "DeleteOnlineEvaluationConfig",
+    "description": "Grants permission to delete an online evaluation configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "online-evaluation-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepolicy": {
+    "name": "DeletePolicy",
+    "description": "Grants permission to delete a policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepolicyengine": {
+    "name": "DeletePolicyEngine",
+    "description": "Grants permission to delete a policy engine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete the resource-based policy for a Bedrock resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteworkloadidentity": {
     "name": "DeleteWorkloadIdentity",
     "description": "Grants permission to delete a registered Workload Identity",
@@ -504,6 +659,21 @@
       },
       {
         "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "evaluate": {
+    "name": "Evaluate",
+    "description": "Grants permission to run an evaluation using an evaluator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "evaluator",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -662,6 +832,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getevaluator": {
+    "name": "GetEvaluator",
+    "description": "Grants permission to get details of an evaluator",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "evaluator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getevent": {
     "name": "GetEvent",
     "description": "Grants permission to fetch an Event",
@@ -761,6 +946,78 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getonlineevaluationconfig": {
+    "name": "GetOnlineEvaluationConfig",
+    "description": "Grants permission to get details of an online evaluation configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "online-evaluation-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicy": {
+    "name": "GetPolicy",
+    "description": "Grants permission to retrieve a policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicyengine": {
+    "name": "GetPolicyEngine",
+    "description": "Grants permission to retrieve a policy engine",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicygeneration": {
+    "name": "GetPolicyGeneration",
+    "description": "Grants permission to retrieve status and results of a policy generation request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-generation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getresourceapikey": {
     "name": "GetResourceApiKey",
     "description": "Grants permission to retrieve an API Key associated with an Api Key Credential Provider",
@@ -820,6 +1077,33 @@
       {
         "name": "workload-identity-directory",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to retrieve the resource-based policy for a Bedrock resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -958,6 +1242,48 @@
   "invokeagentruntimeforuser": {
     "name": "InvokeAgentRuntimeForUser",
     "description": "Grants permission to invoke an agent runtime endpoint with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runtime",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeagentruntimewithwebsocketstream": {
+    "name": "InvokeAgentRuntimeWithWebSocketStream",
+    "description": "Grants permission to invoke an agent runtime endpoint with WebSocket stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runtime",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeagentruntimewithwebsocketstreamforuser": {
+    "name": "InvokeAgentRuntimeWithWebSocketStreamForUser",
+    "description": "Grants permission to invoke an agent runtime endpoint with WebSocket stream and with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1118,6 +1444,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listevaluators": {
+    "name": "ListEvaluators",
+    "description": "Grants permission to list evaluators",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listevents": {
     "name": "ListEvents",
     "description": "Grants permission to list events",
@@ -1167,6 +1501,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listmemoryextractionjobs": {
+    "name": "ListMemoryExtractionJobs",
+    "description": "Grants permission to list extraction jobs for this memory",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "memory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listmemoryrecords": {
     "name": "ListMemoryRecords",
     "description": "Grants permission to list memory records",
@@ -1198,6 +1547,73 @@
       },
       {
         "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listonlineevaluationconfigs": {
+    "name": "ListOnlineEvaluationConfigs",
+    "description": "Grants permission to list online evaluation configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicies": {
+    "name": "ListPolicies",
+    "description": "Grants permission to list policies within a policy engine",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicyengines": {
+    "name": "ListPolicyEngines",
+    "description": "Grants permission to list policy engines",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicygenerationassets": {
+    "name": "ListPolicyGenerationAssets",
+    "description": "Grants permission to list generated policy assets from a generation request",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-generation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicygenerations": {
+    "name": "ListPolicyGenerations",
+    "description": "Grants permission to list policy generation requests",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1319,6 +1735,80 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "manageadminpolicy": {
+    "name": "ManageAdminPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create or modify wildcard policies that apply to gateway resources",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "manageresourcescopedpolicy": {
+    "name": "ManageResourceScopedPolicy",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create or modify policies that apply to specific gateway resources",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiallyauthorizeactions": {
+    "name": "PartiallyAuthorizeActions",
+    "isPermissionOnly": true,
+    "description": "Grants permission to perform partial evaluation of Cedar policies to authorize a caller to list tools they are allowed to call",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create or update the resource-based policy for a Bedrock resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runtime-endpoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "retrievememoryrecords": {
     "name": "RetrieveMemoryRecords",
     "description": "Grants permission to retrieve memory records through sematic query",
@@ -1386,6 +1876,40 @@
       },
       {
         "name": "code-interpreter-custom",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmemoryextractionjob": {
+    "name": "StartMemoryExtractionJob",
+    "description": "Grants permission to start memory extraction job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "memory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-agentcore:strategyId",
+      "bedrock-agentcore:sessionId",
+      "bedrock-agentcore:actorId"
+    ],
+    "dependentActions": []
+  },
+  "startpolicygeneration": {
+    "name": "StartPolicyGeneration",
+    "description": "Grants permission to start an AI-powered policy generation request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1708,6 +2232,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updateevaluator": {
+    "name": "UpdateEvaluator",
+    "description": "Grants permission to update an evaluator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "evaluator",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updategateway": {
     "name": "UpdateGateway",
     "description": "Grants permission to update an existing gateway",
@@ -1770,6 +2309,59 @@
       },
       {
         "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateonlineevaluationconfig": {
+    "name": "UpdateOnlineEvaluationConfig",
+    "description": "Grants permission to update an online evaluation configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "online-evaluation-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatepolicy": {
+    "name": "UpdatePolicy",
+    "description": "Grants permission to update an existing policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepolicyengine": {
+    "name": "UpdatePolicyEngine",
+    "description": "Grants permission to update a policy engine",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

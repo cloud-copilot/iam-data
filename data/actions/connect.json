@@ -364,6 +364,36 @@
     ],
     "dependentActions": []
   },
+  "associatesecurityprofiles": {
+    "name": "AssociateSecurityProfiles",
+    "description": "Grants permission to associate security profiles with an AI agent in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "security-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "associatetrafficdistributiongroupuser": {
     "name": "AssociateTrafficDistributionGroupUser",
     "description": "Grants permission to associate a user to a traffic distribution group in the specified Amazon Connect instance",
@@ -421,6 +451,36 @@
     ],
     "dependentActions": []
   },
+  "associateworkspace": {
+    "name": "AssociateWorkspace",
+    "description": "Grants permission to associate a workspace with a user or routing profile in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "routing-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "batchassociateanalyticsdataset": {
     "name": "BatchAssociateAnalyticsDataSet",
     "description": "Grants permission to grant access and to associate the datasets with the specified AWS account",
@@ -435,6 +495,64 @@
     ],
     "conditionKeys": [
       "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "batchcreatedatatablevalue": {
+    "name": "BatchCreateDataTableValue",
+    "description": "Grants permission to batch create values in a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:ExpressionValue",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
+    ],
+    "dependentActions": []
+  },
+  "batchdeletedatatablevalue": {
+    "name": "BatchDeleteDataTableValue",
+    "description": "Grants permission to batch delete values in a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
+    ],
+    "dependentActions": []
+  },
+  "batchdescribedatatablevalue": {
+    "name": "BatchDescribeDataTableValue",
+    "description": "Grants permission to batch describe values in a data table in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
     ],
     "dependentActions": []
   },
@@ -512,6 +630,26 @@
     ],
     "conditionKeys": [
       "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "batchupdatedatatablevalue": {
+    "name": "BatchUpdateDataTableValue",
+    "description": "Grants permission to batch update values in a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:ExpressionValue",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
     ],
     "dependentActions": []
   },
@@ -671,6 +809,42 @@
     ],
     "dependentActions": []
   },
+  "createcontactflowmodulealias": {
+    "name": "CreateContactFlowModuleAlias",
+    "description": "Grants permission to create an alias of a flow module version in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "createcontactflowmoduleversion": {
+    "name": "CreateContactFlowModuleVersion",
+    "description": "Grants permission to create a version of a flow module in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "createcontactflowversion": {
     "name": "CreateContactFlowVersion",
     "description": "Grants permission to create a version a flow in an Amazon Connect instance",
@@ -687,6 +861,42 @@
       "aws:ResourceTag/${TagKey}",
       "connect:InstanceId",
       "connect:FlowType"
+    ],
+    "dependentActions": []
+  },
+  "createdatatable": {
+    "name": "CreateDataTable",
+    "description": "Grants permission to create a dataTable in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "createdatatableattribute": {
+    "name": "CreateDataTableAttribute",
+    "description": "Grants permission to create an attribute for a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1270,6 +1480,55 @@
     ],
     "dependentActions": []
   },
+  "createworkspace": {
+    "name": "CreateWorkspace",
+    "description": "Grants permission to create a workspace in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "createworkspacepage": {
+    "name": "CreateWorkspacePage",
+    "description": "Grants permission to create a workspace page in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "aws-managed-view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "customer-managed-view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "deactivateevaluationform": {
     "name": "DeactivateEvaluationForm",
     "description": "Grants permission to deactivate an evaluation form in the specified Amazon Connect instance. After a form is deactivated, it is no longer available for users to start new evaluations based on the form",
@@ -1363,6 +1622,42 @@
     ],
     "dependentActions": []
   },
+  "deletecontactflowmodulealias": {
+    "name": "DeleteContactFlowModuleAlias",
+    "description": "Grants permission to delete an alias of a flow module version in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "deletecontactflowmoduleversion": {
+    "name": "DeleteContactFlowModuleVersion",
+    "description": "Grants permission to delete a version of a flow module in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "deletecontactflowversion": {
     "name": "DeleteContactFlowVersion",
     "description": "Grants permission to delete a version of a flow in an Amazon Connect instance",
@@ -1379,6 +1674,42 @@
       "aws:ResourceTag/${TagKey}",
       "connect:InstanceId",
       "connect:FlowType"
+    ],
+    "dependentActions": []
+  },
+  "deletedatatable": {
+    "name": "DeleteDataTable",
+    "description": "Grants permission to delete a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "deletedatatableattribute": {
+    "name": "DeleteDataTableAttribute",
+    "description": "Grants permission to delete an attribute of a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1805,6 +2136,60 @@
     ],
     "dependentActions": []
   },
+  "deleteworkspace": {
+    "name": "DeleteWorkspace",
+    "description": "Grants permission to delete a workspace in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "deleteworkspacemedia": {
+    "name": "DeleteWorkspaceMedia",
+    "description": "Grants permission to delete workspace media in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "deleteworkspacepage": {
+    "name": "DeleteWorkspacePage",
+    "description": "Grants permission to delete a workspace page in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "describeagentstatus": {
     "name": "DescribeAgentStatus",
     "description": "Grants permission to describe agent status in an Amazon Connect instance",
@@ -1904,6 +2289,60 @@
     "resourceTypes": [
       {
         "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "describecontactflowmodulealias": {
+    "name": "DescribeContactFlowModuleAlias",
+    "description": "Grants permission to describe an alias of a flow module version in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "describedatatable": {
+    "name": "DescribeDataTable",
+    "description": "Grants permission to describe a data table in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "describedatatableattribute": {
+    "name": "DescribeDataTableAttribute",
+    "description": "Grants permission to describe an attribute of a data table in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-table",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2331,6 +2770,24 @@
     ],
     "dependentActions": []
   },
+  "describeworkspace": {
+    "name": "DescribeWorkspace",
+    "description": "Grants permission to describe a workspace in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "disassociateanalyticsdataset": {
     "name": "DisassociateAnalyticsDataSet",
     "description": "Grants permission to revoke access and to disassociate a dataset with the specified AWS account",
@@ -2582,6 +3039,36 @@
     ],
     "dependentActions": []
   },
+  "disassociatesecurityprofiles": {
+    "name": "DisassociateSecurityProfiles",
+    "description": "Grants permission to disassociate security profiles with an AI agent in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "security-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "disassociatetrafficdistributiongroupuser": {
     "name": "DisassociateTrafficDistributionGroupUser",
     "description": "Grants permission to disassociate a user from a traffic distribution group in the specified Amazon Connect instance",
@@ -2635,6 +3122,24 @@
     ],
     "dependentActions": []
   },
+  "disassociateworkspace": {
+    "name": "DisassociateWorkspace",
+    "description": "Grants permission to disassociate a workspace from a user or routing profile in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "dismissusercontact": {
     "name": "DismissUserContact",
     "description": "Grants permission to dismiss terminated Contact from Agent CCP",
@@ -2650,6 +3155,25 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "evaluatedatatablevalues": {
+    "name": "EvaluateDataTableValues",
+    "description": "Grants permission to evaluate values in a data table in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
     ],
     "dependentActions": []
   },
@@ -2968,6 +3492,24 @@
     ],
     "dependentActions": []
   },
+  "importworkspacemedia": {
+    "name": "ImportWorkspaceMedia",
+    "description": "Grants permission to import workspace media in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listagentstatuses": {
     "name": "ListAgentStatuses",
     "description": "Grants permission to list agent statuses in an Amazon Connect instance",
@@ -3102,6 +3644,42 @@
     ],
     "dependentActions": []
   },
+  "listcontactflowmodulealiases": {
+    "name": "ListContactFlowModuleAliases",
+    "description": "Grants permission to list the aliases of a flow module in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listcontactflowmoduleversions": {
+    "name": "ListContactFlowModuleVersions",
+    "description": "Grants permission to list all the versions of a flow module in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listcontactflowmodules": {
     "name": "ListContactFlowModules",
     "description": "Grants permission to list contact flow module resources in an Amazon Connect instance",
@@ -3173,6 +3751,79 @@
     ],
     "dependentActions": []
   },
+  "listdatatableattributes": {
+    "name": "ListDataTableAttributes",
+    "description": "Grants permission to list attributes of a data table in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listdatatableprimaryvalues": {
+    "name": "ListDataTablePrimaryValues",
+    "description": "Grants permission to list primary values in a data table in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
+    ],
+    "dependentActions": []
+  },
+  "listdatatablevalues": {
+    "name": "ListDataTableValues",
+    "description": "Grants permission to list values in a data table in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
+    ],
+    "dependentActions": []
+  },
+  "listdatatables": {
+    "name": "ListDataTables",
+    "description": "Grants permission to list data tables in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listdefaultvocabularies": {
     "name": "ListDefaultVocabularies",
     "description": "Grants permission to list default vocabularies associated with a Amazon Connect instance",
@@ -3186,6 +3837,30 @@
       }
     ],
     "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listentitysecurityprofiles": {
+    "name": "ListEntitySecurityProfiles",
+    "description": "Grants permission to list security profiles associated with an entity in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "connect:InstanceId"
     ],
     "dependentActions": []
@@ -3629,6 +4304,30 @@
     ],
     "dependentActions": []
   },
+  "listsecurityprofileflowmodules": {
+    "name": "ListSecurityProfileFlowModules",
+    "description": "Grants permission to list flow modules associated with a security profile in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "security-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listsecurityprofilepermissions": {
     "name": "ListSecurityProfilePermissions",
     "description": "Grants permission to list permissions associated with security profile in an Amazon Connect instance",
@@ -3954,6 +4653,59 @@
     ],
     "dependentActions": []
   },
+  "listworkspacemedia": {
+    "name": "ListWorkspaceMedia",
+    "description": "Grants permission to list workspace media in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listworkspacepages": {
+    "name": "ListWorkspacePages",
+    "description": "Grants permission to list workspace pages in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listworkspaces": {
+    "name": "ListWorkspaces",
+    "description": "Grants permission to list workspaces in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "monitorcontact": {
     "name": "MonitorContact",
     "description": "Grants permission to monitor an ongoing contact",
@@ -4177,6 +4929,26 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "searchcontactevaluations": {
+    "name": "SearchContactEvaluations",
+    "description": "Grants permission to search evaluation resources in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeContactEvaluation"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "searchcontactflowmodules": {
     "name": "SearchContactFlowModules",
     "description": "Grants permission to search contact flow module resources in an Amazon Connect instance",
@@ -4240,6 +5012,26 @@
     ],
     "dependentActions": []
   },
+  "searchdatatables": {
+    "name": "SearchDataTables",
+    "description": "Grants permission to search data tables in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeDataTable"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "searchemailaddresses": {
     "name": "SearchEmailAddresses",
     "description": "Grants permission to search email address resources in an Amazon Connect instance",
@@ -4251,6 +5043,26 @@
         "conditionKeys": [],
         "dependentActions": [
           "connect:DescribeEmailAddress"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "searchevaluationforms": {
+    "name": "SearchEvaluationForms",
+    "description": "Grants permission to search evaluation forms resources in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeEvaluationForm"
         ]
       }
     ],
@@ -4485,6 +5297,26 @@
     ],
     "dependentActions": []
   },
+  "searchviews": {
+    "name": "SearchViews",
+    "description": "Grants permission to search views in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeView"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "searchvocabularies": {
     "name": "SearchVocabularies",
     "description": "Grants permission to search vocabularies in a Amazon Connect instance",
@@ -4499,6 +5331,44 @@
     ],
     "conditionKeys": [
       "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "searchworkspaceassociations": {
+    "name": "SearchWorkspaceAssociations",
+    "description": "Grants permission to search workspace associations in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "searchworkspaces": {
+    "name": "SearchWorkspaces",
+    "description": "Grants permission to search workspaces in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeWorkspace"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -4629,6 +5499,29 @@
       },
       {
         "name": "evaluation-form",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "startcontactmediaprocessing": {
+    "name": "StartContactMediaProcessing",
+    "description": "Grants permission to start message processing on an ongoing contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4887,6 +5780,29 @@
       "connect:ContactAssociationId",
       "connect:Channel",
       "connect:UserArn"
+    ],
+    "dependentActions": []
+  },
+  "stopcontactmediaprocessing": {
+    "name": "StopContactMediaProcessing",
+    "description": "Grants permission to stop message processing on an ongoing contact",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -5491,6 +6407,24 @@
     ],
     "dependentActions": []
   },
+  "updatecontactflowmodulealias": {
+    "name": "UpdateContactFlowModuleAlias",
+    "description": "Grants permission to update an alias of a flow module version in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "contact-flow-module",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "updatecontactflowmodulecontent": {
     "name": "UpdateContactFlowModuleContent",
     "description": "Grants permission to update contact flow module content in an Amazon Connect instance",
@@ -5583,6 +6517,61 @@
       "connect:ContactAssociationId",
       "connect:Channel",
       "connect:UserArn"
+    ],
+    "dependentActions": []
+  },
+  "updatedatatableattribute": {
+    "name": "UpdateDataTableAttribute",
+    "description": "Grants permission to update an attribute of a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updatedatatablemetadata": {
+    "name": "UpdateDataTableMetadata",
+    "description": "Grants permission to update metadata of a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updatedatatableprimaryvalues": {
+    "name": "UpdateDataTablePrimaryValues",
+    "description": "Grants permission to update primary values in a data table in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
+      "connect:PrimaryAttribute/${PrimaryAttribute}"
     ],
     "dependentActions": []
   },
@@ -6377,6 +7366,90 @@
     "resourceTypes": [
       {
         "name": "customer-managed-view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updateworkspacemetadata": {
+    "name": "UpdateWorkspaceMetadata",
+    "description": "Grants permission to update workspace metadata in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updateworkspacepage": {
+    "name": "UpdateWorkspacePage",
+    "description": "Grants permission to update a workspace page in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "aws-managed-view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "customer-managed-view",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updateworkspacetheme": {
+    "name": "UpdateWorkspaceTheme",
+    "description": "Grants permission to update workspace theme in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updateworkspacevisibility": {
+    "name": "UpdateWorkspaceVisibility",
+    "description": "Grants permission to update workspace visibility in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

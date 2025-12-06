@@ -115,6 +115,24 @@
     ],
     "dependentActions": []
   },
+  "createcapability": {
+    "name": "CreateCapability",
+    "description": "Grants permission to create a capability for an Amazon EKS cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcluster": {
     "name": "CreateCluster",
     "description": "Grants permission to create an Amazon EKS cluster",
@@ -228,6 +246,21 @@
       {
         "name": "podidentityassociation",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecapability": {
+    "name": "DeleteCapability",
+    "description": "Grants permission to delete a capability from an Amazon EKS cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -368,6 +401,21 @@
     "description": "Grants permission to retrieve descriptive version information about the add-ons that Amazon EKS Add-ons supports",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecapability": {
+    "name": "DescribeCapability",
+    "description": "Grants permission to describe a capability for an Amazon EKS cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -517,6 +565,12 @@
         "dependentActions": []
       },
       {
+        "name": "capability",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "nodegroup",
         "required": false,
         "conditionKeys": [],
@@ -605,6 +659,21 @@
     "resourceTypes": [
       {
         "name": "access-entry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcapabilities": {
+    "name": "ListCapabilities",
+    "description": "Grants permission to list capabilities for an Amazon EKS cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -746,6 +815,12 @@
         "dependentActions": []
       },
       {
+        "name": "capability",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "cluster",
         "required": false,
         "conditionKeys": [],
@@ -798,6 +873,12 @@
       },
       {
         "name": "addon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "capability",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -874,6 +955,12 @@
         "dependentActions": []
       },
       {
+        "name": "capability",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "cluster",
         "required": false,
         "conditionKeys": [],
@@ -935,6 +1022,12 @@
       },
       {
         "name": "addon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "capability",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1016,6 +1109,21 @@
       {
         "name": "podidentityassociation",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecapability": {
+    "name": "UpdateCapability",
+    "description": "Grants permission to update a capability for an Amazon EKS cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capability",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

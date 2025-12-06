@@ -42,6 +42,13 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "data-table": {
+    "key": "data-table",
+    "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/data-table/${DataTableId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "queue": {
     "key": "queue",
     "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/queue/${QueueId}",
@@ -224,6 +231,17 @@
   "email-address": {
     "key": "email-address",
     "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/email-address/${EmailAddressId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "ai-agent": {
+    "key": "ai-agent",
+    "arn": "arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId}:${Version}"
+  },
+  "workspace": {
+    "key": "workspace",
+    "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/workspace/${WorkspaceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

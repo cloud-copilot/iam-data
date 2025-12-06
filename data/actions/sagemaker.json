@@ -242,6 +242,12 @@
         "dependentActions": []
       },
       {
+        "name": "mlflow-app",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "mlflow-tracking-server",
         "required": false,
         "conditionKeys": [],
@@ -539,6 +545,21 @@
       },
       {
         "name": "training-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "callmlflowappapi": {
+    "name": "CallMlflowAppApi",
+    "description": "Grants permission to invoke MLflow APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-app",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1413,6 +1434,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createmlflowapp": {
+    "name": "CreateMlflowApp",
+    "description": "Grants permission to create an MLflow app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole",
+          "sagemaker:AddTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createmlflowtrackingserver": {
     "name": "CreateMlflowTrackingServer",
     "description": "Grants permission to create an MLflow tracking server",
@@ -1797,6 +1839,21 @@
     "resourceTypes": [
       {
         "name": "user-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpresignedmlflowappurl": {
+    "name": "CreatePresignedMlflowAppUrl",
+    "description": "Grants permission to return a URL that you can use from your browser to connect to the MLflow app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-app",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2700,6 +2757,21 @@
     "description": "Grants permission to delete a lineage group policy",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemlflowapp": {
+    "name": "DeleteMlflowApp",
+    "description": "Grants permission to delete an MLflow app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -4072,6 +4144,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describemlflowapp": {
+    "name": "DescribeMlflowApp",
+    "description": "Grants permission to get information about an MLflow app",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "mlflow-app",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describemlflowtrackingserver": {
     "name": "DescribeMlflowTrackingServer",
     "description": "Grants permission to get information about an MLflow tracking server",
@@ -5229,6 +5316,14 @@
   "listlineagegroups": {
     "name": "ListLineageGroups",
     "description": "Grants permission to list lineage groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmlflowapps": {
+    "name": "ListMlflowApps",
+    "description": "Grants permission to list SageMaker MLflow Apps in your account",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -7047,6 +7142,21 @@
     "resourceTypes": [
       {
         "name": "inference-experiment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemlflowapp": {
+    "name": "UpdateMlflowApp",
+    "description": "Grants permission to update an MLflow app",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlflow-app",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

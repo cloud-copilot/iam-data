@@ -106,6 +106,17 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createconnectionfunction": {
+    "name": "CreateConnectionFunction",
+    "description": "Grants permission to create a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createconnectiongroup": {
     "name": "CreateConnectionGroup",
     "description": "Grants permission to create a connection group",
@@ -299,6 +310,17 @@
     ],
     "dependentActions": []
   },
+  "createtruststore": {
+    "name": "CreateTrustStore",
+    "description": "Grants permission to create a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createvpcorigin": {
     "name": "CreateVpcOrigin",
     "description": "Grants permission to create a VPC origin",
@@ -347,6 +369,21 @@
     "resourceTypes": [
       {
         "name": "origin-access-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnectionfunction": {
+    "name": "DeleteConnectionFunction",
+    "description": "Grants permission to delete a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -589,6 +626,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletetruststore": {
+    "name": "DeleteTrustStore",
+    "description": "Grants permission to delete a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletevpcorigin": {
     "name": "DeleteVpcOrigin",
     "description": "Grants permission to delete a VPC origin",
@@ -596,6 +648,21 @@
     "resourceTypes": [
       {
         "name": "vpcorigin",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconnectionfunction": {
+    "name": "DescribeConnectionFunction",
+    "description": "Grants permission to get a connection function summary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -731,6 +798,21 @@
     "resourceTypes": [
       {
         "name": "origin-access-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnectionfunction": {
+    "name": "GetConnectionFunction",
+    "description": "Grants permission to get a connection function's code",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1178,6 +1260,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "gettruststore": {
+    "name": "GetTrustStore",
+    "description": "Grants permission to get information about a trust store",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getvpcorigin": {
     "name": "GetVpcOrigin",
     "description": "Grants permission to get the information about a VPC origin",
@@ -1229,6 +1326,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectionfunctions": {
+    "name": "ListConnectionFunctions",
+    "description": "Grants permission to list the connection functions in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1288,6 +1393,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdistributionsbyconnectionfunction": {
+    "name": "ListDistributionsByConnectionFunction",
+    "description": "Grants permission to list summaries for distributions associated with the specified connection function",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdistributionsbyconnectionmode": {
     "name": "ListDistributionsByConnectionMode",
     "description": "Grants permission to list the distributions by the specified connection mode",
@@ -1334,6 +1454,21 @@
     "description": "Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified response headers policy",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdistributionsbytruststore": {
+    "name": "ListDistributionsByTrustStore",
+    "description": "Grants permission to list summaries for distributions associated with the specified trust store",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1522,6 +1657,12 @@
         "dependentActions": []
       },
       {
+        "name": "connection-function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "connection-group",
         "required": false,
         "conditionKeys": [],
@@ -1540,12 +1681,26 @@
         "dependentActions": []
       },
       {
+        "name": "trust-store",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "vpcorigin",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtruststores": {
+    "name": "ListTrustStores",
+    "description": "Grants permission to list the trust stores in your AWS account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1563,6 +1718,21 @@
     "description": "Grants permission to list VPC origins",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishconnectionfunction": {
+    "name": "PublishConnectionFunction",
+    "description": "Grants permission to publish a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1608,6 +1778,12 @@
         "dependentActions": []
       },
       {
+        "name": "connection-function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "connection-group",
         "required": false,
         "conditionKeys": [],
@@ -1632,6 +1808,12 @@
         "dependentActions": []
       },
       {
+        "name": "trust-store",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "vpcorigin",
         "required": false,
         "conditionKeys": [],
@@ -1642,6 +1824,21 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "testconnectionfunction": {
+    "name": "TestConnectionFunction",
+    "description": "Grants permission to test a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "testfunction": {
@@ -1671,6 +1868,12 @@
         "dependentActions": []
       },
       {
+        "name": "connection-function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "connection-group",
         "required": false,
         "conditionKeys": [],
@@ -1690,6 +1893,12 @@
       },
       {
         "name": "streaming-distribution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "trust-store",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1743,6 +1952,21 @@
     "resourceTypes": [
       {
         "name": "origin-access-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnectionfunction": {
+    "name": "UpdateConnectionFunction",
+    "description": "Grants permission to update a connection function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection-function",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1992,6 +2216,21 @@
     "resourceTypes": [
       {
         "name": "streaming-distribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetruststore": {
+    "name": "UpdateTrustStore",
+    "description": "Grants permission to update a trust store",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "trust-store",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -1,4 +1,8 @@
 {
+  "bridge": {
+    "key": "Bridge",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:bridge:${BridgeId}:${BridgeName}"
+  },
   "entitlement": {
     "key": "Entitlement",
     "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:entitlement:${FlowId}:${EntitlementName}",
@@ -13,9 +17,46 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "gateway": {
+    "key": "Gateway",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName}"
+  },
+  "gatewayinstance": {
+    "key": "GatewayInstance",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName}:instance:${InstanceId}"
+  },
+  "offering": {
+    "key": "Offering",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:offering:${OfferingId}"
+  },
   "output": {
     "key": "Output",
     "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:output:${OutputId}:${OutputName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "reservation": {
+    "key": "Reservation",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:reservation:${ReservationId}:${ReservationName}"
+  },
+  "routerinput": {
+    "key": "RouterInput",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:routerInput:${RouterInputId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routernetworkinterface": {
+    "key": "RouterNetworkInterface",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:routerNetworkInterface:${RouterNetworkInterfaceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routeroutput": {
+    "key": "RouterOutput",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:routerOutput:${RouterOutputId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -26,17 +67,5 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
-  },
-  "gateway": {
-    "key": "Gateway",
-    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName}"
-  },
-  "bridge": {
-    "key": "Bridge",
-    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:bridge:${FlowId}:${FlowName}"
-  },
-  "gatewayinstance": {
-    "key": "GatewayInstance",
-    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName}:instance:${InstanceId}"
   }
 }

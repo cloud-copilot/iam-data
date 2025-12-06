@@ -20,6 +20,43 @@
     ],
     "dependentActions": []
   },
+  "creates3tableintegration": {
+    "name": "CreateS3TableIntegration",
+    "description": "Grants permission to create a new s3 table integration with the specified configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "s3tableintegration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createtelemetrypipeline": {
+    "name": "CreateTelemetryPipeline",
+    "description": "Grants permission to create a new telemetry pipeline with the specified name and configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "telemetry-pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}",
+      "observabilityadmin:SourceType"
+    ],
+    "dependentActions": []
+  },
   "createtelemetryrule": {
     "name": "CreateTelemetryRule",
     "description": "Grants permission to create a new telemetry rule with the specified name for the account",
@@ -63,6 +100,36 @@
     "resourceTypes": [
       {
         "name": "organization-centralization-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletes3tableintegration": {
+    "name": "DeleteS3TableIntegration",
+    "description": "Grants permission to delete the s3 table integration with the specified arn",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "s3tableintegration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetelemetrypipeline": {
+    "name": "DeleteTelemetryPipeline",
+    "description": "Grants permission to delete the telemetry pipeline with the specified arn",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "telemetry-pipeline",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -116,6 +183,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "gets3tableintegration": {
+    "name": "GetS3TableIntegration",
+    "description": "Grants permission to retrieve the specified s3 table integration for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "s3tableintegration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "gettelemetryenrichmentstatus": {
     "name": "GetTelemetryEnrichmentStatus",
     "description": "Grants permission to retrieve the status of the Resource tags for telemetry feature for the account",
@@ -137,6 +219,21 @@
     "description": "Grants permission to retrieve the Telemetry Config feature status for the organization",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettelemetrypipeline": {
+    "name": "GetTelemetryPipeline",
+    "description": "Grants permission to Get the telemetry pipeline with the specified name or arn",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "telemetry-pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -194,6 +291,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "lists3tableintegrations": {
+    "name": "ListS3TableIntegrations",
+    "description": "Grants permission to list s3 table integrations for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list the tags for the specified resource",
@@ -212,12 +317,32 @@
         "dependentActions": []
       },
       {
+        "name": "s3tableintegration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "telemetry-pipeline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "telemetry-rule",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtelemetrypipelines": {
+    "name": "ListTelemetryPipelines",
+    "description": "Grants permission to List telemetry pipelines for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -303,6 +428,18 @@
         "dependentActions": []
       },
       {
+        "name": "s3tableintegration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "telemetry-pipeline",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "telemetry-rule",
         "required": false,
         "conditionKeys": [],
@@ -313,6 +450,14 @@
       "aws:TagKeys",
       "aws:RequestTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "testtelemetrypipeline": {
+    "name": "TestTelemetryPipeline",
+    "description": "Grants permission to Test a telemetry pipeline configuration with sample data",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "untagresource": {
@@ -328,6 +473,18 @@
       },
       {
         "name": "organization-telemetry-rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "s3tableintegration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "telemetry-pipeline",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -363,6 +520,21 @@
     ],
     "dependentActions": []
   },
+  "updatetelemetrypipeline": {
+    "name": "UpdateTelemetryPipeline",
+    "description": "Grants permission to Update the telemetry pipeline with the specified arn",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "telemetry-pipeline",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatetelemetryrule": {
     "name": "UpdateTelemetryRule",
     "description": "Grants permission to update the specified telemetry rule for the account",
@@ -390,6 +562,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "validatetelemetrypipelineconfiguration": {
+    "name": "ValidateTelemetryPipelineConfiguration",
+    "description": "Grants permission to Validate a telemetry pipeline configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   }

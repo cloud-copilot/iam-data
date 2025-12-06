@@ -11,7 +11,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "s3vectors:sseType",
+      "s3vectors:kmsKeyArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createvectorbucket": {
@@ -28,7 +35,11 @@
     ],
     "conditionKeys": [
       "s3vectors:sseType",
-      "s3vectors:kmsKeyArn"
+      "s3vectors:kmsKeyArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -44,7 +55,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletevectorbucket": {
@@ -59,7 +73,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletevectorbucketpolicy": {
@@ -74,7 +91,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletevectors": {
@@ -89,7 +109,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getindex": {
@@ -104,7 +127,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getvectorbucket": {
@@ -119,7 +145,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getvectorbucketpolicy": {
@@ -134,7 +163,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getvectors": {
@@ -149,7 +181,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listindexes": {
@@ -164,7 +199,34 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for specified S3Vector resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VectorBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listvectorbuckets": {
@@ -184,13 +246,16 @@
         "name": "Index",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "s3vectors:GetVectors"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "s3vectors:GetVectors"
-    ]
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
   },
   "putvectorbucketpolicy": {
     "name": "PutVectorBucketPolicy",
@@ -204,7 +269,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "putvectors": {
@@ -219,7 +287,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "queryvectors": {
@@ -231,12 +302,66 @@
         "name": "Index",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": [
+          "s3vectors:GetVectors"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a S3Vector resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VectorBucket",
+        "required": false,
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "s3vectors:GetVectors"
-    ]
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a S3Vector resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Index",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "VectorBucket",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ],
+    "dependentActions": []
   }
 }

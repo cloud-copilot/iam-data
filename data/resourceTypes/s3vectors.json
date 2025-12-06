@@ -1,10 +1,18 @@
 {
   "index": {
     "key": "Index",
-    "arn": "arn:${Partition}:s3vectors:${Region}:${Account}:bucket/${BucketName}/index/${IndexName}"
+    "arn": "arn:${Partition}:s3vectors:${Region}:${Account}:bucket/${BucketName}/index/${IndexName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ]
   },
   "vectorbucket": {
     "key": "VectorBucket",
-    "arn": "arn:${Partition}:s3vectors:${Region}:${Account}:bucket/${BucketName}"
+    "arn": "arn:${Partition}:s3vectors:${Region}:${Account}:bucket/${BucketName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3vectors:VectorBucketTag/${TagKey}"
+    ]
   }
 }
