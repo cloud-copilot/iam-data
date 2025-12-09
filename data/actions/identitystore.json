@@ -508,6 +508,25 @@
     ],
     "dependentActions": []
   },
+  "reserveuser": {
+    "name": "ReserveUser",
+    "description": "Grants permission to reserve a user by getting a userId",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Identitystore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "kms:Decrypt"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "identitystore:PrimaryRegion"
+    ],
+    "dependentActions": []
+  },
   "updategroup": {
     "name": "UpdateGroup",
     "description": "Grants permission to update information about a group in the specified IdentityStore",

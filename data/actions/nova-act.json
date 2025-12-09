@@ -1,0 +1,276 @@
+{
+  "createact": {
+    "name": "CreateAct",
+    "description": "Grants permission to create a new AI task (act) within a session that can interact with tools and perform specific actions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsession": {
+    "name": "CreateSession",
+    "description": "Grants permission to create a new session context within a workflow run to manage conversation state and acts",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createworkflowdefinition": {
+    "name": "CreateWorkflowDefinition",
+    "description": "Grants permission to create a new workflow definition template that can be used to execute multiple workflow runs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createworkflowrun": {
+    "name": "CreateWorkflowRun",
+    "description": "Grants permission to create a new execution instance of a workflow definition with specified parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkflowdefinition": {
+    "name": "DeleteWorkflowDefinition",
+    "description": "Grants permission to delete a workflow definition and all associated resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkflowrun": {
+    "name": "DeleteWorkflowRun",
+    "description": "Grants permission to terminate and clean up a workflow run, stopping all associated acts and sessions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getworkflowdefinition": {
+    "name": "GetWorkflowDefinition",
+    "description": "Grants permission to retrieve details and configuration of a specific workflow definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getworkflowrun": {
+    "name": "GetWorkflowRun",
+    "description": "Grants permission to retrieve the current state, configuration, and execution details of a workflow run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeactstep": {
+    "name": "InvokeActStep",
+    "description": "Grants permission to execute the next step of an act, processing tool call results and returning new tool calls if needed",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listacts": {
+    "name": "ListActs",
+    "description": "Grants permission to list all acts within a specific session with their current status and execution details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmodels": {
+    "name": "ListModels",
+    "description": "Grants permission to list all available AI models that can be used for workflow execution, including their status and compatibility information",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsessions": {
+    "name": "ListSessions",
+    "description": "Grants permission to list all sessions within a specific workflow run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkflowdefinitions": {
+    "name": "ListWorkflowDefinitions",
+    "description": "Grants permission to list all workflow definitions in your account with optional filtering and pagination",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkflowruns": {
+    "name": "ListWorkflowRuns",
+    "description": "Grants permission to list all workflow runs for a specific workflow definition with optional filtering and pagination",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateact": {
+    "name": "UpdateAct",
+    "description": "Grants permission to update an existing act's configuration, status, or error information",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateworkflowrun": {
+    "name": "UpdateWorkflowRun",
+    "description": "Grants permission to update the configuration or state of an active workflow run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workflow-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow-run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

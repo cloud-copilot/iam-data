@@ -1,0 +1,252 @@
+{
+  "associateaccounts": {
+    "name": "AssociateAccounts",
+    "description": "Grants permission to associate member accounts with the management account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createautomationrule": {
+    "name": "CreateAutomationRule",
+    "description": "Grants permission to create automation rule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteautomationrule": {
+    "name": "DeleteAutomationRule",
+    "description": "Grants permission to delete automation rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AutomationRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "disassociateaccounts": {
+    "name": "DisassociateAccounts",
+    "description": "Grants permission to disassociate member accounts from the management account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomationevent": {
+    "name": "GetAutomationEvent",
+    "description": "Grants permission to get automation event details",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautomationrule": {
+    "name": "GetAutomationRule",
+    "description": "Grants permission to get automation rule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AutomationRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getenrollmentconfiguration": {
+    "name": "GetEnrollmentConfiguration",
+    "description": "Grants permission to get enrollment configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccounts": {
+    "name": "ListAccounts",
+    "description": "Grants permission to list the accounts in your organization that are enrolled in Compute Optimizer and whether they have enabled the Automation feature",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationeventsteps": {
+    "name": "ListAutomationEventSteps",
+    "description": "Grants permission to list automation event steps",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationeventsummaries": {
+    "name": "ListAutomationEventSummaries",
+    "description": "Grants permission to list automation event summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationevents": {
+    "name": "ListAutomationEvents",
+    "description": "Grants permission to list automation events",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationrulepreview": {
+    "name": "ListAutomationRulePreview",
+    "description": "Grants permission to list automation rule preview results",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVolumes"
+    ]
+  },
+  "listautomationrulepreviewsummaries": {
+    "name": "ListAutomationRulePreviewSummaries",
+    "description": "Grants permission to list automation rule preview summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationrules": {
+    "name": "ListAutomationRules",
+    "description": "Grants permission to list automation rules",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecommendedactionsummaries": {
+    "name": "ListRecommendedActionSummaries",
+    "description": "Grants permission to list recommended action summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecommendedactions": {
+    "name": "ListRecommendedActions",
+    "description": "Grants permission to list recommended actions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DescribeVolumes"
+    ]
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for automation rule",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AutomationRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "rollbackautomationevent": {
+    "name": "RollbackAutomationEvent",
+    "description": "Grants permission to initiate a rollback for an automation event",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startautomationevent": {
+    "name": "StartAutomationEvent",
+    "description": "Grants permission to initiate an on-demand automation for a recommended action",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to automation rule",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AutomationRule",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from automation rule",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "AutomationRule",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateautomationrule": {
+    "name": "UpdateAutomationRule",
+    "description": "Grants permission to update automation rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AutomationRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateenrollmentconfiguration": {
+    "name": "UpdateEnrollmentConfiguration",
+    "description": "Grants permission to update enrollment configuration for the Compute Optimizer automation feature",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}
