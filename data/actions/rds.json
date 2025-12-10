@@ -54,6 +54,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "auto-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "cev",
         "required": false,
         "conditionKeys": [],
@@ -61,6 +67,12 @@
       },
       {
         "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster-auto-backup",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2184,6 +2196,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "auto-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "cev",
         "required": false,
         "conditionKeys": [],
@@ -2191,6 +2209,12 @@
       },
       {
         "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster-auto-backup",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2755,7 +2779,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "rds:AddTagsToResource"
+    ]
   },
   "promotereadreplicadbcluster": {
     "name": "PromoteReadReplicaDBCluster",
@@ -2931,6 +2957,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "auto-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "cev",
         "required": false,
         "conditionKeys": [],
@@ -2938,6 +2970,12 @@
       },
       {
         "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster-auto-backup",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3491,7 +3529,9 @@
         "name": "auto-backup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "rds:AddTagsToResource"
+        ]
       },
       {
         "name": "db",
@@ -3500,7 +3540,11 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "rds:req-tag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "startexporttask": {
