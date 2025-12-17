@@ -2115,7 +2115,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "automation-definition",
+        "name": "automation-execution",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2125,11 +2125,19 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "automation-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ssm:DocumentVersion"
     ],
     "dependentActions": []
   },
@@ -2139,7 +2147,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "automation-definition",
+        "name": "automation-execution",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2149,12 +2157,20 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "automation-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
-      "ssm:AutoApprove"
+      "ssm:AutoApprove",
+      "ssm:DocumentVersion"
     ],
     "dependentActions": []
   },

@@ -1,7 +1,7 @@
 {
   "completetransformationpackageupload": {
     "name": "CompleteTransformationPackageUpload",
-    "description": "Grants permission to invoke CompleteTransformationPackageUpload on AWS Transform Custom",
+    "description": "Grants permission to invoke CompleteTransformationPackageUpload on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -11,12 +11,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "conversestream": {
     "name": "ConverseStream",
-    "description": "Grants permission to invoke ConverseStream on AWS Transform Custom",
+    "description": "Grants permission to invoke ConverseStream on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -24,7 +26,7 @@
   },
   "createcampaign": {
     "name": "CreateCampaign",
-    "description": "Grants permission to invoke CreateCampaign on AWS Transform Custom",
+    "description": "Grants permission to invoke CreateCampaign on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -34,12 +36,16 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createtransformationpackageurl": {
     "name": "CreateTransformationPackageUrl",
-    "description": "Grants permission to invoke CompleteTransformationPackageUrl on AWS Transform Custom",
+    "description": "Grants permission to invoke CreateTransformationPackageUrl on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -49,12 +55,16 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "deletecampaign": {
     "name": "DeleteCampaign",
-    "description": "Grants permission to invoke DeleteCampaign on AWS Transform Custom",
+    "description": "Grants permission to invoke DeleteCampaign on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -64,12 +74,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deleteknowledgeitem": {
     "name": "DeleteKnowledgeItem",
-    "description": "Grants permission to invoke DeleteKnowledgeItem on AWS Transform Custom",
+    "description": "Grants permission to invoke DeleteKnowledgeItem on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -79,12 +91,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletetransformationpackage": {
     "name": "DeleteTransformationPackage",
-    "description": "Grants permission to invoke DeleteTransformationPackage on AWS Transform Custom",
+    "description": "Grants permission to invoke DeleteTransformationPackage on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -94,12 +108,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "executetransformation": {
     "name": "ExecuteTransformation",
-    "description": "Grants permission to invoke ExecuteTransformation on AWS Transform Custom",
+    "description": "Grants permission to invoke ExecuteTransformation on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -109,12 +125,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getcampaign": {
     "name": "GetCampaign",
-    "description": "Grants permission to invoke GetCampaign on AWS Transform Custom",
+    "description": "Grants permission to invoke GetCampaign on AWS Transform custom",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -124,12 +142,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getknowledgeitem": {
     "name": "GetKnowledgeItem",
-    "description": "Grants permission to invoke GetKnowledgeItem on AWS Transform Custom",
+    "description": "Grants permission to invoke GetKnowledgeItem on AWS Transform custom",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -139,12 +159,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "gettransformationpackageurl": {
     "name": "GetTransformationPackageUrl",
-    "description": "Grants permission to invoke GetTransformationPackageUrl on AWS Transform Custom",
+    "description": "Grants permission to invoke GetTransformationPackageUrl on AWS Transform custom",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -154,36 +176,47 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listcampaignrepositories": {
     "name": "ListCampaignRepositories",
-    "description": "Grants permission to invoke ListCampaignRepositories on AWS Transform Custom",
+    "description": "Grants permission to invoke ListCampaignRepositories on AWS Transform custom",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listcampaigns": {
     "name": "ListCampaigns",
-    "description": "Grants permission to invoke ListCampaign on AWS Transform Custom",
-    "accessLevel": "Read",
+    "description": "Grants permission to invoke ListCampaign on AWS Transform custom",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
   "listknowledgeitems": {
     "name": "ListKnowledgeItems",
-    "description": "Grants permission to invoke ListKnowledgeItems on AWS Transform Custom",
-    "accessLevel": "Read",
+    "description": "Grants permission to invoke ListKnowledgeItems on AWS Transform custom",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "description": "Grants permission to invoke ListTagsForResource on AWS Transform Custom",
+    "description": "Grants permission to invoke ListTagsForResource on AWS Transform custom",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -191,28 +224,67 @@
   },
   "listtransformationpackagemetadata": {
     "name": "ListTransformationPackageMetadata",
-    "description": "Grants permission to invoke ListTransformationPackageMetadata on AWS Transform Custom",
-    "accessLevel": "Read",
+    "description": "Grants permission to invoke ListTransformationPackageMetadata on AWS Transform custom",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
-    "description": "Grants permission to invoke TagResource on AWS Transform Custom",
+    "description": "Grants permission to invoke TagResource on AWS Transform custom",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-item",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "package",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
-    "description": "Grants permission to invoke UntagResource on AWS Transform Custom",
+    "description": "Grants permission to invoke UntagResource on AWS Transform custom",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-item",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "package",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:TagKeys"
     ],
@@ -220,7 +292,7 @@
   },
   "updatecampaign": {
     "name": "UpdateCampaign",
-    "description": "Grants permission to invoke UpdateCampaign on AWS Transform Custom",
+    "description": "Grants permission to invoke UpdateCampaign on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -230,12 +302,14 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updatecampaignrepositorystatus": {
     "name": "UpdateCampaignRepositoryStatus",
-    "description": "Grants permission to invoke UpdateCampaignRepositories on AWS Transform Custom",
+    "description": "Grants permission to invoke UpdateCampaignRepositories on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -245,20 +319,31 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updateknowledgeitemconfiguration": {
     "name": "UpdateKnowledgeItemConfiguration",
-    "description": "Grants permission to invoke UpdateKnowledgeItemConfiguration on AWS Transform Custom",
+    "description": "Grants permission to invoke UpdateKnowledgeItemConfiguration on AWS Transform custom",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updateknowledgeitemstatus": {
     "name": "UpdateKnowledgeItemStatus",
-    "description": "Grants permission to invoke UpdateKnowledgeItemStatus on AWS Transform Custom",
+    "description": "Grants permission to invoke UpdateKnowledgeItemStatus on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -268,7 +353,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   }
 }

@@ -1,18 +1,23 @@
 {
   "campaign": {
     "key": "campaign",
-    "arn": "arn:${Partition}:transform-custom:${Region}:${Account}:campaign/${Name}"
-  },
-  "conversation": {
-    "key": "conversation",
-    "arn": "arn:${Partition}:transform-custom:${Region}:${Account}:conversation/${ConversationId}"
+    "arn": "arn:${Partition}:transform-custom:${Region}:${Account}:campaign/${Name}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "knowledge-item": {
     "key": "knowledge-item",
-    "arn": "arn:${Partition}:transform-custom:${Region}:${Account}:package/${TransformationPackageName}/knowledge-item/${Id}"
+    "arn": "arn:${Partition}:transform-custom:${Region}:${Account}:package/${TransformationPackageName}/knowledge-item/${Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "package": {
     "key": "package",
-    "arn": "arn:${Partition}:transform-custom:${Region}:${Account}:package/${Name}"
+    "arn": "arn:${Partition}:transform-custom:${Region}:${Account}:package/${Name}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }
