@@ -193,6 +193,44 @@
     ],
     "dependentActions": []
   },
+  "rebootdbcluster": {
+    "name": "RebootDbCluster",
+    "description": "Grants permission to reboot a Timestream InfluxDB Cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "timestream-influxdb:RebootDbInstance"
+        ]
+      },
+      {
+        "name": "db-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rebootdbinstance": {
+    "name": "RebootDbInstance",
+    "description": "Grants permission to reboot a Timestream InfluxDB instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a Timestream InfluxDB resource",
