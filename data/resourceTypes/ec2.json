@@ -66,6 +66,7 @@
       "ec2:AvailabilityZone",
       "ec2:AvailabilityZoneId",
       "ec2:CapacityReservationFleet",
+      "ec2:CommitmentDuration",
       "ec2:CreateDate",
       "ec2:DestinationCapacityReservationId",
       "ec2:EbsOptimized",
@@ -76,6 +77,9 @@
       "ec2:InstanceMatchCriteria",
       "ec2:InstancePlatform",
       "ec2:InstanceType",
+      "ec2:InterruptibleCapacityReservationId",
+      "ec2:InterruptionType",
+      "ec2:IsInterruptible",
       "ec2:IsLaunchTemplateResource",
       "ec2:LaunchTemplate",
       "ec2:OutpostArn",
@@ -83,6 +87,7 @@
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}",
       "ec2:SourceCapacityReservationId",
+      "ec2:TargetInstanceCount",
       "ec2:Tenancy"
     ]
   },
@@ -419,9 +424,48 @@
       "ec2:ResourceTag/${TagKey}"
     ]
   },
+  "ipam-policy": {
+    "key": "ipam-policy",
+    "arn": "arn:${Partition}:ec2::${Account}:ipam-policy/${IpamPolicyId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "ipam-pool": {
     "key": "ipam-pool",
     "arn": "arn:${Partition}:ec2::${Account}:ipam-pool/${IpamPoolId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
+  "ipam-prefix-list-resolver": {
+    "key": "ipam-prefix-list-resolver",
+    "arn": "arn:${Partition}:ec2::${Account}:ipam-prefix-list-resolver/${IpamPrefixListResolverId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
+  "ipam-prefix-list-resolver-target": {
+    "key": "ipam-prefix-list-resolver-target",
+    "arn": "arn:${Partition}:ec2::${Account}:ipam-prefix-list-resolver-target/${IpamPrefixListResolverTargetId}",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -623,7 +667,8 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "ec2:Region",
-      "ec2:ResourceTag/${TagKey}"
+      "ec2:ResourceTag/${TagKey}",
+      "ec2:Vpc"
     ]
   },
   "network-acl": {
@@ -742,6 +787,7 @@
       "aws:TagKeys",
       "ec2:Attribute",
       "ec2:Attribute/${AttributeName}",
+      "ec2:IpamPrefixListResolverTargetId",
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}"
     ]
@@ -1036,6 +1082,19 @@
       "ec2:transitGatewayId"
     ]
   },
+  "transit-gateway-metering-policy": {
+    "key": "transit-gateway-metering-policy",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:transit-gateway-metering-policy/${TransitGatewayMeteringPolicyId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}",
+      "ec2:transitGatewayMeteringPolicyId"
+    ]
+  },
   "transit-gateway-multicast-domain": {
     "key": "transit-gateway-multicast-domain",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:transit-gateway-multicast-domain/${TransitGatewayMulticastDomainId}",
@@ -1200,6 +1259,18 @@
       "ec2:ResourceTag/${TagKey}"
     ]
   },
+  "vpc-encryption-control": {
+    "key": "vpc-encryption-control",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:vpc-encryption-control/${VpcEncryptionControlId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "vpc-endpoint-connection": {
     "key": "vpc-endpoint-connection",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:vpc-endpoint-connection/${VpcEndpointConnectionId}",
@@ -1223,6 +1294,8 @@
       "ec2:Region",
       "ec2:ResourceTag/${TagKey}",
       "ec2:VpceMultiRegion",
+      "ec2:VpcePrivateDnsPreference",
+      "ec2:VpcePrivateDnsSpecifiedDomains",
       "ec2:VpceServiceName",
       "ec2:VpceServiceOwner",
       "ec2:VpceServiceRegion"
@@ -1298,6 +1371,17 @@
       "ec2:RequesterVpc",
       "ec2:ResourceTag/${TagKey}",
       "ec2:VpcPeeringConnectionID"
+    ]
+  },
+  "vpn-concentrator": {
+    "key": "vpn-concentrator",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:vpn-concentrator/${VpnConcentratorId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
     ]
   },
   "vpn-connection-device-type": {

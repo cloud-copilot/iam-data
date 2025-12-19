@@ -1107,6 +1107,27 @@
     ],
     "dependentActions": []
   },
+  "attachappliancetonatgateway": {
+    "name": "AttachApplianceToNatGateway",
+    "isPermissionOnly": true,
+    "description": "Grants permission to attach an appliance with a public/private Natgateway",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "natgateway",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "attachclassiclinkvpc": {
     "name": "AttachClassicLinkVpc",
     "description": "Grants permission to link an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's security groups",
@@ -2399,6 +2420,16 @@
         ]
       },
       {
+        "name": "natgateway",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "network-interface",
         "required": false,
         "conditionKeys": [
@@ -2728,6 +2759,44 @@
     ],
     "dependentActions": []
   },
+  "createinterruptiblecapacityreservationallocation": {
+    "name": "CreateInterruptibleCapacityReservationAllocation",
+    "description": "Grants permission to create an interruptible Capacity Reservation by specifying the number of unused instances you want to allocate from your source reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:CreateDate",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:InterruptibleCapacityReservationId",
+          "ec2:InterruptionType",
+          "ec2:IsInterruptible",
+          "ec2:SourceCapacityReservationId",
+          "ec2:TargetInstanceCount",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createipam": {
     "name": "CreateIpam",
     "description": "Grants permission to create an Amazon VPC IP Address Manager (IPAM)",
@@ -2782,6 +2851,37 @@
     ],
     "dependentActions": []
   },
+  "createipampolicy": {
+    "name": "CreateIpamPolicy",
+    "description": "Grants permission to create a policy in Amazon VPC IP Address Manager (IPAM) that defines rules for allocating public IPv4 addresses from IPAM pools to AWS resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "ipam-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createipampool": {
     "name": "CreateIpamPool",
     "description": "Grants permission to create an IP address pool for Amazon VPC IP Address Manager (IPAM), which is a collection of contiguous IP address CIDRs",
@@ -2804,6 +2904,77 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createipamprefixlistresolver": {
+    "name": "CreateIpamPrefixListResolver",
+    "description": "Grants permission to create an IPAM prefix list resolver that defines rules for selecting CIDRs to include in prefix lists",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-scope",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createipamprefixlistresolvertarget": {
+    "name": "CreateIpamPrefixListResolverTarget",
+    "description": "Grants permission to create an IPAM prefix list resolver target that links a resolver to a managed prefix list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "ipam-prefix-list-resolver-target",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
@@ -3276,8 +3447,20 @@
         ]
       },
       {
+        "name": "elastic-ip",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AllocationId",
+          "ec2:Domain",
+          "ec2:PublicIpAddress",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "subnet",
-        "required": true,
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZone",
@@ -3289,14 +3472,15 @@
         "dependentActions": []
       },
       {
-        "name": "elastic-ip",
+        "name": "vpc",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:AllocationId",
-          "ec2:Domain",
-          "ec2:PublicIpAddress",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -3571,6 +3755,29 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:Subnet",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createodbnetworkpeering": {
+    "name": "CreateOdbNetworkPeering",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow Oracle Database@AWS to create a peering connection between an ODB network and a VPC",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -4534,7 +4741,40 @@
         "dependentActions": []
       },
       {
+        "name": "ipam-policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-prefix-list-resolver-target",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -4796,6 +5036,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys",
+          "ec2:IpamPrefixListResolverTargetId",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -5042,6 +5283,18 @@
         "dependentActions": []
       },
       {
+        "name": "transit-gateway-metering-policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayMeteringPolicyId"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "transit-gateway-multicast-domain",
         "required": false,
         "conditionKeys": [
@@ -5203,6 +5456,17 @@
         "dependentActions": []
       },
       {
+        "name": "vpc-encryption-control",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "vpc-endpoint",
         "required": false,
         "conditionKeys": [
@@ -5271,6 +5535,17 @@
           "ec2:RequesterVpc",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VpcPeeringConnectionID"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpn-concentrator",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -5541,6 +5816,80 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:transitGatewayConnectPeerId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createtransitgatewaymeteringpolicy": {
+    "name": "CreateTransitGatewayMeteringPolicy",
+    "description": "Grants permission to create a metering policy for a transit gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayId"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:transitGatewayMeteringPolicyId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-attachment",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createtransitgatewaymeteringpolicyentry": {
+    "name": "CreateTransitGatewayMeteringPolicyEntry",
+    "description": "Grants permission to create an entry for a transit gateway metering policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayMeteringPolicyId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-attachment",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
         ],
         "dependentActions": []
       }
@@ -6135,6 +6484,39 @@
     ],
     "dependentActions": []
   },
+  "createvpcencryptioncontrol": {
+    "name": "CreateVpcEncryptionControl",
+    "description": "Grants permission to create a VPC Encryption Control",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "vpc-encryption-control",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createvpcendpoint": {
     "name": "CreateVpcEndpoint",
     "description": "Grants permission to create a VPC endpoint for an AWS service",
@@ -6163,6 +6545,8 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
           "ec2:VpceMultiRegion",
+          "ec2:VpcePrivateDnsPreference",
+          "ec2:VpcePrivateDnsSpecifiedDomains",
           "ec2:VpceServiceName",
           "ec2:VpceServiceOwner",
           "ec2:VpceServiceRegion"
@@ -6297,6 +6681,38 @@
     ],
     "dependentActions": []
   },
+  "createvpnconcentrator": {
+    "name": "CreateVpnConcentrator",
+    "description": "Grants permission to create a VPN concentrator that aggregates multiple VPN connections to a transit gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpn-concentrator",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "transit-gateway",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createvpnconnection": {
     "name": "CreateVpnConnection",
     "description": "Grants permission to create a VPN connection between a virtual private gateway or transit gateway and a customer gateway",
@@ -6357,6 +6773,15 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpn-concentrator",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -6828,6 +7253,26 @@
     ],
     "dependentActions": []
   },
+  "deleteipampolicy": {
+    "name": "DeleteIpamPolicy",
+    "description": "Grants permission to delete an Amazon VPC IP Address Manager (IPAM) policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deleteipampool": {
     "name": "DeleteIpamPool",
     "description": "Grants permission to delete an Amazon VPC IP Address Manager (IPAM) pool",
@@ -6835,6 +7280,46 @@
     "resourceTypes": [
       {
         "name": "ipam-pool",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleteipamprefixlistresolver": {
+    "name": "DeleteIpamPrefixListResolver",
+    "description": "Grants permission to delete an IPAM prefix list resolver",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleteipamprefixlistresolvertarget": {
+    "name": "DeleteIpamPrefixListResolverTarget",
+    "description": "Grants permission to delete an IPAM prefix list resolver target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver-target",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -7112,6 +7597,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:IpamPrefixListResolverTargetId",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -7316,6 +7802,29 @@
     ],
     "dependentActions": []
   },
+  "deleteodbnetworkpeering": {
+    "name": "DeleteOdbNetworkPeering",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow Oracle Database@AWS to delete a peering connection between an ODB network and a VPC",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deleteplacementgroup": {
     "name": "DeletePlacementGroup",
     "description": "Grants permission to delete a placement group",
@@ -7323,7 +7832,7 @@
     "resourceTypes": [
       {
         "name": "placement-group",
-        "required": false,
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:PlacementGroupName",
@@ -7954,7 +8463,40 @@
         "dependentActions": []
       },
       {
+        "name": "ipam-policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-prefix-list-resolver-target",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -8427,6 +8969,17 @@
         "dependentActions": []
       },
       {
+        "name": "transit-gateway-metering-policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "transit-gateway-multicast-domain",
         "required": false,
         "conditionKeys": [
@@ -8570,6 +9123,17 @@
         "dependentActions": []
       },
       {
+        "name": "vpc-encryption-control",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "vpc-endpoint",
         "required": false,
         "conditionKeys": [
@@ -8626,6 +9190,17 @@
       },
       {
         "name": "vpc-peering-connection",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpn-concentrator",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -8807,6 +9382,48 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayConnectPeerId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletetransitgatewaymeteringpolicy": {
+    "name": "DeleteTransitGatewayMeteringPolicy",
+    "description": "Grants permission to delete a transit gateway metering policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayMeteringPolicyId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletetransitgatewaymeteringpolicyentry": {
+    "name": "DeleteTransitGatewayMeteringPolicyEntry",
+    "description": "Grants permission to delete an entry from a transit gateway metering policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayMeteringPolicyId"
         ],
         "dependentActions": []
       }
@@ -9147,6 +9764,26 @@
     ],
     "dependentActions": []
   },
+  "deletevpcencryptioncontrol": {
+    "name": "DeleteVpcEncryptionControl",
+    "description": "Grants permission to delete a VPC Encryption Control",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpc-encryption-control",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deletevpcendpointconnectionnotifications": {
     "name": "DeleteVpcEndpointConnectionNotifications",
     "description": "Grants permission to delete one or more VPC endpoint connection notifications",
@@ -9237,6 +9874,26 @@
           "ec2:RequesterVpc",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VpcPeeringConnectionID"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletevpnconcentrator": {
+    "name": "DeleteVpnConcentrator",
+    "description": "Grants permission to delete a VPN concentrator",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpn-concentrator",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -9669,6 +10326,16 @@
   "describecapacityreservationfleets": {
     "name": "DescribeCapacityReservationFleets",
     "description": "Grants permission to describe one or more Capacity Reservation Fleets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describecapacityreservationtopology": {
+    "name": "DescribeCapacityReservationTopology",
+    "description": "Grants permission to describe the topology of one or more Capacity Reservations",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -10249,6 +10916,26 @@
     ],
     "dependentActions": []
   },
+  "describeinstancesqlhahistorystates": {
+    "name": "DescribeInstanceSqlHaHistoryStates",
+    "description": "Grants permission to describe EC2 instance SQL HA history states",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeinstancesqlhastates": {
+    "name": "DescribeInstanceSqlHaStates",
+    "description": "Grants permission to describe EC2 instance SQL HA states",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describeinstancestatus": {
     "name": "DescribeInstanceStatus",
     "description": "Grants permission to describe the status of one or more instances",
@@ -10329,9 +11016,39 @@
     ],
     "dependentActions": []
   },
+  "describeipampolicies": {
+    "name": "DescribeIpamPolicies",
+    "description": "Grants permission to describe Amazon VPC IP Address Manager (IPAM) policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describeipampools": {
     "name": "DescribeIpamPools",
     "description": "Grants permission to describe Amazon VPC IP Address Manager (IPAM) pools",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeipamprefixlistresolvertargets": {
+    "name": "DescribeIpamPrefixListResolverTargets",
+    "description": "Grants permission to describe IPAM prefix list resolver targets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeipamprefixlistresolvers": {
+    "name": "DescribeIpamPrefixListResolvers",
+    "description": "Grants permission to describe IPAM prefix list resolvers",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -11102,6 +11819,16 @@
     ],
     "dependentActions": []
   },
+  "describetransitgatewaymeteringpolicies": {
+    "name": "DescribeTransitGatewayMeteringPolicies",
+    "description": "Grants permission to describe one or more transit gateway metering policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describetransitgatewaymulticastdomains": {
     "name": "DescribeTransitGatewayMulticastDomains",
     "description": "Grants permission to describe one or more transit gateway multicast domains",
@@ -11367,6 +12094,16 @@
     ],
     "dependentActions": []
   },
+  "describevpcencryptioncontrols": {
+    "name": "DescribeVpcEncryptionControls",
+    "description": "Grants permission to describe one or more VPC Encryption Controls",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describevpcendpointassociations": {
     "name": "DescribeVpcEndpointAssociations",
     "description": "Grants permission to describe the VPC endpoint associations",
@@ -11469,6 +12206,16 @@
     ],
     "dependentActions": []
   },
+  "describevpnconcentrators": {
+    "name": "DescribeVpnConcentrators",
+    "description": "Grants permission to describe one or more VPN concentrators",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describevpnconnections": {
     "name": "DescribeVpnConnections",
     "description": "Grants permission to describe one or more VPN connections",
@@ -11484,6 +12231,27 @@
     "description": "Grants permission to describe one or more virtual private gateways",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "detachappliancefromnatgateway": {
+    "name": "DetachApplianceFromNatGateway",
+    "isPermissionOnly": true,
+    "description": "Grants permission to detach an appliance from a public/private Natgateway",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "natgateway",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -11940,6 +12708,41 @@
     ],
     "dependentActions": []
   },
+  "disableinstancesqlhastandbydetections": {
+    "name": "DisableInstanceSqlHaStandbyDetections",
+    "description": "Grants permission to disable EC2 instance SQL HA standby detections",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceID",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "disableipamorganizationadminaccount": {
     "name": "DisableIpamOrganizationAdminAccount",
     "description": "Grants permission to disable an AWS Organizations member account as an Amazon VPC IP Address Manager (IPAM) admin account",
@@ -11951,6 +12754,26 @@
     "dependentActions": [
       "organizations:DeregisterDelegatedAdministrator"
     ]
+  },
+  "disableipampolicy": {
+    "name": "DisableIpamPolicy",
+    "description": "Grants permission to disable a policy in Amazon VPC IP Address Manager (IPAM) that controls public IPv4 address allocation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
   },
   "disablerouteserverpropagation": {
     "name": "DisableRouteServerPropagation",
@@ -12928,6 +13751,41 @@
     ],
     "dependentActions": []
   },
+  "enableinstancesqlhastandbydetections": {
+    "name": "EnableInstanceSqlHaStandbyDetections",
+    "description": "Grants permission to enable EC2 instance SQL HA standby detections",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceID",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "enableipamorganizationadminaccount": {
     "name": "EnableIpamOrganizationAdminAccount",
     "description": "Grants permission to enable an AWS Organizations member account as an Amazon VPC IP Address Manager (IPAM) admin account",
@@ -12941,6 +13799,26 @@
       "organizations:EnableAWSServiceAccess",
       "organizations:RegisterDelegatedAdministrator"
     ]
+  },
+  "enableipampolicy": {
+    "name": "EnableIpamPolicy",
+    "description": "Grants permission to enable an Amazon VPC IP Address Manager (IPAM) policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
   },
   "enablereachabilityanalyzerorganizationsharing": {
     "name": "EnableReachabilityAnalyzerOrganizationSharing",
@@ -13545,6 +14423,16 @@
     ],
     "dependentActions": []
   },
+  "getenabledipampolicy": {
+    "name": "GetEnabledIpamPolicy",
+    "description": "Grants permission to describe the currently enabled policy in Amazon VPC IP Address Manager (IPAM)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "getflowlogsintegrationtemplate": {
     "name": "GetFlowLogsIntegrationTemplate",
     "description": "Grants permission to generate a CloudFormation template to streamline the integration of VPC flow logs with Amazon Athena",
@@ -13590,6 +14478,31 @@
     "description": "Grants permission to preview a reservation purchase with configurations that match those of a Dedicated Host",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getimageancestry": {
+    "name": "GetImageAncestry",
+    "description": "Grants permission to retrieve the ancestry chain of an AMI back to its root AMI",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ImageID",
+          "ec2:ImageType",
+          "ec2:Owner",
+          "ec2:Public",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -13782,6 +14695,46 @@
     ],
     "dependentActions": []
   },
+  "getipampolicyallocationrules": {
+    "name": "GetIpamPolicyAllocationRules",
+    "description": "Grants permission to describe the rules that define how Amazon VPC IP Address Manager (IPAM) pools allocate IP addresses to AWS resource types within an IPAM policy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ipam-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipampolicyorganizationtargets": {
+    "name": "GetIpamPolicyOrganizationTargets",
+    "description": "Grants permission to retrieve the AWS Organizations targets associated with an Amazon VPC IP Address Manager (IPAM) policy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ipam-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "getipampoolallocations": {
     "name": "GetIpamPoolAllocations",
     "description": "Grants permission to get a list of all the CIDR allocations in an Amazon VPC IP Address Manager (IPAM) pool",
@@ -13809,6 +14762,66 @@
     "resourceTypes": [
       {
         "name": "ipam-pool",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipamprefixlistresolverrules": {
+    "name": "GetIpamPrefixListResolverRules",
+    "description": "Grants permission to get rules for an IPAM prefix list resolver",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipamprefixlistresolverversionentries": {
+    "name": "GetIpamPrefixListResolverVersionEntries",
+    "description": "Grants permission to get CIDR entries for a specific version of an IPAM prefix list resolver",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipamprefixlistresolverversions": {
+    "name": "GetIpamPrefixListResolverVersions",
+    "description": "Grants permission to get versions of an IPAM prefix list resolver",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -13900,6 +14913,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:IpamPrefixListResolverTargetId",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -13920,6 +14934,7 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "ec2:IpamPrefixListResolverTargetId",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -14217,6 +15232,27 @@
     ],
     "dependentActions": []
   },
+  "gettransitgatewaymeteringpolicyentries": {
+    "name": "GetTransitGatewayMeteringPolicyEntries",
+    "description": "Grants permission to list the entries for a transit gateway metering policy",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayMeteringPolicyId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "gettransitgatewaymulticastdomainassociations": {
     "name": "GetTransitGatewayMulticastDomainAssociations",
     "description": "Grants permission to get information about the associations for a transit gateway multicast domain",
@@ -14382,6 +15418,28 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getvpcresourcesblockingencryptionenforcement": {
+    "name": "GetVpcResourcesBlockingEncryptionEnforcement",
+    "description": "Grants permission to describe resources that would block VPC Encryption Control enforcement",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -14724,6 +15782,16 @@
   "listsnapshotsinrecyclebin": {
     "name": "ListSnapshotsInRecycleBin",
     "description": "Grants permission to list the Amazon EBS snapshots that are currently in the Recycle Bin",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "listvolumesinrecyclebin": {
+    "name": "ListVolumesInRecycleBin",
+    "description": "Grants permission to list EBS volumes in Recycle Bin",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -15577,6 +16645,35 @@
     ],
     "dependentActions": []
   },
+  "modifyipampolicyallocationrules": {
+    "name": "ModifyIpamPolicyAllocationRules",
+    "description": "Grants permission to modify the rules that define how Amazon VPC IP Address Manager (IPAM) pools allocate IP addresses to AWS resource types within an IPAM policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "modifyipampool": {
     "name": "ModifyIpamPool",
     "description": "Grants permission to modify the configurations of an Amazon VPC IP Address Manager (IPAM) pool",
@@ -15589,6 +16686,57 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyipamprefixlistresolver": {
+    "name": "ModifyIpamPrefixListResolver",
+    "description": "Grants permission to modify an IPAM prefix list resolver",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-scope",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyipamprefixlistresolvertarget": {
+    "name": "ModifyIpamPrefixListResolverTarget",
+    "description": "Grants permission to modify an IPAM prefix list resolver target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-prefix-list-resolver-target",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15755,6 +16903,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
+          "ec2:IpamPrefixListResolverTargetId",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -15834,6 +16983,30 @@
           "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyodbnetworkpeering": {
+    "name": "ModifyOdbNetworkPeering",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow Oracle Database@AWS to modify the settings of a peering connection between an ODB network and a VPC",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -16255,6 +17428,38 @@
     ],
     "dependentActions": []
   },
+  "modifytransitgatewaymeteringpolicy": {
+    "name": "ModifyTransitGatewayMeteringPolicy",
+    "description": "Grants permission to modify a transit gateway metering policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayMeteringPolicyId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-attachment",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "modifytransitgatewayprefixlistreference": {
     "name": "ModifyTransitGatewayPrefixListReference",
     "description": "Grants permission to modify a transit gateway prefix list reference",
@@ -16635,6 +17840,27 @@
     "description": "Grants permission to modify options for blocked public access on a VPC",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyvpcencryptioncontrol": {
+    "name": "ModifyVpcEncryptionControl",
+    "description": "Grants permission to modify an existing VPC Encryption Control",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "vpc-encryption-control",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -18505,6 +19731,37 @@
     ],
     "dependentActions": []
   },
+  "restorevolumefromrecyclebin": {
+    "name": "RestoreVolumeFromRecycleBin",
+    "description": "Grants permission to restore an EBS volume from Recycle Bin",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:Encrypted",
+          "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
+          "ec2:VolumeIops",
+          "ec2:VolumeSize",
+          "ec2:VolumeThroughput",
+          "ec2:VolumeType"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "revokeclientvpningress": {
     "name": "RevokeClientVpnIngress",
     "description": "Grants permission to remove an inbound authorization rule from a Client VPN endpoint",
@@ -19538,6 +20795,42 @@
     "description": "Grants permission to update the Organizations access setting for EC2 Capacity Manager",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "updateinterruptiblecapacityreservationallocation": {
+    "name": "UpdateInterruptibleCapacityReservationAllocation",
+    "description": "Grants permission to update the number of instances allocated to an interruptible reservation, allowing you to add more capacity or reclaim capacity to your source Capacity Reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:CreateDate",
+          "ec2:EbsOptimized",
+          "ec2:EndDate",
+          "ec2:EndDateType",
+          "ec2:InstanceCount",
+          "ec2:InstanceMatchCriteria",
+          "ec2:InstancePlatform",
+          "ec2:InstanceType",
+          "ec2:InterruptibleCapacityReservationId",
+          "ec2:InterruptionType",
+          "ec2:IsInterruptible",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SourceCapacityReservationId",
+          "ec2:TargetInstanceCount",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
