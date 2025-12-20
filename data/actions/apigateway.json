@@ -1,4 +1,81 @@
 {
+  "createportal": {
+    "name": "CreatePortal",
+    "description": "Grants permission to create a Portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/PortalDisplayName",
+      "apigateway:Request/PortalDomainName",
+      "apigateway:Request/CognitoUserPoolArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createportalproduct": {
+    "name": "CreatePortalProduct",
+    "description": "Grants permission to create a Portal Product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/PortalProductDisplayName",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createproductpage": {
+    "name": "CreateProductPage",
+    "description": "Grants permission to create a Product Page",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProductPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/ProductPageTitle"
+    ],
+    "dependentActions": []
+  },
+  "createproductrestendpointpage": {
+    "name": "CreateProductRestEndpointPage",
+    "description": "Grants permission to create a Product REST Endpoint Page",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProductRestEndpointPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/RestApiId",
+      "apigateway:Request/Stage",
+      "apigateway:Request/Method",
+      "apigateway:Request/ProductRestEndpointPageEndpointPrefix"
+    ],
+    "dependentActions": []
+  },
   "createroutingrule": {
     "name": "CreateRoutingRule",
     "description": "Grants permission to create a routing rule",
@@ -189,6 +266,87 @@
     ],
     "dependentActions": []
   },
+  "deleteportal": {
+    "name": "DeletePortal",
+    "description": "Grants permission to delete a Portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteportalproduct": {
+    "name": "DeletePortalProduct",
+    "description": "Grants permission to delete a Portal Product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteportalproductsharingpolicy": {
+    "name": "DeletePortalProductSharingPolicy",
+    "description": "Grants permission to delete a Portal Product Sharing Policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproductpage": {
+    "name": "DeleteProductPage",
+    "description": "Grants permission to delete a Product Page",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProductPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproductrestendpointpage": {
+    "name": "DeleteProductRestEndpointPage",
+    "description": "Grants permission to delete a Product REST Endpoint Page",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProductRestEndpointPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteroutingrule": {
     "name": "DeleteRoutingRule",
     "description": "Grants permission to delete a routing rule",
@@ -209,6 +367,21 @@
       "apigateway:Resource/Priority",
       "apigateway:Resource/ConditionBasePaths"
     ],
+    "dependentActions": []
+  },
+  "disableportal": {
+    "name": "DisablePortal",
+    "description": "Grants permission to disable a Portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "get": {
@@ -490,6 +663,93 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getportal": {
+    "name": "GetPortal",
+    "description": "Grants permission to read a Portal",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getportalproduct": {
+    "name": "GetPortalProduct",
+    "description": "Grants permission to read a Portal Product",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getportalproductsharingpolicy": {
+    "name": "GetPortalProductSharingPolicy",
+    "description": "Grants permission to read a Portal Product Sharing Policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getproductpage": {
+    "name": "GetProductPage",
+    "description": "Grants permission to read a Product Page",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ProductPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PortalProduct",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getproductrestendpointpage": {
+    "name": "GetProductRestEndpointPage",
+    "description": "Grants permission to read a Product REST Endpoint Page",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ProductRestEndpointPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PortalProduct",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getroutingrule": {
     "name": "GetRoutingRule",
     "description": "Grants permission to read a routing rule",
@@ -505,6 +765,78 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "listportalproducts": {
+    "name": "ListPortalProducts",
+    "description": "Grants permission to list Portal Products",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listportals": {
+    "name": "ListPortals",
+    "description": "Grants permission to list Portals",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listproductpages": {
+    "name": "ListProductPages",
+    "description": "Grants permission to list Product Pages",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ProductPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PortalProduct",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listproductrestendpointpages": {
+    "name": "ListProductRestEndpointPages",
+    "description": "Grants permission to list Product REST Endpoint Pages",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ProductRestEndpointPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PortalProduct",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listroutingrules": {
@@ -869,6 +1201,125 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "previewportal": {
+    "name": "PreviewPortal",
+    "description": "Grants permission to preview a Portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishportal": {
+    "name": "PublishPortal",
+    "description": "Grants permission to publish a Portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putportalproductsharingpolicy": {
+    "name": "PutPortalProductSharingPolicy",
+    "description": "Grants permission to put a Portal Product Sharing Policy",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateportal": {
+    "name": "UpdatePortal",
+    "description": "Grants permission to update a Portal",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Portal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/PortalDisplayName",
+      "apigateway:Request/PortalDomainName",
+      "apigateway:Request/CognitoUserPoolArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateportalproduct": {
+    "name": "UpdatePortalProduct",
+    "description": "Grants permission to update a Portal Product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PortalProduct",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/PortalProductDisplayName",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateproductpage": {
+    "name": "UpdateProductPage",
+    "description": "Grants permission to update a Product Page",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProductPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/ProductPageTitle"
+    ],
+    "dependentActions": []
+  },
+  "updateproductrestendpointpage": {
+    "name": "UpdateProductRestEndpointPage",
+    "description": "Grants permission to update a Product REST Endpoint Page",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProductRestEndpointPage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "apigateway:Request/ProductRestEndpointPageEndpointPrefix"
     ],
     "dependentActions": []
   },

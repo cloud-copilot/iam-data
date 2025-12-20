@@ -254,6 +254,44 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "portal": {
+    "key": "Portal",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/portals/${PortalId}",
+    "conditionKeys": [
+      "apigateway:Resource/CognitoUserPoolArn",
+      "apigateway:Resource/PortalDisplayName",
+      "apigateway:Resource/PortalDomainName",
+      "apigateway:Resource/PortalPublishStatus",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "portalproduct": {
+    "key": "PortalProduct",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}",
+    "conditionKeys": [
+      "apigateway:Resource/PortalProductDisplayName",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "productpage": {
+    "key": "ProductPage",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}/productpages/${ProductPageId}",
+    "conditionKeys": [
+      "apigateway:Resource/ProductPageTitle",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "productrestendpointpage": {
+    "key": "ProductRestEndpointPage",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}/productrestendpointpages/${ProductRestEndpointPageId}",
+    "conditionKeys": [
+      "apigateway:Resource/Method",
+      "apigateway:Resource/ProductRestEndpointPageEndpointPrefix",
+      "apigateway:Resource/RestApiId",
+      "apigateway:Resource/Stage",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "account": {
     "key": "Account",
     "arn": "arn:${Partition}:apigateway:${Region}::/account"
