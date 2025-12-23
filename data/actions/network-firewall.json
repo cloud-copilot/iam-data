@@ -65,6 +65,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "attachrulegroupstoproxyconfiguration": {
+    "name": "AttachRuleGroupsToProxyConfiguration",
+    "description": "Grants permission to attach proxy rule groups to a proxy configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createfirewall": {
     "name": "CreateFirewall",
     "description": "Grants permission to create an AWS Network Firewall firewall",
@@ -125,6 +146,89 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "createproxy": {
+    "name": "CreateProxy",
+    "description": "Grants permission to create an AWS Network Firewall proxy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Proxy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "ec2:AttachApplianceToNatGateway"
+        ]
+      },
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createproxyconfiguration": {
+    "name": "CreateProxyConfiguration",
+    "description": "Grants permission to create an AWS Network Firewall proxy configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProxyRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createproxyrulegroup": {
+    "name": "CreateProxyRuleGroup",
+    "description": "Grants permission to create an AWS Network Firewall proxy rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createproxyrules": {
+    "name": "CreateProxyRules",
+    "description": "Grants permission to add proxy rules to a proxy rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createrulegroup": {
@@ -234,6 +338,68 @@
     "resourceTypes": [
       {
         "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproxy": {
+    "name": "DeleteProxy",
+    "description": "Grants permission to delete a proxy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Proxy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "ec2:DetachApplianceFromNatGateway"
+    ]
+  },
+  "deleteproxyconfiguration": {
+    "name": "DeleteProxyConfiguration",
+    "description": "Grants permission to delete a proxy configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproxyrulegroup": {
+    "name": "DeleteProxyRuleGroup",
+    "description": "Grants permission to delete a proxy rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteproxyrules": {
+    "name": "DeleteProxyRules",
+    "description": "Grants permission to remove proxy rules from a proxy rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -422,6 +588,66 @@
       "logs:ListLogDeliveries"
     ]
   },
+  "describeproxy": {
+    "name": "DescribeProxy",
+    "description": "Grants permission to retrieve the data objects that define a proxy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Proxy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproxyconfiguration": {
+    "name": "DescribeProxyConfiguration",
+    "description": "Grants permission to retrieve the data objects that define a proxy configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproxyrule": {
+    "name": "DescribeProxyRule",
+    "description": "Grants permission to retrieve the data objects that define a proxy rule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeproxyrulegroup": {
+    "name": "DescribeProxyRuleGroup",
+    "description": "Grants permission to retrieve the data objects that define a proxy rule group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeresourcepolicy": {
     "name": "DescribeResourcePolicy",
     "description": "Grants permission to describe a resource policy for a firewall policy or rule group or firewall",
@@ -548,6 +774,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "detachrulegroupsfromproxyconfiguration": {
+    "name": "DetachRuleGroupsFromProxyConfiguration",
+    "description": "Grants permission to detach proxy rule groups from a proxy configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "disassociateavailabilityzones": {
     "name": "DisassociateAvailabilityZones",
     "description": "Grants permission to disassociate availability zones to a firewall",
@@ -660,6 +907,51 @@
     "resourceTypes": [
       {
         "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listproxies": {
+    "name": "ListProxies",
+    "description": "Grants permission to retrieve the metadata for proxies",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Proxy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listproxyconfigurations": {
+    "name": "ListProxyConfigurations",
+    "description": "Grants permission to retrieve the metadata for proxy configurations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listproxyrulegroups": {
+    "name": "ListProxyRuleGroups",
+    "description": "Grants permission to retrieve the metadata for proxy rule groups",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -862,6 +1154,24 @@
         "dependentActions": []
       },
       {
+        "name": "Proxy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProxyConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProxyRuleGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "StatefulRuleGroup",
         "required": false,
         "conditionKeys": [],
@@ -905,6 +1215,24 @@
       },
       {
         "name": "FirewallPolicy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Proxy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProxyConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProxyRuleGroup",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1069,6 +1397,81 @@
     "resourceTypes": [
       {
         "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateproxy": {
+    "name": "UpdateProxy",
+    "description": "Grants permission to modify a proxy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Proxy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateproxyconfiguration": {
+    "name": "UpdateProxyConfiguration",
+    "description": "Grants permission to modify a proxy configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateproxyrule": {
+    "name": "UpdateProxyRule",
+    "description": "Grants permission to update an existing proxy rule on a proxy rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateproxyrulegrouppriorities": {
+    "name": "UpdateProxyRuleGroupPriorities",
+    "description": "Grants permission to modify rule group priorities on a proxy configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateproxyrulepriorities": {
+    "name": "UpdateProxyRulePriorities",
+    "description": "Grants permission to update proxy rule priorities within a proxy rule group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ProxyRuleGroup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

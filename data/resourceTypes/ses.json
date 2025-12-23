@@ -29,11 +29,17 @@
   },
   "custom-verification-email-template": {
     "key": "custom-verification-email-template",
-    "arn": "arn:${Partition}:ses:${Region}:${Account}:custom-verification-email-template/${TemplateName}"
+    "arn": "arn:${Partition}:ses:${Region}:${Account}:custom-verification-email-template/${TemplateName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "template": {
     "key": "template",
-    "arn": "arn:${Partition}:ses:${Region}:${Account}:template/${TemplateName}"
+    "arn": "arn:${Partition}:ses:${Region}:${Account}:template/${TemplateName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "addon-instance": {
     "key": "addon-instance",

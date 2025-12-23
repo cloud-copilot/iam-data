@@ -403,6 +403,12 @@
         "dependentActions": []
       },
       {
+        "name": "custom-verification-email-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "dedicated-ip-pool",
         "required": false,
         "conditionKeys": [],
@@ -416,6 +422,12 @@
       },
       {
         "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -675,6 +687,12 @@
         "dependentActions": []
       },
       {
+        "name": "custom-verification-email-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "dedicated-ip-pool",
         "required": false,
         "conditionKeys": [],
@@ -688,6 +706,12 @@
       },
       {
         "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -724,6 +748,12 @@
         "dependentActions": []
       },
       {
+        "name": "custom-verification-email-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "dedicated-ip-pool",
         "required": false,
         "conditionKeys": [],
@@ -737,6 +767,12 @@
       },
       {
         "name": "identity",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "template",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -805,7 +841,9 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -872,7 +910,8 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1009,7 +1048,8 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1444,7 +1484,8 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2461,7 +2502,9 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2623,7 +2666,8 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2762,6 +2806,18 @@
     ],
     "dependentActions": []
   },
+  "getemailaddressinsights": {
+    "name": "GetEmailAddressInsights",
+    "description": "Grants permission to get insights about email address",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ses:ApiVersion"
+    ],
+    "dependentActions": [
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
   "getemailidentitypolicies": {
     "name": "GetEmailIdentityPolicies",
     "description": "Grants permission to return the requested sending authorization policies for the given identity (an email address or a domain)",
@@ -2793,7 +2849,8 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3371,7 +3428,8 @@
       }
     ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
