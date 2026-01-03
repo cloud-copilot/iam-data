@@ -244,7 +244,26 @@
     "name": "CreateWirelessDevice",
     "description": "Grants permission to create a WirelessDevice resource with given Destination",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Destination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DeviceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1432,7 +1451,14 @@
     "name": "StartSingleWirelessDeviceImportTask",
     "description": "Grants permission to start the single wireless device import task",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Destination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1447,6 +1473,12 @@
       {
         "name": "ImportTask",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Destination",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1821,6 +1853,24 @@
       {
         "name": "WirelessDevice",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Destination",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "DeviceProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ServiceProfile",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
