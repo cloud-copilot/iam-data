@@ -216,13 +216,17 @@
         "name": "budget",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "deadline:TagResource",
+          "identitystore:ListGroupMembershipsForMember"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
   },
   "createfarm": {
     "name": "CreateFarm",
@@ -1630,6 +1634,12 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "budget",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "farm",
         "required": false,
         "conditionKeys": [],
@@ -1829,6 +1839,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "budget",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "farm",
         "required": false,
         "conditionKeys": [],
@@ -1877,6 +1893,12 @@
     "description": "Grants permission to disassociate one or more tags from the specified Deadline Cloud resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "budget",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "farm",
         "required": false,

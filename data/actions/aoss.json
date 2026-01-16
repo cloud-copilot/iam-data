@@ -17,6 +17,23 @@
     ],
     "dependentActions": []
   },
+  "addcollectiontocollectiongroup": {
+    "name": "AddCollectionToCollectionGroup",
+    "description": "Grants permission to add a serverless collection to a specified collection group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "CollectionGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aoss:collection-group"
+    ],
+    "dependentActions": []
+  },
   "batchgetcollection": {
     "name": "BatchGetCollection",
     "description": "Grants permission to get attributes for one or more collections",
@@ -24,6 +41,16 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aoss:collection"
+    ],
+    "dependentActions": []
+  },
+  "batchgetcollectiongroup": {
+    "name": "BatchGetCollectionGroup",
+    "description": "Grants permission to get attributes for one or more collection groups",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aoss:collection-group"
     ],
     "dependentActions": []
   },
@@ -70,6 +97,17 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcollectiongroup": {
+    "name": "CreateCollectionGroup",
+    "description": "Grants permission to create a serverless collection group",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -154,6 +192,21 @@
     "resourceTypes": [
       {
         "name": "Collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecollectiongroup": {
+    "name": "DeleteCollectionGroup",
+    "description": "Grants permission to delete a serverless collection group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "CollectionGroup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -267,6 +320,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcollectiongroups": {
+    "name": "ListCollectionGroups",
+    "description": "Grants permission to list collection groups",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcollections": {
     "name": "ListCollections",
     "description": "Grants permission to list collections",
@@ -363,6 +424,21 @@
     "resourceTypes": [
       {
         "name": "Collection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecollectiongroup": {
+    "name": "UpdateCollectionGroup",
+    "description": "Grants permission to update a collection group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "CollectionGroup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
