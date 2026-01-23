@@ -132,6 +132,14 @@
     ],
     "dependentActions": []
   },
+  "getdeploymentpatternversion": {
+    "name": "GetDeploymentPatternVersion",
+    "description": "Grants permission to get a version of a deployment pattern",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getinfrastructuresuggestion": {
     "name": "GetInfrastructureSuggestion",
     "isPermissionOnly": true,
@@ -237,6 +245,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdeploymentpatternversions": {
+    "name": "ListDeploymentPatternVersions",
+    "description": "Grants permission to list the versions of a deployment pattern",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdeployments": {
     "name": "ListDeployments",
     "description": "Grants permission to list deployments",
@@ -274,7 +290,7 @@
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "description": "Grants permission to list tags for a LaunchWizard resource.",
+    "description": "Grants permission to list tags for a LaunchWizard resource",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -334,7 +350,7 @@
   },
   "tagresource": {
     "name": "TagResource",
-    "description": "Grants permission to tag a LaunchWizard resource.",
+    "description": "Grants permission to tag a LaunchWizard resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
@@ -353,7 +369,7 @@
   },
   "untagresource": {
     "name": "UntagResource",
-    "description": "Grants permission to untag a LaunchWizard resource.",
+    "description": "Grants permission to untag a LaunchWizard resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
@@ -365,6 +381,23 @@
     ],
     "conditionKeys": [
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatedeployment": {
+    "name": "UpdateDeployment",
+    "description": "Grants permission to update a deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "deployment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
