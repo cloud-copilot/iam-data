@@ -12,7 +12,10 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "ec2:AssociateAddress",
+      "ec2:DescribeAddresses"
+    ]
   },
   "createenvironment": {
     "name": "CreateEnvironment",
@@ -23,7 +26,50 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": []
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateSubnet",
+      "ec2:CreateTags",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteSubnet",
+      "ec2:DeleteVolume",
+      "ec2:DescribeAddresses",
+      "ec2:DescribeDhcpOptions",
+      "ec2:DescribeHosts",
+      "ec2:DescribeInstanceStatus",
+      "ec2:DescribeInstances",
+      "ec2:DescribeKeyPairs",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribePlacementGroups",
+      "ec2:DescribeRouteServerEndpoints",
+      "ec2:DescribeRouteServerPeers",
+      "ec2:DescribeRouteServers",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVolumes",
+      "ec2:DescribeVpcs",
+      "ec2:DetachNetworkInterface",
+      "ec2:DetachVolume",
+      "ec2:GetAllowedImagesSettings",
+      "ec2:GetRouteServerAssociations",
+      "ec2:ModifyInstanceAttribute",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "ec2:RunInstances",
+      "ec2:TerminateInstances",
+      "iam:CreateServiceLinkedRole",
+      "kms:DescribeKey",
+      "kms:ListAliases",
+      "secretsmanager:CreateSecret",
+      "secretsmanager:DeleteSecret",
+      "secretsmanager:GetRandomPassword",
+      "secretsmanager:GetSecretValue",
+      "secretsmanager:TagResource",
+      "secretsmanager:UpdateSecret",
+      "servicequotas:GetServiceQuota",
+      "servicequotas:ListServiceQuotas",
+      "support:DescribeServices",
+      "support:DescribeSupportLevel"
+    ]
   },
   "createenvironmenthost": {
     "name": "CreateEnvironmentHost",
@@ -38,7 +84,32 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "ec2:CreateNetworkInterface",
+      "ec2:CreateTags",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DescribeDhcpOptions",
+      "ec2:DescribeHosts",
+      "ec2:DescribeInstanceStatus",
+      "ec2:DescribeInstances",
+      "ec2:DescribeKeyPairs",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribePlacementGroups",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "ec2:RunInstances",
+      "evs:CreateEnvironmentHost",
+      "secretsmanager:CreateSecret",
+      "secretsmanager:DeleteSecret",
+      "secretsmanager:GetRandomPassword",
+      "secretsmanager:GetSecretValue",
+      "secretsmanager:TagResource",
+      "secretsmanager:UpdateSecret",
+      "servicequotas:GetServiceQuota",
+      "servicequotas:ListServiceQuotas"
+    ]
   },
   "deleteenvironment": {
     "name": "DeleteEnvironment",
@@ -53,7 +124,19 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface",
+      "ec2:DeleteSubnet",
+      "ec2:DescribeInstanceStatus",
+      "ec2:DescribeInstances",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeSubnets",
+      "ec2:ModifyInstanceAttribute",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "ec2:TerminateInstances",
+      "secretsmanager:DeleteSecret",
+      "secretsmanager:GetSecretValue"
+    ]
   },
   "deleteenvironmenthost": {
     "name": "DeleteEnvironmentHost",
@@ -68,7 +151,17 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "ec2:DeleteNetworkInterface",
+      "ec2:DescribeInstanceStatus",
+      "ec2:DescribeInstances",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:ModifyInstanceAttribute",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "ec2:TerminateInstances",
+      "secretsmanager:DeleteSecret",
+      "secretsmanager:GetSecretValue"
+    ]
   },
   "disassociateeipfromvlan": {
     "name": "DisassociateEipFromVlan",
@@ -83,7 +176,9 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "ec2:DisassociateAddress"
+    ]
   },
   "getenvironment": {
     "name": "GetEnvironment",
