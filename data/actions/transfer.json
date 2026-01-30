@@ -41,16 +41,23 @@
     "name": "CreateConnector",
     "description": "Grants permission to create a connector",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
       "transfer:RequestConnectorProtocol"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createprofile": {
     "name": "CreateProfile",
@@ -1062,13 +1069,19 @@
         "name": "connector",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "profile",
+        "required": false,
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatehostkey": {
     "name": "UpdateHostKey",
