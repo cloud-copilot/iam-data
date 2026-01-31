@@ -84,28 +84,46 @@
     "name": "GetServiceQuota",
     "description": "Grants permission to return the details for the specified service quota, including the applied value",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": [
-      "autoscaling:DescribeAccountLimits",
-      "cloudformation:DescribeAccountLimits",
-      "dynamodb:DescribeLimits",
-      "elasticloadbalancing:DescribeAccountLimits",
-      "iam:GetAccountSummary",
-      "kinesis:DescribeLimits",
-      "rds:DescribeAccountAttributes",
-      "route53:GetAccountLimit"
-    ]
+    "resourceTypes": [
+      {
+        "name": "quota",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "autoscaling:DescribeAccountLimits",
+          "cloudformation:DescribeAccountLimits",
+          "dynamodb:DescribeLimits",
+          "elasticloadbalancing:DescribeAccountLimits",
+          "iam:GetAccountSummary",
+          "kinesis:DescribeLimits",
+          "rds:DescribeAccountAttributes",
+          "route53:GetAccountLimit"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "servicequotas:service"
+    ],
+    "dependentActions": []
   },
   "getservicequotaincreaserequestfromtemplate": {
     "name": "GetServiceQuotaIncreaseRequestFromTemplate",
     "description": "Grants permission to retrieve the details for a service quota increase request from the service quota template",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "resourceTypes": [
+      {
+        "name": "quota",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": [
+          "organizations:DescribeOrganization"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "servicequotas:service"
+    ],
+    "dependentActions": []
   },
   "listawsdefaultservicequotas": {
     "name": "ListAWSDefaultServiceQuotas",
@@ -127,8 +145,17 @@
     "name": "ListRequestedServiceQuotaChangeHistoryByQuota",
     "description": "Grants permission to request a list of the changes to specific service quotas",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "quota",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "servicequotas:service"
+    ],
     "dependentActions": []
   },
   "listservicequotaincreaserequestsintemplate": {
