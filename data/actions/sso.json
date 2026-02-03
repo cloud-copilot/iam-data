@@ -1,4 +1,22 @@
 {
+  "addregion": {
+    "name": "AddRegion",
+    "description": "Grants permission to add a region to an IAM Identity Center instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:AddRegion",
+      "kms:Decrypt"
+    ]
+  },
   "associatedirectory": {
     "name": "AssociateDirectory",
     "description": "Grants permission to connect a directory to be used by AWS IAM Identity Center",
@@ -727,6 +745,23 @@
   "describepermissionsetprovisioningstatus": {
     "name": "DescribePermissionSetProvisioningStatus",
     "description": "Grants permission to describe the status for the given Permission Set Provisioning request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "describeregion": {
+    "name": "DescribeRegion",
+    "description": "Grants permission to retrieve configuration details for a specific IAM Identity Center instance region",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -1477,6 +1512,23 @@
       "sso:GetProfile"
     ]
   },
+  "listregions": {
+    "name": "ListRegions",
+    "description": "Grants permission to list all regions configured for an IAM Identity Center instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list the tags that are attached to a specified resource",
@@ -1716,6 +1768,24 @@
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "removeregion": {
+    "name": "RemoveRegion",
+    "description": "Grants permission to remove a region from an IAM Identity Center instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "identitystore:RemoveRegion",
       "kms:Decrypt"
     ]
   },
