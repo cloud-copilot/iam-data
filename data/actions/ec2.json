@@ -15769,6 +15769,36 @@
     ],
     "dependentActions": []
   },
+  "injectvolumeiolatency": {
+    "name": "InjectVolumeIOLatency",
+    "isPermissionOnly": true,
+    "description": "Grants permission to temporarily inject latency to I/O operations for a target Amazon EBS volume",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:Encrypted",
+          "ec2:ParentSnapshot",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VolumeID",
+          "ec2:VolumeIops",
+          "ec2:VolumeSize",
+          "ec2:VolumeThroughput",
+          "ec2:VolumeType"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "listimagesinrecyclebin": {
     "name": "ListImagesInRecycleBin",
     "description": "Grants permission to list Amazon Machine Images (AMIs) that are currently in the Recycle Bin",
