@@ -553,6 +553,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "connectionType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1242,6 +1248,21 @@
     ],
     "dependentActions": []
   },
+  "deleteconnectiontype": {
+    "name": "DeleteConnectionType",
+    "description": "Grants permission to delete connection type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectionType",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecrawler": {
     "name": "DeleteCrawler",
     "description": "Grants permission to delete a crawler",
@@ -1774,9 +1795,16 @@
   },
   "describeconnectiontype": {
     "name": "DescribeConnectionType",
-    "description": "Grants permission to describe connection type in glue studio",
+    "description": "Grants permission to describe connection type in glue",
     "accessLevel": "Permissions management",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "connectionType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1794,6 +1822,12 @@
       {
         "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2416,6 +2450,12 @@
       },
       {
         "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connectionType",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3502,7 +3542,7 @@
   },
   "listconnectiontypes": {
     "name": "ListConnectionTypes",
-    "description": "Grants permission to list connection types in glue studio",
+    "description": "Grants permission to list connection types in glue",
     "accessLevel": "Permissions management",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -3621,6 +3661,12 @@
       {
         "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3995,9 +4041,32 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "connectionType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "registerconnectiontype": {
+    "name": "RegisterConnectionType",
+    "description": "Grants permission to register connection type",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connectionType",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "registerschemaversion": {
@@ -4696,7 +4765,20 @@
     "name": "TestConnection",
     "description": "Grants permission to test connection in Glue Studio",
     "accessLevel": "Permissions management",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connectionType",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -4960,6 +5042,12 @@
       {
         "name": "rootcatalog",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

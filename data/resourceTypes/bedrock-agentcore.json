@@ -1,11 +1,17 @@
 {
   "evaluator": {
     "key": "evaluator",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:evaluator/${EvaluatorId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:evaluator/${EvaluatorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "online-evaluation-config": {
     "key": "online-evaluation-config",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:online-evaluation-config/${OnlineEvaluationConfigId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:online-evaluation-config/${OnlineEvaluationConfigId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "memory": {
     "key": "memory",
@@ -77,6 +83,13 @@
   "browser": {
     "key": "browser",
     "arn": "arn:${Partition}:bedrock-agentcore:${Region}:aws:browser/${BrowserId}"
+  },
+  "browser-profile": {
+    "key": "browser-profile",
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:aws:browser-profile/${BrowserProfileId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "workload-identity-directory": {
     "key": "workload-identity-directory",

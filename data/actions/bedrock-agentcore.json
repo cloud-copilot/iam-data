@@ -212,6 +212,17 @@
     ],
     "dependentActions": []
   },
+  "createbrowserprofile": {
+    "name": "CreateBrowserProfile",
+    "description": "Grants permission to create a new browser profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcodeinterpreter": {
     "name": "CreateCodeInterpreter",
     "description": "Grants permission to create a new custom code interpreter",
@@ -230,7 +241,11 @@
     "description": "Grants permission to create a new evaluator",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createevent": {
@@ -286,7 +301,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "bedrock-agentcore:KmsKeyArn"
     ],
     "dependentActions": [
       "iam:PassRole"
@@ -321,7 +337,11 @@
     "description": "Grants permission to create a new online evaluation configuration",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": [
       "iam:PassRole"
     ]
@@ -437,6 +457,21 @@
     "resourceTypes": [
       {
         "name": "browser-custom",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebrowserprofile": {
+    "name": "DeleteBrowserProfile",
+    "description": "Grants permission to delete a browser profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "browser-profile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -773,6 +808,21 @@
     "resourceTypes": [
       {
         "name": "browser-custom",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbrowserprofile": {
+    "name": "GetBrowserProfile",
+    "description": "Grants permission to get details of a browser profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "browser-profile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1405,6 +1455,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listbrowserprofiles": {
+    "name": "ListBrowserProfiles",
+    "description": "Grants permission to list browser profiles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listbrowsersessions": {
     "name": "ListBrowserSessions",
     "description": "Grants permission to list browser sessions",
@@ -1663,7 +1721,19 @@
         "dependentActions": []
       },
       {
+        "name": "browser-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "code-interpreter-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluator",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1682,6 +1752,12 @@
       },
       {
         "name": "oauth2credentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "online-evaluation-config",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1833,6 +1909,33 @@
     ],
     "dependentActions": []
   },
+  "savebrowsersessionprofile": {
+    "name": "SaveBrowserSessionProfile",
+    "description": "Grants permission to save a browser session profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "browser",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "browser-custom",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "browser-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "settokenvaultcmk": {
     "name": "SetTokenVaultCMK",
     "description": "Grants permission to associate a Customer Managed Key (CMK) or a Service Managed Key with a specific TokenVault",
@@ -1862,6 +1965,12 @@
       {
         "name": "browser-custom",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "browser-profile",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2021,7 +2130,19 @@
         "dependentActions": []
       },
       {
+        "name": "browser-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "code-interpreter-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluator",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2040,6 +2161,12 @@
       },
       {
         "name": "oauth2credentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "online-evaluation-config",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2099,7 +2226,19 @@
         "dependentActions": []
       },
       {
+        "name": "browser-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "code-interpreter-custom",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "evaluator",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2118,6 +2257,12 @@
       },
       {
         "name": "oauth2credentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "online-evaluation-config",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
