@@ -136,6 +136,24 @@
     ],
     "dependentActions": []
   },
+  "createtopic": {
+    "name": "CreateTopic",
+    "description": "Grants permission to create a Kafka topic in an MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:CreateTopic"
+    ]
+  },
   "createvpcconnection": {
     "name": "CreateVpcConnection",
     "description": "Grants permission to create a MSK VPC connection",
@@ -234,6 +252,25 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "deletetopic": {
+    "name": "DeleteTopic",
+    "description": "Grants permission to delete a Kafka topic from an MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:Connect",
+      "kafka-cluster:DeleteTopic",
+      "kafka-cluster:DescribeTopic"
+    ]
   },
   "deletevpcconnection": {
     "name": "DeleteVpcConnection",
@@ -889,5 +926,25 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "updatetopic": {
+    "name": "UpdateTopic",
+    "description": "Grants permission to update the configuration of a Kafka topic in an MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kafka-cluster:AlterTopic",
+      "kafka-cluster:AlterTopicDynamicConfiguration",
+      "kafka-cluster:Connect",
+      "kafka-cluster:DescribeTopic"
+    ]
   }
 }
