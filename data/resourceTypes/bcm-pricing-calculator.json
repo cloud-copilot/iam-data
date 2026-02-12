@@ -1,14 +1,20 @@
 {
   "bill-estimate": {
     "key": "bill-estimate",
-    "arn": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-estimate/${BillEstimateId}"
+    "arn": "arn:${Partition}:bcm-pricing-calculator::${Account}:bill-estimate/${BillEstimateId}"
   },
   "bill-scenario": {
     "key": "bill-scenario",
-    "arn": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-scenario/${BillScenarioId}"
+    "arn": "arn:${Partition}:bcm-pricing-calculator::${Account}:bill-scenario/${BillScenarioId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "workload-estimate": {
     "key": "workload-estimate",
-    "arn": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:workload-estimate/${WorkloadEstimateId}"
+    "arn": "arn:${Partition}:bcm-pricing-calculator::${Account}:workload-estimate/${WorkloadEstimateId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

@@ -19,7 +19,10 @@
     "description": "Grants permission to create a new bill scenario",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createbillscenariocommitmentmodification": {
@@ -57,7 +60,10 @@
     "description": "Grants permission to create a new Workload estimate",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createworkloadestimateusage": {
@@ -359,7 +365,24 @@
     "name": "TagResource",
     "description": "Grants permission to add a tag to a resource",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "bill-scenario",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-estimate",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -370,7 +393,24 @@
     "name": "UntagResource",
     "description": "Grants permission to remove a tag from a resource",
     "accessLevel": "Tagging",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "bill-scenario",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-estimate",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:TagKeys"
     ],
