@@ -500,7 +500,11 @@
   },
   "mlflow-app": {
     "key": "mlflow-app",
-    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:mlflow-app/${MLflowAppId}"
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:mlflow-app/${MLflowAppId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
   },
   "compute-quota": {
     "key": "compute-quota",
@@ -520,6 +524,10 @@
   },
   "partner-app": {
     "key": "partner-app",
-    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:partner-app/${AppId}"
+    "arn": "arn:${Partition}:sagemaker:${Region}:${Account}:partner-app/${AppId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "sagemaker:ResourceTag/${TagKey}"
+    ]
   }
 }
