@@ -10,6 +10,23 @@
     ],
     "dependentActions": []
   },
+  "cancelfinetuningjob": {
+    "name": "CancelFineTuningJob",
+    "description": "Grants permission to cancel an in-progress fine tuning job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:FineTuningJob"
+    ],
+    "dependentActions": []
+  },
   "cancelinference": {
     "name": "CancelInference",
     "description": "Grants permission to cancel an in-progress inference request",
@@ -23,6 +40,39 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfile": {
+    "name": "CreateFile",
+    "description": "Grants permission to create a file in a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createfinetuningjob": {
+    "name": "CreateFineTuningJob",
+    "description": "Grants permission to create a fine tuning job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:Model",
+      "bedrock-mantle:Files"
+    ],
     "dependentActions": []
   },
   "createinference": {
@@ -43,6 +93,23 @@
     ],
     "dependentActions": []
   },
+  "deletefile": {
+    "name": "DeleteFile",
+    "description": "Grants permission to delete a specific file",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:Files"
+    ],
+    "dependentActions": []
+  },
   "deleteinference": {
     "name": "DeleteInference",
     "description": "Grants permission to delete a specific inference request",
@@ -56,6 +123,40 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfile": {
+    "name": "GetFile",
+    "description": "Grants permission to retrieve information about a specific file",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:Files"
+    ],
+    "dependentActions": []
+  },
+  "getfinetuningjob": {
+    "name": "GetFineTuningJob",
+    "description": "Grants permission to retrieve details of a specific fine tuning job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:FineTuningJob"
+    ],
     "dependentActions": []
   },
   "getinference": {
@@ -77,6 +178,36 @@
     "name": "GetModel",
     "description": "Grants permission to retrieve information about a specific model",
     "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfiles": {
+    "name": "ListFiles",
+    "description": "Grants permission to list all available files in a project",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfinetuningjobs": {
+    "name": "ListFineTuningJobs",
+    "description": "Grants permission to list all available fine tuning jobs in a project",
+    "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "project",
