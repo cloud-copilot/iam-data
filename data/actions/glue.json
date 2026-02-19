@@ -720,9 +720,18 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "integrationResourceProperty",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createintegrationtableproperties": {
@@ -1381,6 +1390,39 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "deleteintegrationresourceproperty": {
+    "name": "DeleteIntegrationResourceProperty",
+    "description": "Grants permission to delete the integration resource property",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrationResourceProperty",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteintegrationtableproperties": {
@@ -2523,6 +2565,12 @@
       },
       {
         "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrationResourceProperty",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3674,6 +3722,39 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listintegrationresourceproperties": {
+    "name": "ListIntegrationResourceProperties",
+    "description": "Grants permission to list zero-ETL integration resource properties",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrationResourceProperty",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listjobupgradeanalyses": {
     "name": "ListJobUpgradeAnalyses",
     "description": "Grants permission to list upgrade analyses for a job",
@@ -4698,6 +4779,12 @@
         "dependentActions": []
       },
       {
+        "name": "integrationResourceProperty",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "job",
         "required": false,
         "conditionKeys": [],
@@ -4825,6 +4912,12 @@
       },
       {
         "name": "integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrationResourceProperty",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -5167,6 +5260,12 @@
       },
       {
         "name": "database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "integrationResourceProperty",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
