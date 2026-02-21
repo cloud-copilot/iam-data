@@ -123,6 +123,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "copyblueprintstage": {
+    "name": "CopyBlueprintStage",
+    "description": "Grants permission to copy a blueprint from one stage to another",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "blueprint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "counttokens": {
     "name": "CountTokens",
     "description": "Grants permission to count the number of tokens in an input prompt",
@@ -1539,6 +1554,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getblueprintoptimizationstatus": {
+    "name": "GetBlueprintOptimizationStatus",
+    "description": "Grants permission to get the status of a blueprint optimization job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "blueprint-optimization-invocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getblueprintrecommendation": {
     "name": "GetBlueprintRecommendation",
     "isPermissionOnly": true,
@@ -2127,6 +2157,30 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeblueprintoptimizationasync": {
+    "name": "InvokeBlueprintOptimizationAsync",
+    "description": "Grants permission to invoke an async job to perform blueprint optimization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "blueprint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "invokeblueprintrecommendationasync": {
@@ -2959,6 +3013,12 @@
         "dependentActions": []
       },
       {
+        "name": "blueprint-optimization-invocation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "custom-model",
         "required": true,
         "conditionKeys": [],
@@ -3467,6 +3527,12 @@
         "dependentActions": []
       },
       {
+        "name": "blueprint-optimization-invocation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "custom-model",
         "required": false,
         "conditionKeys": [],
@@ -3636,6 +3702,12 @@
       },
       {
         "name": "blueprint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "blueprint-optimization-invocation",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

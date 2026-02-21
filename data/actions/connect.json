@@ -299,6 +299,24 @@
     ],
     "dependentActions": []
   },
+  "associatequeueemailaddresses": {
+    "name": "AssociateQueueEmailAddresses",
+    "description": "Grants permission to associate a set of email addresses with a queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "associatequeuequickconnects": {
     "name": "AssociateQueueQuickConnects",
     "description": "Grants permission to associate quick connects with a queue in an Amazon Connect instance",
@@ -1047,6 +1065,31 @@
       "connect:InstanceId",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createnotification": {
+    "name": "CreateNotification",
+    "description": "Grants permission to create a notification in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1844,6 +1887,24 @@
     ],
     "dependentActions": []
   },
+  "deletenotification": {
+    "name": "DeleteNotification",
+    "description": "Grants permission to delete a notification in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "notification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "deletepredefinedattribute": {
     "name": "DeletePredefinedAttribute",
     "description": "Grants permission to delete a predefined attribute in an Amazon Connect instance",
@@ -2505,6 +2566,24 @@
     ],
     "dependentActions": []
   },
+  "describenotification": {
+    "name": "DescribeNotification",
+    "description": "Grants permission to describe a notification in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "notification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "describephonenumber": {
     "name": "DescribePhoneNumber",
     "description": "Grants permission to describe phone number resources in an Amazon Connect instance or traffic distribution group",
@@ -2969,6 +3048,24 @@
     "resourceTypes": [
       {
         "name": "phone-number",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "disassociatequeueemailaddresses": {
+    "name": "DisassociateQueueEmailAddresses",
+    "description": "Grants permission to disassociate a set of email addresses from a queue",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "queue",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4054,6 +4151,23 @@
     ],
     "dependentActions": []
   },
+  "listnotifications": {
+    "name": "ListNotifications",
+    "description": "Grants permission to list notifications in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listphonenumbers": {
     "name": "ListPhoneNumbers",
     "description": "Grants permission to list phone number resources in an Amazon Connect instance",
@@ -4114,6 +4228,24 @@
       }
     ],
     "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listqueueemailaddresses": {
+    "name": "ListQueueEmailAddresses",
+    "description": "Grants permission to list the email address metadata associated with a queue",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "connect:InstanceId"
     ],
     "dependentActions": []
@@ -4568,6 +4700,24 @@
       }
     ],
     "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "listusernotifications": {
+    "name": "ListUserNotifications",
+    "description": "Grants permission to list notifications for a user in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "connect:InstanceId"
     ],
     "dependentActions": []
@@ -5119,6 +5269,24 @@
     ],
     "dependentActions": []
   },
+  "searchnotifications": {
+    "name": "SearchNotifications",
+    "description": "Grants permission to search notifications in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "searchpredefinedattributes": {
     "name": "SearchPredefinedAttributes",
     "description": "Grants permission to search predefined attributes in an Amazon Connect instance",
@@ -5572,12 +5740,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "contact-flow",
         "required": false,
         "conditionKeys": [],
@@ -5652,12 +5814,6 @@
     "description": "Grants permission to initiate an outbound email using the Amazon Connect API",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
       {
         "name": "contact-flow",
         "required": false,
@@ -6707,6 +6863,24 @@
     ],
     "dependentActions": []
   },
+  "updatenotificationcontent": {
+    "name": "UpdateNotificationContent",
+    "description": "Grants permission to update the content of a notification in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "notification",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "updateparticipantauthentication": {
     "name": "UpdateParticipantAuthentication",
     "description": "Grants permission to update and continue authentication for a specific contact",
@@ -7240,6 +7414,24 @@
   "updateuseridentityinfo": {
     "name": "UpdateUserIdentityInfo",
     "description": "Grants permission to update identity information for a user in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "user",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updateusernotificationstatus": {
+    "name": "UpdateUserNotificationStatus",
+    "description": "Grants permission to update the status of a user notification in an Amazon Connect instance",
     "accessLevel": "Write",
     "resourceTypes": [
       {
