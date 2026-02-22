@@ -1,4 +1,8 @@
-import { ConditionKey, iamConditionKeyDetails, iamConditionKeyExists } from './conditionKeys.js'
+import {
+  type ConditionKey,
+  iamConditionKeyDetails,
+  iamConditionKeyExists
+} from './conditionKeys.js'
 import { readConditionPatterns, readUnassociatedConditions } from './data.js'
 import {
   getGlobalConditionKeyByName,

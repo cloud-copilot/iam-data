@@ -1,4 +1,4 @@
-import { ConditionKey } from './conditionKeys.js'
+import { type ConditionKey } from './conditionKeys.js'
 
 export interface GlobalConditionKey extends ConditionKey {
   category: string
