@@ -25,6 +25,13 @@
     "key": "GatewayInstance",
     "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName}:instance:${InstanceId}"
   },
+  "mediastream": {
+    "key": "MediaStream",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/mediaStream/${MediaStreamName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "offering": {
     "key": "Offering",
     "arn": "arn:${Partition}:mediaconnect:${Region}:offering:${OfferingId}"
@@ -64,6 +71,13 @@
   "source": {
     "key": "Source",
     "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:source:${SourceId}:${SourceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "vpcinterface": {
+    "key": "VpcInterface",
+    "arn": "arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/vpcInterface/${VpcInterfaceName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
