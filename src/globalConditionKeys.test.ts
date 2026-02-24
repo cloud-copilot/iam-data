@@ -3,7 +3,7 @@ import {
   getAllGlobalConditionKeys,
   getGlobalConditionKeyByName,
   getGlobalConditionKeyByPrefix,
-  GlobalConditionKey,
+  type GlobalConditionKey,
   globalConditionKeys
 } from './globalConditionKeys'
 
