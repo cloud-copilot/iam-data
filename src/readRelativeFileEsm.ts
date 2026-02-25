@@ -1,5 +1,6 @@
 // @ts-ignore
 const root = import.meta.url
+
 // @ts-ignore
 const environmentRoot: string | undefined = import.meta.env?.IAM_DATA_ROOT
 let resolvedRoot: string | undefined = undefined
@@ -19,9 +20,17 @@ export async function readRelativeFile<T>(pathParts: string[]): Promise<T> {
    */
   if (!resolvedRoot) {
     if (fileSystem) {
-      const { join } = await import('node:path')
-      const { resolve } = await import('node:url')
-      resolvedRoot = resolve(root, join('..', '..'))
+      if (environmentRoot && environmentRoot !== '') {
+        if (environmentRoot.startsWith('file://')) {
+          resolvedRoot = new URL(environmentRoot).href
+        } else {
+          const { resolve: pathResolve } = await import('node:path')
+          const { pathToFileURL } = await import('node:url')
+          resolvedRoot = pathToFileURL(pathResolve(environmentRoot)).href
+        }
+      } else {
+        resolvedRoot = new URL('../../', root).href
+      }
     } else {
       if (environmentRoot && environmentRoot !== '') {
         useFetch = true
@@ -33,15 +42,20 @@ export async function readRelativeFile<T>(pathParts: string[]): Promise<T> {
         resolvedRoot = '../../'
       }
     }
+
+    if (!resolvedRoot.endsWith('/')) {
+      resolvedRoot = resolvedRoot + '/'
+    }
   }
 
   if (fileSystem) {
     const { readFile } = await import('fs/promises')
     const { join } = await import('node:path')
-    const { fileURLToPath, resolve } = await import('node:url')
+    const { fileURLToPath } = await import('node:url')
 
     const relativePath = join(...pathParts)
-    const contents = await readFile(fileURLToPath(resolve(resolvedRoot, relativePath)), 'utf-8')
+    const fileUrl = new URL(relativePath, resolvedRoot)
+    const contents = await readFile(fileURLToPath(fileUrl), 'utf-8')
     return JSON.parse(contents)
   } else if (useFetch) {
     const dataUrl = resolvedRoot + pathParts.join('/')
