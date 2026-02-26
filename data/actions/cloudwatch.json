@@ -33,6 +33,21 @@
     ],
     "dependentActions": []
   },
+  "deletealarmmuterule": {
+    "name": "DeleteAlarmMuteRule",
+    "description": "Grants permission to delete an alarm mute rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alarm-mute-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletealarms": {
     "name": "DeleteAlarms",
     "description": "Grants permission to delete a collection of alarms",
@@ -254,6 +269,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getalarmmuterule": {
+    "name": "GetAlarmMuteRule",
+    "description": "Grants permission to get an alarm mute rule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "alarm-mute-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getdashboard": {
     "name": "GetDashboard",
     "description": "Grants permission to display the details of the CloudWatch dashboard you specify",
@@ -395,6 +425,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listalarmmuterules": {
+    "name": "ListAlarmMuteRules",
+    "description": "Grants permission to retrieve a list of alarm mute rules owned by the user's account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "alarm-mute-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdashboards": {
     "name": "ListDashboards",
     "description": "Grants permission to return a list of all CloudWatch dashboards in your account",
@@ -526,6 +571,30 @@
         ]
       }
     ]
+  },
+  "putalarmmuterule": {
+    "name": "PutAlarmMuteRule",
+    "description": "Grants permission to create or update an alarm mute rule",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alarm-mute-rule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "alarm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
   },
   "putanomalydetector": {
     "name": "PutAnomalyDetector",
