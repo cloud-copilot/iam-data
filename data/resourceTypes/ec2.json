@@ -876,6 +876,43 @@
       "ec2:Vpc"
     ]
   },
+  "secondary-interface": {
+    "key": "secondary-interface",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:secondary-interface/${SecondaryInterfaceId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:AvailabilityZone",
+      "ec2:AvailabilityZoneId",
+      "ec2:IsLaunchTemplateResource",
+      "ec2:LaunchTemplate",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
+  "secondary-network": {
+    "key": "secondary-network",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:secondary-network/${SecondaryNetworkId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
+  "secondary-subnet": {
+    "key": "secondary-subnet",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:secondary-subnet/${SecondarySubnetId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "security-group": {
     "key": "security-group",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}",

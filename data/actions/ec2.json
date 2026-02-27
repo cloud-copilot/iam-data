@@ -1273,6 +1273,29 @@
     ],
     "dependentActions": []
   },
+  "attachresourcestoplacementgroup": {
+    "name": "AttachResourcesToPlacementGroup",
+    "isPermissionOnly": true,
+    "description": "Grants permission to attach resources to a placement group",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "placement-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:PlacementGroupName",
+          "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "attachverifiedaccesstrustprovider": {
     "name": "AttachVerifiedAccessTrustProvider",
     "description": "Grants permission to attach a trust provider to a Verified Access instance",
@@ -4119,6 +4142,59 @@
     ],
     "dependentActions": []
   },
+  "createsecondarynetwork": {
+    "name": "CreateSecondaryNetwork",
+    "description": "Grants permission to create a secondary network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "secondary-network",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createsecondarysubnet": {
+    "name": "CreateSecondarySubnet",
+    "description": "Grants permission to create a secondary subnet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "secondary-network",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "secondary-subnet",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createsecuritygroup": {
     "name": "CreateSecurityGroup",
     "description": "Grants permission to create a security group",
@@ -5110,6 +5186,41 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RouteTableID",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "secondary-interface",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "secondary-network",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "secondary-subnet",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -8045,6 +8156,46 @@
     ],
     "dependentActions": []
   },
+  "deletesecondarynetwork": {
+    "name": "DeleteSecondaryNetwork",
+    "description": "Grants permission to delete a secondary network",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "secondary-network",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletesecondarysubnet": {
+    "name": "DeleteSecondarySubnet",
+    "description": "Grants permission to delete a secondary subnet",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "secondary-subnet",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deletesecuritygroup": {
     "name": "DeleteSecurityGroup",
     "description": "Grants permission to delete a security group",
@@ -8805,6 +8956,39 @@
       },
       {
         "name": "route-table",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "secondary-interface",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "secondary-network",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "secondary-subnet",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -11519,6 +11703,36 @@
     ],
     "dependentActions": []
   },
+  "describesecondaryinterfaces": {
+    "name": "DescribeSecondaryInterfaces",
+    "description": "Grants permission to describe one or more secondary interfaces",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describesecondarynetworks": {
+    "name": "DescribeSecondaryNetworks",
+    "description": "Grants permission to describe one or more secondary networks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describesecondarysubnets": {
+    "name": "DescribeSecondarySubnets",
+    "description": "Grants permission to describe one or more secondary subnets",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describesecuritygroupreferences": {
     "name": "DescribeSecurityGroupReferences",
     "description": "Grants permission to describe the VPCs on the other side of a VPC peering connection that are referencing specified VPC security groups",
@@ -12379,6 +12593,29 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:Subnet",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "detachresourcesfromplacementgroup": {
+    "name": "DetachResourcesFromPlacementGroup",
+    "isPermissionOnly": true,
+    "description": "Grants permission to detach resources from a placement group",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "placement-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:PlacementGroupName",
+          "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -20037,6 +20274,15 @@
           "ec2:LaunchTemplate",
           "ec2:PlacementGroupName",
           "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "secondary-subnet",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []

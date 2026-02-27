@@ -208,10 +208,20 @@
   "createwebaclassociation": {
     "name": "CreateWebACLAssociation",
     "isPermissionOnly": true,
-    "description": "Grants permission to create WebAcl association to WAF",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "description": "Grants permission to associate WAF WebACL to the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deletelistener": {
@@ -343,10 +353,20 @@
   "deletewebaclassociation": {
     "name": "DeleteWebACLAssociation",
     "isPermissionOnly": true,
-    "description": "Grants permission to delete WebAcl association to WAF",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "description": "Grants permission to disassociate WAF WebACL from the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deregistertargets": {
@@ -498,8 +518,8 @@
   "describewebaclassociation": {
     "name": "DescribeWebACLAssociation",
     "isPermissionOnly": true,
-    "description": "Grants permission to describe WebAcl association to WAF",
-    "accessLevel": "Permissions management",
+    "description": "Grants permission to describe all load balancers associated to a WAF WebACL in your account",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -507,10 +527,20 @@
   "getloadbalancerwebacl": {
     "name": "GetLoadBalancerWebACL",
     "isPermissionOnly": true,
-    "description": "Grants permission to get Load Balancer WebAcl to WAF",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "description": "Grants permission to retrieve the WAF WebACL associated to the specified load balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getresourcepolicy": {

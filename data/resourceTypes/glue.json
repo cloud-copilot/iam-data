@@ -5,11 +5,17 @@
   },
   "catalog": {
     "key": "catalog",
-    "arn": "arn:${Partition}:glue:${Region}:${Account}:catalog/${CatalogName}"
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:catalog/${CatalogName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "database": {
     "key": "database",
-    "arn": "arn:${Partition}:glue:${Region}:${Account}:database/${DatabaseName}"
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:database/${DatabaseName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "table": {
     "key": "table",
