@@ -258,7 +258,19 @@ export const globalConditionKeys: GlobalConditionKey[] = [
     description: ''
   },
   {
+    key: 'aws:CalledViaAWSMCP',
+    category: 'request',
+    type: 'String',
+    description: ''
+  },
+  {
     key: 'aws:ViaAWSService',
+    category: 'request',
+    type: 'Bool',
+    description: ''
+  },
+  {
+    key: 'aws:ViaAWSMCPService',
     category: 'request',
     type: 'Bool',
     description: ''
@@ -339,6 +351,12 @@ export const globalConditionKeys: GlobalConditionKey[] = [
     key: 'aws:UserAgent',
     category: 'request',
     type: 'String',
+    description: ''
+  },
+  {
+    key: 'aws:IsMcpServiceAction',
+    category: 'request',
+    type: 'Bool',
     description: ''
   }
 ]
