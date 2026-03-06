@@ -1,0 +1,854 @@
+{
+  "activatesubscription": {
+    "name": "ActivateSubscription",
+    "description": "Grants permission to activate a subscription to enable billing for a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelappointment": {
+    "name": "CancelAppointment",
+    "isPermissionOnly": true,
+    "description": "Grants permission to cancel an appointment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createagent": {
+    "name": "CreateAgent",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a new agent with an initial version in DRAFT state",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createdomain": {
+    "name": "CreateDomain",
+    "description": "Grants permission to create a new domain for managing HealthAgent resources",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "health-agent:TagResource",
+      "iam:PassRole"
+    ]
+  },
+  "createintegration": {
+    "name": "CreateIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a new integration for a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsession": {
+    "name": "CreateSession",
+    "isPermissionOnly": true,
+    "description": "Grants permission to create a new session with specified agent configurations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsubscription": {
+    "name": "CreateSubscription",
+    "description": "Grants permission to create a new subscription within a domain for billing and user management",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deactivatesubscription": {
+    "name": "DeactivateSubscription",
+    "description": "Grants permission to deactivate a subscription to stop billing for a user",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteagent": {
+    "name": "DeleteAgent",
+    "description": "Grants permission to delete an agent configuration and all its versions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedomain": {
+    "name": "DeleteDomain",
+    "description": "Grants permission to delete a domain and all associated resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteintegration": {
+    "name": "DeleteIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to delete an integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getagent": {
+    "name": "GetAgent",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve an agent configuration, defaulting to the most recent version if not specified",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcareteamprovider": {
+    "name": "GetCareTeamProvider",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve the care team provider of a patient",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdomain": {
+    "name": "GetDomain",
+    "description": "Grants permission to retrieve information about a domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintegration": {
+    "name": "GetIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to get an existing integration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmedicalscribelisteningsession": {
+    "name": "GetMedicalScribeListeningSession",
+    "description": "Grants permission to retrieve details about an existing Medical Scribe listening session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpatient": {
+    "name": "GetPatient",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve patient information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpatientinsightsjob": {
+    "name": "GetPatientInsightsJob",
+    "description": "Grants permission to get details of a started patient insights job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PatientInsightsJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpractitioner": {
+    "name": "GetPractitioner",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve practitioner information",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsessioncontext": {
+    "name": "GetSessionContext",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve structured session context including attributes and collected data",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsubscription": {
+    "name": "GetSubscription",
+    "description": "Grants permission to retrieve information about a subscription",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeagent": {
+    "name": "InvokeAgent",
+    "isPermissionOnly": true,
+    "description": "Grants permission to invoke an agent within a session with streaming response support",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listagents": {
+    "name": "ListAgents",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list all agents in a domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listappointmentslots": {
+    "name": "ListAppointmentSlots",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list available appointment slots",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdomains": {
+    "name": "ListDomains",
+    "description": "Grants permission to list domains for a given account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listintegrations": {
+    "name": "ListIntegrations",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list integrations for a domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpatientappointments": {
+    "name": "ListPatientAppointments",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list patient appointments",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpatientinsurancecoverages": {
+    "name": "ListPatientInsuranceCoverages",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list patient insurance coverages",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listproviders": {
+    "name": "ListProviders",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve active providers available for scheduling appointments with a patient",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsubscriptions": {
+    "name": "ListSubscriptions",
+    "description": "Grants permission to list all subscriptions within a domain",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for the specified resource",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "matchpatient": {
+    "name": "MatchPatient",
+    "isPermissionOnly": true,
+    "description": "Grants permission to match a patient",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishagent": {
+    "name": "PublishAgent",
+    "isPermissionOnly": true,
+    "description": "Grants permission to publish an agent configuration version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "rescheduleappointment": {
+    "name": "RescheduleAppointment",
+    "isPermissionOnly": true,
+    "description": "Grants permission to reschedule an appointment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "scheduleappointment": {
+    "name": "ScheduleAppointment",
+    "isPermissionOnly": true,
+    "description": "Grants permission to schedule an appointment for a patient",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startmedicalscribelisteningsession": {
+    "name": "StartMedicalScribeListeningSession",
+    "description": "Grants permission to start a new Medical Scribe listening session for real-time audio transcription",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Subscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startpatientinsightsjob": {
+    "name": "StartPatientInsightsJob",
+    "description": "Grants permission to start a new patient insights job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PatientInsightsJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add the specified tags to the specified resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the tags identified by the TagKeys list from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateagent": {
+    "name": "UpdateAgent",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update a draft agent configuration, creating a new draft version if none exists",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Agent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateintegration": {
+    "name": "UpdateIntegration",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update an existing integration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesession": {
+    "name": "UpdateSession",
+    "isPermissionOnly": true,
+    "description": "Grants permission to update session attributes such as departmentId and appointmentType",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}
