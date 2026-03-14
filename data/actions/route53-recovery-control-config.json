@@ -3,14 +3,7 @@
     "name": "CreateCluster",
     "description": "Grants permission to create a cluster",
     "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
+    "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -23,7 +16,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "controlpanel",
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -41,7 +34,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "routingcontrol",
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -56,7 +49,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "safetyrule",
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -189,21 +182,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describeroutingcontrolbyname": {
-    "name": "DescribeRoutingControlByName",
-    "description": "Grants permission to describe a routing control",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "routingcontrol",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "describesafetyrule": {
     "name": "DescribeSafetyRule",
     "description": "Grants permission to describe a safety rule",
@@ -238,7 +216,14 @@
     "name": "ListAssociatedRoute53HealthChecks",
     "description": "Grants permission to list associated Route 53 health checks",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "routingcontrol",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -262,7 +247,14 @@
     "name": "ListRoutingControls",
     "description": "Grants permission to list routing controls",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "controlpanel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -285,7 +277,26 @@
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a resource",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "controlpanel",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "safetyrule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
