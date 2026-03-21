@@ -86,6 +86,30 @@
     ],
     "dependentActions": []
   },
+  "createquotashare": {
+    "name": "CreateQuotaShare",
+    "description": "Grants permission to create an AWS Batch quota share in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quota-share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createschedulingpolicy": {
     "name": "CreateSchedulingPolicy",
     "description": "Grants permission to create an AWS Batch scheduling policy in your account",
@@ -161,6 +185,21 @@
     "resourceTypes": [
       {
         "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletequotashare": {
+    "name": "DeleteQuotaShare",
+    "description": "Grants permission to delete an AWS Batch quota share in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "quota-share",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -261,6 +300,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describequotashare": {
+    "name": "DescribeQuotaShare",
+    "description": "Grants permission to describe an AWS Batch quota share in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "quota-share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeschedulingpolicies": {
     "name": "DescribeSchedulingPolicies",
     "description": "Grants permission to describe one or more AWS Batch scheduling policies in your account",
@@ -331,6 +385,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listquotashares": {
+    "name": "ListQuotaShares",
+    "description": "Grants permission to list AWS Batch quota shares in your account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "job-queue",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listschedulingpolicies": {
     "name": "ListSchedulingPolicies",
     "description": "Grants permission to list AWS Batch scheduling policies in your account",
@@ -378,6 +447,12 @@
       },
       {
         "name": "job-queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quota-share",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -508,11 +583,18 @@
           "batch:ShareIdentifier"
         ],
         "dependentActions": []
+      },
+      {
+        "name": "quota-share",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "batch:SchedulingPriority"
     ],
     "dependentActions": []
   },
@@ -547,6 +629,12 @@
       },
       {
         "name": "job-queue",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quota-share",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -642,6 +730,12 @@
         "dependentActions": []
       },
       {
+        "name": "quota-share",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "scheduling-policy",
         "required": false,
         "conditionKeys": [],
@@ -722,6 +816,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatequotashare": {
+    "name": "UpdateQuotaShare",
+    "description": "Grants permission to update an AWS Batch quota share in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "quota-share",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updateschedulingpolicy": {
     "name": "UpdateSchedulingPolicy",
     "description": "Grants permission to update an AWS Batch scheduling policy in your account",
@@ -750,6 +859,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicejob": {
+    "name": "UpdateServiceJob",
+    "description": "Grants permission to update a service job in an AWS Batch job queue in your account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "batch:SchedulingPriority"
+    ],
     "dependentActions": []
   }
 }

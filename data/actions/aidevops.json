@@ -14,13 +14,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "AssociationResource",
+        "name": "associations",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -35,7 +35,26 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createbacklogtask": {
+    "name": "CreateBacklogTask",
+    "description": "Grants permission to create a new backlog task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -44,37 +63,13 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "createbacklogtask": {
-    "name": "CreateBacklogTask",
-    "description": "Grants permission to create a new backlog task",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createchat": {
     "name": "CreateChat",
-    "description": "Grants permission to create a new chat session",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "createknowledgeitem": {
-    "name": "CreateKnowledgeItem",
-    "description": "Grants permission to create a new knowledge item",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "createonetimeloginsession": {
-    "name": "CreateOneTimeLoginSession",
-    "description": "Grants permission to generate secure one-time session for initiating off-console Application login",
+    "description": "Grants permission to create a chat",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -89,21 +84,15 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deleteknowledgeitem": {
-    "name": "DeleteKnowledgeItem",
-    "description": "Grants permission to delete a knowledge item",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deregisterservice": {
@@ -112,20 +101,29 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "ServiceResource",
+        "name": "service",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "describesupportlevel": {
     "name": "DescribeSupportLevel",
     "description": "Grants permission to describe a chat for a case",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -135,7 +133,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -150,26 +148,18 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "AssociationResource",
+        "name": "associations",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "discovertopology": {
-    "name": "DiscoverTopology",
-    "description": "Grants permission to discover topology information",
-    "accessLevel": "Write",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -179,7 +169,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -192,13 +182,20 @@
     "name": "EndChatForCase",
     "description": "Grants permission to end a chat for a case",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
   "getaccountusage": {
     "name": "GetAccountUsage",
-    "description": "Grants permission to get account usage",
+    "description": "Grants permission to retrieve account usage information",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -210,13 +207,15 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getassociation": {
@@ -225,13 +224,13 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "AssociationResource",
+        "name": "associations",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -244,25 +243,24 @@
     "name": "GetBacklogTask",
     "description": "Grants permission to get a backlog task",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getknowledgeitem": {
-    "name": "GetKnowledgeItem",
-    "description": "Grants permission to get a knowledge item",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getoperatorappteams": {
-    "name": "GetOperatorAppTeams",
-    "description": "Grants permission to enable operator auth config for any enabled auth flow",
+  "getoperatorapp": {
+    "name": "GetOperatorApp",
+    "description": "Grants permission to get operator auth config for any enabled auth flow",
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -275,7 +273,14 @@
     "name": "GetRecommendation",
     "description": "Grants permission to get a recommendation",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -285,36 +290,29 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "ServiceResource",
+        "name": "service",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "handleserviceregistrationcallback": {
-    "name": "HandleServiceRegistrationCallback",
-    "description": "Grants permission to handle OAuth callback from external service",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "initiatechatforcase": {
     "name": "InitiateChatForCase",
     "description": "Grants permission to initiate a chat for a case",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "initiateserviceregistration": {
-    "name": "InitiateServiceRegistration",
-    "description": "Grants permission to initiate OAuth flow",
-    "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -332,7 +330,7 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -345,15 +343,29 @@
     "name": "ListBacklogTasks",
     "description": "Grants permission to list backlog tasks",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
   "listchats": {
     "name": "ListChats",
-    "description": "Grants permission to list existing chat sessions",
+    "description": "Grants permission to list chats",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -361,7 +373,14 @@
     "name": "ListExecutions",
     "description": "Grants permission to list executions",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -369,7 +388,14 @@
     "name": "ListGoals",
     "description": "Grants permission to list goals",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -377,15 +403,14 @@
     "name": "ListJournalRecords",
     "description": "Grants permission to list journal records",
     "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listknowledgeitems": {
-    "name": "ListKnowledgeItems",
-    "description": "Grants permission to list knowledge items",
-    "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -393,7 +418,14 @@
     "name": "ListPendingMessages",
     "description": "Grants permission to list pending messages",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -401,7 +433,14 @@
     "name": "ListRecommendations",
     "description": "Grants permission to list recommendations",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -413,19 +452,50 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listwebhooks": {
     "name": "ListWebhooks",
     "description": "Grants permission to list webhooks for association",
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "AssociationResource",
+        "name": "associations",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -440,13 +510,17 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "ServiceResource",
+        "name": "service",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "searchserviceaccessibleresource": {
@@ -457,29 +531,13 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "sendchatmessage": {
-    "name": "SendChatMessage",
-    "description": "Grants permission to invoke an agent",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "streammessage": {
-    "name": "StreamMessage",
-    "description": "Grants permission to invoke an agent",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updateagentspace": {
-    "name": "UpdateAgentSpace",
-    "description": "Grants permission to update agentspace",
+  "sendmessage": {
+    "name": "SendMessage",
+    "description": "Grants permission to send chat messages",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -488,19 +546,99 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateagentspace": {
+    "name": "UpdateAgentSpace",
+    "description": "Grants permission to update agentspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "updateassociation": {
     "name": "UpdateAssociation",
     "description": "Grants permission to update association",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "AssociationResource",
+        "name": "associations",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -513,7 +651,14 @@
     "name": "UpdateBacklogTask",
     "description": "Grants permission to update a task",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -521,25 +666,24 @@
     "name": "UpdateGoal",
     "description": "Grants permission to update a goal",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
-  "updateknowledgeitem": {
-    "name": "UpdateKnowledgeItem",
-    "description": "Grants permission to update a knowledge item",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updateoperatorappteams": {
-    "name": "UpdateOperatorAppTeams",
-    "description": "Grants permission to update the list of teams that the Operator App is enabled for",
+  "updateoperatorappidpconfig": {
+    "name": "UpdateOperatorAppIdpConfig",
+    "description": "Grants permission to update the external Identity Provider configuration for the Operator App",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "AgentSpaceResource",
+        "name": "agentspace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -552,7 +696,29 @@
     "name": "UpdateRecommendation",
     "description": "Grants permission to update a recommendation",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "validateawsassociations": {
+    "name": "ValidateAwsAssociations",
+    "description": "Grants permission to validate aws association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agentspace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   }

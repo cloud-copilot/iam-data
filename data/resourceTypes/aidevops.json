@@ -1,24 +1,20 @@
 {
-  "agentspaceresource": {
-    "key": "AgentSpaceResource",
+  "agentspace": {
+    "key": "agentspace",
     "arn": "arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}",
     "conditionKeys": [
-      "aidevops:AgentSpaceResourceAgentSpaceId"
+      "aws:ResourceTag/${TagKey}"
     ]
   },
-  "associationresource": {
-    "key": "AssociationResource",
-    "arn": "arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/associations/${AssociationId}",
-    "conditionKeys": [
-      "aidevops:AssociationResourceAgentSpaceId",
-      "aidevops:AssociationResourceAssociationId"
-    ]
+  "associations": {
+    "key": "associations",
+    "arn": "arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/associations/${AssociationId}"
   },
-  "serviceresource": {
-    "key": "ServiceResource",
+  "service": {
+    "key": "service",
     "arn": "arn:${Partition}:aidevops:${Region}:${Account}:service/${ServiceId}",
     "conditionKeys": [
-      "aidevops:ServiceResourceServiceId"
+      "aws:ResourceTag/${TagKey}"
     ]
   }
 }
