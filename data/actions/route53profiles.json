@@ -6,7 +6,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "route53profiles:ResourceIds"
     ],
     "dependentActions": [
       "ec2:DescribeVpcs"
@@ -17,7 +18,13 @@
     "description": "Grants permission to associates a resource, such as DNS Firewall rule group, private hosted zone, resolver rule, etc. to a specified Profile",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53profiles:ResourceTypes",
+      "route53profiles:HostedZoneDomains",
+      "route53profiles:ResolverRuleDomains",
+      "route53profiles:FirewallRuleGroupPriority",
+      "route53profiles:ResourceArns"
+    ],
     "dependentActions": []
   },
   "createprofile": {
@@ -44,7 +51,9 @@
     "description": "Grants permission to delete an association between a customer VPC and the specified Profile",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53profiles:ResourceIds"
+    ],
     "dependentActions": []
   },
   "disassociateresourcefromprofile": {
@@ -52,7 +61,13 @@
     "description": "Grants permission to delete the asoociation between the resource. such as DNS Firewall rule group, private hosted zone, resolver rule, etc. and the specified Profile",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53profiles:ResourceTypes",
+      "route53profiles:HostedZoneDomains",
+      "route53profiles:ResolverRuleDomains",
+      "route53profiles:FirewallRuleGroupPriority",
+      "route53profiles:ResourceArns"
+    ],
     "dependentActions": []
   },
   "getprofile": {
@@ -195,7 +210,12 @@
     "description": "Grants permission to update the Profile resource association name or the resource properties or both, if both name and resource properties are null, the api returns the existing Profile resource association",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "route53profiles:ResourceTypes",
+      "route53profiles:HostedZoneDomains",
+      "route53profiles:ResolverRuleDomains",
+      "route53profiles:FirewallRuleGroupPriority"
+    ],
     "dependentActions": []
   }
 }
