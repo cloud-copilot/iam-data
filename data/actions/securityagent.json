@@ -1,26 +1,11 @@
 {
   "addartifact": {
     "name": "AddArtifact",
-    "description": "Grants permission to add an Artifact for the given Agent Instance",
+    "description": "Grants permission to add an Artifact for the given Agent Space",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "addcontrol": {
-    "name": "AddControl",
-    "description": "Grants permission to add a customer managed Control",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Application",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -36,21 +21,6 @@
     "resourceTypes": [
       {
         "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "batchgetagentinstances": {
-    "name": "BatchGetAgentInstances",
-    "description": "Grants permission to retrieve multiple agent instances in a single request",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "AgentInstance",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -76,7 +46,7 @@
   },
   "batchgetartifactmetadata": {
     "name": "BatchGetArtifactMetadata",
-    "description": "Grants permission to retrieve one or more Artifact Metadata records for the given Agent Instance",
+    "description": "Grants permission to retrieve one or more Artifact Metadata records for the given Agent Space",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -209,27 +179,15 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "createagentinstance": {
-    "name": "CreateAgentInstance",
-    "description": "Grants permission to create an agent instance record",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Application",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createagentspace": {
     "name": "CreateAgentSpace",
     "description": "Grants permission to create an agent space record",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createapplication": {
@@ -237,7 +195,10 @@
     "description": "Grants permission to create a new application",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": [
       "iam:PassRole",
       "sso:CreateApplication"
@@ -246,21 +207,6 @@
   "createdesignreview": {
     "name": "CreateDesignReview",
     "description": "Grants permission to create a design review",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "createdocumentreview": {
-    "name": "CreateDocumentReview",
-    "description": "Grants permission to create a document review",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -285,12 +231,15 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createmembership": {
     "name": "CreateMembership",
-    "description": "Grants permission to add a single member to a agent instance with specified role",
+    "description": "Grants permission to add a single member to a agent space with specified role",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -339,7 +288,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "Application",
+        "name": "SecurityRequirementPack",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -353,21 +302,6 @@
     "description": "Grants permission to create a target domain record",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deleteagentinstance": {
-    "name": "DeleteAgentInstance",
-    "description": "Grants permission to delete an agent instance record",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "AgentInstance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -416,39 +350,9 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deletecontrol": {
-    "name": "DeleteControl",
-    "description": "Grants permission to delete a customer managed Control",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Control",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletedesignreview": {
     "name": "DeleteDesignReview",
     "description": "Grants permission to delete a design review",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deletedocumentreview": {
-    "name": "DeleteDocumentReview",
-    "description": "Grants permission to delete a document review",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -478,7 +382,7 @@
   },
   "deletemembership": {
     "name": "DeleteMembership",
-    "description": "Grants permission to remove a single member associated to an agent instance",
+    "description": "Grants permission to remove a single member associated to an agent space",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -497,7 +401,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "SecurityRequirement",
+        "name": "SecurityRequirementPack",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -553,7 +457,7 @@
   },
   "getartifact": {
     "name": "GetArtifact",
-    "description": "Grants permission to retrieve an Artifact for the given Agent Instance",
+    "description": "Grants permission to retrieve an Artifact for the given Agent Space",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -573,21 +477,6 @@
     "resourceTypes": [
       {
         "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getcontrol": {
-    "name": "GetControl",
-    "description": "Grants permission to retrieve a Control",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "Control",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -656,36 +545,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getdocumentreview": {
-    "name": "GetDocumentReview",
-    "description": "Grants permission to get the status of the associated agent instance document review",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getdocumentreviewartifact": {
-    "name": "GetDocumentReviewArtifact",
-    "description": "Grants permission to get document review artifact for a specific document",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getintegration": {
     "name": "GetIntegration",
     "description": "Grants permission to get the integration metadata by ID",
@@ -701,34 +560,18 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getloginsessioncredentials": {
-    "name": "GetLoginSessionCredentials",
-    "description": "Grants permission to retrieve credentials for a one time login session",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getsecurityrequirement": {
     "name": "GetSecurityRequirement",
     "description": "Grants permission to retrieve a Security Requirement",
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "SecurityRequirement",
+        "name": "SecurityRequirementPack",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "handleonetimeloginsession": {
-    "name": "HandleOneTimeLoginSession",
-    "description": "Grants permission to process and invalidate a one time login session",
-    "accessLevel": "Write",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -744,29 +587,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listagentinstancetasks": {
-    "name": "ListAgentInstanceTasks",
-    "description": "Grants permission to list tasks for a specific agent instance",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "AgentInstance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listagentinstances": {
-    "name": "ListAgentInstances",
-    "description": "Grants permission to list agent instances",
-    "accessLevel": "List",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -798,14 +618,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listcontrols": {
-    "name": "ListControls",
-    "description": "Grants permission to list all Controls",
-    "accessLevel": "List",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -854,36 +666,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "listdocumentreviewcomments": {
-    "name": "ListDocumentReviewComments",
-    "description": "Grants permission to list document review comments",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listdocumentreviews": {
-    "name": "ListDocumentReviews",
-    "description": "Grants permission to list all document reviews for the given project",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "AgentSpace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listfindings": {
     "name": "ListFindings",
     "description": "Grants permission to list findings with filtering and pagination support",
@@ -901,7 +683,7 @@
   },
   "listintegratedresources": {
     "name": "ListIntegratedResources",
-    "description": "Grants permission to list integrated resources for an agent instance",
+    "description": "Grants permission to list integrated resources for an agent space",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -924,7 +706,7 @@
   },
   "listmemberships": {
     "name": "ListMemberships",
-    "description": "Grants permission to list all members associated to an agent instance with pagination support",
+    "description": "Grants permission to list all members associated to an agent space with pagination support",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -1001,7 +783,53 @@
     "name": "ListSecurityRequirements",
     "description": "Grants permission to list all Security Requirements",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list the tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SecurityRequirementPack",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TargetDomain",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1118,19 +946,46 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "togglemanagedcontrol": {
-    "name": "ToggleManagedControl",
-    "description": "Grants permission to toggle the status",
-    "accessLevel": "Write",
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
     "resourceTypes": [
       {
-        "name": "Control",
-        "required": true,
+        "name": "AgentSpace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SecurityRequirementPack",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TargetDomain",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "togglemanagedsecurityrequirement": {
@@ -1139,7 +994,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "SecurityRequirement",
+        "name": "SecurityRequirementPack",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1148,19 +1003,45 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "updateagentinstance": {
-    "name": "UpdateAgentInstance",
-    "description": "Grants permission to update an agent instance record",
-    "accessLevel": "Write",
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
     "resourceTypes": [
       {
-        "name": "AgentInstance",
-        "required": true,
+        "name": "AgentSpace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SecurityRequirementPack",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "TargetDomain",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updateagentspace": {
@@ -1195,21 +1076,6 @@
       "iam:PassRole"
     ]
   },
-  "updatecontrol": {
-    "name": "UpdateControl",
-    "description": "Grants permission to update a customer managed Control",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Control",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "updatefinding": {
     "name": "UpdateFinding",
     "description": "Grants permission to update an existing security finding with new details or status",
@@ -1227,7 +1093,7 @@
   },
   "updateintegratedresources": {
     "name": "UpdateIntegratedResources",
-    "description": "Grants permission to update integrated resources for an agent instance",
+    "description": "Grants permission to update integrated resources for an agent space",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1261,7 +1127,7 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "SecurityRequirement",
+        "name": "SecurityRequirementPack",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -170,7 +170,10 @@
     "description": "Grants permission to create an email or SMS text message contact method",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createcontainerservice": {
@@ -1739,6 +1742,12 @@
         "dependentActions": []
       },
       {
+        "name": "ContactMethod",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ContainerService",
         "required": false,
         "conditionKeys": [],
@@ -1853,6 +1862,12 @@
       },
       {
         "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ContactMethod",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

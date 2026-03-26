@@ -1,50 +1,37 @@
 {
   "application": {
     "key": "Application",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId}"
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
-  "control": {
-    "key": "Control",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:control/${ControlId}"
-  },
-  "securityrequirement": {
-    "key": "SecurityRequirement",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:security-requirement/${SecurityRequirementId}"
+  "securityrequirementpack": {
+    "key": "SecurityRequirementPack",
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:security-requirement-pack/${SecurityRequirementPackId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "integration": {
     "key": "Integration",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:integration/${IntegrationId}"
-  },
-  "agentinstance": {
-    "key": "AgentInstance",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-instance/${AgentId}"
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:integration/${IntegrationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "agentspace": {
     "key": "AgentSpace",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}"
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "targetdomain": {
     "key": "TargetDomain",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:target-domain/${TargetDomainId}"
-  },
-  "artifact": {
-    "key": "Artifact",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/artifact/${ArtifactId}"
-  },
-  "pentest": {
-    "key": "Pentest",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest/${PentestId}"
-  },
-  "pentestjob": {
-    "key": "PentestJob",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest-job/${JobId}"
-  },
-  "pentesttask": {
-    "key": "PentestTask",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest-task/${TaskId}"
-  },
-  "finding": {
-    "key": "Finding",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/finding/${FindingId}"
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:target-domain/${TargetDomainId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }
