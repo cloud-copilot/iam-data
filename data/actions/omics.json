@@ -112,6 +112,21 @@
     ],
     "dependentActions": []
   },
+  "createconfiguration": {
+    "name": "CreateConfiguration",
+    "description": "Grants permission to create a new configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "iam:CreateServiceLinkedRole"
+    ]
+  },
   "createmultipartreadsetupload": {
     "name": "CreateMultipartReadSetUpload",
     "description": "Grants permission to create a multipart read set upload",
@@ -247,6 +262,21 @@
       },
       {
         "name": "AnnotationStoreVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconfiguration": {
+    "name": "DeleteConfiguration",
+    "description": "Grants permission to delete a configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -455,6 +485,21 @@
     "resourceTypes": [
       {
         "name": "AnnotationStoreVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconfiguration": {
+    "name": "GetConfiguration",
+    "description": "Grants permission to retrieve configuration details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "configuration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -816,6 +861,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listconfigurations": {
+    "name": "ListConfigurations",
+    "description": "Grants permission to retrieve a list of configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listmultipartreadsetuploads": {
     "name": "ListMultipartReadSetUploads",
     "description": "Grants permission to list multipart read set uploads",
@@ -1156,6 +1209,12 @@
         ]
       },
       {
+        "name": "configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runCache",
         "required": false,
         "conditionKeys": [],
@@ -1220,6 +1279,12 @@
       },
       {
         "name": "WorkflowVersion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1304,6 +1369,12 @@
       },
       {
         "name": "WorkflowVersion",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
