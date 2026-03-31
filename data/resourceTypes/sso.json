@@ -3,7 +3,8 @@
     "key": "PermissionSet",
     "arn": "arn:${Partition}:sso:::permissionSet/${InstanceId}/${PermissionSetId}",
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "sso:PrimaryRegion"
     ]
   },
   "account": {
@@ -14,7 +15,8 @@
     "key": "Instance",
     "arn": "arn:${Partition}:sso:::instance/${InstanceId}",
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "sso:PrimaryRegion"
     ]
   },
   "application": {
@@ -22,14 +24,16 @@
     "arn": "arn:${Partition}:sso::${AccountId}:application/${InstanceId}/${ApplicationId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "sso:ApplicationAccount"
+      "sso:ApplicationAccount",
+      "sso:PrimaryRegion"
     ]
   },
   "trustedtokenissuer": {
     "key": "TrustedTokenIssuer",
     "arn": "arn:${Partition}:sso::${AccountId}:trustedTokenIssuer/${InstanceId}/${TrustedTokenIssuerId}",
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "sso:PrimaryRegion"
     ]
   },
   "applicationprovider": {
