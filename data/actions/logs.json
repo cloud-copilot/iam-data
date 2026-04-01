@@ -160,6 +160,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createlookuptable": {
+    "name": "CreateLookupTable",
+    "description": "Grants permission to create a lookup table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lookup-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createscheduledquery": {
     "name": "CreateScheduledQuery",
     "description": "Grants permission to create a scheduled query",
@@ -338,6 +356,21 @@
     "resourceTypes": [
       {
         "name": "log-stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelookuptable": {
+    "name": "DeleteLookupTable",
+    "description": "Grants permission to delete a lookup table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lookup-table",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -554,6 +587,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelookuptables": {
+    "name": "DescribeLookupTables",
+    "description": "Grants permission to return all lookup tables",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -809,6 +850,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getlookuptable": {
+    "name": "GetLookupTable",
+    "description": "Grants permission to retrieve a lookup table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "lookup-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getqueryresults": {
     "name": "GetQueryResults",
     "description": "Grants permission to return the results from the specified query",
@@ -1036,6 +1092,12 @@
       },
       {
         "name": "log-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "lookup-table",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1447,6 +1509,12 @@
         "dependentActions": []
       },
       {
+        "name": "lookup-table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "scheduled-query",
         "required": false,
         "conditionKeys": [],
@@ -1550,6 +1618,12 @@
         "dependentActions": []
       },
       {
+        "name": "lookup-table",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "scheduled-query",
         "required": false,
         "conditionKeys": [],
@@ -1627,6 +1701,21 @@
     "description": "Grants permission to update the log delivery information for specified log delivery",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelookuptable": {
+    "name": "UpdateLookupTable",
+    "description": "Grants permission to update a lookup table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "lookup-table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
