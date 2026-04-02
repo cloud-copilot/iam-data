@@ -334,6 +334,27 @@
     ],
     "dependentActions": []
   },
+  "getmetricsconfiguration": {
+    "name": "GetMetricsConfiguration",
+    "description": "Grants permission to get a metrics configuration of a directory bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "listaccesspointsfordirectorybuckets": {
     "name": "ListAccessPointsForDirectoryBuckets",
     "description": "Grants permission to list access points",
@@ -482,6 +503,27 @@
   "putlifecycleconfiguration": {
     "name": "PutLifecycleConfiguration",
     "description": "Grants permission to create a new lifecycle configuration for the directory bucket or replace an existing lifecycle configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putmetricsconfiguration": {
+    "name": "PutMetricsConfiguration",
+    "description": "Grants permission to set or update a metrics configuration for the CloudWatch request metrics of a directory bucket",
     "accessLevel": "Write",
     "resourceTypes": [
       {

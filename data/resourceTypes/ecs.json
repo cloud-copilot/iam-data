@@ -41,6 +41,39 @@
       "ecs:service"
     ]
   },
+  "daemon": {
+    "key": "daemon",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:daemon/${ClusterName}/${DaemonName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ]
+  },
+  "daemon-deployment": {
+    "key": "daemon-deployment",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:daemon-deployment/${ClusterName}/${DaemonName}/${DaemonDeploymentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:daemon"
+    ]
+  },
+  "daemon-revision": {
+    "key": "daemon-revision",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:daemon-revision/${ClusterName}/${DaemonName}/${DaemonRevisionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:daemon"
+    ]
+  },
+  "daemon-task-definition": {
+    "key": "daemon-task-definition",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:daemon-task-definition/${DaemonTaskDefinitionFamilyName}:${DaemonTaskDefinitionRevisionNumber}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "task": {
     "key": "task",
     "arn": "arn:${Partition}:ecs:${Region}:${Account}:task/${ClusterName}/${TaskId}",

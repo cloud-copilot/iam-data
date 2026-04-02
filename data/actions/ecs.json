@@ -43,6 +43,34 @@
     ],
     "dependentActions": []
   },
+  "createdaemon": {
+    "name": "CreateDaemon",
+    "description": "Grants permission to create a new daemon in a specified cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "daemon",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:capacity-provider",
+      "ecs:daemon-task-definition",
+      "ecs:enable-ecs-managed-tags",
+      "ecs:enable-execute-command",
+      "ecs:propagate-tags",
+      "ecs:task-cpu",
+      "ecs:task-memory"
+    ],
+    "dependentActions": []
+  },
   "createexpressgatewayservice": {
     "name": "CreateExpressGatewayService",
     "description": "Grants permission to create a new Amazon ECS Express Gateway service with cluster and task definition",
@@ -181,6 +209,41 @@
     "resourceTypes": [
       {
         "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletedaemon": {
+    "name": "DeleteDaemon",
+    "description": "Grants permission to delete a specified daemon within a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "daemon",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletedaemontaskdefinition": {
+    "name": "DeleteDaemonTaskDefinition",
+    "description": "Grants permission to delete the specified daemon task definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "daemon-task-definition",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -337,6 +400,97 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "describedaemon": {
+    "name": "DescribeDaemon",
+    "description": "Grants permission to describe the specified daemon running in your cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "daemon",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describedaemondeployments": {
+    "name": "DescribeDaemonDeployments",
+    "description": "Grants permission to describe one or more of your daemon deployments",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "daemon",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "daemon-deployment",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "ecs:daemon",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedaemonrevisions": {
+    "name": "DescribeDaemonRevisions",
+    "description": "Grants permission to describe one or more of your daemon revisions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "daemon",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "daemon-revision",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "ecs:daemon",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedaemontaskdefinition": {
+    "name": "DescribeDaemonTaskDefinition",
+    "description": "Grants permission to describe a daemon task definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "daemon-task-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -576,6 +730,42 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listdaemondeployments": {
+    "name": "ListDaemonDeployments",
+    "description": "Grants permission to get a list of daemon deployments for a specified daemon",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "daemon",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "listdaemontaskdefinitions": {
+    "name": "ListDaemonTaskDefinitions",
+    "description": "Grants permission to get a list of daemon task definitions that are registered to your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdaemons": {
+    "name": "ListDaemons",
+    "description": "Grants permission to get a list of daemons that are running in a specified cluster",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ecs:cluster"
     ],
     "dependentActions": []
   },
@@ -826,6 +1016,29 @@
     ],
     "dependentActions": []
   },
+  "registerdaemontaskdefinition": {
+    "name": "RegisterDaemonTaskDefinition",
+    "description": "Grants permission to register a new daemon task definition from the supplied family and containerDefinitions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "daemon-task-definition",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "ecs:privileged",
+      "ecs:task-cpu",
+      "ecs:task-memory"
+    ],
+    "dependentActions": []
+  },
   "registertaskdefinition": {
     "name": "RegisterTaskDefinition",
     "description": "Grants permission to register a new task definition from the supplied family and containerDefinitions",
@@ -1038,6 +1251,18 @@
         "dependentActions": []
       },
       {
+        "name": "daemon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "daemon-task-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "service",
         "required": false,
         "conditionKeys": [],
@@ -1089,6 +1314,18 @@
       },
       {
         "name": "container-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "daemon",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "daemon-task-definition",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1212,6 +1449,32 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "updatedaemon": {
+    "name": "UpdateDaemon",
+    "description": "Grants permission to modify the parameters of a daemon",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "daemon",
+        "required": true,
+        "conditionKeys": [
+          "ecs:cluster",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:capacity-provider",
+      "ecs:daemon-task-definition",
+      "ecs:enable-ecs-managed-tags",
+      "ecs:enable-execute-command",
+      "ecs:propagate-tags",
+      "ecs:task-cpu",
+      "ecs:task-memory"
     ],
     "dependentActions": []
   },
