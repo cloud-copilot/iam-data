@@ -16,6 +16,34 @@
     ],
     "dependentActions": []
   },
+  "associatecustomizedmodel": {
+    "name": "AssociateCustomizedModel",
+    "description": "Grants permission to associate a customized model with a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customized-model",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:ProjectArn",
+      "bedrock-mantle:CustomizedModelArn"
+    ],
+    "dependentActions": []
+  },
   "callwithbearertoken": {
     "name": "CallWithBearerToken",
     "isPermissionOnly": true,
@@ -60,6 +88,26 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createcustomizedmodel": {
+    "name": "CreateCustomizedModel",
+    "description": "Grants permission to import a customized model with custom weights",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customized-model",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -140,6 +188,53 @@
     ],
     "dependentActions": []
   },
+  "createreservation": {
+    "name": "CreateReservation",
+    "description": "Grants permission to create a capacity reservation for a model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "bedrock-mantle:ProjectArn",
+      "bedrock-mantle:ReservationArn"
+    ],
+    "dependentActions": []
+  },
+  "deletecustomizedmodel": {
+    "name": "DeleteCustomizedModel",
+    "description": "Grants permission to delete a customized model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customized-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deletefile": {
     "name": "DeleteFile",
     "description": "Grants permission to delete a specific file",
@@ -166,6 +261,79 @@
     "resourceTypes": [
       {
         "name": "project",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletereservation": {
+    "name": "DeleteReservation",
+    "description": "Grants permission to delete a capacity reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:ProjectArn",
+      "bedrock-mantle:ReservationArn"
+    ],
+    "dependentActions": []
+  },
+  "disassociatecustomizedmodel": {
+    "name": "DisassociateCustomizedModel",
+    "description": "Grants permission to disassociate a customized model from a project",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customized-model",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:ProjectArn",
+      "bedrock-mantle:CustomizedModelArn"
+    ],
+    "dependentActions": []
+  },
+  "getcustomizedmodel": {
+    "name": "GetCustomizedModel",
+    "description": "Grants permission to get customized model",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "customized-model",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -265,6 +433,53 @@
     ],
     "dependentActions": []
   },
+  "getreservation": {
+    "name": "GetReservation",
+    "description": "Grants permission to get reservation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listcustomizedmodelassociations": {
+    "name": "ListCustomizedModelAssociations",
+    "description": "Grants permission to list project associations for a customized model",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "customized-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomizedmodels": {
+    "name": "ListCustomizedModels",
+    "description": "Grants permission to list customized models",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "customized-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listfiles": {
     "name": "ListFiles",
     "description": "Grants permission to list all available files in a project",
@@ -331,21 +546,52 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listreservations": {
+    "name": "ListReservations",
+    "description": "Grants permission to list reservations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a resource",
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "customized-model",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "project",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "tagresource": {
@@ -354,7 +600,23 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "customized-model",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "project",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
@@ -374,7 +636,23 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "customized-model",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "project",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
@@ -401,6 +679,34 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatereservation": {
+    "name": "UpdateReservation",
+    "description": "Grants permission to update reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:ProjectArn",
+      "bedrock-mantle:ReservationArn"
     ],
     "dependentActions": []
   }
