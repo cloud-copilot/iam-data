@@ -299,6 +299,17 @@
     ],
     "dependentActions": []
   },
+  "createdataautomationlibrary": {
+    "name": "CreateDataAutomationLibrary",
+    "description": "Grants permission to create a Data Automation Library",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createdataautomationproject": {
     "name": "CreateDataAutomationProject",
     "description": "Grants permission to create a data automation project",
@@ -306,6 +317,12 @@
     "resourceTypes": [
       {
         "name": "blueprint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-library",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -893,6 +910,21 @@
     "resourceTypes": [
       {
         "name": "custom-model-deployment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataautomationlibrary": {
+    "name": "DeleteDataAutomationLibrary",
+    "description": "Grants permission to delete a Data Automation Library",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1608,6 +1640,57 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdataautomationlibrary": {
+    "name": "GetDataAutomationLibrary",
+    "description": "Grants permission to retrieve an existing Data Automation Library",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataautomationlibraryentity": {
+    "name": "GetDataAutomationLibraryEntity",
+    "description": "Grants permission to get a Data Automation Library entity",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataautomationlibraryingestionjob": {
+    "name": "GetDataAutomationLibraryIngestionJob",
+    "description": "Grants permission to get details about a Data Automation Library ingestion job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-library-ingestion-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getdataautomationproject": {
     "name": "GetDataAutomationProject",
     "description": "Grants permission to retrieve an existing data automation project",
@@ -2265,6 +2348,24 @@
     ],
     "dependentActions": []
   },
+  "invokedataautomationlibraryingestionjob": {
+    "name": "InvokeDataAutomationLibraryIngestionJob",
+    "description": "Grants permission to invoke a Data Automation Library ingestion job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "invokeflow": {
     "name": "InvokeFlow",
     "description": "Grants permission to invoke a prompt flow with user input",
@@ -2631,6 +2732,51 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdataautomationlibraries": {
+    "name": "ListDataAutomationLibraries",
+    "description": "Grants permission to list Data Automation Libraries",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-automation-project",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdataautomationlibraryentities": {
+    "name": "ListDataAutomationLibraryEntities",
+    "description": "Grants permission to list Data Automation Library entities",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdataautomationlibraryingestionjobs": {
+    "name": "ListDataAutomationLibraryIngestionJobs",
+    "description": "Grants permission to list Data Automation Library ingestion jobs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdataautomationprojects": {
     "name": "ListDataAutomationProjects",
     "description": "Grants permission to list existing data automation projects",
@@ -2638,6 +2784,12 @@
     "resourceTypes": [
       {
         "name": "blueprint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-project",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3032,6 +3184,18 @@
       },
       {
         "name": "data-automation-invocation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-library-ingestion-job",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3551,6 +3715,18 @@
         "dependentActions": []
       },
       {
+        "name": "data-automation-library",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-library-ingestion-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "data-automation-project",
         "required": false,
         "conditionKeys": [],
@@ -3726,6 +3902,18 @@
       },
       {
         "name": "data-automation-invocation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-library",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-library-ingestion-job",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -4000,6 +4188,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatedataautomationlibrary": {
+    "name": "UpdateDataAutomationLibrary",
+    "description": "Grants permission to update a Data Automation Library",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-automation-library",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatedataautomationproject": {
     "name": "UpdateDataAutomationProject",
     "description": "Grants permission to update a data automation project",
@@ -4013,6 +4216,12 @@
       },
       {
         "name": "blueprint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-project",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

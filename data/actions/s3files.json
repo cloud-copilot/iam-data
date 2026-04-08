@@ -1,0 +1,394 @@
+{
+  "clientmount": {
+    "name": "ClientMount",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow an NFS client read-access to a file system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3files:AccessPointArn"
+    ],
+    "dependentActions": []
+  },
+  "clientrootaccess": {
+    "name": "ClientRootAccess",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow an NFS client root-access to a file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3files:AccessPointArn"
+    ],
+    "dependentActions": []
+  },
+  "clientwrite": {
+    "name": "ClientWrite",
+    "isPermissionOnly": true,
+    "description": "Grants permission to allow an NFS client write-access to a file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3files:AccessPointArn"
+    ],
+    "dependentActions": []
+  },
+  "createaccesspoint": {
+    "name": "CreateAccessPoint",
+    "description": "Grants permission to create an access point for the specified file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createfilesystem": {
+    "name": "CreateFileSystem",
+    "description": "Grants permission to create a new file system",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createmounttarget": {
+    "name": "CreateMountTarget",
+    "description": "Grants permission to create a mount target for a file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaccesspoint": {
+    "name": "DeleteAccessPoint",
+    "description": "Grants permission to delete a specified access point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "access-point",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefilesystem": {
+    "name": "DeleteFileSystem",
+    "description": "Grants permission to delete a specified file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletefilesystempolicy": {
+    "name": "DeleteFileSystemPolicy",
+    "description": "Grants permission to delete the IAM resource policy for a specified file system",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletemounttarget": {
+    "name": "DeleteMountTarget",
+    "description": "Grants permission to delete a specified mount target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getaccesspoint": {
+    "name": "GetAccessPoint",
+    "description": "Grants permission to get resource information for a specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "access-point",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfilesystem": {
+    "name": "GetFileSystem",
+    "description": "Grants permission to get resource information for a specified file system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfilesystempolicy": {
+    "name": "GetFileSystemPolicy",
+    "description": "Grants permission to get the IAM resource policy for a specified file system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmounttarget": {
+    "name": "GetMountTarget",
+    "description": "Grants permission to get resource information for a specified mount target",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsynchronizationconfiguration": {
+    "name": "GetSynchronizationConfiguration",
+    "description": "Grants permission to get a synchronization configuration for a specified file system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccesspoints": {
+    "name": "ListAccessPoints",
+    "description": "Grants permission to get a paginated list of all access points in the account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "access-point",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfilesystems": {
+    "name": "ListFileSystems",
+    "description": "Grants permission to get a paginated list of all file systems in the account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmounttargets": {
+    "name": "ListMountTargets",
+    "description": "Grants permission to get a paginated list of all mount targets in the account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a specified S3 Files resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "access-point",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "file-system",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putfilesystempolicy": {
+    "name": "PutFileSystemPolicy",
+    "description": "Grants permission to add an IAM resource policy to a specified file system",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putsynchronizationconfiguration": {
+    "name": "PutSynchronizationConfiguration",
+    "description": "Grants permission to add a synchronization configuration to a specified file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to tag a specified S3 Files resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "access-point",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "file-system",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "s3files:CreateAction"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to untag a specified S3 Files resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "access-point",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "file-system",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updatemounttarget": {
+    "name": "UpdateMountTarget",
+    "description": "Grants permission to update resource information for a specified mount target",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  }
+}

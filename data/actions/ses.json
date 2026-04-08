@@ -1558,13 +1558,17 @@
       {
         "name": "mailmanager-ingress-point",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "mailmanager-rule-set",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1575,7 +1579,16 @@
     "name": "CreateAddonInstance",
     "description": "Grants permission to create an addon instance",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "addon-instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
@@ -1587,7 +1600,16 @@
     "name": "CreateAddonSubscription",
     "description": "Grants permission to create an addon subscription",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "addon-subscription",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1598,7 +1620,16 @@
     "name": "CreateAddressList",
     "description": "Grants permission to create an address list",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "mailmanager-address-list",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1626,7 +1657,16 @@
     "name": "CreateArchive",
     "description": "Grants permission to create an archive",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "mailmanager-archive",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1637,23 +1677,42 @@
     "name": "CreateIngressPoint",
     "description": "Grants permission to create an ingress point",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "mailmanager-ingress-point",
+        "required": true,
+        "conditionKeys": [
+          "ses:MailManagerIngressPointType",
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:DescribeVpcEndpoints",
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "ses:MailManagerRuleSetArn",
       "ses:MailManagerTrafficPolicyArn"
     ],
-    "dependentActions": [
-      "ec2:DescribeVpcEndpoints",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createrelay": {
     "name": "CreateRelay",
     "description": "Grants permission to create a SMTP relay",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "mailmanager-smtp-relay",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1664,7 +1723,18 @@
     "name": "CreateRuleSet",
     "description": "Grants permission to create a rule set",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "mailmanager-rule-set",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1675,7 +1745,16 @@
     "name": "CreateTrafficPolicy",
     "description": "Grants permission to create a traffic policy",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "mailmanager-traffic-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1695,7 +1774,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1712,7 +1791,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1746,7 +1825,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1763,7 +1842,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1780,7 +1859,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1797,7 +1876,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1814,7 +1893,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1848,7 +1927,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1865,7 +1944,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1916,7 +1995,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1932,7 +2011,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getarchivemessage": {
@@ -1947,7 +2028,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getarchivemessagecontent": {
@@ -1962,7 +2045,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getarchivesearch": {
@@ -1977,7 +2062,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getarchivesearchresults": {
@@ -1992,7 +2079,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getingresspoint": {
@@ -2008,7 +2097,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2042,7 +2131,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2059,7 +2148,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2076,7 +2165,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2240,7 +2329,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "startarchivesearch": {
@@ -2255,7 +2346,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "stopaddresslistimportjob": {
@@ -2287,7 +2380,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "stoparchivesearch": {
@@ -2302,7 +2397,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updatearchive": {
@@ -2318,7 +2415,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2330,12 +2427,13 @@
       {
         "name": "mailmanager-ingress-point",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
       "ses:MailManagerTrafficPolicyArn",
       "ses:MailManagerRuleSetArn"
     ],
@@ -2354,7 +2452,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2371,9 +2469,11 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
-    "dependentActions": []
+    "dependentActions": [
+      "iam:PassRole"
+    ]
   },
   "updatetrafficpolicy": {
     "name": "UpdateTrafficPolicy",
@@ -2388,7 +2488,7 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },

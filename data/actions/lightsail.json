@@ -1468,7 +1468,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "putinstancepublicports": {
@@ -1730,6 +1733,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "Alarm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Bucket",
         "required": false,
         "conditionKeys": [],
@@ -1854,6 +1863,12 @@
     "description": "Grants permission to untag a resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "Alarm",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "Bucket",
         "required": false,
