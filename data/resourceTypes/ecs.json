@@ -1,4 +1,12 @@
 {
+  "capacity-provider": {
+    "key": "capacity-provider",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:capacity-provider/${CapacityProviderName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
   "cluster": {
     "key": "cluster",
     "arn": "arn:${Partition}:ecs:${Region}:${Account}:cluster/${ClusterName}",
@@ -13,32 +21,6 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ecs:ResourceTag/${TagKey}"
-    ]
-  },
-  "service": {
-    "key": "service",
-    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service/${ClusterName}/${ServiceName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:ResourceTag/${TagKey}"
-    ]
-  },
-  "service-deployment": {
-    "key": "service-deployment",
-    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service-deployment/${ClusterName}/${ServiceName}/${ServiceDeploymentId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster",
-      "ecs:service"
-    ]
-  },
-  "service-revision": {
-    "key": "service-revision",
-    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service-revision/${ClusterName}/${ServiceName}/${ServiceRevisionId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster",
-      "ecs:service"
     ]
   },
   "daemon": {
@@ -74,6 +56,32 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "service": {
+    "key": "service",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service/${ClusterName}/${ServiceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:ResourceTag/${TagKey}"
+    ]
+  },
+  "service-deployment": {
+    "key": "service-deployment",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service-deployment/${ClusterName}/${ServiceName}/${ServiceDeploymentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:service"
+    ]
+  },
+  "service-revision": {
+    "key": "service-revision",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:service-revision/${ClusterName}/${ServiceName}/${ServiceRevisionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster",
+      "ecs:service"
+    ]
+  },
   "task": {
     "key": "task",
     "arn": "arn:${Partition}:ecs:${Region}:${Account}:task/${ClusterName}/${TaskId}",
@@ -85,14 +93,6 @@
   "task-definition": {
     "key": "task-definition",
     "arn": "arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:ResourceTag/${TagKey}"
-    ]
-  },
-  "capacity-provider": {
-    "key": "capacity-provider",
-    "arn": "arn:${Partition}:ecs:${Region}:${Account}:capacity-provider/${CapacityProviderName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ecs:ResourceTag/${TagKey}"

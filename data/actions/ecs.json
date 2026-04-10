@@ -14,10 +14,10 @@
       }
     ],
     "conditionKeys": [
-      "ecs:propagate-tags",
-      "ecs:instance-metadata-tags-propagation",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "ecs:instance-metadata-tags-propagation",
+      "ecs:propagate-tags"
     ],
     "dependentActions": []
   },
@@ -52,8 +52,8 @@
         "name": "daemon",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       }
@@ -80,8 +80,8 @@
         "name": "service",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": [
           "ecs:RegisterTaskDefinition",
@@ -92,11 +92,11 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "ecs:task-definition",
-      "ecs:subnet",
       "ecs:enable-ecs-managed-tags",
       "ecs:propagate-tags",
+      "ecs:subnet",
       "ecs:task-cpu",
+      "ecs:task-definition",
       "ecs:task-memory"
     ],
     "dependentActions": []
@@ -110,8 +110,8 @@
         "name": "service",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       }
@@ -119,18 +119,18 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "ecs:auto-assign-public-ip",
       "ecs:capacity-provider",
-      "ecs:task-definition",
       "ecs:enable-ebs-volumes",
+      "ecs:enable-ecs-managed-tags",
       "ecs:enable-execute-command",
       "ecs:enable-service-connect",
-      "ecs:namespace",
       "ecs:enable-vpc-lattice",
-      "ecs:enable-ecs-managed-tags",
+      "ecs:namespace",
       "ecs:propagate-tags",
-      "ecs:auto-assign-public-ip",
       "ecs:subnet",
       "ecs:task-cpu",
+      "ecs:task-definition",
       "ecs:task-memory"
     ],
     "dependentActions": []
@@ -150,8 +150,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "ecs:cluster",
       "ecs:capacity-provider",
+      "ecs:cluster",
       "ecs:service",
       "ecs:task-definition"
     ],
@@ -232,8 +232,8 @@
       }
     ],
     "conditionKeys": [
-      "ecs:cluster",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
     ],
     "dependentActions": []
   },
@@ -267,8 +267,8 @@
       }
     ],
     "conditionKeys": [
-      "ecs:cluster",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
     ],
     "dependentActions": []
   },
@@ -416,8 +416,8 @@
       }
     ],
     "conditionKeys": [
-      "ecs:cluster",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
     ],
     "dependentActions": []
   },
@@ -430,8 +430,8 @@
         "name": "daemon",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       },
@@ -439,9 +439,9 @@
         "name": "daemon-deployment",
         "required": true,
         "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ecs:cluster",
-          "ecs:daemon",
-          "aws:ResourceTag/${TagKey}"
+          "ecs:daemon"
         ],
         "dependentActions": []
       }
@@ -458,8 +458,8 @@
         "name": "daemon",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       },
@@ -467,9 +467,9 @@
         "name": "daemon-revision",
         "required": true,
         "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ecs:cluster",
-          "ecs:daemon",
-          "aws:ResourceTag/${TagKey}"
+          "ecs:daemon"
         ],
         "dependentActions": []
       }
@@ -507,8 +507,8 @@
       }
     ],
     "conditionKeys": [
-      "ecs:cluster",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "ecs:cluster"
     ],
     "dependentActions": []
   },
@@ -521,8 +521,8 @@
         "name": "service",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       },
@@ -530,9 +530,9 @@
         "name": "service-deployment",
         "required": true,
         "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ecs:cluster",
-          "ecs:service",
-          "aws:ResourceTag/${TagKey}"
+          "ecs:service"
         ],
         "dependentActions": []
       }
@@ -549,8 +549,8 @@
         "name": "service",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       },
@@ -558,9 +558,9 @@
         "name": "service-revision",
         "required": true,
         "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ecs:cluster",
-          "ecs:service",
-          "aws:ResourceTag/${TagKey}"
+          "ecs:service"
         ],
         "dependentActions": []
       }
@@ -971,6 +971,7 @@
   },
   "putsystemlogevents": {
     "name": "PutSystemLogEvents",
+    "isPermissionOnly": true,
     "description": "Grants permission to collect system logs from the container instances",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -987,8 +988,8 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ecs:cluster",
-          "ecs:capacity-provider"
+          "ecs:capacity-provider",
+          "ecs:cluster"
         ],
         "dependentActions": []
       }
@@ -1078,11 +1079,11 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
-      "ecs:cluster",
       "ecs:capacity-provider",
+      "ecs:cluster",
       "ecs:enable-ebs-volumes",
       "ecs:enable-execute-command"
     ],
@@ -1103,8 +1104,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "ecs:cluster",
       "ecs:container-instances",
@@ -1115,6 +1116,7 @@
   },
   "starttelemetrysession": {
     "name": "StartTelemetrySession",
+    "isPermissionOnly": true,
     "description": "Grants permission to start a telemetry session",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -1139,8 +1141,8 @@
         "name": "service",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       },
@@ -1148,9 +1150,9 @@
         "name": "service-deployment",
         "required": true,
         "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
           "ecs:cluster",
-          "ecs:service",
-          "aws:ResourceTag/${TagKey}"
+          "ecs:service"
         ],
         "dependentActions": []
       }
@@ -1288,9 +1290,9 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "ecs:CreateAction"
     ],
     "dependentActions": []
@@ -1374,9 +1376,9 @@
       }
     ],
     "conditionKeys": [
-      "ecs:propagate-tags",
+      "aws:ResourceTag/${TagKey}",
       "ecs:instance-metadata-tags-propagation",
-      "aws:ResourceTag/${TagKey}"
+      "ecs:propagate-tags"
     ],
     "dependentActions": []
   },
@@ -1461,8 +1463,8 @@
         "name": "daemon",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       }
@@ -1487,16 +1489,16 @@
         "name": "service",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "ecs:subnet",
       "ecs:enable-ecs-managed-tags",
       "ecs:propagate-tags",
+      "ecs:subnet",
       "ecs:task-cpu",
       "ecs:task-memory"
     ],
@@ -1511,25 +1513,25 @@
         "name": "service",
         "required": true,
         "conditionKeys": [
-          "ecs:cluster",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "ecs:auto-assign-public-ip",
       "ecs:capacity-provider",
       "ecs:enable-ebs-volumes",
+      "ecs:enable-ecs-managed-tags",
       "ecs:enable-execute-command",
       "ecs:enable-service-connect",
-      "ecs:namespace",
-      "ecs:task-definition",
       "ecs:enable-vpc-lattice",
-      "ecs:enable-ecs-managed-tags",
+      "ecs:namespace",
       "ecs:propagate-tags",
-      "ecs:auto-assign-public-ip",
       "ecs:subnet",
       "ecs:task-cpu",
+      "ecs:task-definition",
       "ecs:task-memory"
     ],
     "dependentActions": []

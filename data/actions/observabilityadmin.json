@@ -16,7 +16,10 @@
       "aws:RequestTag/${TagKey}",
       "observabilityadmin:CentralizationSourceRegions",
       "observabilityadmin:CentralizationDestinationRegion",
-      "observabilityadmin:CentralizationBackupRegion"
+      "observabilityadmin:CentralizationBackupRegion",
+      "observabilityadmin:CentralizationRuleName",
+      "observabilityadmin:CentralizationSourceId",
+      "observabilityadmin:CentralizationDestinationAccount"
     ],
     "dependentActions": []
   },
@@ -71,7 +74,8 @@
     ],
     "conditionKeys": [
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "observabilityadmin:TargetRegions"
     ],
     "dependentActions": []
   },
@@ -89,7 +93,8 @@
     ],
     "conditionKeys": [
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "observabilityadmin:TargetRegions"
     ],
     "dependentActions": []
   },
@@ -105,7 +110,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:CentralizationRuleName"
+    ],
     "dependentActions": []
   },
   "deletes3tableintegration": {
@@ -180,7 +187,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:CentralizationRuleName"
+    ],
     "dependentActions": []
   },
   "gets3tableintegration": {
@@ -280,7 +289,9 @@
     "description": "Grants permission to retrieve telemetry configurations for resources associated with the account",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:TargetRegions"
+    ],
     "dependentActions": []
   },
   "listresourcetelemetryfororganization": {
@@ -288,7 +299,9 @@
     "description": "Grants permission to retrieve telemetry configurations for resources associated with accounts in the organization",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:TargetRegions"
+    ],
     "dependentActions": []
   },
   "lists3tableintegrations": {
@@ -375,7 +388,9 @@
     "description": "Grants permission to start the Telemetry Config feature for the account",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:TargetRegions"
+    ],
     "dependentActions": []
   },
   "starttelemetryevaluationfororganization": {
@@ -383,7 +398,9 @@
     "description": "Grants permission to start the Telemetry Config feature for the organization",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:TargetRegions"
+    ],
     "dependentActions": []
   },
   "stoptelemetryenrichment": {
@@ -516,7 +533,10 @@
     "conditionKeys": [
       "observabilityadmin:CentralizationSourceRegions",
       "observabilityadmin:CentralizationDestinationRegion",
-      "observabilityadmin:CentralizationBackupRegion"
+      "observabilityadmin:CentralizationBackupRegion",
+      "observabilityadmin:CentralizationRuleName",
+      "observabilityadmin:CentralizationSourceId",
+      "observabilityadmin:CentralizationDestinationAccount"
     ],
     "dependentActions": []
   },
@@ -547,7 +567,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:TargetRegions"
+    ],
     "dependentActions": []
   },
   "updatetelemetryrulefororganization": {
@@ -562,7 +584,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "observabilityadmin:TargetRegions"
+    ],
     "dependentActions": []
   },
   "validatetelemetrypipelineconfiguration": {
