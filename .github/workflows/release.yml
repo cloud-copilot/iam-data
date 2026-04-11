@@ -41,14 +41,14 @@ jobs:
         if: steps.version_check.outputs.changed == 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Run publish
         if: steps.version_check.outputs.changed == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm install -g npm@10.9.8
+          npm install -g npm@latest
           npm ci
           npm run build
           npm run test
