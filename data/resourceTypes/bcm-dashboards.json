@@ -1,1 +1,18 @@
-{}
+{
+  "dashboard": {
+    "key": "dashboard",
+    "arn": "arn:${Partition}:bcm-dashboards::${Account}:dashboard/${DashboardName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "scheduled-report": {
+    "key": "scheduled-report",
+    "arn": "arn:${Partition}:bcm-dashboards::${Account}:scheduled-report/${ScheduledReportName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  }
+}

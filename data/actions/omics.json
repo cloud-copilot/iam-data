@@ -60,6 +60,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "cancelrunbatch": {
+    "name": "CancelRunBatch",
+    "description": "Grants permission to cancel a batch of workflow runs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runBatch",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "cancelvariantimportjob": {
     "name": "CancelVariantImportJob",
     "description": "Grants permission to cancel a Variant Import Job",
@@ -270,6 +285,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletebatch": {
+    "name": "DeleteBatch",
+    "description": "Grants permission to delete a batch",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "runBatch",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteconfiguration": {
     "name": "DeleteConfiguration",
     "description": "Grants permission to delete a configuration",
@@ -328,6 +358,27 @@
     "resourceTypes": [
       {
         "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterunbatch": {
+    "name": "DeleteRunBatch",
+    "description": "Grants permission to delete a batch of workflow runs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runBatch",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -485,6 +536,21 @@
     "resourceTypes": [
       {
         "name": "AnnotationStoreVersion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbatch": {
+    "name": "GetBatch",
+    "description": "Grants permission to retrieve batch details and status",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "runBatch",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -861,6 +927,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listbatch": {
+    "name": "ListBatch",
+    "description": "Grants permission to retrieve list of batches",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listconfigurations": {
     "name": "ListConfigurations",
     "description": "Grants permission to retrieve a list of configurations",
@@ -1033,6 +1107,21 @@
     "description": "Grants permission to retrieve a list of workflow runs",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrunsinbatch": {
+    "name": "ListRunsInBatch",
+    "description": "Grants permission to retrieve list of workflow runs in batch",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "runBatch",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1215,6 +1304,56 @@
         "dependentActions": []
       },
       {
+        "name": "runBatch",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runCache",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startrunbatch": {
+    "name": "StartRunBatch",
+    "description": "Grants permission to start batch of workflow runs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "run",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "name": "runBatch",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runCache",
         "required": false,
         "conditionKeys": [],
@@ -1314,6 +1453,12 @@
         "dependentActions": []
       },
       {
+        "name": "runBatch",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runCache",
         "required": false,
         "conditionKeys": [],
@@ -1399,6 +1544,12 @@
       },
       {
         "name": "run",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "runBatch",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
