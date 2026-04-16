@@ -50,11 +50,10 @@ export async function iamActionExists(serviceKey: string, actionKey: string): Pr
  */
 export async function iamActionDetails(serviceKey: string, actionKey: string): Promise<Action> {
   const data = await readActionData<Record<string, Action>>(serviceKey.toLowerCase())
-  if (!data[actionKey.toLowerCase()]) {
+  const actionData = data[actionKey.toLowerCase()]
+  if (!actionData) {
     throw new Error(`Action ${actionKey} does not exist for service ${serviceKey}`)
   }
-
-  const actionData = data[actionKey.toLowerCase()]
 
   return {
     ...actionData,

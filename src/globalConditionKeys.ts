@@ -372,7 +372,8 @@ const globalConditionKeysByName = globalConditionKeys.reduce(
 const globalVariableConditionKeysByPrefix = globalConditionKeys.reduce(
   (acc, key) => {
     if (key.key.includes('/')) {
-      acc[key.key.split('/')[0].toLowerCase()] = key
+      const prefix = key.key.split('/').at(0)!
+      acc[prefix.toLowerCase()] = key
     }
     return acc
   },

@@ -29,8 +29,9 @@ export async function iamServiceExists(serviceKey: string): Promise<boolean> {
  */
 export async function iamServiceName(serviceKey: string): Promise<string> {
   const data = await readDataFile<Record<string, string>>('serviceNames.json')
-  if (!data[serviceKey.toLowerCase()]) {
+  const name = data[serviceKey.toLowerCase()]
+  if (!name) {
     throw new Error(`Service ${serviceKey} does not exist`)
   }
-  return data[serviceKey.toLowerCase()]
+  return name
 }

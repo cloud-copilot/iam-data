@@ -3,7 +3,6 @@ import {
   getAllGlobalConditionKeys,
   getGlobalConditionKeyByName,
   getGlobalConditionKeyByPrefix,
-  type GlobalConditionKey,
   globalConditionKeys
 } from './globalConditionKeys'
 
@@ -326,7 +325,7 @@ describe('globalConditionKeys', () => {
   describe('GlobalConditionKey interface', () => {
     it('extends ConditionKey with category property', () => {
       // Given a GlobalConditionKey from the array
-      const key: GlobalConditionKey = globalConditionKeys[0]
+      const key = globalConditionKeys[0]!
 
       // When checking its properties
       // Then it should have all required properties

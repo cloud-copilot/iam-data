@@ -44,8 +44,9 @@ export async function iamResourceTypeDetails(
   resourceTypeKey: string
 ): Promise<ResourceType> {
   const data = await readResourceTypes<Record<string, ResourceType>>(serviceKey.toLowerCase())
-  if (!data[resourceTypeKey.toLowerCase()]) {
+  const resourceType = data[resourceTypeKey.toLowerCase()]
+  if (!resourceType) {
     throw new Error(`Resource type ${resourceTypeKey} does not exist for service ${serviceKey}`)
   }
-  return data[resourceTypeKey.toLowerCase()]
+  return resourceType
 }

@@ -45,8 +45,9 @@ export async function iamConditionKeyDetails(
   conditionKey: string
 ): Promise<ConditionKey> {
   const data = await readConditionKeys<Record<string, ConditionKey>>(serviceKey.toLowerCase())
-  if (!data[conditionKey.toLowerCase()]) {
+  const conditionKeyData = data[conditionKey.toLowerCase()]
+  if (!conditionKeyData) {
     throw new Error(`Condition key ${conditionKey} does not exist for service ${serviceKey}`)
   }
-  return data[conditionKey.toLowerCase()]
+  return conditionKeyData
 }
