@@ -313,6 +313,27 @@
     ],
     "dependentActions": []
   },
+  "getinventoryconfiguration": {
+    "name": "GetInventoryConfiguration",
+    "description": "Grants permission to return an inventory configuration identified by the inventory configuration ID for a S3 directory bucket",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "getlifecycleconfiguration": {
     "name": "GetLifecycleConfiguration",
     "description": "Grants permission to return the lifecycle configuration information set on a directory bucket",
@@ -497,6 +518,28 @@
       "s3express:signatureversion",
       "s3express:TlsVersion",
       "s3express:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "putinventoryconfiguration": {
+    "name": "PutInventoryConfiguration",
+    "description": "Grants permission to add an inventory configuration to the bucket, identified by the inventory ID",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3express:authType",
+      "s3express:ResourceAccount",
+      "s3express:signatureversion",
+      "s3express:TlsVersion",
+      "s3express:x-amz-content-sha256",
+      "s3express:InventoryAccessibleOptionalFields"
     ],
     "dependentActions": []
   },
