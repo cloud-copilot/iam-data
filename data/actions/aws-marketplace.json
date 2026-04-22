@@ -74,6 +74,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getinvoicesubmissiontask": {
+    "name": "GetInvoiceSubmissionTask",
+    "description": "Grants permission to retrieve details of an existing invoice submission task",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "InvoiceSubmissionTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getresourcepolicy": {
     "name": "GetResourcePolicy",
     "description": "Grants permission to get the resource policy of an existing entity",
@@ -108,6 +123,22 @@
   "listentities": {
     "name": "ListEntities",
     "description": "Grants permission to list existing entities",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinvoicesubmissiontasks": {
+    "name": "ListInvoiceSubmissionTasks",
+    "description": "Grants permission to list existing invoice submission tasks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpayables": {
+    "name": "ListPayables",
+    "description": "Grants permission to list payables of the specified payable provenance",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -160,6 +191,24 @@
     "conditionKeys": [
       "catalog:ChangeType",
       "aws-marketplace:Intent",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startinvoicesubmissiontask": {
+    "name": "StartInvoiceSubmissionTask",
+    "description": "Grants permission to initiate tasks that submit invoices for processing in AWS Marketplace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "InvoiceSubmissionTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],

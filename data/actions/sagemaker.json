@@ -50,6 +50,24 @@
         "dependentActions": []
       },
       {
+        "name": "ai-benchmark-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-recommendation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-workload-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "algorithm",
         "required": false,
         "conditionKeys": [],
@@ -581,6 +599,60 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createaibenchmarkjob": {
+    "name": "CreateAIBenchmarkJob",
+    "description": "Grants permission to create an AI benchmark job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-benchmark-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createairecommendationjob": {
+    "name": "CreateAIRecommendationJob",
+    "description": "Grants permission to create an AI recommendation job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-recommendation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createaiworkloadconfig": {
+    "name": "CreateAIWorkloadConfig",
+    "description": "Grants permission to create an AI workload configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-workload-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createaction": {
@@ -1733,6 +1805,7 @@
       "sagemaker:DirectInternetAccess",
       "sagemaker:InstanceTypes",
       "sagemaker:MinimumInstanceMetadataServiceVersion",
+      "sagemaker:NotebookInstanceLifecycleConfigArns",
       "sagemaker:RootAccess",
       "sagemaker:VolumeKmsKey",
       "sagemaker:VpcSecurityGroupIds",
@@ -2237,6 +2310,51 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "deleteaibenchmarkjob": {
+    "name": "DeleteAIBenchmarkJob",
+    "description": "Grants permission to delete an AI benchmark job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-benchmark-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteairecommendationjob": {
+    "name": "DeleteAIRecommendationJob",
+    "description": "Grants permission to delete an AI recommendation job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-recommendation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteaiworkloadconfig": {
+    "name": "DeleteAIWorkloadConfig",
+    "description": "Grants permission to delete an AI workload configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-workload-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteaction": {
@@ -3116,6 +3234,24 @@
         "dependentActions": []
       },
       {
+        "name": "ai-benchmark-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-recommendation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-workload-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "algorithm",
         "required": false,
         "conditionKeys": [],
@@ -3585,6 +3721,51 @@
     "resourceTypes": [
       {
         "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaibenchmarkjob": {
+    "name": "DescribeAIBenchmarkJob",
+    "description": "Grants permission to describe an AI benchmark job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ai-benchmark-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeairecommendationjob": {
+    "name": "DescribeAIRecommendationJob",
+    "description": "Grants permission to describe an AI recommendation job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ai-recommendation-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaiworkloadconfig": {
+    "name": "DescribeAIWorkloadConfig",
+    "description": "Grants permission to describe an AI workload configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ai-workload-config",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4968,6 +5149,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listaibenchmarkjobs": {
+    "name": "ListAIBenchmarkJobs",
+    "description": "Grants permission to list AI benchmark jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listairecommendationjobs": {
+    "name": "ListAIRecommendationJobs",
+    "description": "Grants permission to list AI recommendation jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaiworkloadconfigs": {
+    "name": "ListAIWorkloadConfigs",
+    "description": "Grants permission to list AI workload configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listactions": {
     "name": "ListActions",
     "description": "Grants permission to list actions",
@@ -5719,6 +5924,24 @@
     "resourceTypes": [
       {
         "name": "action",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-benchmark-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-recommendation-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ai-workload-config",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -6482,6 +6705,36 @@
     "resourceTypes": [
       {
         "name": "space",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopaibenchmarkjob": {
+    "name": "StopAIBenchmarkJob",
+    "description": "Grants permission to stop an AI benchmark job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-benchmark-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopairecommendationjob": {
+    "name": "StopAIRecommendationJob",
+    "description": "Grants permission to stop an AI recommendation job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ai-recommendation-job",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -7368,6 +7621,7 @@
       "sagemaker:AcceleratorTypes",
       "sagemaker:InstanceTypes",
       "sagemaker:MinimumInstanceMetadataServiceVersion",
+      "sagemaker:NotebookInstanceLifecycleConfigArns",
       "sagemaker:RootAccess"
     ],
     "dependentActions": []
