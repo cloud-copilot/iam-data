@@ -137,6 +137,51 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getresourcedashboard": {
+    "name": "GetResourceDashboard",
+    "description": "Grants permission to get the resource dashboard",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsession": {
+    "name": "GetSession",
+    "description": "Grants permission to get details about a session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsessionendpoint": {
+    "name": "GetSessionEndpoint",
+    "description": "Grants permission to get the endpoint URL and authentication token for connecting to a session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listapplications": {
     "name": "ListApplications",
     "description": "Grants permission to list applications",
@@ -175,6 +220,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listsessions": {
+    "name": "ListSessions",
+    "description": "Grants permission to list sessions associated with an application",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for the specified resource",
@@ -188,6 +248,12 @@
       },
       {
         "name": "jobRun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -214,6 +280,26 @@
   "startjobrun": {
     "name": "StartJobRun",
     "description": "Grants permission to start a job run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startsession": {
+    "name": "StartSession",
+    "description": "Grants permission to start a session in an application",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -262,12 +348,33 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "terminatesession": {
+    "name": "TerminateSession",
+    "description": "Grants permission to terminate a session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "untagresource": {
@@ -283,6 +390,12 @@
       },
       {
         "name": "jobRun",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "session",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

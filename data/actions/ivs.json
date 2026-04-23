@@ -44,6 +44,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createadconfiguration": {
+    "name": "CreateAdConfiguration",
+    "description": "Grants permission to create a new ad configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Ad-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys",
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createchannel": {
     "name": "CreateChannel",
     "description": "Grants permission to create a new channel and an associated stream key",
@@ -212,6 +230,21 @@
     ],
     "dependentActions": []
   },
+  "deleteadconfiguration": {
+    "name": "DeleteAdConfiguration",
+    "description": "Grants permission to delete an ad configuration for the specified ARN",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Ad-Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletechannel": {
     "name": "DeleteChannel",
     "description": "Grants permission to delete a channel and channel's stream keys",
@@ -375,6 +408,21 @@
     "resourceTypes": [
       {
         "name": "Stage",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getadconfiguration": {
+    "name": "GetAdConfiguration",
+    "description": "Grants permission to get the ad configuration for the specified ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Ad-Configuration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -644,6 +692,29 @@
     ],
     "dependentActions": []
   },
+  "insertadbreak": {
+    "name": "InsertAdBreak",
+    "description": "Grants permission to request an ad insertion on a channel using an associated ad configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listadconfigurations": {
+    "name": "ListAdConfigurations",
+    "description": "Grants permission to get summary information about ad configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listchannels": {
     "name": "ListChannels",
     "description": "Grants permission to get summary information about channels",
@@ -882,6 +953,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "Ad-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Channel",
         "required": false,
         "conditionKeys": [],
@@ -1089,6 +1166,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "Ad-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Channel",
         "required": false,
         "conditionKeys": [],
@@ -1166,6 +1249,12 @@
     "description": "Grants permission to remove tags for a resource with a specified ARN",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "Ad-Configuration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "Channel",
         "required": false,
