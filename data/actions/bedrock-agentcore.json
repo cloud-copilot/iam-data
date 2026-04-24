@@ -151,7 +151,8 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "bedrock-agentcore:subnets",
-      "bedrock-agentcore:securityGroups"
+      "bedrock-agentcore:securityGroups",
+      "bedrock-agentcore:RuntimeAuthorizerType"
     ],
     "dependentActions": [
       "iam:PassRole"
@@ -293,6 +294,21 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "createharness": {
+    "name": "CreateHarness",
+    "description": "Grants permission to create a new harness",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "bedrock-agentcore:CreateAgentRuntime",
+      "bedrock-agentcore:GetAgentRuntime",
+      "iam:PassRole"
+    ]
   },
   "creatememory": {
     "name": "CreateMemory",
@@ -580,6 +596,25 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "deleteharness": {
+    "name": "DeleteHarness",
+    "description": "Grants permission to delete a harness",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "bedrock-agentcore:DeleteAgentRuntime",
+      "bedrock-agentcore:GetAgentRuntime",
+      "iam:PassRole"
+    ]
   },
   "deletememory": {
     "name": "DeleteMemory",
@@ -996,6 +1031,21 @@
     "resourceTypes": [
       {
         "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getharness": {
+    "name": "GetHarness",
+    "description": "Grants permission to get details of a harness",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "harness",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1499,6 +1549,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "invokeharness": {
+    "name": "InvokeHarness",
+    "description": "Grants permission to invoke a harness",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "bedrock-agentcore:InvokeAgentRuntime"
+    ]
+  },
   "invokeregistrymcp": {
     "name": "InvokeRegistryMcp",
     "description": "Grants permission to invoke an MCP operation against an existing registry",
@@ -1671,6 +1738,14 @@
   "listgateways": {
     "name": "ListGateways",
     "description": "Grants permission to list existing gateways",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listharnesses": {
+    "name": "ListHarnesses",
+    "description": "Grants permission to list harnesses",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1882,6 +1957,12 @@
       },
       {
         "name": "gateway",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "harness",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2326,6 +2407,12 @@
         "dependentActions": []
       },
       {
+        "name": "harness",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "memory",
         "required": false,
         "conditionKeys": [],
@@ -2422,6 +2509,12 @@
         "dependentActions": []
       },
       {
+        "name": "harness",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "memory",
         "required": false,
         "conditionKeys": [],
@@ -2491,7 +2584,8 @@
     ],
     "conditionKeys": [
       "bedrock-agentcore:subnets",
-      "bedrock-agentcore:securityGroups"
+      "bedrock-agentcore:securityGroups",
+      "bedrock-agentcore:RuntimeAuthorizerType"
     ],
     "dependentActions": []
   },
@@ -2604,6 +2698,25 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "updateharness": {
+    "name": "UpdateHarness",
+    "description": "Grants permission to update a harness",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "bedrock-agentcore:GetAgentRuntime",
+      "bedrock-agentcore:UpdateAgentRuntime",
+      "iam:PassRole"
+    ]
   },
   "updatememory": {
     "name": "UpdateMemory",

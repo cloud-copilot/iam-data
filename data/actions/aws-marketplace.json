@@ -588,7 +588,7 @@
   },
   "acceptagreementapprovalrequest": {
     "name": "AcceptAgreementApprovalRequest",
-    "description": "Grants permission to users to approve an incoming subscription request (for providers who provide products that require subscription verification)",
+    "description": "Grants permission to approve an incoming subscription request (for providers who provide products that require subscription verification)",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -596,63 +596,83 @@
   },
   "acceptagreementcancellationrequest": {
     "name": "AcceptAgreementCancellationRequest",
-    "description": "Grants permission to users to accept an agreement cancellation request",
+    "description": "Grants permission to accept an agreement cancellation request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "acceptagreementpaymentrequest": {
     "name": "AcceptAgreementPaymentRequest",
-    "description": "Grants permission to users to accept a payment request",
+    "description": "Grants permission to accept a payment request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "acceptagreementrequest": {
     "name": "AcceptAgreementRequest",
-    "description": "Grants permission to users to accept their agreement requests",
+    "description": "Grants permission to accept an agreement request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:ProductId"
+    ],
     "dependentActions": []
   },
   "batchcreatebillingadjustmentrequest": {
     "name": "BatchCreateBillingAdjustmentRequest",
-    "description": "Grants permission to users to create a billing adjustment request against an agreement",
+    "description": "Grants permission to create a billing adjustment request against an agreement",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "cancelagreement": {
     "name": "CancelAgreement",
-    "description": "Grants permission to users to cancel their agreements",
+    "description": "Grants permission to cancel agreements",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "cancelagreementcancellationrequest": {
     "name": "CancelAgreementCancellationRequest",
-    "description": "Grants permission to users to withdraw a pending agreement cancellation request",
+    "description": "Grants permission to cancel a pending agreement cancellation request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "cancelagreementpaymentrequest": {
     "name": "CancelAgreementPaymentRequest",
-    "description": "Grants permission to users to cancel a payment request",
+    "description": "Grants permission to cancel a payment request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "cancelagreementrequest": {
     "name": "CancelAgreementRequest",
-    "description": "Grants permission to users to cancel pending subscription requests for products that require subscription verification",
+    "description": "Grants permission to cancel pending subscription requests for products that require subscription verification",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -660,23 +680,29 @@
   },
   "createagreementrequest": {
     "name": "CreateAgreementRequest",
-    "description": "Grants permission to users to create an agreement request",
+    "description": "Grants permission to create an agreement request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:ProductId"
+    ],
     "dependentActions": []
   },
   "describeagreement": {
     "name": "DescribeAgreement",
-    "description": "Grants permission to users to describe the metadata about the agreement",
+    "description": "Grants permission to describe the metadata about the agreement",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "getagreementapprovalrequest": {
     "name": "GetAgreementApprovalRequest",
-    "description": "Grants permission to users to view the details of their incoming subscription requests (for providers who provide products that require subscription verification)",
+    "description": "Grants permission to view the details of incoming subscription requests (for providers who provide products that require subscription verification)",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -684,31 +710,39 @@
   },
   "getagreementcancellationrequest": {
     "name": "GetAgreementCancellationRequest",
-    "description": "Grants permission to users to view the details of an agreement cancellation request",
+    "description": "Grants permission to view the details of an agreement cancellation request",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "getagreemententitlements": {
     "name": "GetAgreementEntitlements",
-    "description": "Grants permission to users to view the entitlements associated with an agreement",
+    "description": "Grants permission to get the entitlements associated with an agreement",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "getagreementpaymentrequest": {
     "name": "GetAgreementPaymentRequest",
-    "description": "Grants permission to users to view details for a payment request",
+    "description": "Grants permission to view details for a payment request",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "getagreementrequest": {
     "name": "GetAgreementRequest",
-    "description": "Grants permission to users to view the details of their subscription requests for data products that require subscription verification",
+    "description": "Grants permission to view the details of subscription requests for data products that require subscription verification",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -716,23 +750,29 @@
   },
   "getagreementterms": {
     "name": "GetAgreementTerms",
-    "description": "Grants permission to users to get a list of terms for an agreement",
+    "description": "Grants permission to get a list of terms for an agreement",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "getbillingadjustmentrequest": {
     "name": "GetBillingAdjustmentRequest",
-    "description": "Grants permission to users to view the details of a billing adjustment request",
+    "description": "Grants permission to view the details of a billing adjustment request",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "listagreementapprovalrequests": {
     "name": "ListAgreementApprovalRequests",
-    "description": "Grants permission to users to list their incoming subscription requests (for providers who provide products that require subscription verification)",
+    "description": "Grants permission to list incoming subscription requests (for providers who provide products that require subscription verification)",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -740,39 +780,50 @@
   },
   "listagreementcancellationrequests": {
     "name": "ListAgreementCancellationRequests",
-    "description": "Grants permission to users to list agreement cancellation requests",
+    "description": "Grants permission to list agreement cancellation requests",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "listagreementcharges": {
     "name": "ListAgreementCharges",
-    "description": "Grants permission to users to view charges associated with their agreements",
+    "description": "Grants permission to list charges associated with an agreement",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "listagreementinvoicelineitems": {
     "name": "ListAgreementInvoiceLineItems",
-    "description": "Grants permission to users to list invoice line items for an agreement",
+    "description": "Grants permission to list invoice line items for an agreement",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "listagreementpaymentrequests": {
     "name": "ListAgreementPaymentRequests",
-    "description": "Grants permission to users to list payment requests for an agreement",
+    "description": "Grants permission to list payment requests for an agreement",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "listagreementrequests": {
     "name": "ListAgreementRequests",
-    "description": "Grants permission to users to list their subscription requests for products that require subscription verification",
+    "description": "Grants permission to list subscription requests for products that require subscription verification",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -780,15 +831,18 @@
   },
   "listbillingadjustmentrequests": {
     "name": "ListBillingAdjustmentRequests",
-    "description": "Grants permission to users to list billing adjustment requests",
+    "description": "Grants permission to list billing adjustment requests",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "listentitlementdetails": {
     "name": "ListEntitlementDetails",
-    "description": "Grants permission to users to view details of the entitlements associated with an agreement. Note that this action is not applicable to Marketplace purchases",
+    "description": "Grants permission to list details of the entitlements associated with an agreement. Note that this action is not applicable to Marketplace purchases",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -796,7 +850,7 @@
   },
   "rejectagreementapprovalrequest": {
     "name": "RejectAgreementApprovalRequest",
-    "description": "Grants permission to users to decline an incoming subscription requests (for providers who provide products that require subscription verification)",
+    "description": "Grants permission to decline an incoming subscription requests (for providers who provide products that require subscription verification)",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -804,47 +858,62 @@
   },
   "rejectagreementcancellationrequest": {
     "name": "RejectAgreementCancellationRequest",
-    "description": "Grants permission to users to reject an agreement cancellation request",
+    "description": "Grants permission to reject an agreement cancellation request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "rejectagreementpaymentrequest": {
     "name": "RejectAgreementPaymentRequest",
-    "description": "Grants permission to users to reject a payment request",
+    "description": "Grants permission to reject a payment request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "searchagreements": {
     "name": "SearchAgreements",
-    "description": "Grants permission to users to search their agreements",
+    "description": "Grants permission to search agreements",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "sendagreementcancellationrequest": {
     "name": "SendAgreementCancellationRequest",
-    "description": "Grants permission to users to send an agreement cancellation request",
+    "description": "Grants permission to send an agreement cancellation request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "sendagreementpaymentrequest": {
     "name": "SendAgreementPaymentRequest",
-    "description": "Grants permission to users to send payment request",
+    "description": "Grants permission to send a payment request",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:PartyType",
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "subscribe": {
     "name": "Subscribe",
-    "description": "Grants permission to users to subscribe to AWS Marketplace products. Includes the ability to send a subscription request for products that require subscription verification. Includes the ability to enable auto-renewal for an existing subscription",
+    "description": "Grants permission to subscribe to AWS Marketplace products. Includes the ability to send a subscription request for products that require subscription verification. Includes the ability to enable auto-renewal for an existing subscription",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -852,7 +921,7 @@
   },
   "unsubscribe": {
     "name": "Unsubscribe",
-    "description": "Grants permission to users to remove subscriptions to AWS Marketplace products. Includes the ability to disable auto-renewal for an existing subscription",
+    "description": "Grants permission to unsubscribe from AWS Marketplace products. Includes the ability to disable auto-renewal for an existing subscription",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -860,7 +929,7 @@
   },
   "updateagreementapprovalrequest": {
     "name": "UpdateAgreementApprovalRequest",
-    "description": "Grants permission to users to make changes to an incoming subscription request, including the ability to delete the prospective subscriber's information (for providers who provide products that require subscription verification)",
+    "description": "Grants permission to make changes to an incoming subscription request, including the ability to delete the prospective subscriber's information (for providers who provide products that require subscription verification)",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -868,15 +937,17 @@
   },
   "updatepurchaseorders": {
     "name": "UpdatePurchaseOrders",
-    "description": "Grants permission to users to update purchase orders for charges associated with their agreements",
+    "description": "Grants permission to update purchase orders for charges associated with an agreement",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws-marketplace:AgreementType"
+    ],
     "dependentActions": []
   },
   "viewsubscriptions": {
     "name": "ViewSubscriptions",
-    "description": "Grants permission to users to see their account's subscriptions",
+    "description": "Grants permission to view account's subscriptions",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
