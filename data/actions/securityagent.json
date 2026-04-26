@@ -14,6 +14,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchdeletecodereviews": {
+    "name": "BatchDeleteCodeReviews",
+    "description": "Grants permission to delete multiple code reviews in a single request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
   "batchdeletepentests": {
     "name": "BatchDeletePentests",
     "description": "Grants permission to delete multiple penetration tests in a single request",
@@ -62,6 +79,57 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "batchgetcodereviewjobtasks": {
+    "name": "BatchGetCodeReviewJobTasks",
+    "description": "Grants permission to retrieve multiple code review job tasks in a single request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "batchgetcodereviewjobs": {
+    "name": "BatchGetCodeReviewJobs",
+    "description": "Grants permission to retrieve multiple code review jobs in a single request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "batchgetcodereviews": {
+    "name": "BatchGetCodeReviews",
+    "description": "Grants permission to retrieve multiple code reviews in a single request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
   },
   "batchgetfindings": {
     "name": "BatchGetFindings",
@@ -191,6 +259,23 @@
       "iam:PassRole",
       "kms:DescribeKey",
       "sso:CreateApplication"
+    ]
+  },
+  "createcodereview": {
+    "name": "CreateCodeReview",
+    "description": "Grants permission to create a new code review configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
     ]
   },
   "createdesignreview": {
@@ -555,6 +640,57 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcodereviewjobtasks": {
+    "name": "ListCodeReviewJobTasks",
+    "description": "Grants permission to list tasks associated with a code review job",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "listcodereviewjobsforcodereview": {
+    "name": "ListCodeReviewJobsForCodeReview",
+    "description": "Grants permission to list code review jobs associated with a code review",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
+  "listcodereviews": {
+    "name": "ListCodeReviews",
+    "description": "Grants permission to list code reviews with optional filtering by status",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
+    ]
+  },
   "listdesignreviewcomments": {
     "name": "ListDesignReviewComments",
     "description": "Grants permission to list design review comments",
@@ -818,6 +954,24 @@
       "kms:GenerateDataKey"
     ]
   },
+  "startcodereviewjob": {
+    "name": "StartCodeReviewJob",
+    "description": "Grants permission to initiate the execution of a code review",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ]
+  },
   "startpentestjob": {
     "name": "StartPentestJob",
     "description": "Grants permission to initiate the execution of a penetration test",
@@ -834,6 +988,23 @@
     "dependentActions": [
       "kms:Decrypt",
       "kms:GenerateDataKey"
+    ]
+  },
+  "stopcodereviewjob": {
+    "name": "StopCodeReviewJob",
+    "description": "Grants permission to stop the execution of a running code review",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
     ]
   },
   "stoppentestjob": {
@@ -984,6 +1155,23 @@
     "dependentActions": [
       "iam:PassRole",
       "kms:DescribeKey"
+    ]
+  },
+  "updatecodereview": {
+    "name": "UpdateCodeReview",
+    "description": "Grants permission to update an existing code review with new configuration or settings",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "AgentSpace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt"
     ]
   },
   "updatefinding": {
