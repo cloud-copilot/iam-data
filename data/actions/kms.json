@@ -365,6 +365,7 @@
     ],
     "conditionKeys": [
       "kms:CallerAccount",
+      "kms:TrailingDaysWithoutKeyUsage",
       "kms:ViaService"
     ],
     "dependentActions": []
@@ -746,6 +747,24 @@
     ],
     "dependentActions": []
   },
+  "getkeylastusage": {
+    "name": "GetKeyLastUsage",
+    "description": "Controls permission to view the last usage of an AWS KMS key",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "kms:CallerAccount",
+      "kms:ViaService"
+    ],
+    "dependentActions": []
+  },
   "getkeypolicy": {
     "name": "GetKeyPolicy",
     "description": "Controls permission to view the key policy for the specified AWS KMS key",
@@ -1100,6 +1119,7 @@
     "conditionKeys": [
       "kms:CallerAccount",
       "kms:ScheduleKeyDeletionPendingWindowInDays",
+      "kms:TrailingDaysWithoutKeyUsage",
       "kms:ViaService"
     ],
     "dependentActions": []

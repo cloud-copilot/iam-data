@@ -108,6 +108,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createprivateconnection": {
+    "name": "CreatePrivateConnection",
+    "description": "Grants permission to create a private connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "private-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "deleteagentspace": {
     "name": "DeleteAgentSpace",
     "description": "Grants permission to delete agentspace",
@@ -140,6 +159,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteprivateconnection": {
+    "name": "DeletePrivateConnection",
+    "description": "Grants permission to delete a private connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "private-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deregisterservice": {
     "name": "DeregisterService",
     "description": "Grants permission to deregister a service",
@@ -147,6 +183,23 @@
     "resourceTypes": [
       {
         "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeprivateconnection": {
+    "name": "DescribePrivateConnection",
+    "description": "Grants permission to describe a private connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "private-connection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -534,6 +587,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listprivateconnections": {
+    "name": "ListPrivateConnections",
+    "description": "Grants permission to list private connections",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listrecommendations": {
     "name": "ListRecommendations",
     "description": "Grants permission to list recommendations",
@@ -564,6 +625,16 @@
     "resourceTypes": [
       {
         "name": "agentspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "private-connection",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -667,6 +738,16 @@
         "dependentActions": []
       },
       {
+        "name": "private-connection",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "service",
         "required": false,
         "conditionKeys": [
@@ -691,6 +772,15 @@
     "resourceTypes": [
       {
         "name": "agentspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "private-connection",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -810,6 +900,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprivateconnectioncertificate": {
+    "name": "UpdatePrivateConnectionCertificate",
+    "description": "Grants permission to update a private connection certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "private-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "updaterecommendation": {
