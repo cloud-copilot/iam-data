@@ -22,6 +22,25 @@
     ],
     "dependentActions": []
   },
+  "associatempateam": {
+    "name": "AssociateMpaTeam",
+    "description": "Grants permission to associate an MPA approval team with a payment cryptography action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "approval-team",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "mpa:CancelSession",
+      "mpa:GetApprovalTeam",
+      "mpa:StartSession"
+    ]
+  },
   "createalias": {
     "name": "CreateAlias",
     "description": "Grants permission to create a user-friendly name for a Key",
@@ -109,12 +128,29 @@
         "name": "key",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "mpa:CancelSession"
+        ]
       }
     ],
     "conditionKeys": [
       "payment-cryptography:RequestAlias"
     ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete the resource-based policy attached to a key",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "disabledefaultkeyreplicationregions": {
@@ -124,6 +160,24 @@
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "disassociatempateam": {
+    "name": "DisassociateMpaTeam",
+    "description": "Grants permission to disassociate an MPA approval team from a payment cryptography action",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "approval-team",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "mpa:CancelSession",
+      "mpa:StartSession"
+    ]
   },
   "enabledefaultkeyreplicationregions": {
     "name": "EnableDefaultKeyReplicationRegions",
@@ -362,6 +416,21 @@
     ],
     "dependentActions": []
   },
+  "getmpateamassociation": {
+    "name": "GetMpaTeamAssociation",
+    "description": "Grants permission to retrieve information about an MPA approval team association for a payment cryptography action",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "approval-team",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getparametersforexport": {
     "name": "GetParametersForExport",
     "description": "Grants permission to get the export token and the signing key certificate to initiate a TR-34 key export",
@@ -395,6 +464,21 @@
     ],
     "dependentActions": []
   },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to retrieve the resource-based policy attached to a key",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "importkey": {
     "name": "ImportKey",
     "description": "Grants permission to imports keys and public key certificates",
@@ -408,6 +492,7 @@
       "payment-cryptography:WrappingKeyIdentifier"
     ],
     "dependentActions": [
+      "mpa:StartSession",
       "payment-cryptography:TagResource"
     ]
   },
@@ -435,6 +520,21 @@
       {
         "name": "key",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach or replace a resource-based policy on a key",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "key",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
