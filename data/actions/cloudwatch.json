@@ -22,6 +22,15 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "callwithbearertoken": {
+    "name": "CallWithBearerToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to make API calls to CloudWatch using bearer token authentication",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createservicelevelobjective": {
     "name": "CreateServiceLevelObjective",
     "description": "Grants permission to create a service level objective",
@@ -528,6 +537,12 @@
         "dependentActions": []
       },
       {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "insight-rule",
         "required": false,
         "conditionKeys": [],
@@ -557,6 +572,15 @@
         "resourceTypes": [
           {
             "name": "alarm-mute-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-Dashboard",
+        "resourceTypes": [
+          {
+            "name": "dashboard",
             "required": true
           }
         ]
@@ -644,7 +668,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "putinsightrule": {
@@ -806,6 +833,12 @@
         "dependentActions": []
       },
       {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "insight-rule",
         "required": false,
         "conditionKeys": [],
@@ -838,6 +871,15 @@
         "resourceTypes": [
           {
             "name": "alarm-mute-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-Dashboard",
+        "resourceTypes": [
+          {
+            "name": "dashboard",
             "required": true
           }
         ]
@@ -880,6 +922,12 @@
         "dependentActions": []
       },
       {
+        "name": "dashboard",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "insight-rule",
         "required": false,
         "conditionKeys": [],
@@ -911,6 +959,15 @@
         "resourceTypes": [
           {
             "name": "alarm-mute-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-Dashboard",
+        "resourceTypes": [
+          {
+            "name": "dashboard",
             "required": true
           }
         ]

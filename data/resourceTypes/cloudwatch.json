@@ -15,7 +15,10 @@
   },
   "dashboard": {
     "key": "dashboard",
-    "arn": "arn:${Partition}:cloudwatch::${Account}:dashboard/${DashboardName}"
+    "arn": "arn:${Partition}:cloudwatch::${Account}:dashboard/${DashboardName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "insight-rule": {
     "key": "insight-rule",
