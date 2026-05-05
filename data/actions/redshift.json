@@ -83,11 +83,11 @@
   "authorizeinboundintegration": {
     "name": "AuthorizeInboundIntegration",
     "isPermissionOnly": true,
-    "description": "Grants permission to Amazon Redshift to continuously validate that the target data warehouse can receive data replicated from the source ARN",
+    "description": "Grants permission to Amazon Redshift to continuously validate that the target namespace can receive data replicated from the source ARN",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "integration",
+        "name": "namespace",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -402,9 +402,16 @@
   "createinboundintegration": {
     "name": "CreateInboundIntegration",
     "isPermissionOnly": true,
-    "description": "Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target data warehouse",
+    "description": "Grants permission to the source principal to create an integration into the namespace of target data warehouse",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "namespace",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
