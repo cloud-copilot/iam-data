@@ -96,6 +96,26 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createservicelinkedanalyzer": {
+    "name": "CreateServiceLinkedAnalyzer",
+    "description": "Grants permission to create a service-linked analyzer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Analyzer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "deleteanalyzer": {
     "name": "DeleteAnalyzer",
     "description": "Grants permission to delete the specified analyzer",
@@ -127,6 +147,24 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservicelinkedanalyzer": {
+    "name": "DeleteServiceLinkedAnalyzer",
+    "description": "Grants permission to delete the specified service-linked analyzer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Analyzer",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "generatefindingrecommendation": {
