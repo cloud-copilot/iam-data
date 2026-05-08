@@ -147,5 +147,19 @@
   "configuration-bundle": {
     "key": "configuration-bundle",
     "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:configuration-bundle/${ConfigurationBundleId}"
+  },
+  "payment-manager": {
+    "key": "payment-manager",
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:payment-manager/${PaymentManagerId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "paymentcredentialprovider": {
+    "key": "paymentcredentialprovider",
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:token-vault/${TokenVaultId}/paymentcredentialprovider/${Name}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

@@ -10,6 +10,12 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "payment-manager",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -395,6 +401,88 @@
       "iam:PassRole"
     ]
   },
+  "createpaymentconnector": {
+    "name": "CreatePaymentConnector",
+    "description": "Grants permission to create a new payment connector under a payment manager",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpaymentcredentialprovider": {
+    "name": "CreatePaymentCredentialProvider",
+    "description": "Grants permission to create a new Payment Credential Provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "paymentcredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpaymentinstrument": {
+    "name": "CreatePaymentInstrument",
+    "description": "Grants permission to create a new payment instrument",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createpaymentmanager": {
+    "name": "CreatePaymentManager",
+    "description": "Grants permission to create a new payment manager",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "createpaymentsession": {
+    "name": "CreatePaymentSession",
+    "description": "Grants permission to create a new payment session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createpolicy": {
     "name": "CreatePolicy",
     "description": "Grants permission to create a new policy within a policy engine",
@@ -767,6 +855,87 @@
     "resourceTypes": [
       {
         "name": "online-evaluation-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepaymentconnector": {
+    "name": "DeletePaymentConnector",
+    "description": "Grants permission to delete a payment connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepaymentcredentialprovider": {
+    "name": "DeletePaymentCredentialProvider",
+    "description": "Grants permission to delete a registered Payment Credential Provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "paymentcredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepaymentinstrument": {
+    "name": "DeletePaymentInstrument",
+    "description": "Grants permission to delete a payment instrument",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepaymentmanager": {
+    "name": "DeletePaymentManager",
+    "description": "Grants permission to delete a payment manager",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepaymentsession": {
+    "name": "DeletePaymentSession",
+    "description": "Grants permission to delete a payment session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1303,6 +1472,102 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getpaymentconnector": {
+    "name": "GetPaymentConnector",
+    "description": "Grants permission to retrieve details of a payment connector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpaymentcredentialprovider": {
+    "name": "GetPaymentCredentialProvider",
+    "description": "Grants permission to fetch a registered Payment Credential Provider by its name",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "paymentcredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpaymentinstrument": {
+    "name": "GetPaymentInstrument",
+    "description": "Grants permission to retrieve details of a payment instrument",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpaymentinstrumentbalance": {
+    "name": "GetPaymentInstrumentBalance",
+    "description": "Grants permission to retrieve the balance of a payment instrument",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpaymentmanager": {
+    "name": "GetPaymentManager",
+    "description": "Grants permission to retrieve details of a payment manager",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpaymentsession": {
+    "name": "GetPaymentSession",
+    "description": "Grants permission to retrieve details of a payment session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getpolicy": {
     "name": "GetPolicy",
     "description": "Grants permission to retrieve a policy",
@@ -1445,6 +1710,39 @@
     "resourceTypes": [
       {
         "name": "oauth2credentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workload-identity-directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepaymenttoken": {
+    "name": "GetResourcePaymentToken",
+    "description": "Grants permission to retrieve a payment authentication token associated with a Payment Credential Provider",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "paymentcredentialprovider",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2073,6 +2371,80 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listpaymentconnectors": {
+    "name": "ListPaymentConnectors",
+    "description": "Grants permission to list payment connectors under a payment manager",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpaymentcredentialproviders": {
+    "name": "ListPaymentCredentialProviders",
+    "description": "Grants permission to list all Payment Credential Providers in the Token Vault",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "paymentcredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpaymentinstruments": {
+    "name": "ListPaymentInstruments",
+    "description": "Grants permission to list payment instruments",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpaymentmanagers": {
+    "name": "ListPaymentManagers",
+    "description": "Grants permission to list payment managers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpaymentsessions": {
+    "name": "ListPaymentSessions",
+    "description": "Grants permission to list payment sessions",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpolicies": {
     "name": "ListPolicies",
     "description": "Grants permission to list policies within a policy engine",
@@ -2246,6 +2618,18 @@
         "dependentActions": []
       },
       {
+        "name": "payment-manager",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "paymentcredentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -2347,6 +2731,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "processpayment": {
+    "name": "ProcessPayment",
+    "description": "Grants permission to process a payment transaction",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to create or update the resource-based policy for a Bedrock resource",
@@ -2437,7 +2836,7 @@
   "settokenvaultcmk": {
     "name": "SetTokenVaultCMK",
     "description": "Grants permission to associate a Customer Managed Key (CMK) or a Service Managed Key with a specific TokenVault",
-    "accessLevel": "Read",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "token-vault",
@@ -2722,6 +3121,18 @@
         "dependentActions": []
       },
       {
+        "name": "payment-manager",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "paymentcredentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -2819,6 +3230,18 @@
       },
       {
         "name": "online-evaluation-config",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "payment-manager",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "paymentcredentialprovider",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3101,6 +3524,59 @@
     "resourceTypes": [
       {
         "name": "online-evaluation-config",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "iam:PassRole"
+    ]
+  },
+  "updatepaymentconnector": {
+    "name": "UpdatePaymentConnector",
+    "description": "Grants permission to update an existing payment connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepaymentcredentialprovider": {
+    "name": "UpdatePaymentCredentialProvider",
+    "description": "Grants permission to update an existing Payment Credential Provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "paymentcredentialprovider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "token-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepaymentmanager": {
+    "name": "UpdatePaymentManager",
+    "description": "Grants permission to update an existing payment manager",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "payment-manager",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

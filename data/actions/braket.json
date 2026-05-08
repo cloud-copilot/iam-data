@@ -42,10 +42,22 @@
     "name": "CreateJob",
     "description": "Grants permission to create a job",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -54,10 +66,22 @@
     "name": "CreateQuantumTask",
     "description": "Grants permission to create a quantum task",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quantum-task",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -66,10 +90,22 @@
     "name": "CreateSpendingLimit",
     "description": "Grants permission to create a spending limit",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "spending-limit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -78,19 +114,29 @@
     "name": "DeleteSpendingLimit",
     "description": "Grants permission to delete a spending limit",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+    "resourceTypes": [
+      {
+        "name": "spending-limit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
     ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getdevice": {
     "name": "GetDevice",
     "description": "Grants permission to retrieve information about the devices available in Amazon Braket",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "device",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -172,7 +218,7 @@
   "searchdevices": {
     "name": "SearchDevices",
     "description": "Grants permission to search for devices available in Amazon Braket",
-    "accessLevel": "Read",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -180,7 +226,7 @@
   "searchjobs": {
     "name": "SearchJobs",
     "description": "Grants permission to search for jobs",
-    "accessLevel": "Read",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -188,7 +234,7 @@
   "searchquantumtasks": {
     "name": "SearchQuantumTasks",
     "description": "Grants permission to search for quantum tasks",
-    "accessLevel": "Read",
+    "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -264,12 +310,15 @@
     "name": "UpdateSpendingLimit",
     "description": "Grants permission to update a spending limit",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+    "resourceTypes": [
+      {
+        "name": "spending-limit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
     ],
+    "conditionKeys": [],
     "dependentActions": []
   }
 }
