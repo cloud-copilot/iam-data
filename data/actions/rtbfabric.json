@@ -14,6 +14,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatecertificate": {
+    "name": "AssociateCertificate",
+    "description": "Grants permission to associate an ACM certificate with a responder gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResponderGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createinboundexternallink": {
     "name": "CreateInboundExternalLink",
     "description": "Grants permission to create an inbound external link for a responder gateway",
@@ -37,6 +52,24 @@
     "description": "Grants permission to create a new link between RTB applications",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlinkroutingrule": {
+    "name": "CreateLinkRoutingRule",
+    "description": "Grants permission to create a routing rule for a link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -119,6 +152,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletelinkroutingrule": {
+    "name": "DeleteLinkRoutingRule",
+    "description": "Grants permission to delete a routing rule from a link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LinkRoutingRule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteoutboundexternallink": {
     "name": "DeleteOutboundExternalLink",
     "description": "Grants permission to delete an outbound external link",
@@ -170,6 +224,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disassociatecertificate": {
+    "name": "DisassociateCertificate",
+    "description": "Grants permission to remove a certificate association from a responder gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ResponderGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcertificateassociation": {
+    "name": "GetCertificateAssociation",
+    "description": "Grants permission to retrieve details of a certificate association with a responder gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ResponderGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getinboundexternallink": {
     "name": "GetInboundExternalLink",
     "description": "Grants permission to retrieve information about an inbound external link",
@@ -198,6 +282,27 @@
     "resourceTypes": [
       {
         "name": "Link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlinkroutingrule": {
+    "name": "GetLinkRoutingRule",
+    "description": "Grants permission to retrieve information about a routing rule for a link",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LinkRoutingRule",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -257,6 +362,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcertificateassociations": {
+    "name": "ListCertificateAssociations",
+    "description": "Grants permission to list certificate associations for a responder gateway",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "ResponderGateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlinkroutingrules": {
+    "name": "ListLinkRoutingRules",
+    "description": "Grants permission to list routing rules for a link",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listlinks": {
     "name": "ListLinks",
     "description": "Grants permission to list links associated with an RTB application",
@@ -294,6 +429,12 @@
       },
       {
         "name": "Link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LinkRoutingRule",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -353,6 +494,12 @@
         "dependentActions": []
       },
       {
+        "name": "LinkRoutingRule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "OutboundExternalLink",
         "required": false,
         "conditionKeys": [],
@@ -390,6 +537,12 @@
       },
       {
         "name": "Link",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LinkRoutingRule",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -440,6 +593,27 @@
     "resourceTypes": [
       {
         "name": "Link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelinkroutingrule": {
+    "name": "UpdateLinkRoutingRule",
+    "description": "Grants permission to update a routing rule for a link",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Link",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "LinkRoutingRule",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

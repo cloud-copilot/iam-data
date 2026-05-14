@@ -107,7 +107,10 @@
   },
   "policy-engine": {
     "key": "policy-engine",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:policy-engine/${PolicyEngineId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:policy-engine/${PolicyEngineId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "policy": {
     "key": "policy",

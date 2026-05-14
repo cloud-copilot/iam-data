@@ -503,7 +503,10 @@
     "description": "Grants permission to create a new policy engine",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createregistry": {
@@ -1604,6 +1607,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getpolicyenginesummary": {
+    "name": "GetPolicyEngineSummary",
+    "description": "Grants permission to retrieve a summary of a policy engine",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getpolicygeneration": {
     "name": "GetPolicyGeneration",
     "description": "Grants permission to retrieve status and results of a policy generation request",
@@ -1617,6 +1635,48 @@
       },
       {
         "name": "policy-generation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicygenerationsummary": {
+    "name": "GetPolicyGenerationSummary",
+    "description": "Grants permission to retrieve a summary of a policy generation request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-generation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpolicysummary": {
+    "name": "GetPolicySummary",
+    "description": "Grants permission to retrieve a summary of a policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2460,6 +2520,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listpolicyenginesummaries": {
+    "name": "ListPolicyEngineSummaries",
+    "description": "Grants permission to list policy engine summaries",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpolicyengines": {
     "name": "ListPolicyEngines",
     "description": "Grants permission to list policy engines",
@@ -2489,9 +2557,39 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listpolicygenerationsummaries": {
+    "name": "ListPolicyGenerationSummaries",
+    "description": "Grants permission to list policy generation summaries",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpolicygenerations": {
     "name": "ListPolicyGenerations",
     "description": "Grants permission to list policy generation requests",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicysummaries": {
+    "name": "ListPolicySummaries",
+    "description": "Grants permission to list policy summaries within a policy engine",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -2625,6 +2723,12 @@
       },
       {
         "name": "paymentcredentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3133,6 +3237,12 @@
         "dependentActions": []
       },
       {
+        "name": "policy-engine",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "runtime",
         "required": false,
         "conditionKeys": [],
@@ -3242,6 +3352,12 @@
       },
       {
         "name": "paymentcredentialprovider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

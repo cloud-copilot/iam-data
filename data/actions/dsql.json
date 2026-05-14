@@ -38,6 +38,26 @@
     ],
     "dependentActions": []
   },
+  "createstream": {
+    "name": "CreateStream",
+    "description": "Grants permission to create a Change Stream for a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "dbconnect": {
     "name": "DbConnect",
     "description": "Grants permission to connect to the database",
@@ -90,6 +110,21 @@
     "resourceTypes": [
       {
         "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestream": {
+    "name": "DeleteStream",
+    "description": "Grants permission to delete a Change Stream",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stream",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -158,6 +193,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getstream": {
+    "name": "GetStream",
+    "description": "Grants permission to get information about a Change Stream",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getvpcendpointservicename": {
     "name": "GetVpcEndpointServiceName",
     "description": "Grants permission to retrieve the VPC endpoint service name for a cluster",
@@ -193,6 +243,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "liststreams": {
+    "name": "ListStreams",
+    "description": "Grants permission to retrieve a list of Change Streams for a cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list all tags on an Aurora DSQL resource",
@@ -200,7 +265,13 @@
     "resourceTypes": [
       {
         "name": "Cluster",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -347,7 +418,13 @@
     "resourceTypes": [
       {
         "name": "Cluster",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -365,7 +442,13 @@
     "resourceTypes": [
       {
         "name": "Cluster",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Stream",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -390,6 +473,21 @@
     "conditionKeys": [
       "dsql:WitnessRegion"
     ],
+    "dependentActions": []
+  },
+  "updatestream": {
+    "name": "UpdateStream",
+    "description": "Grants permission to modify Change Stream attributes",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Stream",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   }
 }
