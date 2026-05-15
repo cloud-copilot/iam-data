@@ -39,11 +39,17 @@
   },
   "function": {
     "key": "function",
-    "arn": "arn:${Partition}:cloudfront::${Account}:function/${Name}"
+    "arn": "arn:${Partition}:cloudfront::${Account}:function/${Name}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "key-value-store": {
     "key": "key-value-store",
-    "arn": "arn:${Partition}:cloudfront::${Account}:key-value-store/${Name}"
+    "arn": "arn:${Partition}:cloudfront::${Account}:key-value-store/${Name}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "response-headers-policy": {
     "key": "response-headers-policy",

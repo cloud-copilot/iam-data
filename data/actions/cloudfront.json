@@ -181,7 +181,10 @@
     "description": "Grants permission to create a CloudFront function",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createinvalidation": {
@@ -227,7 +230,10 @@
     "description": "Grants permission to create a CloudFront KeyValueStore",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createmonitoringsubscription": {
@@ -1677,6 +1683,18 @@
         "dependentActions": []
       },
       {
+        "name": "function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key-value-store",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "trust-store",
         "required": false,
         "conditionKeys": [],
@@ -1798,6 +1816,18 @@
         "dependentActions": []
       },
       {
+        "name": "function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key-value-store",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "streaming-distribution",
         "required": false,
         "conditionKeys": [],
@@ -1883,6 +1913,18 @@
       },
       {
         "name": "distribution-tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "function",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key-value-store",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
