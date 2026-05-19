@@ -1,4 +1,32 @@
 {
+  "continueservicedeployment": {
+    "name": "ContinueServiceDeployment",
+    "description": "Grants permission to continue a paused service deployment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service-deployment",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster",
+          "ecs:service"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createcapacityprovider": {
     "name": "CreateCapacityProvider",
     "description": "Grants permission to create a new capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling",
