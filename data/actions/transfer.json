@@ -55,7 +55,8 @@
       "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "transfer:RequestConnectorProtocol"
+      "transfer:RequestConnectorProtocol",
+      "transfer:RequestSecurityPolicyName"
     ],
     "dependentActions": []
   },
@@ -82,7 +83,8 @@
       "aws:ResourceTag/${TagKey}",
       "transfer:RequestServerEndpointType",
       "transfer:RequestServerDomain",
-      "transfer:RequestServerProtocols"
+      "transfer:RequestServerProtocols",
+      "transfer:RequestSecurityPolicyName"
     ],
     "dependentActions": [
       "iam:PassRole"
@@ -1080,7 +1082,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "transfer:RequestSecurityPolicyName"
+    ],
     "dependentActions": []
   },
   "updatehostkey": {
@@ -1129,7 +1133,8 @@
     ],
     "conditionKeys": [
       "transfer:RequestServerEndpointType",
-      "transfer:RequestServerProtocols"
+      "transfer:RequestServerProtocols",
+      "transfer:RequestSecurityPolicyName"
     ],
     "dependentActions": []
   },
