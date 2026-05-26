@@ -74,7 +74,7 @@ export const globalConditionKeys: GlobalConditionKey[] = [
   {
     key: 'aws:AssumedRoot',
     category: 'session',
-    type: 'String',
+    type: 'Bool',
     description: ''
   },
   {
