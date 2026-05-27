@@ -5619,6 +5619,30 @@
     ],
     "dependentActions": []
   },
+  "sendoutboundwebnotification": {
+    "name": "SendOutboundWebNotification",
+    "isPermissionOnly": true,
+    "description": "Grants permission to send outbound web notifications using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "connect:DescribeView",
+          "kms:Decrypt",
+          "profile:BatchGetProfile",
+          "profile:GetProfileRecommendations",
+          "profile:SearchProfiles"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "startattachedfileupload": {
     "name": "StartAttachedFileUpload",
     "description": "Grants permission to start an attached file upload in an Amazon Connect instance",
