@@ -14,6 +14,17 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createdictionary": {
+    "name": "CreateDictionary",
+    "description": "Grants permission to create a new dictionary",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createfeed": {
     "name": "CreateFeed",
     "description": "Grants permission to create a new feed",
@@ -23,6 +34,21 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "deletedictionary": {
+    "name": "DeleteDictionary",
+    "description": "Grants permission to delete a dictionary",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dictionary",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletefeed": {
@@ -47,6 +73,36 @@
     "resourceTypes": [
       {
         "name": "feed",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "exportdictionaryentries": {
+    "name": "ExportDictionaryEntries",
+    "description": "Grants permission to export dictionary entries",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dictionary",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdictionary": {
+    "name": "GetDictionary",
+    "description": "Grants permission to get dictionary details",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dictionary",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -82,6 +138,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdictionaries": {
+    "name": "ListDictionaries",
+    "description": "Grants permission to list dictionaries in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -122,6 +186,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "dictionary",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "feed",
         "required": false,
         "conditionKeys": [],
@@ -140,6 +210,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "dictionary",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "feed",
         "required": false,
         "conditionKeys": [],
@@ -149,6 +225,21 @@
     "conditionKeys": [
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "updatedictionary": {
+    "name": "UpdateDictionary",
+    "description": "Grants permission to update dictionary configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dictionary",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatefeed": {
