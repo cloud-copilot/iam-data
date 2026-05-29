@@ -101,6 +101,58 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createassertion": {
+    "name": "CreateAssertion",
+    "description": "Grants permission to create an assertion for a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createinputsource": {
+    "name": "CreateInputSource",
+    "description": "Grants permission to create an input source for a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createpolicy": {
+    "name": "CreatePolicy",
+    "description": "Grants permission to create a resilience policy that defines availability and disaster recovery requirements",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createrecommendationtemplate": {
     "name": "CreateRecommendationTemplate",
     "description": "Grants permission to create recommendation template",
@@ -123,6 +175,23 @@
     ],
     "dependentActions": []
   },
+  "createreport": {
+    "name": "CreateReport",
+    "description": "Grants permission to create a report for a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "createresiliencypolicy": {
     "name": "CreateResiliencyPolicy",
     "description": "Grants permission to create resiliency policy",
@@ -139,6 +208,117 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "createservice": {
+    "name": "CreateService",
+    "description": "Grants permission to create a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "system",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createservicefunction": {
+    "name": "CreateServiceFunction",
+    "description": "Grants permission to create a service function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createservicefunctionresources": {
+    "name": "CreateServiceFunctionResources",
+    "description": "Grants permission to create service function resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createsystem": {
+    "name": "CreateSystem",
+    "description": "Grants permission to create a system that represents a logical grouping of services",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createuserjourney": {
+    "name": "CreateUserJourney",
+    "description": "Grants permission to create a user journey within a system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteapp": {
@@ -216,6 +396,57 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteassertion": {
+    "name": "DeleteAssertion",
+    "description": "Grants permission to delete an assertion",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteinputsource": {
+    "name": "DeleteInputSource",
+    "description": "Grants permission to delete an input source",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletepolicy": {
+    "name": "DeletePolicy",
+    "description": "Grants permission to delete a resilience policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleterecommendationtemplate": {
     "name": "DeleteRecommendationTemplate",
     "description": "Grants permission to batch delete recommendation template",
@@ -244,6 +475,91 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteservice": {
+    "name": "DeleteService",
+    "description": "Grants permission to delete a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteservicefunction": {
+    "name": "DeleteServiceFunction",
+    "description": "Grants permission to delete a service function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteservicefunctionresources": {
+    "name": "DeleteServiceFunctionResources",
+    "description": "Grants permission to delete service function resources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletesystem": {
+    "name": "DeleteSystem",
+    "description": "Grants permission to delete a system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteuserjourney": {
+    "name": "DeleteUserJourney",
+    "description": "Grants permission to delete a user journey",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "describeapp": {
@@ -398,6 +714,143 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getfailuremodefinding": {
+    "name": "GetFailureModeFinding",
+    "description": "Grants permission to retrieve a failure mode finding",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getpolicy": {
+    "name": "GetPolicy",
+    "description": "Grants permission to retrieve a resilience policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getservice": {
+    "name": "GetService",
+    "description": "Grants permission to retrieve a service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getsystem": {
+    "name": "GetSystem",
+    "description": "Grants permission to retrieve a system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getuserjourney": {
+    "name": "GetUserJourney",
+    "description": "Grants permission to retrieve a user journey",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "importapp": {
+    "name": "ImportApp",
+    "description": "Grants permission to import a V1 app into the V2 resource model",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importpolicy": {
+    "name": "ImportPolicy",
+    "description": "Grants permission to import a V1 policy into V2",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "resiliency-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -592,10 +1045,94 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listassertions": {
+    "name": "ListAssertions",
+    "description": "Grants permission to list assertions for a service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listdependencies": {
+    "name": "ListDependencies",
+    "description": "Grants permission to list dependencies discovered for services",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listfailuremodeassessments": {
+    "name": "ListFailureModeAssessments",
+    "description": "Grants permission to list failure mode assessments",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listfailuremodefindings": {
+    "name": "ListFailureModeFindings",
+    "description": "Grants permission to list failure mode findings",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listinputsources": {
+    "name": "ListInputSources",
+    "description": "Grants permission to list input sources for a service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listmetrics": {
     "name": "ListMetrics",
     "description": "Grants permission to list metrics",
     "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpolicies": {
+    "name": "ListPolicies",
+    "description": "Grants permission to list resilience policies",
+    "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -613,6 +1150,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listreports": {
+    "name": "ListReports",
+    "description": "Grants permission to list reports",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listresiliencypolicies": {
@@ -635,6 +1189,82 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresources": {
+    "name": "ListResources",
+    "description": "Grants permission to list resources for a service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listserviceevents": {
+    "name": "ListServiceEvents",
+    "description": "Grants permission to list events for a service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listservicefunctions": {
+    "name": "ListServiceFunctions",
+    "description": "Grants permission to list service functions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listservicetopologyedges": {
+    "name": "ListServiceTopologyEdges",
+    "description": "Grants permission to list service topology edges",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listservices": {
+    "name": "ListServices",
+    "description": "Grants permission to list services",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -661,11 +1291,79 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listsystemevents": {
+    "name": "ListSystemEvents",
+    "description": "Grants permission to list events for a system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listsystems": {
+    "name": "ListSystems",
+    "description": "Grants permission to list systems",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a resource",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "app-assessment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "recommendation-template",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "resiliency-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "system",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -697,6 +1395,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listuserjourneys": {
+    "name": "ListUserJourneys",
+    "description": "Grants permission to list user journeys for a system",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "publishappversion": {
@@ -815,6 +1530,23 @@
     ],
     "dependentActions": []
   },
+  "startfailuremodeassessment": {
+    "name": "StartFailureModeAssessment",
+    "description": "Grants permission to start a failure mode assessment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "startmetricsexport": {
     "name": "StartMetricsExport",
     "description": "Grants permission to start the metrics export",
@@ -856,6 +1588,12 @@
         "dependentActions": []
       },
       {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "recommendation-template",
         "required": false,
         "conditionKeys": [],
@@ -863,6 +1601,18 @@
       },
       {
         "name": "resiliency-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "system",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -892,6 +1642,12 @@
         "dependentActions": []
       },
       {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "recommendation-template",
         "required": false,
         "conditionKeys": [],
@@ -899,6 +1655,18 @@
       },
       {
         "name": "resiliency-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "system",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -971,6 +1739,74 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updateassertion": {
+    "name": "UpdateAssertion",
+    "description": "Grants permission to update an assertion",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatedependency": {
+    "name": "UpdateDependency",
+    "description": "Grants permission to update a dependency classification",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatefailuremodefinding": {
+    "name": "UpdateFailureModeFinding",
+    "description": "Grants permission to update a failure mode finding",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatepolicy": {
+    "name": "UpdatePolicy",
+    "description": "Grants permission to update a resilience policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "updateresiliencypolicy": {
     "name": "UpdateResiliencyPolicy",
     "description": "Grants permission to update resiliency policy",
@@ -980,6 +1816,98 @@
         "name": "resiliency-policy",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservice": {
+    "name": "UpdateService",
+    "description": "Grants permission to update a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "system",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateservicefunction": {
+    "name": "UpdateServiceFunction",
+    "description": "Grants permission to update a service function",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatesystem": {
+    "name": "UpdateSystem",
+    "description": "Grants permission to update a system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateuserjourney": {
+    "name": "UpdateUserJourney",
+    "description": "Grants permission to update a user journey",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "system",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
