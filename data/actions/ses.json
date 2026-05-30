@@ -2793,11 +2793,19 @@
   },
   "deletesuppresseddestination": {
     "name": "DeleteSuppressedDestination",
-    "description": "Grants permission to remove an email address from the suppression list for your account",
+    "description": "Grants permission to remove an email address from the suppression list for your account or tenant",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3039,11 +3047,19 @@
   },
   "getsuppresseddestination": {
     "name": "GetSuppressedDestination",
-    "description": "Grants permission to retrieve information about a specific email address that's on the suppression list for your account",
+    "description": "Grants permission to retrieve information about a specific email address that's on the suppression list for your account or tenant",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3201,11 +3217,19 @@
   },
   "listsuppresseddestinations": {
     "name": "ListSuppressedDestinations",
-    "description": "Grants permission to list email addresses that are on the suppression list for your account",
+    "description": "Grants permission to list email addresses that are on the suppression list for your account or tenant",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3389,11 +3413,37 @@
   },
   "putsuppresseddestination": {
     "name": "PutSuppressedDestination",
-    "description": "Grants permission to add an email address to the suppression list",
+    "description": "Grants permission to add an email address to the suppression list for your account or tenant",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
-      "ses:ApiVersion"
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "puttenantsuppressionattributes": {
+    "name": "PutTenantSuppressionAttributes",
+    "description": "Grants permission to change the settings for the tenant-level suppression list",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "tenant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ses:ApiVersion",
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
