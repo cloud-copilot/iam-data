@@ -270,6 +270,12 @@
         "dependentActions": []
       },
       {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "labeling-job",
         "required": false,
         "conditionKeys": [],
@@ -617,6 +623,32 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "callwithbearertoken": {
+    "name": "CallWithBearerToken",
+    "isPermissionOnly": true,
+    "description": "Grants permission to use bearer token in SageMaker Job and Inference runtime endpoints APIs",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "sagemaker:BearerTokenType"
+    ],
+    "dependentActions": []
+  },
+  "completerollout": {
+    "name": "CompleteRollout",
+    "description": "Grants permission to mark a rollout as complete for a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createaibenchmarkjob": {
     "name": "CreateAIBenchmarkJob",
     "description": "Grants permission to create an AI benchmark job",
@@ -796,8 +828,8 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "sagemaker:InterContainerTrafficEncryption",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -822,8 +854,8 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "sagemaker:InterContainerTrafficEncryption",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -1018,8 +1050,8 @@
       "sagemaker:InterContainerTrafficEncryption",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -1069,8 +1101,8 @@
       "sagemaker:InstanceTypes",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets",
-      "sagemaker:DomainSharingOutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:DomainSharingOutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:ImageArns",
       "sagemaker:ImageVersionArns",
       "sagemaker:StudioLifecycleConfigArns"
@@ -1187,7 +1219,7 @@
       "sagemaker:AcceleratorTypes",
       "sagemaker:InstanceTypes",
       "sagemaker:ModelArn",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:ServerlessMaxConcurrency",
       "sagemaker:ServerlessMemorySize",
       "sagemaker:NetworkIsolation",
@@ -1234,8 +1266,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "sagemaker:FeatureGroupOnlineStoreKmsKey",
-      "sagemaker:FeatureGroupOfflineStoreKmsKey",
+      "sagemaker:FeatureGroupOnlineStoreKmsKeyArn",
+      "sagemaker:FeatureGroupOfflineStoreKmsKeyArn",
       "sagemaker:FeatureGroupOfflineStoreS3Uri",
       "sagemaker:FeatureGroupEnableOnlineStore",
       "sagemaker:FeatureGroupOfflineStoreConfig",
@@ -1379,8 +1411,8 @@
       "sagemaker:InterContainerTrafficEncryption",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -1491,6 +1523,30 @@
     ],
     "dependentActions": []
   },
+  "createjob": {
+    "name": "CreateJob",
+    "description": "Grants permission to create a SageMaker model customization job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole",
+          "sagemaker:AddTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VpcSecurityGroupIds",
+      "sagemaker:VpcSubnets"
+    ],
+    "dependentActions": []
+  },
   "createlabelingjob": {
     "name": "CreateLabelingJob",
     "description": "Grants permission to start a labeling job. A labeling job takes unlabeled data in and produces labeled data as output, which can be used for training SageMaker models",
@@ -1509,8 +1565,8 @@
     "conditionKeys": [
       "sagemaker:WorkteamArn",
       "sagemaker:WorkteamType",
-      "sagemaker:VolumeKmsKey",
-      "sagemaker:OutputKmsKey",
+      "sagemaker:VolumeKmsKeyArn",
+      "sagemaker:OutputKmsKeyArn",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
@@ -1616,8 +1672,8 @@
       "sagemaker:InterContainerTrafficEncryption",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -1680,8 +1736,8 @@
       "sagemaker:InterContainerTrafficEncryption",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -1757,8 +1813,8 @@
       "sagemaker:InterContainerTrafficEncryption",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -1786,8 +1842,8 @@
       "sagemaker:InterContainerTrafficEncryption",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -1817,7 +1873,7 @@
       "sagemaker:MinimumInstanceMetadataServiceVersion",
       "sagemaker:NotebookInstanceLifecycleConfigArns",
       "sagemaker:RootAccess",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets"
     ],
@@ -2004,8 +2060,8 @@
       "sagemaker:InstanceTypes",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets",
       "sagemaker:InterContainerTrafficEncryption"
@@ -2154,8 +2210,8 @@
       "sagemaker:InterContainerTrafficEncryption",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets",
       "sagemaker:KeepAlivePeriod",
@@ -2204,8 +2260,8 @@
       "aws:TagKeys",
       "sagemaker:InstanceTypes",
       "sagemaker:ModelArn",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey"
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn"
     ],
     "dependentActions": []
   },
@@ -2275,7 +2331,7 @@
       "aws:TagKeys",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:InstanceTypes",
-      "sagemaker:DomainSharingOutputKmsKey",
+      "sagemaker:DomainSharingOutputKmsKeyArn",
       "sagemaker:ImageArns",
       "sagemaker:ImageVersionArns",
       "sagemaker:StudioLifecycleConfigArns"
@@ -2890,6 +2946,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletejob": {
+    "name": "DeleteJob",
+    "description": "Grants permission to delete a SageMaker model customization job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletelineagegrouppolicy": {
     "name": "DeleteLineageGroupPolicy",
     "description": "Grants permission to delete a lineage group policy",
@@ -3443,6 +3514,12 @@
       },
       {
         "name": "inference-recommendations-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -4358,6 +4435,29 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejob": {
+    "name": "DescribeJob",
+    "description": "Grants permission to return information about a SageMaker model customization job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describejobschemaversion": {
+    "name": "DescribeJobSchemaVersion",
+    "description": "Grants permission to return information about a job schema version for a particular JobCategory for the CreateJob API",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -5557,6 +5657,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listjobschemaversions": {
+    "name": "ListJobSchemaVersions",
+    "description": "Grants permission to list job schema versions for a particular JobCategory for the CreateJob API",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listjobs": {
+    "name": "ListJobs",
+    "description": "Grants permission to list SageMaker model customization jobs",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listlabelingjobs": {
     "name": "ListLabelingJobs",
     "description": "Grants permission to list labeling jobs",
@@ -6143,6 +6259,12 @@
         "dependentActions": []
       },
       {
+        "name": "job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "labeling-job",
         "required": false,
         "conditionKeys": [],
@@ -6496,6 +6618,36 @@
     "resourceTypes": [
       {
         "name": "pipeline-execution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sample": {
+    "name": "Sample",
+    "description": "Grants permission to invoke a sample request against a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "samplewithresponsestream": {
+    "name": "SampleWithResponseStream",
+    "description": "Grants permission to invoke a streaming sample request against a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -6865,6 +7017,21 @@
     "resourceTypes": [
       {
         "name": "inference-recommendations-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopjob": {
+    "name": "StopJob",
+    "description": "Grants permission to stop a SageMaker model customization job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -7269,7 +7436,7 @@
     "conditionKeys": [
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:InstanceTypes",
-      "sagemaker:DomainSharingOutputKmsKey",
+      "sagemaker:DomainSharingOutputKmsKeyArn",
       "sagemaker:ImageArns",
       "sagemaker:ImageVersionArns",
       "sagemaker:AppNetworkAccessType",
@@ -7607,8 +7774,8 @@
       "sagemaker:InstanceTypes",
       "sagemaker:MaxRuntimeInSeconds",
       "sagemaker:NetworkIsolation",
-      "sagemaker:OutputKmsKey",
-      "sagemaker:VolumeKmsKey",
+      "sagemaker:OutputKmsKeyArn",
+      "sagemaker:VolumeKmsKeyArn",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:VpcSubnets",
       "sagemaker:InterContainerTrafficEncryption"
@@ -7733,6 +7900,21 @@
     ],
     "dependentActions": []
   },
+  "updatereward": {
+    "name": "UpdateReward",
+    "description": "Grants permission to submit reward scores for a trajectory in a job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatesharedmodel": {
     "name": "UpdateSharedModel",
     "isPermissionOnly": true,
@@ -7837,7 +8019,7 @@
       "sagemaker:InstanceTypes",
       "sagemaker:VpcSecurityGroupIds",
       "sagemaker:InstanceTypes",
-      "sagemaker:DomainSharingOutputKmsKey",
+      "sagemaker:DomainSharingOutputKmsKeyArn",
       "sagemaker:ImageArns",
       "sagemaker:ImageVersionArns",
       "sagemaker:StudioLifecycleConfigArns"

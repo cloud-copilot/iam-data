@@ -1,4 +1,20 @@
 {
+  "accesstransformprofile": {
+    "name": "AccessTransformProfile",
+    "isPermissionOnly": true,
+    "description": "Grants permission to invoke AccessTransformProfile on AWS Transform",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associateconnectorresource": {
     "name": "AssociateConnectorResource",
     "isPermissionOnly": true,
@@ -12,7 +28,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "createprofile": {
@@ -53,7 +71,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "deleteprofile": {
@@ -112,7 +132,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getwebappurl": {
@@ -139,7 +161,9 @@
     "description": "Grants permission to invoke ListConnectors on AWS Transform",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listprofiles": {
@@ -189,7 +213,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "tagresource": {
