@@ -19,11 +19,17 @@
   },
   "table": {
     "key": "table",
-    "arn": "arn:${Partition}:glue:${Region}:${Account}:table/${DatabaseName}/${TableName}"
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:table/${DatabaseName}/${TableName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "tableversion": {
     "key": "tableversion",
-    "arn": "arn:${Partition}:glue:${Region}:${Account}:tableVersion/${DatabaseName}/${TableName}/${TableVersionName}"
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:tableVersion/${DatabaseName}/${TableName}/${TableVersionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "connection": {
     "key": "connection",
@@ -34,7 +40,10 @@
   },
   "userdefinedfunction": {
     "key": "userdefinedfunction",
-    "arn": "arn:${Partition}:glue:${Region}:${Account}:userDefinedFunction/${DatabaseName}/${UserDefinedFunctionName}"
+    "arn": "arn:${Partition}:glue:${Region}:${Account}:userDefinedFunction/${DatabaseName}/${UserDefinedFunctionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "devendpoint": {
     "key": "devendpoint",

@@ -35,6 +35,21 @@
     ],
     "dependentActions": []
   },
+  "batchdeleteknowledgebase": {
+    "name": "BatchDeleteKnowledgeBase",
+    "description": "Grants permission to delete one or more knowledge bases",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchdeletetopicreviewedanswer": {
     "name": "BatchDeleteTopicReviewedAnswer",
     "description": "Grants permission to delete reviewed answers for a topic",
@@ -443,13 +458,27 @@
         "name": "namespace",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": []
+        "dependentActions": [
+          "ds:CreateIdentityPoolDirectory"
+        ]
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ds:CreateIdentityPoolDirectory"
-    ]
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createoauthclientapplication": {
+    "name": "CreateOAuthClientApplication",
+    "description": "Grants permission to create an OAuth client application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
   },
   "createreader": {
     "name": "CreateReader",
@@ -981,6 +1010,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteknowledgebase": {
+    "name": "DeleteKnowledgeBase",
+    "description": "Grants permission to delete a knowledge base",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "knowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletenamespace": {
     "name": "DeleteNamespace",
     "description": "Grants permission to delete a QuickSight namespace",
@@ -997,6 +1041,24 @@
     "dependentActions": [
       "ds:DeleteDirectory"
     ]
+  },
+  "deleteoauthclientapplication": {
+    "name": "DeleteOAuthClientApplication",
+    "description": "Grants permission to delete an OAuth client application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "oauthClientApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
   },
   "deleterefreshschedule": {
     "name": "DeleteRefreshSchedule",
@@ -1781,6 +1843,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeknowledgebase": {
+    "name": "DescribeKnowledgeBase",
+    "description": "Grants permission to describe a knowledge base",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "knowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeknowledgebasepermissions": {
+    "name": "DescribeKnowledgeBasePermissions",
+    "description": "Grants permission to describe the resource policy of a knowledge base",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "knowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describenamespace": {
     "name": "DescribeNamespace",
     "description": "Grants permission to describe a QuickSight namespace",
@@ -1794,6 +1886,24 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeoauthclientapplication": {
+    "name": "DescribeOAuthClientApplication",
+    "description": "Grants permission to describe an OAuth client application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "oauthClientApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "describeqpersonalizationconfiguration": {
@@ -2566,12 +2676,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listknowledgebases": {
+    "name": "ListKnowledgeBases",
+    "description": "Grants permission to list all knowledge bases in an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listnamespaces": {
     "name": "ListNamespaces",
     "description": "Grants permission to lists all namespaces in a QuickSight account",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listoauthclientapplications": {
+    "name": "ListOAuthClientApplications",
+    "description": "Grants permission to list OAuth client applications in an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "listrefreshschedules": {
@@ -2700,6 +2829,18 @@
         "dependentActions": []
       },
       {
+        "name": "namespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "oauthClientApplication",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "template",
         "required": false,
         "conditionKeys": [],
@@ -2713,6 +2854,12 @@
       },
       {
         "name": "topic",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2877,6 +3024,15 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listusersindexcapacity": {
+    "name": "ListUsersIndexCapacity",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list users index capacity",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listvpcconnections": {
     "name": "ListVPCConnections",
     "description": "Grants permission to list all vpc connections",
@@ -2988,13 +3144,16 @@
       {
         "name": "user",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "quicksight:IamArn",
+          "quicksight:SessionName"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "quicksight:IamArn",
-      "quicksight:SessionName"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -3160,6 +3319,21 @@
     "resourceTypes": [
       {
         "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchknowledgebases": {
+    "name": "SearchKnowledgeBases",
+    "description": "Grants permission to search for a sub-set of knowledge bases",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "knowledgeBase",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3374,6 +3548,18 @@
         "dependentActions": []
       },
       {
+        "name": "namespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "oauthClientApplication",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "template",
         "required": false,
         "conditionKeys": [],
@@ -3387,6 +3573,12 @@
       },
       {
         "name": "topic",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3507,6 +3699,18 @@
         "dependentActions": []
       },
       {
+        "name": "namespace",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "oauthClientApplication",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "template",
         "required": false,
         "conditionKeys": [],
@@ -3520,6 +3724,12 @@
       },
       {
         "name": "topic",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -4029,6 +4239,39 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateknowledgebasepermissions": {
+    "name": "UpdateKnowledgeBasePermissions",
+    "description": "Grants permission to update the resource policy of a knowledge base",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "knowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateoauthclientapplication": {
+    "name": "UpdateOAuthClientApplication",
+    "description": "Grants permission to update an OAuth client application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "oauthClientApplication",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "updatepublicsharingsettings": {

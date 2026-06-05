@@ -5,7 +5,10 @@
   },
   "user": {
     "key": "user",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}"
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "group": {
     "key": "group",
@@ -35,6 +38,13 @@
   "vpcconnection": {
     "key": "vpcconnection",
     "arn": "arn:${Partition}:quicksight:${Region}:${Account}:vpcConnection/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "oauthclientapplication": {
+    "key": "oauthClientApplication",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:oauthClientApplication/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -92,7 +102,10 @@
   },
   "namespace": {
     "key": "namespace",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:namespace/${ResourceId}"
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:namespace/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "folder": {
     "key": "folder",
@@ -170,8 +183,19 @@
     "key": "automationGroup",
     "arn": "arn:${Partition}:quicksight:${Region}:${Account}:automation-group/${ResourceId}"
   },
+  "knowledgebase": {
+    "key": "knowledgeBase",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:knowledge-base/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "space": {
     "key": "space",
     "arn": "arn:${Partition}:quicksight:${Region}:${Account}:space/${ResourceId}"
+  },
+  "approvalpolicy": {
+    "key": "approvalPolicy",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:approval-policy/${ResourceId}"
   }
 }
