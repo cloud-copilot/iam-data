@@ -14,6 +14,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createverificationevidence": {
+    "name": "CreateVerificationEvidence",
+    "description": "Grants permission to create a new verification evidence resource for BusinessVerification",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VerificationEvidence",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete the resource policy of an existing entity",
@@ -119,6 +137,31 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getverification": {
+    "name": "GetVerification",
+    "description": "Grants permission to retrieve the detailed status of a specific verification process, including PSP validation results",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws-marketplace:VerificationType"
+    ],
+    "dependentActions": []
+  },
+  "getverificationevidence": {
+    "name": "GetVerificationEvidence",
+    "description": "Grants permission to retrieve the complete content of a specific verification evidence resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "VerificationEvidence",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listassessments": {
     "name": "ListAssessments",
     "description": "Grants permission to list existing assessments",
@@ -184,6 +227,24 @@
     ],
     "dependentActions": []
   },
+  "listverificationevidence": {
+    "name": "ListVerificationEvidence",
+    "description": "Grants permission to list verification evidence resources with summary metadata",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listverifications": {
+    "name": "ListVerifications",
+    "description": "Grants permission to list all verification statuses across jurisdictions and verification types",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws-marketplace:VerificationType"
+    ],
+    "dependentActions": []
+  },
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to attach a resource policy to an existing entity",
@@ -237,6 +298,23 @@
     ],
     "dependentActions": []
   },
+  "startverification": {
+    "name": "StartVerification",
+    "description": "Grants permission to submit verification evidence to a Payment Service Provider and enable data sharing for a specified jurisdiction",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VerificationEvidence",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws-marketplace:VerificationType"
+    ],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a deployment parameter resource",
@@ -279,6 +357,21 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "updateverificationevidence": {
+    "name": "UpdateVerificationEvidence",
+    "description": "Grants permission to update an existing verification evidence resource using full replacement semantics",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "VerificationEvidence",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putdeploymentparameter": {

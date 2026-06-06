@@ -1,4 +1,20 @@
 {
+  "batchcreatefindings": {
+    "name": "BatchCreateFindings",
+    "description": "Grants permission to invoke BatchCreateFindings on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchupdatefindings": {
+    "name": "BatchUpdateFindings",
+    "description": "Grants permission to invoke BatchUpdateFindings on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "completetransformationpackageupload": {
     "name": "CompleteTransformationPackageUpload",
     "description": "Grants permission to invoke CompleteTransformationPackageUpload on AWS Transform custom",
@@ -24,6 +40,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createanalysis": {
+    "name": "CreateAnalysis",
+    "description": "Grants permission to invoke CreateAnalysis on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "analysis",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcampaign": {
     "name": "CreateCampaign",
     "description": "Grants permission to invoke CreateCampaign on AWS Transform custom",
@@ -31,6 +66,63 @@
     "resourceTypes": [
       {
         "name": "campaign",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createremediation": {
+    "name": "CreateRemediation",
+    "description": "Grants permission to invoke CreateRemediation on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "remediation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrepository": {
+    "name": "CreateRepository",
+    "description": "Grants permission to invoke CreateRepository on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createsource": {
+    "name": "CreateSource",
+    "description": "Grants permission to invoke CreateSource on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "source",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -62,6 +154,23 @@
     ],
     "dependentActions": []
   },
+  "deleteanalysis": {
+    "name": "DeleteAnalysis",
+    "description": "Grants permission to invoke DeleteAnalysis on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "analysis",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deletecampaign": {
     "name": "DeleteCampaign",
     "description": "Grants permission to invoke DeleteCampaign on AWS Transform custom",
@@ -79,6 +188,23 @@
     ],
     "dependentActions": []
   },
+  "deletefinding": {
+    "name": "DeleteFinding",
+    "description": "Grants permission to invoke DeleteFinding on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "finding",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "deleteknowledgeitem": {
     "name": "DeleteKnowledgeItem",
     "description": "Grants permission to invoke DeleteKnowledgeItem on AWS Transform custom",
@@ -86,6 +212,57 @@
     "resourceTypes": [
       {
         "name": "knowledge-item",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteremediation": {
+    "name": "DeleteRemediation",
+    "description": "Grants permission to invoke DeleteRemediation on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "remediation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleterepository": {
+    "name": "DeleteRepository",
+    "description": "Grants permission to invoke DeleteRepository on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletesource": {
+    "name": "DeleteSource",
+    "description": "Grants permission to invoke DeleteSource on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "source",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -130,6 +307,23 @@
     ],
     "dependentActions": []
   },
+  "getanalysis": {
+    "name": "GetAnalysis",
+    "description": "Grants permission to invoke GetAnalysis on AWS Transform custom",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "analysis",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getcampaign": {
     "name": "GetCampaign",
     "description": "Grants permission to invoke GetCampaign on AWS Transform custom",
@@ -147,6 +341,31 @@
     ],
     "dependentActions": []
   },
+  "getfinding": {
+    "name": "GetFinding",
+    "description": "Grants permission to invoke GetFinding on AWS Transform custom",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "finding",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getfindinggroups": {
+    "name": "GetFindingGroups",
+    "description": "Grants permission to invoke GetFindingGroups on AWS Transform custom",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getknowledgeitem": {
     "name": "GetKnowledgeItem",
     "description": "Grants permission to invoke GetKnowledgeItem on AWS Transform custom",
@@ -154,6 +373,57 @@
     "resourceTypes": [
       {
         "name": "knowledge-item",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getremediation": {
+    "name": "GetRemediation",
+    "description": "Grants permission to invoke GetRemediation on AWS Transform custom",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "remediation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getrepository": {
+    "name": "GetRepository",
+    "description": "Grants permission to invoke GetRepository on AWS Transform custom",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getsource": {
+    "name": "GetSource",
+    "description": "Grants permission to invoke GetSource on AWS Transform custom",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "source",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -181,6 +451,14 @@
     ],
     "dependentActions": []
   },
+  "listanalyses": {
+    "name": "ListAnalyses",
+    "description": "Grants permission to invoke ListAnalyses on AWS Transform custom",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcampaignrepositories": {
     "name": "ListCampaignRepositories",
     "description": "Grants permission to invoke ListCampaignRepositories on AWS Transform custom",
@@ -206,9 +484,41 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listfindings": {
+    "name": "ListFindings",
+    "description": "Grants permission to invoke ListFindings on AWS Transform custom",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listknowledgeitems": {
     "name": "ListKnowledgeItems",
     "description": "Grants permission to invoke ListKnowledgeItems on AWS Transform custom",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listremediations": {
+    "name": "ListRemediations",
+    "description": "Grants permission to invoke ListRemediations on AWS Transform custom",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrepositories": {
+    "name": "ListRepositories",
+    "description": "Grants permission to invoke ListRepositories on AWS Transform custom",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsources": {
+    "name": "ListSources",
+    "description": "Grants permission to invoke ListSources on AWS Transform custom",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -230,13 +540,59 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listtransformationpackageshares": {
+    "name": "ListTransformationPackageShares",
+    "description": "Grants permission to list active shares of a Transformation Package",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "sharetransformationpackage": {
+    "name": "ShareTransformationPackage",
+    "description": "Grants permission to share a Transformation Package with another AWS account or AWS Organization",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to invoke TagResource on AWS Transform custom",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "analysis",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "finding",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -249,6 +605,24 @@
       },
       {
         "name": "package",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "remediation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "source",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -261,13 +635,42 @@
     ],
     "dependentActions": []
   },
+  "unsharetransformationpackage": {
+    "name": "UnshareTransformationPackage",
+    "description": "Grants permission to revoke an existing share of a Transformation Package",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "package",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to invoke UntagResource on AWS Transform custom",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "analysis",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "campaign",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "finding",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -283,10 +686,45 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "remediation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "source",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateanalysis": {
+    "name": "UpdateAnalysis",
+    "description": "Grants permission to invoke UpdateAnalysis on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "analysis",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -348,6 +786,57 @@
     "resourceTypes": [
       {
         "name": "knowledge-item",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateremediation": {
+    "name": "UpdateRemediation",
+    "description": "Grants permission to invoke UpdateRemediation on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "remediation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updaterepository": {
+    "name": "UpdateRepository",
+    "description": "Grants permission to invoke UpdateRepository on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatesource": {
+    "name": "UpdateSource",
+    "description": "Grants permission to invoke UpdateSource on AWS Transform custom",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "source",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
