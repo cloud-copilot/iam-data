@@ -83,6 +83,27 @@
     ],
     "dependentActions": []
   },
+  "accepttransitgatewayclientvpnattachment": {
+    "name": "AcceptTransitGatewayClientVpnAttachment",
+    "description": "Grants permission to accept a transit gateway attachment request for a Client VPN endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-attachment",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "accepttransitgatewaymulticastdomainassociations": {
     "name": "AcceptTransitGatewayMulticastDomainAssociations",
     "description": "Grants permission to accept a request to associate subnets with a transit gateway multicast domain",
@@ -300,6 +321,17 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
+        "name": "ipam-pool-allocation",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
@@ -549,7 +581,7 @@
       },
       {
         "name": "subnet",
-        "required": true,
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZoneId",
@@ -1541,6 +1573,15 @@
           "ec2:CapacityReservationFleet"
         ],
         "dependentActions": []
+      },
+      {
+        "name": "capacity-reservation-cancellation-quote",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1954,6 +1995,28 @@
     ],
     "dependentActions": []
   },
+  "createcapacityreservationcancellationquote": {
+    "name": "CreateCapacityReservationCancellationQuote",
+    "description": "Grants permission to generate a cancellation quote for a future-dated Capacity Reservation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-reservation-cancellation-quote",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createcapacityreservationfleet": {
     "name": "CreateCapacityReservationFleet",
     "description": "Grants permission to create a Capacity Reservation Fleet",
@@ -2045,6 +2108,16 @@
         "dependentActions": []
       },
       {
+        "name": "transit-gateway",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayId"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "vpc",
         "required": false,
         "conditionKeys": [
@@ -2082,7 +2155,7 @@
       },
       {
         "name": "subnet",
-        "required": true,
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:AvailabilityZoneId",
@@ -4485,6 +4558,17 @@
         "dependentActions": []
       },
       {
+        "name": "capacity-reservation-cancellation-quote",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "capacity-reservation-fleet",
         "required": false,
         "conditionKeys": [
@@ -4829,6 +4913,17 @@
       },
       {
         "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-pool-allocation",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -8328,6 +8423,17 @@
         "dependentActions": []
       },
       {
+        "name": "capacity-reservation-cancellation-quote",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "capacity-reservation-fleet",
         "required": false,
         "conditionKeys": [
@@ -8626,6 +8732,17 @@
       },
       {
         "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-pool-allocation",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -9524,6 +9641,27 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletetransitgatewayclientvpnattachment": {
+    "name": "DeleteTransitGatewayClientVpnAttachment",
+    "description": "Grants permission to delete a transit gateway attachment for a Client VPN endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-attachment",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
         ],
         "dependentActions": []
       }
@@ -10507,6 +10645,16 @@
     ],
     "dependentActions": []
   },
+  "describecapacityreservationcancellationquotes": {
+    "name": "DescribeCapacityReservationCancellationQuotes",
+    "description": "Grants permission to describe one or more Capacity Reservation cancellation quotes",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describecapacityreservationfleets": {
     "name": "DescribeCapacityReservationFleets",
     "description": "Grants permission to describe one or more Capacity Reservation Fleets",
@@ -11203,6 +11351,16 @@
   "describeipampolicies": {
     "name": "DescribeIpamPolicies",
     "description": "Grants permission to describe Amazon VPC IP Address Manager (IPAM) policies",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeipampoolallocations": {
+    "name": "DescribeIpamPoolAllocations",
+    "description": "Grants permission to describe IPAM pool allocations",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -14491,6 +14649,16 @@
     ],
     "dependentActions": []
   },
+  "getcapacitymanagermonitoredtagkeys": {
+    "name": "GetCapacityManagerMonitoredTagKeys",
+    "description": "Grants permission to retrieve the tag keys that are currently being monitored by EC2 Capacity Manager",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "getcapacityreservationusage": {
     "name": "GetCapacityReservationUsage",
     "description": "Grants permission to get usage information about a Capacity Reservation",
@@ -15177,6 +15345,16 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getmanagedresourcevisibility": {
+    "name": "GetManagedResourceVisibility",
+    "description": "Grants permission to retrieve the managed resource visibility configuration for the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -16209,6 +16387,16 @@
         "dependentActions": []
       },
       {
+        "name": "transit-gateway",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayId"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "vpc",
         "required": false,
         "conditionKeys": [
@@ -16963,6 +17151,28 @@
     ],
     "dependentActions": []
   },
+  "modifyipampoolallocation": {
+    "name": "ModifyIpamPoolAllocation",
+    "description": "Grants permission to modify the description of an IPAM pool allocation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-pool-allocation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "modifyipamprefixlistresolver": {
     "name": "ModifyIpamPrefixListResolver",
     "description": "Grants permission to modify an IPAM prefix list resolver",
@@ -17176,6 +17386,16 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifymanagedresourcevisibility": {
+    "name": "ModifyManagedResourceVisibility",
+    "description": "Grants permission to modify the managed resource visibility configuration for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -19027,6 +19247,27 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:SourceCapacityReservationId",
           "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "rejecttransitgatewayclientvpnattachment": {
+    "name": "RejectTransitGatewayClientVpnAttachment",
+    "description": "Grants permission to reject a transit gateway attachment request for a Client VPN endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-attachment",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
         ],
         "dependentActions": []
       }
@@ -21061,6 +21302,16 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "updatecapacitymanagermonitoredtagkeys": {
+    "name": "UpdateCapacityManagerMonitoredTagKeys",
+    "description": "Grants permission to activate or deactivate tag keys for monitoring by EC2 Capacity Manager",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],
