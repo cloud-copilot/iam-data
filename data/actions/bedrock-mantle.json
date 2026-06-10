@@ -184,7 +184,8 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "bedrock-mantle:DataRetentionMode"
     ],
     "dependentActions": []
   },
@@ -325,6 +326,14 @@
       "bedrock-mantle:ProjectArn",
       "bedrock-mantle:CustomizedModelArn"
     ],
+    "dependentActions": []
+  },
+  "getaccountdataretention": {
+    "name": "GetAccountDataRetention",
+    "description": "Grants permission to retrieve the account-wide data retention setting",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getcustomizedmodel": {
@@ -594,6 +603,16 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putaccountdataretention": {
+    "name": "PutAccountDataRetention",
+    "description": "Grants permission to set the account-wide data retention setting",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "bedrock-mantle:DataRetentionMode"
+    ],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
@@ -673,12 +692,14 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
+      "bedrock-mantle:DataRetentionMode"
     ],
     "dependentActions": []
   },

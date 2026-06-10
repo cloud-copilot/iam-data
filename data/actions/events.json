@@ -675,7 +675,13 @@
     "resourceTypes": [
       {
         "name": "event-bus",
-        "required": true,
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "event-busv2",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -683,7 +689,9 @@
     "conditionKeys": [
       "events:detail-type",
       "events:source",
-      "events:eventBusInvocation"
+      "events:eventBusInvocation",
+      "events:SystemMetadata/EventGroupId",
+      "events:ResourceArn"
     ],
     "dependentActions": []
   },
