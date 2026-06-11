@@ -28,9 +28,60 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createautonomousdatabase": {
+    "name": "CreateAutonomousDatabase",
+    "description": "Grants permission to create an Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "odb-network",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createautonomousdatabasebackup": {
+    "name": "CreateAutonomousDatabaseBackup",
+    "description": "Grants permission to create a backup of the specified Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createautonomousdatabasewallet": {
+    "name": "CreateAutonomousDatabaseWallet",
+    "description": "Grants permission to create a wallet for the specified Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createcloudautonomousvmcluster": {
     "name": "CreateCloudAutonomousVmCluster",
-    "description": "Grants permission to create a new Autonomous VM cluster in the specified Exadata infrastructure",
+    "description": "Grants permission to create an Autonomous VM cluster in the specified Exadata infrastructure",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -155,6 +206,36 @@
       },
       {
         "name": "cloud-vm-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautonomousdatabase": {
+    "name": "DeleteAutonomousDatabase",
+    "description": "Grants permission to delete the specified Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteautonomousdatabasebackup": {
+    "name": "DeleteAutonomousDatabaseBackup",
+    "description": "Grants permission to delete the specified Autonomous Database backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database-backup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -299,6 +380,66 @@
       {
         "name": "cloud-vm-cluster",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "failoverautonomousdatabase": {
+    "name": "FailoverAutonomousDatabase",
+    "description": "Grants permission to fail over the specified Autonomous Database to a standby peer database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautonomousdatabase": {
+    "name": "GetAutonomousDatabase",
+    "description": "Grants permission to get information about a specific Autonomous Database",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautonomousdatabasebackup": {
+    "name": "GetAutonomousDatabaseBackup",
+    "description": "Grants permission to get information about a specific Autonomous Database backup",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database-backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getautonomousdatabasewalletdetails": {
+    "name": "GetAutonomousDatabaseWalletDetails",
+    "description": "Grants permission to get the wallet details for the specified Autonomous Database",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -470,6 +611,75 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listautonomousdatabasebackups": {
+    "name": "ListAutonomousDatabaseBackups",
+    "description": "Grants permission to list information about the backups of the specified Autonomous Database",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautonomousdatabasecharactersets": {
+    "name": "ListAutonomousDatabaseCharacterSets",
+    "description": "Grants permission to list information about the character sets that are available for Autonomous Databases",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautonomousdatabaseclones": {
+    "name": "ListAutonomousDatabaseClones",
+    "description": "Grants permission to list all clones of the specified Autonomous Database",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautonomousdatabasepeers": {
+    "name": "ListAutonomousDatabasePeers",
+    "description": "Grants permission to list all peer databases of the specified Autonomous Database",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautonomousdatabaseversions": {
+    "name": "ListAutonomousDatabaseVersions",
+    "description": "Grants permission to list information about the Oracle Database software versions that are available for Autonomous Databases",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautonomousdatabases": {
+    "name": "ListAutonomousDatabases",
+    "description": "Grants permission to list information about the Autonomous Databases owned by your Amazon Web Services account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listautonomousvirtualmachines": {
     "name": "ListAutonomousVirtualMachines",
     "description": "Grants permission to list all Autonomous VMs in an Autonomous VM cluster",
@@ -606,6 +816,18 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "autonomous-database",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "autonomous-database-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "cloud-autonomous-vm-cluster",
         "required": false,
         "conditionKeys": [],
@@ -669,6 +891,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "rebootautonomousdatabase": {
+    "name": "RebootAutonomousDatabase",
+    "description": "Grants permission to reboot the specified Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "rebootdbnode": {
     "name": "RebootDbNode",
     "description": "Grants permission to reboot the specified DB node in a VM cluster",
@@ -682,6 +919,51 @@
       },
       {
         "name": "db-node",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restoreautonomousdatabase": {
+    "name": "RestoreAutonomousDatabase",
+    "description": "Grants permission to restore the specified Autonomous Database to a point in time",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "shrinkautonomousdatabase": {
+    "name": "ShrinkAutonomousDatabase",
+    "description": "Grants permission to shrink the storage of the specified Autonomous Database to reclaim unused space",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startautonomousdatabase": {
+    "name": "StartAutonomousDatabase",
+    "description": "Grants permission to start the specified Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -711,6 +993,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "stopautonomousdatabase": {
+    "name": "StopAutonomousDatabase",
+    "description": "Grants permission to stop the specified Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "stopdbnode": {
     "name": "StopDbNode",
     "description": "Grants permission to stop the specified DB node in a VM cluster",
@@ -732,11 +1029,38 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "switchoverautonomousdatabase": {
+    "name": "SwitchoverAutonomousDatabase",
+    "description": "Grants permission to switch over the specified Autonomous Database to a standby peer database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to apply tags to the specified resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "autonomous-database-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "cloud-autonomous-vm-cluster",
         "required": false,
@@ -787,6 +1111,18 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "autonomous-database",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "autonomous-database-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "cloud-autonomous-vm-cluster",
         "required": false,
         "conditionKeys": [],
@@ -827,6 +1163,36 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "updateautonomousdatabase": {
+    "name": "UpdateAutonomousDatabase",
+    "description": "Grants permission to update the properties of an Autonomous Database",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateautonomousdatabasebackup": {
+    "name": "UpdateAutonomousDatabaseBackup",
+    "description": "Grants permission to update the properties of an Autonomous Database backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "autonomous-database-backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatecloudexadatainfrastructure": {
