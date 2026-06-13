@@ -28,6 +28,25 @@
     ],
     "dependentActions": []
   },
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "description": "Grants permission to configure server access logs delivery to CloudWatch",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:resourceArnBeingAuthorized",
+      "s3:deliverySourceArn",
+      "s3:logType"
+    ],
+    "dependentActions": []
+  },
   "associateaccessgrantsidentitycenter": {
     "name": "AssociateAccessGrantsIdentityCenter",
     "description": "Grants permission to associate Access Grants identity center",

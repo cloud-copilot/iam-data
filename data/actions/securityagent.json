@@ -14,6 +14,26 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchcreatesecurityrequirements": {
+    "name": "BatchCreateSecurityRequirements",
+    "description": "Grants permission to batch create security requirements in a customer managed pack",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:ReEncryptFrom",
+      "kms:ReEncryptTo"
+    ]
+  },
   "batchdeletecodereviews": {
     "name": "BatchDeleteCodeReviews",
     "description": "Grants permission to delete multiple code reviews in a single request",
@@ -47,6 +67,21 @@
     "dependentActions": [
       "kms:Decrypt"
     ]
+  },
+  "batchdeletesecurityrequirements": {
+    "name": "BatchDeleteSecurityRequirements",
+    "description": "Grants permission to batch delete security requirements from a customer managed pack",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "batchdeletethreatmodels": {
     "name": "BatchDeleteThreatModels",
@@ -250,6 +285,26 @@
       "kms:Decrypt"
     ]
   },
+  "batchgetsecurityrequirements": {
+    "name": "BatchGetSecurityRequirements",
+    "description": "Grants permission to retrieve multiple security requirements in a single request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:ReEncryptFrom",
+      "kms:ReEncryptTo"
+    ]
+  },
   "batchgettargetdomains": {
     "name": "BatchGetTargetDomains",
     "description": "Grants permission to retrieve multiple target domains in a single request",
@@ -331,6 +386,26 @@
     "conditionKeys": [],
     "dependentActions": [
       "kms:Decrypt"
+    ]
+  },
+  "batchupdatesecurityrequirements": {
+    "name": "BatchUpdateSecurityRequirements",
+    "description": "Grants permission to batch update security requirements within a customer managed pack",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:ReEncryptFrom",
+      "kms:ReEncryptTo"
     ]
   },
   "createagentspace": {
@@ -453,6 +528,17 @@
       "kms:Decrypt"
     ]
   },
+  "createprivateconnection": {
+    "name": "CreatePrivateConnection",
+    "description": "Grants permission to create a private connection for VPC Lattice integration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createsecurityrequirement": {
     "name": "CreateSecurityRequirement",
     "description": "Grants permission to add a customer managed Security Requirement",
@@ -467,6 +553,23 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "createsecurityrequirementpack": {
+    "name": "CreateSecurityRequirementPack",
+    "description": "Grants permission to create a customer managed security requirement pack",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:ReEncryptFrom",
+      "kms:ReEncryptTo"
+    ]
   },
   "createtargetdomain": {
     "name": "CreateTargetDomain",
@@ -602,9 +705,39 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteprivateconnection": {
+    "name": "DeletePrivateConnection",
+    "description": "Grants permission to delete a private connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PrivateConnection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletesecurityrequirement": {
     "name": "DeleteSecurityRequirement",
     "description": "Grants permission to delete a customer managed Security Requirement",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletesecurityrequirementpack": {
+    "name": "DeleteSecurityRequirementPack",
+    "description": "Grants permission to delete a customer managed security requirement pack and all its associated security requirements",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -624,6 +757,21 @@
     "resourceTypes": [
       {
         "name": "TargetDomain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeprivateconnection": {
+    "name": "DescribePrivateConnection",
+    "description": "Grants permission to describe a private connection",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "PrivateConnection",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -722,6 +870,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getproviderregistrationmanifest": {
+    "name": "GetProviderRegistrationManifest",
+    "description": "Grants permission to retrieve the provider registration manifest used for browser-based integration registration",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getsecurityrequirement": {
     "name": "GetSecurityRequirement",
     "description": "Grants permission to retrieve a Security Requirement",
@@ -736,6 +892,49 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
+  },
+  "getsecurityrequirementpack": {
+    "name": "GetSecurityRequirementPack",
+    "description": "Grants permission to retrieve a security requirement pack",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "handleproviderregistrationcallback": {
+    "name": "HandleProviderRegistrationCallback",
+    "description": "Grants permission to handle the provider OAuth registration callback that completes integration setup",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "importsecurityrequirements": {
+    "name": "ImportSecurityRequirements",
+    "description": "Grants permission to import security requirements from uploaded documents for a customer managed security requirement pack",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:ReEncryptFrom",
+      "kms:ReEncryptTo"
+    ]
   },
   "initiateproviderregistration": {
     "name": "InitiateProviderRegistration",
@@ -980,6 +1179,14 @@
       "kms:Decrypt"
     ]
   },
+  "listprivateconnections": {
+    "name": "ListPrivateConnections",
+    "description": "Grants permission to list private connections in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listresourcesfromintegration": {
     "name": "ListResourcesFromIntegration",
     "description": "Grants permission to list resources from Integration",
@@ -992,6 +1199,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsecurityrequirementpacks": {
+    "name": "ListSecurityRequirementPacks",
+    "description": "Grants permission to list all security requirement packs in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1008,7 +1223,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "kms:Decrypt",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:ReEncryptFrom",
+      "kms:ReEncryptTo"
+    ]
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
@@ -1029,6 +1249,12 @@
       },
       {
         "name": "Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PrivateConnection",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1287,6 +1513,12 @@
         "dependentActions": []
       },
       {
+        "name": "PrivateConnection",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "SecurityRequirementPack",
         "required": false,
         "conditionKeys": [],
@@ -1339,6 +1571,12 @@
       },
       {
         "name": "Integration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PrivateConnection",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1462,9 +1700,39 @@
       "kms:Decrypt"
     ]
   },
+  "updateprivateconnectioncertificate": {
+    "name": "UpdatePrivateConnectionCertificate",
+    "description": "Grants permission to update the certificate associated with a private connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "PrivateConnection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatesecurityrequirement": {
     "name": "UpdateSecurityRequirement",
     "description": "Grants permission to update a customer managed Security Requirement",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "SecurityRequirementPack",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesecurityrequirementpack": {
+    "name": "UpdateSecurityRequirementPack",
+    "description": "Grants permission to update a security requirement pack",
     "accessLevel": "Write",
     "resourceTypes": [
       {
