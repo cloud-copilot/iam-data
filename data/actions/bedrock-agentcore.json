@@ -345,9 +345,31 @@
     ],
     "dependentActions": [
       "bedrock-agentcore:CreateAgentRuntime",
+      "bedrock-agentcore:CreateMemory",
       "bedrock-agentcore:GetAgentRuntime",
+      "bedrock-agentcore:GetMemory",
       "iam:PassRole"
     ]
+  },
+  "createharnessendpoint": {
+    "name": "CreateHarnessEndpoint",
+    "description": "Grants permission to create a new harness endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "bedrock-agentcore:CreateAgentRuntimeEndpoint"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
   },
   "creatememory": {
     "name": "CreateMemory",
@@ -796,9 +818,34 @@
     "conditionKeys": [],
     "dependentActions": [
       "bedrock-agentcore:DeleteAgentRuntime",
+      "bedrock-agentcore:DeleteMemory",
       "bedrock-agentcore:GetAgentRuntime",
+      "bedrock-agentcore:GetMemory",
       "iam:PassRole"
     ]
+  },
+  "deleteharnessendpoint": {
+    "name": "DeleteHarnessEndpoint",
+    "description": "Grants permission to delete a harness endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "bedrock-agentcore:DeleteAgentRuntimeEndpoint"
+        ]
+      },
+      {
+        "name": "harness-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "deletememory": {
     "name": "DeleteMemory",
@@ -1088,6 +1135,63 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewayassociatewebacl": {
+    "name": "GatewayAssociateWebACL",
+    "isPermissionOnly": true,
+    "description": "Grants permission to associate an AWS WAF Web ACL with an AgentCore Gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewaydisassociatewebacl": {
+    "name": "GatewayDisassociateWebACL",
+    "isPermissionOnly": true,
+    "description": "Grants permission to remove the AWS WAF Web ACL association from an AgentCore Gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewaygetwebaclforresource": {
+    "name": "GatewayGetWebACLForResource",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve the AWS WAF Web ACL ARN currently associated with an AgentCore Gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewaylistresourcesforwebacl": {
+    "name": "GatewayListResourcesForWebACL",
+    "isPermissionOnly": true,
+    "description": "Grants permission to list AgentCore Gateways associated with an AWS WAF Web ACL",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1401,6 +1505,27 @@
     "resourceTypes": [
       {
         "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getharnessendpoint": {
+    "name": "GetHarnessEndpoint",
+    "description": "Grants permission to get details of a harness endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "harness-endpoint",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2135,13 +2260,19 @@
         "name": "harness",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": [
+          "bedrock-agentcore:InvokeAgentRuntime"
+        ]
+      },
+      {
+        "name": "harness-endpoint",
+        "required": true,
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "bedrock-agentcore:InvokeAgentRuntime"
-    ]
+    "dependentActions": []
   },
   "invokeregistrymcp": {
     "name": "InvokeRegistryMcp",
@@ -2150,6 +2281,22 @@
     "resourceTypes": [
       {
         "name": "registry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokewebsearch": {
+    "name": "InvokeWebSearch",
+    "isPermissionOnly": true,
+    "description": "Grants permission to invoke a web search target",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "web-search",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2369,6 +2516,14 @@
   "listgateways": {
     "name": "ListGateways",
     "description": "Grants permission to list existing gateways",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listharnessendpoints": {
+    "name": "ListHarnessEndpoints",
+    "description": "Grants permission to list harness endpoints",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -3611,10 +3766,36 @@
     ],
     "conditionKeys": [],
     "dependentActions": [
+      "bedrock-agentcore:CreateMemory",
       "bedrock-agentcore:GetAgentRuntime",
+      "bedrock-agentcore:GetMemory",
       "bedrock-agentcore:UpdateAgentRuntime",
+      "bedrock-agentcore:UpdateMemory",
       "iam:PassRole"
     ]
+  },
+  "updateharnessendpoint": {
+    "name": "UpdateHarnessEndpoint",
+    "description": "Grants permission to update harness endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "harness",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "bedrock-agentcore:UpdateAgentRuntimeEndpoint"
+        ]
+      },
+      {
+        "name": "harness-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "updatememory": {
     "name": "UpdateMemory",

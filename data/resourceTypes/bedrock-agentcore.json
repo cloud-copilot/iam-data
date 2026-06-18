@@ -135,21 +135,40 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "harness-endpoint": {
+    "key": "harness-endpoint",
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:harness/${HarnessId}/harness-endpoint/${Name}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "batch-evaluate": {
     "key": "batch-evaluate",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:batch-evaluate/${BatchEvaluationId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:batch-evaluate/${BatchEvaluationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "ab-test": {
     "key": "ab-test",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:ab-test/${ABTestId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:ab-test/${ABTestId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "recommendation": {
     "key": "recommendation",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:recommendation/${RecommendationId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:recommendation/${RecommendationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "configuration-bundle": {
     "key": "configuration-bundle",
-    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:configuration-bundle/${ConfigurationBundleId}"
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:configuration-bundle/${ConfigurationBundleId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "payment-manager": {
     "key": "payment-manager",
@@ -164,5 +183,9 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
+  },
+  "web-search": {
+    "key": "web-search",
+    "arn": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:tool/web-search.v1"
   }
 }

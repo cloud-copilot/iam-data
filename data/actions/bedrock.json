@@ -1,4 +1,12 @@
 {
+  "agenticretrievestream": {
+    "name": "AgenticRetrieveStream",
+    "description": "Grants permission to perform agentic retrieve with streaming from retrievers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "allowvendedlogdeliveryforresource": {
     "name": "AllowVendedLogDeliveryForResource",
     "isPermissionOnly": true,
@@ -83,6 +91,21 @@
     ],
     "dependentActions": []
   },
+  "batchdeleteadvancedpromptoptimizationjob": {
+    "name": "BatchDeleteAdvancedPromptOptimizationJob",
+    "description": "Grants permission to delete one or more advanced prompt optimization jobs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "advanced-prompt-optimization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchdeleteevaluationjob": {
     "name": "BatchDeleteEvaluationJob",
     "description": "Grants permission to batch delete list of bedrock evaluation jobs",
@@ -151,6 +174,17 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createadvancedpromptoptimizationjob": {
+    "name": "CreateAdvancedPromptOptimizationJob",
+    "description": "Grants permission to create an advanced prompt optimization job",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createagent": {
@@ -1204,6 +1238,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -1339,6 +1379,21 @@
     "description": "Returns the account-wide data retention mode for Amazon Bedrock",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getadvancedpromptoptimizationjob": {
+    "name": "GetAdvancedPromptOptimizationJob",
+    "description": "Grants permission to get information about an advanced prompt optimization job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "advanced-prompt-optimization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1741,6 +1796,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdocumentcontent": {
+    "name": "GetDocumentContent",
+    "description": "Grants permission to retrieve a document",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2170,6 +2233,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -2389,6 +2458,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "invokeguardrailchecks": {
+    "name": "InvokeGuardrailChecks",
+    "description": "Grants permission to invoke guardrail checks",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "invokeinlineagent": {
     "name": "InvokeInlineAgent",
     "description": "Grants permission to send user input (text-only) to the inline agent for Bedrock",
@@ -2567,6 +2644,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listadvancedpromptoptimizationjobs": {
+    "name": "ListAdvancedPromptOptimizationJobs",
+    "description": "Grants permission to list the advanced prompt optimization jobs in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -3143,6 +3228,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "advanced-prompt-optimization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "agent",
         "required": true,
         "conditionKeys": [],
@@ -3436,6 +3527,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3586,6 +3683,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "stopadvancedpromptoptimizationjob": {
+    "name": "StopAdvancedPromptOptimizationJob",
+    "description": "Grants permission to stop an advanced prompt optimization job while in progress",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "advanced-prompt-optimization-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "stopevaluationjob": {
     "name": "StopEvaluationJob",
     "description": "Grants permission to stop a evaluation job while in progress",
@@ -3678,6 +3790,12 @@
     "description": "Grants permission to Tag a Bedrock resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "advanced-prompt-optimization-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "agent",
         "required": false,
@@ -3870,6 +3988,12 @@
     "description": "Grants permission to Untag a Bedrock resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "advanced-prompt-optimization-job",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "agent",
         "required": false,

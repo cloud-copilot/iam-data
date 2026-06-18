@@ -736,6 +736,36 @@
     ],
     "dependentActions": []
   },
+  "deleteobjectannotation": {
+    "name": "DeleteObjectAnnotation",
+    "description": "Grants permission to delete an annotation from an object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:x-amz-object-if-match",
+      "s3:ExistingObjectTag/<key>"
+    ],
+    "dependentActions": []
+  },
   "deleteobjecttagging": {
     "name": "DeleteObjectTagging",
     "description": "Grants permission to use the tagging subresource to remove the entire tag set from the specified object",
@@ -792,6 +822,37 @@
       "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "deleteobjectversionannotation": {
+    "name": "DeleteObjectVersionAnnotation",
+    "description": "Grants permission to delete an annotation from a specific version of an object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:versionid",
+      "s3:x-amz-object-if-match",
+      "s3:ExistingObjectTag/<key>"
     ],
     "dependentActions": []
   },
@@ -2000,6 +2061,35 @@
     ],
     "dependentActions": []
   },
+  "getobjectannotation": {
+    "name": "GetObjectAnnotation",
+    "description": "Grants permission to retrieve an annotation from an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:ExistingObjectTag/<key>"
+    ],
+    "dependentActions": []
+  },
   "getobjectattributes": {
     "name": "GetObjectAttributes",
     "description": "Grants permission to retrieve attributes related to a specific object",
@@ -2194,6 +2284,58 @@
       "s3:signatureversion",
       "s3:TlsVersion",
       "s3:versionid",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversionannotation": {
+    "name": "GetObjectVersionAnnotation",
+    "description": "Grants permission to retrieve an annotation from a specific version of an object",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:versionid",
+      "s3:ExistingObjectTag/<key>"
+    ],
+    "dependentActions": []
+  },
+  "getobjectversionannotationforreplication": {
+    "name": "GetObjectVersionAnnotationForReplication",
+    "description": "Grants permission to get an object version annotation for replication",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2707,6 +2849,69 @@
       "s3:signatureversion",
       "s3:TlsVersion",
       "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "listobjectannotations": {
+    "name": "ListObjectAnnotations",
+    "description": "Grants permission to list annotations on an object",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:annotation-prefix",
+      "s3:max-annotation-results",
+      "s3:ExistingObjectTag/<key>"
+    ],
+    "dependentActions": []
+  },
+  "listobjectversionannotations": {
+    "name": "ListObjectVersionAnnotations",
+    "description": "Grants permission to list annotations on a specific version of an object",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:versionid",
+      "s3:annotation-prefix",
+      "s3:max-annotation-results",
+      "s3:ExistingObjectTag/<key>"
     ],
     "dependentActions": []
   },
@@ -3491,6 +3696,7 @@
       "s3:x-amz-grant-write",
       "s3:x-amz-grant-write-acp",
       "s3:x-amz-metadata-directive",
+      "s3:x-amz-object-annotation-directive",
       "s3:x-amz-server-side-encryption",
       "s3:x-amz-server-side-encryption-aws-kms-key-id",
       "s3:x-amz-server-side-encryption-customer-algorithm",
@@ -3540,6 +3746,36 @@
       "s3:x-amz-grant-write",
       "s3:x-amz-grant-write-acp",
       "s3:x-amz-storage-class"
+    ],
+    "dependentActions": []
+  },
+  "putobjectannotation": {
+    "name": "PutObjectAnnotation",
+    "description": "Grants permission to add or replace an annotation on an object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:x-amz-object-if-match",
+      "s3:ExistingObjectTag/<key>"
     ],
     "dependentActions": []
   },
@@ -3669,6 +3905,37 @@
       "s3:x-amz-grant-write",
       "s3:x-amz-grant-write-acp",
       "s3:x-amz-storage-class"
+    ],
+    "dependentActions": []
+  },
+  "putobjectversionannotation": {
+    "name": "PutObjectVersionAnnotation",
+    "description": "Grants permission to add or replace an annotation on a specific version of an object",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "accesspointobject",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "object",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256",
+      "s3:ResourceAccount",
+      "s3:versionid",
+      "s3:x-amz-object-if-match",
+      "s3:ExistingObjectTag/<key>"
     ],
     "dependentActions": []
   },
@@ -3814,6 +4081,28 @@
       "s3:x-amz-server-side-encryption",
       "s3:x-amz-server-side-encryption-aws-kms-key-id",
       "s3:x-amz-server-side-encryption-customer-algorithm"
+    ],
+    "dependentActions": []
+  },
+  "replicateobjectannotation": {
+    "name": "ReplicateObjectAnnotation",
+    "description": "Grants permission to replicate annotations to the destination bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -4019,6 +4308,28 @@
       "s3:TlsVersion",
       "s3:x-amz-content-sha256",
       "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatebucketmetadataannotationtableconfiguration": {
+    "name": "UpdateBucketMetadataAnnotationTableConfiguration",
+    "description": "Grants permission to update the annotation table configuration for a bucket",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:authType",
+      "s3:ResourceAccount",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
