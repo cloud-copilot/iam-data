@@ -70,7 +70,11 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
+    "dependentActions": [
+      "logs:CreateScheduledQuery",
+      "logs:DeleteScheduledQuery",
+      "logs:GetScheduledQuery"
+    ]
   },
   "deleteanomalydetector": {
     "name": "DeleteAnomalyDetector",
@@ -308,6 +312,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdataset": {
+    "name": "GetDataset",
+    "description": "Grants permission to get a dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getinsightrulereport": {
     "name": "GetInsightRuleReport",
     "description": "Grants permission to return the top-N report of unique contributors over a time range for a given insight rule",
@@ -325,10 +346,19 @@
   },
   "getmetricdata": {
     "name": "GetMetricData",
-    "description": "Grants permission to retrieve batch amounts of CloudWatch metric data and perform metric math on retrieved data",
+    "description": "Grants permission to retrieve batch amounts of CloudWatch classic metric data and perform metric math on retrieved data; and grants permission to retrieve OTLP metric data using PromQL",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "getmetricstatistics": {
@@ -499,8 +529,17 @@
     "name": "ListMetrics",
     "description": "Grants permission to retrieve a list of valid metrics stored for the AWS account owner",
     "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "listservicelevelobjectives": {
@@ -527,31 +566,65 @@
       {
         "name": "alarm",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "alarm-mute-rule",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dashboard",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "insight-rule",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "metric-stream",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "slo",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -586,10 +659,37 @@
         ]
       },
       {
+        "name": "CloudWatch-Dataset",
+        "resourceTypes": [
+          {
+            "name": "dataset",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "CloudWatch-InsightRule",
         "resourceTypes": [
           {
             "name": "insight-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-MetricStream",
+        "resourceTypes": [
+          {
+            "name": "metric-stream",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-Service",
+        "resourceTypes": [
+          {
+            "name": "service",
             "required": true
           }
         ]
@@ -693,6 +793,31 @@
     ],
     "dependentActions": []
   },
+  "putlogalarm": {
+    "name": "PutLogAlarm",
+    "description": "Grants permission to create or update a log-based alarm and associate it with a CloudWatch Logs Insights scheduled query",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alarm",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:PassRole",
+          "logs:CreateScheduledQuery",
+          "logs:DeleteScheduledQuery",
+          "logs:GetScheduledQuery",
+          "logs:UpdateScheduledQuery"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cloudwatch:AlarmActions"
+    ],
+    "dependentActions": []
+  },
   "putmanagedinsightrules": {
     "name": "PutManagedInsightRules",
     "description": "Grants permission to create managed Insight Rules",
@@ -715,6 +840,14 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -726,9 +859,18 @@
   },
   "putmetricdata": {
     "name": "PutMetricData",
-    "description": "Grants permission to publish metric data points to Amazon CloudWatch",
+    "description": "Grants permission to publish metric data points to Amazon CloudWatch using CloudWatch and OTLP formats",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "cloudwatch:namespace"
     ],
@@ -823,31 +965,65 @@
       {
         "name": "alarm",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "alarm-mute-rule",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dashboard",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "insight-rule",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "metric-stream",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "slo",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -885,10 +1061,37 @@
         ]
       },
       {
+        "name": "CloudWatch-Dataset",
+        "resourceTypes": [
+          {
+            "name": "dataset",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "CloudWatch-InsightRule",
         "resourceTypes": [
           {
             "name": "insight-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-MetricStream",
+        "resourceTypes": [
+          {
+            "name": "metric-stream",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-Service",
+        "resourceTypes": [
+          {
+            "name": "service",
             "required": true
           }
         ]
@@ -912,31 +1115,65 @@
       {
         "name": "alarm",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "alarm-mute-rule",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dashboard",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "insight-rule",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "metric-stream",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "service",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "slo",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -973,10 +1210,37 @@
         ]
       },
       {
+        "name": "CloudWatch-Dataset",
+        "resourceTypes": [
+          {
+            "name": "dataset",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "CloudWatch-InsightRule",
         "resourceTypes": [
           {
             "name": "insight-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-MetricStream",
+        "resourceTypes": [
+          {
+            "name": "metric-stream",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-Service",
+        "resourceTypes": [
+          {
+            "name": "service",
             "required": true
           }
         ]

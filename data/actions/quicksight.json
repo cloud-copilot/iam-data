@@ -17,6 +17,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchassignlimitsprofile": {
+    "name": "BatchAssignLimitsProfile",
+    "description": "Grants permission to assign a limits profile to targets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchcreatetopicreviewedanswer": {
     "name": "BatchCreateTopicReviewedAnswer",
     "description": "Grants permission to create reviewed answers for a topic",
@@ -74,6 +89,21 @@
     "description": "Grants permission to get user preferences",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchunassignlimitsprofile": {
+    "name": "BatchUnassignLimitsProfile",
+    "description": "Grants permission to unassign a limits profile from targets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -438,6 +468,24 @@
     "resourceTypes": [
       {
         "name": "ingestion",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createlimitsprofile": {
+    "name": "CreateLimitsProfile",
+    "description": "Grants permission to create a limits profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1025,6 +1073,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletelimitsprofile": {
+    "name": "DeleteLimitsProfile",
+    "description": "Grants permission to delete a limits profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletenamespace": {
     "name": "DeleteNamespace",
     "description": "Grants permission to delete a QuickSight namespace",
@@ -1422,6 +1485,36 @@
     "resourceTypes": [
       {
         "name": "assetBundleImportJob",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeautomationgroup": {
+    "name": "DescribeAutomationGroup",
+    "description": "Grants permission to describe an automation group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automationGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeautomationgrouppermissions": {
+    "name": "DescribeAutomationGroupPermissions",
+    "description": "Grants permission to describe permissions for an automation group",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "automationGroup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1865,6 +1958,21 @@
     "resourceTypes": [
       {
         "name": "knowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describelimitsprofile": {
+    "name": "DescribeLimitsProfile",
+    "description": "Grants permission to describe a limits profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2425,6 +2533,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listassignmentsforprincipal": {
+    "name": "ListAssignmentsForPrincipal",
+    "description": "Grants permission to list limits profile assignments for a principal",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautomationgroups": {
+    "name": "ListAutomationGroups",
+    "description": "Grants permission to list all automation groups in an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listbrands": {
     "name": "ListBrands",
     "description": "Grants permission to lists all brands in an Amazon QuickSight account",
@@ -2684,6 +2815,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listlimitsprofiles": {
+    "name": "ListLimitsProfiles",
+    "description": "Grants permission to list limits profiles",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listnamespaces": {
     "name": "ListNamespaces",
     "description": "Grants permission to lists all namespaces in a QuickSight account",
@@ -2701,6 +2847,21 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "listprofileassignments": {
+    "name": "ListProfileAssignments",
+    "description": "Grants permission to list assignments for a limits profile",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listrefreshschedules": {
@@ -3232,6 +3393,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchautomationgroups": {
+    "name": "SearchAutomationGroups",
+    "description": "Grants permission to search for automation groups in an account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -3875,6 +4044,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updateautomationgrouppermissions": {
+    "name": "UpdateAutomationGroupPermissions",
+    "description": "Grants permission to update permissions for an automation group",
+    "accessLevel": "Permissions management",
+    "resourceTypes": [
+      {
+        "name": "automationGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatebrand": {
     "name": "UpdateBrand",
     "description": "Grants permission to update a brand",
@@ -4248,6 +4432,21 @@
     "resourceTypes": [
       {
         "name": "knowledgeBase",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelimitsprofile": {
+    "name": "UpdateLimitsProfile",
+    "description": "Grants permission to update a limits profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "limitsProfile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
