@@ -1,4 +1,19 @@
 {
+  "batchdeleteinstrumentationconfigurations": {
+    "name": "BatchDeleteInstrumentationConfigurations",
+    "description": "Grants permission to batch delete instrumentation configurations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instrumentationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchgetservicelevelobjectivebudgetreport": {
     "name": "BatchGetServiceLevelObjectiveBudgetReport",
     "description": "Grants permission to batch retrieve a service level objective budget report",
@@ -29,6 +44,17 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createinstrumentationconfiguration": {
+    "name": "CreateInstrumentationConfiguration",
+    "description": "Grants permission to create an instrumentation configuration for dynamic instrumentation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createservicelevelobjective": {
     "name": "CreateServiceLevelObjective",
     "description": "Grants permission to create a service level objective",
@@ -48,6 +74,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteinstrumentationconfiguration": {
+    "name": "DeleteInstrumentationConfiguration",
+    "description": "Grants permission to delete an instrumentation configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instrumentationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteservicelevelobjective": {
     "name": "DeleteServiceLevelObjective",
     "description": "Grants permission to delete a service level objective",
@@ -55,6 +96,36 @@
     "resourceTypes": [
       {
         "name": "slo",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstrumentationconfiguration": {
+    "name": "GetInstrumentationConfiguration",
+    "description": "Grants permission to retrieve an instrumentation configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instrumentationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getinstrumentationconfigurationstatus": {
+    "name": "GetInstrumentationConfigurationStatus",
+    "description": "Grants permission to retrieve the status history of an instrumentation configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instrumentationConfig",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -114,6 +185,14 @@
   "listgroupingattributedefinitions": {
     "name": "ListGroupingAttributeDefinitions",
     "description": "Grants permission to list grouping attribute configurations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listinstrumentationconfigurations": {
+    "name": "ListInstrumentationConfigurations",
+    "description": "Grants permission to list instrumentation configurations",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -192,12 +271,18 @@
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "description": "Grants permission to list tags for an Amazon CloudWatch SLO",
+    "description": "Grants permission to list tags for an Amazon CloudWatch Application Signals resource",
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "instrumentationConfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "slo",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -213,6 +298,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "reportinstrumentationconfigurationstatus": {
+    "name": "ReportInstrumentationConfigurationStatus",
+    "description": "Grants permission to report the status of instrumentation configurations",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instrumentationConfig",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "startdiscovery": {
     "name": "StartDiscovery",
     "description": "Grants permission to enable CloudWatch discovery",
@@ -223,12 +323,18 @@
   },
   "tagresource": {
     "name": "TagResource",
-    "description": "Grants permission to add tags to an Amazon CloudWatch SLO",
+    "description": "Grants permission to add tags to an Amazon CloudWatch Application Signals resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "instrumentationConfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "slo",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -241,12 +347,18 @@
   },
   "untagresource": {
     "name": "UntagResource",
-    "description": "Grants permission to untag to an Amazon CloudWatch SLO",
+    "description": "Grants permission to remove tags from an Amazon CloudWatch Application Signals resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "instrumentationConfig",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "slo",
-        "required": true,
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
