@@ -139,7 +139,6 @@
   },
   "getbillingpreferences": {
     "name": "GetBillingPreferences",
-    "isPermissionOnly": true,
     "description": "Grants permission to view billing preferences such as reserved instance, savings plans and credits sharing",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -190,7 +189,6 @@
   },
   "getcreditallocationhistory": {
     "name": "GetCreditAllocationHistory",
-    "isPermissionOnly": true,
     "description": "Grants permission to view a credit allocation history",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -199,10 +197,25 @@
   },
   "getcredits": {
     "name": "GetCredits",
-    "isPermissionOnly": true,
     "description": "Grants permission to view credits that have been redeemed",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcumulativetracking": {
+    "name": "GetCumulativeTracking",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve cumulative spend and usage tracking data for a contract",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contract",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -212,6 +225,22 @@
     "description": "Grants permission to retrieve the state of the Allow IAM Access billing preference",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmonthlytracking": {
+    "name": "GetMonthlyTracking",
+    "isPermissionOnly": true,
+    "description": "Grants permission to retrieve monthly spend and usage tracking data for a contract",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "contract",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -312,7 +341,6 @@
   },
   "redeemcredits": {
     "name": "RedeemCredits",
-    "isPermissionOnly": true,
     "description": "Grants permission to redeem an AWS credit",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -358,7 +386,6 @@
   },
   "updatebillingpreferences": {
     "name": "UpdateBillingPreferences",
-    "isPermissionOnly": true,
     "description": "Grants permission to update billing preferences such as reserved instance, savings plans and credits sharing",
     "accessLevel": "Write",
     "resourceTypes": [],
