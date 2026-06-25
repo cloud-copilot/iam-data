@@ -112,6 +112,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteconnector": {
+    "name": "DeleteConnector",
+    "description": "Grants permission to delete a connector configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletedeliverychannel": {
     "name": "DeleteDeliveryChannel",
     "description": "Grants permission to delete the delivery channel",
@@ -671,6 +686,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getconnector": {
+    "name": "GetConnector",
+    "description": "Grants permission to return the details of a specific connector configuration",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getcustomrulepolicy": {
     "name": "GetCustomRulePolicy",
     "description": "Grants permission to return the policy definition containing the logic for your AWS Config Custom Policy rule",
@@ -796,6 +826,14 @@
   "listconformancepackcompliancescores": {
     "name": "ListConformancePackComplianceScores",
     "description": "Grants permission to return the percentage of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectors": {
+    "name": "ListConnectors",
+    "description": "Grants permission to list all connectors in the AWS account and region",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -987,6 +1025,26 @@
       "ssm:GetDocument"
     ]
   },
+  "putconnector": {
+    "name": "PutConnector",
+    "description": "Grants permission to create a connector configuration that contains provider identity information, as well as other optional provider-specific information required for third-party recording",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "putdeliverychannel": {
     "name": "PutDeliveryChannel",
     "description": "Grants permission to create a delivery channel object to deliver configuration information to an Amazon S3 bucket and Amazon SNS topic",
@@ -1130,6 +1188,27 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "putthirdpartyservicelinkedconfigurationrecorder": {
+    "name": "PutThirdPartyServiceLinkedConfigurationRecorder",
+    "description": "Grants permission to create or update a service-linked configuration recorder for a third-party provider linked to a specific AWS partner service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "config:GetConnector"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "config:ConfigurationRecorderServicePrincipal"
     ],
     "dependentActions": []
   },

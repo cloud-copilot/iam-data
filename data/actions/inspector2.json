@@ -142,6 +142,24 @@
     ],
     "dependentActions": []
   },
+  "createconnector": {
+    "name": "CreateConnector",
+    "description": "Grants permission to create a connector to scan resources from a third-party cloud provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createfilter": {
     "name": "CreateFilter",
     "description": "Grants permission to create and define the settings for a findings filter",
@@ -215,6 +233,21 @@
     "resourceTypes": [
       {
         "name": "Code Security Scan Configuration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnector": {
+    "name": "DeleteConnector",
+    "description": "Grants permission to delete a connector configured for scanning resources from a third-party cloud provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -449,6 +482,22 @@
   "listcodesecurityscanconfigurations": {
     "name": "ListCodeSecurityScanConfigurations",
     "description": "Grants permission to list all code security scan configurations in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectorscanconfigurations": {
+    "name": "ListConnectorScanConfigurations",
+    "description": "Grants permission to list scan configurations for connectors",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listconnectors": {
+    "name": "ListConnectors",
+    "description": "Grants permission to list connectors configured for scanning resources from third-party cloud providers",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -721,6 +770,33 @@
   "updateconfiguration": {
     "name": "UpdateConfiguration",
     "description": "Grants permission to update information about the Amazon Inspector configuration settings for an AWS account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnector": {
+    "name": "UpdateConnector",
+    "description": "Grants permission to update a connector configured for scanning resources from a third-party cloud provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateconnectorscanconfiguration": {
+    "name": "UpdateConnectorScanConfiguration",
+    "description": "Grants permission to update scan configuration settings for resources associated with a connector",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
