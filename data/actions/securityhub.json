@@ -285,6 +285,17 @@
     ],
     "dependentActions": []
   },
+  "createconnector": {
+    "name": "CreateConnector",
+    "description": "Grants permission to create a connector based on input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createconnectorv2": {
     "name": "CreateConnectorV2",
     "description": "Grants permission to create a connector V2 based on input parameters",
@@ -416,6 +427,21 @@
     "resourceTypes": [
       {
         "name": "configuration-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteconnector": {
+    "name": "DeleteConnector",
+    "description": "Grants permission to delete a connector in Security Hub CSPM",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -661,6 +687,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "disablesecurityhubfeaturev2": {
+    "name": "DisableSecurityHubFeatureV2",
+    "description": "Grants permission to disable a Security Hub V2 feature",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "disablesecurityhubv2": {
     "name": "DisableSecurityHubV2",
     "description": "Grants permission to disable Security Hub V2",
@@ -766,6 +807,21 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "enablesecurityhubfeaturev2": {
+    "name": "EnableSecurityHubFeatureV2",
+    "description": "Grants permission to enable a Security Hub V2 feature",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "hubv2",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "enablesecurityhubv2": {
@@ -881,6 +937,21 @@
     "description": "Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getconnector": {
+    "name": "GetConnector",
+    "description": "Grants permission to retrieve details for a connector from Security Hub CSPM based on connector id",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1292,6 +1363,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listconnectors": {
+    "name": "ListConnectors",
+    "description": "Grants permission to retrieve a list of connectors and their metadata for the calling account from Security Hub CSPM",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listconnectorsv2": {
     "name": "ListConnectorsV2",
     "description": "Grants permission to retrieve a list of connectors V2 and their metadata for the calling account from Security Hub",
@@ -1524,6 +1603,12 @@
         "dependentActions": []
       },
       {
+        "name": "connector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "connectorv2",
         "required": false,
         "conditionKeys": [],
@@ -1570,6 +1655,12 @@
       },
       {
         "name": "configuration-policy",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "connector",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1648,6 +1739,21 @@
     "resourceTypes": [
       {
         "name": "configuration-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconnector": {
+    "name": "UpdateConnector",
+    "description": "Grants permission to update a connector in Security Hub CSPM based on connector id and input parameters",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connector",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

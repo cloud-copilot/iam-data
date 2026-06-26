@@ -25,6 +25,13 @@
     "key": "bucket",
     "arn": "arn:${Partition}:s3:::${BucketName}"
   },
+  "cloud-connector": {
+    "key": "cloud-connector",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:cloud-connector/${CloudConnectorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "document": {
     "key": "document",
     "arn": "arn:${Partition}:ssm:${Region}:${Account}:document/${DocumentName}",

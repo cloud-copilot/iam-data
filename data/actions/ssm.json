@@ -17,6 +17,12 @@
         "dependentActions": []
       },
       {
+        "name": "cloud-connector",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "document",
         "required": false,
         "conditionKeys": [],
@@ -195,6 +201,28 @@
     ],
     "dependentActions": []
   },
+  "createcloudconnector": {
+    "name": "CreateCloudConnector",
+    "description": "Grants permission to create a cloud connector for managing instances in other cloud environments",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloud-connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "config:GetConnector",
+          "config:PutThirdPartyServiceLinkedConfigurationRecorder",
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createdocument": {
     "name": "CreateDocument",
     "description": "Grants permission to create a Systems Manager SSM document",
@@ -313,6 +341,28 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletecloudconnector": {
+    "name": "DeleteCloudConnector",
+    "description": "Grants permission to delete a specified cloud connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloud-connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "config:DeleteServiceLinkedConfigurationRecorder",
+          "config:GetConnector",
+          "config:PutThirdPartyServiceLinkedConfigurationRecorder",
+          "ssm:ListAssociations"
+        ]
       }
     ],
     "conditionKeys": [
@@ -1082,6 +1132,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getcloudconnector": {
+    "name": "GetCloudConnector",
+    "description": "Grants permission to view details about a specified cloud connector",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cloud-connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getcommandinvocation": {
     "name": "GetCommandInvocation",
     "description": "Grants permission to view details about the command execution of a specified invocation or plugin",
@@ -1468,6 +1535,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcloudconnectors": {
+    "name": "ListCloudConnectors",
+    "description": "Grants permission to list cloud connectors in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcommandinvocations": {
     "name": "ListCommandInvocations",
     "description": "Grants permission to list information about command invocations sent to a specified instance",
@@ -1658,6 +1733,12 @@
       },
       {
         "name": "automation-execution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloud-connector",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1917,6 +1998,12 @@
       },
       {
         "name": "automation-execution",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cloud-connector",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -2338,6 +2425,26 @@
     ],
     "dependentActions": []
   },
+  "updatecloudconnector": {
+    "name": "UpdateCloudConnector",
+    "description": "Grants permission to update a specified cloud connector",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cloud-connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "config:GetConnector",
+          "config:PutThirdPartyServiceLinkedConfigurationRecorder"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "updatedocument": {
     "name": "UpdateDocument",
     "description": "Grants permission to update one or more values for an SSM document",
@@ -2600,6 +2707,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "validatecloudconnector": {
+    "name": "ValidateCloudConnector",
+    "description": "Grants permission to verify that a specified cloud connector is functioning properly and to retrieve any validation findings or issues detected",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cloud-connector",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   }
 }
