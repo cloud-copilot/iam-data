@@ -29,6 +29,39 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createcomplianceinquiry": {
+    "name": "CreateComplianceInquiry",
+    "description": "Grants permission to create a compliance inquiry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "compliance-inquiry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "exportcomplianceinquiry": {
+    "name": "ExportComplianceInquiry",
+    "description": "Grants permission to export a compliance inquiry",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "compliance-inquiry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getaccountsettings": {
     "name": "GetAccountSettings",
     "description": "Grants permission to get the account settings for Artifact",
@@ -44,6 +77,21 @@
     "resourceTypes": [
       {
         "name": "agreement",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcomplianceinquirymetadata": {
+    "name": "GetComplianceInquiryMetadata",
+    "description": "Grants permission to get metadata associated with a compliance inquiry",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "compliance-inquiry",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -135,6 +183,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcomplianceinquiries": {
+    "name": "ListComplianceInquiries",
+    "description": "Grants permission to list compliance inquiries submitted by the customer account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcomplianceinquiryqueries": {
+    "name": "ListComplianceInquiryQueries",
+    "description": "Grants permission to list queries for a compliance inquiry",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "compliance-inquiry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listcustomeragreements": {
     "name": "ListCustomerAgreements",
     "description": "Grants permission to list customer-agreement resources that have been accepted by the customer account",
@@ -159,12 +230,45 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list all tags on an AWS Artifact resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "compliance-inquiry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "putaccountsettings": {
     "name": "PutAccountSettings",
     "description": "Grants permission to put account settings for Artifact",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to associate a set of tags with an AWS Artifact resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "compliance-inquiry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "terminateagreement": {
@@ -180,6 +284,23 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove the association of tags from an AWS Artifact resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "compliance-inquiry",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   }
 }

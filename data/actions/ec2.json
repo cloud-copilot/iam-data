@@ -1220,6 +1220,31 @@
     ],
     "dependentActions": []
   },
+  "attachimagewatermark": {
+    "name": "AttachImageWatermark",
+    "description": "Grants permission to attach a watermark to an Amazon Machine Image (AMI)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ImageID",
+          "ec2:ImageType",
+          "ec2:Owner",
+          "ec2:Public",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "attachinternetgateway": {
     "name": "AttachInternetGateway",
     "description": "Grants permission to attach an internet gateway to a VPC",
@@ -2001,15 +2026,24 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "capacity-reservation",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "ec2:CreateTags"
+        ]
+      },
+      {
         "name": "capacity-reservation-cancellation-quote",
         "required": true,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2506,12 +2540,15 @@
           "aws:TagKeys"
         ],
         "dependentActions": [
+          "autoscaling:DescribeTags",
           "ec2:CreateTags",
+          "ec2:DescribeTags",
           "ecs:ListClusters",
           "ecs:ListContainerInstances",
           "ecs:ListServices",
           "ecs:ListTaskDefinitions",
           "ecs:ListTasks",
+          "iam:CreateServiceLinkedRole",
           "iam:PassRole"
         ]
       },
@@ -12675,6 +12712,31 @@
     ],
     "dependentActions": []
   },
+  "detachimagewatermark": {
+    "name": "DetachImageWatermark",
+    "description": "Grants permission to detach a watermark from an Amazon Machine Image (AMI)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ImageID",
+          "ec2:ImageType",
+          "ec2:Owner",
+          "ec2:Public",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "detachinternetgateway": {
     "name": "DetachInternetGateway",
     "description": "Grants permission to detach an internet gateway from a VPC",
@@ -20520,6 +20582,15 @@
         "dependentActions": []
       },
       {
+        "name": "secondary-interface",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "secondary-subnet",
         "required": false,
         "conditionKeys": [
@@ -20541,6 +20612,15 @@
           "ec2:SnapshotID",
           "ec2:SnapshotTime",
           "ec2:VolumeSize"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "spot-instances-request",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
