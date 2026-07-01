@@ -13,7 +13,118 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "acm:CertificateKeyPairOrigin"
+    ],
+    "dependentActions": []
+  },
+  "createacmedomainvalidation": {
+    "name": "CreateAcmeDomainValidation",
+    "description": "Grants permission to create an ACME domain validation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "route53:ChangeResourceRecordSets",
+          "route53:GetHostedZone"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createacmeendpoint": {
+    "name": "CreateAcmeEndpoint",
+    "description": "Grants permission to create an ACME endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createacmeexternalaccountbinding": {
+    "name": "CreateAcmeExternalAccountBinding",
+    "description": "Grants permission to create an ACME external account binding",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": [
+          "iam:PassRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteacmedomainvalidation": {
+    "name": "DeleteAcmeDomainValidation",
+    "description": "Grants permission to delete an ACME domain validation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-domain-validation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": [
+      "route53:ChangeResourceRecordSets",
+      "route53:GetChange"
+    ]
+  },
+  "deleteacmeendpoint": {
+    "name": "DeleteAcmeEndpoint",
+    "description": "Grants permission to delete an ACME endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteacmeexternalaccountbinding": {
+    "name": "DeleteAcmeExternalAccountBinding",
+    "description": "Grants permission to delete an ACME external account binding",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-external-account-binding",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -29,7 +140,77 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "acm:CertificateKeyPairOrigin"
+    ],
+    "dependentActions": []
+  },
+  "describeacmeaccount": {
+    "name": "DescribeAcmeAccount",
+    "description": "Grants permission to retrieve details of an ACME account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeacmedomainvalidation": {
+    "name": "DescribeAcmeDomainValidation",
+    "description": "Grants permission to retrieve details of an ACME domain validation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acme-domain-validation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeacmeendpoint": {
+    "name": "DescribeAcmeEndpoint",
+    "description": "Grants permission to retrieve details of an ACME endpoint",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describeacmeexternalaccountbinding": {
+    "name": "DescribeAcmeExternalAccountBinding",
+    "description": "Grants permission to retrieve details of an ACME external account binding",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acme-external-account-binding",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "describecertificate": {
@@ -72,6 +253,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getacmeexternalaccountbindingcredentials": {
+    "name": "GetAcmeExternalAccountBindingCredentials",
+    "description": "Grants permission to retrieve credentials for an ACME external account binding",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acme-external-account-binding",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getcertificate": {
     "name": "GetCertificate",
     "description": "Grants permission to retrieve a certificate and certificate chain for a certificate ARN",
@@ -105,6 +303,65 @@
     ],
     "dependentActions": []
   },
+  "listacmeaccounts": {
+    "name": "ListAcmeAccounts",
+    "description": "Grants permission to list ACME accounts",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listacmedomainvalidations": {
+    "name": "ListAcmeDomainValidations",
+    "description": "Grants permission to list ACME domain validations",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listacmeendpoints": {
+    "name": "ListAcmeEndpoints",
+    "description": "Grants permission to list ACME endpoints",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listacmeexternalaccountbindings": {
+    "name": "ListAcmeExternalAccountBindings",
+    "description": "Grants permission to list ACME external account bindings",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listcertificates": {
     "name": "ListCertificates",
     "description": "Grants permission to retrieve a list of certificates for specific certificate parameters",
@@ -122,6 +379,39 @@
         "name": "certificate",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "acme-domain-validation",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "acme-endpoint",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "acme-external-account-binding",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -182,7 +472,8 @@
       "acm:ValidationMethod",
       "acm:KeyAlgorithm",
       "acm:CertificateAuthority",
-      "acm:Export"
+      "acm:Export",
+      "acm:CertificateKeyPairOrigin"
     ],
     "dependentActions": []
   },
@@ -201,6 +492,40 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "revokeacmeaccount": {
+    "name": "RevokeAcmeAccount",
+    "description": "Grants permission to revoke an ACME account",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "revokeacmeexternalaccountbinding": {
+    "name": "RevokeAcmeExternalAccountBinding",
+    "description": "Grants permission to revoke an ACME external account binding",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-external-account-binding",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "revokecertificate": {
     "name": "RevokeCertificate",
     "description": "Grants permission to revoke an exportable certificate",
@@ -214,7 +539,8 @@
       }
     ],
     "conditionKeys": [
-      "acm:DomainNames"
+      "acm:DomainNames",
+      "acm:CertificateKeyPairOrigin"
     ],
     "dependentActions": []
   },
@@ -224,6 +550,128 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "acme-domain-validation",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "acme-endpoint",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "acme-external-account-binding",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging",
+    "resourceTypes": [
+      {
+        "name": "acme-domain-validation",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "acme-endpoint",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "acme-external-account-binding",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateacmedomainvalidation": {
+    "name": "UpdateAcmeDomainValidation",
+    "description": "Grants permission to update an ACME domain validation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-domain-validation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateacmeendpoint": {
+    "name": "UpdateAcmeEndpoint",
+    "description": "Grants permission to update an ACME endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "acme-endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updatecertificate": {
+    "name": "UpdateCertificate",
+    "description": "Grants permission to update a certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "acm:CertificateKeyPairOrigin"
+    ],
     "dependentActions": []
   },
   "updatecertificateoptions": {

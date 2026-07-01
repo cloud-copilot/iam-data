@@ -5,5 +5,26 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
+  },
+  "acme-endpoint": {
+    "key": "acme-endpoint",
+    "arn": "arn:${Partition}:acm:${Region}:${Account}:acme-endpoint/${AcmeEndpointId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "acme-domain-validation": {
+    "key": "acme-domain-validation",
+    "arn": "arn:${Partition}:acm:${Region}:${Account}:acme-endpoint/${AcmeEndpointId}/acme-domain-validation/${AcmeDomainValidationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "acme-external-account-binding": {
+    "key": "acme-external-account-binding",
+    "arn": "arn:${Partition}:acm:${Region}:${Account}:acme-endpoint/${AcmeEndpointId}/acme-external-account-binding/${ExternalAccountBindingId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

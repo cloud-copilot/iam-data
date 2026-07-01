@@ -46,6 +46,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "intermediatetable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -72,6 +78,12 @@
       },
       {
         "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "intermediatetable",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -348,6 +360,58 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createintermediatetable": {
+    "name": "CreateIntermediateTable",
+    "description": "Grants permission to create a new intermediate table in a membership",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": [
+          "cleanrooms:GetCollaborationAnalysisTemplate"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "analysistemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createintermediatetableanalysisrule": {
+    "name": "CreateIntermediateTableAnalysisRule",
+    "description": "Grants permission to create an analysis rule for an intermediate table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createmembership": {
     "name": "CreateMembership",
     "description": "Grants permission to join collaborations by creating a membership",
@@ -577,6 +641,42 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteintermediatetable": {
+    "name": "DeleteIntermediateTable",
+    "description": "Grants permission to remove an intermediate table from a collaboration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteintermediatetableanalysisrule": {
+    "name": "DeleteIntermediateTableAnalysisRule",
+    "description": "Grants permission to delete an existing analysis rule for an intermediate table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletemember": {
     "name": "DeleteMember",
     "description": "Grants permission to delete members from a collaboration",
@@ -618,6 +718,21 @@
     "resourceTypes": [
       {
         "name": "privacybudgettemplate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disallowintermediatetable": {
+    "name": "DisallowIntermediateTable",
+    "description": "Grants permission to invalidate an intermediate table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "membership",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -866,6 +981,42 @@
       },
       {
         "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintermediatetable": {
+    "name": "GetIntermediateTable",
+    "description": "Grants permission to view details of an intermediate table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getintermediatetableanalysisrule": {
+    "name": "GetIntermediateTableAnalysisRule",
+    "description": "Grants permission to view analysis rules for an intermediate table",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1189,6 +1340,48 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listintermediatetableversions": {
+    "name": "ListIntermediateTableVersions",
+    "description": "Grants permission to list versions of an intermediate table",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listintermediatetables": {
+    "name": "ListIntermediateTables",
+    "description": "Grants permission to list intermediate tables for a membership",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listmembers": {
     "name": "ListMembers",
     "description": "Grants permission to list the members of a collaboration",
@@ -1329,6 +1522,12 @@
         "dependentActions": []
       },
       {
+        "name": "intermediatetable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "membership",
         "required": false,
         "conditionKeys": [],
@@ -1399,6 +1598,41 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "populateintermediatetable": {
+    "name": "PopulateIntermediateTable",
+    "description": "Grants permission to populate an intermediate table by executing its stored analysis",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "cleanrooms:GetSchema"
+        ]
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "configuredtableassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "previewprivacyimpact": {
     "name": "PreviewPrivacyImpact",
     "description": "Grants permission to preview privacy budget template settings",
@@ -1439,6 +1673,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "intermediatetable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -1475,6 +1715,12 @@
       },
       {
         "name": "idmappingtable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "intermediatetable",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1526,6 +1772,12 @@
       },
       {
         "name": "idnamespaceassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "intermediatetable",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1592,6 +1844,12 @@
       },
       {
         "name": "idnamespaceassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "intermediatetable",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1816,6 +2074,42 @@
       },
       {
         "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateintermediatetable": {
+    "name": "UpdateIntermediateTable",
+    "description": "Grants permission to update an intermediate table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateintermediatetableanalysisrule": {
+    "name": "UpdateIntermediateTableAnalysisRule",
+    "description": "Grants permission to update an analysis rule for an intermediate table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "intermediatetable",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

@@ -377,6 +377,35 @@
     ],
     "dependentActions": []
   },
+  "createmarketplacerevenueshare": {
+    "name": "CreateMarketplaceRevenueShare",
+    "description": "Grants permission to create marketplace revenue shares in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "createmarketplacerevenueshareallocation": {
+    "name": "CreateMarketplaceRevenueShareAllocation",
+    "description": "Grants permission to create marketplace revenue share allocations in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MarketplaceRevenueShare",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "createopportunity": {
     "name": "CreateOpportunity",
     "description": "Grants permission to create new Opportunities on AWS Partner Central",
@@ -471,6 +500,18 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "createrevenueattribution": {
+    "name": "CreateRevenueAttribution",
+    "description": "Grants permission to create revenue attributions in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
@@ -798,6 +839,40 @@
     ],
     "dependentActions": []
   },
+  "getmarketplacerevenueshare": {
+    "name": "GetMarketplaceRevenueShare",
+    "description": "Grants permission to retrieve marketplace revenue share details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MarketplaceRevenueShare",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getmarketplacerevenueshareallocation": {
+    "name": "GetMarketplaceRevenueShareAllocation",
+    "description": "Grants permission to retrieve marketplace revenue share allocation details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MarketplaceRevenueShare",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "getopportunity": {
     "name": "GetOpportunity",
     "description": "Grants permission to retrieve details of Opportunities on AWS Partner Central",
@@ -965,6 +1040,57 @@
     "resourceTypes": [
       {
         "name": "resource-snapshot-job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getrevenueattribution": {
+    "name": "GetRevenueAttribution",
+    "description": "Grants permission to retrieve revenue attribution details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RevenueAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getrevenueattributionallocation": {
+    "name": "GetRevenueAttributionAllocation",
+    "description": "Grants permission to retrieve revenue attribution allocation details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RevenueAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "getrevenueattributionallocationstask": {
+    "name": "GetRevenueAttributionAllocationsTask",
+    "description": "Grants permission to retrieve revenue attribution allocations task details in AWS Partner Central",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RevenueAttribution",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1182,6 +1308,33 @@
     ],
     "dependentActions": []
   },
+  "listmarketplacerevenueshareallocations": {
+    "name": "ListMarketplaceRevenueShareAllocations",
+    "description": "Grants permission to list marketplace revenue share allocations in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "MarketplaceRevenueShare",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listmarketplacerevenueshares": {
+    "name": "ListMarketplaceRevenueShares",
+    "description": "Grants permission to list marketplace revenue shares in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "listopportunities": {
     "name": "ListOpportunities",
     "description": "Grants permission to list Opportunities on AWS Partner Central",
@@ -1287,6 +1440,33 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listrevenueattributionallocations": {
+    "name": "ListRevenueAttributionAllocations",
+    "description": "Grants permission to list revenue attribution allocations in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "RevenueAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "listrevenueattributions": {
+    "name": "ListRevenueAttributions",
+    "description": "Grants permission to list revenue attributions in AWS Partner Central",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [
       "partnercentral:Catalog"
     ],
@@ -1595,6 +1775,23 @@
     ],
     "dependentActions": []
   },
+  "startrevenueattributionallocationstask": {
+    "name": "StartRevenueAttributionAllocationsTask",
+    "description": "Grants permission to initiate tasks that manage revenue attribution allocations in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RevenueAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "startverification": {
     "name": "StartVerification",
     "description": "Grants permission to start verification processes in AWS Partner Central",
@@ -1678,6 +1875,12 @@
         "dependentActions": []
       },
       {
+        "name": "MarketplaceRevenueShare",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Opportunity",
         "required": false,
         "conditionKeys": [],
@@ -1697,6 +1900,12 @@
       },
       {
         "name": "Relationship",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RevenueAttribution",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1736,6 +1945,12 @@
         "dependentActions": []
       },
       {
+        "name": "MarketplaceRevenueShare",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Opportunity",
         "required": false,
         "conditionKeys": [],
@@ -1755,6 +1970,12 @@
       },
       {
         "name": "Relationship",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RevenueAttribution",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1822,6 +2043,23 @@
     ],
     "dependentActions": []
   },
+  "updatemarketplacerevenueshareallocation": {
+    "name": "UpdateMarketplaceRevenueShareAllocation",
+    "description": "Grants permission to update marketplace revenue share allocations in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "MarketplaceRevenueShare",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
   "updateopportunity": {
     "name": "UpdateOpportunity",
     "description": "Grants permission to update Opportunities on AWS Partner Central",
@@ -1871,6 +2109,23 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
+      "partnercentral:Catalog"
+    ],
+    "dependentActions": []
+  },
+  "updaterevenueattribution": {
+    "name": "UpdateRevenueAttribution",
+    "description": "Grants permission to update revenue attributions in AWS Partner Central",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RevenueAttribution",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
       "partnercentral:Catalog"
     ],
     "dependentActions": []

@@ -100,6 +100,20 @@
     "key": "Dashboard",
     "arn": "arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${TableId}/Dashboard/${DashboardId}"
   },
+  "revenueattribution": {
+    "key": "RevenueAttribution",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/revenue-attribution/${RevenueAttributionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "marketplacerevenueshare": {
+    "key": "MarketplaceRevenueShare",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/marketplace-revenue-share/${MarketplaceProductId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "prospectingfromengagementtask": {
     "key": "ProspectingFromEngagementTask",
     "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/prospecting-from-engagement-task/${TaskIdentifier}"
