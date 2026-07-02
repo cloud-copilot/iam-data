@@ -89,6 +89,26 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createcontainerassociation": {
+    "name": "CreateContainerAssociation",
+    "description": "Grants permission to create an AWS Network Firewall container association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": [
+          "iam:CreateServiceLinkedRole"
+        ]
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createfirewall": {
     "name": "CreateFirewall",
     "description": "Grants permission to create an AWS Network Firewall firewall",
@@ -304,6 +324,21 @@
     ],
     "dependentActions": []
   },
+  "deletecontainerassociation": {
+    "name": "DeleteContainerAssociation",
+    "description": "Grants permission to delete an AWS Network Firewall container association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletefirewall": {
     "name": "DeleteFirewall",
     "description": "Grants permission to delete a firewall",
@@ -487,6 +522,21 @@
     "resourceTypes": [
       {
         "name": "VpcEndpointAssociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecontainerassociation": {
+    "name": "DescribeContainerAssociation",
+    "description": "Grants permission to retrieve the data objects that define a container association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ContainerAssociation",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -858,6 +908,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcontainerassociations": {
+    "name": "ListContainerAssociations",
+    "description": "Grants permission to retrieve the metadata for container associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listfirewallpolicies": {
     "name": "ListFirewallPolicies",
     "description": "Grants permission to retrieve the metadata for firewall policies",
@@ -1004,6 +1062,12 @@
         "dependentActions": []
       },
       {
+        "name": "ContainerAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "StatefulRuleGroup",
         "required": false,
         "conditionKeys": [],
@@ -1145,6 +1209,12 @@
     "accessLevel": "Tagging",
     "resourceTypes": [
       {
+        "name": "ContainerAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Firewall",
         "required": false,
         "conditionKeys": [],
@@ -1210,6 +1280,12 @@
     "description": "Grants permission to remove tags from a resource",
     "accessLevel": "Tagging",
     "resourceTypes": [
+      {
+        "name": "ContainerAssociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "Firewall",
         "required": false,
@@ -1277,6 +1353,21 @@
     "resourceTypes": [
       {
         "name": "Firewall",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecontainerassociation": {
+    "name": "UpdateContainerAssociation",
+    "description": "Grants permission to update an AWS Network Firewall container association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ContainerAssociation",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
