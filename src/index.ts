@@ -1,4 +1,5 @@
 export * from './actions.js'
+export * from './categories.js'
 export * from './conditionKeys.js'
 export { findConditionKey } from './findConditionKey.js'
 export {

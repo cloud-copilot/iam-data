@@ -36,6 +36,14 @@ for(const serviceKey of serviceKeys) {
 * `iamServiceName(serviceKey: string)` - Returns the service name for a given service key.
 * `iamServiceExists(serviceKey: string)` - Returns true if the service key exists.
 
+### Categories
+* `serviceCategories()` - Returns an array of all service category keys such as 'storage', 'compute', etc.
+* `serviceCategoryExists(category: string)` - Returns true if the service category exists.
+* `iamServiceCategoryMap()` - Returns a map of IAM service keys to category keys.
+* `iamServicesForCategory(category: string)` - Returns an array of IAM service keys assigned to a category.
+* `categoryForIamService(service: string)` - Returns the category key for an IAM service key.
+* `getServiceCategory(category: string)` - Returns category details including `key`, `name`, and `services`.
+
 ### Actions
 * `iamActionsForService(serviceKey: string)` - Returns an array of all actions for a given service key.
 * `iamActionDetails(serviceKey: string, actionKey: string)` - Returns an object with the action details such as `description`, `resourceTypes`, and `conditionKeys`.

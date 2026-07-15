@@ -62,6 +62,16 @@ export async function readResourceTypes<T>(serviceKey: string): Promise<T> {
 }
 
 /**
+ * Read the category details data for a category
+ *
+ * @param categoryKey the category key to read details for
+ * @returns the category details data
+ */
+export async function readCategoryDetails<T>(categoryKey: string): Promise<T> {
+  return readDataFile<T>('categories', `${categoryKey}.json`)
+}
+
+/**
  * Read the condition patterns data
  *
  * @returns the condition patterns data
