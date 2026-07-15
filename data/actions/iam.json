@@ -1,4 +1,22 @@
 {
+  "passrole": {
+    "name": "PassRole",
+    "description": "Grants permission to pass a role to a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "role",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iam:AssociatedResourceArn",
+      "iam:PassedToService"
+    ],
+    "dependentActions": []
+  },
   "acceptdelegationrequest": {
     "name": "AcceptDelegationRequest",
     "description": "Accepts a delegation request resource, granting the requested temporary access",
@@ -42,9 +60,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "addusertogroup": {
     "name": "AddUserToGroup",
@@ -79,7 +95,7 @@
   "attachgrouppolicy": {
     "name": "AttachGroupPolicy",
     "description": "Grants permission to attach a managed policy to the specified IAM group",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "group",
@@ -96,7 +112,7 @@
   "attachrolepolicy": {
     "name": "AttachRolePolicy",
     "description": "Grants permission to attach a managed policy to the specified IAM role",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -106,15 +122,15 @@
       }
     ],
     "conditionKeys": [
-      "iam:PolicyARN",
-      "iam:PermissionsBoundary"
+      "iam:PermissionsBoundary",
+      "iam:PolicyARN"
     ],
     "dependentActions": []
   },
   "attachuserpolicy": {
     "name": "AttachUserPolicy",
     "description": "Grants permission to attach a managed policy to the specified IAM user",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -124,8 +140,8 @@
       }
     ],
     "conditionKeys": [
-      "iam:PolicyARN",
-      "iam:PermissionsBoundary"
+      "iam:PermissionsBoundary",
+      "iam:PolicyARN"
     ],
     "dependentActions": []
   },
@@ -214,8 +230,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -247,15 +263,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "createpolicy": {
     "name": "CreatePolicy",
     "description": "Grants permission to create a new managed policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -265,15 +281,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "createpolicyversion": {
     "name": "CreatePolicyVersion",
     "description": "Grants permission to create a new version of the specified managed policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -298,9 +314,9 @@
       }
     ],
     "conditionKeys": [
-      "iam:PermissionsBoundary",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "iam:PermissionsBoundary"
     ],
     "dependentActions": []
   },
@@ -317,8 +333,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -370,9 +386,9 @@
       }
     ],
     "conditionKeys": [
-      "iam:PermissionsBoundary",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "iam:PermissionsBoundary"
     ],
     "dependentActions": []
   },
@@ -389,8 +405,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -435,7 +451,7 @@
   "deleteaccountpasswordpolicy": {
     "name": "DeleteAccountPasswordPolicy",
     "description": "Grants permission to delete the password policy for the AWS account",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -466,7 +482,7 @@
   "deletegrouppolicy": {
     "name": "DeleteGroupPolicy",
     "description": "Grants permission to delete the specified inline policy from its group",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "group",
@@ -526,7 +542,7 @@
   "deletepolicy": {
     "name": "DeletePolicy",
     "description": "Grants permission to delete the specified managed policy and remove it from any IAM entities (users, groups, or roles) to which it is attached",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -541,7 +557,7 @@
   "deletepolicyversion": {
     "name": "DeletePolicyVersion",
     "description": "Grants permission to delete a version from the specified managed policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -573,7 +589,7 @@
   "deleterolepermissionsboundary": {
     "name": "DeleteRolePermissionsBoundary",
     "description": "Grants permission to remove the permissions boundary from a role",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -590,7 +606,7 @@
   "deleterolepolicy": {
     "name": "DeleteRolePolicy",
     "description": "Grants permission to delete the specified inline policy from the specified role",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -714,7 +730,7 @@
   "deleteuserpermissionsboundary": {
     "name": "DeleteUserPermissionsBoundary",
     "description": "Grants permission to remove the permissions boundary from the specified IAM user",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -731,7 +747,7 @@
   "deleteuserpolicy": {
     "name": "DeleteUserPolicy",
     "description": "Grants permission to delete the specified inline policy from an IAM user",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -769,7 +785,7 @@
   "detachgrouppolicy": {
     "name": "DetachGroupPolicy",
     "description": "Grants permission to detach a managed policy from the specified IAM group",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "group",
@@ -786,7 +802,7 @@
   "detachrolepolicy": {
     "name": "DetachRolePolicy",
     "description": "Grants permission to detach a managed policy from the specified role",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -796,15 +812,15 @@
       }
     ],
     "conditionKeys": [
-      "iam:PolicyARN",
-      "iam:PermissionsBoundary"
+      "iam:PermissionsBoundary",
+      "iam:PolicyARN"
     ],
     "dependentActions": []
   },
   "detachuserpolicy": {
     "name": "DetachUserPolicy",
     "description": "Grants permission to detach a managed policy from the specified IAM user",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -814,8 +830,8 @@
       }
     ],
     "conditionKeys": [
-      "iam:PolicyARN",
-      "iam:PermissionsBoundary"
+      "iam:PermissionsBoundary",
+      "iam:PolicyARN"
     ],
     "dependentActions": []
   },
@@ -856,10 +872,10 @@
       }
     ],
     "conditionKeys": [
-      "iam:RegisterSecurityKey",
       "iam:FIDO-FIPS-140-2-certification",
       "iam:FIDO-FIPS-140-3-certification",
-      "iam:FIDO-certification"
+      "iam:FIDO-certification",
+      "iam:RegisterSecurityKey"
     ],
     "dependentActions": []
   },
@@ -904,14 +920,7 @@
         "name": "access-report",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "organizations:DescribePolicy",
-          "organizations:ListChildren",
-          "organizations:ListParents",
-          "organizations:ListPoliciesForTarget",
-          "organizations:ListRoots",
-          "organizations:ListTargetsForPolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1848,29 +1857,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "passrole": {
-    "name": "PassRole",
-    "isPermissionOnly": true,
-    "description": "Grants permission to pass a role to a service",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "role",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "iam:AssociatedResourceArn",
-      "iam:PassedToService"
-    ],
-    "dependentActions": []
-  },
   "putgrouppolicy": {
     "name": "PutGroupPolicy",
     "description": "Grants permission to create or update an inline policy document that is embedded in the specified IAM group",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "group",
@@ -1885,7 +1875,7 @@
   "putrolepermissionsboundary": {
     "name": "PutRolePermissionsBoundary",
     "description": "Grants permission to set a managed policy as a permissions boundary for a role",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -1902,7 +1892,7 @@
   "putrolepolicy": {
     "name": "PutRolePolicy",
     "description": "Grants permission to create or update an inline policy document that is embedded in the specified IAM role",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -1919,7 +1909,7 @@
   "putuserpermissionsboundary": {
     "name": "PutUserPermissionsBoundary",
     "description": "Grants permission to set a managed policy as a permissions boundary for an IAM user",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -1936,7 +1926,7 @@
   "putuserpolicy": {
     "name": "PutUserPolicy",
     "description": "Grants permission to create or update an inline policy document that is embedded in the specified IAM user",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -2060,7 +2050,7 @@
   "setdefaultpolicyversion": {
     "name": "SetDefaultPolicyVersion",
     "description": "Grants permission to set the version of the specified policy as the policy's default version",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -2126,7 +2116,7 @@
   "taginstanceprofile": {
     "name": "TagInstanceProfile",
     "description": "Grants permission to add tags to an instance profile",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "instance-profile",
@@ -2136,15 +2126,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagmfadevice": {
     "name": "TagMFADevice",
     "description": "Grants permission to add tags to a virtual mfa device",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "mfa",
@@ -2154,15 +2144,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagopenidconnectprovider": {
     "name": "TagOpenIDConnectProvider",
     "description": "Grants permission to add tags to an OpenID Connect provider",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "oidc-provider",
@@ -2172,15 +2162,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagpolicy": {
     "name": "TagPolicy",
     "description": "Grants permission to add tags to a managed policy",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -2190,15 +2180,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagrole": {
     "name": "TagRole",
     "description": "Grants permission to add tags to an IAM role",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -2208,15 +2198,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagsamlprovider": {
     "name": "TagSAMLProvider",
     "description": "Grants permission to add tags to a SAML Provider",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "saml-provider",
@@ -2226,15 +2216,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagservercertificate": {
     "name": "TagServerCertificate",
     "description": "Grants permission to add tags to a server certificate",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "server-certificate",
@@ -2244,15 +2234,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "taguser": {
     "name": "TagUser",
     "description": "Grants permission to add tags to an IAM user",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -2262,15 +2252,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untaginstanceprofile": {
     "name": "UntagInstanceProfile",
     "description": "Grants permission to remove the specified tags from the instance profile",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "instance-profile",
@@ -2287,7 +2277,7 @@
   "untagmfadevice": {
     "name": "UntagMFADevice",
     "description": "Grants permission to remove the specified tags from the virtual mfa device",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "mfa",
@@ -2304,7 +2294,7 @@
   "untagopenidconnectprovider": {
     "name": "UntagOpenIDConnectProvider",
     "description": "Grants permission to remove the specified tags from the OpenID Connect provider",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "oidc-provider",
@@ -2321,7 +2311,7 @@
   "untagpolicy": {
     "name": "UntagPolicy",
     "description": "Grants permission to remove the specified tags from the managed policy",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -2338,7 +2328,7 @@
   "untagrole": {
     "name": "UntagRole",
     "description": "Grants permission to remove the specified tags from the role",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -2355,7 +2345,7 @@
   "untagsamlprovider": {
     "name": "UntagSAMLProvider",
     "description": "Grants permission to remove the specified tags from the SAML Provider",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "saml-provider",
@@ -2372,7 +2362,7 @@
   "untagservercertificate": {
     "name": "UntagServerCertificate",
     "description": "Grants permission to remove the specified tags from the server certificate",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "server-certificate",
@@ -2389,7 +2379,7 @@
   "untaguser": {
     "name": "UntagUser",
     "description": "Grants permission to remove the specified tags from the user",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "user",
@@ -2445,7 +2435,7 @@
   "updateassumerolepolicy": {
     "name": "UpdateAssumeRolePolicy",
     "description": "Grants permission to update the policy that grants an IAM entity permission to assume a role",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "role",
@@ -2674,8 +2664,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },

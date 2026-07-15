@@ -1,4 +1,138 @@
 {
+  "copyfrombackupvault": {
+    "name": "CopyFromBackupVault",
+    "description": "Grants permission to copy from a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "backup:CopyTargetOrgPaths",
+      "backup:CopyTargets"
+    ],
+    "dependentActions": []
+  },
+  "copyintobackupvault": {
+    "name": "CopyIntoBackupVault",
+    "description": "Grants permission to copy into a backup vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createbackupaccesspoint": {
+    "name": "CreateBackupAccessPoint",
+    "description": "Grants permission to create a new access point for backup instant access",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebackupaccesspoint": {
+    "name": "DeleteBackupAccessPoint",
+    "description": "Grants permission to delete the access point",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebackupvaultsharingpolicy": {
+    "name": "DeleteBackupVaultSharingPolicy",
+    "description": "Grants permission to delete backup vault sharing policy",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebackupaccesspoint": {
+    "name": "DescribeBackupAccessPoint",
+    "description": "Grants permission to return information about the specified access point",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getbackupvaultsharingpolicy": {
+    "name": "GetBackupVaultSharingPolicy",
+    "description": "Grants permission to get backup vault sharing policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listindexedrecoverypointsforsearch": {
+    "name": "ListIndexedRecoveryPointsForSearch",
+    "description": "Grants permission to list indexed recovery points to search",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putbackupvaultsharingpolicy": {
+    "name": "PutBackupVaultSharingPolicy",
+    "description": "Grants permission to add a sharing policy to the backup vault",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "backupVault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchrecoverypoint": {
+    "name": "SearchRecoveryPoint",
+    "description": "Grants permission to search a recovery point",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associatebackupvaultmpaapprovalteam": {
     "name": "AssociateBackupVaultMpaApprovalTeam",
     "description": "Grants permission to associate an MPA approval team with a backup vault",
@@ -31,59 +165,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "copyfrombackupvault": {
-    "name": "CopyFromBackupVault",
-    "isPermissionOnly": true,
-    "description": "Grants permission to copy from a backup vault",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "recoveryPoint",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "backup:CopyTargets",
-      "backup:CopyTargetOrgPaths"
-    ],
-    "dependentActions": []
-  },
-  "copyintobackupvault": {
-    "name": "CopyIntoBackupVault",
-    "isPermissionOnly": true,
-    "description": "Grants permission to copy into a backup vault",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "backupVault",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
-  "createbackupaccesspoint": {
-    "name": "CreateBackupAccessPoint",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create a new access point for backup instant access",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "recoveryPoint",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createbackupplan": {
     "name": "CreateBackupPlan",
     "description": "Grants permission to create a new backup plan",
@@ -93,9 +174,7 @@
         "name": "backupPlan",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -117,9 +196,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createbackupvault": {
     "name": "CreateBackupVault",
@@ -190,8 +267,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "backup:MinRetentionDays",
-      "backup:MaxRetentionDays"
+      "backup:MaxRetentionDays",
+      "backup:MinRetentionDays"
     ],
     "dependentActions": []
   },
@@ -263,9 +340,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createtieringconfiguration": {
     "name": "CreateTieringConfiguration",
@@ -283,15 +358,6 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": []
-  },
-  "deletebackupaccesspoint": {
-    "name": "DeleteBackupAccessPoint",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete the access point",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "deletebackupplan": {
@@ -342,7 +408,7 @@
   "deletebackupvaultaccesspolicy": {
     "name": "DeleteBackupVaultAccessPolicy",
     "description": "Grants permission to delete backup vault access policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "backupVault",
@@ -373,22 +439,6 @@
     "name": "DeleteBackupVaultNotifications",
     "description": "Grants permission to remove the notifications from a backup vault",
     "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "backupVault",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deletebackupvaultsharingpolicy": {
-    "name": "DeleteBackupVaultSharingPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete backup vault sharing policy",
-    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "backupVault",
@@ -487,15 +537,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describebackupaccesspoint": {
-    "name": "DescribeBackupAccessPoint",
-    "isPermissionOnly": true,
-    "description": "Grants permission to return information about the specified access point",
-    "accessLevel": "Read",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -752,22 +793,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getbackupvaultsharingpolicy": {
-    "name": "GetBackupVaultSharingPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get backup vault sharing policy",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "backupVault",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getlegalhold": {
     "name": "GetLegalHold",
     "description": "Grants permission to get a legal hold",
@@ -995,15 +1020,6 @@
     "name": "ListIndexedRecoveryPoints",
     "description": "Grants permission to get list indexed recovery points",
     "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listindexedrecoverypointsforsearch": {
-    "name": "ListIndexedRecoveryPointsForSearch",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list indexed recovery points to search",
-    "accessLevel": "Permissions management",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -1239,7 +1255,7 @@
   "putbackupvaultaccesspolicy": {
     "name": "PutBackupVaultAccessPolicy",
     "description": "Grants permission to add an access policy to the backup vault",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "backupVault",
@@ -1265,8 +1281,8 @@
     ],
     "conditionKeys": [
       "backup:ChangeableForDays",
-      "backup:MinRetentionDays",
-      "backup:MaxRetentionDays"
+      "backup:MaxRetentionDays",
+      "backup:MinRetentionDays"
     ],
     "dependentActions": []
   },
@@ -1274,22 +1290,6 @@
     "name": "PutBackupVaultNotifications",
     "description": "Grants permission to add an SNS topic to the backup vault",
     "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "backupVault",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "putbackupvaultsharingpolicy": {
-    "name": "PutBackupVaultSharingPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to add a sharing policy to the backup vault",
-    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "backupVault",
@@ -1324,22 +1324,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "searchrecoverypoint": {
-    "name": "SearchRecoveryPoint",
-    "isPermissionOnly": true,
-    "description": "Grants permission to search a recovery point",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "recoveryPoint",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "startbackupjob": {
     "name": "StartBackupJob",
     "description": "Grants permission to start a new backup job",
@@ -1353,9 +1337,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "startcopyjob": {
     "name": "StartCopyJob",
@@ -1370,9 +1352,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "startreportjob": {
     "name": "StartReportJob",
@@ -1402,9 +1382,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "startscanjob": {
     "name": "StartScanJob",
@@ -1419,9 +1397,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "stopbackupjob": {
     "name": "StopBackupJob",
@@ -1434,7 +1410,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "backupPlan",
@@ -1494,7 +1470,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "backupPlan",
@@ -1563,9 +1539,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateframework": {
     "name": "UpdateFramework",
@@ -1675,9 +1649,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatetieringconfiguration": {
     "name": "UpdateTieringConfiguration",

@@ -1,15 +1,50 @@
 {
-  "schema": {
-    "key": "schema",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:schema/${ResourceId}"
+  "algorithm": {
+    "key": "algorithm",
+    "arn": "arn:${Partition}:personalize:::algorithm/${ResourceId}"
   },
-  "featuretransformation": {
-    "key": "featureTransformation",
-    "arn": "arn:${Partition}:personalize:::feature-transformation/${ResourceId}"
+  "batchinferencejob": {
+    "key": "batchInferenceJob",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:batch-inference-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "batchsegmentjob": {
+    "key": "batchSegmentJob",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:batch-segment-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "campaign": {
+    "key": "campaign",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:campaign/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "datadeletionjob": {
+    "key": "dataDeletionJob",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:data-deletion-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "datainsightsjob": {
+    "key": "dataInsightsJob",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:data-insights-job/${ResourceId}"
   },
   "dataset": {
     "key": "dataset",
     "arn": "arn:${Partition}:personalize:${Region}:${Account}:dataset/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "datasetexportjob": {
+    "key": "datasetExportJob",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:dataset-export-job/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -28,38 +63,6 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "datainsightsjob": {
-    "key": "dataInsightsJob",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:data-insights-job/${ResourceId}"
-  },
-  "datasetexportjob": {
-    "key": "datasetExportJob",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:dataset-export-job/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "datadeletionjob": {
-    "key": "dataDeletionJob",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:data-deletion-job/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "solution": {
-    "key": "solution",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:solution/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "campaign": {
-    "key": "campaign",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:campaign/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "eventtracker": {
     "key": "eventTracker",
     "arn": "arn:${Partition}:personalize:${Region}:${Account}:event-tracker/${ResourceId}",
@@ -67,20 +70,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "recipe": {
-    "key": "recipe",
-    "arn": "arn:${Partition}:personalize:::recipe/${ResourceId}"
-  },
-  "algorithm": {
-    "key": "algorithm",
-    "arn": "arn:${Partition}:personalize:::algorithm/${ResourceId}"
-  },
-  "batchinferencejob": {
-    "key": "batchInferenceJob",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:batch-inference-job/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "featuretransformation": {
+    "key": "featureTransformation",
+    "arn": "arn:${Partition}:personalize:::feature-transformation/${ResourceId}"
   },
   "filter": {
     "key": "filter",
@@ -89,6 +81,14 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "metricattribution": {
+    "key": "metricAttribution",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:metric-attribution/${ResourceId}"
+  },
+  "recipe": {
+    "key": "recipe",
+    "arn": "arn:${Partition}:personalize:::recipe/${ResourceId}"
+  },
   "recommender": {
     "key": "recommender",
     "arn": "arn:${Partition}:personalize:${Region}:${Account}:recommender/${ResourceId}",
@@ -96,15 +96,15 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "batchsegmentjob": {
-    "key": "batchSegmentJob",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:batch-segment-job/${ResourceId}",
+  "schema": {
+    "key": "schema",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:schema/${ResourceId}"
+  },
+  "solution": {
+    "key": "solution",
+    "arn": "arn:${Partition}:personalize:${Region}:${Account}:solution/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
-  },
-  "metricattribution": {
-    "key": "metricAttribution",
-    "arn": "arn:${Partition}:personalize:${Region}:${Account}:metric-attribution/${ResourceId}"
   }
 }

@@ -5,14 +5,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "table",
-        "required": true,
+        "name": "billingview",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "billingview",
-        "required": false,
+        "name": "table",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -142,7 +142,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "export",
@@ -152,16 +152,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "export",
@@ -171,8 +171,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -182,6 +182,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "billingview",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "export",
         "required": true,
         "conditionKeys": [],
@@ -190,12 +196,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "billingview",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }

@@ -1,8 +1,4 @@
 {
-  "connectivityinfo": {
-    "key": "connectivityInfo",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/things/${ThingName}/connectivityInfo"
-  },
   "component": {
     "key": "component",
     "arn": "arn:${Partition}:greengrass:${Region}:${Account}:components:${ComponentName}",
@@ -17,6 +13,10 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "connectivityinfo": {
+    "key": "connectivityInfo",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/things/${ThingName}/connectivityInfo"
+  },
   "coredevice": {
     "key": "coreDevice",
     "arn": "arn:${Partition}:greengrass:${Region}:${Account}:coreDevices:${CoreDeviceThingName}",
@@ -26,11 +26,10 @@
   },
   "deployment": {
     "key": "deployment",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/deployments/${DeploymentId}"
-  },
-  "certificateauthority": {
-    "key": "certificateAuthority",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/certificateauthorities/${CertificateAuthorityId}"
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/deployments/${DeploymentId}, arn:${Partition}:greengrass:${Region}:${Account}:deployments:${DeploymentId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "bulkdeployment": {
     "key": "bulkDeployment",
@@ -39,16 +38,20 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "group": {
-    "key": "group",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}",
+  "certificateauthority": {
+    "key": "certificateAuthority",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/certificateauthorities/${CertificateAuthorityId}"
+  },
+  "connectordefinition": {
+    "key": "connectorDefinition",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/connectors/${ConnectorDefinitionId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "groupversion": {
-    "key": "groupVersion",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/versions/${VersionId}"
+  "connectordefinitionversion": {
+    "key": "connectorDefinitionVersion",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/connectors/${ConnectorDefinitionId}/versions/${VersionId}"
   },
   "coredefinition": {
     "key": "coreDefinition",
@@ -83,16 +86,16 @@
     "key": "functionDefinitionVersion",
     "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/functions/${FunctionDefinitionId}/versions/${VersionId}"
   },
-  "subscriptiondefinition": {
-    "key": "subscriptionDefinition",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/subscriptions/${SubscriptionDefinitionId}",
+  "group": {
+    "key": "group",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "subscriptiondefinitionversion": {
-    "key": "subscriptionDefinitionVersion",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/subscriptions/${SubscriptionDefinitionId}/versions/${VersionId}"
+  "groupversion": {
+    "key": "groupVersion",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/versions/${VersionId}"
   },
   "loggerdefinition": {
     "key": "loggerDefinition",
@@ -116,16 +119,16 @@
     "key": "resourceDefinitionVersion",
     "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/resources/${ResourceDefinitionId}/versions/${VersionId}"
   },
-  "connectordefinition": {
-    "key": "connectorDefinition",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/connectors/${ConnectorDefinitionId}",
+  "subscriptiondefinition": {
+    "key": "subscriptionDefinition",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/subscriptions/${SubscriptionDefinitionId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "connectordefinitionversion": {
-    "key": "connectorDefinitionVersion",
-    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/connectors/${ConnectorDefinitionId}/versions/${VersionId}"
+  "subscriptiondefinitionversion": {
+    "key": "subscriptionDefinitionVersion",
+    "arn": "arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/subscriptions/${SubscriptionDefinitionId}/versions/${VersionId}"
   },
   "thing": {
     "key": "thing",

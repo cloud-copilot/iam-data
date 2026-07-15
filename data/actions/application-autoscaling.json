@@ -12,8 +12,8 @@
       }
     ],
     "conditionKeys": [
-      "application-autoscaling:service-namespace",
-      "application-autoscaling:scalable-dimension"
+      "application-autoscaling:scalable-dimension",
+      "application-autoscaling:service-namespace"
     ],
     "dependentActions": []
   },
@@ -30,8 +30,8 @@
       }
     ],
     "conditionKeys": [
-      "application-autoscaling:service-namespace",
-      "application-autoscaling:scalable-dimension"
+      "application-autoscaling:scalable-dimension",
+      "application-autoscaling:service-namespace"
     ],
     "dependentActions": []
   },
@@ -48,8 +48,8 @@
       }
     ],
     "conditionKeys": [
-      "application-autoscaling:service-namespace",
-      "application-autoscaling:scalable-dimension"
+      "application-autoscaling:scalable-dimension",
+      "application-autoscaling:service-namespace"
     ],
     "dependentActions": []
   },
@@ -121,8 +121,8 @@
       }
     ],
     "conditionKeys": [
-      "application-autoscaling:service-namespace",
-      "application-autoscaling:scalable-dimension"
+      "application-autoscaling:scalable-dimension",
+      "application-autoscaling:service-namespace"
     ],
     "dependentActions": []
   },
@@ -139,8 +139,8 @@
       }
     ],
     "conditionKeys": [
-      "application-autoscaling:service-namespace",
-      "application-autoscaling:scalable-dimension"
+      "application-autoscaling:scalable-dimension",
+      "application-autoscaling:service-namespace"
     ],
     "dependentActions": []
   },
@@ -153,23 +153,21 @@
         "name": "ScalableTarget",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "application-autoscaling:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
+      "application-autoscaling:scalable-dimension",
       "application-autoscaling:service-namespace",
-      "application-autoscaling:scalable-dimension"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a scalable target",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ScalableTarget",
@@ -187,7 +185,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a scalable target",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ScalableTarget",

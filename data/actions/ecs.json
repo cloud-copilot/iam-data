@@ -1,9 +1,8 @@
 {
   "allowvendedlogdeliveryforresource": {
     "name": "AllowVendedLogDeliveryForResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow vended log delivery for a specified resource",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -13,6 +12,67 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "poll": {
+    "name": "Poll",
+    "description": "Grants permission to an agent to connect with the Amazon ECS service to report status and get commands",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster"
+    ],
+    "dependentActions": []
+  },
+  "putsystemlogevents": {
+    "name": "PutSystemLogEvents",
+    "description": "Grants permission to collect system logs from the container instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:capacity-provider",
+          "ecs:cluster"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttelemetrysession": {
+    "name": "StartTelemetrySession",
+    "description": "Grants permission to start a telemetry session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "container-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ecs:cluster"
+    ],
     "dependentActions": []
   },
   "continueservicedeployment": {
@@ -127,10 +187,7 @@
           "aws:ResourceTag/${TagKey}",
           "ecs:cluster"
         ],
-        "dependentActions": [
-          "ecs:RegisterTaskDefinition",
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -254,13 +311,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletedaemon": {
@@ -271,14 +328,14 @@
       {
         "name": "daemon",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletedaemontaskdefinition": {
@@ -289,13 +346,13 @@
       {
         "name": "daemon-task-definition",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteexpressgatewayservice": {
@@ -306,14 +363,14 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteservice": {
@@ -378,13 +435,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deregistertaskdefinition": {
@@ -420,13 +477,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describecontainerinstances": {
@@ -455,14 +512,14 @@
       {
         "name": "daemon",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describedaemondeployments": {
@@ -529,13 +586,13 @@
       {
         "name": "daemon-task-definition",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeexpressgatewayservice": {
@@ -546,14 +603,14 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeservicedeployments": {
@@ -743,13 +800,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listclusters": {
@@ -768,13 +825,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listdaemondeployments": {
@@ -785,14 +842,14 @@
       {
         "name": "daemon",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listdaemontaskdefinitions": {
@@ -821,14 +878,14 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ecs:cluster"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ecs:cluster"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listservices": {
@@ -938,24 +995,6 @@
     ],
     "dependentActions": []
   },
-  "poll": {
-    "name": "Poll",
-    "isPermissionOnly": true,
-    "description": "Grants permission to an agent to connect with the Amazon ECS service to report status and get commands",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "container-instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ecs:cluster"
-    ],
-    "dependentActions": []
-  },
   "putaccountsetting": {
     "name": "PutAccountSetting",
     "description": "Grants permission to modify the ARN and resource ID format of a resource for a specified IAM user, IAM role, or the root user for an account. You can specify whether the new ARN and resource ID format are enabled for new resources that are created. Enabling this setting is required to use new Amazon ECS features such as resource tagging",
@@ -1011,34 +1050,6 @@
     "conditionKeys": [
       "ecs:capacity-provider"
     ],
-    "dependentActions": []
-  },
-  "putsystemlogevents": {
-    "name": "PutSystemLogEvents",
-    "isPermissionOnly": true,
-    "description": "Grants permission to collect system logs from the container instances",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "cluster",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "container-instance",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ecs:capacity-provider",
-          "ecs:cluster"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "registercontainerinstance": {
@@ -1117,9 +1128,7 @@
         "name": "task-definition",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1142,9 +1151,7 @@
         "name": "task-definition",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1155,24 +1162,6 @@
       "ecs:container-instances",
       "ecs:enable-ebs-volumes",
       "ecs:enable-execute-command"
-    ],
-    "dependentActions": []
-  },
-  "starttelemetrysession": {
-    "name": "StartTelemetrySession",
-    "isPermissionOnly": true,
-    "description": "Grants permission to start a telemetry session",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "container-instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ecs:cluster"
     ],
     "dependentActions": []
   },
@@ -1230,13 +1219,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "submitcontainerstatechange": {
@@ -1247,13 +1236,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "submittaskstatechange": {
@@ -1264,19 +1253,19 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "capacity-provider",
@@ -1344,7 +1333,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "capacity-provider",
@@ -1453,13 +1442,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatecontaineragent": {

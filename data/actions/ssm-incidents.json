@@ -26,13 +26,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "ssm-incidents:TagResource"
-    ]
+    "dependentActions": []
   },
   "createresponseplan": {
     "name": "CreateResponsePlan",
@@ -40,13 +37,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole",
-      "ssm-incidents:TagResource"
-    ]
+    "dependentActions": []
   },
   "createtimelineevent": {
     "name": "CreateTimelineEvent",
@@ -102,7 +96,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete resource policy from a response plan",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "response-plan",
@@ -348,7 +342,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to put resource policy on a response plan",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "response-plan",
@@ -378,7 +372,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a response plan",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "incident-record",
@@ -400,15 +394,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a response plan",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "incident-record",
@@ -515,15 +509,12 @@
         "name": "response-plan",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "ssm-incidents:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },

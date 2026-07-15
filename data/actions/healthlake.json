@@ -35,8 +35,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -652,7 +652,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a datastore",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "datastore",
@@ -662,16 +662,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags associated with a datastore",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "datastore",

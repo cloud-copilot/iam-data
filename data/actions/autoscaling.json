@@ -7,14 +7,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "attachloadbalancertargetgroups": {
@@ -85,14 +85,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "batchputscheduledupdategroupaction": {
@@ -103,14 +103,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "cancelinstancerefresh": {
@@ -121,14 +121,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "completelifecycleaction": {
@@ -139,14 +139,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createautoscalinggroup": {
@@ -161,16 +161,13 @@
           "autoscaling:ResourceTag/${TagKey}",
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "autoscaling:ImageId",
       "autoscaling:CapacityReservationIds",
       "autoscaling:CapacityReservationResourceGroupArns",
+      "autoscaling:ImageId",
       "autoscaling:InstanceTypes",
       "autoscaling:LaunchConfigurationName",
       "autoscaling:LaunchTemplateVersionSpecified",
@@ -200,17 +197,17 @@
     "conditionKeys": [
       "autoscaling:ImageId",
       "autoscaling:InstanceType",
-      "autoscaling:SpotPrice",
-      "autoscaling:MetadataHttpTokens",
+      "autoscaling:MetadataHttpEndpoint",
       "autoscaling:MetadataHttpPutResponseHopLimit",
-      "autoscaling:MetadataHttpEndpoint"
+      "autoscaling:MetadataHttpTokens",
+      "autoscaling:SpotPrice"
     ],
     "dependentActions": []
   },
   "createorupdatetags": {
     "name": "CreateOrUpdateTags",
     "description": "Grants permission to create or update tags for the specified Auto Scaling group",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "autoScalingGroup",
@@ -236,15 +233,15 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ForceDelete",
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ForceDelete",
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletelaunchconfiguration": {
@@ -270,14 +267,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletenotificationconfiguration": {
@@ -288,14 +285,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletepolicy": {
@@ -306,14 +303,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletescheduledaction": {
@@ -324,20 +321,20 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletetags": {
     "name": "DeleteTags",
     "description": "Grants permission to delete the specified tags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "autoScalingGroup",
@@ -363,14 +360,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeaccountlimits": {
@@ -557,14 +554,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "detachloadbalancertargetgroups": {
@@ -635,14 +632,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "enablemetricscollection": {
@@ -653,14 +650,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "enterstandby": {
@@ -671,14 +668,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "executepolicy": {
@@ -689,14 +686,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "exitstandby": {
@@ -707,14 +704,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getpredictivescalingforecast": {
@@ -733,14 +730,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putaccountsetting": {
@@ -759,14 +756,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putnotificationconfiguration": {
@@ -777,14 +774,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putscalingpolicy": {
@@ -795,14 +792,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putscheduledupdategroupaction": {
@@ -834,14 +831,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "recordlifecycleactionheartbeat": {
@@ -852,14 +849,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "resumeprocesses": {
@@ -870,14 +867,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "rollbackinstancerefresh": {
@@ -888,14 +885,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "setdesiredcapacity": {
@@ -906,14 +903,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "setinstancehealth": {
@@ -924,14 +921,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "setinstanceprotection": {
@@ -942,14 +939,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "startinstancerefresh": {
@@ -980,14 +977,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "terminateinstanceinautoscalinggroup": {
@@ -998,14 +995,14 @@
       {
         "name": "autoScalingGroup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "autoscaling:ResourceTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "autoscaling:ResourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateautoscalinggroup": {
@@ -1020,15 +1017,13 @@
           "autoscaling:ResourceTag/${TagKey}",
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "autoscaling:ImageId",
       "autoscaling:CapacityReservationIds",
       "autoscaling:CapacityReservationResourceGroupArns",
+      "autoscaling:ImageId",
       "autoscaling:InstanceTypes",
       "autoscaling:LaunchConfigurationName",
       "autoscaling:LaunchTemplateVersionSpecified",

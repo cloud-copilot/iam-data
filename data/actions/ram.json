@@ -12,8 +12,8 @@
       }
     ],
     "conditionKeys": [
-      "ram:ShareOwnerAccountId",
-      "ram:ResourceShareName"
+      "ram:ResourceShareName",
+      "ram:ShareOwnerAccountId"
     ],
     "dependentActions": []
   },
@@ -31,12 +31,12 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "ram:ResourceTag/${TagKey}",
-      "ram:ResourceShareName",
       "ram:AllowsExternalPrincipals",
       "ram:Principal",
       "ram:RequestedResourceType",
       "ram:ResourceArn",
+      "ram:ResourceShareName",
+      "ram:ResourceTag/${TagKey}",
       "ram:RetainSharingOnAccountLeaveOrganization"
     ],
     "dependentActions": []
@@ -74,15 +74,13 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "ram:PermissionArn",
-      "ram:PermissionResourceType",
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ram:PermissionArn",
+      "ram:PermissionResourceType"
     ],
-    "dependentActions": [
-      "ram:TagResource"
-    ]
+    "dependentActions": []
   },
   "createpermissionversion": {
     "name": "CreatePermissionVersion",
@@ -110,11 +108,11 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "ram:AllowsExternalPrincipals",
+      "ram:Principal",
+      "ram:RequestedAllowsExternalPrincipals",
       "ram:RequestedResourceType",
       "ram:ResourceArn",
-      "ram:RequestedAllowsExternalPrincipals",
-      "ram:Principal",
-      "ram:AllowsExternalPrincipals",
       "ram:RetainSharingOnAccountLeaveOrganization"
     ],
     "dependentActions": []
@@ -170,9 +168,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "ram:ResourceTag/${TagKey}",
-      "ram:ResourceShareName",
       "ram:AllowsExternalPrincipals",
+      "ram:ResourceShareName",
+      "ram:ResourceTag/${TagKey}",
       "ram:RetainSharingOnAccountLeaveOrganization"
     ],
     "dependentActions": []
@@ -191,12 +189,12 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "ram:ResourceTag/${TagKey}",
-      "ram:ResourceShareName",
       "ram:AllowsExternalPrincipals",
       "ram:Principal",
       "ram:RequestedResourceType",
       "ram:ResourceArn",
+      "ram:ResourceShareName",
+      "ram:ResourceTag/${TagKey}",
       "ram:RetainSharingOnAccountLeaveOrganization"
     ],
     "dependentActions": []
@@ -231,14 +229,10 @@
   "enablesharingwithawsorganization": {
     "name": "EnableSharingWithAwsOrganization",
     "description": "Grants permission to access customer's organization and create a SLR in the customer's account",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "organizations:DescribeOrganization",
-      "organizations:EnableAWSServiceAccess"
-    ]
+    "dependentActions": []
   },
   "getpermission": {
     "name": "GetPermission",
@@ -385,8 +379,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "ram:ResourceShareName",
       "ram:AllowsExternalPrincipals",
+      "ram:ResourceShareName",
       "ram:RetainSharingOnAccountLeaveOrganization"
     ],
     "dependentActions": []
@@ -461,8 +455,8 @@
       }
     ],
     "conditionKeys": [
-      "ram:ShareOwnerAccountId",
-      "ram:ResourceShareName"
+      "ram:ResourceShareName",
+      "ram:ShareOwnerAccountId"
     ],
     "dependentActions": []
   },
@@ -511,7 +505,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag the specified resource share or permission",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "customer-managed-permission",
@@ -535,7 +529,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag the specified resource share or permission",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "customer-managed-permission",
@@ -569,10 +563,10 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "ram:ResourceTag/${TagKey}",
-      "ram:ResourceShareName",
       "ram:AllowsExternalPrincipals",
       "ram:RequestedAllowsExternalPrincipals",
+      "ram:ResourceShareName",
+      "ram:ResourceTag/${TagKey}",
       "ram:RetainSharingOnAccountLeaveOrganization"
     ],
     "dependentActions": []

@@ -6,9 +6,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "environment": {
-    "key": "environment",
-    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}",
+  "configuration": {
+    "key": "configuration",
+    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}/configuration/${ConfigurationProfileId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -20,13 +20,6 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "deploymentstrategy": {
-    "key": "deploymentstrategy",
-    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:deploymentstrategy/${DeploymentStrategyId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "deployment": {
     "key": "deployment",
     "arn": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}/deployment/${DeploymentNumber}",
@@ -34,13 +27,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "hostedconfigurationversion": {
-    "key": "hostedconfigurationversion",
-    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId}"
+  "deploymentstrategy": {
+    "key": "deploymentstrategy",
+    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:deploymentstrategy/${DeploymentStrategyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
-  "configuration": {
-    "key": "configuration",
-    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}/configuration/${ConfigurationProfileId}",
+  "environment": {
+    "key": "environment",
+    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -58,5 +54,9 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
+  },
+  "hostedconfigurationversion": {
+    "key": "hostedconfigurationversion",
+    "arn": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId}"
   }
 }

@@ -1,11 +1,4 @@
 {
-  "stream": {
-    "key": "stream",
-    "arn": "arn:${Partition}:kinesis:${Region}:${Account}:stream/${StreamName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "consumer": {
     "key": "consumer",
     "arn": "arn:${Partition}:kinesis:${Region}:${Account}:${StreamType}/${StreamName}/consumer/${ConsumerName}:${ConsumerCreationTimpstamp}",
@@ -16,6 +9,13 @@
   "kmskey": {
     "key": "kmsKey",
     "arn": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "stream": {
+    "key": "stream",
+    "arn": "arn:${Partition}:kinesis:${Region}:${Account}:stream/${StreamName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

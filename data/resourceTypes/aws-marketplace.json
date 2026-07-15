@@ -1,11 +1,7 @@
 {
-  "entity": {
-    "key": "Entity",
-    "arn": "arn:${Partition}:aws-marketplace:${Region}:${Account}:${Catalog}/${EntityType}/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "catalog:ChangeType"
-    ]
+  "assessment": {
+    "key": "Assessment",
+    "arn": "arn:${Partition}:aws-marketplace:${Region}::${Catalog}/Assessment/${ResourceId}"
   },
   "changeset": {
     "key": "ChangeSet",
@@ -15,9 +11,13 @@
       "catalog:ChangeType"
     ]
   },
-  "assessment": {
-    "key": "Assessment",
-    "arn": "arn:${Partition}:aws-marketplace:${Region}::${Catalog}/Assessment/${ResourceId}"
+  "entity": {
+    "key": "Entity",
+    "arn": "arn:${Partition}:aws-marketplace:${Region}:${Account}:${Catalog}/${EntityType}/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "catalog:ChangeType"
+    ]
   },
   "invoicesubmissiontask": {
     "key": "InvoiceSubmissionTask",
@@ -49,17 +49,17 @@
       "aws:TagKeys"
     ]
   },
-  "product": {
-    "key": "Product",
-    "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/product/${ProductId}"
+  "alllistings": {
+    "key": "AllListings",
+    "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/listing/*"
+  },
+  "allpurchaseoptions": {
+    "key": "AllPurchaseOptions",
+    "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/purchaseOption/*"
   },
   "listing": {
     "key": "Listing",
     "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/listing/${ListingId}"
-  },
-  "alllistings": {
-    "key": "AllListings",
-    "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/listing/*"
   },
   "offer": {
     "key": "Offer",
@@ -69,13 +69,13 @@
     "key": "OfferSet",
     "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/offerSet/${OfferSetId}"
   },
+  "product": {
+    "key": "Product",
+    "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/product/${ProductId}"
+  },
   "purchaseoption": {
     "key": "PurchaseOption",
     "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/purchaseOption/${PurchaseOptionId}"
-  },
-  "allpurchaseoptions": {
-    "key": "AllPurchaseOptions",
-    "arn": "arn:${Partition}:aws-marketplace:::catalog/${CatalogName}/purchaseOption/*"
   },
   "dashboard": {
     "key": "Dashboard",

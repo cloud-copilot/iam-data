@@ -3,6 +3,10 @@
     "key": "bytematchset",
     "arn": "arn:${Partition}:waf::${Account}:bytematchset/${Id}"
   },
+  "geomatchset": {
+    "key": "geomatchset",
+    "arn": "arn:${Partition}:waf::${Account}:geomatchset/${Id}"
+  },
   "ipset": {
     "key": "ipset",
     "arn": "arn:${Partition}:waf::${Account}:ipset/${Id}"
@@ -14,9 +18,24 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "regexmatchset": {
+    "key": "regexmatchset",
+    "arn": "arn:${Partition}:waf::${Account}:regexmatch/${Id}"
+  },
+  "regexpatternset": {
+    "key": "regexpatternset",
+    "arn": "arn:${Partition}:waf::${Account}:regexpatternset/${Id}"
+  },
   "rule": {
     "key": "rule",
     "arn": "arn:${Partition}:waf::${Account}:rule/${Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "rulegroup": {
+    "key": "rulegroup",
+    "arn": "arn:${Partition}:waf::${Account}:rulegroup/${Id}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -39,24 +58,5 @@
   "xssmatchset": {
     "key": "xssmatchset",
     "arn": "arn:${Partition}:waf::${Account}:xssmatchset/${Id}"
-  },
-  "regexmatchset": {
-    "key": "regexmatchset",
-    "arn": "arn:${Partition}:waf::${Account}:regexmatch/${Id}"
-  },
-  "regexpatternset": {
-    "key": "regexpatternset",
-    "arn": "arn:${Partition}:waf::${Account}:regexpatternset/${Id}"
-  },
-  "geomatchset": {
-    "key": "geomatchset",
-    "arn": "arn:${Partition}:waf::${Account}:geomatchset/${Id}"
-  },
-  "rulegroup": {
-    "key": "rulegroup",
-    "arn": "arn:${Partition}:waf::${Account}:rulegroup/${Id}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
   }
 }

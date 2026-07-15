@@ -1,4 +1,105 @@
 {
+  "callwithbearertoken": {
+    "name": "CallWithBearerToken",
+    "description": "Grants permission to make API calls to CloudWatch using bearer token authentication",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepipelinerule": {
+    "name": "DeletePipelineRule",
+    "description": "Grants permission to delete a pipeline rule for CloudWatch pipelines for OTel metric processing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getotelenrichment": {
+    "name": "GetOTelEnrichment",
+    "description": "Grants permission to retrieve the status of OTel Enrichment of vended metrics for PromQL querying",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getservicedata": {
+    "name": "GetServiceData",
+    "description": "Grants permission to retrieve service data",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettopologydiscoverystatus": {
+    "name": "GetTopologyDiscoveryStatus",
+    "description": "Grants permission to retrieve a CloudWatch topology discovery status",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "link": {
+    "name": "Link",
+    "description": "Grants permission to share CloudWatch resources with a monitoring account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listentitiesformetric": {
+    "name": "ListEntitiesForMetric",
+    "description": "Grants permission to retrieve all the entities that are emitting a given metric",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putpipelinerule": {
+    "name": "PutPipelineRule",
+    "description": "Grants permission to create or update a pipeline rule for CloudWatch pipelines for OTel metric processing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startotelenrichment": {
+    "name": "StartOTelEnrichment",
+    "description": "Grants permission to enable OTel Enrichment of vended metrics for PromQL querying",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopotelenrichment": {
+    "name": "StopOTelEnrichment",
+    "description": "Grants permission to disable OTel Enrichment of vended metrics for PromQL querying",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchgetservicelevelindicatorreport": {
     "name": "BatchGetServiceLevelIndicatorReport",
     "description": "Grants permission to batch get service level indicator report",
@@ -19,15 +120,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "callwithbearertoken": {
-    "name": "CallWithBearerToken",
-    "isPermissionOnly": true,
-    "description": "Grants permission to make API calls to CloudWatch using bearer token authentication",
-    "accessLevel": "Write",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -70,11 +162,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "logs:CreateScheduledQuery",
-      "logs:DeleteScheduledQuery",
-      "logs:GetScheduledQuery"
-    ]
+    "dependentActions": []
   },
   "deleteanomalydetector": {
     "name": "DeleteAnomalyDetector",
@@ -121,22 +209,6 @@
     "resourceTypes": [
       {
         "name": "metric-stream",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deletepipelinerule": {
-    "name": "DeletePipelineRule",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete a pipeline rule for CloudWatch pipelines for OTel metric processing",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "dataset",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -368,13 +440,13 @@
       {
         "name": "dataset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getmetricstatistics": {
@@ -408,34 +480,9 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getotelenrichment": {
-    "name": "GetOTelEnrichment",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve the status of OTel Enrichment of vended metrics for PromQL querying",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getservice": {
     "name": "GetService",
     "description": "Grants permission to retrieve information about a service",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "service",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getservicedata": {
-    "name": "GetServiceData",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve service data",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -463,28 +510,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "gettopologydiscoverystatus": {
-    "name": "GetTopologyDiscoveryStatus",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve a CloudWatch topology discovery status",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "gettopologymap": {
     "name": "GetTopologyMap",
     "description": "Grants permission to retrieve a CloudWatch topology map",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "link": {
-    "name": "Link",
-    "isPermissionOnly": true,
-    "description": "Grants permission to share CloudWatch resources with a monitoring account",
-    "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -507,15 +536,6 @@
   "listdashboards": {
     "name": "ListDashboards",
     "description": "Grants permission to return a list of all CloudWatch dashboards in your account",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listentitiesformetric": {
-    "name": "ListEntitiesForMetric",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve all the entities that are emitting a given metric",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -549,13 +569,13 @@
       {
         "name": "dataset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listservicelevelobjectives": {
@@ -666,6 +686,24 @@
         ]
       },
       {
+        "name": "CloudWatch-InsightRule",
+        "resourceTypes": [
+          {
+            "name": "insight-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-ServiceLevelObjective",
+        "resourceTypes": [
+          {
+            "name": "slo",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "CloudWatch-Dashboard",
         "resourceTypes": [
           {
@@ -679,15 +717,6 @@
         "resourceTypes": [
           {
             "name": "dataset",
-            "required": true
-          }
-        ]
-      },
-      {
-        "name": "CloudWatch-InsightRule",
-        "resourceTypes": [
-          {
-            "name": "insight-rule",
             "required": true
           }
         ]
@@ -709,15 +738,6 @@
             "required": true
           }
         ]
-      },
-      {
-        "name": "CloudWatch-ServiceLevelObjective",
-        "resourceTypes": [
-          {
-            "name": "slo",
-            "required": true
-          }
-        ]
       }
     ]
   },
@@ -727,14 +747,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "alarm-mute-rule",
-        "required": true,
+        "name": "alarm",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "alarm",
-        "required": false,
+        "name": "alarm-mute-rule",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -818,13 +838,7 @@
         "name": "alarm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "logs:CreateScheduledQuery",
-          "logs:DeleteScheduledQuery",
-          "logs:GetScheduledQuery",
-          "logs:UpdateScheduledQuery"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -910,22 +924,6 @@
     ],
     "dependentActions": []
   },
-  "putpipelinerule": {
-    "name": "PutPipelineRule",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create or update a pipeline rule for CloudWatch pipelines for OTel metric processing",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "dataset",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "setalarmstate": {
     "name": "SetAlarmState",
     "description": "Grants permission to temporarily set the state of an alarm for testing purposes",
@@ -956,15 +954,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "startotelenrichment": {
-    "name": "StartOTelEnrichment",
-    "isPermissionOnly": true,
-    "description": "Grants permission to enable OTel Enrichment of vended metrics for PromQL querying",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "stopmetricstreams": {
     "name": "StopMetricStreams",
     "description": "Grants permission to stop all CloudWatch metric streams that you specify",
@@ -980,19 +969,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "stopotelenrichment": {
-    "name": "StopOTelEnrichment",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disable OTel Enrichment of vended metrics for PromQL querying",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to an Amazon CloudWatch resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "alarm",
@@ -1060,8 +1040,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": [],
     "scenarios": [
@@ -1079,6 +1059,24 @@
         "resourceTypes": [
           {
             "name": "alarm-mute-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-InsightRule",
+        "resourceTypes": [
+          {
+            "name": "insight-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-ServiceLevelObjective",
+        "resourceTypes": [
+          {
+            "name": "slo",
             "required": true
           }
         ]
@@ -1102,15 +1100,6 @@
         ]
       },
       {
-        "name": "CloudWatch-InsightRule",
-        "resourceTypes": [
-          {
-            "name": "insight-rule",
-            "required": true
-          }
-        ]
-      },
-      {
         "name": "CloudWatch-MetricStream",
         "resourceTypes": [
           {
@@ -1127,22 +1116,13 @@
             "required": true
           }
         ]
-      },
-      {
-        "name": "CloudWatch-ServiceLevelObjective",
-        "resourceTypes": [
-          {
-            "name": "slo",
-            "required": true
-          }
-        ]
       }
     ]
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove a tag from an Amazon CloudWatch resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "alarm",
@@ -1233,6 +1213,24 @@
         ]
       },
       {
+        "name": "CloudWatch-InsightRule",
+        "resourceTypes": [
+          {
+            "name": "insight-rule",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "CloudWatch-ServiceLevelObjective",
+        "resourceTypes": [
+          {
+            "name": "slo",
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "CloudWatch-Dashboard",
         "resourceTypes": [
           {
@@ -1251,15 +1249,6 @@
         ]
       },
       {
-        "name": "CloudWatch-InsightRule",
-        "resourceTypes": [
-          {
-            "name": "insight-rule",
-            "required": true
-          }
-        ]
-      },
-      {
         "name": "CloudWatch-MetricStream",
         "resourceTypes": [
           {
@@ -1273,15 +1262,6 @@
         "resourceTypes": [
           {
             "name": "service",
-            "required": true
-          }
-        ]
-      },
-      {
-        "name": "CloudWatch-ServiceLevelObjective",
-        "resourceTypes": [
-          {
-            "name": "slo",
             "required": true
           }
         ]

@@ -1139,7 +1139,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or overwrite one or more tags for the specified AppStream 2.0 resource. The following resources can be tagged: Image builders, images, fleets, stacks, app blocks and applications",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "app-block",
@@ -1186,15 +1186,15 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to disassociate one or more tags from the specified AppStream 2.0 resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "app-block",
@@ -1267,14 +1267,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "application",
-        "required": true,
+        "name": "app-block",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "app-block",
-        "required": false,
+        "name": "application",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

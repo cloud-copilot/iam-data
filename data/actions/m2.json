@@ -23,10 +23,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "s3:GetObject",
-      "s3:ListBucket"
-    ]
+    "dependentActions": []
   },
   "createdatasetexporttask": {
     "name": "CreateDataSetExportTask",
@@ -41,9 +38,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createdatasetimporttask": {
     "name": "CreateDataSetImportTask",
@@ -58,9 +53,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createdeployment": {
     "name": "CreateDeployment",
@@ -71,12 +64,7 @@
         "name": "Application",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticloadbalancing:AddTags",
-          "elasticloadbalancing:CreateListener",
-          "elasticloadbalancing:CreateTargetGroup",
-          "elasticloadbalancing:RegisterTargets"
-        ]
+        "dependentActions": []
       },
       {
         "name": "Environment",
@@ -97,21 +85,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcAttribute",
-      "ec2:DescribeVpcs",
-      "ec2:ModifyNetworkInterfaceAttribute",
-      "elasticfilesystem:DescribeMountTargets",
-      "elasticloadbalancing:AddTags",
-      "elasticloadbalancing:CreateLoadBalancer",
-      "fsx:DescribeFileSystems",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "deleteapplication": {
     "name": "DeleteApplication",
@@ -126,10 +100,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "elasticloadbalancing:DeleteListener",
-      "elasticloadbalancing:DeleteTargetGroup"
-    ]
+    "dependentActions": []
   },
   "deleteapplicationfromenvironment": {
     "name": "DeleteApplicationFromEnvironment",
@@ -144,10 +115,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "elasticloadbalancing:DeleteListener",
-      "elasticloadbalancing:DeleteTargetGroup"
-    ]
+    "dependentActions": []
   },
   "deleteenvironment": {
     "name": "DeleteEnvironment",
@@ -162,9 +130,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "elasticloadbalancing:DeleteLoadBalancer"
-    ]
+    "dependentActions": []
   },
   "getapplication": {
     "name": "GetApplication",
@@ -494,7 +460,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Application",
@@ -518,7 +484,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Application",
@@ -551,10 +517,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject",
-      "s3:ListBucket"
-    ]
+    "dependentActions": []
   },
   "updateenvironment": {
     "name": "UpdateEnvironment",

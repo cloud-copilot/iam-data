@@ -5,8 +5,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -173,7 +173,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Workflow",
@@ -183,16 +183,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Workflow",
@@ -202,8 +202,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },

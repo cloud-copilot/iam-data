@@ -1,4 +1,141 @@
 {
+  "associatewebacl": {
+    "name": "AssociateWebACL",
+    "description": "Grants permission to associate a web ACL and a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to remove a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatewebacl": {
+    "name": "DisassociateWebACL",
+    "description": "Grants permission to disassociate a web ACL and a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to read a resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getwebaclforresource": {
+    "name": "GetWebACLForResource",
+    "description": "Grants permission to get associated web ACLs for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "api",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "graphql": {
+    "name": "GraphQL",
+    "description": "Grants permission to send a GraphQL query to a GraphQL API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "field",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourcesforwebacl": {
+    "name": "ListResourcesForWebACL",
+    "description": "Grants permission to get associated resources for a web ACL",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to set a resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sourcegraphql": {
+    "name": "SourceGraphQL",
+    "description": "Grants permission to send a GraphQL query to a source API of a merged API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "field",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "graphqlapi",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associateapi": {
     "name": "AssociateApi",
     "description": "Grants permission to attach a GraphQL API to a custom domain name in AppSync",
@@ -44,41 +181,17 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "associatewebacl": {
-    "name": "AssociateWebACL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to associate a web ACL and a resource",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "api",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "graphqlapi",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createapi": {
     "name": "CreateApi",
     "description": "Grants permission to create an API",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createapicache": {
     "name": "CreateApiCache",
@@ -109,8 +222,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -136,8 +249,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -156,13 +269,11 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
+      "appsync:Visibility",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "appsync:Visibility"
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createresolver": {
     "name": "CreateResolver",
@@ -288,15 +399,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deleteresourcepolicy": {
-    "name": "DeleteResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to remove a resource policy",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletetype": {
     "name": "DeleteType",
     "description": "Grants permission to delete a type",
@@ -343,28 +445,6 @@
       {
         "name": "sourceApiAssociation",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "disassociatewebacl": {
-    "name": "DisassociateWebACL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disassociate a web ACL and a resource",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "api",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "graphqlapi",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -580,15 +660,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getresourcepolicy": {
-    "name": "GetResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to read a resource policy",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getschemacreationstatus": {
     "name": "GetSchemaCreationStatus",
     "description": "Grants permission to retrieve the current status of a schema creation operation",
@@ -617,50 +688,6 @@
     "description": "Grants permission to retrieve a type",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getwebaclforresource": {
-    "name": "GetWebACLForResource",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get associated web ACLs for a resource",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "api",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "graphqlapi",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "graphql": {
-    "name": "GraphQL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to send a GraphQL query to a GraphQL API",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "field",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "graphqlapi",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -749,15 +776,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "listresourcesforwebacl": {
-    "name": "ListResourcesForWebACL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get associated resources for a web ACL",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listsourceapiassociations": {
     "name": "ListSourceApiAssociations",
     "description": "Grants permission to list source APIs associated to a given merged API",
@@ -825,42 +843,11 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putresourcepolicy": {
-    "name": "PutResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to set a resource policy",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "setwebacl": {
     "name": "SetWebACL",
     "description": "Grants permission to set a web ACL",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "sourcegraphql": {
-    "name": "SourceGraphQL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to send a GraphQL query to a source API of a merged API",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "field",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "graphqlapi",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -898,7 +885,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "api",
@@ -935,7 +922,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "api",
@@ -963,8 +950,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -977,9 +964,7 @@
         "name": "api",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1062,9 +1047,7 @@
         "name": "graphqlapi",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

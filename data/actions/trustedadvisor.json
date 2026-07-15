@@ -1,4 +1,161 @@
 {
+  "describeaccount": {
+    "name": "DescribeAccount",
+    "description": "Grants permission to view the AWS Support plan and various AWS Trusted Advisor preferences",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeaccountaccess": {
+    "name": "DescribeAccountAccess",
+    "description": "Grants permission to view if the AWS account has enabled or disabled AWS Trusted Advisor",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecheckstatushistorychanges": {
+    "name": "DescribeCheckStatusHistoryChanges",
+    "description": "Grants permission to view the results and changed statuses for checks in the last 30 days",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "checks",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describenotificationpreferences": {
+    "name": "DescribeNotificationPreferences",
+    "description": "Grants permission to view the notification preferences for the AWS account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeorganization": {
+    "name": "DescribeOrganization",
+    "description": "Grants permission to view if the AWS account meets the requirements to enable the organizational view feature",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeorganizationaccounts": {
+    "name": "DescribeOrganizationAccounts",
+    "description": "Grants permission to view the linked AWS accounts that are in the organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describereports": {
+    "name": "DescribeReports",
+    "description": "Grants permission to view details for organizational view reports, such as the report name, runtime, date created, status, and format",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeservicemetadata": {
+    "name": "DescribeServiceMetadata",
+    "description": "Grants permission to view information about organizational view reports, such as the AWS Regions, check categories, check names, and resource statuses",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "excludecheckitems": {
+    "name": "ExcludeCheckItems",
+    "description": "Grants permission to exclude recommendations for AWS Trusted Advisor checks",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "checks",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "generatereport": {
+    "name": "GenerateReport",
+    "description": "Grants permission to create a report for AWS Trusted Advisor checks in your organization",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "includecheckitems": {
+    "name": "IncludeCheckItems",
+    "description": "Grants permission to include recommendations for AWS Trusted Advisor checks",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "checks",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listaccountsforparent": {
+    "name": "ListAccountsForParent",
+    "description": "Grants permission to view, in the Trusted Advisor console, all of the accounts in an AWS organization that are contained by a root or organizational unit (OU)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listorganizationalunitsforparent": {
+    "name": "ListOrganizationalUnitsForParent",
+    "description": "Grants permission to view, in the Trusted Advisor console, all of the organizational units (OUs) in a parent organizational unit or root",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listroots": {
+    "name": "ListRoots",
+    "description": "Grants permission to view, in the Trusted Advisor console, all of the roots that are defined in an AWS organization",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setaccountaccess": {
+    "name": "SetAccountAccess",
+    "description": "Grants permission to enable or disable AWS Trusted Advisor for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setorganizationaccess": {
+    "name": "SetOrganizationAccess",
+    "description": "Grants permission to enable the organizational view feature for AWS Trusted Advisor",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatenotificationpreferences": {
+    "name": "UpdateNotificationPreferences",
+    "description": "Grants permission to update notification preferences for AWS Trusted Advisor",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchupdaterecommendationresourceexclusion": {
     "name": "BatchUpdateRecommendationResourceExclusion",
     "description": "Grants permission to update one or more exclusion status for a list of recommendation resources",
@@ -11,24 +168,6 @@
     "name": "DeleteNotificationConfigurationForDelegatedAdmin",
     "description": "Grants permission to the organization management account to delete email notification preferences from a delegated administrator account for Trusted Advisor Priority",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describeaccount": {
-    "name": "DescribeAccount",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view the AWS Support plan and various AWS Trusted Advisor preferences",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describeaccountaccess": {
-    "name": "DescribeAccountAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view if the AWS account has enabled or disabled AWS Trusted Advisor",
-    "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -51,22 +190,6 @@
   "describecheckrefreshstatuses": {
     "name": "DescribeCheckRefreshStatuses",
     "description": "Grants permission to view the refresh statuses for AWS Trusted Advisor checks",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "checks",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describecheckstatushistorychanges": {
-    "name": "DescribeCheckStatusHistoryChanges",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view the results and changed statuses for checks in the last 30 days",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -110,42 +233,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describenotificationpreferences": {
-    "name": "DescribeNotificationPreferences",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view the notification preferences for the AWS account",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describeorganization": {
-    "name": "DescribeOrganization",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view if the AWS account meets the requirements to enable the organizational view feature",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describeorganizationaccounts": {
-    "name": "DescribeOrganizationAccounts",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view the linked AWS accounts that are in the organization",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describereports": {
-    "name": "DescribeReports",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view details for organizational view reports, such as the report name, runtime, date created, status, and format",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "describerisk": {
     "name": "DescribeRisk",
     "description": "Grants permission to view risk details in AWS Trusted Advisor Priority",
@@ -170,44 +257,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describeservicemetadata": {
-    "name": "DescribeServiceMetadata",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view information about organizational view reports, such as the AWS Regions, check categories, check names, and resource statuses",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "downloadrisk": {
     "name": "DownloadRisk",
     "description": "Grants permission to download a file that contains details about the risk in AWS Trusted Advisor Priority",
     "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "excludecheckitems": {
-    "name": "ExcludeCheckItems",
-    "isPermissionOnly": true,
-    "description": "Grants permission to exclude recommendations for AWS Trusted Advisor checks",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "checks",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "generatereport": {
-    "name": "GenerateReport",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create a report for AWS Trusted Advisor checks in your organization",
-    "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -223,31 +276,6 @@
   "getrecommendation": {
     "name": "GetRecommendation",
     "description": "Grants permission to get a specific Recommendation",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "includecheckitems": {
-    "name": "IncludeCheckItems",
-    "isPermissionOnly": true,
-    "description": "Grants permission to include recommendations for AWS Trusted Advisor checks",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "checks",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listaccountsforparent": {
-    "name": "ListAccountsForParent",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view, in the Trusted Advisor console, all of the accounts in an AWS organization that are contained by a root or organizational unit (OU)",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -285,15 +313,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "listorganizationalunitsforparent": {
-    "name": "ListOrganizationalUnitsForParent",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view, in the Trusted Advisor console, all of the organizational units (OUs) in a parent organizational unit or root",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listrecommendationresources": {
     "name": "ListRecommendationResources",
     "description": "Grants permission to list Resources of a Recommendation",
@@ -306,15 +325,6 @@
     "name": "ListRecommendations",
     "description": "Grants permission to list a filterable set of Recommendations",
     "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listroots": {
-    "name": "ListRoots",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view, in the Trusted Advisor console, all of the roots that are defined in an AWS organization",
-    "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -334,36 +344,9 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "setaccountaccess": {
-    "name": "SetAccountAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to enable or disable AWS Trusted Advisor for the account",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "setorganizationaccess": {
-    "name": "SetOrganizationAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to enable the organizational view feature for AWS Trusted Advisor",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "updatenotificationconfigurations": {
     "name": "UpdateNotificationConfigurations",
     "description": "Grants permission to create or update your email notification preferences for Trusted Advisor Priority",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatenotificationpreferences": {
-    "name": "UpdateNotificationPreferences",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update notification preferences for AWS Trusted Advisor",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],

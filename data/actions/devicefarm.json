@@ -43,13 +43,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createremoteaccesssession": {
     "name": "CreateRemoteAccessSession",
@@ -63,14 +57,14 @@
         "dependentActions": []
       },
       {
-        "name": "project",
-        "required": true,
+        "name": "deviceinstance",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "deviceinstance",
-        "required": false,
+        "name": "project",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -90,13 +84,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createtestgridurl": {
     "name": "CreateTestGridUrl",
@@ -957,14 +945,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "project",
-        "required": true,
+        "name": "devicepool",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "devicepool",
-        "required": false,
+        "name": "project",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -982,11 +970,11 @@
         "name": "Device Pool as filter",
         "resourceTypes": [
           {
-            "name": "devicepool",
+            "name": "project",
             "required": true
           },
           {
-            "name": "project",
+            "name": "devicepool",
             "required": true
           },
           {
@@ -1058,7 +1046,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "device",
@@ -1136,7 +1124,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "device",
@@ -1289,13 +1277,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "updatetestgridproject": {
     "name": "UpdateTestGridProject",
@@ -1310,13 +1292,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "updateupload": {
     "name": "UpdateUpload",

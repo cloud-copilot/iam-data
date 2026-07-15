@@ -1,0 +1,156 @@
+{
+  "registerkey": {
+    "name": "RegisterKey",
+    "description": "Grants permission to register a KMS key to use for a support permit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createsupportpermit": {
+    "name": "CreateSupportPermit",
+    "description": "Grants permission to create a support permit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deletesupportpermit": {
+    "name": "DeleteSupportPermit",
+    "description": "Grants permission to delete a support permit",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "supportpermit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getaction": {
+    "name": "GetAction",
+    "description": "Grants permission to retrieve details about a support action",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsupportpermit": {
+    "name": "GetSupportPermit",
+    "description": "Grants permission to retrieve a support permit",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "supportpermit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listactions": {
+    "name": "ListActions",
+    "description": "Grants permission to list available support actions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsupportpermitrequests": {
+    "name": "ListSupportPermitRequests",
+    "description": "Grants permission to list support permit requests",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsupportpermits": {
+    "name": "ListSupportPermits",
+    "description": "Grants permission to list support permits",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtagsforresource": {
+    "name": "ListTagsForResource",
+    "description": "Grants permission to list tags for a resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "supportpermit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "rejectsupportpermitrequest": {
+    "name": "RejectSupportPermitRequest",
+    "description": "Grants permission to reject a support permit request",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "supportpermitrequest",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "tagresource": {
+    "name": "TagResource",
+    "description": "Grants permission to add tags to a resource",
+    "accessLevel": "Tagging, Write",
+    "resourceTypes": [
+      {
+        "name": "supportpermit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "untagresource": {
+    "name": "UntagResource",
+    "description": "Grants permission to remove tags from a resource",
+    "accessLevel": "Tagging, Write",
+    "resourceTypes": [
+      {
+        "name": "supportpermit",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  }
+}

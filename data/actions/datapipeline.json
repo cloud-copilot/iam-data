@@ -1,4 +1,20 @@
 {
+  "getaccountlimits": {
+    "name": "GetAccountLimits",
+    "description": "Grants permission to call GetAccountLimits",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putaccountlimits": {
+    "name": "PutAccountLimits",
+    "description": "Grants permission to call PutAccountLimits",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "activatepipeline": {
     "name": "ActivatePipeline",
     "description": "Grants permission to validate the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails",
@@ -21,7 +37,7 @@
   "addtags": {
     "name": "AddTags",
     "description": "Grants permission to add or modify tags for the specified pipeline",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "pipeline",
@@ -31,10 +47,10 @@
       }
     ],
     "conditionKeys": [
-      "datapipeline:PipelineCreator",
-      "datapipeline:Tag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -48,9 +64,7 @@
       "aws:TagKeys",
       "datapipeline:Tag/${TagKey}"
     ],
-    "dependentActions": [
-      "datapipeline:AddTags"
-    ]
+    "dependentActions": []
   },
   "deactivatepipeline": {
     "name": "DeactivatePipeline",
@@ -143,15 +157,6 @@
     ],
     "dependentActions": []
   },
-  "getaccountlimits": {
-    "name": "GetAccountLimits",
-    "isPermissionOnly": true,
-    "description": "Grants permission to call GetAccountLimits",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getpipelinedefinition": {
     "name": "GetPipelineDefinition",
     "description": "Grants permission to gets the definition of the specified pipeline",
@@ -187,15 +192,6 @@
     "conditionKeys": [
       "datapipeline:workerGroup"
     ],
-    "dependentActions": []
-  },
-  "putaccountlimits": {
-    "name": "PutAccountLimits",
-    "isPermissionOnly": true,
-    "description": "Grants permission to call PutAccountLimits",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "putpipelinedefinition": {
@@ -238,7 +234,7 @@
   "removetags": {
     "name": "RemoveTags",
     "description": "Grants permission to remove existing tags from the specified pipeline",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "pipeline",
@@ -248,10 +244,10 @@
       }
     ],
     "conditionKeys": [
-      "datapipeline:PipelineCreator",
-      "datapipeline:Tag/${TagKey}",
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "datapipeline:PipelineCreator",
+      "datapipeline:Tag/${TagKey}"
     ],
     "dependentActions": []
   },

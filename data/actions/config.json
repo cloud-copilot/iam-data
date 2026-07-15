@@ -971,11 +971,7 @@
         "name": "ConfigurationAggregator",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "organizations:EnableAWSServiceAccess",
-          "organizations:ListDelegatedAdministrators"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -993,9 +989,7 @@
         "name": "ConfigurationRecorder",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1017,13 +1011,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "s3:GetObject",
-      "s3:ListBucket",
-      "ssm:GetDocument"
-    ]
+    "dependentActions": []
   },
   "putconnector": {
     "name": "PutConnector",
@@ -1034,9 +1022,7 @@
         "name": "Connector",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1089,12 +1075,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "organizations:EnableAWSServiceAccess",
-      "organizations:ListDelegatedAdministrators"
-    ]
+    "dependentActions": []
   },
   "putorganizationconformancepack": {
     "name": "PutOrganizationConformancePack",
@@ -1109,13 +1090,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "organizations:EnableAWSServiceAccess",
-      "organizations:ListDelegatedAdministrators",
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "putremediationconfigurations": {
     "name": "PutRemediationConfigurations",
@@ -1130,9 +1105,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "putremediationexceptions": {
     "name": "PutRemediationExceptions",
@@ -1168,10 +1141,7 @@
       "aws:TagKeys",
       "config:ConfigurationRecorderServicePrincipal"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "putstoredquery": {
     "name": "PutStoredQuery",
@@ -1200,9 +1170,7 @@
         "name": "Connector",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "config:GetConnector"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1271,9 +1239,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "startresourceevaluation": {
     "name": "StartResourceEvaluation",
@@ -1281,9 +1247,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:DescribeType"
-    ]
+    "dependentActions": []
   },
   "stopconfigurationrecorder": {
     "name": "StopConfigurationRecorder",
@@ -1303,7 +1267,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to associate the specified tags to a resource with the specified resourceArn",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "AggregationAuthorization",
@@ -1369,7 +1333,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to delete specified tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "AggregationAuthorization",

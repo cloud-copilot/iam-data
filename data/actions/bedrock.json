@@ -1,17 +1,8 @@
 {
-  "agenticretrievestream": {
-    "name": "AgenticRetrieveStream",
-    "description": "Grants permission to perform agentic retrieve with streaming from retrievers",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "allowvendedlogdeliveryforresource": {
     "name": "AllowVendedLogDeliveryForResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to configure vended log delivery for a knowledge base",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "knowledge-base",
@@ -20,6 +11,199 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatethirdpartyknowledgebase": {
+    "name": "AssociateThirdPartyKnowledgeBase",
+    "description": "Grants permission to use 3rd party platform to store knowledge data",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "bedrock:ThirdPartyKnowledgeBaseCredentialsSecretArn"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Deletes a previously created Bedrock resource policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getblueprintrecommendation": {
+    "name": "GetBlueprintRecommendation",
+    "description": "Grants permission to retrieve blueprint recommendation",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Gets the resource policy document for a Bedrock resource",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeautomatedreasoningpolicy": {
+    "name": "InvokeAutomatedReasoningPolicy",
+    "description": "Grants permission to invoke an Automated Reasoning policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "automated-reasoning-policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "automated-reasoning-policy-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeblueprintrecommendationasync": {
+    "name": "InvokeBlueprintRecommendationAsync",
+    "description": "Grants permission to invoke blueprint recommendations asynchronously",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-automation-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokebuilder": {
+    "name": "InvokeBuilder",
+    "description": "Grants permission to use the conversational builder which aids in building supported bedrock resources",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Adds a resource policy for a Bedrock resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "custom-model",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "knowledge-base",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "renderprompt": {
+    "name": "RenderPrompt",
+    "description": "Grants permission to render an existing prompt or its version",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "prompt",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "prompt-version",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "agenticretrievestream": {
+    "name": "AgenticRetrieveStream",
+    "description": "Grants permission to perform agentic retrieve with streaming from retrievers",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -78,17 +262,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
-  },
-  "associatethirdpartyknowledgebase": {
-    "name": "AssociateThirdPartyKnowledgeBase",
-    "isPermissionOnly": true,
-    "description": "Grants permission to use 3rd party platform to store knowledge data",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "bedrock:ThirdPartyKnowledgeBaseCredentialsSecretArn"
-    ],
     "dependentActions": []
   },
   "batchdeleteadvancedpromptoptimizationjob": {
@@ -1215,40 +1388,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deleteresourcepolicy": {
-    "name": "DeleteResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Deletes a previously created Bedrock resource policy",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "custom-model",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "guardrail",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "guardrail-profile",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "knowledge-base",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletesession": {
     "name": "DeleteSession",
     "description": "Grants permission to delete a Session that you created earlier",
@@ -1661,15 +1800,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getblueprintrecommendation": {
-    "name": "GetBlueprintRecommendation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve blueprint recommendation",
-    "accessLevel": "Read",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2210,40 +2340,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getresourcepolicy": {
-    "name": "GetResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Gets the resource policy document for a Bedrock resource",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "custom-model",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "guardrail",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "guardrail-profile",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "knowledge-base",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getsession": {
     "name": "GetSession",
     "description": "Grants permission to retrieve an existing session",
@@ -2297,28 +2393,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "invokeautomatedreasoningpolicy": {
-    "name": "InvokeAutomatedReasoningPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke an Automated Reasoning policy",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "automated-reasoning-policy",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "automated-reasoning-policy-version",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "invokeblueprintoptimizationasync": {
     "name": "InvokeBlueprintOptimizationAsync",
     "description": "Grants permission to invoke an async job to perform blueprint optimization",
@@ -2341,31 +2415,6 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": []
-  },
-  "invokeblueprintrecommendationasync": {
-    "name": "InvokeBlueprintRecommendationAsync",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke blueprint recommendations asynchronously",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "data-automation-profile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "invokebuilder": {
-    "name": "InvokeBuilder",
-    "isPermissionOnly": true,
-    "description": "Grants permission to use the conversational builder which aids in building supported bedrock resources",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "invokedataautomation": {
@@ -2549,11 +2598,11 @@
       }
     ],
     "conditionKeys": [
-      "bedrock:InferenceProfileArn",
-      "bedrock:PromptRouterArn",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "bedrock:GuardrailIdentifier",
+      "bedrock:InferenceProfileArn",
+      "bedrock:PromptRouterArn",
       "bedrock:ServiceTier"
     ],
     "dependentActions": []
@@ -2625,9 +2674,9 @@
       }
     ],
     "conditionKeys": [
+      "bedrock:GuardrailIdentifier",
       "bedrock:InferenceProfileArn",
       "bedrock:PromptRouterArn",
-      "bedrock:GuardrailIdentifier",
       "bedrock:ServiceTier"
     ],
     "dependentActions": []
@@ -3504,43 +3553,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putresourcepolicy": {
-    "name": "PutResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Adds a resource policy for a Bedrock resource",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "custom-model",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "guardrail",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "guardrail-profile",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "knowledge-base",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
   "putusecaseformodelaccess": {
     "name": "PutUseCaseForModelAccess",
     "description": "Grants permission to put a use case for model access",
@@ -3556,28 +3568,6 @@
     "resourceTypes": [
       {
         "name": "bedrock-marketplace-model-endpoint",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "renderprompt": {
-    "name": "RenderPrompt",
-    "isPermissionOnly": true,
-    "description": "Grants permission to render an existing prompt or its version",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "prompt",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "prompt-version",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3788,7 +3778,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to Tag a Bedrock resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "advanced-prompt-optimization-job",
@@ -3978,15 +3968,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to Untag a Bedrock resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "advanced-prompt-optimization-job",
@@ -4363,12 +4353,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "data-automation-project",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "blueprint",
         "required": false,
         "conditionKeys": [],
@@ -4376,7 +4360,13 @@
       },
       {
         "name": "data-automation-project",
-        "required": false,
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "data-automation-project",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -4435,12 +4425,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "guardrail",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "automated-reasoning-policy",
         "required": false,
         "conditionKeys": [],
@@ -4449,6 +4433,12 @@
       {
         "name": "automated-reasoning-policy-version",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "guardrail",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },

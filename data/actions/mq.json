@@ -1,44 +1,6 @@
 {
-  "createbroker": {
-    "name": "CreateBroker",
-    "description": "Grants permission to create a broker",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateVpcEndpoint",
-      "ec2:DescribeInternetGateways",
-      "ec2:DescribeNetworkInterfacePermissions",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcEndpoints",
-      "ec2:DescribeVpcs",
-      "ec2:ModifyNetworkInterfaceAttribute",
-      "iam:CreateServiceLinkedRole",
-      "route53:AssociateVPCWithHostedZone"
-    ]
-  },
-  "createconfiguration": {
-    "name": "CreateConfiguration",
-    "description": "Grants permission to create a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and engine version)",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
   "createreplicabroker": {
     "name": "CreateReplicaBroker",
-    "isPermissionOnly": true,
     "description": "Grants permission to create a replica broker",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -52,10 +14,47 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatebrokeraccessconfiguration": {
+    "name": "UpdateBrokerAccessConfiguration",
+    "description": "Grants permission to update RabbitMQ broker authentication and authorization configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "brokers",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbroker": {
+    "name": "CreateBroker",
+    "description": "Grants permission to create a broker",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createconfiguration": {
+    "name": "CreateConfiguration",
+    "description": "Grants permission to create a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and engine version)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createtags": {
     "name": "CreateTags",
     "description": "Grants permission to create tags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "brokers",
@@ -104,12 +103,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DeleteNetworkInterface",
-      "ec2:DeleteNetworkInterfacePermission",
-      "ec2:DeleteVpcEndpoints",
-      "ec2:DetachNetworkInterface"
-    ]
+    "dependentActions": []
   },
   "deleteconfiguration": {
     "name": "DeleteConfiguration",
@@ -129,7 +123,7 @@
   "deletetags": {
     "name": "DeleteTags",
     "description": "Grants permission to delete tags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "brokers",
@@ -355,22 +349,6 @@
   "updatebroker": {
     "name": "UpdateBroker",
     "description": "Grants permission to add a pending configuration change to a broker",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "brokers",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatebrokeraccessconfiguration": {
-    "name": "UpdateBrokerAccessConfiguration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update RabbitMQ broker authentication and authorization configuration",
     "accessLevel": "Write",
     "resourceTypes": [
       {

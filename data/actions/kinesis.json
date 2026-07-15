@@ -1,21 +1,33 @@
 {
+  "injectapierror": {
+    "name": "InjectApiError",
+    "description": "Grants permission to temporarily inject errors for target API requests",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "kinesis:FisActionId",
+      "kinesis:FisInjectPercentage",
+      "kinesis:FisTargetArns"
+    ],
+    "dependentActions": []
+  },
   "addtagstostream": {
     "name": "AddTagsToStream",
     "description": "Grants permission to add or update tags for the specified Amazon Kinesis stream. Each stream can have up to 50 tags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createstream": {
@@ -26,15 +38,15 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "decreasestreamretentionperiod": {
@@ -45,13 +57,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteresourcepolicy": {
@@ -87,13 +99,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deregisterstreamconsumer": {
@@ -104,13 +116,13 @@
       {
         "name": "consumer",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeaccountsettings": {
@@ -137,13 +149,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describestreamconsumer": {
@@ -154,13 +166,13 @@
       {
         "name": "consumer",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describestreamsummary": {
@@ -171,13 +183,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "disableenhancedmonitoring": {
@@ -204,13 +216,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getresourcepolicy": {
@@ -246,13 +258,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "increasestreamretentionperiod": {
@@ -263,26 +275,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
-  "injectapierror": {
-    "name": "InjectApiError",
-    "isPermissionOnly": true,
-    "description": "Grants permission to temporarily inject errors for target API requests",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "kinesis:FisActionId",
-      "kinesis:FisTargetArns",
-      "kinesis:FisInjectPercentage"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listshards": {
@@ -293,13 +292,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "liststreamconsumers": {
@@ -310,13 +309,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "liststreams": {
@@ -360,13 +359,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "mergeshards": {
@@ -377,13 +376,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putrecord": {
@@ -394,13 +393,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putrecords": {
@@ -411,13 +410,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "putresourcepolicy": {
@@ -453,33 +452,33 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "removetagsfromstream": {
     "name": "RemoveTagsFromStream",
     "description": "Grants permission to remove tags from the specified Kinesis data stream. Removed tags are deleted and cannot be recovered after this operation successfully completes",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "splitshard": {
@@ -490,13 +489,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "startstreamencryption": {
@@ -553,27 +552,27 @@
       {
         "name": "consumer",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or update tags for the specified Amazon Kinesis resource. Each resource can have up to 50 tags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "consumer",
         "required": true,
         "conditionKeys": [
-          "aws:TagKeys",
           "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -581,9 +580,9 @@
         "name": "stream",
         "required": true,
         "conditionKeys": [
-          "aws:TagKeys",
           "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
@@ -594,14 +593,14 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from the specified Kinesis data resource. Removed tags are deleted and cannot be recovered after this operation successfully completes",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "consumer",
         "required": true,
         "conditionKeys": [
-          "aws:TagKeys",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -609,8 +608,8 @@
         "name": "stream",
         "required": true,
         "conditionKeys": [
-          "aws:TagKeys",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
@@ -634,13 +633,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateshardcount": {
@@ -667,13 +666,13 @@
       {
         "name": "stream",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   }
 }

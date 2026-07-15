@@ -1,4 +1,59 @@
 {
+  "gettabledata": {
+    "name": "GetTableData",
+    "description": "Grants permission to read metadata and data objects from a table storage endpoint using S3 APIs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "puttabledata": {
+    "name": "PutTableData",
+    "description": "Grants permission to write metadata and data objects to a table storage endpoint using S3 APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:namespace",
+      "s3tables:tableName"
+    ],
+    "dependentActions": []
+  },
+  "puttableencryption": {
+    "name": "PutTableEncryption",
+    "description": "Grants permission to put encryption configuration on a table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Table",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3tables:KMSKeyArn",
+      "s3tables:SSEAlgorithm",
+      "s3tables:namespace"
+    ],
+    "dependentActions": []
+  },
   "createnamespace": {
     "name": "CreateNamespace",
     "description": "Grants permission to create a namespace",
@@ -27,13 +82,13 @@
       }
     ],
     "conditionKeys": [
-      "s3tables:namespace",
-      "s3tables:SSEAlgorithm",
-      "s3tables:KMSKeyArn",
-      "s3tables:TableBucketTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "s3tables:KMSKeyArn",
+      "s3tables:SSEAlgorithm",
+      "s3tables:TableBucketTag/${TagKey}",
+      "s3tables:namespace"
     ],
     "dependentActions": []
   },
@@ -50,12 +105,12 @@
       }
     ],
     "conditionKeys": [
-      "s3tables:SSEAlgorithm",
-      "s3tables:KMSKeyArn",
-      "s3tables:TableBucketTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "s3tables:KMSKeyArn",
+      "s3tables:SSEAlgorithm",
+      "s3tables:TableBucketTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -142,7 +197,7 @@
   "deletetablebucketpolicy": {
     "name": "DeleteTableBucketPolicy",
     "description": "Grants permission to delete a policy on a table bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "TableBucket",
@@ -172,7 +227,7 @@
   "deletetablepolicy": {
     "name": "DeleteTablePolicy",
     "description": "Grants permission to delete a policy on a table",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "Table",
@@ -343,25 +398,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
-  },
-  "gettabledata": {
-    "name": "GetTableData",
-    "isPermissionOnly": true,
-    "description": "Grants permission to read metadata and data objects from a table storage endpoint using S3 APIs",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "Table",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "s3tables:namespace",
-      "s3tables:tableName"
-    ],
     "dependentActions": []
   },
   "gettableencryption": {
@@ -659,7 +695,7 @@
   "puttablebucketpolicy": {
     "name": "PutTableBucketPolicy",
     "description": "Grants permission to create or overwrite a policy on a table bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "TableBucket",
@@ -703,45 +739,6 @@
     ],
     "dependentActions": []
   },
-  "puttabledata": {
-    "name": "PutTableData",
-    "isPermissionOnly": true,
-    "description": "Grants permission to write metadata and data objects to a table storage endpoint using S3 APIs",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Table",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "s3tables:namespace",
-      "s3tables:tableName"
-    ],
-    "dependentActions": []
-  },
-  "puttableencryption": {
-    "name": "PutTableEncryption",
-    "isPermissionOnly": true,
-    "description": "Grants permission to put encryption configuration on a table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Table",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "s3tables:namespace",
-      "s3tables:SSEAlgorithm",
-      "s3tables:KMSKeyArn"
-    ],
-    "dependentActions": []
-  },
   "puttablemaintenanceconfiguration": {
     "name": "PutTableMaintenanceConfiguration",
     "description": "Grants permission to put a maintenance configuration on a table",
@@ -763,7 +760,7 @@
   "puttablepolicy": {
     "name": "PutTablePolicy",
     "description": "Grants permission to create or overwrite a policy on a table",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "Table",
@@ -827,9 +824,9 @@
       }
     ],
     "conditionKeys": [
+      "s3tables:StorageClass",
       "s3tables:namespace",
-      "s3tables:tableName",
-      "s3tables:StorageClass"
+      "s3tables:tableName"
     ],
     "dependentActions": []
   },
@@ -854,7 +851,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a S3 Tables resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Table",
@@ -870,9 +867,9 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "s3tables:TableBucketTag/${TagKey}"
     ],
     "dependentActions": []
@@ -880,7 +877,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a S3 Tables resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Table",
@@ -896,8 +893,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "s3tables:TableBucketTag/${TagKey}"
     ],
     "dependentActions": []

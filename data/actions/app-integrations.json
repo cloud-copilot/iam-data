@@ -1,18 +1,14 @@
 {
-  "createapplication": {
-    "name": "CreateApplication",
-    "description": "Grants permission to create a new Application",
+  "createapplicationassociation": {
+    "name": "CreateApplicationAssociation",
+    "description": "Grants permission to create an ApplicationAssociation",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "application",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -21,10 +17,72 @@
     ],
     "dependentActions": []
   },
-  "createapplicationassociation": {
-    "name": "CreateApplicationAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an ApplicationAssociation",
+  "createeventintegrationassociation": {
+    "name": "CreateEventIntegrationAssociation",
+    "description": "Grants permission to create an EventIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-integration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "deleteapplicationassociation": {
+    "name": "DeleteApplicationAssociation",
+    "description": "Grants permission to delete an ApplicationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataintegrationassociation": {
+    "name": "DeleteDataIntegrationAssociation",
+    "description": "Grants permission to delete a DataIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-integration-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteeventintegrationassociation": {
+    "name": "DeleteEventIntegrationAssociation",
+    "description": "Grants permission to delete an EventIntegrationAssociation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-integration-association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createapplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create a new Application",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -49,19 +107,7 @@
         "name": "data-integration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "appflow:DeleteFlow",
-          "appflow:DescribeConnectorProfiles",
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "kms:CreateGrant",
-          "profile:GetDomain",
-          "profile:GetProfileObjectType",
-          "s3:GetBucketNotification",
-          "s3:GetEncryptionConfiguration",
-          "s3:PutBucketNotification"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -79,16 +125,7 @@
         "name": "data-integration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "appflow:CreateFlow",
-          "appflow:DeleteFlow",
-          "appflow:DescribeConnectorEntity",
-          "appflow:DescribeConnectorProfiles",
-          "appflow:TagResource",
-          "appflow:UseConnectorProfile",
-          "profile:CreateSnapshot",
-          "profile:GetSnapshot"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -121,33 +158,7 @@
         "name": "event-integration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy"
-        ]
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
-  "createeventintegrationassociation": {
-    "name": "CreateEventIntegrationAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an EventIntegrationAssociation",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "event-integration",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "events:PutRule",
-          "events:PutTargets"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -173,22 +184,6 @@
     ],
     "dependentActions": []
   },
-  "deleteapplicationassociation": {
-    "name": "DeleteApplicationAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete an ApplicationAssociation",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "application-association",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletedataintegration": {
     "name": "DeleteDataIntegration",
     "description": "Grants permission to delete a DataIntegration",
@@ -206,30 +201,6 @@
     ],
     "dependentActions": []
   },
-  "deletedataintegrationassociation": {
-    "name": "DeleteDataIntegrationAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete a DataIntegrationAssociation",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "data-integration-association",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "appflow:CreateFlow",
-      "appflow:DeleteFlow",
-      "appflow:DescribeConnectorEntity",
-      "appflow:DescribeConnectorProfiles",
-      "appflow:StopFlow",
-      "appflow:TagResource",
-      "appflow:UseConnectorProfile"
-    ]
-  },
   "deleteeventintegration": {
     "name": "DeleteEventIntegration",
     "description": "Grants permission to delete an EventIntegration",
@@ -246,26 +217,6 @@
       "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
-  },
-  "deleteeventintegrationassociation": {
-    "name": "DeleteEventIntegrationAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete an EventIntegrationAssociation",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "event-integration-association",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "events:DeleteRule",
-      "events:ListTargetsByRule",
-      "events:RemoveTargets"
-    ]
   },
   "getapplication": {
     "name": "GetApplication",
@@ -480,15 +431,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "profile:CreateSegmentSnapshot",
-      "profile:CreateSnapshot"
-    ]
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an Amazon AppIntegration resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "application",
@@ -528,16 +476,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag an Amazon AppIntegration resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "application",
@@ -577,8 +525,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -625,10 +573,7 @@
         "name": "data-integration-association",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "profile:CreateSnapshot",
-          "profile:GetSnapshot"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

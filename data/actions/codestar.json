@@ -1,13 +1,66 @@
 {
-  "associateteammember": {
-    "name": "AssociateTeamMember",
-    "description": "Grants permission to add a user to the team for an AWS CodeStar project",
-    "accessLevel": "Permissions management",
+  "deleteextendedaccess": {
+    "name": "DeleteExtendedAccess",
+    "description": "Grants permission to extended delete APIs",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getextendedaccess": {
+    "name": "GetExtendedAccess",
+    "description": "Grants permission to extended read APIs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putextendedaccess": {
+    "name": "PutExtendedAccess",
+    "description": "Grants permission to extended write APIs",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associateteammember": {
+    "name": "AssociateTeamMember",
+    "description": "Grants permission to add a user to the team for an AWS CodeStar project",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -17,7 +70,7 @@
   "createproject": {
     "name": "CreateProject",
     "description": "Grants permission to create a project with minimal structure, customer policies, and no resources",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
@@ -33,23 +86,9 @@
       {
         "name": "user",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deleteextendedaccess": {
-    "name": "DeleteExtendedAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to extended delete APIs",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "project",
-        "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "iam:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -59,12 +98,14 @@
   "deleteproject": {
     "name": "DeleteProject",
     "description": "Grants permission to delete a project, including project resources. Does not delete users associated with the project, but does delete the IAM roles that allowed access to the project",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -79,7 +120,9 @@
       {
         "name": "user",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "iam:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -94,7 +137,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -112,28 +157,14 @@
   "disassociateteammember": {
     "name": "DisassociateTeamMember",
     "description": "Grants permission to remove a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getextendedaccess": {
-    "name": "GetExtendedAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to extended read APIs",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "project",
-        "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -156,7 +187,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -171,7 +204,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -186,7 +221,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -201,55 +238,41 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putextendedaccess": {
-    "name": "PutExtendedAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to extended write APIs",
-    "accessLevel": "Write",
+  "tagproject": {
+    "name": "TagProject",
+    "description": "Grants permission to add tags to a project in CodeStar",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
     "dependentActions": []
   },
-  "tagproject": {
-    "name": "TagProject",
-    "description": "Grants permission to add tags to a project in CodeStar",
-    "accessLevel": "Tagging",
-    "resourceTypes": [
-      {
-        "name": "project",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
   "untagproject": {
     "name": "UntagProject",
     "description": "Grants permission to remove tags from a project in CodeStar",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateproject": {
@@ -260,7 +283,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -270,12 +295,14 @@
   "updateteammember": {
     "name": "UpdateTeamMember",
     "description": "Grants permission to update team member attributes within a CodeStar project",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -290,7 +317,9 @@
       {
         "name": "user",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "iam:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],

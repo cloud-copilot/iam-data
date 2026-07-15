@@ -27,14 +27,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:DescribeStacks",
-      "cloudformation:ListStackResources",
-      "resource-groups:GetGroup",
-      "resource-groups:ListGroupResources",
-      "servicecatalog:GetApplication",
-      "servicecatalog:ListAssociatedResources"
-    ]
+    "dependentActions": []
   },
   "batchupdaterecommendationstatus": {
     "name": "BatchUpdateRecommendationStatus",
@@ -60,9 +53,7 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -109,13 +100,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createinputsource": {
@@ -126,13 +117,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createpolicy": {
@@ -143,14 +134,14 @@
       {
         "name": "policy",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createrecommendationtemplate": {
@@ -162,11 +153,7 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "s3:CreateBucket",
-          "s3:ListBucket",
-          "s3:PutObject"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -183,13 +170,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createresiliencypolicy": {
@@ -216,19 +203,19 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "policy",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "service",
         "required": true,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "policy",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -252,13 +239,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createservicefunctionresources": {
@@ -269,13 +256,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createsystem": {
@@ -286,14 +273,14 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createuserjourney": {
@@ -302,16 +289,16 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "system",
-        "required": true,
+        "name": "policy",
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
       {
-        "name": "policy",
-        "required": false,
+        "name": "system",
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
@@ -404,13 +391,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteinputsource": {
@@ -421,13 +408,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletepolicy": {
@@ -438,13 +425,13 @@
       {
         "name": "policy",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleterecommendationtemplate": {
@@ -485,13 +472,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteservicefunction": {
@@ -502,13 +489,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteservicefunctionresources": {
@@ -519,13 +506,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletesystem": {
@@ -536,13 +523,13 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteuserjourney": {
@@ -553,13 +540,13 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeapp": {
@@ -728,13 +715,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getpolicy": {
@@ -745,13 +732,13 @@
       {
         "name": "policy",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getservice": {
@@ -762,13 +749,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getsystem": {
@@ -779,13 +766,13 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getuserjourney": {
@@ -796,13 +783,13 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "importapp": {
@@ -870,14 +857,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:DescribeStacks",
-      "cloudformation:ListStackResources",
-      "resource-groups:GetGroup",
-      "resource-groups:ListGroupResources",
-      "servicecatalog:GetApplication",
-      "servicecatalog:ListAssociatedResources"
-    ]
+    "dependentActions": []
   },
   "listalarmrecommendations": {
     "name": "ListAlarmRecommendations",
@@ -1053,13 +1033,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listdependencies": {
@@ -1078,13 +1058,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listfailuremodefindings": {
@@ -1095,13 +1075,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listinputsources": {
@@ -1112,13 +1092,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listmetrics": {
@@ -1160,13 +1140,13 @@
       {
         "name": "service",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listresiliencypolicies": {
@@ -1200,13 +1180,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listserviceevents": {
@@ -1217,13 +1197,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listservicefunctions": {
@@ -1234,13 +1214,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listservicetopologyedges": {
@@ -1251,13 +1231,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listservices": {
@@ -1299,13 +1279,13 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listsystems": {
@@ -1405,13 +1385,13 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "publishappversion": {
@@ -1487,14 +1467,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:DescribeStacks",
-      "cloudformation:ListStackResources",
-      "resource-groups:GetGroup",
-      "resource-groups:ListGroupResources",
-      "servicecatalog:GetApplication",
-      "servicecatalog:ListAssociatedResources"
-    ]
+    "dependentActions": []
   },
   "startappassessment": {
     "name": "StartAppAssessment",
@@ -1505,23 +1478,7 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cloudformation:DescribeStacks",
-          "cloudformation:ListStackResources",
-          "cloudwatch:DescribeAlarms",
-          "cloudwatch:GetMetricData",
-          "cloudwatch:GetMetricStatistics",
-          "cloudwatch:PutMetricData",
-          "ec2:DescribeRegions",
-          "fis:GetExperimentTemplate",
-          "fis:ListExperimentTemplates",
-          "fis:ListExperiments",
-          "resource-groups:GetGroup",
-          "resource-groups:ListGroupResources",
-          "servicecatalog:GetApplication",
-          "servicecatalog:ListAssociatedResources",
-          "ssm:GetParametersByPath"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1538,13 +1495,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "startmetricsexport": {
@@ -1573,7 +1530,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to assign a resource tag",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "app-assessment",
@@ -1627,7 +1584,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "app-assessment",
@@ -1690,9 +1647,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateappversion": {
     "name": "UpdateAppVersion",
@@ -1747,13 +1702,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatedependency": {
@@ -1764,13 +1719,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatefailuremodefinding": {
@@ -1781,13 +1736,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatepolicy": {
@@ -1798,13 +1753,13 @@
       {
         "name": "policy",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateresiliencypolicy": {
@@ -1828,16 +1783,16 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "service",
-        "required": true,
+        "name": "policy",
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
       {
-        "name": "policy",
-        "required": false,
+        "name": "service",
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
@@ -1863,13 +1818,13 @@
       {
         "name": "service",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatesystem": {
@@ -1880,13 +1835,13 @@
       {
         "name": "system",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateuserjourney": {
@@ -1895,16 +1850,16 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "system",
-        "required": true,
+        "name": "policy",
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
       {
-        "name": "policy",
-        "required": false,
+        "name": "system",
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],

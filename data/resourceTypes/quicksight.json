@@ -3,16 +3,16 @@
     "key": "account",
     "arn": "arn:${Partition}:quicksight:${Region}:${Account}:account/${ResourceId}"
   },
-  "user": {
-    "key": "user",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}",
+  "actionconnector": {
+    "key": "actionconnector",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:action-connector/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "group": {
-    "key": "group",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}"
+  "agent": {
+    "key": "agent",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:agent/${ResourceId}"
   },
   "analysis": {
     "key": "analysis",
@@ -21,33 +21,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "dashboard": {
-    "key": "dashboard",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "template": {
-    "key": "template",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "vpcconnection": {
-    "key": "vpcconnection",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:vpcConnection/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "oauthclientapplication": {
-    "key": "oauthClientApplication",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:oauthClientApplication/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "approvalpolicy": {
+    "key": "approvalPolicy",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:approval-policy/${ResourceId}"
   },
   "assetbundleexportjob": {
     "key": "assetBundleExportJob",
@@ -57,87 +33,32 @@
     "key": "assetBundleImportJob",
     "arn": "arn:${Partition}:quicksight:${Region}:${Account}:asset-bundle-import-job/${ResourceId}"
   },
-  "datasource": {
-    "key": "datasource",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:datasource/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "dataset": {
-    "key": "dataset",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dataset/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "ingestion": {
-    "key": "ingestion",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dataset/${DatasetId}/ingestion/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "refreshschedule": {
-    "key": "refreshschedule",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dataset/${DatasetId}/refresh-schedule/${ResourceId}"
-  },
-  "theme": {
-    "key": "theme",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:theme/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "assignment": {
     "key": "assignment",
     "arn": "arn:${Partition}:quicksight::${Account}:assignment/${ResourceId}"
   },
-  "customization": {
-    "key": "customization",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:customization/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "automation": {
+    "key": "automation",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:automation-group/${AutomationGroupId}/automation/${ResourceId}"
   },
-  "namespace": {
-    "key": "namespace",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:namespace/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "automationgroup": {
+    "key": "automationGroup",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:automation-group/${ResourceId}"
   },
-  "folder": {
-    "key": "folder",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:folder/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "emailcustomizationtemplate": {
-    "key": "emailCustomizationTemplate",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:email-customization-template/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "topic": {
-    "key": "topic",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:topic/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "dashboardsnapshotjob": {
-    "key": "dashboardSnapshotJob",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${DashboardId}/snapshot-job/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "automationjob": {
+    "key": "automationJob",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:automation-group/${AutomationGroupId}/automation/${AutomationId}/job/${ResourceId}"
   },
   "brand": {
     "key": "brand",
     "arn": "arn:${Partition}:quicksight:${Region}:${Account}:brand/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "customization": {
+    "key": "customization",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:customization/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -149,16 +70,40 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "actionconnector": {
-    "key": "actionconnector",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:action-connector/${ResourceId}",
+  "dashboard": {
+    "key": "dashboard",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "agent": {
-    "key": "agent",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:agent/${ResourceId}"
+  "dashboardsnapshotjob": {
+    "key": "dashboardSnapshotJob",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${DashboardId}/snapshot-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "dataset": {
+    "key": "dataset",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dataset/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "datasource": {
+    "key": "datasource",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:datasource/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "emailcustomizationtemplate": {
+    "key": "emailCustomizationTemplate",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:email-customization-template/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "extensionaccess": {
     "key": "extensionaccess",
@@ -171,17 +116,23 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "automation": {
-    "key": "automation",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:automation-group/${AutomationGroupId}/automation/${ResourceId}"
+  "folder": {
+    "key": "folder",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:folder/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
-  "automationjob": {
-    "key": "automationJob",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:automation-group/${AutomationGroupId}/automation/${AutomationId}/job/${ResourceId}"
+  "group": {
+    "key": "group",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}"
   },
-  "automationgroup": {
-    "key": "automationGroup",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:automation-group/${ResourceId}"
+  "ingestion": {
+    "key": "ingestion",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dataset/${DatasetId}/ingestion/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "knowledgebase": {
     "key": "knowledgeBase",
@@ -190,17 +141,66 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "limitsprofile": {
+    "key": "limitsProfile",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:limits-profile/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "namespace": {
+    "key": "namespace",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:namespace/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "oauthclientapplication": {
+    "key": "oauthClientApplication",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:oauthClientApplication/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "refreshschedule": {
+    "key": "refreshschedule",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:dataset/${DatasetId}/refresh-schedule/${ResourceId}"
+  },
   "space": {
     "key": "space",
     "arn": "arn:${Partition}:quicksight:${Region}:${Account}:space/${ResourceId}"
   },
-  "approvalpolicy": {
-    "key": "approvalPolicy",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:approval-policy/${ResourceId}"
+  "template": {
+    "key": "template",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
-  "limitsprofile": {
-    "key": "limitsProfile",
-    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:limits-profile/${ResourceId}",
+  "theme": {
+    "key": "theme",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:theme/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "topic": {
+    "key": "topic",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:topic/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "user": {
+    "key": "user",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "vpcconnection": {
+    "key": "vpcconnection",
+    "arn": "arn:${Partition}:quicksight:${Region}:${Account}:vpcConnection/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

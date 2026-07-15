@@ -1,4 +1,12 @@
 {
+  "context-provider": {
+    "key": "context-provider",
+    "arn": "arn:${Partition}:iam::aws:contextProvider/${ContextProviderName}"
+  },
+  "federated-user": {
+    "key": "federated-user",
+    "arn": "arn:${Partition}:sts::${Account}:federated-user/${FederatedUserName}"
+  },
   "role": {
     "key": "role",
     "arn": "arn:${Partition}:iam::${Account}:role/${RoleNameWithPath}",
@@ -14,13 +22,5 @@
   "self-session": {
     "key": "self-session",
     "arn": "arn:${Partition}:sts::${Account}:self"
-  },
-  "context-provider": {
-    "key": "context-provider",
-    "arn": "arn:${Partition}:iam::aws:contextProvider/${ContextProviderName}"
-  },
-  "federated-user": {
-    "key": "federated-user",
-    "arn": "arn:${Partition}:sts::${Account}:federated-user/${FederatedUserName}"
   }
 }

@@ -1,14 +1,18 @@
 {
-  "quantum-task": {
-    "key": "quantum-task",
-    "arn": "arn:${Partition}:braket:${Region}:${Account}:quantum-task/${RandomId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "device": {
+    "key": "device",
+    "arn": "arn:${Partition}:braket:*:*:device/${DeviceType}/${Provider}/${DeviceId}"
   },
   "job": {
     "key": "job",
     "arn": "arn:${Partition}:braket:${Region}:${Account}:job/${RandomId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "quantum-task": {
+    "key": "quantum-task",
+    "arn": "arn:${Partition}:braket:${Region}:${Account}:quantum-task/${RandomId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -19,9 +23,5 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
-  },
-  "device": {
-    "key": "device",
-    "arn": "arn:${Partition}:braket:*:*:device/${DeviceType}/${Provider}/${DeviceId}"
   }
 }

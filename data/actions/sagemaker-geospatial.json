@@ -42,9 +42,7 @@
         "name": "EarthObservationJob",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -61,9 +59,7 @@
         "name": "VectorEnrichmentJob",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -118,9 +114,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "getvectorenrichmentjob": {
     "name": "GetVectorEnrichmentJob",
@@ -209,10 +203,7 @@
         "name": "EarthObservationJob",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "sagemaker-geospatial:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -230,10 +221,7 @@
         "name": "VectorEnrichmentJob",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "sagemaker-geospatial:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -279,7 +267,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an SageMaker Geospatial resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "EarthObservationJob",
@@ -301,16 +289,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag an SageMaker Geospatial resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "EarthObservationJob",

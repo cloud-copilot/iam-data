@@ -1,7 +1,6 @@
 {
   "allowvendedlogdeliveryforresource": {
     "name": "AllowVendedLogDeliveryForResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to configure vended log delivery for AWS PCS cluster logs",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -21,22 +20,11 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "ec2:GetSecurityGroupsForVpc",
-      "iam:CreateServiceLinkedRole",
-      "secretsmanager:CreateSecret",
-      "secretsmanager:TagResource"
-    ]
+    "dependentActions": []
   },
   "createcomputenodegroup": {
     "name": "CreateComputeNodeGroup",
@@ -47,29 +35,12 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateFleet",
-          "ec2:CreateLaunchTemplate",
-          "ec2:CreateLaunchTemplateVersion",
-          "ec2:CreateTags",
-          "ec2:DescribeImages",
-          "ec2:DescribeInstanceStatus",
-          "ec2:DescribeInstanceTypes",
-          "ec2:DescribeInstances",
-          "ec2:DescribeLaunchTemplateVersions",
-          "ec2:DescribeLaunchTemplates",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "ec2:RunInstances",
-          "iam:GetInstanceProfile",
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -87,8 +58,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -106,10 +77,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DeleteNetworkInterface",
-      "secretsmanager:DeleteSecret"
-    ]
+    "dependentActions": []
   },
   "deletecomputenodegroup": {
     "name": "DeleteComputeNodeGroup",
@@ -120,10 +88,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DeleteLaunchTemplate",
-          "ec2:TerminateInstances"
-        ]
+        "dependentActions": []
       },
       {
         "name": "computenodegroup",
@@ -272,14 +237,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "secretsmanager:GetSecretValue"
-    ]
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -315,7 +278,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -360,18 +323,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "ec2:GetSecurityGroupsForVpc",
-      "iam:CreateServiceLinkedRole",
-      "secretsmanager:CreateSecret",
-      "secretsmanager:TagResource"
-    ]
+    "dependentActions": []
   },
   "updatecomputenodegroup": {
     "name": "UpdateComputeNodeGroup",
@@ -382,24 +334,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateFleet",
-          "ec2:CreateLaunchTemplate",
-          "ec2:CreateLaunchTemplateVersion",
-          "ec2:CreateTags",
-          "ec2:DescribeImages",
-          "ec2:DescribeInstanceStatus",
-          "ec2:DescribeInstanceTypes",
-          "ec2:DescribeInstances",
-          "ec2:DescribeLaunchTemplateVersions",
-          "ec2:DescribeLaunchTemplates",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "ec2:RunInstances",
-          "iam:GetInstanceProfile",
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "computenodegroup",

@@ -1,4 +1,39 @@
 {
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete a resource policy",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to create or update policies for a resource",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsession": {
+    "name": "StartSession",
+    "description": "Grants permission to start an approval session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "mpa:ProtectedResourceAccount",
+      "mpa:RequestedOperation"
+    ],
+    "dependentActions": []
+  },
   "cancelsession": {
     "name": "CancelSession",
     "description": "Grants permission to cancel an approval session",
@@ -13,8 +48,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "mpa:RequestedOperation",
-      "mpa:ProtectedResourceAccount"
+      "mpa:ProtectedResourceAccount",
+      "mpa:RequestedOperation"
     ],
     "dependentActions": []
   },
@@ -90,15 +125,6 @@
     ],
     "dependentActions": []
   },
-  "deleteresourcepolicy": {
-    "name": "DeleteResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete a resource policy",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getapprovalteam": {
     "name": "GetApprovalTeam",
     "description": "Grants permission to retrieve details for an approval team",
@@ -163,8 +189,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "mpa:RequestedOperation",
-      "mpa:ProtectedResourceAccount"
+      "mpa:ProtectedResourceAccount",
+      "mpa:RequestedOperation"
     ],
     "dependentActions": []
   },
@@ -224,15 +250,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putresourcepolicy": {
-    "name": "PutResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create or update policies for a resource",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "startactiveapprovalteamdeletion": {
     "name": "StartActiveApprovalTeamDeletion",
     "description": "Grants permission to start the deletion process for an active approval team",
@@ -267,30 +284,10 @@
     ],
     "dependentActions": []
   },
-  "startsession": {
-    "name": "StartSession",
-    "isPermissionOnly": true,
-    "description": "Grants permission to start an approval session",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "session",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "mpa:RequestedOperation",
-      "mpa:ProtectedResourceAccount"
-    ],
-    "dependentActions": []
-  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
@@ -302,7 +299,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",

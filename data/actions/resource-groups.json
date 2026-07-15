@@ -1,8 +1,75 @@
 {
   "associateresource": {
     "name": "AssociateResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to associate a resource to an Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegrouppolicy": {
+    "name": "DeleteGroupPolicy",
+    "description": "Grants permission to delete a resource-based policy for the specified group",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociateresource": {
+    "name": "DisassociateResource",
+    "description": "Grants permission to disassociate a resource from an Application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgrouppolicy": {
+    "name": "GetGroupPolicy",
+    "description": "Grants permission to get a resource-based policy for the specified group",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listresourcetypes": {
+    "name": "ListResourceTypes",
+    "description": "Grants permission to list supported resource types",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putgrouppolicy": {
+    "name": "PutGroupPolicy",
+    "description": "Grants permission to add a resource-based policy for the specified group",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -28,9 +95,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "resource-groups:DeleteGroup"
-    ]
+    "dependentActions": []
   },
   "creategroup": {
     "name": "CreateGroup",
@@ -41,47 +106,11 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "cloudformation:DescribeStacks"
-    ]
+    "dependentActions": []
   },
   "deletegroup": {
     "name": "DeleteGroup",
     "description": "Grants permission to delete a specified resource group",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "tag:GetResources"
-    ]
-  },
-  "deletegrouppolicy": {
-    "name": "DeleteGroupPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete a resource-based policy for the specified group",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "disassociateresource": {
-    "name": "DisassociateResource",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disassociate a resource from an Application",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -120,22 +149,6 @@
   "getgroupconfiguration": {
     "name": "GetGroupConfiguration",
     "description": "Grants permission to get the service configuration associated with the specified resource group",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getgrouppolicy": {
-    "name": "GetGroupPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get a resource-based policy for the specified group",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -206,10 +219,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "resource-groups:Tag",
-      "tag:TagResources"
-    ]
+    "dependentActions": []
   },
   "listgroupresources": {
     "name": "ListGroupResources",
@@ -224,11 +234,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:DescribeStacks",
-      "cloudformation:ListStackResources",
-      "tag:GetResources"
-    ]
+    "dependentActions": []
   },
   "listgroupingstatuses": {
     "name": "ListGroupingStatuses",
@@ -248,15 +254,6 @@
   "listgroups": {
     "name": "ListGroups",
     "description": "Grants permission to list all resource groups in your account",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listresourcetypes": {
-    "name": "ListResourceTypes",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list supported resource types",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -292,33 +289,13 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putgrouppolicy": {
-    "name": "PutGroupPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to add a resource-based policy for the specified group",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "searchresources": {
     "name": "SearchResources",
     "description": "Grants permission to search for AWS resources matching the given query",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:DescribeStacks",
-      "cloudformation:ListStackResources",
-      "tag:GetResources"
-    ]
+    "dependentActions": []
   },
   "starttagsynctask": {
     "name": "StartTagSyncTask",
@@ -333,15 +310,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "resource-groups:CreateGroup"
-    ]
+    "dependentActions": []
   },
   "tag": {
     "name": "Tag",
     "description": "Grants permission to tag a specified resource group",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "group",
@@ -369,15 +343,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "resource-groups:Untag",
-      "tag:UntagResources"
-    ]
+    "dependentActions": []
   },
   "untag": {
     "name": "Untag",
     "description": "Grants permission to remove tags associated with a specified resource group",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "group",
@@ -427,8 +398,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:DescribeStacks"
-    ]
+    "dependentActions": []
   }
 }

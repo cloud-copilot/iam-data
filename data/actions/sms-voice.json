@@ -5,14 +5,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "Pool",
-        "required": true,
+        "name": "PhoneNumber",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "PhoneNumber",
-        "required": false,
+        "name": "Pool",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -52,7 +52,10 @@
     "description": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createeventdestination": {
@@ -68,9 +71,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createoptoutlist": {
     "name": "CreateOptOutList",
@@ -81,9 +82,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "sms-voice:TagResource"
-    ]
+    "dependentActions": []
   },
   "createpool": {
     "name": "CreatePool",
@@ -94,9 +93,7 @@
         "name": "PhoneNumber",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "sms-voice:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "SenderId",
@@ -120,9 +117,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "sms-voice:TagResource"
-    ]
+    "dependentActions": []
   },
   "createregistration": {
     "name": "CreateRegistration",
@@ -133,9 +128,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "sms-voice:TagResource"
-    ]
+    "dependentActions": []
   },
   "createregistrationassociation": {
     "name": "CreateRegistrationAssociation",
@@ -143,14 +136,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "Registration",
-        "required": true,
+        "name": "PhoneNumber",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "PhoneNumber",
-        "required": false,
+        "name": "Registration",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -167,9 +160,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "sms-voice:TagResource"
-    ]
+    "dependentActions": []
   },
   "createregistrationversion": {
     "name": "CreateRegistrationVersion",
@@ -195,9 +186,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "sms-voice:TagResource"
-    ]
+    "dependentActions": []
   },
   "deleteaccountdefaultprotectconfiguration": {
     "name": "DeleteAccountDefaultProtectConfiguration",
@@ -412,7 +401,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete a resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "OptOutList",
@@ -728,14 +717,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "Pool",
-        "required": true,
+        "name": "PhoneNumber",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "PhoneNumber",
-        "required": false,
+        "name": "Pool",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -1025,7 +1014,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to put a resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "OptOutList",
@@ -1094,10 +1083,7 @@
         "name": "Pool",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "sms-voice:AssociateOriginationIdentity",
-          "sms-voice:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1115,9 +1101,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "sms-voice:TagResource"
-    ]
+    "dependentActions": []
   },
   "senddestinationnumberverificationcode": {
     "name": "SendDestinationNumberVerificationCode",
@@ -1128,10 +1112,7 @@
         "name": "PhoneNumber",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "sms-voice:SendTextMessage",
-          "sms-voice:SendVoiceMessage"
-        ]
+        "dependentActions": []
       },
       {
         "name": "Pool",
@@ -1307,7 +1288,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ConfigurationSet",
@@ -1373,7 +1354,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ConfigurationSet",
@@ -1448,9 +1429,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatephonenumber": {
     "name": "UpdatePhoneNumber",
@@ -1465,9 +1444,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatepool": {
     "name": "UpdatePool",
@@ -1482,9 +1459,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateprotectconfiguration": {
     "name": "UpdateProtectConfiguration",
@@ -1552,9 +1527,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "deleteconfigurationseteventdestination": {
     "name": "DeleteConfigurationSetEventDestination",
@@ -1586,8 +1559,6 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   }
 }

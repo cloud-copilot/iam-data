@@ -1,4 +1,34 @@
 {
+  "getprofilepolicy": {
+    "name": "GetProfilePolicy",
+    "description": "Grants permission to read the RAM access control policy for a Profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putprofilepolicy": {
+    "name": "PutProfilePolicy",
+    "description": "Grants permission to define the RAM access control policy for a Profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associateprofile": {
     "name": "AssociateProfile",
     "description": "Grants permission to associates a Profile to the customer VPC",
@@ -9,9 +39,7 @@
       "aws:TagKeys",
       "route53profiles:ResourceIds"
     ],
-    "dependentActions": [
-      "ec2:DescribeVpcs"
-    ]
+    "dependentActions": []
   },
   "associateresourcetoprofile": {
     "name": "AssociateResourceToProfile",
@@ -19,11 +47,11 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "route53profiles:ResourceTypes",
+      "route53profiles:FirewallRuleGroupPriority",
       "route53profiles:HostedZoneDomains",
       "route53profiles:ResolverRuleDomains",
-      "route53profiles:FirewallRuleGroupPriority",
-      "route53profiles:ResourceArns"
+      "route53profiles:ResourceArns",
+      "route53profiles:ResourceTypes"
     ],
     "dependentActions": []
   },
@@ -62,11 +90,11 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "route53profiles:ResourceTypes",
+      "route53profiles:FirewallRuleGroupPriority",
       "route53profiles:HostedZoneDomains",
       "route53profiles:ResolverRuleDomains",
-      "route53profiles:FirewallRuleGroupPriority",
-      "route53profiles:ResourceArns"
+      "route53profiles:ResourceArns",
+      "route53profiles:ResourceTypes"
     ],
     "dependentActions": []
   },
@@ -83,22 +111,6 @@
     "description": "Grants permission to get a Profile to a VPC association specified by the Profile association ID",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getprofilepolicy": {
-    "name": "GetProfilePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to read the RAM access control policy for a Profile",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "profile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -142,26 +154,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putprofilepolicy": {
-    "name": "PutProfilePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to define the RAM access control policy for a Profile",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "profile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add a tag to the given resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "profile",
@@ -185,7 +181,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to delete a tag from the given resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "profile",
@@ -211,10 +207,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "route53profiles:ResourceTypes",
+      "route53profiles:FirewallRuleGroupPriority",
       "route53profiles:HostedZoneDomains",
       "route53profiles:ResolverRuleDomains",
-      "route53profiles:FirewallRuleGroupPriority"
+      "route53profiles:ResourceTypes"
     ],
     "dependentActions": []
   }

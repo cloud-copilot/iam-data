@@ -8,11 +8,7 @@
         "name": "backup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cloudhsm:CopyBackupToRegion",
-          "cloudhsm:TagResource",
-          "cloudhsm:UntagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -30,16 +26,7 @@
         "name": "backup",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "cloudhsm:TagResource",
-          "ec2:AuthorizeSecurityGroupEgress",
-          "ec2:AuthorizeSecurityGroupIngress",
-          "ec2:CreateSecurityGroup",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:RevokeSecurityGroupEgress",
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -61,17 +48,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateSecurityGroup",
-      "ec2:DeleteNetworkInterface",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:RevokeSecurityGroupEgress"
-    ]
+    "dependentActions": []
   },
   "deletebackup": {
     "name": "DeleteBackup",
@@ -101,10 +78,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DeleteNetworkInterface",
-      "ec2:DeleteSecurityGroup"
-    ]
+    "dependentActions": []
   },
   "deletehsm": {
     "name": "DeleteHsm",
@@ -112,14 +86,12 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DeleteNetworkInterface"
-    ]
+    "dependentActions": []
   },
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete the policy attached to CloudHSM resources",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "backup",
@@ -226,14 +198,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeSubnets"
-    ]
+    "dependentActions": []
   },
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to attach a policy to an AWS CloudHSM resource",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "backup",
@@ -263,7 +233,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or overwrite one or more tags for the specified AWS CloudHSM cluster",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "backup",
@@ -287,7 +257,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove the specified tag or tags from the specified AWS CloudHSM cluster",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "backup",

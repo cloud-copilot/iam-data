@@ -1,7 +1,6 @@
 {
   "canceltimer": {
     "name": "CancelTimer",
-    "isPermissionOnly": true,
     "description": "Grants permission to cancel a previously started timer and record a TimerCanceled event in the history",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -17,7 +16,6 @@
   },
   "cancelworkflowexecution": {
     "name": "CancelWorkflowExecution",
-    "isPermissionOnly": true,
     "description": "Grants permission to close the workflow execution and record a WorkflowExecutionCanceled event in the history",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -33,7 +31,6 @@
   },
   "completeworkflowexecution": {
     "name": "CompleteWorkflowExecution",
-    "isPermissionOnly": true,
     "description": "Grants permission to close the workflow execution and record a WorkflowExecutionCompleted event in the history",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -49,8 +46,127 @@
   },
   "continueasnewworkflowexecution": {
     "name": "ContinueAsNewWorkflowExecution",
-    "isPermissionOnly": true,
     "description": "Grants permission to close the workflow execution and start a new workflow execution of the same type using the same workflow ID and a unique run Id",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "failworkflowexecution": {
+    "name": "FailWorkflowExecution",
+    "description": "Grants permission to close the workflow execution and record a WorkflowExecutionFailed event in the history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "recordmarker": {
+    "name": "RecordMarker",
+    "description": "Grants permission to record a MarkerRecorded event in the history",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "requestcancelactivitytask": {
+    "name": "RequestCancelActivityTask",
+    "description": "Grants permission to attempt to cancel a previously scheduled activity task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "requestcancelexternalworkflowexecution": {
+    "name": "RequestCancelExternalWorkflowExecution",
+    "description": "Grants permission to request that a request be made to cancel the specified external workflow execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "scheduleactivitytask": {
+    "name": "ScheduleActivityTask",
+    "description": "Grants permission to schedule an activity task",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "signalexternalworkflowexecution": {
+    "name": "SignalExternalWorkflowExecution",
+    "description": "Grants permission to request a signal to be delivered to the specified external workflow execution and records",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startchildworkflowexecution": {
+    "name": "StartChildWorkflowExecution",
+    "description": "Grants permission to request that a child workflow execution be started",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domain",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttimer": {
+    "name": "StartTimer",
+    "description": "Grants permission to start a timer for a workflow execution",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -288,22 +404,6 @@
     ],
     "dependentActions": []
   },
-  "failworkflowexecution": {
-    "name": "FailWorkflowExecution",
-    "isPermissionOnly": true,
-    "description": "Grants permission to close the workflow execution and record a WorkflowExecutionFailed event in the history",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getworkflowexecutionhistory": {
     "name": "GetWorkflowExecutionHistory",
     "description": "Grants permission to return the history of the specified workflow execution",
@@ -459,22 +559,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "recordmarker": {
-    "name": "RecordMarker",
-    "isPermissionOnly": true,
-    "description": "Grants permission to record a MarkerRecorded event in the history",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "registeractivitytype": {
     "name": "RegisterActivityType",
     "description": "Grants permission to register a new activity type along with its configuration settings in the specified domain",
@@ -500,8 +584,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -522,38 +606,6 @@
       "swf:name",
       "swf:version"
     ],
-    "dependentActions": []
-  },
-  "requestcancelactivitytask": {
-    "name": "RequestCancelActivityTask",
-    "isPermissionOnly": true,
-    "description": "Grants permission to attempt to cancel a previously scheduled activity task",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "requestcancelexternalworkflowexecution": {
-    "name": "RequestCancelExternalWorkflowExecution",
-    "isPermissionOnly": true,
-    "description": "Grants permission to request that a request be made to cancel the specified external workflow execution",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "requestcancelworkflowexecution": {
@@ -642,73 +694,9 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "scheduleactivitytask": {
-    "name": "ScheduleActivityTask",
-    "isPermissionOnly": true,
-    "description": "Grants permission to schedule an activity task",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "signalexternalworkflowexecution": {
-    "name": "SignalExternalWorkflowExecution",
-    "isPermissionOnly": true,
-    "description": "Grants permission to request a signal to be delivered to the specified external workflow execution and records",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "signalworkflowexecution": {
     "name": "SignalWorkflowExecution",
     "description": "Grants permission to record a WorkflowExecutionSignaled event in the workflow execution history and create a decision task for the workflow execution identified by the given domain, workflowId and runId",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "startchildworkflowexecution": {
-    "name": "StartChildWorkflowExecution",
-    "isPermissionOnly": true,
-    "description": "Grants permission to request that a child workflow execution be started",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domain",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "starttimer": {
-    "name": "StartTimer",
-    "isPermissionOnly": true,
-    "description": "Grants permission to start a timer for a workflow execution",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -748,7 +736,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an AWS SWF resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "domain",
@@ -758,8 +746,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -832,7 +820,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove a tag from an AWS SWF resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "domain",

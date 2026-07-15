@@ -7,15 +7,14 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeCluster"
-    ]
+    "dependentActions": []
   },
   "alterclusterdynamicconfiguration": {
     "name": "AlterClusterDynamicConfiguration",
@@ -25,15 +24,14 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeClusterDynamicConfiguration"
-    ]
+    "dependentActions": []
   },
   "altergroup": {
     "name": "AlterGroup",
@@ -48,10 +46,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeGroup"
-    ]
+    "dependentActions": []
   },
   "altertopic": {
     "name": "AlterTopic",
@@ -66,10 +61,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeTopic"
-    ]
+    "dependentActions": []
   },
   "altertopicdynamicconfiguration": {
     "name": "AlterTopicDynamicConfiguration",
@@ -84,10 +76,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeTopicDynamicConfiguration"
-    ]
+    "dependentActions": []
   },
   "altertransactionalid": {
     "name": "AlterTransactionalId",
@@ -102,11 +91,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeTransactionalId",
-      "kafka-cluster:WriteData"
-    ]
+    "dependentActions": []
   },
   "connect": {
     "name": "Connect",
@@ -116,7 +101,9 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -136,9 +123,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect"
-    ]
+    "dependentActions": []
   },
   "deletegroup": {
     "name": "DeleteGroup",
@@ -153,10 +138,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeGroup"
-    ]
+    "dependentActions": []
   },
   "deletetopic": {
     "name": "DeleteTopic",
@@ -171,10 +153,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeTopic"
-    ]
+    "dependentActions": []
   },
   "describecluster": {
     "name": "DescribeCluster",
@@ -184,14 +163,14 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect"
-    ]
+    "dependentActions": []
   },
   "describeclusterdynamicconfiguration": {
     "name": "DescribeClusterDynamicConfiguration",
@@ -201,14 +180,14 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect"
-    ]
+    "dependentActions": []
   },
   "describegroup": {
     "name": "DescribeGroup",
@@ -223,9 +202,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect"
-    ]
+    "dependentActions": []
   },
   "describetopic": {
     "name": "DescribeTopic",
@@ -240,9 +217,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect"
-    ]
+    "dependentActions": []
   },
   "describetopicdynamicconfiguration": {
     "name": "DescribeTopicDynamicConfiguration",
@@ -257,9 +232,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect"
-    ]
+    "dependentActions": []
   },
   "describetransactionalid": {
     "name": "DescribeTransactionalId",
@@ -274,9 +247,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect"
-    ]
+    "dependentActions": []
   },
   "readdata": {
     "name": "ReadData",
@@ -291,11 +262,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:AlterGroup",
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeTopic"
-    ]
+    "dependentActions": []
   },
   "writedata": {
     "name": "WriteData",
@@ -310,10 +277,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:DescribeTopic"
-    ]
+    "dependentActions": []
   },
   "writedataidempotently": {
     "name": "WriteDataIdempotently",
@@ -323,14 +287,13 @@
       {
         "name": "cluster",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kafka-cluster:Connect",
-      "kafka-cluster:WriteData"
-    ]
+    "dependentActions": []
   }
 }

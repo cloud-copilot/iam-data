@@ -5,10 +5,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization",
-      "organizations:EnableAWSServiceAccess"
-    ]
+    "dependentActions": []
   },
   "createsupportcase": {
     "name": "CreateSupportCase",
@@ -24,9 +21,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   },
   "disassociateservicequotatemplate": {
     "name": "DisassociateServiceQuotaTemplate",
@@ -34,9 +29,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   },
   "getawsdefaultservicequota": {
     "name": "GetAWSDefaultServiceQuota",
@@ -52,9 +45,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   },
   "getautomanagementconfiguration": {
     "name": "GetAutoManagementConfiguration",
@@ -89,16 +80,7 @@
         "name": "quota",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "autoscaling:DescribeAccountLimits",
-          "cloudformation:DescribeAccountLimits",
-          "dynamodb:DescribeLimits",
-          "elasticloadbalancing:DescribeAccountLimits",
-          "iam:GetAccountSummary",
-          "kinesis:DescribeLimits",
-          "rds:DescribeAccountAttributes",
-          "route53:GetAccountLimit"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -115,9 +97,7 @@
         "name": "quota",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "organizations:DescribeOrganization"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -164,9 +144,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   },
   "listservicequotas": {
     "name": "ListServiceQuotas",
@@ -174,16 +152,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "autoscaling:DescribeAccountLimits",
-      "cloudformation:DescribeAccountLimits",
-      "dynamodb:DescribeLimits",
-      "elasticloadbalancing:DescribeAccountLimits",
-      "iam:GetAccountSummary",
-      "kinesis:DescribeLimits",
-      "rds:DescribeAccountAttributes",
-      "route53:GetAccountLimit"
-    ]
+    "dependentActions": []
   },
   "listservices": {
     "name": "ListServices",
@@ -210,9 +179,7 @@
         "name": "quota",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "organizations:DescribeOrganization"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -264,7 +231,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to associate a set of tags with an existing SQ resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
@@ -275,7 +242,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove a set of tags from a SQ resource, where tags to be removed match a set of customer-supplied tag keys",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:TagKeys"

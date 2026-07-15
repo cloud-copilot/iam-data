@@ -1,4 +1,44 @@
 {
+  "initiatereplication": {
+    "name": "InitiateReplication",
+    "description": "Grants permission to initiate the replication process by setting replication status of an object to pending",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "object",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ResourceAccount"
+    ],
+    "dependentActions": []
+  },
+  "pausereplication": {
+    "name": "PauseReplication",
+    "description": "Grants permission to pause S3 Replication from target source buckets to destination buckets",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:destinationRegion",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
   "abortmultipartupload": {
     "name": "AbortMultipartUpload",
     "description": "Grants permission to abort a multipart upload",
@@ -19,11 +59,11 @@
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -41,16 +81,16 @@
       }
     ],
     "conditionKeys": [
-      "s3:resourceArnBeingAuthorized",
       "s3:deliverySourceArn",
-      "s3:logType"
+      "s3:logType",
+      "s3:resourceArnBeingAuthorized"
     ],
     "dependentActions": []
   },
   "associateaccessgrantsidentitycenter": {
     "name": "AssociateAccessGrantsIdentityCenter",
     "description": "Grants permission to associate Access Grants identity center",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantsinstance",
@@ -60,20 +100,20 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "bypassgovernanceretention": {
     "name": "BypassGovernanceRetention",
     "description": "Grants permission to allow circumvention of governance-mode object retention settings",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspointobject",
@@ -91,11 +131,11 @@
     "conditionKeys": [
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-acl",
       "s3:x-amz-content-sha256",
       "s3:x-amz-copy-source",
@@ -116,7 +156,58 @@
   "createaccessgrant": {
     "name": "CreateAccessGrant",
     "description": "Grants permission to create Access Grant",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "accessgrant",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "s3:AccessGrantScope",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "createaccessgrantsinstance": {
+    "name": "CreateAccessGrantsInstance",
+    "description": "Grants permission to Create Access Grants Instance",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "accessgrantsinstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:x-amz-content-sha256"
+    ],
+    "dependentActions": []
+  },
+  "createaccessgrantslocation": {
+    "name": "CreateAccessGrantsLocation",
+    "description": "Grants permission to create Access Grants location",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantslocation",
@@ -126,67 +217,16 @@
       }
     ],
     "conditionKeys": [
-      "s3:AccessGrantScope",
-      "s3:authType",
-      "s3:ResourceAccount",
-      "s3:signatureAge",
-      "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
-  "createaccessgrantsinstance": {
-    "name": "CreateAccessGrantsInstance",
-    "description": "Grants permission to Create Access Grants Instance",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "accessgrantsinstance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "s3:authType",
-      "s3:ResourceAccount",
-      "s3:signatureAge",
-      "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
-  "createaccessgrantslocation": {
-    "name": "CreateAccessGrantsLocation",
-    "description": "Grants permission to create Access Grants location",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "accessgrantsinstance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
+      "aws:TagKeys",
       "s3:AccessGrantsLocationScope",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -203,21 +243,21 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointAccount",
-      "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
-      "s3:locationconstraint",
-      "s3:ResourceAccount",
-      "s3:signatureAge",
-      "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-acl",
-      "s3:x-amz-content-sha256",
-      "s3:AccessPointTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "s3:AccessPointNetworkOrigin",
+      "s3:AccessPointTag/${TagKey}",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:locationconstraint",
+      "s3:signatureAge",
+      "s3:signatureversion",
+      "s3:x-amz-acl",
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -234,14 +274,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -259,23 +299,23 @@
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:locationconstraint",
-      "s3:ResourceAccount",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-acl",
+      "s3:x-amz-bucket-namespace",
       "s3:x-amz-content-sha256",
       "s3:x-amz-grant-full-control",
       "s3:x-amz-grant-read",
       "s3:x-amz-grant-read-acp",
       "s3:x-amz-grant-write",
       "s3:x-amz-grant-write-acp",
-      "s3:x-amz-bucket-namespace",
-      "s3:x-amz-object-ownership",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "s3:x-amz-object-ownership"
     ],
     "dependentActions": []
   },
@@ -288,24 +328,15 @@
         "name": "bucket",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:DescribeKey",
-          "s3tables:CreateNamespace",
-          "s3tables:CreateTable",
-          "s3tables:CreateTableBucket",
-          "s3tables:GetTable",
-          "s3tables:PutTableBucketPolicy",
-          "s3tables:PutTableEncryption",
-          "s3tables:PutTablePolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -316,20 +347,18 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "s3:RequestJobOperation",
+      "s3:RequestJobPriority",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:RequestJobPriority",
-      "s3:RequestJobOperation",
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createmultiregionaccesspoint": {
     "name": "CreateMultiRegionAccessPoint",
@@ -344,14 +373,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -361,21 +390,21 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "deleteaccessgrant": {
     "name": "DeleteAccessGrant",
     "description": "Grants permission to delete Access Grant",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrant",
@@ -385,21 +414,21 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessGrantScope",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "deleteaccessgrantsinstance": {
     "name": "DeleteAccessGrantsInstance",
     "description": "Grants permission to Delete Access Grants Instance",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantsinstance",
@@ -409,20 +438,20 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "deleteaccessgrantsinstanceresourcepolicy": {
     "name": "DeleteAccessGrantsInstanceResourcePolicy",
     "description": "Grants permission to read Access grants instance resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantsinstance",
@@ -432,20 +461,20 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "deleteaccessgrantslocation": {
     "name": "DeleteAccessGrantsLocation",
     "description": "Grants permission to delete Access Grants location",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantslocation",
@@ -455,14 +484,14 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessGrantsLocationScope",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -479,17 +508,17 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointArn",
-      "s3:DataAccessPointAccount",
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessPointNetworkOrigin",
-      "s3:authType",
+      "s3:AccessPointTag/${TagKey}",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:AccessPointTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -506,14 +535,14 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointArn",
-      "s3:DataAccessPointAccount",
       "s3:AccessPointNetworkOrigin",
-      "s3:authType",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -521,7 +550,7 @@
   "deleteaccesspointpolicy": {
     "name": "DeleteAccessPointPolicy",
     "description": "Grants permission to delete the policy on a specified access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
@@ -531,24 +560,24 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointArn",
-      "s3:DataAccessPointAccount",
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessPointNetworkOrigin",
-      "s3:authType",
+      "s3:AccessPointTag/${TagKey}",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:AccessPointTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "deleteaccesspointpolicyforobjectlambda": {
     "name": "DeleteAccessPointPolicyForObjectLambda",
     "description": "Grants permission to delete the policy on a specified object lambda enabled access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "objectlambdaaccesspoint",
@@ -558,14 +587,14 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointArn",
-      "s3:DataAccessPointAccount",
       "s3:AccessPointNetworkOrigin",
-      "s3:authType",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -583,11 +612,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -605,11 +634,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -617,7 +646,7 @@
   "deletebucketpolicy": {
     "name": "DeleteBucketPolicy",
     "description": "Grants permission to delete the policy on a specified bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "bucket",
@@ -627,11 +656,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -649,11 +678,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -661,7 +690,7 @@
   "deletejobtagging": {
     "name": "DeleteJobTagging",
     "description": "Grants permission to remove tags from an existing Amazon S3 Batch Operations job",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "job",
@@ -671,14 +700,14 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "s3:ExistingJobOperation",
+      "s3:ExistingJobPriority",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ExistingJobPriority",
-      "s3:ExistingJobOperation"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -695,14 +724,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -726,13 +755,13 @@
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:if-match",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:if-match"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -755,21 +784,21 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
-      "s3:x-amz-object-if-match",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-object-if-match"
     ],
     "dependentActions": []
   },
   "deleteobjecttagging": {
     "name": "DeleteObjectTagging",
     "description": "Grants permission to use the tagging subresource to remove the entire tag set from the specified object",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accesspointobject",
@@ -786,11 +815,11 @@
     ],
     "conditionKeys": [
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -815,11 +844,11 @@
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -844,22 +873,22 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
       "s3:versionid",
-      "s3:x-amz-object-if-match",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-object-if-match"
     ],
     "dependentActions": []
   },
   "deleteobjectversiontagging": {
     "name": "DeleteObjectVersionTagging",
     "description": "Grants permission to remove the entire tag set for a specific version of the object",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accesspointobject",
@@ -876,11 +905,11 @@
     ],
     "conditionKeys": [
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -899,11 +928,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -911,7 +940,7 @@
   "deletestoragelensconfigurationtagging": {
     "name": "DeleteStorageLensConfigurationTagging",
     "description": "Grants permission to remove tags from an existing Amazon S3 Storage Lens configuration",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "storagelensconfiguration",
@@ -921,11 +950,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -943,11 +972,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -965,11 +994,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -987,18 +1016,18 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
   "dissociateaccessgrantsidentitycenter": {
     "name": "DissociateAccessGrantsIdentityCenter",
     "description": "Grants permission to disassociate Access Grants identity center",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantsinstance",
@@ -1008,13 +1037,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1031,11 +1060,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1053,14 +1082,14 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessGrantScope",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1077,13 +1106,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1100,13 +1129,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1123,13 +1152,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1146,14 +1175,14 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessGrantsLocationScope",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1163,17 +1192,17 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3:AccessPointNetworkOrigin",
+      "s3:AccessPointTag/${TagKey}",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:AccessPointTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1190,14 +1219,14 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointArn",
-      "s3:DataAccessPointAccount",
       "s3:AccessPointNetworkOrigin",
-      "s3:authType",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1215,14 +1244,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1240,17 +1269,17 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3:AccessPointNetworkOrigin",
+      "s3:AccessPointTag/${TagKey}",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:AccessPointTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1267,14 +1296,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1292,17 +1321,17 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "s3:AccessPointNetworkOrigin",
+      "s3:AccessPointTag/${TagKey}",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:AccessPointTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1319,14 +1348,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1337,11 +1366,11 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1359,11 +1388,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1381,11 +1410,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1409,11 +1438,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1437,11 +1466,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1465,11 +1494,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1487,11 +1516,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1509,11 +1538,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1537,11 +1566,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1559,11 +1588,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:signatureversion"
     ],
     "dependentActions": []
@@ -1581,11 +1610,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1609,11 +1638,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1631,11 +1660,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1653,11 +1682,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1675,11 +1704,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1697,11 +1726,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1719,11 +1748,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1741,11 +1770,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1763,13 +1792,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -1786,11 +1815,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1808,11 +1837,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1830,11 +1859,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1852,11 +1881,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1874,11 +1903,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1896,11 +1925,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -1918,14 +1947,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -1942,14 +1971,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -1966,14 +1995,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -1990,14 +2019,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -2022,11 +2051,11 @@
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2052,11 +2081,11 @@
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2080,13 +2109,13 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2110,11 +2139,11 @@
     ],
     "conditionKeys": [
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2138,11 +2167,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2166,11 +2195,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2195,11 +2224,11 @@
     ],
     "conditionKeys": [
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2217,11 +2246,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2247,11 +2276,11 @@
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -2278,11 +2307,11 @@
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -2307,14 +2336,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
       "s3:versionid",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2331,11 +2360,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2360,11 +2389,11 @@
     ],
     "conditionKeys": [
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -2383,11 +2412,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2412,11 +2441,11 @@
     ],
     "conditionKeys": [
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -2435,11 +2464,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -2458,11 +2487,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2480,11 +2509,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2502,11 +2531,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2524,11 +2553,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2546,30 +2575,12 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
-    ],
-    "dependentActions": []
-  },
-  "initiatereplication": {
-    "name": "InitiateReplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to initiate the replication process by setting replication status of an object to pending",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "object",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "s3:ResourceAccount"
     ],
     "dependentActions": []
   },
@@ -2586,13 +2597,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2602,11 +2613,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2624,13 +2635,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2640,11 +2651,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2655,11 +2666,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2670,11 +2681,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2699,14 +2710,14 @@
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:delimiter",
       "s3:max-keys",
       "s3:prefix",
-      "s3:ResourceAccount",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2724,18 +2735,18 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessGrantsInstanceArn",
+      "s3:AccessPointNetworkOrigin",
+      "s3:AccessPointTag/${TagKey}",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:AccessPointTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2759,14 +2770,14 @@
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:delimiter",
       "s3:max-keys",
       "s3:prefix",
-      "s3:ResourceAccount",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2784,13 +2795,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2800,11 +2811,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2815,11 +2826,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -2843,11 +2854,11 @@
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2871,15 +2882,15 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:annotation-prefix",
       "s3:authType",
+      "s3:max-annotation-results",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
-      "s3:annotation-prefix",
-      "s3:max-annotation-results",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2902,16 +2913,16 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:annotation-prefix",
       "s3:authType",
+      "s3:max-annotation-results",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
       "s3:versionid",
-      "s3:annotation-prefix",
-      "s3:max-annotation-results",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -2921,11 +2932,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2936,11 +2947,11 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -2988,11 +2999,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3000,7 +3011,7 @@
   "objectowneroverridetobucketowner": {
     "name": "ObjectOwnerOverrideToBucketOwner",
     "description": "Grants permission to change replica ownership",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "object",
@@ -3010,38 +3021,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256"
-    ],
-    "dependentActions": []
-  },
-  "pausereplication": {
-    "name": "PauseReplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to pause S3 Replication from target source buckets to destination buckets",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "bucket",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "s3:GetReplicationConfiguration",
-          "s3:PutReplicationConfiguration"
-        ]
-      }
-    ],
-    "conditionKeys": [
-      "s3:destinationRegion",
-      "s3:authType",
-      "s3:ResourceAccount",
-      "s3:signatureAge",
-      "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3059,11 +3043,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3071,7 +3055,7 @@
   "putaccessgrantsinstanceresourcepolicy": {
     "name": "PutAccessGrantsInstanceResourcePolicy",
     "description": "Grants permission to put Access grants instance resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantsinstance",
@@ -3081,13 +3065,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:ResourceTag/${TagKey}",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -3104,14 +3088,14 @@
       }
     ],
     "conditionKeys": [
-      "s3:DataAccessPointArn",
-      "s3:DataAccessPointAccount",
       "s3:AccessPointNetworkOrigin",
-      "s3:authType",
+      "s3:DataAccessPointAccount",
+      "s3:DataAccessPointArn",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3119,7 +3103,7 @@
   "putaccesspointpolicy": {
     "name": "PutAccessPointPolicy",
     "description": "Grants permission to associate an access policy with a specified access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
@@ -3129,11 +3113,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3141,7 +3125,7 @@
   "putaccesspointpolicyforobjectlambda": {
     "name": "PutAccessPointPolicyForObjectLambda",
     "description": "Grants permission to associate an access policy with a specified object lambda enabled access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "objectlambdaaccesspoint",
@@ -3151,14 +3135,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3166,7 +3150,7 @@
   "putaccesspointpublicaccessblock": {
     "name": "PutAccessPointPublicAccessBlock",
     "description": "Grants permission to associate public access block configurations with a specified access point, while creating a access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3174,14 +3158,14 @@
   "putaccountpublicaccessblock": {
     "name": "PutAccountPublicAccessBlock",
     "description": "Grants permission to create or modify the PublicAccessBlock configuration for an AWS account",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3199,11 +3183,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3221,11 +3205,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3233,7 +3217,7 @@
   "putbucketacl": {
     "name": "PutBucketAcl",
     "description": "Grants permission to set the permissions on an existing bucket using access control lists (ACLs)",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "bucket",
@@ -3243,11 +3227,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-acl",
       "s3:x-amz-content-sha256",
       "s3:x-amz-grant-full-control",
@@ -3271,11 +3255,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3293,11 +3277,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3315,11 +3299,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3337,10 +3321,10 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureAge",
       "s3:TlsVersion",
+      "s3:authType",
+      "s3:signatureAge",
       "s3:signatureversion"
     ],
     "dependentActions": []
@@ -3348,7 +3332,7 @@
   "putbucketownershipcontrols": {
     "name": "PutBucketOwnershipControls",
     "description": "Grants permission to add, replace or delete ownership controls on a bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "bucket",
@@ -3358,11 +3342,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3370,7 +3354,7 @@
   "putbucketpolicy": {
     "name": "PutBucketPolicy",
     "description": "Grants permission to add or replace a bucket policy on a bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "bucket",
@@ -3380,11 +3364,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3392,7 +3376,7 @@
   "putbucketpublicaccessblock": {
     "name": "PutBucketPublicAccessBlock",
     "description": "Grants permission to create or modify the PublicAccessBlock configuration for a specific Amazon S3 bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "bucket",
@@ -3402,11 +3386,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3424,11 +3408,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3436,7 +3420,7 @@
   "putbuckettagging": {
     "name": "PutBucketTagging",
     "description": "Grants permission to add a set of tags to an existing Amazon S3 bucket",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "bucket",
@@ -3446,11 +3430,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3468,11 +3452,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3490,11 +3474,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3512,11 +3496,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3534,11 +3518,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3556,20 +3540,20 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "s3:InventoryAccessibleOptionalFields",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:InventoryAccessibleOptionalFields"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "putjobtagging": {
     "name": "PutJobTagging",
     "description": "Grants permission to replace tags on an existing Amazon S3 Batch Operations job",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "job",
@@ -3579,16 +3563,16 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "s3:ExistingJobOperation",
+      "s3:ExistingJobPriority",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ExistingJobPriority",
-      "s3:ExistingJobOperation",
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -3605,11 +3589,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3627,11 +3611,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3639,7 +3623,7 @@
   "putmultiregionaccesspointpolicy": {
     "name": "PutMultiRegionAccessPointPolicy",
     "description": "Grants permission to associate an access policy with a specified Multi-Region Access Point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "multiregionaccesspoint",
@@ -3649,14 +3633,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
@@ -3680,13 +3664,20 @@
     ],
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
+      "s3:ObjectCreationOperation",
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:if-match",
+      "s3:if-none-match",
+      "s3:object-lock-legal-hold",
+      "s3:object-lock-mode",
+      "s3:object-lock-remaining-retention-days",
+      "s3:object-lock-retain-until-date",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-acl",
       "s3:x-amz-content-sha256",
       "s3:x-amz-copy-source",
@@ -3701,21 +3692,14 @@
       "s3:x-amz-server-side-encryption-aws-kms-key-id",
       "s3:x-amz-server-side-encryption-customer-algorithm",
       "s3:x-amz-storage-class",
-      "s3:x-amz-website-redirect-location",
-      "s3:object-lock-mode",
-      "s3:object-lock-retain-until-date",
-      "s3:object-lock-remaining-retention-days",
-      "s3:object-lock-legal-hold",
-      "s3:if-match",
-      "s3:if-none-match",
-      "s3:ObjectCreationOperation"
+      "s3:x-amz-website-redirect-location"
     ],
     "dependentActions": []
   },
   "putobjectacl": {
     "name": "PutObjectAcl",
     "description": "Grants permission to set the access control list (ACL) permissions for new or existing objects in an S3 bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspointobject",
@@ -3733,11 +3717,11 @@
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-acl",
       "s3:x-amz-content-sha256",
       "s3:x-amz-grant-full-control",
@@ -3768,14 +3752,14 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
-      "s3:x-amz-object-if-match",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-object-if-match"
     ],
     "dependentActions": []
   },
@@ -3798,13 +3782,13 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:object-lock-legal-hold",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:object-lock-legal-hold"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -3827,22 +3811,22 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:object-lock-mode",
+      "s3:object-lock-remaining-retention-days",
+      "s3:object-lock-retain-until-date",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:object-lock-mode",
-      "s3:object-lock-retain-until-date",
-      "s3:object-lock-remaining-retention-days"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "putobjecttagging": {
     "name": "PutObjectTagging",
     "description": "Grants permission to set the supplied tag-set to an object that already exists in a bucket",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accesspointobject",
@@ -3861,11 +3845,11 @@
       "s3:ExistingObjectTag/<key>",
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -3873,7 +3857,7 @@
   "putobjectversionacl": {
     "name": "PutObjectVersionAcl",
     "description": "Grants permission to use the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspointobject",
@@ -3891,11 +3875,11 @@
     "conditionKeys": [
       "s3:AccessGrantsInstanceArn",
       "s3:ExistingObjectTag/<key>",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-acl",
       "s3:x-amz-content-sha256",
@@ -3927,22 +3911,22 @@
       }
     ],
     "conditionKeys": [
+      "s3:ExistingObjectTag/<key>",
+      "s3:ResourceAccount",
+      "s3:TlsVersion",
       "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ResourceAccount",
       "s3:versionid",
-      "s3:x-amz-object-if-match",
-      "s3:ExistingObjectTag/<key>"
+      "s3:x-amz-content-sha256",
+      "s3:x-amz-object-if-match"
     ],
     "dependentActions": []
   },
   "putobjectversiontagging": {
     "name": "PutObjectVersionTagging",
     "description": "Grants permission to set the supplied tag-set for a specific version of an object",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accesspointobject",
@@ -3961,11 +3945,11 @@
       "s3:ExistingObjectTag/<key>",
       "s3:RequestObjectTag/<key>",
       "s3:RequestObjectTagKeys",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:versionid",
       "s3:x-amz-content-sha256"
     ],
@@ -3980,19 +3964,17 @@
         "name": "bucket",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
+      "s3:isReplicationPauseRequest",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:isReplicationPauseRequest"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -4002,21 +3984,21 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "s3:authType",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "putstoragelensconfigurationtagging": {
     "name": "PutStorageLensConfigurationTagging",
     "description": "Grants permission to put or replace tags on an existing Amazon S3 Storage Lens configuration",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "storagelensconfiguration",
@@ -4026,14 +4008,14 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -4050,11 +4032,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -4072,11 +4054,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256",
       "s3:x-amz-server-side-encryption",
       "s3:x-amz-server-side-encryption-aws-kms-key-id",
@@ -4097,11 +4079,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -4109,7 +4091,7 @@
   "replicatetags": {
     "name": "ReplicateTags",
     "description": "Grants permission to replicate object tags to the destination bucket",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "object",
@@ -4119,11 +4101,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -4147,11 +4129,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -4169,21 +4151,21 @@
       }
     ],
     "conditionKeys": [
+      "s3:AccessPointNetworkOrigin",
       "s3:DataAccessPointAccount",
       "s3:DataAccessPointArn",
-      "s3:AccessPointNetworkOrigin",
-      "s3:authType",
       "s3:ResourceAccount",
-      "s3:signatureversion",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
-      "s3:TlsVersion"
+      "s3:signatureversion"
     ],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accessgrant",
@@ -4223,21 +4205,21 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accessgrant",
@@ -4277,20 +4259,20 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "aws:TagKeys",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:TagKeys"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "updateaccessgrantslocation": {
     "name": "UpdateAccessGrantsLocation",
     "description": "Grants permission to update Access Grants location",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accessgrantslocation",
@@ -4300,14 +4282,14 @@
       }
     ],
     "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "s3:AccessGrantsLocationScope",
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "aws:ResourceTag/${TagKey}"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -4324,11 +4306,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -4342,23 +4324,15 @@
         "name": "bucket",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:DescribeKey",
-          "s3tables:CreateNamespace",
-          "s3tables:CreateTable",
-          "s3tables:CreateTableBucket",
-          "s3tables:GetTable",
-          "s3tables:PutTableEncryption",
-          "s3tables:PutTablePolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -4376,11 +4350,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
@@ -4398,15 +4372,15 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "s3:ExistingJobOperation",
+      "s3:ExistingJobPriority",
+      "s3:RequestJobPriority",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:RequestJobPriority",
-      "s3:ExistingJobPriority",
-      "s3:ExistingJobOperation"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -4423,15 +4397,15 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
+      "s3:ExistingJobOperation",
+      "s3:ExistingJobPriority",
+      "s3:JobSuspendedCause",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
-      "s3:x-amz-content-sha256",
-      "s3:ExistingJobPriority",
-      "s3:ExistingJobOperation",
-      "s3:JobSuspendedCause"
+      "s3:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -4454,12 +4428,12 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ExistingObjectTag/<key>",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256",
       "s3:x-amz-server-side-encryption",
       "s3:x-amz-server-side-encryption-aws-kms-key-id"
@@ -4479,11 +4453,11 @@
       }
     ],
     "conditionKeys": [
-      "s3:authType",
       "s3:ResourceAccount",
+      "s3:TlsVersion",
+      "s3:authType",
       "s3:signatureAge",
       "s3:signatureversion",
-      "s3:TlsVersion",
       "s3:x-amz-content-sha256"
     ],
     "dependentActions": []

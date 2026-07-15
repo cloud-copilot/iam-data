@@ -1,4 +1,588 @@
 {
+  "associateverifiedaccessinstancewebacl": {
+    "name": "AssociateVerifiedAccessInstanceWebAcl",
+    "description": "Grants permission to associate an AWS Web Application Firewall (WAF) web access control list (ACL) with a Verified Access instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "verified-access-instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "attachappliancetonatgateway": {
+    "name": "AttachApplianceToNatGateway",
+    "description": "Grants permission to attach an appliance with a public/private Natgateway",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "natgateway",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "attachresourcestoplacementgroup": {
+    "name": "AttachResourcesToPlacementGroup",
+    "description": "Grants permission to attach resources to a placement group",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "placement-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:PlacementGroupName",
+          "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createcoippoolpermission": {
+    "name": "CreateCoipPoolPermission",
+    "description": "Grants permission to allow a service to access a customer-owned IP (CoIP) pool",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "coip-pool",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createlocalgatewayroutetablepermission": {
+    "name": "CreateLocalGatewayRouteTablePermission",
+    "description": "Grants permission to allow a service to access a local gateway route table",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "local-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createodbnetworkpeering": {
+    "name": "CreateOdbNetworkPeering",
+    "description": "Grants permission to allow Oracle Database@AWS to create a peering connection between an ODB network and a VPC",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletecoippoolpermission": {
+    "name": "DeleteCoipPoolPermission",
+    "description": "Grants permission to deny a service from accessing a customer-owned IP (CoIP) pool",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "coip-pool",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deletelocalgatewayroutetablepermission": {
+    "name": "DeleteLocalGatewayRouteTablePermission",
+    "description": "Grants permission to deny a service from accessing a local gateway route table",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "local-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleteodbnetworkpeering": {
+    "name": "DeleteOdbNetworkPeering",
+    "description": "Grants permission to allow Oracle Database@AWS to delete a peering connection between an ODB network and a VPC",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to remove an IAM policy that enables cross-account sharing from a resource",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "placement-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:PlacementGroupName",
+          "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "verified-access-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describelocalgatewayroutetablepermissions": {
+    "name": "DescribeLocalGatewayRouteTablePermissions",
+    "description": "Grants permission to allow a service to describe local gateway route table permissions",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeverifiedaccessinstancewebaclassociations": {
+    "name": "DescribeVerifiedAccessInstanceWebAclAssociations",
+    "description": "Grants permission to describe the AWS Web Application Firewall (WAF) web access control list (ACL) associations for a Verified Access instance",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "detachappliancefromnatgateway": {
+    "name": "DetachApplianceFromNatGateway",
+    "description": "Grants permission to detach an appliance from a public/private Natgateway",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "natgateway",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "detachresourcesfromplacementgroup": {
+    "name": "DetachResourcesFromPlacementGroup",
+    "description": "Grants permission to detach resources from a placement group",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "placement-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:PlacementGroupName",
+          "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "disassociateverifiedaccessinstancewebacl": {
+    "name": "DisassociateVerifiedAccessInstanceWebAcl",
+    "description": "Grants permission to disassociate an AWS Web Application Firewall (WAF) web access control list (ACL) from a Verified Access instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "verified-access-instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to describe an IAM policy that enables cross-account sharing",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "placement-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:PlacementGroupName",
+          "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "verified-access-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getverifiedaccessinstancewebacl": {
+    "name": "GetVerifiedAccessInstanceWebAcl",
+    "description": "Grants permission to show the AWS Web Application Firewall (WAF) web access control list (ACL) for a Verified Access instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "verified-access-instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "importbyoipcidrtoipam": {
+    "name": "ImportByoipCidrToIpam",
+    "description": "Grants permission to transfer existing BYOIP IPv4 CIDRs to IPAM",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-pool",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "injectapierror": {
+    "name": "InjectApiError",
+    "description": "Grants permission to temporarily inject errors for target API requests",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:FisActionId",
+      "ec2:FisTargetArns",
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "injectvolumeiolatency": {
+    "name": "InjectVolumeIOLatency",
+    "description": "Grants permission to temporarily inject latency to I/O operations for a target Amazon EBS volume",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:Encrypted",
+          "ec2:ParentSnapshot",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VolumeID",
+          "ec2:VolumeIops",
+          "ec2:VolumeSize",
+          "ec2:VolumeThroughput",
+          "ec2:VolumeType"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyodbnetworkpeering": {
+    "name": "ModifyOdbNetworkPeering",
+    "description": "Grants permission to allow Oracle Database@AWS to modify the settings of a peering connection between an ODB network and a VPC",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "pausevolumeio": {
+    "name": "PauseVolumeIO",
+    "description": "Grants permission to temporarily pause I/O operations for a target Amazon EBS volume",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:CpuOptionsAmdSevSnp",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceID",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:ManagedResourceOperator",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:Encrypted",
+          "ec2:ManagedResourceOperator",
+          "ec2:ParentSnapshot",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VolumeID",
+          "ec2:VolumeIops",
+          "ec2:VolumeSize",
+          "ec2:VolumeThroughput",
+          "ec2:VolumeType"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to attach an IAM policy that enables cross-account sharing to a resource",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "placement-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:PlacementGroupName",
+          "ec2:PlacementGroupStrategy",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "verified-access-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "sendspotinstanceinterruptions": {
+    "name": "SendSpotInstanceInterruptions",
+    "description": "Grants permission to interrupt a Spot Instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:CpuOptionsAmdSevSnp",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceID",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:ManagedResourceOperator",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "acceptaddresstransfer": {
     "name": "AcceptAddressTransfer",
     "description": "Grants permission to accept an Elastic IP address transfer",
@@ -14,9 +598,7 @@
           "ec2:Domain",
           "ec2:PublicIpAddress"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -255,9 +837,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-pool",
@@ -300,9 +880,7 @@
           "ec2:InstanceType",
           "ec2:Quantity"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -322,9 +900,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-pool-allocation",
@@ -683,9 +1259,7 @@
           "ec2:RootDeviceType",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -735,9 +1309,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-resource-discovery",
@@ -834,17 +1406,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:RouteTableID",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "internet-gateway",
         "required": false,
         "conditionKeys": [
@@ -860,6 +1421,17 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RouteTableID",
+          "ec2:Vpc"
         ],
         "dependentActions": []
       },
@@ -932,6 +1504,15 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "subnet",
         "required": true,
         "conditionKeys": [
@@ -942,15 +1523,6 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "ipam-pool",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -1076,45 +1648,11 @@
     ],
     "dependentActions": []
   },
-  "associateverifiedaccessinstancewebacl": {
-    "name": "AssociateVerifiedAccessInstanceWebAcl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to associate an AWS Web Application Firewall (WAF) web access control list (ACL) with a Verified Access instance",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "verified-access-instance",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "associatevpccidrblock": {
     "name": "AssociateVpcCidrBlock",
     "description": "Grants permission to associate a CIDR block with a VPC",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "vpc",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:Tenancy",
-          "ec2:VpcID"
-        ],
-        "dependentActions": []
-      },
       {
         "name": "ipam-pool",
         "required": false,
@@ -1132,25 +1670,17 @@
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "attachappliancetonatgateway": {
-    "name": "AttachApplianceToNatGateway",
-    "isPermissionOnly": true,
-    "description": "Grants permission to attach an appliance with a public/private Natgateway",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
+      },
       {
-        "name": "natgateway",
+        "name": "vpc",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Tenancy",
+          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -1330,29 +1860,6 @@
     ],
     "dependentActions": []
   },
-  "attachresourcestoplacementgroup": {
-    "name": "AttachResourcesToPlacementGroup",
-    "isPermissionOnly": true,
-    "description": "Grants permission to attach resources to a placement group",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "placement-group",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:PlacementGroupName",
-          "ec2:PlacementGroupStrategy",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "attachverifiedaccesstrustprovider": {
     "name": "AttachVerifiedAccessTrustProvider",
     "description": "Grants permission to attach a trust provider to a Verified Access instance",
@@ -1513,9 +2020,7 @@
           "ec2:SecurityGroupID",
           "ec2:Vpc"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "security-group-rule",
@@ -1546,9 +2051,7 @@
           "ec2:SecurityGroupID",
           "ec2:Vpc"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "security-group-rule",
@@ -1626,9 +2129,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CancelCapacityReservation"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1698,7 +2199,7 @@
   "cancelimagelaunchpermission": {
     "name": "CancelImageLaunchPermission",
     "description": "Grants permission to remove your AWS account from the launch permissions for the specified AMI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "image",
@@ -1842,9 +2343,7 @@
           "ec2:ImageID",
           "ec2:Owner"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -1882,9 +2381,7 @@
           "ec2:SnapshotTime",
           "ec2:VolumeSize"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1915,9 +2412,7 @@
           "ec2:VolumeThroughput",
           "ec2:VolumeType"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1937,9 +2432,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1973,9 +2466,7 @@
           "ec2:PlacementGroup",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2010,9 +2501,7 @@
           "ec2:SourceCapacityReservationId",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2032,9 +2521,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "capacity-reservation-cancellation-quote",
@@ -2063,12 +2550,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateCapacityReservation",
-          "ec2:CreateTags",
-          "ec2:DescribeCapacityReservations",
-          "ec2:DescribeInstances"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2088,9 +2570,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc",
@@ -2127,9 +2607,7 @@
           "ec2:SamlProviderArn",
           "ec2:ServerCertificateArn"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "security-group",
@@ -2236,33 +2714,10 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "local-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "createcoippoolpermission": {
-    "name": "CreateCoipPoolPermission",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow a service to access a customer-owned IP (CoIP) pool",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "coip-pool",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -2288,9 +2743,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2344,9 +2797,7 @@
           "ec2:RootDeviceType",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "mac-modification-task",
@@ -2376,9 +2827,7 @@
           "aws:TagKeys",
           "ec2:DhcpOptionsID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2398,9 +2847,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc",
@@ -2431,9 +2878,21 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
+      },
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ImageID",
+          "ec2:ImageType",
+          "ec2:Owner",
+          "ec2:Public",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType"
+        ],
+        "dependentActions": []
       },
       {
         "name": "instance",
@@ -2452,20 +2911,6 @@
           "ec2:PlacementGroup",
           "ec2:RootDeviceType",
           "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "image",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ImageID",
-          "ec2:ImageType",
-          "ec2:Owner",
-          "ec2:Public",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:RootDeviceType"
         ],
         "dependentActions": []
       },
@@ -2533,26 +2978,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "vpc-flow-log",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "autoscaling:DescribeTags",
-          "ec2:CreateTags",
-          "ec2:DescribeTags",
-          "ecs:ListClusters",
-          "ecs:ListContainerInstances",
-          "ecs:ListServices",
-          "ecs:ListTaskDefinitions",
-          "ecs:ListTasks",
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole"
-        ]
-      },
-      {
         "name": "natgateway",
         "required": false,
         "conditionKeys": [
@@ -2617,6 +3042,15 @@
           "ec2:VpcID"
         ],
         "dependentActions": []
+      },
+      {
+        "name": "vpc-flow-log",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2638,9 +3072,7 @@
           "ec2:Owner",
           "ec2:Public"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2662,9 +3094,7 @@
           "ec2:ImageID",
           "ec2:Owner"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "instance",
@@ -2732,9 +3162,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RootDeviceType"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "image-usage-report",
@@ -2764,9 +3192,18 @@
           "aws:TagKeys",
           "ec2:SubnetID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
+      },
+      {
+        "name": "security-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SecurityGroupID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
       },
       {
         "name": "subnet",
@@ -2777,17 +3214,6 @@
           "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "security-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:SecurityGroupID",
           "ec2:Vpc"
         ],
         "dependentActions": []
@@ -2810,9 +3236,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2832,9 +3256,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "instance",
@@ -2882,9 +3304,7 @@
           "aws:TagKeys",
           "ec2:InternetGatewayID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2920,9 +3340,7 @@
           "ec2:TargetInstanceCount",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2942,10 +3360,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2965,9 +3380,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-external-resource-verification-token",
@@ -2996,9 +3409,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-policy",
@@ -3027,9 +3438,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-scope",
@@ -3058,9 +3467,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-prefix-list-resolver",
@@ -3098,9 +3505,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-prefix-list-resolver-target",
@@ -3129,10 +3534,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3152,9 +3554,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ipam-scope",
@@ -3184,9 +3584,7 @@
           "aws:TagKeys",
           "ec2:KeyPairType"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3206,10 +3604,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "ssm:GetParameters"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3230,9 +3625,7 @@
           "ec2:ManagedResourceOperator",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ssm:GetParameters"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3303,9 +3696,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "local-gateway-route-table",
@@ -3313,27 +3704,6 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "createlocalgatewayroutetablepermission": {
-    "name": "CreateLocalGatewayRouteTablePermission",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow a service to access a local gateway route table",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "local-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -3355,9 +3725,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "local-gateway-route-table-virtual-interface-group-association",
@@ -3395,9 +3763,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "local-gateway-route-table-vpc-association",
@@ -3437,9 +3803,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "local-gateway-virtual-interface-group",
@@ -3477,9 +3841,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "local-gateway-virtual-interface-group",
@@ -3522,9 +3884,7 @@
           "ec2:RootDeviceType",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "mac-modification-task",
@@ -3553,9 +3913,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3569,17 +3927,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "natgateway",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
-      {
         "name": "elastic-ip",
         "required": false,
         "conditionKeys": [
@@ -3588,6 +3935,15 @@
           "ec2:Domain",
           "ec2:PublicIpAddress",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "natgateway",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -3636,9 +3992,7 @@
           "aws:TagKeys",
           "ec2:NetworkAclID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc",
@@ -3691,9 +4045,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3706,17 +4058,6 @@
     "description": "Grants permission to create a path to analyze for reachability",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "network-insights-path",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
       {
         "name": "instance",
         "required": false,
@@ -3751,6 +4092,15 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:InternetGatewayID",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "network-insights-path",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -3835,9 +4185,18 @@
           "aws:TagKeys",
           "ec2:NetworkInterfaceID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
+      },
+      {
+        "name": "security-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SecurityGroupID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
       },
       {
         "name": "subnet",
@@ -3851,17 +4210,6 @@
           "ec2:Vpc"
         ],
         "dependentActions": []
-      },
-      {
-        "name": "security-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:SecurityGroupID",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3872,7 +4220,7 @@
   "createnetworkinterfacepermission": {
     "name": "CreateNetworkInterfacePermission",
     "description": "Grants permission to create a permission for an AWS-authorized user to perform certain operations on a network interface",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "network-interface",
@@ -3897,29 +4245,6 @@
     ],
     "dependentActions": []
   },
-  "createodbnetworkpeering": {
-    "name": "CreateOdbNetworkPeering",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow Oracle Database@AWS to create a peering connection between an ODB network and a VPC",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "vpc",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:Tenancy",
-          "ec2:VpcID"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "createplacementgroup": {
     "name": "CreatePlacementGroup",
     "description": "Grants permission to create a placement group",
@@ -3934,9 +4259,7 @@
           "ec2:PlacementGroupName",
           "ec2:PlacementGroupStrategy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3956,9 +4279,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3971,6 +4292,20 @@
     "description": "Grants permission to create a root volume replacement task",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "image",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ImageID",
+          "ec2:ImageType",
+          "ec2:Owner",
+          "ec2:Public",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType"
+        ],
+        "dependentActions": []
+      },
       {
         "name": "instance",
         "required": true,
@@ -3997,9 +4332,7 @@
           "ec2:RootDeviceType",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "replace-root-volume-task",
@@ -4007,31 +4340,6 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "volume",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "ec2:VolumeID",
-          "ec2:VolumeInitializationRate"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "image",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ImageID",
-          "ec2:ImageType",
-          "ec2:Owner",
-          "ec2:Public",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:RootDeviceType"
         ],
         "dependentActions": []
       },
@@ -4046,6 +4354,17 @@
           "ec2:SnapshotID",
           "ec2:SnapshotTime",
           "ec2:VolumeSize"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:VolumeID",
+          "ec2:VolumeInitializationRate"
         ],
         "dependentActions": []
       }
@@ -4079,9 +4398,7 @@
           "ec2:ImageID",
           "ec2:Owner"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -4094,6 +4411,12 @@
     "description": "Grants permission to create a route in a VPC route table",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "route-table",
         "required": true,
@@ -4123,10 +4446,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "sns:CreateTopic"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -4146,14 +4466,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:AuthorizeSecurityGroupIngress",
-          "ec2:CreateNetworkInterface",
-          "ec2:CreateNetworkInterfacePermission",
-          "ec2:CreateSecurityGroup",
-          "ec2:CreateTags",
-          "ec2:DescribeSecurityGroups"
-        ]
+        "dependentActions": []
       },
       {
         "name": "route-server-endpoint",
@@ -4197,10 +4510,7 @@
           "ec2:AvailabilityZone",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:AuthorizeSecurityGroupIngress",
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "route-server-peer",
@@ -4231,9 +4541,7 @@
           "aws:TagKeys",
           "ec2:RouteTableID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc",
@@ -4264,9 +4572,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -4286,9 +4592,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "secondary-subnet",
@@ -4318,9 +4622,7 @@
           "aws:TagKeys",
           "ec2:SecurityGroupID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc",
@@ -4358,9 +4660,7 @@
           "ec2:SourceOutpostArn",
           "ec2:VolumeSize"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "volume",
@@ -4409,9 +4709,7 @@
           "ec2:RootDeviceType",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -4492,6 +4790,15 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "ipam-pool",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "subnet",
         "required": true,
         "conditionKeys": [
@@ -4501,9 +4808,7 @@
           "ec2:Ipv6IpamPoolId",
           "ec2:SubnetID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc",
@@ -4513,15 +4818,6 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "ipam-pool",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -4547,9 +4843,7 @@
           "ec2:SubnetID",
           "ec2:Vpc"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -4560,7 +4854,7 @@
   "createtags": {
     "name": "CreateTags",
     "description": "Grants permission to add or overwrite one or more tags for Amazon EC2 resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "capacity-block",
@@ -5851,9 +6145,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5873,9 +6165,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "traffic-mirror-filter-rule",
@@ -5909,9 +6199,7 @@
           "ec2:Subnet",
           "ec2:Vpc"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "traffic-mirror-filter",
@@ -5952,23 +6240,21 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "traffic-mirror-target",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
-      {
         "name": "network-interface",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:NetworkInterfaceID",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "traffic-mirror-target",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -6002,9 +6288,7 @@
           "aws:TagKeys",
           "ec2:transitGatewayId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6025,9 +6309,7 @@
           "aws:TagKeys",
           "ec2:transitGatewayAttachmentId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6048,9 +6330,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "transit-gateway-connect-peer",
@@ -6081,18 +6361,6 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
-      {
-        "name": "transit-gateway-metering-policy",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "ec2:transitGatewayMeteringPolicyId"
-        ],
         "dependentActions": []
       },
       {
@@ -6102,6 +6370,16 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:transitGatewayMeteringPolicyId"
         ],
         "dependentActions": []
       }
@@ -6117,22 +6395,22 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "transit-gateway-metering-policy",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayMeteringPolicyId"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "transit-gateway-attachment",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-metering-policy",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayMeteringPolicyId"
         ],
         "dependentActions": []
       }
@@ -6155,9 +6433,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "transit-gateway-multicast-domain",
@@ -6188,9 +6464,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "transit-gateway-attachment",
@@ -6221,9 +6495,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "transit-gateway-policy-table",
@@ -6256,22 +6528,22 @@
         "dependentActions": []
       },
       {
-        "name": "transit-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayRouteTableId"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "transit-gateway-attachment",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayRouteTableId"
         ],
         "dependentActions": []
       }
@@ -6287,22 +6559,22 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "transit-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayRouteTableId"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "transit-gateway-attachment",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayRouteTableId"
         ],
         "dependentActions": []
       }
@@ -6325,9 +6597,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "transit-gateway-route-table",
@@ -6358,9 +6628,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "transit-gateway-route-table",
@@ -6403,9 +6671,7 @@
           "ec2:SubnetID",
           "ec2:Vpc"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "transit-gateway",
@@ -6450,26 +6716,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "verified-access-endpoint",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
-      {
-        "name": "verified-access-group",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "network-interface",
         "required": false,
         "conditionKeys": [
@@ -6507,6 +6753,24 @@
           "ec2:Vpc"
         ],
         "dependentActions": []
+      },
+      {
+        "name": "verified-access-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "verified-access-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6526,9 +6790,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "verified-access-instance",
@@ -6557,9 +6819,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6579,9 +6839,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6594,6 +6852,20 @@
     "description": "Grants permission to create an EBS volume",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Encrypted",
+          "ec2:Owner",
+          "ec2:ParentVolume",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SnapshotTime",
+          "ec2:VolumeSize"
+        ],
+        "dependentActions": []
+      },
       {
         "name": "volume",
         "required": true,
@@ -6612,22 +6884,6 @@
           "ec2:VolumeThroughput",
           "ec2:VolumeType"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
-      {
-        "name": "snapshot",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:Encrypted",
-          "ec2:Owner",
-          "ec2:ParentVolume",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:SnapshotTime",
-          "ec2:VolumeSize"
-        ],
         "dependentActions": []
       }
     ],
@@ -6641,20 +6897,6 @@
     "description": "Grants permission to create a VPC with a specified CIDR block",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "vpc",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
-          "ec2:VpcID"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
       {
         "name": "ipam-pool",
         "required": false,
@@ -6672,6 +6914,18 @@
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
+      },
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:Ipv4IpamPoolId",
+          "ec2:Ipv6IpamPoolId",
+          "ec2:VpcID"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6684,17 +6938,6 @@
     "description": "Grants permission to create an exclusion list for blocked public access on a VPC",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "vpc-block-public-access-exclusion",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
       {
         "name": "subnet",
         "required": false,
@@ -6720,6 +6963,15 @@
           "ec2:VpcID"
         ],
         "dependentActions": []
+      },
+      {
+        "name": "vpc-block-public-access-exclusion",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6741,9 +6993,7 @@
           "ec2:Tenancy",
           "ec2:VpcID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc-encryption-control",
@@ -6765,37 +7015,6 @@
     "description": "Grants permission to create a VPC endpoint for an AWS service",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "vpc",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:VpcID"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "route53:AssociateVPCWithHostedZone"
-        ]
-      },
-      {
-        "name": "vpc-endpoint",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "ec2:VpceMultiRegion",
-          "ec2:VpcePrivateDnsPreference",
-          "ec2:VpcePrivateDnsSpecifiedDomains",
-          "ec2:VpceServiceName",
-          "ec2:VpceServiceOwner",
-          "ec2:VpceServiceRegion"
-        ],
-        "dependentActions": []
-      },
       {
         "name": "route-table",
         "required": false,
@@ -6823,6 +7042,31 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VpcID"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:VpceMultiRegion",
+          "ec2:VpcePrivateDnsPreference",
+          "ec2:VpcePrivateDnsSpecifiedDomains",
+          "ec2:VpceServiceName",
+          "ec2:VpceServiceOwner",
+          "ec2:VpceServiceRegion"
         ],
         "dependentActions": []
       }
@@ -6878,9 +7122,7 @@
           "ec2:VpceServicePrivateDnsName",
           "ec2:VpceServiceRegion"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6902,9 +7144,7 @@
           "ec2:Tenancy",
           "ec2:VpcID"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "vpc-peering-connection",
@@ -6930,23 +7170,21 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "vpn-concentrator",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
-      {
         "name": "transit-gateway",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpn-concentrator",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
@@ -6967,35 +7205,6 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
-      {
-        "name": "vpn-connection",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "ec2:AuthenticationType",
-          "ec2:DPDTimeoutSeconds",
-          "ec2:GatewayType",
-          "ec2:IKEVersions",
-          "ec2:InsideTunnelCidr",
-          "ec2:InsideTunnelIpv6Cidr",
-          "ec2:Phase1DHGroup",
-          "ec2:Phase1EncryptionAlgorithms",
-          "ec2:Phase1IntegrityAlgorithms",
-          "ec2:Phase1LifetimeSeconds",
-          "ec2:Phase2DHGroup",
-          "ec2:Phase2EncryptionAlgorithms",
-          "ec2:Phase2IntegrityAlgorithms",
-          "ec2:Phase2LifetimeSeconds",
-          "ec2:RekeyFuzzPercentage",
-          "ec2:RekeyMarginTimeSeconds",
-          "ec2:ReplayWindowSizePackets",
-          "ec2:RoutingType"
         ],
         "dependentActions": []
       },
@@ -7025,6 +7234,33 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpn-connection",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AuthenticationType",
+          "ec2:DPDTimeoutSeconds",
+          "ec2:GatewayType",
+          "ec2:IKEVersions",
+          "ec2:InsideTunnelCidr",
+          "ec2:InsideTunnelIpv6Cidr",
+          "ec2:Phase1DHGroup",
+          "ec2:Phase1EncryptionAlgorithms",
+          "ec2:Phase1IntegrityAlgorithms",
+          "ec2:Phase1LifetimeSeconds",
+          "ec2:Phase2DHGroup",
+          "ec2:Phase2EncryptionAlgorithms",
+          "ec2:Phase2IntegrityAlgorithms",
+          "ec2:Phase2LifetimeSeconds",
+          "ec2:RekeyFuzzPercentage",
+          "ec2:RekeyMarginTimeSeconds",
+          "ec2:ReplayWindowSizePackets",
+          "ec2:RoutingType"
         ],
         "dependentActions": []
       },
@@ -7075,9 +7311,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -7214,27 +7448,6 @@
     "name": "DeleteCoipPool",
     "description": "Grants permission to delete a pool of customer-owned IP (CoIP) addresses",
     "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "coip-pool",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "deletecoippoolpermission": {
-    "name": "DeleteCoipPoolPermission",
-    "isPermissionOnly": true,
-    "description": "Grants permission to deny a service from accessing a customer-owned IP (CoIP) pool",
-    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "coip-pool",
@@ -7729,27 +7942,6 @@
     ],
     "dependentActions": []
   },
-  "deletelocalgatewayroutetablepermission": {
-    "name": "DeleteLocalGatewayRouteTablePermission",
-    "isPermissionOnly": true,
-    "description": "Grants permission to deny a service from accessing a local gateway route table",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "local-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "deletelocalgatewayroutetablevirtualinterfacegroupassociation": {
     "name": "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
     "description": "Grants permission to delete a local gateway route table virtual interface group association",
@@ -8023,7 +8215,7 @@
   "deletenetworkinterfacepermission": {
     "name": "DeleteNetworkInterfacePermission",
     "description": "Grants permission to delete a permission that is associated with a network interface",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "network-interface",
@@ -8036,29 +8228,6 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:Subnet",
           "ec2:Vpc"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "deleteodbnetworkpeering": {
-    "name": "DeleteOdbNetworkPeering",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow Oracle Database@AWS to delete a peering connection between an ODB network and a VPC",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "vpc",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:Tenancy",
-          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -8133,47 +8302,6 @@
     ],
     "dependentActions": []
   },
-  "deleteresourcepolicy": {
-    "name": "DeleteResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to remove an IAM policy that enables cross-account sharing from a resource",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "ipam-pool",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "placement-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:PlacementGroupName",
-          "ec2:PlacementGroupStrategy",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "verified-access-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "deleteroute": {
     "name": "DeleteRoute",
     "description": "Grants permission to delete a route from a route table",
@@ -8208,9 +8336,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "sns:DeleteTopic"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -8231,11 +8357,7 @@
           "ec2:AvailabilityZone",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:DeleteNetworkInterface",
-          "ec2:DeleteSecurityGroup",
-          "ec2:RevokeSecurityGroupIngress"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -8256,9 +8378,7 @@
           "ec2:AvailabilityZone",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:RevokeSecurityGroupIngress"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -8424,7 +8544,7 @@
   "deletetags": {
     "name": "DeleteTags",
     "description": "Grants permission to delete one or more tags from Amazon EC2 resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "capacity-block",
@@ -11503,24 +11623,11 @@
     "conditionKeys": [
       "ec2:Region"
     ],
-    "dependentActions": [
-      "ssm:GetParameters"
-    ]
+    "dependentActions": []
   },
   "describelaunchtemplates": {
     "name": "DescribeLaunchTemplates",
     "description": "Grants permission to describe one or more launch templates",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "describelocalgatewayroutetablepermissions": {
-    "name": "DescribeLocalGatewayRouteTablePermissions",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow a service to describe local gateway route table permissions",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -12348,17 +12455,6 @@
     ],
     "dependentActions": []
   },
-  "describeverifiedaccessinstancewebaclassociations": {
-    "name": "DescribeVerifiedAccessInstanceWebAclAssociations",
-    "isPermissionOnly": true,
-    "description": "Grants permission to describe the AWS Web Application Firewall (WAF) web access control list (ACL) associations for a Verified Access instance",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "describeverifiedaccessinstances": {
     "name": "DescribeVerifiedAccessInstances",
     "description": "Grants permission to describe the specified Verified Access instances or all Verified Access instances",
@@ -12645,27 +12741,6 @@
     ],
     "dependentActions": []
   },
-  "detachappliancefromnatgateway": {
-    "name": "DetachApplianceFromNatGateway",
-    "isPermissionOnly": true,
-    "description": "Grants permission to detach an appliance from a public/private Natgateway",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "natgateway",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "detachclassiclinkvpc": {
     "name": "DetachClassicLinkVpc",
     "description": "Grants permission to unlink (detach) a linked EC2-Classic instance from a VPC",
@@ -12822,29 +12897,6 @@
     ],
     "dependentActions": []
   },
-  "detachresourcesfromplacementgroup": {
-    "name": "DetachResourcesFromPlacementGroup",
-    "isPermissionOnly": true,
-    "description": "Grants permission to detach resources from a placement group",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "placement-group",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:PlacementGroupName",
-          "ec2:PlacementGroupStrategy",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "detachverifiedaccesstrustprovider": {
     "name": "DetachVerifiedAccessTrustProvider",
     "description": "Grants permission to detach a trust provider from a Verified Access instance",
@@ -12880,27 +12932,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "volume",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:AvailabilityZoneId",
-          "ec2:Encrypted",
-          "ec2:ManagedResourceOperator",
-          "ec2:ParentSnapshot",
-          "ec2:ParentVolume",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:VolumeID",
-          "ec2:VolumeInitializationRate",
-          "ec2:VolumeIops",
-          "ec2:VolumeSize",
-          "ec2:VolumeThroughput",
-          "ec2:VolumeType"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "instance",
         "required": false,
         "conditionKeys": [
@@ -12925,6 +12956,27 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RootDeviceType",
           "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:Encrypted",
+          "ec2:ManagedResourceOperator",
+          "ec2:ParentSnapshot",
+          "ec2:ParentVolume",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VolumeID",
+          "ec2:VolumeInitializationRate",
+          "ec2:VolumeIops",
+          "ec2:VolumeSize",
+          "ec2:VolumeThroughput",
+          "ec2:VolumeType"
         ],
         "dependentActions": []
       }
@@ -13108,7 +13160,7 @@
   "disableimageblockpublicaccess": {
     "name": "DisableImageBlockPublicAccess",
     "description": "Grants permission to disable block public access for AMIs at the account level in the specified AWS Region",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -13208,9 +13260,7 @@
     "conditionKeys": [
       "ec2:Region"
     ],
-    "dependentActions": [
-      "organizations:DeregisterDelegatedAdministrator"
-    ]
+    "dependentActions": []
   },
   "disableipampolicy": {
     "name": "DisableIpamPolicy",
@@ -13276,7 +13326,7 @@
   "disablesnapshotblockpublicaccess": {
     "name": "DisableSnapshotBlockPublicAccess",
     "description": "Grants permission to disable the block public access for snapshots setting for a Region",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -13289,22 +13339,22 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "transit-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayRouteTableId"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "transit-gateway-attachment",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayRouteTableId"
         ],
         "dependentActions": []
       },
@@ -13937,27 +13987,6 @@
     ],
     "dependentActions": []
   },
-  "disassociateverifiedaccessinstancewebacl": {
-    "name": "DisassociateVerifiedAccessInstanceWebAcl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disassociate an AWS Web Application Firewall (WAF) web access control list (ACL) from a Verified Access instance",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "verified-access-instance",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "disassociatevpccidrblock": {
     "name": "DisassociateVpcCidrBlock",
     "description": "Grants permission to disassociate a CIDR block from a VPC",
@@ -14060,25 +14089,7 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RootDeviceType"
         ],
-        "dependentActions": [
-          "ec2:CreateLaunchTemplate",
-          "ec2:CreateSnapshot",
-          "ec2:CreateTags",
-          "ec2:DeleteSnapshot",
-          "ec2:DescribeImages",
-          "ec2:DescribeInstanceAttribute",
-          "ec2:DescribeInstanceStatus",
-          "ec2:DescribeInstanceTypeOfferings",
-          "ec2:DescribeInstances",
-          "ec2:DescribeLaunchTemplateVersions",
-          "ec2:DescribeLaunchTemplates",
-          "ec2:DescribeSnapshots",
-          "ec2:DescribeSubnets",
-          "ec2:RunInstances",
-          "ec2:StopInstances",
-          "ec2:TerminateInstances",
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "launch-template",
@@ -14151,7 +14162,7 @@
   "enableimageblockpublicaccess": {
     "name": "EnableImageBlockPublicAccess",
     "description": "Grants permission to enable block public access for AMIs at the account level in the specified AWS Region",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -14251,11 +14262,7 @@
     "conditionKeys": [
       "ec2:Region"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "organizations:EnableAWSServiceAccess",
-      "organizations:RegisterDelegatedAdministrator"
-    ]
+    "dependentActions": []
   },
   "enableipampolicy": {
     "name": "EnableIpamPolicy",
@@ -14285,10 +14292,7 @@
     "conditionKeys": [
       "ec2:Region"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "organizations:EnableAWSServiceAccess"
-    ]
+    "dependentActions": []
   },
   "enablerouteserverpropagation": {
     "name": "EnableRouteServerPropagation",
@@ -14334,7 +14338,7 @@
   "enablesnapshotblockpublicaccess": {
     "name": "EnableSnapshotBlockPublicAccess",
     "description": "Grants permission to enable or modify the block public access for snapshots setting for a Region",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
@@ -14347,22 +14351,22 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "transit-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayRouteTableId"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "transit-gateway-attachment",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayRouteTableId"
         ],
         "dependentActions": []
       },
@@ -14551,9 +14555,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "image",
@@ -15308,8 +15310,8 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "ipam-scope",
-        "required": true,
+        "name": "ipam-pool",
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
@@ -15317,8 +15319,8 @@
         "dependentActions": []
       },
       {
-        "name": "ipam-pool",
-        "required": false,
+        "name": "ipam-scope",
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
@@ -15516,47 +15518,6 @@
           "ec2:ReservedInstancesOfferingType",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "getresourcepolicy": {
-    "name": "GetResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to describe an IAM policy that enables cross-account sharing",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "ipam-pool",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "placement-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:PlacementGroupName",
-          "ec2:PlacementGroupStrategy",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "verified-access-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -15883,27 +15844,6 @@
     ],
     "dependentActions": []
   },
-  "getverifiedaccessinstancewebacl": {
-    "name": "GetVerifiedAccessInstanceWebAcl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to show the AWS Web Application Firewall (WAF) web access control list (ACL) for a Verified Access instance",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "verified-access-instance",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "getvpcresourcesblockingencryptionenforcement": {
     "name": "GetVpcResourcesBlockingEncryptionEnforcement",
     "description": "Grants permission to describe resources that would block VPC Encryption Control enforcement",
@@ -15982,27 +15922,6 @@
     ],
     "dependentActions": []
   },
-  "importbyoipcidrtoipam": {
-    "name": "ImportByoipCidrToIpam",
-    "isPermissionOnly": true,
-    "description": "Grants permission to transfer existing BYOIP IPv4 CIDRs to IPAM",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "ipam-pool",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "importclientvpnclientcertificaterevocationlist": {
     "name": "ImportClientVpnClientCertificateRevocationList",
     "description": "Grants permission to upload a client certificate revocation list to a Client VPN endpoint",
@@ -16046,9 +15965,7 @@
           "ec2:Public",
           "ec2:RootDeviceType"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "import-image-task",
@@ -16099,24 +16016,6 @@
         "dependentActions": []
       },
       {
-        "name": "volume",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:Encrypted",
-          "ec2:ManagedResourceOperator",
-          "ec2:ParentSnapshot",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:VolumeID",
-          "ec2:VolumeIops",
-          "ec2:VolumeSize",
-          "ec2:VolumeThroughput",
-          "ec2:VolumeType"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "security-group",
         "required": false,
         "conditionKeys": [
@@ -16138,6 +16037,24 @@
           "ec2:Vpc"
         ],
         "dependentActions": []
+      },
+      {
+        "name": "volume",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:Encrypted",
+          "ec2:ManagedResourceOperator",
+          "ec2:ParentSnapshot",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VolumeID",
+          "ec2:VolumeIops",
+          "ec2:VolumeSize",
+          "ec2:VolumeThroughput",
+          "ec2:VolumeType"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -16157,9 +16074,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -16179,9 +16094,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -16217,49 +16130,6 @@
           "ec2:AvailabilityZoneId",
           "ec2:Encrypted",
           "ec2:ManagedResourceOperator",
-          "ec2:ParentSnapshot",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:VolumeID",
-          "ec2:VolumeIops",
-          "ec2:VolumeSize",
-          "ec2:VolumeThroughput",
-          "ec2:VolumeType"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "injectapierror": {
-    "name": "InjectApiError",
-    "isPermissionOnly": true,
-    "description": "Grants permission to temporarily inject errors for target API requests",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "ec2:FisActionId",
-      "ec2:FisTargetArns",
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "injectvolumeiolatency": {
-    "name": "InjectVolumeIOLatency",
-    "isPermissionOnly": true,
-    "description": "Grants permission to temporarily inject latency to I/O operations for a target Amazon EBS volume",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "volume",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:AvailabilityZoneId",
-          "ec2:Encrypted",
           "ec2:ParentSnapshot",
           "ec2:ResourceTag/${TagKey}",
           "ec2:VolumeID",
@@ -16405,9 +16275,7 @@
           "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:ModifyCapacityReservation"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -16725,6 +16593,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "capacity-reservation",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "instance",
         "required": true,
         "conditionKeys": [
@@ -16751,14 +16627,6 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RootDeviceType",
           "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "capacity-reservation",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -17085,6 +16953,15 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "dedicated-host",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "instance",
         "required": true,
         "conditionKeys": [
@@ -17111,15 +16988,6 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:RootDeviceType",
           "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "dedicated-host",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -17469,22 +17337,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "network-interface",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:Attribute",
-          "ec2:Attribute/${AttributeName}",
-          "ec2:AvailabilityZone",
-          "ec2:ManagedResourceOperator",
-          "ec2:NetworkInterfaceID",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:Subnet",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "instance",
         "required": false,
         "conditionKeys": [
@@ -17513,6 +17365,22 @@
         "dependentActions": []
       },
       {
+        "name": "network-interface",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:AvailabilityZone",
+          "ec2:ManagedResourceOperator",
+          "ec2:NetworkInterfaceID",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Subnet",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "security-group",
         "required": false,
         "conditionKeys": [
@@ -17532,30 +17400,6 @@
           "ec2:AvailabilityZoneId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Vpc"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "modifyodbnetworkpeering": {
-    "name": "ModifyOdbNetworkPeering",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow Oracle Database@AWS to modify the settings of a peering connection between an ODB network and a VPC",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "vpc",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:Attribute/${AttributeName}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:Tenancy",
-          "ec2:VpcID"
         ],
         "dependentActions": []
       }
@@ -17684,6 +17528,15 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "prefix-list",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "security-group",
         "required": true,
         "conditionKeys": [
@@ -17702,15 +17555,6 @@
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
-      },
-      {
-        "name": "prefix-list",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -17721,7 +17565,7 @@
   "modifysnapshotattribute": {
     "name": "ModifySnapshotAttribute",
     "description": "Grants permission to add or remove permission settings for a snapshot",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "snapshot",
@@ -17784,22 +17628,22 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "launch-template",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ManagedResourceOperator",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "spot-fleet-request",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "launch-template",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ManagedResourceOperator",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -17910,21 +17754,21 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "traffic-mirror-filter",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "traffic-mirror-session",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:Attribute",
           "ec2:Attribute/${AttributeName}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "traffic-mirror-filter",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
@@ -17983,6 +17827,16 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "transit-gateway-attachment",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "transit-gateway-metering-policy",
         "required": true,
         "conditionKeys": [
@@ -17990,16 +17844,6 @@
           "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayMeteringPolicyId"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "transit-gateway-attachment",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayAttachmentId"
         ],
         "dependentActions": []
       }
@@ -18026,6 +17870,16 @@
         "dependentActions": []
       },
       {
+        "name": "transit-gateway-attachment",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "transit-gateway-route-table",
         "required": true,
         "conditionKeys": [
@@ -18034,16 +17888,6 @@
           "ec2:Attribute/${AttributeName}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayRouteTableId"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "transit-gateway-attachment",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayAttachmentId"
         ],
         "dependentActions": []
       }
@@ -18059,18 +17903,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "transit-gateway-attachment",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:Attribute",
-          "ec2:Attribute/${AttributeName}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayAttachmentId"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "subnet",
         "required": false,
         "conditionKeys": [
@@ -18080,6 +17912,18 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-attachment",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayAttachmentId"
         ],
         "dependentActions": []
       }
@@ -18095,16 +17939,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "verified-access-endpoint",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:Attribute/${AttributeName}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "subnet",
         "required": false,
         "conditionKeys": [
@@ -18114,6 +17948,16 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "verified-access-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
@@ -18421,19 +18265,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "vpc-endpoint",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:Attribute",
-          "ec2:Attribute/${AttributeName}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:VpceMultiRegion",
-          "ec2:VpceServiceRegion"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "route-table",
         "required": false,
         "conditionKeys": [
@@ -18464,6 +18295,19 @@
           "ec2:ResourceTag/${TagKey}",
           "ec2:SubnetID",
           "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "vpc-endpoint",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VpceMultiRegion",
+          "ec2:VpceServiceRegion"
         ],
         "dependentActions": []
       }
@@ -18556,7 +18400,7 @@
   "modifyvpcendpointservicepermissions": {
     "name": "ModifyVpcEndpointServicePermissions",
     "description": "Grants permission to modify the permissions for a VPC endpoint service",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "vpc-endpoint-service",
@@ -18854,62 +18698,6 @@
     ],
     "dependentActions": []
   },
-  "pausevolumeio": {
-    "name": "PauseVolumeIO",
-    "isPermissionOnly": true,
-    "description": "Grants permission to temporarily pause I/O operations for a target Amazon EBS volume",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "volume",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:AvailabilityZoneId",
-          "ec2:Encrypted",
-          "ec2:ManagedResourceOperator",
-          "ec2:ParentSnapshot",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:VolumeID",
-          "ec2:VolumeIops",
-          "ec2:VolumeSize",
-          "ec2:VolumeThroughput",
-          "ec2:VolumeType"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "instance",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:CpuOptionsAmdSevSnp",
-          "ec2:EbsOptimized",
-          "ec2:InstanceAutoRecovery",
-          "ec2:InstanceBandwidthWeighting",
-          "ec2:InstanceID",
-          "ec2:InstanceMarketType",
-          "ec2:InstanceMetadataTags",
-          "ec2:InstanceProfile",
-          "ec2:InstanceType",
-          "ec2:ManagedResourceOperator",
-          "ec2:MetadataHttpEndpoint",
-          "ec2:MetadataHttpPutResponseHopLimit",
-          "ec2:MetadataHttpTokens",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:RootDeviceType",
-          "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "provisionbyoipcidr": {
     "name": "ProvisionByoipCidr",
     "description": "Grants permission to provision an address range for use in AWS through bring your own IP addresses (BYOIP), and to create a corresponding address pool",
@@ -18946,8 +18734,8 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "ipam-pool",
-        "required": true,
+        "name": "ipam-external-resource-verification-token",
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
@@ -18955,8 +18743,8 @@
         "dependentActions": []
       },
       {
-        "name": "ipam-external-resource-verification-token",
-        "required": false,
+        "name": "ipam-pool",
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
@@ -19011,9 +18799,7 @@
           "aws:TagKeys",
           "ec2:CapacityReservationFleet"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -19053,9 +18839,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -19078,47 +18862,6 @@
     "description": "Grants permission to purchase one or more Scheduled Instances with a specified schedule",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
-  "putresourcepolicy": {
-    "name": "PutResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to attach an IAM policy that enables cross-account sharing to a resource",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "ipam-pool",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "placement-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:PlacementGroupName",
-          "ec2:PlacementGroupStrategy",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "verified-access-group",
-        "required": false,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}"
-        ],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -19177,9 +18920,7 @@
           "ec2:ImageID",
           "ec2:Owner"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -19552,9 +19293,7 @@
           "ec2:RootDeviceType",
           "ec2:Tenancy"
         ],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -19635,6 +19374,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "route-table",
         "required": true,
         "conditionKeys": [
@@ -19656,17 +19401,6 @@
     "description": "Grants permission to change the route table that is associated with a subnet",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:RouteTableID",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
       {
         "name": "internet-gateway",
         "required": false,
@@ -19692,6 +19426,17 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RouteTableID",
+          "ec2:Vpc"
         ],
         "dependentActions": []
       },
@@ -19729,22 +19474,22 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "transit-gateway-route-table",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:transitGatewayRouteTableId"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "transit-gateway-attachment",
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}",
           "ec2:transitGatewayAttachmentId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayRouteTableId"
         ],
         "dependentActions": []
       }
@@ -19800,17 +19545,6 @@
     "description": "Grants permission to create a Spot Fleet request",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "spot-fleet-request",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      },
       {
         "name": "image",
         "required": false,
@@ -19885,6 +19619,15 @@
         "dependentActions": []
       },
       {
+        "name": "spot-fleet-request",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "subnet",
         "required": false,
         "conditionKeys": [
@@ -19908,18 +19651,6 @@
     "description": "Grants permission to create a Spot Instance request",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "spot-instances-request",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "iam:PassRole"
-        ]
-      },
       {
         "name": "image",
         "required": false,
@@ -19996,6 +19727,15 @@
           "ec2:SnapshotTime",
           "ec2:SourceOutpostArn",
           "ec2:VolumeSize"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "spot-instances-request",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -20170,7 +19910,7 @@
   "resetsnapshotattribute": {
     "name": "ResetSnapshotAttribute",
     "description": "Grants permission to reset permission settings for a snapshot",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "snapshot",
@@ -20408,102 +20148,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "image",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:ImageID",
-          "ec2:ImageType",
-          "ec2:IsLaunchTemplateResource",
-          "ec2:LaunchTemplate",
-          "ec2:Owner",
-          "ec2:Public",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:RootDeviceType"
-        ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "iam:PassRole",
-          "ssm:GetParameters"
-        ]
-      },
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "ec2:AvailabilityZone",
-          "ec2:AvailabilityZoneId",
-          "ec2:CpuOptionsAmdSevSnp",
-          "ec2:EbsOptimized",
-          "ec2:InstanceAutoRecovery",
-          "ec2:InstanceBandwidthWeighting",
-          "ec2:InstanceID",
-          "ec2:InstanceMarketType",
-          "ec2:InstanceMetadataTags",
-          "ec2:InstanceProfile",
-          "ec2:InstanceType",
-          "ec2:IsLaunchTemplateResource",
-          "ec2:LaunchTemplate",
-          "ec2:ManagedResourceOperator",
-          "ec2:MetadataHttpEndpoint",
-          "ec2:MetadataHttpPutResponseHopLimit",
-          "ec2:MetadataHttpTokens",
-          "ec2:PlacementGroup",
-          "ec2:ProductCode",
-          "ec2:RootDeviceType",
-          "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "network-interface",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "ec2:AssociatePublicIpAddress",
-          "ec2:AuthorizedService",
-          "ec2:AvailabilityZone",
-          "ec2:IsLaunchTemplateResource",
-          "ec2:LaunchTemplate",
-          "ec2:ManagedResourceOperator",
-          "ec2:NetworkInterfaceID",
-          "ec2:Subnet",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "security-group",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:IsLaunchTemplateResource",
-          "ec2:LaunchTemplate",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:SecurityGroupID",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "subnet",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:AvailabilityZoneId",
-          "ec2:IsLaunchTemplateResource",
-          "ec2:LaunchTemplate",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:SubnetID",
-          "ec2:Vpc"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "capacity-reservation",
         "required": false,
         "conditionKeys": [
@@ -20538,6 +20182,52 @@
         "dependentActions": []
       },
       {
+        "name": "image",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ImageID",
+          "ec2:ImageType",
+          "ec2:IsLaunchTemplateResource",
+          "ec2:LaunchTemplate",
+          "ec2:Owner",
+          "ec2:Public",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:CpuOptionsAmdSevSnp",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceID",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:IsLaunchTemplateResource",
+          "ec2:LaunchTemplate",
+          "ec2:ManagedResourceOperator",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:PlacementGroup",
+          "ec2:ProductCode",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "key-pair",
         "required": false,
         "conditionKeys": [
@@ -20566,6 +20256,24 @@
         "name": "license-configuration",
         "required": false,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "network-interface",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:AssociatePublicIpAddress",
+          "ec2:AuthorizedService",
+          "ec2:AvailabilityZone",
+          "ec2:IsLaunchTemplateResource",
+          "ec2:LaunchTemplate",
+          "ec2:ManagedResourceOperator",
+          "ec2:NetworkInterfaceID",
+          "ec2:Subnet",
+          "ec2:Vpc"
+        ],
         "dependentActions": []
       },
       {
@@ -20600,6 +20308,19 @@
         "dependentActions": []
       },
       {
+        "name": "security-group",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:IsLaunchTemplateResource",
+          "ec2:LaunchTemplate",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SecurityGroupID",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "snapshot",
         "required": false,
         "conditionKeys": [
@@ -20621,6 +20342,21 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "subnet",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:IsLaunchTemplateResource",
+          "ec2:LaunchTemplate",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:SubnetID",
+          "ec2:Vpc"
         ],
         "dependentActions": []
       },
@@ -20973,44 +20709,6 @@
     ],
     "dependentActions": []
   },
-  "sendspotinstanceinterruptions": {
-    "name": "SendSpotInstanceInterruptions",
-    "isPermissionOnly": true,
-    "description": "Grants permission to interrupt a Spot Instance",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
-          "ec2:AvailabilityZone",
-          "ec2:AvailabilityZoneId",
-          "ec2:CpuOptionsAmdSevSnp",
-          "ec2:EbsOptimized",
-          "ec2:InstanceAutoRecovery",
-          "ec2:InstanceBandwidthWeighting",
-          "ec2:InstanceID",
-          "ec2:InstanceMarketType",
-          "ec2:InstanceMetadataTags",
-          "ec2:InstanceProfile",
-          "ec2:InstanceType",
-          "ec2:ManagedResourceOperator",
-          "ec2:MetadataHttpEndpoint",
-          "ec2:MetadataHttpPutResponseHopLimit",
-          "ec2:MetadataHttpTokens",
-          "ec2:ResourceTag/${TagKey}",
-          "ec2:RootDeviceType",
-          "ec2:Tenancy"
-        ],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ec2:Region"
-    ],
-    "dependentActions": []
-  },
   "startdeclarativepoliciesreport": {
     "name": "StartDeclarativePoliciesReport",
     "description": "Grants permission to start a declarative policies report",
@@ -21075,9 +20773,7 @@
           "aws:ResourceTag/${TagKey}",
           "ec2:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "network-insights-access-scope-analysis",
@@ -21106,9 +20802,7 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "network-insights-path",

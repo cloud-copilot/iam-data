@@ -38,14 +38,7 @@
         "name": "component",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "imagebuilder:TagResource",
-          "kms:Encrypt",
-          "kms:GenerateDataKey",
-          "kms:GenerateDataKeyWithoutPlaintext",
-          "s3:GetObject",
-          "s3:ListBucket"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -63,20 +56,7 @@
         "name": "containerRecipe",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeImages",
-          "ecr:DescribeImages",
-          "ecr:DescribeRepositories",
-          "imagebuilder:GetComponent",
-          "imagebuilder:GetImage",
-          "imagebuilder:TagResource",
-          "kms:Encrypt",
-          "kms:GenerateDataKey",
-          "kms:GenerateDataKeyWithoutPlaintext",
-          "s3:GetObject",
-          "s3:ListBucket",
-          "ssm:GetParameter"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -94,14 +74,7 @@
         "name": "distributionConfiguration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateLaunchTemplateVersion",
-          "ec2:DescribeLaunchTemplates",
-          "ec2:ModifyLaunchTemplate",
-          "imagebuilder:TagResource",
-          "s3:ListBucket",
-          "ssm:GetParameter"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -119,19 +92,7 @@
         "name": "image",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ecr:BatchGetRepositoryScanningConfiguration",
-          "ecr:DescribeRepositories",
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole",
-          "imagebuilder:GetContainerRecipe",
-          "imagebuilder:GetDistributionConfiguration",
-          "imagebuilder:GetImageRecipe",
-          "imagebuilder:GetInfrastructureConfiguration",
-          "imagebuilder:GetWorkflow",
-          "imagebuilder:TagResource",
-          "inspector2:BatchGetAccountStatus"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -149,19 +110,7 @@
         "name": "imagePipeline",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ecr:BatchGetRepositoryScanningConfiguration",
-          "ecr:DescribeRepositories",
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole",
-          "imagebuilder:GetContainerRecipe",
-          "imagebuilder:GetDistributionConfiguration",
-          "imagebuilder:GetImageRecipe",
-          "imagebuilder:GetInfrastructureConfiguration",
-          "imagebuilder:GetWorkflow",
-          "imagebuilder:TagResource",
-          "inspector2:BatchGetAccountStatus"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -179,13 +128,7 @@
         "name": "imageRecipe",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeImages",
-          "imagebuilder:GetComponent",
-          "imagebuilder:GetImage",
-          "imagebuilder:TagResource",
-          "ssm:GetParameter"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -203,21 +146,14 @@
         "name": "infrastructureConfiguration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeHosts",
-          "iam:PassRole",
-          "imagebuilder:TagResource",
-          "resource-groups:GetGroup",
-          "sns:Publish"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "imagebuilder:CreatedResourceTagKeys",
       "imagebuilder:CreatedResourceTag/${TagKey}",
+      "imagebuilder:CreatedResourceTagKeys",
       "imagebuilder:Ec2MetadataHttpTokens",
       "imagebuilder:StatusTopicArn"
     ],
@@ -232,10 +168,7 @@
         "name": "lifecyclePolicy",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "imagebuilder:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -254,14 +187,7 @@
         "name": "workflow",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "imagebuilder:TagResource",
-          "kms:Encrypt",
-          "kms:GenerateDataKey",
-          "kms:GenerateDataKeyWithoutPlaintext",
-          "s3:GetObject",
-          "s3:ListBucket"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -414,14 +340,7 @@
         "name": "image",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeImages",
-          "iam:PassRole",
-          "imagebuilder:GetDistributionConfiguration",
-          "imagebuilder:GetImage",
-          "imagebuilder:TagResource",
-          "ssm:GetParameter"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -443,9 +362,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt"
-    ]
+    "dependentActions": []
   },
   "getcomponentpolicy": {
     "name": "GetComponentPolicy",
@@ -655,9 +572,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt"
-    ]
+    "dependentActions": []
   },
   "getworkflowexecution": {
     "name": "GetWorkflowExecution",
@@ -687,9 +602,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt"
-    ]
+    "dependentActions": []
   },
   "importcomponent": {
     "name": "ImportComponent",
@@ -700,14 +613,7 @@
         "name": "component",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "imagebuilder:TagResource",
-          "kms:Encrypt",
-          "kms:GenerateDataKey",
-          "kms:GenerateDataKeyWithoutPlaintext",
-          "s3:GetObject",
-          "s3:ListBucket"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -725,15 +631,7 @@
         "name": "imageVersion",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole",
-          "imagebuilder:GetInfrastructureConfiguration",
-          "imagebuilder:GetWorkflow",
-          "imagebuilder:TagResource",
-          "s3:GetObject",
-          "s3:ListBucket"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -751,12 +649,7 @@
         "name": "imageVersion",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeImages",
-          "ec2:DescribeImportImageTasks",
-          "iam:CreateServiceLinkedRole",
-          "imagebuilder:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -895,9 +788,7 @@
         "name": "image",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "inspector2:ListFindings"
-        ]
+        "dependentActions": []
       },
       {
         "name": "imagePipeline",
@@ -1083,9 +974,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt"
-    ]
+    "dependentActions": []
   },
   "listworkflows": {
     "name": "ListWorkflows",
@@ -1098,7 +987,7 @@
   "putcomponentpolicy": {
     "name": "PutComponentPolicy",
     "description": "Grants permission to set the resource policy associated with a component",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "component",
@@ -1113,7 +1002,7 @@
   "putcontainerrecipepolicy": {
     "name": "PutContainerRecipePolicy",
     "description": "Grants permission to set the resource policy associated with a container recipe",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "containerRecipe",
@@ -1128,7 +1017,7 @@
   "putimagepolicy": {
     "name": "PutImagePolicy",
     "description": "Grants permission to set the resource policy associated with an image",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "image",
@@ -1143,7 +1032,7 @@
   "putimagerecipepolicy": {
     "name": "PutImageRecipePolicy",
     "description": "Grants permission to set the resource policy associated with an image recipe",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "imageRecipe",
@@ -1200,11 +1089,7 @@
         "name": "imagePipeline",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "imagebuilder:GetImagePipeline",
-          "imagebuilder:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1231,7 +1116,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an Image Builder resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "component",
@@ -1289,15 +1174,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag an Image Builder resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "component",
@@ -1372,13 +1257,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateLaunchTemplateVersion",
-      "ec2:DescribeLaunchTemplates",
-      "ec2:ModifyLaunchTemplate",
-      "s3:ListBucket",
-      "ssm:GetParameter"
-    ]
+    "dependentActions": []
   },
   "updateimagepipeline": {
     "name": "UpdateImagePipeline",
@@ -1393,18 +1272,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ecr:BatchGetRepositoryScanningConfiguration",
-      "ecr:DescribeRepositories",
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "imagebuilder:GetContainerRecipe",
-      "imagebuilder:GetDistributionConfiguration",
-      "imagebuilder:GetImageRecipe",
-      "imagebuilder:GetInfrastructureConfiguration",
-      "imagebuilder:GetWorkflow",
-      "inspector2:BatchGetAccountStatus"
-    ]
+    "dependentActions": []
   },
   "updateinfrastructureconfiguration": {
     "name": "UpdateInfrastructureConfiguration",
@@ -1415,18 +1283,12 @@
         "name": "infrastructureConfiguration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeHosts",
-          "iam:PassRole",
-          "resource-groups:GetGroup",
-          "sns:Publish"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "imagebuilder:CreatedResourceTagKeys",
       "imagebuilder:CreatedResourceTag/${TagKey}",
+      "imagebuilder:CreatedResourceTagKeys",
       "imagebuilder:Ec2MetadataHttpTokens",
       "imagebuilder:StatusTopicArn"
     ],
@@ -1441,9 +1303,7 @@
         "name": "lifecyclePolicy",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

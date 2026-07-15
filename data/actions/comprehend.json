@@ -103,9 +103,9 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "comprehend:VolumeKmsKey",
       "comprehend:ModelKmsKey",
       "comprehend:OutputKmsKey",
+      "comprehend:VolumeKmsKey",
       "comprehend:VpcSecurityGroupIds",
       "comprehend:VpcSubnets"
     ],
@@ -171,8 +171,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "comprehend:VolumeKmsKey",
       "comprehend:ModelKmsKey",
+      "comprehend:VolumeKmsKey",
       "comprehend:VpcSecurityGroupIds",
       "comprehend:VpcSubnets"
     ],
@@ -184,20 +184,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "flywheel",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "comprehend:VolumeKmsKey",
-          "comprehend:ModelKmsKey",
-          "comprehend:DataLakeKmsKey",
-          "comprehend:VpcSecurityGroupIds",
-          "comprehend:VpcSubnets"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "document-classifier",
         "required": false,
         "conditionKeys": [],
@@ -207,6 +193,20 @@
         "name": "entity-recognizer",
         "required": false,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "comprehend:DataLakeKmsKey",
+          "comprehend:ModelKmsKey",
+          "comprehend:VolumeKmsKey",
+          "comprehend:VpcSecurityGroupIds",
+          "comprehend:VpcSubnets"
+        ],
         "dependentActions": []
       }
     ],
@@ -931,8 +931,8 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
-          "comprehend:VolumeKmsKey",
           "comprehend:OutputKmsKey",
+          "comprehend:VolumeKmsKey",
           "comprehend:VpcSecurityGroupIds",
           "comprehend:VpcSubnets"
         ],
@@ -969,8 +969,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "comprehend:VolumeKmsKey",
       "comprehend:OutputKmsKey",
+      "comprehend:VolumeKmsKey",
       "comprehend:VpcSecurityGroupIds",
       "comprehend:VpcSubnets"
     ],
@@ -987,8 +987,8 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
-          "comprehend:VolumeKmsKey",
           "comprehend:OutputKmsKey",
+          "comprehend:VolumeKmsKey",
           "comprehend:VpcSecurityGroupIds",
           "comprehend:VpcSubnets"
         ],
@@ -1059,8 +1059,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "comprehend:VolumeKmsKey",
       "comprehend:OutputKmsKey",
+      "comprehend:VolumeKmsKey",
       "comprehend:VpcSecurityGroupIds",
       "comprehend:VpcSubnets"
     ],
@@ -1100,8 +1100,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "comprehend:VolumeKmsKey",
       "comprehend:OutputKmsKey",
+      "comprehend:VolumeKmsKey",
       "comprehend:VpcSecurityGroupIds",
       "comprehend:VpcSubnets"
     ],
@@ -1122,8 +1122,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "comprehend:VolumeKmsKey",
       "comprehend:OutputKmsKey",
+      "comprehend:VolumeKmsKey",
       "comprehend:VpcSecurityGroupIds",
       "comprehend:VpcSubnets"
     ],
@@ -1144,8 +1144,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "comprehend:VolumeKmsKey",
       "comprehend:OutputKmsKey",
+      "comprehend:VolumeKmsKey",
       "comprehend:VpcSecurityGroupIds",
       "comprehend:VpcSubnets"
     ],
@@ -1289,7 +1289,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource with given key value pairs",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "document-classification-job",
@@ -1391,7 +1391,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource with given key",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "document-classification-job",
@@ -1522,17 +1522,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "flywheel",
-        "required": true,
-        "conditionKeys": [
-          "comprehend:VolumeKmsKey",
-          "comprehend:ModelKmsKey",
-          "comprehend:VpcSecurityGroupIds",
-          "comprehend:VpcSubnets"
-        ],
-        "dependentActions": []
-      },
-      {
         "name": "document-classifier",
         "required": false,
         "conditionKeys": [],
@@ -1542,6 +1531,17 @@
         "name": "entity-recognizer",
         "required": false,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "flywheel",
+        "required": true,
+        "conditionKeys": [
+          "comprehend:ModelKmsKey",
+          "comprehend:VolumeKmsKey",
+          "comprehend:VpcSecurityGroupIds",
+          "comprehend:VpcSubnets"
+        ],
         "dependentActions": []
       }
     ],

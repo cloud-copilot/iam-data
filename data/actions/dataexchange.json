@@ -1,4 +1,55 @@
 {
+  "createasset": {
+    "name": "CreateAsset",
+    "description": "Grants permission to create an asset (for example, in a Job)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "revisions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "publishdataset": {
+    "name": "PublishDataSet",
+    "description": "Grants permission to publish a data set to a product",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishtodatagrant": {
+    "name": "PublishToDataGrant",
+    "description": "Grants permission to publish a data set to a data grant",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "data-sets",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "acceptdatagrant": {
     "name": "AcceptDataGrant",
     "description": "Grants permission to accept a data grant",
@@ -29,25 +80,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "createasset": {
-    "name": "CreateAsset",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an asset (for example, in a Job)",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "revisions",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
   "createdatagrant": {
     "name": "CreateDataGrant",
     "description": "Grants permission to create a data grant",
@@ -57,9 +89,7 @@
         "name": "data-grants",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "dataexchange:PublishToDataGrant"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -464,41 +494,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "publishdataset": {
-    "name": "PublishDataSet",
-    "isPermissionOnly": true,
-    "description": "Grants permission to publish a data set to a product",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "data-sets",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "publishtodatagrant": {
-    "name": "PublishToDataGrant",
-    "isPermissionOnly": true,
-    "description": "Grants permission to publish a data set to a data grant",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "data-sets",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
   "revokerevision": {
     "name": "RevokeRevision",
     "description": "Grants permission to revoke subscriber access to a revision",
@@ -563,20 +558,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "dataexchange:CreateAsset",
-      "dataexchange:DeleteDataSet",
-      "dataexchange:GetAsset",
-      "dataexchange:GetDataSet",
-      "dataexchange:GetRevision",
-      "dataexchange:PublishDataSet",
-      "redshift:AuthorizeDataShare"
-    ]
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add one or more tags to a specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "assets",
@@ -618,7 +605,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove one or more tags from a specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "assets",
@@ -714,9 +701,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "dataexchange:PublishDataSet",
-      "dataexchange:PublishToDataGrant"
-    ]
+    "dependentActions": []
   }
 }

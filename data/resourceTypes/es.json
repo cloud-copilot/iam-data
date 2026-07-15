@@ -1,14 +1,21 @@
 {
-  "domain": {
-    "key": "domain",
-    "arn": "arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}",
+  "application": {
+    "key": "application",
+    "arn": "arn:${Partition}:opensearch:${Region}:${Account}:application/${AppId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "application": {
-    "key": "application",
-    "arn": "arn:${Partition}:opensearch:${Region}:${Account}:application/${AppId}",
+  "datasource": {
+    "key": "datasource",
+    "arn": "arn:${Partition}:opensearch:${Region}:${Account}:datasource/${DataSourceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "domain": {
+    "key": "domain",
+    "arn": "arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -23,13 +30,6 @@
   "opensearchservice_role": {
     "key": "opensearchservice_role",
     "arn": "arn:${Partition}:iam::${Account}:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "datasource": {
-    "key": "datasource",
-    "arn": "arn:${Partition}:opensearch:${Region}:${Account}:datasource/${DataSourceName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

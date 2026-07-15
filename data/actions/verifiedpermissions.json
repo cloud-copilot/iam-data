@@ -35,8 +35,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -195,9 +195,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "verifiedpermissions:ListTagsForResource"
-    ]
+    "dependentActions": []
   },
   "getpolicystorealias": {
     "name": "GetPolicyStoreAlias",
@@ -368,7 +366,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to the specified policy store",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "policy-store",
@@ -386,7 +384,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from the specified policy store",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "policy-store",

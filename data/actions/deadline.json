@@ -1,18 +1,44 @@
 {
+  "getapplicationversion": {
+    "name": "GetApplicationVersion",
+    "description": "Grants permission to get the latest version of an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "monitor",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getjobtemplate": {
+    "name": "GetJobTemplate",
+    "description": "Grants permission to read job template",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associatemembertofarm": {
     "name": "AssociateMemberToFarm",
     "description": "Grants permission to associate a member to a farm",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -24,17 +50,13 @@
   "associatemembertofleet": {
     "name": "AssociateMemberToFleet",
     "description": "Grants permission to associate a member to a fleet",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -46,17 +68,13 @@
   "associatemembertojob": {
     "name": "AssociateMemberToJob",
     "description": "Grants permission to associate a member to a job",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "job",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -68,17 +86,13 @@
   "associatemembertoqueue": {
     "name": "AssociateMemberToQueue",
     "description": "Grants permission to associate a member to a queue",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "queue",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -100,9 +114,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "assumefleetroleforworker": {
     "name": "AssumeFleetRoleForWorker",
@@ -132,9 +144,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "assumequeueroleforuser": {
     "name": "AssumeQueueRoleForUser",
@@ -149,9 +159,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "assumequeueroleforworker": {
     "name": "AssumeQueueRoleForWorker",
@@ -202,10 +210,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember",
-      "s3:PutObject"
-    ]
+    "dependentActions": []
   },
   "createbudget": {
     "name": "CreateBudget",
@@ -216,10 +221,7 @@
         "name": "budget",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:TagResource",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -237,9 +239,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -257,15 +257,7 @@
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:TagResource",
-          "ec2:CreateVpcEndpoint",
-          "iam:PassRole",
-          "identitystore:ListGroupMembershipsForMember",
-          "logs:CreateLogGroup",
-          "vpc-lattice:GetResourceConfiguration",
-          "vpc-lattice:GetResourceGateway"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -283,10 +275,7 @@
         "name": "job",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:GetJobTemplate",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -304,12 +293,7 @@
         "name": "license-endpoint",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:TagResource",
-          "ec2:CreateTags",
-          "ec2:CreateVpcEndpoint",
-          "ec2:DescribeVpcEndpoints"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -331,9 +315,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "createmonitor": {
     "name": "CreateMonitor",
@@ -344,15 +326,7 @@
         "name": "monitor",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:TagResource",
-          "iam:PassRole",
-          "sso:CreateApplication",
-          "sso:DeleteApplication",
-          "sso:PutApplicationAssignmentConfiguration",
-          "sso:PutApplicationAuthenticationMethod",
-          "sso:PutApplicationGrant"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -370,13 +344,7 @@
         "name": "queue",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:TagResource",
-          "iam:PassRole",
-          "identitystore:ListGroupMembershipsForMember",
-          "logs:CreateLogGroup",
-          "s3:ListBucket"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -398,9 +366,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "createqueuefleetassociation": {
     "name": "CreateQueueFleetAssociation",
@@ -411,9 +377,7 @@
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -434,9 +398,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -461,9 +423,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "createworker": {
     "name": "CreateWorker",
@@ -474,10 +434,7 @@
         "name": "worker",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "deadline:ListTagsForResource",
-          "deadline:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -499,9 +456,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deletefarm": {
     "name": "DeleteFarm",
@@ -516,9 +471,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deletefleet": {
     "name": "DeleteFleet",
@@ -533,9 +486,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deletelicenseendpoint": {
     "name": "DeleteLicenseEndpoint",
@@ -550,10 +501,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DeleteVpcEndpoints",
-      "ec2:DescribeVpcEndpoints"
-    ]
+    "dependentActions": []
   },
   "deletelimit": {
     "name": "DeleteLimit",
@@ -568,9 +516,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deletemeteredproduct": {
     "name": "DeleteMeteredProduct",
@@ -600,9 +546,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "sso:DeleteApplication"
-    ]
+    "dependentActions": []
   },
   "deletequeue": {
     "name": "DeleteQueue",
@@ -617,9 +561,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deletequeueenvironment": {
     "name": "DeleteQueueEnvironment",
@@ -634,9 +576,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deletequeuefleetassociation": {
     "name": "DeleteQueueFleetAssociation",
@@ -647,9 +587,7 @@
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -670,9 +608,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -697,9 +633,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deletevolume": {
     "name": "DeleteVolume",
@@ -714,9 +648,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "deleteworker": {
     "name": "DeleteWorker",
@@ -736,15 +668,13 @@
   "disassociatememberfromfarm": {
     "name": "DisassociateMemberFromFarm",
     "description": "Grants permission to disassociate a member from a farm",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -755,15 +685,13 @@
   "disassociatememberfromfleet": {
     "name": "DisassociateMemberFromFleet",
     "description": "Grants permission to disassociate a member from a fleet",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -774,15 +702,13 @@
   "disassociatememberfromjob": {
     "name": "DisassociateMemberFromJob",
     "description": "Grants permission to disassociate a member from a job",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "job",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -793,36 +719,18 @@
   "disassociatememberfromqueue": {
     "name": "DisassociateMemberFromQueue",
     "description": "Grants permission to disassociate a member from a queue",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "queue",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "deadline:AssociatedMembershipLevel"
     ],
-    "dependentActions": []
-  },
-  "getapplicationversion": {
-    "name": "GetApplicationVersion",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the latest version of an application",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "monitor",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "getbudget": {
@@ -838,9 +746,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getfarm": {
     "name": "GetFarm",
@@ -855,9 +761,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getfleet": {
     "name": "GetFleet",
@@ -872,31 +776,11 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getjob": {
     "name": "GetJob",
     "description": "Grants permission to get a job",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "job",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
-  },
-  "getjobtemplate": {
-    "name": "GetJobTemplate",
-    "isPermissionOnly": true,
-    "description": "Grants permission to read job template",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -937,9 +821,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getmonitor": {
     "name": "GetMonitor",
@@ -984,9 +866,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getqueueenvironment": {
     "name": "GetQueueEnvironment",
@@ -1001,9 +881,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getqueuefleetassociation": {
     "name": "GetQueueFleetAssociation",
@@ -1014,9 +892,7 @@
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -1037,9 +913,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -1064,9 +938,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getsessionaction": {
     "name": "GetSessionAction",
@@ -1081,9 +953,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getsessionsstatisticsaggregation": {
     "name": "GetSessionsStatisticsAggregation",
@@ -1094,9 +964,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "fleet",
@@ -1127,9 +995,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getstorageprofile": {
     "name": "GetStorageProfile",
@@ -1144,9 +1010,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getstorageprofileforqueue": {
     "name": "GetStorageProfileForQueue",
@@ -1161,9 +1025,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "gettask": {
     "name": "GetTask",
@@ -1178,9 +1040,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getvolume": {
     "name": "GetVolume",
@@ -1195,9 +1055,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "getworker": {
     "name": "GetWorker",
@@ -1212,9 +1070,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listavailablemeteredproducts": {
     "name": "ListAvailableMeteredProducts",
@@ -1237,9 +1093,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listfarmmembers": {
     "name": "ListFarmMembers",
@@ -1254,9 +1108,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listfarms": {
     "name": "ListFarms",
@@ -1267,11 +1119,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1293,9 +1141,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listfleets": {
     "name": "ListFleets",
@@ -1306,11 +1152,7 @@
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1332,9 +1174,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listjobparameterdefinitions": {
     "name": "ListJobParameterDefinitions",
@@ -1349,9 +1189,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listjobs": {
     "name": "ListJobs",
@@ -1362,11 +1200,7 @@
         "name": "job",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1403,9 +1237,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listmeteredproducts": {
     "name": "ListMeteredProducts",
@@ -1450,9 +1282,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listqueuefleetassociations": {
     "name": "ListQueueFleetAssociations",
@@ -1463,9 +1293,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "fleet",
@@ -1492,9 +1320,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -1519,9 +1345,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listqueues": {
     "name": "ListQueues",
@@ -1532,11 +1356,7 @@
         "name": "queue",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:DescribeGroup",
-          "identitystore:DescribeUser",
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1558,9 +1378,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listsessions": {
     "name": "ListSessions",
@@ -1575,9 +1393,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listsessionsforworker": {
     "name": "ListSessionsForWorker",
@@ -1592,9 +1408,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "liststepconsumers": {
     "name": "ListStepConsumers",
@@ -1609,9 +1423,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "liststepdependencies": {
     "name": "ListStepDependencies",
@@ -1626,9 +1438,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "liststeps": {
     "name": "ListSteps",
@@ -1643,9 +1453,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "liststorageprofiles": {
     "name": "ListStorageProfiles",
@@ -1660,9 +1468,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "liststorageprofilesforqueue": {
     "name": "ListStorageProfilesForQueue",
@@ -1677,9 +1483,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
@@ -1759,9 +1563,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listvolumes": {
     "name": "ListVolumes",
@@ -1776,9 +1578,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "listworkers": {
     "name": "ListWorkers",
@@ -1793,9 +1593,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "putmeteredproduct": {
     "name": "PutMeteredProduct",
@@ -1825,9 +1623,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "searchsteps": {
     "name": "SearchSteps",
@@ -1838,9 +1634,7 @@
         "name": "job",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -1861,9 +1655,7 @@
         "name": "job",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -1881,9 +1673,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "startsessionsstatisticsaggregation": {
     "name": "StartSessionsStatisticsAggregation",
@@ -1894,9 +1684,7 @@
         "name": "fleet",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -1911,7 +1699,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or overwrite one or more tags for the specified Deadline Cloud resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "budget",
@@ -1978,7 +1766,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to disassociate one or more tags from the specified Deadline Cloud resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "budget",
@@ -2053,9 +1841,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatefarm": {
     "name": "UpdateFarm",
@@ -2070,9 +1856,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatefleet": {
     "name": "UpdateFleet",
@@ -2087,13 +1871,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateVpcEndpoint",
-      "iam:PassRole",
-      "identitystore:ListGroupMembershipsForMember",
-      "vpc-lattice:GetResourceConfiguration",
-      "vpc-lattice:GetResourceGateway"
-    ]
+    "dependentActions": []
   },
   "updatejob": {
     "name": "UpdateJob",
@@ -2108,9 +1886,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatelimit": {
     "name": "UpdateLimit",
@@ -2125,9 +1901,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatemonitor": {
     "name": "UpdateMonitor",
@@ -2142,11 +1916,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "sso:PutApplicationGrant",
-      "sso:UpdateApplication"
-    ]
+    "dependentActions": []
   },
   "updatemonitorsettings": {
     "name": "UpdateMonitorSettings",
@@ -2176,10 +1946,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatequeueenvironment": {
     "name": "UpdateQueueEnvironment",
@@ -2194,9 +1961,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatequeuefleetassociation": {
     "name": "UpdateQueueFleetAssociation",
@@ -2207,9 +1972,7 @@
         "name": "fleet",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -2230,9 +1993,7 @@
         "name": "farm",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "identitystore:ListGroupMembershipsForMember"
-        ]
+        "dependentActions": []
       },
       {
         "name": "queue",
@@ -2257,9 +2018,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatestep": {
     "name": "UpdateStep",
@@ -2274,9 +2033,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatestorageprofile": {
     "name": "UpdateStorageProfile",
@@ -2291,9 +2048,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updatetask": {
     "name": "UpdateTask",
@@ -2308,9 +2063,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "identitystore:ListGroupMembershipsForMember"
-    ]
+    "dependentActions": []
   },
   "updateworker": {
     "name": "UpdateWorker",
@@ -2325,9 +2078,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "logs:CreateLogStream"
-    ]
+    "dependentActions": []
   },
   "updateworkerschedule": {
     "name": "UpdateWorkerSchedule",
@@ -2342,8 +2093,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "logs:CreateLogStream"
-    ]
+    "dependentActions": []
   }
 }

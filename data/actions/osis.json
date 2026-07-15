@@ -5,16 +5,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "kms:DescribeKey",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "logs:CreateLogDelivery"
-    ]
+    "dependentActions": []
   },
   "createpipelineendpoint": {
     "name": "CreatePipelineEndpoint",
@@ -25,14 +19,12 @@
         "name": "pipeline",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -49,11 +41,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "logs:DeleteLogDelivery",
-      "logs:GetLogDelivery",
-      "logs:ListLogDeliveries"
-    ]
+    "dependentActions": []
   },
   "deletepipelineendpoint": {
     "name": "DeletePipelineEndpoint",
@@ -270,7 +258,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to attach resource tags to an OpenSearch Ingestion pipeline",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "pipeline",
@@ -288,7 +276,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove resource tags from an OpenSearch Ingestion Service pipeline",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "pipeline",
@@ -315,14 +303,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "kms:DescribeKey",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "logs:GetLogDelivery",
-      "logs:ListLogDeliveries",
-      "logs:UpdateLogDelivery"
-    ]
+    "dependentActions": []
   },
   "validatepipeline": {
     "name": "ValidatePipeline",

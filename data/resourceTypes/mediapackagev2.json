@@ -1,4 +1,11 @@
 {
+  "channel": {
+    "key": "Channel",
+    "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "channelgroup": {
     "key": "ChannelGroup",
     "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}",
@@ -10,16 +17,12 @@
     "key": "ChannelPolicy",
     "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}"
   },
-  "channel": {
-    "key": "Channel",
-    "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}",
+  "harvestjob": {
+    "key": "HarvestJob",
+    "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}/originEndpoint/${OriginEndpointName}/harvestJob/${HarvestJobName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
-  },
-  "originendpointpolicy": {
-    "key": "OriginEndpointPolicy",
-    "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}/originEndpoint/${OriginEndpointName}"
   },
   "originendpoint": {
     "key": "OriginEndpoint",
@@ -28,11 +31,8 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "harvestjob": {
-    "key": "HarvestJob",
-    "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}/originEndpoint/${OriginEndpointName}/harvestJob/${HarvestJobName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "originendpointpolicy": {
+    "key": "OriginEndpointPolicy",
+    "arn": "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}/originEndpoint/${OriginEndpointName}"
   }
 }

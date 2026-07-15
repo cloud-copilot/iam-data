@@ -1,7 +1,22 @@
 {
+  "endpointaccess": {
+    "key": "endpointAccess",
+    "arn": "arn:${Partition}:redshift-serverless:${Region}:${Account}:managedvpcendpoint/${EndpointAccessId}"
+  },
+  "managed-workgroup": {
+    "key": "managed-workgroup",
+    "arn": "arn:${Partition}:redshift-serverless:${Region}:${Account}:managed-workgroup/${ManagedWorkgroupName}"
+  },
   "namespace": {
     "key": "namespace",
     "arn": "arn:${Partition}:redshift-serverless:${Region}:${Account}:namespace/${NamespaceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "recoverypoint": {
+    "key": "recoveryPoint",
+    "arn": "arn:${Partition}:redshift-serverless:${Region}:${Account}:recoverypoint/${RecoveryPointId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -19,20 +34,5 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
-  },
-  "managed-workgroup": {
-    "key": "managed-workgroup",
-    "arn": "arn:${Partition}:redshift-serverless:${Region}:${Account}:managed-workgroup/${ManagedWorkgroupName}"
-  },
-  "recoverypoint": {
-    "key": "recoveryPoint",
-    "arn": "arn:${Partition}:redshift-serverless:${Region}:${Account}:recoverypoint/${RecoveryPointId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "endpointaccess": {
-    "key": "endpointAccess",
-    "arn": "arn:${Partition}:redshift-serverless:${Region}:${Account}:managedvpcendpoint/${EndpointAccessId}"
   }
 }

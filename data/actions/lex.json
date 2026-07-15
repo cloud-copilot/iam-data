@@ -1,4 +1,117 @@
 {
+  "createbotchannel": {
+    "name": "CreateBotChannel",
+    "description": "Grants permission to create a bot channel in an existing bot",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createcustomvocabulary": {
+    "name": "CreateCustomVocabulary",
+    "description": "Grants permission to create a new custom vocabulary in an existing bot locale",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createtestset": {
+    "name": "CreateTestSet",
+    "description": "Grants permission to import a new test-set",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletebotchannel": {
+    "name": "DeleteBotChannel",
+    "description": "Grants permission to delete an existing bot channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebotchannel": {
+    "name": "DescribeBotChannel",
+    "description": "Grants permission to retrieve an existing bot channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describecustomvocabulary": {
+    "name": "DescribeCustomVocabulary",
+    "description": "Grants permission to retrieve an existing custom vocabulary",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbotchannels": {
+    "name": "ListBotChannels",
+    "description": "Grants permission to list bot channels",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustomvocabulary": {
+    "name": "UpdateCustomVocabulary",
+    "description": "Grants permission to update an existing custom vocabulary",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchcreatecustomvocabularyitem": {
     "name": "BatchCreateCustomVocabularyItem",
     "description": "Grants permission to create new items in an existing custom vocabulary",
@@ -78,8 +191,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -96,25 +209,9 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": []
-  },
-  "createbotchannel": {
-    "name": "CreateBotChannel",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create a bot channel in an existing bot",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "bot",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "createbotlocale": {
@@ -153,23 +250,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "bot version",
-        "required": true,
+        "name": "bot",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "createcustomvocabulary": {
-    "name": "CreateCustomVocabulary",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create a new custom vocabulary in an existing bot locale",
-    "accessLevel": "Write",
-    "resourceTypes": [
+      },
       {
-        "name": "bot",
+        "name": "bot version",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -286,15 +373,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "createtestset": {
-    "name": "CreateTestSet",
-    "isPermissionOnly": true,
-    "description": "Grants permission to import a new test-set",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createtestsetdiscrepancyreport": {
     "name": "CreateTestSetDiscrepancyReport",
     "description": "Grants permission to create a test set discrepancy report",
@@ -323,6 +401,18 @@
     "description": "Deletes all versions of a bot",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "bot version",
         "required": true,
@@ -363,22 +453,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deletebotchannel": {
-    "name": "DeleteBotChannel",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete an existing bot channel",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "bot",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletebotlocale": {
     "name": "DeleteBotLocale",
     "description": "Grants permission to delete an existing bot locale in a bot",
@@ -392,11 +466,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "lex:DeleteIntent",
-      "lex:DeleteSlot",
-      "lex:DeleteSlotType"
-    ]
+    "dependentActions": []
   },
   "deletebotreplica": {
     "name": "DeleteBotReplica",
@@ -418,6 +488,12 @@
     "description": "Deletes a specific version of a bot",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "bot version",
         "required": true,
@@ -490,6 +566,12 @@
     "description": "Deletes all versions of an intent",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "intent version",
         "required": true,
@@ -584,6 +666,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "slottype version",
         "required": true,
         "conditionKeys": [],
@@ -613,6 +701,12 @@
     "description": "Deletes the information Amazon Lex maintains for utterances on a specific bot and userId",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "bot version",
         "required": true,
@@ -656,22 +750,6 @@
   "describebotanalyzerrecommendation": {
     "name": "DescribeBotAnalyzerRecommendation",
     "description": "Grants permission to describe a bot analyzer recommendation",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "bot",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describebotchannel": {
-    "name": "DescribeBotChannel",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve an existing bot channel",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -759,22 +837,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describecustomvocabulary": {
-    "name": "DescribeCustomVocabulary",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve an existing custom vocabulary",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "bot",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "describecustomvocabularymetadata": {
     "name": "DescribeCustomVocabularyMetadata",
     "description": "Grants permission to retrieve metadata of an existing custom vocabulary",
@@ -799,17 +861,7 @@
         "name": "bot",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "lex:DescribeBot",
-          "lex:DescribeBotLocale",
-          "lex:DescribeIntent",
-          "lex:DescribeSlot",
-          "lex:DescribeSlotType",
-          "lex:ListBotLocales",
-          "lex:ListIntents",
-          "lex:ListSlotTypes",
-          "lex:ListSlots"
-        ]
+        "dependentActions": []
       },
       {
         "name": "test set",
@@ -1067,22 +1119,6 @@
   "listbotanalyzerrecommendations": {
     "name": "ListBotAnalyzerRecommendations",
     "description": "Grants permission to list bot analyzer recommendations",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "bot",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listbotchannels": {
-    "name": "ListBotChannels",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list bot channels",
     "accessLevel": "List",
     "resourceTypes": [
       {
@@ -1415,9 +1451,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "lex:ListTestSetRecords"
-    ]
+    "dependentActions": []
   },
   "listtestexecutions": {
     "name": "ListTestExecutions",
@@ -1580,8 +1614,24 @@
     "name": "StartImport",
     "description": "Starts a job to import a resource to Amazon Lex",
     "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
+    "resourceTypes": [
+      {
+        "name": "bot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "bot alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "starttestexecution": {
@@ -1647,7 +1697,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Adds or overwrites tags to a Lex resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "bot",
@@ -1669,15 +1719,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Removes tags from a Lex resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "bot",
@@ -1699,8 +1749,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -1752,22 +1802,6 @@
   "updatebotrecommendation": {
     "name": "UpdateBotRecommendation",
     "description": "Grants permission to update an existing bot recommendation request",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "bot",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatecustomvocabulary": {
-    "name": "UpdateCustomVocabulary",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update an existing custom vocabulary",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -2257,8 +2291,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -2275,8 +2309,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },

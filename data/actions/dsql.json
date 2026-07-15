@@ -1,7 +1,6 @@
 {
   "addpeercluster": {
     "name": "AddPeerCluster",
-    "isPermissionOnly": true,
     "description": "Grants permission to add a peer cluster to a multi-Region cluster",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -13,9 +12,65 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "dsql:PutMultiRegionProperties"
-    ]
+    "dependentActions": []
+  },
+  "injecterror": {
+    "name": "InjectError",
+    "description": "Grants permission to inject errors in targeted clusters",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "dsql:FisActionId",
+      "dsql:FisTargetArns"
+    ],
+    "dependentActions": []
+  },
+  "putmultiregionproperties": {
+    "name": "PutMultiRegionProperties",
+    "description": "Grants permission to update multi-Region properties of a cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putwitnessregion": {
+    "name": "PutWitnessRegion",
+    "description": "Grants permission to configure and update the witness Region of a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "dsql:WitnessRegion"
+    ],
+    "dependentActions": []
+  },
+  "removepeercluster": {
+    "name": "RemovePeerCluster",
+    "description": "Grants permission to remove a peer cluster from a multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "Cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "createcluster": {
     "name": "CreateCluster",
@@ -26,9 +81,7 @@
         "name": "Cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -47,9 +100,7 @@
         "name": "Cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -223,18 +274,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "injecterror": {
-    "name": "InjectError",
-    "isPermissionOnly": true,
-    "description": "Grants permission to inject errors in targeted clusters",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "dsql:FisActionId",
-      "dsql:FisTargetArns"
-    ],
-    "dependentActions": []
-  },
   "listclusters": {
     "name": "ListClusters",
     "description": "Grants permission to retrieve a list of clusters",
@@ -294,60 +333,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putmultiregionproperties": {
-    "name": "PutMultiRegionProperties",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update multi-Region properties of a cluster",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "putwitnessregion": {
-    "name": "PutWitnessRegion",
-    "isPermissionOnly": true,
-    "description": "Grants permission to configure and update the witness Region of a multi-Region cluster",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "dsql:PutMultiRegionProperties"
-        ]
-      }
-    ],
-    "conditionKeys": [
-      "dsql:WitnessRegion"
-    ],
-    "dependentActions": []
-  },
-  "removepeercluster": {
-    "name": "RemovePeerCluster",
-    "isPermissionOnly": true,
-    "description": "Grants permission to remove a peer cluster from a multi-Region cluster",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "dsql:PutMultiRegionProperties"
-    ]
-  },
   "startbackupjob": {
     "name": "StartBackupJob",
     "description": "Grants permission to start a backup job for an Aurora DSQL cluster",
@@ -376,10 +361,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "dsql:CreateCluster",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "stopbackupjob": {
     "name": "StopBackupJob",
@@ -414,7 +396,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to Aurora DSQL resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Cluster",
@@ -438,7 +420,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from Aurora DSQL resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Cluster",

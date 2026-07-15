@@ -6,6 +6,10 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "awspolicy": {
+    "key": "awspolicy",
+    "arn": "arn:${Partition}:organizations::aws:policy/${PolicyType}/p-${PolicyId}"
+  },
   "handshake": {
     "key": "handshake",
     "arn": "arn:${Partition}:organizations::${Account}:handshake/o-${OrganizationId}/${HandshakeType}/h-${HandshakeId}"
@@ -35,20 +39,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "awspolicy": {
-    "key": "awspolicy",
-    "arn": "arn:${Partition}:organizations::aws:policy/${PolicyType}/p-${PolicyId}"
-  },
-  "root": {
-    "key": "root",
-    "arn": "arn:${Partition}:organizations::${Account}:root/o-${OrganizationId}/r-${RootId}",
+  "responsibilitytransfer": {
+    "key": "responsibilitytransfer",
+    "arn": "arn:${Partition}:organizations::${Account}:transfer/o-${OrganizationId}/${TransferType}/${TransferDirection}/rt-${ResponsibilityTransferId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "responsibilitytransfer": {
-    "key": "responsibilitytransfer",
-    "arn": "arn:${Partition}:organizations::${Account}:transfer/o-${OrganizationId}/${TransferType}/${TransferDirection}/rt-${ResponsibilityTransferId}",
+  "root": {
+    "key": "root",
+    "arn": "arn:${Partition}:organizations::${Account}:root/o-${OrganizationId}/r-${RootId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

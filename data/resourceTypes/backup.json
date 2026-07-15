@@ -1,11 +1,4 @@
 {
-  "backupvault": {
-    "key": "backupVault",
-    "arn": "arn:${Partition}:backup:${Region}:${Account}:backup-vault:${BackupVaultName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "backupplan": {
     "key": "backupPlan",
     "arn": "arn:${Partition}:backup:${Region}:${Account}:backup-plan:${BackupPlanId}",
@@ -13,9 +6,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "recoverypoint": {
-    "key": "recoveryPoint",
-    "arn": "arn:${Partition}:${Vendor}:${Region}:*:${ResourceType}:${RecoveryPointId}",
+  "backupvault": {
+    "key": "backupVault",
+    "arn": "arn:${Partition}:backup:${Region}:${Account}:backup-vault:${BackupVaultName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -27,16 +20,23 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "reportplan": {
-    "key": "reportPlan",
-    "arn": "arn:${Partition}:backup:${Region}:${Account}:report-plan:${ReportPlanName}-${ReportPlanId}",
+  "legalhold": {
+    "key": "legalHold",
+    "arn": "arn:${Partition}:backup:${Region}:${Account}:legal-hold:${LegalHoldId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "legalhold": {
-    "key": "legalHold",
-    "arn": "arn:${Partition}:backup:${Region}:${Account}:legal-hold:${LegalHoldId}",
+  "recoverypoint": {
+    "key": "recoveryPoint",
+    "arn": "arn:${Partition}:${Vendor}:${Region}:*:${ResourceType}:${RecoveryPointId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "reportplan": {
+    "key": "reportPlan",
+    "arn": "arn:${Partition}:backup:${Region}:${Account}:report-plan:${ReportPlanName}-${ReportPlanId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

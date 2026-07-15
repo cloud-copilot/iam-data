@@ -1,4 +1,11 @@
 {
+  "catalog": {
+    "key": "catalog",
+    "arn": "arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}/information_schema/user_tables",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "ledger": {
     "key": "ledger",
     "arn": "arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}",
@@ -16,13 +23,6 @@
   "table": {
     "key": "table",
     "arn": "arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}/table/${TableId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "catalog": {
-    "key": "catalog",
-    "arn": "arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}/information_schema/user_tables",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

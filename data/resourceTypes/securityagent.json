@@ -1,14 +1,14 @@
 {
-  "application": {
-    "key": "Application",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId}",
+  "agentspace": {
+    "key": "AgentSpace",
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "securityrequirementpack": {
-    "key": "SecurityRequirementPack",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:security-requirement-pack/${SecurityRequirementPackId}",
+  "application": {
+    "key": "Application",
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -20,9 +20,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "agentspace": {
-    "key": "AgentSpace",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}",
+  "privateconnection": {
+    "key": "PrivateConnection",
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:private-connection/${PrivateConnectionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "securityrequirementpack": {
+    "key": "SecurityRequirementPack",
+    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:security-requirement-pack/${SecurityRequirementPackId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -30,13 +37,6 @@
   "targetdomain": {
     "key": "TargetDomain",
     "arn": "arn:${Partition}:securityagent:${Region}:${Account}:target-domain/${TargetDomainId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "privateconnection": {
-    "key": "PrivateConnection",
-    "arn": "arn:${Partition}:securityagent:${Region}:${Account}:private-connection/${PrivateConnectionName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

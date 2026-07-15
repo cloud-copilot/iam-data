@@ -6,19 +6,19 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "automation-definition": {
+    "key": "automation-definition",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:automation-definition/${AutomationDefinitionName}:${VersionId}",
+    "conditionKeys": [
+      "ssm:DocumentType"
+    ]
+  },
   "automation-execution": {
     "key": "automation-execution",
     "arn": "arn:${Partition}:ssm:${Region}:${Account}:automation-execution/${AutomationExecutionId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ssm:resourceTag/tag-key"
-    ]
-  },
-  "automation-definition": {
-    "key": "automation-definition",
-    "arn": "arn:${Partition}:ssm:${Region}:${Account}:automation-definition/${AutomationDefinitionName}:${VersionId}",
-    "conditionKeys": [
-      "ssm:DocumentType"
     ]
   },
   "bucket": {
@@ -109,6 +109,14 @@
       "ssm:resourceTag/tag-key"
     ]
   },
+  "resourcedatasync": {
+    "key": "resourcedatasync",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:resource-data-sync/${SyncName}"
+  },
+  "servicesetting": {
+    "key": "servicesetting",
+    "arn": "arn:${Partition}:ssm:${Region}:${Account}:servicesetting/${ResourceId}"
+  },
   "session": {
     "key": "session",
     "arn": "arn:${Partition}:ssm:${Region}:${Account}:session/${SessionId}",
@@ -117,13 +125,12 @@
       "ssm:resourceTag/aws:ssmmessages:target-id"
     ]
   },
-  "resourcedatasync": {
-    "key": "resourcedatasync",
-    "arn": "arn:${Partition}:ssm:${Region}:${Account}:resource-data-sync/${SyncName}"
-  },
-  "servicesetting": {
-    "key": "servicesetting",
-    "arn": "arn:${Partition}:ssm:${Region}:${Account}:servicesetting/${ResourceId}"
+  "task": {
+    "key": "task",
+    "arn": "arn:${Partition}:ecs:${Region}:${Account}:task/${TaskId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "windowtarget": {
     "key": "windowtarget",
@@ -139,13 +146,6 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "ssm:resourceTag/tag-key"
-    ]
-  },
-  "task": {
-    "key": "task",
-    "arn": "arn:${Partition}:ecs:${Region}:${Account}:task/${TaskId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
     ]
   }
 }

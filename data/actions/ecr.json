@@ -1,4 +1,49 @@
 {
+  "batchimportupstreamimage": {
+    "name": "BatchImportUpstreamImage",
+    "description": "Grants permission to retrieve the image from the upstream registry and import it to your private registry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getimagecopystatus": {
+    "name": "GetImageCopyStatus",
+    "description": "Grants permission to retrieve the status about an image copy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "replicateimage": {
+    "name": "ReplicateImage",
+    "description": "Grants permission to replicate images to the destination registry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "repository",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchchecklayeravailability": {
     "name": "BatchCheckLayerAvailability",
     "description": "Grants permission to check the availability of multiple image layers in a specified registry and repository",
@@ -59,22 +104,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "batchimportupstreamimage": {
-    "name": "BatchImportUpstreamImage",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve the image from the upstream registry and import it to your private registry",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "repository",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "completelayerupload": {
     "name": "CompleteLayerUpload",
     "description": "Grants permission to inform Amazon ECR that the image layer upload for a specified registry, repository name, and upload ID, has completed",
@@ -96,9 +125,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createrepository": {
     "name": "CreateRepository",
@@ -109,9 +136,7 @@
         "name": "repository",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ecr:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -126,13 +151,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ecr:CreateRepository",
-      "ecr:PutLifecyclePolicy",
-      "ecr:SetRepositoryPolicy",
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "deletelifecyclepolicy": {
     "name": "DeleteLifecyclePolicy",
@@ -160,7 +179,7 @@
   "deleteregistrypolicy": {
     "name": "DeleteRegistryPolicy",
     "description": "Grants permission to delete the registry policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -191,7 +210,7 @@
   "deleterepositorypolicy": {
     "name": "DeleteRepositoryPolicy",
     "description": "Grants permission to delete the repository policy from a specified repository",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "repository",
@@ -339,22 +358,6 @@
   "getdownloadurlforlayer": {
     "name": "GetDownloadUrlForLayer",
     "description": "Grants permission to retrieve the download URL corresponding to an image layer",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "repository",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getimagecopystatus": {
-    "name": "GetImageCopyStatus",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve the status about an image copy",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -565,7 +568,7 @@
   "putregistrypolicy": {
     "name": "PutRegistryPolicy",
     "description": "Grants permission to update the registry policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -584,9 +587,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "putsigningconfiguration": {
     "name": "PutSigningConfiguration",
@@ -604,26 +605,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "replicateimage": {
-    "name": "ReplicateImage",
-    "isPermissionOnly": true,
-    "description": "Grants permission to replicate images to the destination registry",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "repository",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "setrepositorypolicy": {
     "name": "SetRepositoryPolicy",
     "description": "Grants permission to apply a repository policy on a specified repository to control access permissions",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "repository",
@@ -668,7 +653,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an Amazon ECR resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "repository",
@@ -686,7 +671,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag an Amazon ECR resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "repository",
@@ -729,13 +714,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ecr:CreateRepository",
-      "ecr:PutLifecyclePolicy",
-      "ecr:SetRepositoryPolicy",
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "uploadlayerpart": {
     "name": "UploadLayerPart",

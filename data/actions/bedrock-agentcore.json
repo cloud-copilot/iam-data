@@ -1,9 +1,8 @@
 {
   "allowvendedlogdeliveryforresource": {
     "name": "AllowVendedLogDeliveryForResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to configure vended telemetry for a resource",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "memory",
@@ -23,9 +22,8 @@
   },
   "authorizeaction": {
     "name": "AuthorizeAction",
-    "isPermissionOnly": true,
     "description": "Grants permission to evaluate Cedar policies for authorization requests",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "gateway",
@@ -35,6 +33,148 @@
       },
       {
         "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewayassociatewebacl": {
+    "name": "GatewayAssociateWebACL",
+    "description": "Grants permission to associate an AWS WAF Web ACL with an AgentCore Gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewaydisassociatewebacl": {
+    "name": "GatewayDisassociateWebACL",
+    "description": "Grants permission to remove the AWS WAF Web ACL association from an AgentCore Gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewaygetwebaclforresource": {
+    "name": "GatewayGetWebACLForResource",
+    "description": "Grants permission to retrieve the AWS WAF Web ACL ARN currently associated with an AgentCore Gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gatewaylistresourcesforwebacl": {
+    "name": "GatewayListResourcesForWebACL",
+    "description": "Grants permission to list AgentCore Gateways associated with an AWS WAF Web ACL",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokegateway": {
+    "name": "InvokeGateway",
+    "description": "Grants permission to invoke a gateway",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokewebsearch": {
+    "name": "InvokeWebSearch",
+    "description": "Grants permission to invoke a web search target",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "web-search",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "manageadminpolicy": {
+    "name": "ManageAdminPolicy",
+    "description": "Grants permission to create or modify wildcard policies that apply to gateway resources",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "manageresourcescopedpolicy": {
+    "name": "ManageResourceScopedPolicy",
+    "description": "Grants permission to create or modify policies that apply to specific gateway resources",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "partiallyauthorizeactions": {
+    "name": "PartiallyAuthorizeActions",
+    "description": "Grants permission to perform partial evaluation of Cedar policies to authorize a caller to list tools they are allowed to call",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy-engine",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "synchronizegatewaytargets": {
+    "name": "SynchronizeGatewayTargets",
+    "description": "Grants permission to enable search on gateways",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -123,11 +263,11 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:InboundJwtClaim/iss",
-      "bedrock-agentcore:InboundJwtClaim/sub",
       "bedrock-agentcore:InboundJwtClaim/aud",
-      "bedrock-agentcore:InboundJwtClaim/scope",
       "bedrock-agentcore:InboundJwtClaim/client_id",
+      "bedrock-agentcore:InboundJwtClaim/iss",
+      "bedrock-agentcore:InboundJwtClaim/scope",
+      "bedrock-agentcore:InboundJwtClaim/sub",
       "bedrock-agentcore:userid"
     ],
     "dependentActions": []
@@ -154,9 +294,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createagentruntime": {
     "name": "CreateAgentRuntime",
@@ -166,13 +304,11 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "bedrock-agentcore:subnets",
+      "bedrock-agentcore:RuntimeAuthorizerType",
       "bedrock-agentcore:securityGroups",
-      "bedrock-agentcore:RuntimeAuthorizerType"
+      "bedrock-agentcore:subnets"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createagentruntimeendpoint": {
     "name": "CreateAgentRuntimeEndpoint",
@@ -224,8 +360,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "bedrock-agentcore:subnets",
-      "bedrock-agentcore:securityGroups"
+      "bedrock-agentcore:securityGroups",
+      "bedrock-agentcore:subnets"
     ],
     "dependentActions": []
   },
@@ -248,8 +384,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "bedrock-agentcore:subnets",
-      "bedrock-agentcore:securityGroups"
+      "bedrock-agentcore:securityGroups",
+      "bedrock-agentcore:subnets"
     ],
     "dependentActions": []
   },
@@ -286,8 +422,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:sessionId",
-      "bedrock-agentcore:actorId"
+      "bedrock-agentcore:actorId",
+      "bedrock-agentcore:sessionId"
     ],
     "dependentActions": []
   },
@@ -300,9 +436,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "creategatewayrule": {
     "name": "CreateGatewayRule",
@@ -343,13 +477,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "bedrock-agentcore:CreateAgentRuntime",
-      "bedrock-agentcore:CreateMemory",
-      "bedrock-agentcore:GetAgentRuntime",
-      "bedrock-agentcore:GetMemory",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createharnessendpoint": {
     "name": "CreateHarnessEndpoint",
@@ -360,9 +488,7 @@
         "name": "harness",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "bedrock-agentcore:CreateAgentRuntimeEndpoint"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -381,9 +507,7 @@
       "aws:TagKeys",
       "bedrock-agentcore:KmsKeyArn"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createoauth2credentialprovider": {
     "name": "CreateOauth2CredentialProvider",
@@ -419,9 +543,7 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createpaymentconnector": {
     "name": "CreatePaymentConnector",
@@ -486,9 +608,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createpaymentsession": {
     "name": "CreatePaymentSession",
@@ -753,8 +873,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:sessionId",
-      "bedrock-agentcore:actorId"
+      "bedrock-agentcore:actorId",
+      "bedrock-agentcore:sessionId"
     ],
     "dependentActions": []
   },
@@ -816,13 +936,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "bedrock-agentcore:DeleteAgentRuntime",
-      "bedrock-agentcore:DeleteMemory",
-      "bedrock-agentcore:GetAgentRuntime",
-      "bedrock-agentcore:GetMemory",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "deleteharnessendpoint": {
     "name": "DeleteHarnessEndpoint",
@@ -833,9 +947,7 @@
         "name": "harness",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "bedrock-agentcore:DeleteAgentRuntimeEndpoint"
-        ]
+        "dependentActions": []
       },
       {
         "name": "harness-endpoint",
@@ -1138,63 +1250,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "gatewayassociatewebacl": {
-    "name": "GatewayAssociateWebACL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to associate an AWS WAF Web ACL with an AgentCore Gateway",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "gateway",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "gatewaydisassociatewebacl": {
-    "name": "GatewayDisassociateWebACL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to remove the AWS WAF Web ACL association from an AgentCore Gateway",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "gateway",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "gatewaygetwebaclforresource": {
-    "name": "GatewayGetWebACLForResource",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve the AWS WAF Web ACL ARN currently associated with an AgentCore Gateway",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "gateway",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "gatewaylistresourcesforwebacl": {
-    "name": "GatewayListResourcesForWebACL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list AgentCore Gateways associated with an AWS WAF Web ACL",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getabtest": {
     "name": "GetABTest",
     "description": "Grants permission to get details of an A/B test",
@@ -1448,8 +1503,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:sessionId",
-      "bedrock-agentcore:actorId"
+      "bedrock-agentcore:actorId",
+      "bedrock-agentcore:sessionId"
     ],
     "dependentActions": []
   },
@@ -2036,11 +2091,11 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:InboundJwtClaim/iss",
-      "bedrock-agentcore:InboundJwtClaim/sub",
       "bedrock-agentcore:InboundJwtClaim/aud",
+      "bedrock-agentcore:InboundJwtClaim/client_id",
+      "bedrock-agentcore:InboundJwtClaim/iss",
       "bedrock-agentcore:InboundJwtClaim/scope",
-      "bedrock-agentcore:InboundJwtClaim/client_id"
+      "bedrock-agentcore:InboundJwtClaim/sub"
     ],
     "dependentActions": []
   },
@@ -2235,22 +2290,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "invokegateway": {
-    "name": "InvokeGateway",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke a gateway",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "gateway",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "invokeharness": {
     "name": "InvokeHarness",
     "description": "Grants permission to invoke a harness",
@@ -2260,9 +2299,7 @@
         "name": "harness",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "bedrock-agentcore:InvokeAgentRuntime"
-        ]
+        "dependentActions": []
       },
       {
         "name": "harness-endpoint",
@@ -2281,22 +2318,6 @@
     "resourceTypes": [
       {
         "name": "registry",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "invokewebsearch": {
-    "name": "InvokeWebSearch",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke a web search target",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "web-search",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2478,8 +2499,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:sessionId",
-      "bedrock-agentcore:actorId"
+      "bedrock-agentcore:actorId",
+      "bedrock-agentcore:sessionId"
     ],
     "dependentActions": []
   },
@@ -2964,53 +2985,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "manageadminpolicy": {
-    "name": "ManageAdminPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create or modify wildcard policies that apply to gateway resources",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "manageresourcescopedpolicy": {
-    "name": "ManageResourceScopedPolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create or modify policies that apply to specific gateway resources",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "gateway",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "partiallyauthorizeactions": {
-    "name": "PartiallyAuthorizeActions",
-    "isPermissionOnly": true,
-    "description": "Grants permission to perform partial evaluation of Cedar policies to authorize a caller to list tools they are allowed to call",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "gateway",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "policy-engine",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "processpayment": {
     "name": "ProcessPayment",
     "description": "Grants permission to process a payment transaction",
@@ -3197,9 +3171,9 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:strategyId",
+      "bedrock-agentcore:actorId",
       "bedrock-agentcore:sessionId",
-      "bedrock-agentcore:actorId"
+      "bedrock-agentcore:strategyId"
     ],
     "dependentActions": []
   },
@@ -3319,26 +3293,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "synchronizegatewaytargets": {
-    "name": "SynchronizeGatewayTargets",
-    "isPermissionOnly": true,
-    "description": "Grants permission to enable search on gateways",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "gateway",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to Tag a Bedrock-AgentCore resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "apikeycredentialprovider",
@@ -3450,15 +3408,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to Untag a Bedrock-AgentCore resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "apikeycredentialprovider",
@@ -3587,9 +3545,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateagentruntime": {
     "name": "UpdateAgentRuntime",
@@ -3600,15 +3556,13 @@
         "name": "runtime",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "bedrock-agentcore:subnets",
+      "bedrock-agentcore:RuntimeAuthorizerType",
       "bedrock-agentcore:securityGroups",
-      "bedrock-agentcore:RuntimeAuthorizerType"
+      "bedrock-agentcore:subnets"
     ],
     "dependentActions": []
   },
@@ -3718,9 +3672,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updategatewayrule": {
     "name": "UpdateGatewayRule",
@@ -3765,14 +3717,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "bedrock-agentcore:CreateMemory",
-      "bedrock-agentcore:GetAgentRuntime",
-      "bedrock-agentcore:GetMemory",
-      "bedrock-agentcore:UpdateAgentRuntime",
-      "bedrock-agentcore:UpdateMemory",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateharnessendpoint": {
     "name": "UpdateHarnessEndpoint",
@@ -3783,9 +3728,7 @@
         "name": "harness",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "bedrock-agentcore:UpdateAgentRuntimeEndpoint"
-        ]
+        "dependentActions": []
       },
       {
         "name": "harness-endpoint",
@@ -3810,9 +3753,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateoauth2credentialprovider": {
     "name": "UpdateOauth2CredentialProvider",
@@ -3848,9 +3789,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatepaymentconnector": {
     "name": "UpdatePaymentConnector",
@@ -3901,9 +3840,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatepolicy": {
     "name": "UpdatePolicy",

@@ -1,11 +1,4 @@
 {
-  "virtualcluster": {
-    "key": "virtualCluster",
-    "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "jobrun": {
     "key": "jobRun",
     "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}/jobruns/${JobRunId}",
@@ -30,6 +23,13 @@
   "securityconfiguration": {
     "key": "securityConfiguration",
     "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/securityconfigurations/${SecurityConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "virtualcluster": {
+    "key": "virtualCluster",
+    "arn": "arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

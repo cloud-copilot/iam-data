@@ -1,7 +1,26 @@
 {
+  "allcomponentbuildversions": {
+    "key": "allComponentBuildVersions",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:component/${ComponentName}/${ComponentVersion}/*"
+  },
+  "allimagebuildversions": {
+    "key": "allImageBuildVersions",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageName}/${ImageVersion}/*"
+  },
+  "allworkflowbuildversions": {
+    "key": "allWorkflowBuildVersions",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:workflow/${WorkflowType}/${WorkflowName}/${WorkflowVersion}/*"
+  },
   "component": {
     "key": "component",
     "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:component/${ComponentName}/${ComponentVersion}/${ComponentBuildVersion}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "containerrecipe": {
+    "key": "containerRecipe",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:container-recipe/${ContainerRecipeName}/${ContainerRecipeVersion}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -20,9 +39,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "imageversion": {
-    "key": "imageVersion",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageName}/${ImageVersion}",
+  "imagepipeline": {
+    "key": "imagePipeline",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:image-pipeline/${ImagePipelineName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -34,16 +53,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "containerrecipe": {
-    "key": "containerRecipe",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:container-recipe/${ContainerRecipeName}/${ContainerRecipeVersion}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "imagepipeline": {
-    "key": "imagePipeline",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:image-pipeline/${ImagePipelineName}",
+  "imageversion": {
+    "key": "imageVersion",
+    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageName}/${ImageVersion}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -80,17 +92,5 @@
   "workflowstepexecution": {
     "key": "workflowStepExecution",
     "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:workflow-step-execution/${WorkflowStepExecutionId}"
-  },
-  "allcomponentbuildversions": {
-    "key": "allComponentBuildVersions",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:component/${ComponentName}/${ComponentVersion}/*"
-  },
-  "allimagebuildversions": {
-    "key": "allImageBuildVersions",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageName}/${ImageVersion}/*"
-  },
-  "allworkflowbuildversions": {
-    "key": "allWorkflowBuildVersions",
-    "arn": "arn:${Partition}:imagebuilder:${Region}:${Account}:workflow/${WorkflowType}/${WorkflowName}/${WorkflowVersion}/*"
   }
 }

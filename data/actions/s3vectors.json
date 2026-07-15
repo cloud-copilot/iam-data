@@ -12,12 +12,12 @@
       }
     ],
     "conditionKeys": [
-      "s3vectors:sseType",
-      "s3vectors:kmsKeyArn",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
-      "s3vectors:VectorBucketTag/${TagKey}"
+      "aws:TagKeys",
+      "s3vectors:VectorBucketTag/${TagKey}",
+      "s3vectors:kmsKeyArn",
+      "s3vectors:sseType"
     ],
     "dependentActions": []
   },
@@ -34,12 +34,12 @@
       }
     ],
     "conditionKeys": [
-      "s3vectors:sseType",
-      "s3vectors:kmsKeyArn",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
-      "s3vectors:VectorBucketTag/${TagKey}"
+      "aws:TagKeys",
+      "s3vectors:VectorBucketTag/${TagKey}",
+      "s3vectors:kmsKeyArn",
+      "s3vectors:sseType"
     ],
     "dependentActions": []
   },
@@ -82,7 +82,7 @@
   "deletevectorbucketpolicy": {
     "name": "DeleteVectorBucketPolicy",
     "description": "Grants permission to delete the IAM resource policy from a specified vector bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "VectorBucket",
@@ -246,9 +246,7 @@
         "name": "Index",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "s3vectors:GetVectors"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -260,7 +258,7 @@
   "putvectorbucketpolicy": {
     "name": "PutVectorBucketPolicy",
     "description": "Grants permission to add an IAM resource policy to a specified vector bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "VectorBucket",
@@ -302,9 +300,7 @@
         "name": "Index",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "s3vectors:GetVectors"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -316,7 +312,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a S3Vector resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Index",
@@ -333,8 +329,8 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "s3vectors:VectorBucketTag/${TagKey}"
     ],
     "dependentActions": []
@@ -342,7 +338,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a S3Vector resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Index",
@@ -358,8 +354,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "s3vectors:VectorBucketTag/${TagKey}"
     ],
     "dependentActions": []

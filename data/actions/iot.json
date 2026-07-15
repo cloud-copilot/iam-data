@@ -69,9 +69,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iot:GetIndexingConfiguration"
-    ]
+    "dependentActions": []
   },
   "associatetargetswithjob": {
     "name": "AssociateTargetsWithJob",
@@ -103,7 +101,7 @@
   "attachpolicy": {
     "name": "AttachPolicy",
     "description": "Grants permission to attach a policy to the specified target",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "cert",
@@ -124,7 +122,7 @@
   "attachprincipalpolicy": {
     "name": "AttachPrincipalPolicy",
     "description": "Grants permission to attach the specified policy to the specified principal (certificate or other credential)",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "cert",
@@ -142,12 +140,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "securityprofile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "custommetric",
         "required": false,
         "conditionKeys": [],
@@ -156,6 +148,12 @@
       {
         "name": "dimension",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -513,18 +511,6 @@
         "dependentActions": []
       },
       {
-        "name": "thing",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "thinggroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "jobtemplate",
         "required": false,
         "conditionKeys": [],
@@ -541,6 +527,18 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "thing",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "thinggroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -555,14 +553,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "jobtemplate",
-        "required": true,
+        "name": "job",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "job",
-        "required": false,
+        "name": "jobtemplate",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -638,9 +636,7 @@
         "name": "package",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iot:GetIndexingConfiguration"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -658,10 +654,7 @@
         "name": "package",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iot:GetIndexingConfiguration",
-          "s3:GetObjectVersion"
-        ]
+        "dependentActions": []
       },
       {
         "name": "packageversion",
@@ -679,7 +672,7 @@
   "createpolicy": {
     "name": "CreatePolicy",
     "description": "Grants permission to create an AWS IoT policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -697,7 +690,7 @@
   "createpolicyversion": {
     "name": "CreatePolicyVersion",
     "description": "Grants permission to create a new version of the specified AWS IoT policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -733,9 +726,7 @@
         "name": "provisioningtemplate",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -768,9 +759,7 @@
         "name": "rolealias",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -803,12 +792,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "securityprofile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "custommetric",
         "required": false,
         "conditionKeys": [],
@@ -817,6 +800,12 @@
       {
         "name": "dimension",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -851,14 +840,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "thing",
-        "required": true,
+        "name": "billinggroup",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "billinggroup",
-        "required": false,
+        "name": "thing",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1265,7 +1254,7 @@
   "deletepolicy": {
     "name": "DeletePolicy",
     "description": "Grants permission to delete the specified policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -1280,7 +1269,7 @@
   "deletepolicyversion": {
     "name": "DeletePolicyVersion",
     "description": "Grants permission to Delete the specified version of the specified policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -1366,12 +1355,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "securityprofile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "custommetric",
         "required": false,
         "conditionKeys": [],
@@ -1380,6 +1363,12 @@
       {
         "name": "dimension",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1987,7 +1976,7 @@
   "detachpolicy": {
     "name": "DetachPolicy",
     "description": "Grants permission to detach a policy from the specified target",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "cert",
@@ -2008,7 +1997,7 @@
   "detachprincipalpolicy": {
     "name": "DetachPrincipalPolicy",
     "description": "Grants permission to remove the specified policy from the specified certificate",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "cert",
@@ -2026,12 +2015,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "securityprofile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "custommetric",
         "required": false,
         "conditionKeys": [],
@@ -2040,6 +2023,12 @@
       {
         "name": "dimension",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -3411,12 +3400,10 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "registercertificate": {
     "name": "RegisterCertificate",
@@ -3542,9 +3529,9 @@
       }
     ],
     "conditionKeys": [
+      "iot:ClientMode",
       "iot:ThingGroupArn",
-      "iot:TunnelDestinationService",
-      "iot:ClientMode"
+      "iot:TunnelDestinationService"
     ],
     "dependentActions": []
   },
@@ -3583,7 +3570,7 @@
   "setdefaultauthorizer": {
     "name": "SetDefaultAuthorizer",
     "description": "Grants permission to set the default authorizer. This will be used if a websocket connection is made without specifying an authorizer",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "authorizer",
@@ -3598,7 +3585,7 @@
   "setdefaultpolicyversion": {
     "name": "SetDefaultPolicyVersion",
     "description": "Grants permission to set the specified version of the specified policy as the policy's default (operative) version",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
@@ -3648,14 +3635,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "command",
-        "required": true,
+        "name": "client",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "client",
-        "required": false,
+        "name": "command",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -3667,9 +3654,9 @@
       }
     ],
     "conditionKeys": [
-      "iot:CommandExecutionParameterString/${CommandParameterName}",
       "iot:CommandExecutionParameterBoolean/${CommandParameterName}",
-      "iot:CommandExecutionParameterNumber/${CommandParameterName}"
+      "iot:CommandExecutionParameterNumber/${CommandParameterName}",
+      "iot:CommandExecutionParameterString/${CommandParameterName}"
     ],
     "dependentActions": []
   },
@@ -3730,7 +3717,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "authorizer",
@@ -3937,7 +3924,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "authorizer",
@@ -4154,9 +4141,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatecertificate": {
     "name": "UpdateCertificate",
@@ -4351,9 +4336,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iot:GetIndexingConfiguration"
-    ]
+    "dependentActions": []
   },
   "updatepackageconfiguration": {
     "name": "UpdatePackageConfiguration",
@@ -4361,9 +4344,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatepackageversion": {
     "name": "UpdatePackageVersion",
@@ -4374,10 +4355,7 @@
         "name": "package",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iot:GetIndexingConfiguration",
-          "s3:GetObjectVersion"
-        ]
+        "dependentActions": []
       },
       {
         "name": "packageversion",
@@ -4402,9 +4380,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updaterolealias": {
     "name": "UpdateRoleAlias",
@@ -4419,9 +4395,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatescheduledaudit": {
     "name": "UpdateScheduledAudit",
@@ -4444,12 +4418,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "securityprofile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "custommetric",
         "required": false,
         "conditionKeys": [],
@@ -4458,6 +4426,12 @@
       {
         "name": "dimension",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "securityprofile",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

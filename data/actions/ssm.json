@@ -1,8 +1,85 @@
 {
+  "getcalendar": {
+    "name": "GetCalendar",
+    "description": "Grants permission to view details of a specific calendar",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmanifest": {
+    "name": "GetManifest",
+    "description": "Grants permission to Systems Manager and SSM Agent to determine package installation requirements for an instance (internal Systems Manager call)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putcalendar": {
+    "name": "PutCalendar",
+    "description": "Grants permission to create/edit a specific calendar",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "document",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putconfigurepackageresult": {
+    "name": "PutConfigurePackageResult",
+    "description": "Grants permission to SSM Agent to generate a report of the results of specific agent requests (internal Systems Manager call)",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateinstanceassociationstatus": {
+    "name": "UpdateInstanceAssociationStatus",
+    "description": "Grants permission to SSM Agent to update the status of the association that it is currently running (internal Systems Manager call)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "association",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ec2:SourceInstanceARN",
+      "ssm:SourceInstanceARN"
+    ],
+    "dependentActions": []
+  },
   "addtagstoresource": {
     "name": "AddTagsToResource",
     "description": "Grants permission to add or overwrite one or more tags for a specified AWS resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "association",
@@ -78,8 +155,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -164,8 +241,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -195,8 +272,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -210,11 +287,7 @@
         "name": "cloud-connector",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "config:GetConnector",
-          "config:PutThirdPartyServiceLinkedConfigurationRecorder",
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -232,9 +305,7 @@
         "name": "document",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -357,12 +428,7 @@
         "name": "cloud-connector",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "config:DeleteServiceLinkedConfigurationRecorder",
-          "config:GetConnector",
-          "config:PutThirdPartyServiceLinkedConfigurationRecorder",
-          "ssm:ListAssociations"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -509,7 +575,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete a Systems Manager resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "document",
@@ -1101,22 +1167,6 @@
     ],
     "dependentActions": []
   },
-  "getcalendar": {
-    "name": "GetCalendar",
-    "isPermissionOnly": true,
-    "description": "Grants permission to view details of a specific calendar",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "document",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getcalendarstate": {
     "name": "GetCalendarState",
     "description": "Grants permission to view the calendar state for a change calendar or a list of change calendars",
@@ -1182,8 +1232,8 @@
       }
     ],
     "conditionKeys": [
-      "ssm:resourceTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "ssm:resourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1303,15 +1353,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getmanifest": {
-    "name": "GetManifest",
-    "isPermissionOnly": true,
-    "description": "Grants permission to Systems Manager and SSM Agent to determine package installation requirements for an instance (internal Systems Manager call)",
-    "accessLevel": "Read",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1794,7 +1835,7 @@
   "modifydocumentpermission": {
     "name": "ModifyDocumentPermission",
     "description": "Grants permission to share a custom SSM document publicly or privately with specified AWS accounts",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "document",
@@ -1806,22 +1847,6 @@
     "conditionKeys": [
       "ssm:DocumentType"
     ],
-    "dependentActions": []
-  },
-  "putcalendar": {
-    "name": "PutCalendar",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create/edit a specific calendar",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "document",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "putcomplianceitems": {
@@ -1843,18 +1868,9 @@
       }
     ],
     "conditionKeys": [
-      "ssm:SourceInstanceARN",
-      "ec2:SourceInstanceARN"
+      "ec2:SourceInstanceARN",
+      "ssm:SourceInstanceARN"
     ],
-    "dependentActions": []
-  },
-  "putconfigurepackageresult": {
-    "name": "PutConfigurePackageResult",
-    "isPermissionOnly": true,
-    "description": "Grants permission to SSM Agent to generate a report of the results of specific agent requests (internal Systems Manager call)",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "putinventory": {
@@ -1890,7 +1906,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to create or update a Systems Manager resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "document",
@@ -1988,7 +2004,7 @@
   "removetagsfromresource": {
     "name": "RemoveTagsFromResource",
     "description": "Grants permission to remove a specified tag key from a specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "association",
@@ -2125,14 +2141,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "document",
-        "required": true,
+        "name": "bucket",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "bucket",
-        "required": false,
+        "name": "document",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -2202,6 +2218,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "automation-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "automation-execution",
         "required": true,
         "conditionKeys": [],
@@ -2210,12 +2232,6 @@
       {
         "name": "document",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "automation-definition",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2234,6 +2250,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "automation-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "automation-execution",
         "required": true,
         "conditionKeys": [],
@@ -2242,12 +2264,6 @@
       {
         "name": "document",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "automation-definition",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2300,10 +2316,10 @@
       }
     ],
     "conditionKeys": [
-      "ssm:SessionDocumentAccessCheck",
-      "ssm:resourceTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "ssm:AccessRequestId"
+      "ssm:AccessRequestId",
+      "ssm:SessionDocumentAccessCheck",
+      "ssm:resourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -2419,9 +2435,9 @@
       }
     ],
     "conditionKeys": [
-      "ssm:SourceInstanceARN",
+      "aws:ResourceTag/${TagKey}",
       "ec2:SourceInstanceARN",
-      "aws:ResourceTag/${TagKey}"
+      "ssm:SourceInstanceARN"
     ],
     "dependentActions": []
   },
@@ -2434,10 +2450,7 @@
         "name": "cloud-connector",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "config:GetConnector",
-          "config:PutThirdPartyServiceLinkedConfigurationRecorder"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2496,38 +2509,6 @@
     ],
     "dependentActions": []
   },
-  "updateinstanceassociationstatus": {
-    "name": "UpdateInstanceAssociationStatus",
-    "isPermissionOnly": true,
-    "description": "Grants permission to SSM Agent to update the status of the association that it is currently running (internal Systems Manager call)",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "association",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "instance",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "managed-instance",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "ssm:SourceInstanceARN",
-      "ec2:SourceInstanceARN",
-      "aws:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
   "updateinstanceinformation": {
     "name": "UpdateInstanceInformation",
     "description": "Grants permission to SSM Agent to send a heartbeat signal to the Systems Manager service in the cloud",
@@ -2547,8 +2528,8 @@
       }
     ],
     "conditionKeys": [
-      "ssm:SourceInstanceARN",
-      "ec2:SourceInstanceARN"
+      "ec2:SourceInstanceARN",
+      "ssm:SourceInstanceARN"
     ],
     "dependentActions": []
   },

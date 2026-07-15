@@ -1,4 +1,19 @@
 {
+  "getbatchimportjobvalidationreport": {
+    "name": "GetBatchImportJobValidationReport",
+    "description": "Grants permission to get the data validation report of a specific batch import job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "batch-import",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchcreatevariable": {
     "name": "BatchCreateVariable",
     "description": "Grants permission to create a batch of variables",
@@ -492,22 +507,6 @@
       {
         "name": "model-version",
         "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getbatchimportjobvalidationreport": {
-    "name": "GetBatchImportJobValidationReport",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the data validation report of a specific batch import job",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "batch-import",
-        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1105,7 +1104,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to assign tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "batch-import",
@@ -1190,18 +1189,24 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "variable",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "batch-import",
@@ -1277,6 +1282,12 @@
       },
       {
         "name": "rule",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "variable",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []

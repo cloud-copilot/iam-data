@@ -1,8 +1,88 @@
 {
+  "connectmicrovm": {
+    "name": "ConnectMicrovm",
+    "description": "Grants permission to connect to a Lambda MicroVM via HTTP (VPC Endpoint only)",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disablereplication": {
+    "name": "DisableReplication",
+    "description": "Grants permission to disable replication for a Lambda@Edge function",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enablereplication": {
+    "name": "EnableReplication",
+    "description": "Grants permission to enable replication for a Lambda@Edge function",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokefunctionurl": {
+    "name": "InvokeFunctionUrl",
+    "description": "Grants permission to invoke an AWS Lambda function through url",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "function",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "lambda:EventSourceToken",
+      "lambda:FunctionArn",
+      "lambda:FunctionUrlAuthType"
+    ],
+    "dependentActions": []
+  },
+  "passcapacityprovider": {
+    "name": "PassCapacityProvider",
+    "description": "Grants permission to pass an AWS Lambda capacity provider to a service",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacityProvider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "passnetworkconnector": {
+    "name": "PassNetworkConnector",
+    "description": "Grants permission to pass an AWS Lambda network connector to a service",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "addlayerversionpermission": {
     "name": "AddLayerVersionPermission",
     "description": "Grants permission to add permissions to the resource-based policy of a version of an AWS Lambda layer",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "layerVersion",
@@ -17,7 +97,7 @@
   "addpermission": {
     "name": "AddPermission",
     "description": "Grants permission to give an AWS service or another account permission to use an AWS Lambda function",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "function",
@@ -27,8 +107,8 @@
       }
     ],
     "conditionKeys": [
-      "lambda:Principal",
-      "lambda:FunctionUrlAuthType"
+      "lambda:FunctionUrlAuthType",
+      "lambda:Principal"
     ],
     "dependentActions": []
   },
@@ -44,15 +124,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "connectmicrovm": {
-    "name": "ConnectMicrovm",
-    "isPermissionOnly": true,
-    "description": "Grants permission to connect to a Lambda MicroVM via HTTP (VPC Endpoint only)",
-    "accessLevel": "Write",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -80,11 +151,7 @@
         "name": "capacityProvider",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole",
-          "kms:DescribeKey"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -112,9 +179,9 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "lambda:FunctionArn",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "lambda:FunctionArn"
     ],
     "dependentActions": []
   },
@@ -127,20 +194,17 @@
         "name": "function",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "lambda:PassCapacityProvider"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "lambda:Layer",
-      "lambda:VpcIds",
-      "lambda:SubnetIds",
-      "lambda:SecurityGroupIds",
-      "lambda:CodeSigningConfigArn",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "lambda:CodeSigningConfigArn",
+      "lambda:Layer",
+      "lambda:SecurityGroupIds",
+      "lambda:SubnetIds",
+      "lambda:VpcIds"
     ],
     "dependentActions": []
   },
@@ -157,8 +221,8 @@
       }
     ],
     "conditionKeys": [
-      "lambda:FunctionUrlAuthType",
-      "lambda:FunctionArn"
+      "lambda:FunctionArn",
+      "lambda:FunctionUrlAuthType"
     ],
     "dependentActions": []
   },
@@ -186,10 +250,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole",
-      "lambda:PassNetworkConnector"
-    ]
+    "dependentActions": []
   },
   "createmicrovmshellauthtoken": {
     "name": "CreateMicrovmShellAuthToken",
@@ -215,10 +276,7 @@
         "name": "networkConnector",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -364,8 +422,8 @@
       }
     ],
     "conditionKeys": [
-      "lambda:FunctionUrlAuthType",
-      "lambda:FunctionArn"
+      "lambda:FunctionArn",
+      "lambda:FunctionUrlAuthType"
     ],
     "dependentActions": []
   },
@@ -443,38 +501,6 @@
       {
         "name": "function version",
         "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "disablereplication": {
-    "name": "DisableReplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disable replication for a Lambda@Edge function",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "function",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "enablereplication": {
-    "name": "EnableReplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to enable replication for a Lambda@Edge function",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "function",
-        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -715,8 +741,8 @@
       }
     ],
     "conditionKeys": [
-      "lambda:FunctionUrlAuthType",
-      "lambda:FunctionArn"
+      "lambda:FunctionArn",
+      "lambda:FunctionUrlAuthType"
     ],
     "dependentActions": []
   },
@@ -906,26 +932,6 @@
     "conditionKeys": [
       "lambda:EventSourceToken",
       "lambda:InvokedViaFunctionUrl"
-    ],
-    "dependentActions": []
-  },
-  "invokefunctionurl": {
-    "name": "InvokeFunctionUrl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke an AWS Lambda function through url",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "function",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "lambda:FunctionUrlAuthType",
-      "lambda:FunctionArn",
-      "lambda:EventSourceToken"
     ],
     "dependentActions": []
   },
@@ -1221,31 +1227,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "passcapacityprovider": {
-    "name": "PassCapacityProvider",
-    "isPermissionOnly": true,
-    "description": "Grants permission to pass an AWS Lambda capacity provider to a service",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "capacityProvider",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "passnetworkconnector": {
-    "name": "PassNetworkConnector",
-    "isPermissionOnly": true,
-    "description": "Grants permission to pass an AWS Lambda network connector to a service",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "publishlayerversion": {
     "name": "PublishLayerVersion",
     "description": "Grants permission to create an AWS Lambda layer",
@@ -1398,7 +1379,7 @@
   "removelayerversionpermission": {
     "name": "RemoveLayerVersionPermission",
     "description": "Grants permission to remove a statement from the permissions policy for a version of an AWS Lambda layer",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "layerVersion",
@@ -1413,7 +1394,7 @@
   "removepermission": {
     "name": "RemovePermission",
     "description": "Grants permission to revoke function-use permission from an AWS service or another account",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "function",
@@ -1423,8 +1404,8 @@
       }
     ],
     "conditionKeys": [
-      "lambda:Principal",
-      "lambda:FunctionUrlAuthType"
+      "lambda:FunctionUrlAuthType",
+      "lambda:Principal"
     ],
     "dependentActions": []
   },
@@ -1456,10 +1437,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "lambda:PassNetworkConnector"
-    ]
+    "dependentActions": []
   },
   "senddurableexecutioncallbackfailure": {
     "name": "SendDurableExecutionCallbackFailure",
@@ -1539,7 +1517,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to an AWS Lambda function, event source mapping, capacity provider, code signing configuration, network connector or MicroVM image resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "capacityProvider",
@@ -1602,7 +1580,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from an AWS Lambda function, event source mapping, capacity provider, code signing configuration, network connector or MicroVM image resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "capacityProvider",
@@ -1758,9 +1736,9 @@
     ],
     "conditionKeys": [
       "lambda:Layer",
-      "lambda:VpcIds",
+      "lambda:SecurityGroupIds",
       "lambda:SubnetIds",
-      "lambda:SecurityGroupIds"
+      "lambda:VpcIds"
     ],
     "dependentActions": []
   },
@@ -1792,8 +1770,8 @@
       }
     ],
     "conditionKeys": [
-      "lambda:FunctionUrlAuthType",
-      "lambda:FunctionArn"
+      "lambda:FunctionArn",
+      "lambda:FunctionUrlAuthType"
     ],
     "dependentActions": []
   },
@@ -1810,10 +1788,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "lambda:PassNetworkConnector"
-    ]
+    "dependentActions": []
   },
   "updatemicrovmimageversion": {
     "name": "UpdateMicrovmImageVersion",

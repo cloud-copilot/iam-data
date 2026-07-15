@@ -1,4 +1,33 @@
 {
+  "getfeaturemap": {
+    "name": "GetFeatureMap",
+    "description": "Grants permission to allow Nimble Studio portal to show the appropriate features for this account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putstudiologevents": {
+    "name": "PutStudioLogEvents",
+    "description": "Grants permission to report metrics and logs for the Nimble Studio portal to monitor application health",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "studio",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
+  },
   "accepteulas": {
     "name": "AcceptEulas",
     "description": "Grants permission to accept EULAs",
@@ -22,21 +51,16 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DescribeNatGateways",
-          "ec2:DescribeNetworkAcls",
-          "ec2:DescribeRouteTables",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:RunInstances"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -48,19 +72,16 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeImages",
-          "ec2:DescribeSnapshots",
-          "ec2:ModifyInstanceAttribute",
-          "ec2:ModifySnapshotAttribute",
-          "ec2:RegisterImage"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -72,19 +93,16 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:CreateNetworkInterfacePermission",
-          "nimble:GetLaunchProfile",
-          "nimble:GetLaunchProfileInitialization",
-          "nimble:ListEulaAcceptances"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -96,11 +114,17 @@
       {
         "name": "streaming-session",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "nimble:createdBy",
+      "nimble:ownedBy",
       "nimble:requesterPrincipalId"
     ],
     "dependentActions": []
@@ -113,16 +137,16 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "sso:CreateManagedApplicationInstance"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -134,19 +158,16 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ds:AuthorizeApplication",
-          "ds:DescribeDirectories",
-          "ec2:DescribeSecurityGroups",
-          "fsx:DescribeFileSystems",
-          "iam:PassRole"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -158,11 +179,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "deletelaunchprofilemember": {
@@ -173,11 +200,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "deletestreamingimage": {
@@ -188,17 +221,18 @@
       {
         "name": "streaming-image",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DeleteSnapshot",
-      "ec2:DeregisterImage",
-      "ec2:ModifyInstanceAttribute",
-      "ec2:ModifySnapshotAttribute"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "deletestreamingsession": {
     "name": "DeleteStreamingSession",
@@ -208,13 +242,17 @@
       {
         "name": "streaming-session",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DeleteNetworkInterface"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "nimble:createdBy",
+      "nimble:ownedBy",
       "nimble:requesterPrincipalId"
     ],
     "dependentActions": []
@@ -227,14 +265,18 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "sso:DeleteManagedApplicationInstance"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "deletestudiocomponent": {
     "name": "DeleteStudioComponent",
@@ -244,14 +286,18 @@
       {
         "name": "studio-component",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ds:UnauthorizeApplication"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "deletestudiomember": {
     "name": "DeleteStudioMember",
@@ -261,11 +307,17 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "geteula": {
@@ -283,15 +335,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getfeaturemap": {
-    "name": "GetFeatureMap",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow Nimble Studio portal to show the appropriate features for this account",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getlaunchprofile": {
     "name": "GetLaunchProfile",
     "description": "Grants permission to get a launch profile",
@@ -300,11 +343,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "getlaunchprofiledetails": {
@@ -315,11 +364,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "getlaunchprofileinitialization": {
@@ -330,16 +385,18 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ds:DescribeDirectories",
-      "ec2:DescribeSecurityGroups",
-      "fsx:DescribeFileSystems"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "getlaunchprofilemember": {
     "name": "GetLaunchProfileMember",
@@ -349,11 +406,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "getstreamingimage": {
@@ -364,11 +427,17 @@
       {
         "name": "streaming-image",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "getstreamingsession": {
@@ -379,11 +448,17 @@
       {
         "name": "streaming-session",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "nimble:createdBy",
+      "nimble:ownedBy",
       "nimble:requesterPrincipalId"
     ],
     "dependentActions": []
@@ -396,11 +471,16 @@
       {
         "name": "streaming-session-backup",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "nimble:ownedBy",
       "nimble:requesterPrincipalId"
     ],
     "dependentActions": []
@@ -413,11 +493,17 @@
       {
         "name": "streaming-session",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "nimble:createdBy",
+      "nimble:ownedBy",
       "nimble:requesterPrincipalId"
     ],
     "dependentActions": []
@@ -430,11 +516,17 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "getstudiocomponent": {
@@ -445,11 +537,17 @@
       {
         "name": "studio-component",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "getstudiomember": {
@@ -460,11 +558,17 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "listeulaacceptances": {
@@ -479,7 +583,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "listeulas": {
@@ -505,11 +611,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "listlaunchprofiles": {
@@ -520,13 +632,18 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "nimble:principalId",
-      "nimble:requesterPrincipalId"
+      "nimble:requesterPrincipalId",
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -538,11 +655,17 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "liststreamingsessionbackups": {
@@ -553,12 +676,17 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "nimble:requesterPrincipalId"
+      "nimble:requesterPrincipalId",
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -570,14 +698,19 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "nimble:createdBy",
       "nimble:ownedBy",
-      "nimble:requesterPrincipalId"
+      "nimble:requesterPrincipalId",
+      "nimble:studioId"
     ],
     "dependentActions": []
   },
@@ -589,11 +722,17 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "liststudiomembers": {
@@ -604,11 +743,17 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "liststudios": {
@@ -627,37 +772,68 @@
       {
         "name": "launch-profile",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-image",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-session",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:createdBy",
+          "nimble:ownedBy"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-session-backup",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:ownedBy"
+        ],
         "dependentActions": []
       },
       {
         "name": "studio",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "studio-component",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       }
     ],
@@ -672,29 +848,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "sso-directory:DescribeUsers"
-    ]
-  },
-  "putstudiologevents": {
-    "name": "PutStudioLogEvents",
-    "isPermissionOnly": true,
-    "description": "Grants permission to report metrics and logs for the Nimble Studio portal to monitor application health",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "studio",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
+    "conditionKeys": [
+      "nimble:studioId"
     ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "putstudiomembers": {
@@ -705,14 +869,18 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "sso-directory:DescribeUsers"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "startstreamingsession": {
     "name": "StartStreamingSession",
@@ -722,20 +890,27 @@
       {
         "name": "streaming-session",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "nimble:GetLaunchProfile",
-          "nimble:GetLaunchProfileMember"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:createdBy"
+        ],
+        "dependentActions": []
       },
       {
         "name": "streaming-session-backup",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "nimble:ownedBy",
       "nimble:requesterPrincipalId"
     ],
     "dependentActions": []
@@ -748,15 +923,18 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "sso:CreateManagedApplicationInstance",
-      "sso:GetManagedApplicationInstance"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "stopstreamingsession": {
     "name": "StopStreamingSession",
@@ -766,13 +944,17 @@
       {
         "name": "streaming-session",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "nimble:GetLaunchProfile"
-        ]
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "nimble:createdBy",
+      "nimble:ownedBy",
       "nimble:requesterPrincipalId"
     ],
     "dependentActions": []
@@ -780,97 +962,153 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or overwrite one or more tags for the specified Nimble Studio resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "launch-profile",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-image",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-session",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:createdBy",
+          "nimble:ownedBy"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-session-backup",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:ownedBy"
+        ],
         "dependentActions": []
       },
       {
         "name": "studio",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "studio-component",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to disassociate one or more tags from the specified Nimble Studio resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "launch-profile",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-image",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-session",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:createdBy",
+          "nimble:ownedBy"
+        ],
         "dependentActions": []
       },
       {
         "name": "streaming-session-backup",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:ownedBy"
+        ],
         "dependentActions": []
       },
       {
         "name": "studio",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       },
       {
         "name": "studio-component",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "nimble:studioId"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatelaunchprofile": {
@@ -881,18 +1119,18 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeNatGateways",
-      "ec2:DescribeNetworkAcls",
-      "ec2:DescribeRouteTables",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcEndpoints"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "updatelaunchprofilemember": {
     "name": "UpdateLaunchProfileMember",
@@ -902,11 +1140,17 @@
       {
         "name": "launch-profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "updatestreamingimage": {
@@ -917,11 +1161,17 @@
       {
         "name": "streaming-image",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
     "dependentActions": []
   },
   "updatestudio": {
@@ -932,14 +1182,18 @@
       {
         "name": "studio",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   },
   "updatestudiocomponent": {
     "name": "UpdateStudioComponent",
@@ -949,17 +1203,17 @@
       {
         "name": "studio-component",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "ds:AuthorizeApplication",
-      "ds:DescribeDirectories",
-      "ec2:DescribeSecurityGroups",
-      "fsx:DescribeFileSystems",
-      "iam:PassRole"
-    ]
+    "conditionKeys": [
+      "nimble:studioId"
+    ],
+    "dependentActions": []
   }
 }

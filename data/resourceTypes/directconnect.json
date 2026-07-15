@@ -1,4 +1,11 @@
 {
+  "dx-gateway": {
+    "key": "dx-gateway",
+    "arn": "arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "dxcon": {
     "key": "dxcon",
     "arn": "arn:${Partition}:directconnect:${Region}:${Account}:dxcon/${ConnectionId}",
@@ -16,13 +23,6 @@
   "dxvif": {
     "key": "dxvif",
     "arn": "arn:${Partition}:directconnect:${Region}:${Account}:dxvif/${VirtualInterfaceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "dx-gateway": {
-    "key": "dx-gateway",
-    "arn": "arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

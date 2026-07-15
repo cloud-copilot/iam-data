@@ -1,4 +1,34 @@
 {
+  "createsnapshot": {
+    "name": "CreateSnapshot",
+    "description": "Grants permission to create a snapshot in the domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsnapshot": {
+    "name": "GetSnapshot",
+    "description": "Grants permission to get a snapshot in the domain",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "addprofilekey": {
     "name": "AddProfileKey",
     "description": "Grants permission to add a profile key",
@@ -82,17 +112,15 @@
       {
         "name": "domains",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "createdomainlayout": {
     "name": "CreateDomainLayout",
@@ -127,10 +155,7 @@
         "name": "domains",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PutRolePolicy",
-          "kinesis:DescribeStreamSummary"
-        ]
+        "dependentActions": []
       },
       {
         "name": "event-streams",
@@ -340,22 +365,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "createsnapshot": {
-    "name": "CreateSnapshot",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create a snapshot in the domain",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "domains",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createuploadjob": {
     "name": "CreateUploadJob",
     "description": "Grants permission to create an upload job in the domain",
@@ -458,9 +467,7 @@
         "name": "domains",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:DeleteRolePolicy"
-        ]
+        "dependentActions": []
       },
       {
         "name": "event-streams",
@@ -823,9 +830,7 @@
         "name": "domains",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kinesis:DescribeStreamSummary"
-        ]
+        "dependentActions": []
       },
       {
         "name": "event-streams",
@@ -1155,22 +1160,6 @@
     "name": "GetSimilarProfiles",
     "description": "Grants permission to get all the similar profiles in the domain",
     "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "domains",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getsnapshot": {
-    "name": "GetSnapshot",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get a snapshot in the domain",
-    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "domains",
@@ -1757,13 +1746,7 @@
         "name": "domains",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "app-integrations:CreateDataIntegrationAssociation",
-          "app-integrations:DeleteDataIntegrationAssociation",
-          "app-integrations:GetDataIntegration",
-          "app-integrations:ListDataIntegrationAssociations",
-          "kms:CreateGrant"
-        ]
+        "dependentActions": []
       },
       {
         "name": "integrations",
@@ -1913,7 +1896,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to adds tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "calculated-attributes",
@@ -1997,7 +1980,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "calculated-attributes",
@@ -2111,9 +2094,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "updatedomainlayout": {
     "name": "UpdateDomainLayout",

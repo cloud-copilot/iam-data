@@ -21,10 +21,7 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "s3:GetObject",
-      "s3:ListBucket"
-    ]
+    "dependentActions": []
   },
   "createmedicalvocabulary": {
     "name": "CreateMedicalVocabulary",
@@ -36,9 +33,7 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createvocabulary": {
     "name": "CreateVocabulary",
@@ -50,9 +45,7 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createvocabularyfilter": {
     "name": "CreateVocabularyFilter",
@@ -64,9 +57,7 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "deletecallanalyticscategory": {
     "name": "DeleteCallAnalyticsCategory",
@@ -432,14 +423,12 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "transcribe:OutputEncryptionKMSKeyId",
-      "transcribe:OutputLocation",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "transcribe:OutputEncryptionKMSKeyId",
+      "transcribe:OutputLocation"
     ],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "startcallanalyticsstreamtranscription": {
     "name": "StartCallAnalyticsStreamTranscription",
@@ -463,15 +452,13 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "transcribe:OutputBucketName",
-      "transcribe:OutputEncryptionKMSKeyId",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "transcribe:OutputBucketName",
+      "transcribe:OutputEncryptionKMSKeyId"
     ],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "startmedicalscribestream": {
     "name": "StartMedicalScribeStream",
@@ -503,16 +490,14 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "transcribe:OutputBucketName",
-      "transcribe:OutputEncryptionKMSKeyId",
-      "transcribe:OutputKey",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "transcribe:OutputBucketName",
+      "transcribe:OutputEncryptionKMSKeyId",
+      "transcribe:OutputKey"
     ],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "startstreamtranscription": {
     "name": "StartStreamTranscription",
@@ -536,36 +521,34 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "transcribe:OutputBucketName",
-      "transcribe:OutputEncryptionKMSKeyId",
-      "transcribe:OutputKey",
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "transcribe:OutputBucketName",
+      "transcribe:OutputEncryptionKMSKeyId",
+      "transcribe:OutputKey"
     ],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource with given key value pairs",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "transcribe:OutputBucketName",
       "transcribe:OutputEncryptionKMSKeyId",
-      "transcribe:OutputKey",
-      "aws:TagKeys"
+      "transcribe:OutputKey"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource with given key",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:TagKeys"
@@ -600,9 +583,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "updatevocabulary": {
     "name": "UpdateVocabulary",
@@ -617,9 +598,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "updatevocabularyfilter": {
     "name": "UpdateVocabularyFilter",
@@ -634,8 +613,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   }
 }

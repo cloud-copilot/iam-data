@@ -7,22 +7,25 @@
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:LocationName",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "s3express:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -34,7 +37,12 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -44,9 +52,7 @@
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "s3express:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -56,22 +62,28 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "bucket",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "accesspoint",
         "required": false,
         "conditionKeys": [
-          "s3express:Permissions"
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "bucket",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "s3express:AllAccessRestrictedToLocalZoneGroup",
       "s3express:authType",
+      "s3express:Permissions",
       "s3express:ResourceAccount",
       "s3express:SessionMode",
       "s3express:signatureAge",
@@ -79,9 +91,7 @@
       "s3express:TlsVersion",
       "s3express:x-amz-content-sha256",
       "s3express:x-amz-server-side-encryption",
-      "s3express:x-amz-server-side-encryption-aws-kms-key-id",
-      "s3express:AllAccessRestrictedToLocalZoneGroup",
-      "s3express:Permissions"
+      "s3express:x-amz-server-side-encryption-aws-kms-key-id"
     ],
     "dependentActions": []
   },
@@ -93,15 +103,18 @@
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -112,20 +125,23 @@
   "deleteaccesspointpolicy": {
     "name": "DeleteAccessPointPolicy",
     "description": "Grants permission to delete the policy on a specified access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -136,20 +152,23 @@
   "deleteaccesspointscope": {
     "name": "DeleteAccessPointScope",
     "description": "Grants permission to delete the scope configuration on a specified access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -165,7 +184,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -181,12 +203,15 @@
   "deletebucketpolicy": {
     "name": "DeleteBucketPolicy",
     "description": "Grants permission to delete the policy on a specified bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -207,15 +232,18 @@
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -231,15 +259,18 @@
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -255,15 +286,18 @@
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -279,7 +313,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -300,7 +337,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -321,7 +361,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -342,7 +385,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -363,7 +409,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -412,13 +461,19 @@
       {
         "name": "accesspoint",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "bucket",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -434,20 +489,23 @@
   "putaccesspointpolicy": {
     "name": "PutAccessPointPolicy",
     "description": "Grants permission to associate an access policy with a specified access point",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -458,20 +516,23 @@
   "putaccesspointscope": {
     "name": "PutAccessPointScope",
     "description": "Grants permission to associate an access point with a specified access point scope configuration",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "s3express:DataAccessPointAccount",
-      "s3express:DataAccessPointArn",
       "s3express:AccessPointNetworkOrigin",
       "s3express:authType",
+      "s3express:DataAccessPointAccount",
+      "s3express:DataAccessPointArn",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
@@ -482,12 +543,15 @@
   "putbucketpolicy": {
     "name": "PutBucketPolicy",
     "description": "Grants permission to add or replace a bucket policy on a bucket",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -508,7 +572,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -529,17 +596,20 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "s3express:authType",
+      "s3express:InventoryAccessibleOptionalFields",
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256",
-      "s3express:InventoryAccessibleOptionalFields"
+      "s3express:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
@@ -551,7 +621,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -572,7 +645,10 @@
       {
         "name": "bucket",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -588,18 +664,28 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to create a new user-defined tag or update an existing tag",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "bucket",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -608,27 +694,33 @@
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "s3express:x-amz-content-sha256"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove the specified user-defined tags from an S3 resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "accesspoint",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "s3express:AccessPointTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "bucket",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "s3express:BucketTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -637,8 +729,7 @@
       "s3express:ResourceAccount",
       "s3express:signatureversion",
       "s3express:TlsVersion",
-      "s3express:x-amz-content-sha256",
-      "aws:TagKeys"
+      "s3express:x-amz-content-sha256"
     ],
     "dependentActions": []
   }

@@ -1,4 +1,27 @@
 {
+  "enablesitewiseintegration": {
+    "name": "EnableSiteWiseIntegration",
+    "description": "Grants permission to allow IoT SiteWise integrate with other services",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateassetmodelpropertyrouting": {
+    "name": "UpdateAssetModelPropertyRouting",
+    "description": "Grants permission to update an AssetModel property routing",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "asset-model",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associateassets": {
     "name": "AssociateAssets",
     "description": "Grants permission to associate a child asset with a parent asset through a hierarchy",
@@ -298,10 +321,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "sso:CreateManagedApplicationInstance",
-      "sso:DescribeRegisteredRegions"
-    ]
+    "dependentActions": []
   },
   "createproject": {
     "name": "CreateProject",
@@ -469,9 +489,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "sso:DeleteManagedApplicationInstance"
-    ]
+    "dependentActions": []
   },
   "deleteproject": {
     "name": "DeleteProject",
@@ -664,14 +682,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "computation-model",
-        "required": true,
+        "name": "asset",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "asset",
-        "required": false,
+        "name": "computation-model",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -858,15 +876,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "enablesitewiseintegration": {
-    "name": "EnableSiteWiseIntegration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to allow IoT SiteWise integrate with other services",
-    "accessLevel": "Write",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1431,7 +1440,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-policy",
@@ -1495,15 +1504,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-policy",
@@ -1631,22 +1640,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "updateassetmodelpropertyrouting": {
-    "name": "UpdateAssetModelPropertyRouting",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update an AssetModel property routing",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "asset-model",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "updateassetproperty": {
     "name": "UpdateAssetProperty",
     "description": "Grants permission to update an asset property",
@@ -1668,12 +1661,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "computation-model",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "asset",
         "required": false,
         "conditionKeys": [],
@@ -1682,6 +1669,12 @@
       {
         "name": "asset-model",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "computation-model",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

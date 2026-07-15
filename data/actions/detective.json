@@ -1,4 +1,102 @@
 {
+  "getfreetrialeligibility": {
+    "name": "GetFreeTrialEligibility",
+    "description": "Grants permission to retrieve a behavior graph's eligibility for a free trial period",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgraphingeststate": {
+    "name": "GetGraphIngestState",
+    "description": "Grants permission to retrieve the data ingestion state of a behavior graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getpricinginformation": {
+    "name": "GetPricingInformation",
+    "description": "Grants permission to retrieve information about Amazon Detective's pricing",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getusageinformation": {
+    "name": "GetUsageInformation",
+    "description": "Grants permission to list usage information of a behavior graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invokeassistant": {
+    "name": "InvokeAssistant",
+    "description": "Grants permission to invoke Detective's Assistant",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listhighdegreeentities": {
+    "name": "ListHighDegreeEntities",
+    "description": "Grants permission to retrieve high volume entities whose relationships cannot be stored by Detective",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "Graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "searchgraph": {
+    "name": "SearchGraph",
+    "description": "Grants permission to search the data stored in a behavior graph",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "Graph",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "acceptinvitation": {
     "name": "AcceptInvitation",
     "description": "Grants permission to accept an invitation to become a member of a behavior graph",
@@ -43,13 +141,11 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "detective:TagResource"
-    ]
+    "dependentActions": []
   },
   "createmembers": {
     "name": "CreateMembers",
@@ -109,9 +205,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   },
   "disableorganizationadminaccount": {
     "name": "DisableOrganizationAdminAccount",
@@ -119,9 +213,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   },
   "disassociatemembership": {
     "name": "DisassociateMembership",
@@ -143,43 +235,6 @@
     "description": "Grants permission to designate the Amazon Detective delegated administrator account for an organization",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "organizations:DescribeOrganization",
-      "organizations:EnableAWSServiceAccess",
-      "organizations:RegisterDelegatedAdministrator"
-    ]
-  },
-  "getfreetrialeligibility": {
-    "name": "GetFreeTrialEligibility",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve a behavior graph's eligibility for a free trial period",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "Graph",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getgraphingeststate": {
-    "name": "GetGraphIngestState",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve the data ingestion state of a behavior graph",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "Graph",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -213,47 +268,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getpricinginformation": {
-    "name": "GetPricingInformation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve information about Amazon Detective's pricing",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getusageinformation": {
-    "name": "GetUsageInformation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list usage information of a behavior graph",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "Graph",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "invokeassistant": {
-    "name": "InvokeAssistant",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke Detective's Assistant",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "Graph",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listdatasourcepackages": {
     "name": "ListDatasourcePackages",
     "description": "Grants permission to list a graph's datasource package ingest states and timestamps for the most recent state changes in a behavior graph managed by this account",
@@ -274,22 +288,6 @@
     "description": "Grants permission to list behavior graphs managed by this account",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listhighdegreeentities": {
-    "name": "ListHighDegreeEntities",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve high volume entities whose relationships cannot be stored by Detective",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "Graph",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -352,9 +350,7 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
@@ -377,22 +373,6 @@
     "name": "RejectInvitation",
     "description": "Grants permission to reject an invitation to become a member of a behavior graph",
     "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "Graph",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "searchgraph": {
-    "name": "SearchGraph",
-    "isPermissionOnly": true,
-    "description": "Grants permission to search the data stored in a behavior graph",
-    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "Graph",
@@ -437,7 +417,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to assign tag values to a behavior graph",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Graph",
@@ -447,16 +427,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tag values from a behavior graph",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Graph",
@@ -513,8 +493,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "organizations:DescribeOrganization"
-    ]
+    "dependentActions": []
   }
 }

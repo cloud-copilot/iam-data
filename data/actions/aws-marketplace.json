@@ -35,7 +35,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete the resource policy of an existing entity",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "Entity",
@@ -248,7 +248,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to attach a resource policy to an existing entity",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "Entity",
@@ -273,10 +273,10 @@
       }
     ],
     "conditionKeys": [
-      "catalog:ChangeType",
       "aws-marketplace:Intent",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "catalog:ChangeType"
     ],
     "dependentActions": []
   },
@@ -318,22 +318,22 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a deployment parameter resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "DeploymentParameter",
         "required": true,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
           "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
           "aws:TagKeys"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -341,7 +341,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a deployment parameter resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "DeploymentParameter",
@@ -383,18 +383,16 @@
         "name": "DeploymentParameter",
         "required": true,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}",
           "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "aws-marketplace:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -552,7 +550,6 @@
   },
   "describebuilds": {
     "name": "DescribeBuilds",
-    "isPermissionOnly": true,
     "description": "Describes Image Builds identified by a build Id",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -561,7 +558,6 @@
   },
   "listbuilds": {
     "name": "ListBuilds",
-    "isPermissionOnly": true,
     "description": "Lists Image Builds.",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -570,7 +566,6 @@
   },
   "startbuild": {
     "name": "StartBuild",
-    "isPermissionOnly": true,
     "description": "Starts an Image Build",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -611,7 +606,6 @@
   },
   "associateproductswithprivatemarketplace": {
     "name": "AssociateProductsWithPrivateMarketplace",
-    "isPermissionOnly": true,
     "description": "Grants permission to approve a request for a product to be associated with the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -620,7 +614,6 @@
   },
   "createprivatemarketplacerequests": {
     "name": "CreatePrivateMarketplaceRequests",
-    "isPermissionOnly": true,
     "description": "Grants permission to create a new request for a product or products to be associated with the Private Marketplace. This action can be performed by any account in an in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -629,7 +622,6 @@
   },
   "describeprivatemarketplacerequests": {
     "name": "DescribePrivateMarketplaceRequests",
-    "isPermissionOnly": true,
     "description": "Grants permission to describe requests and associated products in the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
     "accessLevel": "List",
     "resourceTypes": [],
@@ -638,7 +630,6 @@
   },
   "disassociateproductsfromprivatemarketplace": {
     "name": "DisassociateProductsFromPrivateMarketplace",
-    "isPermissionOnly": true,
     "description": "Grants permission to decline a request for a product to be associated with the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -647,7 +638,6 @@
   },
   "listprivatemarketplacerequests": {
     "name": "ListPrivateMarketplaceRequests",
-    "isPermissionOnly": true,
     "description": "Grants permission to get a queryable list for requests and associated products in the Private Marketplace. This action can be performed by any account in an AWS Organization, provided the user has permissions to do so, and the Organization's Service Control Policies allow it",
     "accessLevel": "List",
     "resourceTypes": [],
@@ -656,7 +646,6 @@
   },
   "describeprocurementsystemconfiguration": {
     "name": "DescribeProcurementSystemConfiguration",
-    "isPermissionOnly": true,
     "description": "Grants permission to describe the Procurement System integration configuration (e.g. Coupa) for the individual account, or for the entire AWS Organization if one exists. This action can only be performed by the master account if using an AWS Organization",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -665,7 +654,6 @@
   },
   "putprocurementsystemconfiguration": {
     "name": "PutProcurementSystemConfiguration",
-    "isPermissionOnly": true,
     "description": "Grants permission to create or update the Procurement System integration configuration (e.g. Coupa) for the individual account, or for the entire AWS Organization if one exists. This action can only be performed by the master account if using an AWS Organization",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -716,8 +704,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -727,8 +715,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -749,8 +737,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -770,8 +758,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -781,8 +769,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -811,8 +799,8 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -830,8 +818,8 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -851,8 +839,8 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -870,8 +858,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -881,8 +869,8 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -900,8 +888,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -921,8 +909,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -932,8 +920,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -951,8 +939,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -978,8 +966,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -989,8 +977,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -1000,8 +988,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -1011,8 +999,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },
@@ -1022,8 +1010,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws-marketplace:PartyType",
-      "aws-marketplace:AgreementType"
+      "aws-marketplace:AgreementType",
+      "aws-marketplace:PartyType"
     ],
     "dependentActions": []
   },

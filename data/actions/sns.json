@@ -2,7 +2,7 @@
   "addpermission": {
     "name": "AddPermission",
     "description": "Grants permission to add a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "topic",
@@ -43,9 +43,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createplatformendpoint": {
     "name": "CreatePlatformEndpoint",
@@ -72,9 +70,7 @@
         "name": "topic",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -173,7 +169,14 @@
     "name": "GetSubscriptionAttributes",
     "description": "Grants permission to return all of the properties of a subscription",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -319,7 +322,7 @@
   "removepermission": {
     "name": "RemovePermission",
     "description": "Grants permission to remove a statement from a topic's access control policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "topic",
@@ -345,9 +348,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "setsmsattributes": {
     "name": "SetSMSAttributes",
@@ -361,14 +362,21 @@
     "name": "SetSubscriptionAttributes",
     "description": "Grants permission to allow a subscription owner to set an attribute of the topic to a new value",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
   "settopicattributes": {
     "name": "SetTopicAttributes",
     "description": "Grants permission to allow a topic owner to set an attribute of the topic to a new value",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "topic",
@@ -378,9 +386,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "subscribe": {
     "name": "Subscribe",
@@ -403,7 +409,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to the specified Amazon SNS topic",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "topic",
@@ -422,14 +428,21 @@
     "name": "Unsubscribe",
     "description": "Grants permission to delete a subscription",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "topic",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from the specified Amazon SNS topic",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "topic",

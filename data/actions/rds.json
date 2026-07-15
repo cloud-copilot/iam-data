@@ -1,4 +1,70 @@
 {
+  "copycustomdbengineversion": {
+    "name": "CopyCustomDBEngineVersion",
+    "description": "Grants permission to copy a custom engine version",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cev",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "crossregioncommunication": {
+    "name": "CrossRegionCommunication",
+    "description": "Grants permission to access a resource in the remote Region when executing cross-Region operations, such as cross-Region snapshot copy or cross-Region read replica creation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster-snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerecommendationgroups": {
+    "name": "DescribeRecommendationGroups",
+    "description": "Grants permission to return information about recommendation groups",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describerecommendations": {
+    "name": "DescribeRecommendations",
+    "description": "Grants permission to return information about recommendations",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifyrecommendation": {
+    "name": "ModifyRecommendation",
+    "description": "Grants permission to modify recommendation",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "addroletodbcluster": {
     "name": "AddRoleToDBCluster",
     "description": "Grants permission to associate an Identity and Access Management (IAM) role from an Aurora DB cluster",
@@ -12,9 +78,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "addroletodbinstance": {
     "name": "AddRoleToDBInstance",
@@ -29,9 +93,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "addsourceidentifiertosubscription": {
     "name": "AddSourceIdentifierToSubscription",
@@ -51,7 +113,7 @@
   "addtagstoresource": {
     "name": "AddTagsToResource",
     "description": "Grants permission to add metadata tags to an Amazon RDS resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "auto-backup",
@@ -201,8 +263,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
-      "rds:TagsFromRequest"
+      "rds:TagsFromRequest",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -230,7 +292,7 @@
   "authorizedbsecuritygroupingress": {
     "name": "AuthorizeDBSecurityGroupIngress",
     "description": "Grants permission to enable ingress to a DBSecurityGroup using one of two forms of authorization",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "secgrp",
@@ -265,22 +327,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "copycustomdbengineversion": {
-    "name": "CopyCustomDBEngineVersion",
-    "isPermissionOnly": true,
-    "description": "Grants permission to copy a custom engine version",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "cev",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "copydbclusterparametergroup": {
     "name": "CopyDBClusterParameterGroup",
     "description": "Grants permission to copy the specified DB cluster parameter group",
@@ -290,9 +336,7 @@
         "name": "cluster-pg",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -311,9 +355,7 @@
         "name": "cluster-snapshot",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -332,9 +374,7 @@
         "name": "pg",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -353,17 +393,14 @@
         "name": "snapshot",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource",
-          "rds:CopyCustomDBEngineVersion"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
-      "rds:CopyOptionGroup"
+      "rds:CopyOptionGroup",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -376,9 +413,7 @@
         "name": "og",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -393,18 +428,6 @@
     "description": "Grants permission to create a blue-green deployment for a given source cluster or instance",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "deployment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource",
-          "rds:CreateDBCluster",
-          "rds:CreateDBClusterEndpoint",
-          "rds:CreateDBInstance",
-          "rds:CreateDBInstanceReadReplica"
-        ]
-      },
       {
         "name": "cluster",
         "required": false,
@@ -424,6 +447,12 @@
         "dependentActions": []
       },
       {
+        "name": "deployment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "pg",
         "required": false,
         "conditionKeys": [],
@@ -434,19 +463,19 @@
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
-      "rds:cluster-tag/${TagKey}",
-      "rds:cluster-pg-tag/${TagKey}",
-      "rds:db-tag/${TagKey}",
-      "rds:pg-tag/${TagKey}",
-      "rds:req-tag/${TagKey}",
+      "rds:DatabaseClass",
       "rds:DatabaseEngine",
       "rds:DatabaseName",
-      "rds:StorageEncrypted",
-      "rds:DatabaseClass",
-      "rds:StorageSize",
       "rds:MultiAz",
       "rds:Piops",
-      "rds:Vpc"
+      "rds:StorageEncrypted",
+      "rds:StorageSize",
+      "rds:Vpc",
+      "rds:cluster-pg-tag/${TagKey}",
+      "rds:cluster-tag/${TagKey}",
+      "rds:db-tag/${TagKey}",
+      "rds:pg-tag/${TagKey}",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -459,11 +488,7 @@
         "name": "cev",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "mediaimport:CreateDatabaseBinarySnapshot",
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -482,32 +507,10 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "rds:AddTagsToResource",
-          "rds:CreateDBInstance",
-          "secretsmanager:CreateSecret",
-          "secretsmanager:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-pg",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "og",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "subgrp",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -523,19 +526,31 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "og",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subgrp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
+      "rds:DatabaseClass",
       "rds:DatabaseEngine",
       "rds:DatabaseName",
-      "rds:StorageEncrypted",
-      "rds:DatabaseClass",
-      "rds:StorageSize",
+      "rds:ManageMasterUserPassword",
       "rds:Piops",
-      "rds:ManageMasterUserPassword"
+      "rds:StorageEncrypted",
+      "rds:StorageSize",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -548,9 +563,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-endpoint",
@@ -560,9 +573,9 @@
       }
     ],
     "conditionKeys": [
-      "rds:EndpointType",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "rds:EndpointType",
       "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
@@ -576,9 +589,7 @@
         "name": "cluster-pg",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -597,9 +608,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-snapshot",
@@ -621,24 +630,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "db",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "rds:AddTagsToResource",
-          "rds:CreateTenantDatabase",
-          "secretsmanager:CreateSecret",
-          "secretsmanager:TagResource"
-        ]
-      },
-      {
         "name": "cluster",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -668,12 +667,12 @@
       }
     ],
     "conditionKeys": [
-      "rds:BackupTarget",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
+      "rds:BackupTarget",
       "rds:ManageMasterUserPassword",
-      "rds:PubliclyAccessible"
+      "rds:PubliclyAccessible",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -686,10 +685,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "db",
@@ -719,8 +715,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
-      "rds:PubliclyAccessible"
+      "rds:PubliclyAccessible",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -733,9 +729,7 @@
         "name": "pg",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -754,10 +748,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:PassRole",
-      "rds:AddTagsToResource"
-    ]
+    "dependentActions": []
   },
   "createdbproxyendpoint": {
     "name": "CreateDBProxyEndpoint",
@@ -768,9 +759,7 @@
         "name": "proxy",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "proxy-endpoint",
@@ -794,9 +783,7 @@
         "name": "secgrp",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -815,9 +802,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "shardgrp",
@@ -829,8 +814,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
-      "rds:PubliclyAccessible"
+      "rds:PubliclyAccessible",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -843,9 +828,7 @@
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -855,9 +838,9 @@
       }
     ],
     "conditionKeys": [
-      "rds:BackupTarget",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "rds:BackupTarget",
       "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
@@ -871,9 +854,7 @@
         "name": "subgrp",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -892,9 +873,7 @@
         "name": "es",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -913,9 +892,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "global-cluster",
@@ -940,11 +917,13 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:CreateGrant",
-          "kms:DescribeKey",
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
+      },
+      {
+        "name": "db",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
         "name": "integration",
@@ -969,9 +948,7 @@
         "name": "og",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -990,9 +967,7 @@
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "tenant-database",
@@ -1004,19 +979,10 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
+      "rds:ManageMasterUserPassword",
       "rds:TenantDatabaseName",
-      "rds:ManageMasterUserPassword"
+      "rds:req-tag/${TagKey}"
     ],
-    "dependentActions": []
-  },
-  "crossregioncommunication": {
-    "name": "CrossRegionCommunication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to access a resource in the remote Region when executing cross-Region operations, such as cross-Region snapshot copy or cross-Region read replica creation",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "deletebluegreendeployment": {
@@ -1028,13 +994,7 @@
         "name": "deployment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:DeleteDBCluster",
-          "rds:DeleteDBClusterEndpoint",
-          "rds:DeleteDBInstance",
-          "rds:PromoteReadReplica",
-          "rds:PromoteReadReplicaDBCluster"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1066,11 +1026,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource",
-          "rds:CreateDBClusterSnapshot",
-          "rds:DeleteDBInstance"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-snapshot",
@@ -1155,11 +1111,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "rds:AddTagsToResource",
-      "rds:CreateDBSnapshot",
-      "rds:DeleteTenantDatabase"
-    ]
+    "dependentActions": []
   },
   "deletedbinstanceautomatedbackup": {
     "name": "DeleteDBInstanceAutomatedBackup",
@@ -1350,10 +1302,7 @@
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource",
-          "rds:CreateDBSnapshot"
-        ]
+        "dependentActions": []
       },
       {
         "name": "tenant-database",
@@ -2010,24 +1959,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describerecommendationgroups": {
-    "name": "DescribeRecommendationGroups",
-    "isPermissionOnly": true,
-    "description": "Grants permission to return information about recommendation groups",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describerecommendations": {
-    "name": "DescribeRecommendations",
-    "isPermissionOnly": true,
-    "description": "Grants permission to return information about recommendations",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "describereserveddbinstances": {
     "name": "DescribeReservedDBInstances",
     "description": "Grants permission to return information about reserved DB instances for this account, or about a specified reserved DB instance",
@@ -2163,6 +2094,12 @@
       {
         "name": "cluster",
         "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "db",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2400,17 +2337,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "rds:ModifyDBInstance",
-          "secretsmanager:CreateSecret",
-          "secretsmanager:RotateSecret",
-          "secretsmanager:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-pg",
@@ -2433,9 +2360,9 @@
     ],
     "conditionKeys": [
       "rds:DatabaseClass",
-      "rds:StorageSize",
+      "rds:ManageMasterUserPassword",
       "rds:Piops",
-      "rds:ManageMasterUserPassword"
+      "rds:StorageSize"
     ],
     "dependentActions": []
   },
@@ -2493,18 +2420,7 @@
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "rds:AddTagsToResource",
-          "rds:CreateTenantDatabase",
-          "secretsmanager:CreateSecret",
-          "secretsmanager:RotateSecret",
-          "secretsmanager:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "og",
@@ -2564,9 +2480,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "modifydbproxyendpoint": {
     "name": "ModifyDBProxyEndpoint",
@@ -2627,14 +2541,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "snapshot",
-        "required": true,
+        "name": "og",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "og",
-        "required": false,
+        "name": "snapshot",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2730,17 +2644,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
-  },
-  "modifyrecommendation": {
-    "name": "ModifyRecommendation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to modify recommendation",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "modifytenantdatabase": {
@@ -2762,8 +2665,8 @@
       }
     ],
     "conditionKeys": [
-      "rds:TenantDatabaseName",
-      "rds:ManageMasterUserPassword"
+      "rds:ManageMasterUserPassword",
+      "rds:TenantDatabaseName"
     ],
     "dependentActions": []
   },
@@ -2780,9 +2683,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "rds:AddTagsToResource"
-    ]
+    "dependentActions": []
   },
   "promotereadreplicadbcluster": {
     "name": "PromoteReadReplicaDBCluster",
@@ -2808,9 +2709,7 @@
         "name": "ri",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -2833,9 +2732,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "rds:RebootDBInstance"
-    ]
+    "dependentActions": []
   },
   "rebootdbinstance": {
     "name": "RebootDBInstance",
@@ -2872,6 +2769,12 @@
     "description": "Grants permission to add targets to a database proxy target group",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "db",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "target-group",
         "required": true,
@@ -2916,9 +2819,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "removerolefromdbinstance": {
     "name": "RemoveRoleFromDBInstance",
@@ -2933,9 +2834,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "removesourceidentifierfromsubscription": {
     "name": "RemoveSourceIdentifierFromSubscription",
@@ -2955,7 +2854,7 @@
   "removetagsfromresource": {
     "name": "RemoveTagsFromResource",
     "description": "Grants permission to remove metadata tags from an Amazon RDS resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "auto-backup",
@@ -3148,16 +3047,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "rds:AddTagsToResource",
-          "secretsmanager:CreateSecret",
-          "secretsmanager:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-pg",
@@ -3181,11 +3071,11 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
       "rds:DatabaseEngine",
       "rds:DatabaseName",
+      "rds:ManageMasterUserPassword",
       "rds:StorageEncrypted",
-      "rds:ManageMasterUserPassword"
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3198,26 +3088,10 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "rds:AddTagsToResource",
-          "rds:CreateDBInstance"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-pg",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "og",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "subgrp",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3229,8 +3103,20 @@
         "dependentActions": []
       },
       {
+        "name": "og",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "snapshot",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subgrp",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3238,10 +3124,10 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
       "rds:DatabaseClass",
+      "rds:Piops",
       "rds:StorageSize",
-      "rds:Piops"
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3254,11 +3140,13 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "rds:AddTagsToResource",
-          "rds:CreateDBInstance"
-        ]
+        "dependentActions": []
+      },
+      {
+        "name": "cluster-auto-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
         "name": "cluster-pg",
@@ -3277,21 +3165,15 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "cluster-auto-backup",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
       "rds:DatabaseClass",
+      "rds:Piops",
       "rds:StorageSize",
-      "rds:Piops"
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3301,14 +3183,16 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "cluster-snapshot",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "rds:AddTagsToResource",
-          "rds:CreateTenantDatabase"
-        ]
+        "dependentActions": []
       },
       {
         "name": "og",
@@ -3323,31 +3207,25 @@
         "dependentActions": []
       },
       {
-        "name": "subgrp",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "cluster-snapshot",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "snapshot",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subgrp",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "rds:BackupTarget",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
+      "rds:BackupTarget",
       "rds:ManageMasterUserPassword",
-      "rds:PubliclyAccessible"
+      "rds:PubliclyAccessible",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3360,16 +3238,7 @@
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "rds:AddTagsToResource",
-          "secretsmanager:CreateSecret",
-          "secretsmanager:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "og",
@@ -3379,12 +3248,6 @@
       },
       {
         "name": "pg",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "subgrp",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3394,14 +3257,20 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "subgrp",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
       "rds:ManageMasterUserPassword",
-      "rds:PubliclyAccessible"
+      "rds:PubliclyAccessible",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3411,14 +3280,16 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "auto-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "rds:AddTagsToResource",
-          "rds:CreateTenantDatabase"
-        ]
+        "dependentActions": []
       },
       {
         "name": "og",
@@ -3437,21 +3308,15 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "auto-backup",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "rds:BackupTarget",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "rds:req-tag/${TagKey}",
+      "rds:BackupTarget",
       "rds:ManageMasterUserPassword",
-      "rds:PubliclyAccessible"
+      "rds:PubliclyAccessible",
+      "rds:req-tag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -3530,9 +3395,7 @@
         "name": "auto-backup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "db",
@@ -3557,9 +3420,7 @@
         "name": "cluster",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-snapshot",
@@ -3622,10 +3483,7 @@
         "name": "db",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:AddTagsToResource",
-          "rds:CreateDBSnapshot"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -3661,12 +3519,7 @@
         "name": "deployment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "rds:ModifyDBCluster",
-          "rds:ModifyDBInstance",
-          "rds:PromoteReadReplica",
-          "rds:PromoteReadReplicaDBCluster"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

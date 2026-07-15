@@ -6,9 +6,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "job-queue": {
-    "key": "job-queue",
-    "arn": "arn:${Partition}:batch:${Region}:${Account}:job-queue/${JobQueueName}",
+  "consumable-resource": {
+    "key": "consumable-resource",
+    "arn": "arn:${Partition}:batch:${Region}:${Account}:consumable-resource/${ConsumableResourceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "job": {
+    "key": "job",
+    "arn": "arn:${Partition}:batch:${Region}:${Account}:job/${JobId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -24,9 +31,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "job": {
-    "key": "job",
-    "arn": "arn:${Partition}:batch:${Region}:${Account}:job/${JobId}",
+  "job-queue": {
+    "key": "job-queue",
+    "arn": "arn:${Partition}:batch:${Region}:${Account}:job-queue/${JobQueueName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "quota-share": {
+    "key": "quota-share",
+    "arn": "arn:${Partition}:batch:${Region}:${Account}:job-queue/${JobQueueName}/quota-share/${QuotaShareName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -48,20 +62,6 @@
   "service-job": {
     "key": "service-job",
     "arn": "arn:${Partition}:batch:${Region}:${Account}:service-job/${JobId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "consumable-resource": {
-    "key": "consumable-resource",
-    "arn": "arn:${Partition}:batch:${Region}:${Account}:consumable-resource/${ConsumableResourceName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "quota-share": {
-    "key": "quota-share",
-    "arn": "arn:${Partition}:batch:${Region}:${Account}:job-queue/${JobQueueName}/quota-share/${QuotaShareName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

@@ -12,9 +12,9 @@
       }
     ],
     "conditionKeys": [
+      "apigateway:Request/CognitoUserPoolArn",
       "apigateway:Request/PortalDisplayName",
       "apigateway:Request/PortalDomainName",
-      "apigateway:Request/CognitoUserPoolArn",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
@@ -69,10 +69,10 @@
       }
     ],
     "conditionKeys": [
-      "apigateway:Request/RestApiId",
-      "apigateway:Request/Stage",
       "apigateway:Request/Method",
-      "apigateway:Request/ProductRestEndpointPageEndpointPrefix"
+      "apigateway:Request/ProductRestEndpointPageEndpointPrefix",
+      "apigateway:Request/RestApiId",
+      "apigateway:Request/Stage"
     ],
     "dependentActions": []
   },
@@ -85,16 +85,16 @@
         "name": "RoutingRule",
         "required": true,
         "conditionKeys": [
-          "apigateway:Request/Priority",
-          "apigateway:Request/ConditionBasePaths"
+          "apigateway:Request/ConditionBasePaths",
+          "apigateway:Request/Priority"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
+      "apigateway:Request/ConditionBasePaths",
       "apigateway:Request/Priority",
-      "apigateway:Request/ConditionBasePaths"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -299,7 +299,7 @@
   "deleteportalproductsharingpolicy": {
     "name": "DeletePortalProductSharingPolicy",
     "description": "Grants permission to delete a Portal Product Sharing Policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "PortalProduct",
@@ -356,16 +356,16 @@
         "name": "RoutingRule",
         "required": true,
         "conditionKeys": [
-          "apigateway:Resource/Priority",
-          "apigateway:Resource/ConditionBasePaths"
+          "apigateway:Resource/ConditionBasePaths",
+          "apigateway:Resource/Priority"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
+      "apigateway:Resource/ConditionBasePaths",
       "apigateway:Resource/Priority",
-      "apigateway:Resource/ConditionBasePaths"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -714,14 +714,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "ProductPage",
-        "required": true,
+        "name": "PortalProduct",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "PortalProduct",
-        "required": false,
+        "name": "ProductPage",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -735,14 +735,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "ProductRestEndpointPage",
-        "required": true,
+        "name": "PortalProduct",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "PortalProduct",
-        "required": false,
+        "name": "ProductRestEndpointPage",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -803,14 +803,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "ProductPage",
-        "required": true,
+        "name": "PortalProduct",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "PortalProduct",
-        "required": false,
+        "name": "ProductPage",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -824,14 +824,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "ProductRestEndpointPage",
-        "required": true,
+        "name": "PortalProduct",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "PortalProduct",
-        "required": false,
+        "name": "ProductRestEndpointPage",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1237,7 +1237,7 @@
   "putportalproductsharingpolicy": {
     "name": "PutPortalProductSharingPolicy",
     "description": "Grants permission to put a Portal Product Sharing Policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "PortalProduct",
@@ -1262,9 +1262,9 @@
       }
     ],
     "conditionKeys": [
+      "apigateway:Request/CognitoUserPoolArn",
       "apigateway:Request/PortalDisplayName",
       "apigateway:Request/PortalDomainName",
-      "apigateway:Request/CognitoUserPoolArn",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
@@ -1332,27 +1332,27 @@
         "name": "RoutingRule",
         "required": true,
         "conditionKeys": [
-          "apigateway:Request/Priority",
           "apigateway:Request/ConditionBasePaths",
-          "apigateway:Resource/Priority",
-          "apigateway:Resource/ConditionBasePaths"
+          "apigateway:Request/Priority",
+          "apigateway:Resource/ConditionBasePaths",
+          "apigateway:Resource/Priority"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "apigateway:Request/Priority",
       "apigateway:Request/ConditionBasePaths",
+      "apigateway:Request/Priority",
+      "apigateway:Resource/ConditionBasePaths",
       "apigateway:Resource/Priority",
-      "apigateway:Resource/ConditionBasePaths"
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
   "addcertificatetodomain": {
     "name": "AddCertificateToDomain",
     "description": "Grants permission to add certificates for mutual TLS authentication to a domain name. This is an additional authorization control for managing the DomainName resource due to the sensitive nature of mTLS",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "DomainName",
@@ -1373,7 +1373,7 @@
   "createaccessassociation": {
     "name": "CreateAccessAssociation",
     "description": "Grants permission to create an access association from an access association source to a custom domain name for private APIs",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "PrivateDomainName",
@@ -1388,7 +1388,7 @@
   "rejectaccessassociation": {
     "name": "RejectAccessAssociation",
     "description": "Grants permission to reject an existing access association owned by another account to a custom domain name for private APIs",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "PrivateDomainName",
@@ -1403,7 +1403,7 @@
   "removecertificatefromdomain": {
     "name": "RemoveCertificateFromDomain",
     "description": "Grants permission to remove certificates for mutual TLS authentication from a domain name. This is an additional authorization control for managing the DomainName resource due to the sensitive nature of mTLS",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "DomainName",
@@ -1424,7 +1424,7 @@
   "setwebacl": {
     "name": "SetWebACL",
     "description": "Grants permission to set a WAF access control list (ACL). This is an additional authorization control for managing the Stage resource due to the sensitive nature of WebAcl's",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "Stage",
@@ -1445,7 +1445,7 @@
   "updatedomainnamemanagementpolicy": {
     "name": "UpdateDomainNameManagementPolicy",
     "description": "Grants permission to update the management policy of a custom domain name for private APIs",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "PrivateDomainName",
@@ -1460,7 +1460,7 @@
   "updatedomainnamepolicy": {
     "name": "UpdateDomainNamePolicy",
     "description": "Grants permission to update the invoke policy of a custom domain name for private APIs",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "DomainNames",
@@ -1481,7 +1481,7 @@
   "updaterestapipolicy": {
     "name": "UpdateRestApiPolicy",
     "description": "Grants permission to manage the IAM resource policy for an API. This is an additional authorization control for managing an API due to the sensitive nature of the resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "RestApi",

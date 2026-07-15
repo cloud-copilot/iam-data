@@ -1,9 +1,16 @@
 {
-  "jobs": {
-    "key": "jobs",
-    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:jobs/${JobId}",
+  "assets": {
+    "key": "assets",
+    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:data-sets/${DataSetId}/revisions/${RevisionId}/assets/${AssetId}",
     "conditionKeys": [
-      "dataexchange:JobType"
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "data-grants": {
+    "key": "data-grants",
+    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:data-grants/${DataGrantId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ]
   },
   "data-sets": {
@@ -13,31 +20,17 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "entitled-assets": {
+    "key": "entitled-assets",
+    "arn": "arn:${Partition}:dataexchange:${Region}::data-sets/${DataSetId}/revisions/${RevisionId}/assets/${AssetId}"
+  },
   "entitled-data-sets": {
     "key": "entitled-data-sets",
     "arn": "arn:${Partition}:dataexchange:${Region}::data-sets/${DataSetId}"
   },
-  "revisions": {
-    "key": "revisions",
-    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:data-sets/${DataSetId}/revisions/${RevisionId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "entitled-revisions": {
     "key": "entitled-revisions",
     "arn": "arn:${Partition}:dataexchange:${Region}::data-sets/${DataSetId}/revisions/${RevisionId}"
-  },
-  "assets": {
-    "key": "assets",
-    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:data-sets/${DataSetId}/revisions/${RevisionId}/assets/${AssetId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "entitled-assets": {
-    "key": "entitled-assets",
-    "arn": "arn:${Partition}:dataexchange:${Region}::data-sets/${DataSetId}/revisions/${RevisionId}/assets/${AssetId}"
   },
   "event-actions": {
     "key": "event-actions",
@@ -46,9 +39,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "data-grants": {
-    "key": "data-grants",
-    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:data-grants/${DataGrantId}",
+  "jobs": {
+    "key": "jobs",
+    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:jobs/${JobId}",
+    "conditionKeys": [
+      "dataexchange:JobType"
+    ]
+  },
+  "revisions": {
+    "key": "revisions",
+    "arn": "arn:${Partition}:dataexchange:${Region}:${Account}:data-sets/${DataSetId}/revisions/${RevisionId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

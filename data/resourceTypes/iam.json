@@ -7,6 +7,13 @@
     "key": "assumed-role",
     "arn": "arn:${Partition}:iam::${Account}:assumed-role/${RoleName}/${RoleSessionName}"
   },
+  "delegation-request": {
+    "key": "delegation-request",
+    "arn": "arn:${Partition}:iam::${Account}:delegation-request/${DelegationRequestId}",
+    "conditionKeys": [
+      "iam:DelegationRequestOwner"
+    ]
+  },
   "federated-user": {
     "key": "federated-user",
     "arn": "arn:${Partition}:iam::${Account}:federated-user/${UserName}"
@@ -75,13 +82,6 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "iam:ResourceTag/${TagKey}"
-    ]
-  },
-  "delegation-request": {
-    "key": "delegation-request",
-    "arn": "arn:${Partition}:iam::${Account}:delegation-request/${DelegationRequestId}",
-    "conditionKeys": [
-      "iam:DelegationRequestOwner"
     ]
   }
 }

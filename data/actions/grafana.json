@@ -12,9 +12,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "aws-marketplace:ViewSubscriptions"
-    ]
+    "dependentActions": []
   },
   "createworkspace": {
     "name": "CreateWorkspace",
@@ -22,19 +20,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:GetManagedPrefixListEntries",
-      "iam:CreateServiceLinkedRole",
-      "organizations:DescribeOrganization",
-      "sso:CreateManagedApplicationInstance",
-      "sso:DescribeRegisteredRegions",
-      "sso:GetSharedSsoConfiguration"
-    ]
+    "dependentActions": []
   },
   "createworkspaceapikey": {
     "name": "CreateWorkspaceApiKey",
@@ -94,9 +83,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "sso:DeleteManagedApplicationInstance"
-    ]
+    "dependentActions": []
   },
   "deleteworkspaceapikey": {
     "name": "DeleteWorkspaceApiKey",
@@ -289,7 +276,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to, or update tag values of, a workspace",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "workspace",
@@ -299,15 +286,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a workspace",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "workspace",
@@ -324,7 +311,7 @@
   "updatepermissions": {
     "name": "UpdatePermissions",
     "description": "Grants permission to modify the permissions on a workspace",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "workspace",
@@ -349,12 +336,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:GetManagedPrefixListEntries",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "updateworkspaceauthentication": {
     "name": "UpdateWorkspaceAuthentication",

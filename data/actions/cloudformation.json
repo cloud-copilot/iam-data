@@ -63,6 +63,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createuploadbucket": {
+    "name": "CreateUploadBucket",
+    "description": "Grants permission to upload templates to Amazon S3 buckets. Used only by the AWS CloudFormation console and is not documented in the API reference",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "activateorganizationsaccess": {
     "name": "ActivateOrganizationsAccess",
     "description": "Grants permission to activate trusted access between StackSets and Organizations. With trusted access between StackSets and Organizations activated, the management account has permissions to create and manage StackSets for your organization",
@@ -132,14 +140,14 @@
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "cloudformation:ChangeSetName",
-      "cloudformation:ResourceTypes",
       "cloudformation:ImportResourceTypes",
+      "cloudformation:ResourceTypes",
       "cloudformation:RoleArn",
       "cloudformation:StackPolicyUrl",
-      "cloudformation:TemplateUrl",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "cloudformation:TemplateUrl"
     ],
     "dependentActions": []
   },
@@ -164,12 +172,12 @@
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "cloudformation:ResourceTypes",
       "cloudformation:RoleArn",
       "cloudformation:StackPolicyUrl",
-      "cloudformation:TemplateUrl",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "cloudformation:TemplateUrl"
     ],
     "dependentActions": []
   },
@@ -224,20 +232,11 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "cloudformation:RoleArn",
-      "cloudformation:TemplateUrl",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "cloudformation:RoleArn",
+      "cloudformation:TemplateUrl"
     ],
-    "dependentActions": []
-  },
-  "createuploadbucket": {
-    "name": "CreateUploadBucket",
-    "isPermissionOnly": true,
-    "description": "Grants permission to upload templates to Amazon S3 buckets. Used only by the AWS CloudFormation console and is not documented in the API reference",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "deactivateorganizationsaccess": {
@@ -586,9 +585,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:ListStacks"
-    ]
+    "dependentActions": []
   },
   "describetype": {
     "name": "DescribeType",
@@ -709,9 +706,7 @@
     "conditionKeys": [
       "cloudformation:TypeArn"
     ],
-    "dependentActions": [
-      "kms:Decrypt"
-    ]
+    "dependentActions": []
   },
   "getstackpolicy": {
     "name": "GetStackPolicy",
@@ -1090,7 +1085,7 @@
   "setstackpolicy": {
     "name": "SetStackPolicy",
     "description": "Grants permission to set a stack policy for a specified stack",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "stack",
@@ -1161,7 +1156,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag cloudformation resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "changeset",
@@ -1183,8 +1178,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "cloudformation:CreateAction"
     ],
     "dependentActions": []
@@ -1200,7 +1195,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag cloudformation resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "changeset",
@@ -1248,12 +1243,12 @@
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "cloudformation:ResourceTypes",
       "cloudformation:RoleArn",
       "cloudformation:StackPolicyUrl",
-      "cloudformation:TemplateUrl",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "cloudformation:TemplateUrl"
     ],
     "dependentActions": []
   },
@@ -1311,11 +1306,11 @@
       }
     ],
     "conditionKeys": [
-      "cloudformation:RoleArn",
-      "cloudformation:TemplateUrl",
-      "cloudformation:TargetRegion",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "cloudformation:RoleArn",
+      "cloudformation:TargetRegion",
+      "cloudformation:TemplateUrl"
     ],
     "dependentActions": []
   },

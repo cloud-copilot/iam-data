@@ -25,19 +25,13 @@
         "name": "cluster-snapshot",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "docdb-elastic:CreateClusterSnapshot",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -50,27 +44,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:CreateVpcEndpoint",
-      "ec2:DeleteVpcEndpoints",
-      "ec2:DescribeAvailabilityZones",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcAttribute",
-      "ec2:DescribeVpcEndpoints",
-      "ec2:DescribeVpcs",
-      "ec2:ModifyVpcEndpoint",
-      "iam:CreateServiceLinkedRole",
-      "kms:CreateGrant",
-      "kms:Decrypt",
-      "kms:DescribeKey",
-      "kms:GenerateDataKey",
-      "secretsmanager:DescribeSecret",
-      "secretsmanager:GetResourcePolicy",
-      "secretsmanager:GetSecretValue",
-      "secretsmanager:ListSecretVersionIds",
-      "secretsmanager:ListSecrets"
-    ]
+    "dependentActions": []
   },
   "createclustersnapshot": {
     "name": "CreateClusterSnapshot",
@@ -81,27 +55,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateVpcEndpoint",
-          "ec2:DeleteVpcEndpoints",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcAttribute",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "ec2:ModifyVpcEndpoint",
-          "iam:CreateServiceLinkedRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "secretsmanager:DescribeSecret",
-          "secretsmanager:GetResourcePolicy",
-          "secretsmanager:GetSecretValue",
-          "secretsmanager:ListSecretVersionIds",
-          "secretsmanager:ListSecrets"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-snapshot",
@@ -112,8 +66,8 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -126,16 +80,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DeleteVpcEndpoints",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcAttribute",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "ec2:ModifyVpcEndpoint"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -152,16 +97,7 @@
         "name": "cluster-snapshot",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DeleteVpcEndpoints",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcAttribute",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "ec2:ModifyVpcEndpoint"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -278,28 +214,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "docdb-elastic:CreateCluster",
-          "ec2:CreateVpcEndpoint",
-          "ec2:DeleteVpcEndpoints",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcAttribute",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "ec2:ModifyVpcEndpoint",
-          "iam:CreateServiceLinkedRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "secretsmanager:DescribeSecret",
-          "secretsmanager:GetResourcePolicy",
-          "secretsmanager:GetSecretValue",
-          "secretsmanager:ListSecretVersionIds",
-          "secretsmanager:ListSecrets"
-        ]
+        "dependentActions": []
       },
       {
         "name": "cluster-snapshot",
@@ -310,8 +225,8 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -352,7 +267,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an DocumentDB Elastic resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -368,16 +283,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a DocumentDB Elastic resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -406,26 +321,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateVpcEndpoint",
-          "ec2:DeleteVpcEndpoints",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcAttribute",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "ec2:ModifyVpcEndpoint",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "secretsmanager:DescribeSecret",
-          "secretsmanager:GetResourcePolicy",
-          "secretsmanager:GetSecretValue",
-          "secretsmanager:ListSecretVersionIds",
-          "secretsmanager:ListSecrets"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

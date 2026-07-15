@@ -1,11 +1,11 @@
 {
-  "activateeventsource": {
-    "name": "ActivateEventSource",
-    "description": "Grants permission to activate partner event sources",
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "description": "Grants permission to configure vended log delivery for EventBridge",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "event-source",
+        "name": "event-bus",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -14,14 +14,43 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "allowvendedlogdeliveryforresource": {
-    "name": "AllowVendedLogDeliveryForResource",
-    "isPermissionOnly": true,
-    "description": "Grants permission to configure vended log delivery for EventBridge",
+  "invokeapidestination": {
+    "name": "InvokeApiDestination",
+    "description": "Grants permission to invoke an api destination",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "event-bus",
+        "name": "api-destination",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retrieveconnectioncredentials": {
+    "name": "RetrieveConnectionCredentials",
+    "description": "Grants permission to retrieve credentials from a connection",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "activateeventsource": {
+    "name": "ActivateEventSource",
+    "description": "Grants permission to activate partner event sources",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "event-source",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -72,6 +101,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "alias",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "archive",
         "required": true,
         "conditionKeys": [],
@@ -80,12 +115,6 @@
       {
         "name": "event-bus",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "alias",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -315,8 +344,8 @@
       }
     ],
     "conditionKeys": [
-      "events:creatorAccount",
-      "events:ManagedBy"
+      "events:ManagedBy",
+      "events:creatorAccount"
     ],
     "dependentActions": []
   },
@@ -494,8 +523,8 @@
       }
     ],
     "conditionKeys": [
-      "events:creatorAccount",
-      "events:ManagedBy"
+      "events:ManagedBy",
+      "events:creatorAccount"
     ],
     "dependentActions": []
   },
@@ -518,25 +547,9 @@
       }
     ],
     "conditionKeys": [
-      "events:creatorAccount",
-      "events:ManagedBy"
+      "events:ManagedBy",
+      "events:creatorAccount"
     ],
-    "dependentActions": []
-  },
-  "invokeapidestination": {
-    "name": "InvokeApiDestination",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke an api destination",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "api-destination",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "listapidestinations": {
@@ -723,11 +736,11 @@
       }
     ],
     "conditionKeys": [
-      "events:detail-type",
-      "events:source",
-      "events:eventBusInvocation",
+      "events:ResourceArn",
       "events:SystemMetadata/EventGroupId",
-      "events:ResourceArn"
+      "events:detail-type",
+      "events:eventBusInvocation",
+      "events:source"
     ],
     "dependentActions": []
   },
@@ -742,7 +755,7 @@
   "putpermission": {
     "name": "PutPermission",
     "description": "Grants permission to use the PutPermission action to grants permission to another AWS account to put events to your default event bus",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -766,15 +779,15 @@
       }
     ],
     "conditionKeys": [
-      "events:detail.userIdentity.principalId",
-      "events:detail-type",
-      "events:source",
-      "events:detail.service",
-      "events:detail.eventTypeCode",
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "events:ManagedBy",
       "events:creatorAccount",
-      "events:ManagedBy"
+      "events:detail-type",
+      "events:detail.eventTypeCode",
+      "events:detail.service",
+      "events:detail.userIdentity.principalId",
+      "events:source"
     ],
     "dependentActions": []
   },
@@ -797,16 +810,16 @@
       }
     ],
     "conditionKeys": [
+      "events:ManagedBy",
       "events:TargetArn",
-      "events:creatorAccount",
-      "events:ManagedBy"
+      "events:creatorAccount"
     ],
     "dependentActions": []
   },
   "removepermission": {
     "name": "RemovePermission",
     "description": "Grants permission to revoke the permission of another AWS account to put events to your default event bus",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -830,25 +843,9 @@
       }
     ],
     "conditionKeys": [
-      "events:creatorAccount",
-      "events:ManagedBy"
+      "events:ManagedBy",
+      "events:creatorAccount"
     ],
-    "dependentActions": []
-  },
-  "retrieveconnectioncredentials": {
-    "name": "RetrieveConnectionCredentials",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve credentials from a connection",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "connection",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "startreplay": {
@@ -881,7 +878,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add a tag to an Amazon EventBridge resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "event-bus",
@@ -921,8 +918,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "events:creatorAccount"
     ],
     "dependentActions": []
@@ -938,7 +935,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove a tag from an Amazon EventBridge resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "event-bus",
@@ -1004,14 +1001,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "archive",
-        "required": true,
+        "name": "alias",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "alias",
-        "required": false,
+        "name": "archive",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },

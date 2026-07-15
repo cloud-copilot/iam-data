@@ -13,6 +13,24 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "taskresource": {
+    "key": "TaskResource",
+    "arn": "arn:${Partition}:omics:${Region}:${Account}:task/${Id}"
+  },
+  "variantstore": {
+    "key": "VariantStore",
+    "arn": "arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "workflowversion": {
+    "key": "WorkflowVersion",
+    "arn": "arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}/version/${VersionName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "configuration": {
     "key": "configuration",
     "arn": "arn:${Partition}:omics:${Region}:${Account}:configuration/${Name}",
@@ -76,27 +94,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "taskresource": {
-    "key": "TaskResource",
-    "arn": "arn:${Partition}:omics:${Region}:${Account}:task/${Id}"
-  },
-  "variantstore": {
-    "key": "VariantStore",
-    "arn": "arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "workflow": {
     "key": "workflow",
     "arn": "arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "workflowversion": {
-    "key": "WorkflowVersion",
-    "arn": "arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}/version/${VersionName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

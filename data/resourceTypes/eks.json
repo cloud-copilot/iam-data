@@ -1,4 +1,34 @@
 {
+  "access-entry": {
+    "key": "access-entry",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:access-entry/${ClusterName}/${IamIdentityType}/${IamIdentityAccountID}/${IamIdentityName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "eks:accessEntryType",
+      "eks:clusterName",
+      "eks:kubernetesGroups",
+      "eks:principalArn",
+      "eks:username"
+    ]
+  },
+  "access-policy": {
+    "key": "access-policy",
+    "arn": "arn:${Partition}:eks::aws:cluster-access-policy/${AccessPolicyName}"
+  },
+  "addon": {
+    "key": "addon",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:addon/${ClusterName}/${AddonName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "capability": {
+    "key": "capability",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:capability/${ClusterName}/${CapabilityType}/${CapabilityName}/${UUID}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "cluster": {
     "key": "cluster",
     "arn": "arn:${Partition}:eks:${Region}:${Account}:cluster/${ClusterName}",
@@ -6,16 +36,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "nodegroup": {
-    "key": "nodegroup",
-    "arn": "arn:${Partition}:eks:${Region}:${Account}:nodegroup/${ClusterName}/${NodegroupName}/${UUID}",
+  "dashboard": {
+    "key": "dashboard",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:dashboard/${DashboardName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "addon": {
-    "key": "addon",
-    "arn": "arn:${Partition}:eks:${Region}:${Account}:addon/${ClusterName}/${AddonName}/${UUID}",
+  "eks-anywhere-subscription": {
+    "key": "eks-anywhere-subscription",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:eks-anywhere-subscription/${UUID}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -34,9 +64,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "eks-anywhere-subscription": {
-    "key": "eks-anywhere-subscription",
-    "arn": "arn:${Partition}:eks:${Region}:${Account}:eks-anywhere-subscription/${UUID}",
+  "nodegroup": {
+    "key": "nodegroup",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:nodegroup/${ClusterName}/${NodegroupName}/${UUID}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -44,36 +74,6 @@
   "podidentityassociation": {
     "key": "podidentityassociation",
     "arn": "arn:${Partition}:eks:${Region}:${Account}:podidentityassociation/${ClusterName}/${UUID}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "access-entry": {
-    "key": "access-entry",
-    "arn": "arn:${Partition}:eks:${Region}:${Account}:access-entry/${ClusterName}/${IamIdentityType}/${IamIdentityAccountID}/${IamIdentityName}/${UUID}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "eks:accessEntryType",
-      "eks:clusterName",
-      "eks:kubernetesGroups",
-      "eks:principalArn",
-      "eks:username"
-    ]
-  },
-  "access-policy": {
-    "key": "access-policy",
-    "arn": "arn:${Partition}:eks::aws:cluster-access-policy/${AccessPolicyName}"
-  },
-  "dashboard": {
-    "key": "dashboard",
-    "arn": "arn:${Partition}:eks:${Region}:${Account}:dashboard/${DashboardName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "capability": {
-    "key": "capability",
-    "arn": "arn:${Partition}:eks:${Region}:${Account}:capability/${ClusterName}/${CapabilityType}/${CapabilityName}/${UUID}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

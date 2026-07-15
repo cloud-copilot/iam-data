@@ -7,19 +7,19 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "addtags": {
     "name": "AddTags",
     "description": "Grants permission to add tags to an Elastic Beanstalk resource and to update tag values",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "application",
@@ -66,13 +66,13 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "associateenvironmentoperationsrole": {
@@ -154,9 +154,9 @@
         "name": "applicationversion",
         "required": true,
         "conditionKeys": [
-          "elasticbeanstalk:InApplication",
           "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
+          "aws:TagKeys",
+          "elasticbeanstalk:InApplication"
         ],
         "dependentActions": []
       }
@@ -179,14 +179,14 @@
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "elasticbeanstalk:FromApplication",
       "elasticbeanstalk:FromApplicationVersion",
       "elasticbeanstalk:FromConfigurationTemplate",
       "elasticbeanstalk:FromEnvironment",
-      "elasticbeanstalk:FromSolutionStack",
       "elasticbeanstalk:FromPlatform",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "elasticbeanstalk:FromSolutionStack"
     ],
     "dependentActions": []
   },
@@ -205,12 +205,12 @@
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "elasticbeanstalk:FromApplicationVersion",
       "elasticbeanstalk:FromConfigurationTemplate",
-      "elasticbeanstalk:FromSolutionStack",
       "elasticbeanstalk:FromPlatform",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "elasticbeanstalk:FromSolutionStack"
     ],
     "dependentActions": []
   },
@@ -263,13 +263,13 @@
       {
         "name": "applicationversion",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteconfigurationtemplate": {
@@ -280,13 +280,13 @@
       {
         "name": "configurationtemplate",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteenvironmentconfiguration": {
@@ -297,13 +297,13 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteplatformversion": {
@@ -337,13 +337,13 @@
       {
         "name": "applicationversion",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeapplications": {
@@ -440,13 +440,13 @@
       {
         "name": "environment",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeenvironmentmanagedactions": {
@@ -457,13 +457,13 @@
       {
         "name": "environment",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeenvironmentresources": {
@@ -474,13 +474,13 @@
       {
         "name": "environment",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeenvironments": {
@@ -491,13 +491,13 @@
       {
         "name": "environment",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeevents": {
@@ -690,19 +690,19 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "removetags": {
     "name": "RemoveTags",
     "description": "Grants permission to remove tags from an Elastic Beanstalk resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "application",
@@ -748,13 +748,13 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "restartappserver": {
@@ -765,13 +765,13 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "retrieveenvironmentinfo": {
@@ -782,13 +782,13 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "swapenvironmentcnames": {
@@ -818,13 +818,13 @@
       {
         "name": "environment",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateapplication": {
@@ -865,13 +865,13 @@
       {
         "name": "applicationversion",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "elasticbeanstalk:InApplication"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "elasticbeanstalk:InApplication"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateconfigurationtemplate": {
@@ -893,8 +893,8 @@
       "elasticbeanstalk:FromApplicationVersion",
       "elasticbeanstalk:FromConfigurationTemplate",
       "elasticbeanstalk:FromEnvironment",
-      "elasticbeanstalk:FromSolutionStack",
-      "elasticbeanstalk:FromPlatform"
+      "elasticbeanstalk:FromPlatform",
+      "elasticbeanstalk:FromSolutionStack"
     ],
     "dependentActions": []
   },
@@ -915,15 +915,15 @@
     "conditionKeys": [
       "elasticbeanstalk:FromApplicationVersion",
       "elasticbeanstalk:FromConfigurationTemplate",
-      "elasticbeanstalk:FromSolutionStack",
-      "elasticbeanstalk:FromPlatform"
+      "elasticbeanstalk:FromPlatform",
+      "elasticbeanstalk:FromSolutionStack"
     ],
     "dependentActions": []
   },
   "updatetagsforresource": {
     "name": "UpdateTagsForResource",
     "description": "Doesn't grant permission to update tags. To grant permission to add tags to an Elastic Beanstalk resource, remove tags, and to update tag values, specify elasticbeanstalk:AddTags and elasticbeanstalk:RemoveTags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "application",

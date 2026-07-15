@@ -1,4 +1,8 @@
 {
+  "algorithm": {
+    "key": "algorithm",
+    "arn": "arn:${Partition}:forecast:::algorithm/${ResourceId}"
+  },
   "dataset": {
     "key": "dataset",
     "arn": "arn:${Partition}:forecast:${Region}:${Account}:dataset/${ResourceId}",
@@ -20,34 +24,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "algorithm": {
-    "key": "algorithm",
-    "arn": "arn:${Partition}:forecast:::algorithm/${ResourceId}"
-  },
-  "predictor": {
-    "key": "predictor",
-    "arn": "arn:${Partition}:forecast:${Region}:${Account}:predictor/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "predictorbacktestexportjob": {
-    "key": "predictorBacktestExportJob",
-    "arn": "arn:${Partition}:forecast:${Region}:${Account}:predictor-backtest-export-job/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "forecast": {
-    "key": "forecast",
-    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "forecastexport": {
-    "key": "forecastExport",
-    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast-export-job/${ResourceId}",
+  "endpoint": {
+    "key": "endpoint",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast-endpoint/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -66,9 +45,37 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "forecast": {
+    "key": "forecast",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "forecastexport": {
+    "key": "forecastExport",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast-export-job/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "monitor": {
     "key": "monitor",
     "arn": "arn:${Partition}:forecast:${Region}:${Account}:monitor/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "predictor": {
+    "key": "predictor",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:predictor/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "predictorbacktestexportjob": {
+    "key": "predictorBacktestExportJob",
+    "arn": "arn:${Partition}:forecast:${Region}:${Account}:predictor-backtest-export-job/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -90,13 +97,6 @@
   "whatifforecastexport": {
     "key": "whatIfForecastExport",
     "arn": "arn:${Partition}:forecast:${Region}:${Account}:what-if-forecast-export/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "endpoint": {
-    "key": "endpoint",
-    "arn": "arn:${Partition}:forecast:${Region}:${Account}:forecast-endpoint/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

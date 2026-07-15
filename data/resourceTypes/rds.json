@@ -1,4 +1,18 @@
 {
+  "auto-backup": {
+    "key": "auto-backup",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:auto-backup:${DbInstanceAutomatedBackupId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "cev": {
+    "key": "cev",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:cev:${Engine}/${EngineVersion}/${CustomDbEngineVersionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "cluster": {
     "key": "cluster",
     "arn": "arn:${Partition}:rds:${Region}:${Account}:cluster:${DbClusterInstanceName}",
@@ -7,23 +21,9 @@
       "rds:cluster-tag/${TagKey}"
     ]
   },
-  "shardgrp": {
-    "key": "shardgrp",
-    "arn": "arn:${Partition}:rds:${Region}:${Account}:shard-group:${DbShardGroupResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "cluster-auto-backup": {
     "key": "cluster-auto-backup",
     "arn": "arn:${Partition}:rds:${Region}:${Account}:cluster-auto-backup:${DbClusterAutomatedBackupId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "auto-backup": {
-    "key": "auto-backup",
-    "arn": "arn:${Partition}:rds:${Region}:${Account}:auto-backup:${DbInstanceAutomatedBackupId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -67,6 +67,13 @@
       "rds:db-tag/${TagKey}"
     ]
   },
+  "deployment": {
+    "key": "deployment",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:deployment:${BlueGreenDeploymentIdentifier}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "es": {
     "key": "es",
     "arn": "arn:${Partition}:rds:${Region}:${Account}:es:${SubscriptionName}",
@@ -78,6 +85,13 @@
   "global-cluster": {
     "key": "global-cluster",
     "arn": "arn:${Partition}:rds::${Account}:global-cluster:${GlobalCluster}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "integration": {
+    "key": "integration",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:integration:${IntegrationIdentifier}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -128,12 +142,26 @@
       "rds:secgrp-tag/${TagKey}"
     ]
   },
+  "shardgrp": {
+    "key": "shardgrp",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:shard-group:${DbShardGroupResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "snapshot": {
     "key": "snapshot",
     "arn": "arn:${Partition}:rds:${Region}:${Account}:snapshot:${SnapshotName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "rds:snapshot-tag/${TagKey}"
+    ]
+  },
+  "snapshot-tenant-database": {
+    "key": "snapshot-tenant-database",
+    "arn": "arn:${Partition}:rds:${Region}:${Account}:snapshot-tenant-database:${SnapshotName}:${TenantResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ]
   },
   "subgrp": {
@@ -147,34 +175,6 @@
   "target-group": {
     "key": "target-group",
     "arn": "arn:${Partition}:rds:${Region}:${Account}:target-group:${TargetGroupId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "cev": {
-    "key": "cev",
-    "arn": "arn:${Partition}:rds:${Region}:${Account}:cev:${Engine}/${EngineVersion}/${CustomDbEngineVersionId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "deployment": {
-    "key": "deployment",
-    "arn": "arn:${Partition}:rds:${Region}:${Account}:deployment:${BlueGreenDeploymentIdentifier}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "integration": {
-    "key": "integration",
-    "arn": "arn:${Partition}:rds:${Region}:${Account}:integration:${IntegrationIdentifier}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "snapshot-tenant-database": {
-    "key": "snapshot-tenant-database",
-    "arn": "arn:${Partition}:rds:${Region}:${Account}:snapshot-tenant-database:${SnapshotName}:${TenantResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

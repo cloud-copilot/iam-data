@@ -5,8 +5,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -28,7 +28,7 @@
   "deletecontainerpolicy": {
     "name": "DeleteContainerPolicy",
     "description": "Grants permission to delete the access policy of a container",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "container",
@@ -246,7 +246,7 @@
   "putcontainerpolicy": {
     "name": "PutContainerPolicy",
     "description": "Grants permission to create or replace the access policy of a container",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "container",
@@ -331,9 +331,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "stopaccesslogging": {
     "name": "StopAccessLogging",
@@ -353,7 +351,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a container",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "container",
@@ -363,15 +361,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a container",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "container",

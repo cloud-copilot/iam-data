@@ -1,7 +1,14 @@
 {
+  "accessdataqualityruntimeconfiguration": {
+    "name": "AccessDataQualityRuntimeConfiguration",
+    "description": "Grants permission to retrieve runtime configuration for Data Quality features",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "authorizeinboundintegration": {
     "name": "AuthorizeInboundIntegration",
-    "isPermissionOnly": true,
     "description": "Grants permission to Glue to continuously validate that the target Arn can receive data replicated from the source ARN",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -15,11 +22,70 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createinboundintegration": {
+    "name": "CreateInboundIntegration",
+    "description": "Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "passconnection": {
+    "name": "PassConnection",
+    "description": "Grants permission to pass glue connection name in input for APIs that require them",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "publishdataquality": {
+    "name": "PublishDataQuality",
+    "description": "Grants permission to publish Data Quality results",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataQualityRuleset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "usemltransforms": {
+    "name": "UseMLTransforms",
+    "description": "Grants permission to use an ML Transform from within a Glue ETL Script",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "mlTransform",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchcreatepartition": {
     "name": "BatchCreatePartition",
     "description": "Grants permission to create one or more partitions",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "database",
         "required": true,
@@ -35,12 +101,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -79,6 +139,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -93,12 +159,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -114,6 +174,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -128,12 +194,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -149,6 +209,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -163,12 +229,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -252,6 +312,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -268,12 +334,6 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -284,7 +344,7 @@
   "batchgetstagefiles": {
     "name": "BatchGetStageFiles",
     "description": "Grants permission to batch get stage files for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -298,9 +358,7 @@
         "name": "database",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "glue:GetTable"
-        ]
+        "dependentActions": []
       },
       {
         "name": "rootcatalog",
@@ -369,6 +427,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -383,12 +447,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -505,8 +563,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -551,14 +609,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connectionType",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -609,6 +667,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -619,19 +683,13 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -654,15 +712,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "createinboundintegration": {
-    "name": "CreateInboundIntegration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createintegration": {
     "name": "CreateIntegration",
     "description": "Grants permission to create an integration",
@@ -672,10 +721,7 @@
         "name": "catalog",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:CreateGrant",
-          "kms:DescribeKey"
-        ]
+        "dependentActions": []
       },
       {
         "name": "connection",
@@ -780,9 +826,9 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "glue:VpcIds",
+      "glue:SecurityGroupIds",
       "glue:SubnetIds",
-      "glue:SecurityGroupIds"
+      "glue:VpcIds"
     ],
     "dependentActions": []
   },
@@ -803,6 +849,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -817,12 +869,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -838,6 +884,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -852,12 +904,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -940,9 +986,9 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "glue:VpcIds",
+      "glue:SecurityGroupIds",
       "glue:SubnetIds",
-      "glue:SecurityGroupIds"
+      "glue:VpcIds"
     ],
     "dependentActions": []
   },
@@ -951,6 +997,12 @@
     "description": "Grants permission to create a table",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "database",
         "required": true,
@@ -968,17 +1020,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -991,9 +1037,7 @@
         "name": "database",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "glue:GetTable"
-        ]
+        "dependentActions": []
       },
       {
         "name": "rootcatalog",
@@ -1053,6 +1097,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1061,12 +1111,6 @@
       {
         "name": "rootcatalog",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1115,21 +1159,21 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "catalog",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -1147,6 +1191,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1161,12 +1211,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1182,6 +1226,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1196,12 +1246,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1320,6 +1364,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1342,17 +1392,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -1492,6 +1536,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1506,12 +1556,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1527,6 +1571,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1541,12 +1591,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1574,14 +1618,8 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete a resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
-      {
-        "name": "rootcatalog",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
       {
         "name": "catalog",
         "required": false,
@@ -1591,6 +1629,12 @@
       {
         "name": "database",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -1675,6 +1719,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1691,17 +1741,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -1714,9 +1758,7 @@
         "name": "database",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "glue:GetTable"
-        ]
+        "dependentActions": []
       },
       {
         "name": "rootcatalog",
@@ -1740,6 +1782,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1754,12 +1802,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1805,6 +1847,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -1819,12 +1867,6 @@
       {
         "name": "userdefinedfunction",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1852,7 +1894,7 @@
   "deregisterdatapreview": {
     "name": "DeregisterDataPreview",
     "description": "Grants permission to terminate Glue Studio Notebook session",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -1860,7 +1902,7 @@
   "describeconnectiontype": {
     "name": "DescribeConnectionType",
     "description": "Grants permission to describe connection type in glue",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "connectionType",
@@ -1875,7 +1917,7 @@
   "describeentity": {
     "name": "DescribeEntity",
     "description": "Grants permission to describe entity in glue studio",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "connection",
@@ -1884,14 +1926,14 @@
         "dependentActions": []
       },
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connectionType",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1930,14 +1972,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "catalog",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1999,22 +2041,22 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "catalog",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "glue:EnabledForRedshiftAutoDiscovery",
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -2041,22 +2083,22 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "catalog",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "glue:EnabledForRedshiftAutoDiscovery",
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -2082,6 +2124,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -2096,12 +2144,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2117,6 +2159,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -2131,12 +2179,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2303,7 +2345,7 @@
   "getdatapreviewstatement": {
     "name": "GetDataPreviewStatement",
     "description": "Grants permission to get Data Preview Statement",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2416,6 +2458,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -2426,17 +2474,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -2446,6 +2488,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -2456,17 +2504,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -2531,7 +2573,7 @@
   "getenvironment": {
     "name": "GetEnvironment",
     "description": "Grants permission to get environment details for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2539,7 +2581,7 @@
   "getexecutors": {
     "name": "GetExecutors",
     "description": "Grants permission to get executors for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2547,7 +2589,7 @@
   "getexecutorsthreads": {
     "name": "GetExecutorsThreads",
     "description": "Grants permission to get executor threads for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2707,7 +2749,7 @@
   "getlogparsingstatus": {
     "name": "GetLogParsingStatus",
     "description": "Grants permission to get log parsing status for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2783,7 +2825,7 @@
   "getnotebookinstancestatus": {
     "name": "GetNotebookInstanceStatus",
     "description": "Grants permission to retrieve Glue Studio Notebooks session status",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2793,6 +2835,12 @@
     "description": "Grants permission to retrieve a partition",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "database",
         "required": true,
@@ -2808,12 +2856,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2829,6 +2871,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -2843,12 +2891,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2864,6 +2906,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -2878,12 +2926,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -2904,7 +2946,7 @@
   "getqueries": {
     "name": "GetQueries",
     "description": "Grants permission to get queries for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2912,7 +2954,7 @@
   "getquery": {
     "name": "GetQuery",
     "description": "Grants permission to get a specific query for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2920,7 +2962,7 @@
   "getrecipeaction": {
     "name": "GetRecipeAction",
     "description": "Grants permission to get the result of a Data Preparation Recipe statement",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -2961,12 +3003,6 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "rootcatalog",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "catalog",
         "required": false,
         "conditionKeys": [],
@@ -2975,6 +3011,12 @@
       {
         "name": "database",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -3121,7 +3163,7 @@
   "getstage": {
     "name": "GetStage",
     "description": "Grants permission to get a stage for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3129,7 +3171,7 @@
   "getstageattempt": {
     "name": "GetStageAttempt",
     "description": "Grants permission to get a stage attempt for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3137,7 +3179,7 @@
   "getstageattempttasklist": {
     "name": "GetStageAttemptTaskList",
     "description": "Grants permission to get the task list for a stage attempt for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3145,7 +3187,7 @@
   "getstageattempttasksummary": {
     "name": "GetStageAttemptTaskSummary",
     "description": "Grants permission to get the task summary for a stage attempt for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3153,7 +3195,7 @@
   "getstagefiles": {
     "name": "GetStageFiles",
     "description": "Grants permission to get stage files for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3161,7 +3203,7 @@
   "getstages": {
     "name": "GetStages",
     "description": "Grants permission to get stages for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3184,7 +3226,7 @@
   "getstorage": {
     "name": "GetStorage",
     "description": "Grants permission to get storage details for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3192,7 +3234,7 @@
   "getstorageunit": {
     "name": "GetStorageUnit",
     "description": "Grants permission to get storage unit details for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3202,6 +3244,12 @@
     "description": "Grants permission to retrieve a table",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "database",
         "required": true,
@@ -3219,17 +3267,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -3242,9 +3284,7 @@
         "name": "database",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "glue:GetTable"
-        ]
+        "dependentActions": []
       },
       {
         "name": "rootcatalog",
@@ -3268,6 +3308,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -3282,12 +3328,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3303,6 +3343,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -3317,12 +3363,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3338,6 +3378,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -3354,17 +3400,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -3493,6 +3533,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -3507,12 +3553,6 @@
       {
         "name": "userdefinedfunction",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3528,6 +3568,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -3544,17 +3590,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -3621,7 +3661,7 @@
   "gluenotebookauthorize": {
     "name": "GlueNotebookAuthorize",
     "description": "Grants permission to access Glue Studio Notebooks",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3629,7 +3669,7 @@
   "gluenotebookrefreshcredentials": {
     "name": "GlueNotebookRefreshCredentials",
     "description": "Grants permission to refresh Glue Studio Notebooks credentials",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3670,7 +3710,7 @@
   "listconnectiontypes": {
     "name": "ListConnectionTypes",
     "description": "Grants permission to list connection types in glue",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -3777,7 +3817,7 @@
   "listentities": {
     "name": "ListEntities",
     "description": "Grants permission to list entities in glue studio",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "connection",
@@ -3786,14 +3826,14 @@
         "dependentActions": []
       },
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connectionType",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3948,9 +3988,7 @@
         "name": "database",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "glue:GetTable"
-        ]
+        "dependentActions": []
       },
       {
         "name": "rootcatalog",
@@ -3995,7 +4033,7 @@
   "managedconnector": {
     "name": "ManagedConnector",
     "description": "Grants permission to use Glue managed connectors to query data",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -4024,38 +4062,6 @@
     "resourceTypes": [
       {
         "name": "workflow",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "passconnection": {
-    "name": "PassConnection",
-    "isPermissionOnly": true,
-    "description": "Grants permission to pass glue connection name in input for APIs that require them",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "connection",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "publishdataquality": {
-    "name": "PublishDataQuality",
-    "isPermissionOnly": true,
-    "description": "Grants permission to publish Data Quality results",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "dataQualityRuleset",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -4124,14 +4130,8 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to update a resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
-      {
-        "name": "rootcatalog",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
       {
         "name": "catalog",
         "required": false,
@@ -4141,6 +4141,12 @@
       {
         "name": "database",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -4214,7 +4220,7 @@
   "refreshoauth2tokens": {
     "name": "RefreshOAuth2Tokens",
     "description": "Grants permission to refresh the oauth2 tokens for connection during job execution",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "connection",
@@ -4223,14 +4229,14 @@
         "dependentActions": []
       },
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connectionType",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -4251,8 +4257,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -4305,6 +4311,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -4321,24 +4333,18 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
   "requestlogparsing": {
     "name": "RequestLogParsing",
     "description": "Grants permission to request log parsing for SparkUI",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -4369,7 +4375,7 @@
   "rundatapreviewstatement": {
     "name": "RunDataPreviewStatement",
     "description": "Grants permission to run Data Preview Statement",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -4395,6 +4401,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -4409,12 +4421,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -4435,7 +4441,7 @@
   "sendrecipeaction": {
     "name": "SendRecipeAction",
     "description": "Grants permission to execute a Data Preparation Recipe statement in data preview",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -4464,10 +4470,7 @@
         "name": "database",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "glue:GetSecurityConfiguration",
-          "glue:GetTable"
-        ]
+        "dependentActions": []
       },
       {
         "name": "rootcatalog",
@@ -4666,7 +4669,7 @@
   "startnotebook": {
     "name": "StartNotebook",
     "description": "Grants permission to start Glue Studio Notebooks",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -4841,7 +4844,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "blueprint",
@@ -4959,8 +4962,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
@@ -4968,7 +4971,7 @@
   "terminatenotebook": {
     "name": "TerminateNotebook",
     "description": "Grants permission to terminate Glue Studio Notebooks",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -4976,7 +4979,7 @@
   "testconnection": {
     "name": "TestConnection",
     "description": "Grants permission to test connection in Glue Studio",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "connection",
@@ -4997,7 +5000,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags associated with a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "blueprint",
@@ -5141,21 +5144,21 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "catalog",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "catalog",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -5173,6 +5176,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -5187,12 +5196,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5208,6 +5211,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -5222,12 +5231,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5276,14 +5279,14 @@
         "dependentActions": []
       },
       {
-        "name": "rootcatalog",
-        "required": true,
+        "name": "connectionType",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connectionType",
-        "required": false,
+        "name": "rootcatalog",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5337,6 +5340,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -5347,17 +5356,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -5457,9 +5460,9 @@
       }
     ],
     "conditionKeys": [
-      "glue:VpcIds",
+      "glue:SecurityGroupIds",
       "glue:SubnetIds",
-      "glue:SecurityGroupIds"
+      "glue:VpcIds"
     ],
     "dependentActions": []
   },
@@ -5499,6 +5502,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -5513,12 +5522,6 @@
       {
         "name": "table",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5585,6 +5588,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -5601,17 +5610,11 @@
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "glue:LakeFormationPermissions",
-      "glue:FederatedAuthorizationSource"
+      "glue:FederatedAuthorizationSource",
+      "glue:LakeFormationPermissions"
     ],
     "dependentActions": []
   },
@@ -5624,9 +5627,7 @@
         "name": "database",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "glue:GetTable"
-        ]
+        "dependentActions": []
       },
       {
         "name": "rootcatalog",
@@ -5680,6 +5681,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "catalog",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "database",
         "required": true,
         "conditionKeys": [],
@@ -5694,12 +5701,6 @@
       {
         "name": "userdefinedfunction",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "catalog",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5742,24 +5743,8 @@
   "usegluestudio": {
     "name": "UseGlueStudio",
     "description": "Grants permission to use Glue Studio and access its internal APIs",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "usemltransforms": {
-    "name": "UseMLTransforms",
-    "isPermissionOnly": true,
-    "description": "Grants permission to use an ML Transform from within a Glue ETL Script",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "mlTransform",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   }

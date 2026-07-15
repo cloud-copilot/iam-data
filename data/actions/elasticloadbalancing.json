@@ -1,4 +1,82 @@
 {
+  "allowvendedlogdeliveryforresource": {
+    "name": "AllowVendedLogDeliveryForResource",
+    "description": "Grants permission to configure vended log delivery for load balancers",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createwebaclassociation": {
+    "name": "CreateWebACLAssociation",
+    "description": "Grants permission to associate WAF WebACL to the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deletewebaclassociation": {
+    "name": "DeleteWebACLAssociation",
+    "description": "Grants permission to disassociate WAF WebACL from the specified load balancer",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "describewebaclassociation": {
+    "name": "DescribeWebACLAssociation",
+    "description": "Grants permission to describe all load balancers associated to a WAF WebACL in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getloadbalancerwebacl": {
+    "name": "GetLoadBalancerWebACL",
+    "description": "Grants permission to retrieve the WAF WebACL associated to the specified load balancer",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "loadbalancer/app/",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "setwebacl": {
+    "name": "SetWebAcl",
+    "description": "Grants permission to give WebAcl permission to WAF",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "addlistenercertificates": {
     "name": "AddListenerCertificates",
     "description": "Grants permission to add the specified certificates to the specified secure listener",
@@ -26,7 +104,7 @@
   "addtags": {
     "name": "AddTags",
     "description": "Grants permission to add the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "loadbalancer",
@@ -37,10 +115,10 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
-      "elasticloadbalancing:ResourceTag/${TagKey}",
-      "elasticloadbalancing:CreateAction"
+      "aws:TagKeys",
+      "elasticloadbalancing:CreateAction",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -62,15 +140,6 @@
     ],
     "dependentActions": []
   },
-  "allowvendedlogdeliveryforresource": {
-    "name": "AllowVendedLogDeliveryForResource",
-    "isPermissionOnly": true,
-    "description": "Grants permission to configure vended log delivery for load balancers",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createlistener": {
     "name": "CreateListener",
     "description": "Grants permission to create a listener for the specified Application Load Balancer",
@@ -80,9 +149,7 @@
         "name": "loadbalancer/app/",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticloadbalancing:AddTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "loadbalancer/gwy/",
@@ -99,11 +166,11 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticloadbalancing:ListenerProtocol",
       "elasticloadbalancing:ResourceTag/${TagKey}",
-      "elasticloadbalancing:SecurityPolicy",
-      "elasticloadbalancing:ListenerProtocol"
+      "elasticloadbalancing:SecurityPolicy"
     ],
     "dependentActions": []
   },
@@ -116,20 +183,18 @@
         "name": "loadbalancer",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticloadbalancing:AddTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticloadbalancing:ListenerProtocol",
       "elasticloadbalancing:ResourceTag/${TagKey}",
-      "elasticloadbalancing:SecurityGroup",
-      "elasticloadbalancing:Subnet",
       "elasticloadbalancing:Scheme",
-      "elasticloadbalancing:ListenerProtocol"
+      "elasticloadbalancing:SecurityGroup",
+      "elasticloadbalancing:Subnet"
     ],
     "dependentActions": []
   },
@@ -142,9 +207,7 @@
         "name": "listener/app",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticloadbalancing:AddTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "listener/net",
@@ -155,8 +218,8 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "elasticloadbalancing:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
@@ -170,15 +233,13 @@
         "name": "targetgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticloadbalancing:AddTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "elasticloadbalancing:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
@@ -192,34 +253,13 @@
         "name": "truststore",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticloadbalancing:AddTags"
-        ]
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}",
-      "elasticloadbalancing:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
-  "createwebaclassociation": {
-    "name": "CreateWebACLAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to associate WAF WebACL to the specified load balancer",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "loadbalancer/app/",
-        "required": true,
-        "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "elasticloadbalancing:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
@@ -339,25 +379,6 @@
     "resourceTypes": [
       {
         "name": "truststore",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "elasticloadbalancing:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
-  "deletewebaclassociation": {
-    "name": "DeleteWebACLAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disassociate WAF WebACL from the specified load balancer",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "loadbalancer/app/",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -515,34 +536,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describewebaclassociation": {
-    "name": "DescribeWebACLAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to describe all load balancers associated to a WAF WebACL in your account",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getloadbalancerwebacl": {
-    "name": "GetLoadBalancerWebACL",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve the WAF WebACL associated to the specified load balancer",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "loadbalancer/app/",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "elasticloadbalancing:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
   "getresourcepolicy": {
     "name": "GetResourcePolicy",
     "description": "Grants permission to retrieve the resource policy associated with the resource",
@@ -671,9 +664,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
+      "elasticloadbalancing:ListenerProtocol",
       "elasticloadbalancing:ResourceTag/${TagKey}",
-      "elasticloadbalancing:SecurityPolicy",
-      "elasticloadbalancing:ListenerProtocol"
+      "elasticloadbalancing:SecurityPolicy"
     ],
     "dependentActions": []
   },
@@ -848,7 +841,7 @@
   "removetags": {
     "name": "RemoveTags",
     "description": "Grants permission to remove one or more tags from the specified load balancer",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "loadbalancer",
@@ -859,8 +852,8 @@
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "elasticloadbalancing:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
@@ -990,15 +983,6 @@
     ],
     "dependentActions": []
   },
-  "setwebacl": {
-    "name": "SetWebAcl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to give WebAcl permission to WAF",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "applysecuritygroupstoloadbalancer": {
     "name": "ApplySecurityGroupsToLoadBalancer",
     "description": "Grants permission to associate one or more security groups with your load balancer in a virtual private cloud (VPC)",
@@ -1105,8 +1089,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "elasticloadbalancing:ResourceTag/${TagKey}",
-      "elasticloadbalancing:ListenerProtocol"
+      "elasticloadbalancing:ListenerProtocol",
+      "elasticloadbalancing:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },

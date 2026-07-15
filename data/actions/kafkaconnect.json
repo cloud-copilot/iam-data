@@ -5,25 +5,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "firehose:TagDeliveryStream",
-      "iam:AttachRolePolicy",
-      "iam:CreateServiceLinkedRole",
-      "iam:PassRole",
-      "iam:PutRolePolicy",
-      "logs:CreateLogDelivery",
-      "logs:DescribeLogGroups",
-      "logs:DescribeResourcePolicies",
-      "logs:GetLogDelivery",
-      "logs:ListLogDeliveries",
-      "logs:PutResourcePolicy",
-      "s3:GetBucketPolicy",
-      "s3:PutBucketPolicy"
-    ]
+    "dependentActions": []
   },
   "createcustomplugin": {
     "name": "CreateCustomPlugin",
@@ -31,9 +13,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createworkerconfiguration": {
     "name": "CreateWorkerConfiguration",
@@ -56,10 +36,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "logs:DeleteLogDelivery",
-      "logs:ListLogDeliveries"
-    ]
+    "dependentActions": []
   },
   "deletecustomplugin": {
     "name": "DeleteCustomPlugin",
@@ -226,15 +203,15 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an MSK Connect resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "connector",
         "required": false,
         "conditionKeys": [
-          "aws:TagKeys",
           "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -242,9 +219,9 @@
         "name": "custom plugin",
         "required": false,
         "conditionKeys": [
-          "aws:TagKeys",
           "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -252,9 +229,9 @@
         "name": "worker configuration",
         "required": false,
         "conditionKeys": [
-          "aws:TagKeys",
           "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
@@ -268,7 +245,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from an MSK Connect resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "connector",

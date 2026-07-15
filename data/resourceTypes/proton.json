@@ -1,14 +1,35 @@
 {
-  "environment-template": {
-    "key": "environment-template",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment-template/${Name}",
+  "component": {
+    "key": "component",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:component/${Id}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "environment-template-version": {
-    "key": "environment-template-version",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersion}.${MinorVersion}",
+  "deployment": {
+    "key": "deployment",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:deployment/${Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "environment": {
+    "key": "environment",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment/${Name}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "environment-account-connection": {
+    "key": "environment-account-connection",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment-account-connection/${Id}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "environment-template": {
+    "key": "environment-template",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment-template/${Name}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -27,37 +48,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "service-template": {
-    "key": "service-template",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${Name}",
+  "environment-template-version": {
+    "key": "environment-template-version",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersion}.${MinorVersion}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "service-template-version": {
-    "key": "service-template-version",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersion}.${MinorVersion}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "service-template-major-version": {
-    "key": "service-template-major-version",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "service-template-minor-version": {
-    "key": "service-template-minor-version",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId}.${MinorVersionId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "environment": {
-    "key": "environment",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment/${Name}",
+  "repository": {
+    "key": "repository",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:repository/${Provider}:${Name}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -76,30 +76,30 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "environment-account-connection": {
-    "key": "environment-account-connection",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:environment-account-connection/${Id}",
+  "service-template": {
+    "key": "service-template",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${Name}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "repository": {
-    "key": "repository",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:repository/${Provider}:${Name}",
+  "service-template-major-version": {
+    "key": "service-template-major-version",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "component": {
-    "key": "component",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:component/${Id}",
+  "service-template-minor-version": {
+    "key": "service-template-minor-version",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId}.${MinorVersionId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "deployment": {
-    "key": "deployment",
-    "arn": "arn:${Partition}:proton:${Region}:${Account}:deployment/${Id}",
+  "service-template-version": {
+    "key": "service-template-version",
+    "arn": "arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersion}.${MinorVersion}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

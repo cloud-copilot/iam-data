@@ -112,13 +112,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "aps:TagResource",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "eks:DescribeCluster",
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "workspace",
@@ -765,8 +759,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -923,7 +917,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an AMP resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "anomalydetector",
@@ -951,15 +945,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag an AMP resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "anomalydetector",
@@ -1034,10 +1028,7 @@
         "name": "scraper",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "aps:CreateScraper",
-          "aps:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "workspace",

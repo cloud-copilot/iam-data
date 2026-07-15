@@ -1,4 +1,40 @@
 {
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:cluster:${CacheClusterId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticache:AuthTokenEnabled",
+      "elasticache:CacheNodeType",
+      "elasticache:CacheParameterGroupName",
+      "elasticache:EngineType",
+      "elasticache:EngineVersion",
+      "elasticache:MultiAZEnabled",
+      "elasticache:SnapshotRetentionLimit"
+    ]
+  },
+  "globalreplicationgroup": {
+    "key": "globalreplicationgroup",
+    "arn": "arn:${Partition}:elasticache::${Account}:globalreplicationgroup:${GlobalReplicationGroupId}",
+    "conditionKeys": [
+      "elasticache:AtRestEncryptionEnabled",
+      "elasticache:AuthTokenEnabled",
+      "elasticache:AutomaticFailoverEnabled",
+      "elasticache:CacheNodeType",
+      "elasticache:CacheParameterGroupName",
+      "elasticache:ClusterModeEnabled",
+      "elasticache:EngineType",
+      "elasticache:EngineVersion",
+      "elasticache:KmsKeyId",
+      "elasticache:MultiAZEnabled",
+      "elasticache:NumNodeGroups",
+      "elasticache:ReplicasPerNodeGroup",
+      "elasticache:SnapshotRetentionLimit",
+      "elasticache:TransitEncryptionEnabled"
+    ]
+  },
   "parametergroup": {
     "key": "parametergroup",
     "arn": "arn:${Partition}:elasticache:${Region}:${Account}:parametergroup:${CacheParameterGroupName}",
@@ -7,24 +43,6 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "elasticache:CacheParameterGroupName"
-    ]
-  },
-  "securitygroup": {
-    "key": "securitygroup",
-    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:securitygroup:${CacheSecurityGroupName}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ]
-  },
-  "subnetgroup": {
-    "key": "subnetgroup",
-    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:subnetgroup:${CacheSubnetGroupName}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
     ]
   },
   "replicationgroup": {
@@ -51,22 +69,6 @@
       "elasticache:TransitEncryptionEnabled"
     ]
   },
-  "cluster": {
-    "key": "cluster",
-    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:cluster:${CacheClusterId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "elasticache:AuthTokenEnabled",
-      "elasticache:CacheNodeType",
-      "elasticache:CacheParameterGroupName",
-      "elasticache:EngineType",
-      "elasticache:EngineVersion",
-      "elasticache:MultiAZEnabled",
-      "elasticache:SnapshotRetentionLimit"
-    ]
-  },
   "reserved-instance": {
     "key": "reserved-instance",
     "arn": "arn:${Partition}:elasticache:${Region}:${Account}:reserved-instance:${ReservedCacheNodeId}",
@@ -76,49 +78,9 @@
       "aws:TagKeys"
     ]
   },
-  "snapshot": {
-    "key": "snapshot",
-    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:snapshot:${SnapshotName}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "elasticache:KmsKeyId"
-    ]
-  },
-  "globalreplicationgroup": {
-    "key": "globalreplicationgroup",
-    "arn": "arn:${Partition}:elasticache::${Account}:globalreplicationgroup:${GlobalReplicationGroupId}",
-    "conditionKeys": [
-      "elasticache:AtRestEncryptionEnabled",
-      "elasticache:AuthTokenEnabled",
-      "elasticache:AutomaticFailoverEnabled",
-      "elasticache:CacheNodeType",
-      "elasticache:CacheParameterGroupName",
-      "elasticache:ClusterModeEnabled",
-      "elasticache:EngineType",
-      "elasticache:EngineVersion",
-      "elasticache:KmsKeyId",
-      "elasticache:MultiAZEnabled",
-      "elasticache:NumNodeGroups",
-      "elasticache:ReplicasPerNodeGroup",
-      "elasticache:SnapshotRetentionLimit",
-      "elasticache:TransitEncryptionEnabled"
-    ]
-  },
-  "user": {
-    "key": "user",
-    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:user:${UserId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "elasticache:UserAuthenticationMode"
-    ]
-  },
-  "usergroup": {
-    "key": "usergroup",
-    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:usergroup:${UserGroupId}",
+  "securitygroup": {
+    "key": "securitygroup",
+    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:securitygroup:${CacheSecurityGroupName}",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -151,6 +113,44 @@
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "elasticache:KmsKeyId"
+    ]
+  },
+  "snapshot": {
+    "key": "snapshot",
+    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:snapshot:${SnapshotName}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticache:KmsKeyId"
+    ]
+  },
+  "subnetgroup": {
+    "key": "subnetgroup",
+    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:subnetgroup:${CacheSubnetGroupName}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ]
+  },
+  "user": {
+    "key": "user",
+    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:user:${UserId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticache:UserAuthenticationMode"
+    ]
+  },
+  "usergroup": {
+    "key": "usergroup",
+    "arn": "arn:${Partition}:elasticache:${Region}:${Account}:usergroup:${UserGroupId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ]
   }
 }

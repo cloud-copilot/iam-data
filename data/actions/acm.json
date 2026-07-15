@@ -2,7 +2,7 @@
   "addtagstocertificate": {
     "name": "AddTagsToCertificate",
     "description": "Grants permission to add one or more tags to a certificate",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "certificate",
@@ -12,9 +12,9 @@
       }
     ],
     "conditionKeys": [
+      "acm:CertificateKeyPairOrigin",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "acm:CertificateKeyPairOrigin"
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -29,10 +29,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "route53:ChangeResourceRecordSets",
-          "route53:GetHostedZone"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -63,9 +60,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -82,17 +77,14 @@
       {
         "name": "acme-domain-validation",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": [
-      "route53:ChangeResourceRecordSets",
-      "route53:GetChange"
-    ]
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "deleteacmeendpoint": {
     "name": "DeleteAcmeEndpoint",
@@ -102,13 +94,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteacmeexternalaccountbinding": {
@@ -119,13 +111,13 @@
       {
         "name": "acme-external-account-binding",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletecertificate": {
@@ -153,13 +145,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeacmedomainvalidation": {
@@ -170,13 +162,13 @@
       {
         "name": "acme-domain-validation",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeacmeendpoint": {
@@ -187,13 +179,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeacmeexternalaccountbinding": {
@@ -204,13 +196,13 @@
       {
         "name": "acme-external-account-binding",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describecertificate": {
@@ -261,13 +253,13 @@
       {
         "name": "acme-external-account-binding",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getcertificate": {
@@ -311,13 +303,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listacmedomainvalidations": {
@@ -328,13 +320,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listacmeendpoints": {
@@ -353,13 +345,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listcertificates": {
@@ -429,7 +421,7 @@
   "removetagsfromcertificate": {
     "name": "RemoveTagsFromCertificate",
     "description": "Grants permission to remove one or more tags from a certificate",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "certificate",
@@ -465,15 +457,15 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "acm:DomainNames",
-      "acm:CertificateTransparencyLogging",
-      "acm:ValidationMethod",
-      "acm:KeyAlgorithm",
       "acm:CertificateAuthority",
+      "acm:CertificateKeyPairOrigin",
+      "acm:CertificateTransparencyLogging",
+      "acm:DomainNames",
       "acm:Export",
-      "acm:CertificateKeyPairOrigin"
+      "acm:KeyAlgorithm",
+      "acm:ValidationMethod",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -500,13 +492,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "revokeacmeexternalaccountbinding": {
@@ -517,13 +509,13 @@
       {
         "name": "acme-external-account-binding",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "revokecertificate": {
@@ -539,8 +531,8 @@
       }
     ],
     "conditionKeys": [
-      "acm:DomainNames",
-      "acm:CertificateKeyPairOrigin"
+      "acm:CertificateKeyPairOrigin",
+      "acm:DomainNames"
     ],
     "dependentActions": []
   },
@@ -555,7 +547,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "acme-domain-validation",
@@ -591,7 +583,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "acme-domain-validation",
@@ -631,13 +623,13 @@
       {
         "name": "acme-domain-validation",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateacmeendpoint": {
@@ -648,13 +640,13 @@
       {
         "name": "acme-endpoint",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatecertificate": {

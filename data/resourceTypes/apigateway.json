@@ -27,20 +27,6 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "apis": {
-    "key": "Apis",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis",
-    "conditionKeys": [
-      "apigateway:Request/ApiKeyRequired",
-      "apigateway:Request/ApiName",
-      "apigateway:Request/AuthorizerType",
-      "apigateway:Request/AuthorizerUri",
-      "apigateway:Request/DisableExecuteApiEndpoint",
-      "apigateway:Request/EndpointType",
-      "apigateway:Request/RouteAuthorizationType",
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "apimapping": {
     "key": "ApiMapping",
     "arn": "arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}/apimappings/${ApiMappingId}",
@@ -55,9 +41,23 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "apis": {
+    "key": "Apis",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis",
+    "conditionKeys": [
+      "apigateway:Request/ApiKeyRequired",
+      "apigateway:Request/ApiName",
+      "apigateway:Request/AuthorizerType",
+      "apigateway:Request/AuthorizerUri",
+      "apigateway:Request/DisableExecuteApiEndpoint",
+      "apigateway:Request/EndpointType",
+      "apigateway:Request/RouteAuthorizationType",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "authorizer": {
     "key": "Authorizer",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers/${AuthorizerId}",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/authorizers/${AuthorizerId}, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers/${AuthorizerId}",
     "conditionKeys": [
       "apigateway:Request/AuthorizerType",
       "apigateway:Resource/AuthorizerType",
@@ -66,7 +66,7 @@
   },
   "authorizers": {
     "key": "Authorizers",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/authorizers, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers",
     "conditionKeys": [
       "apigateway:Request/AuthorizerType",
       "aws:ResourceTag/${TagKey}"
@@ -88,14 +88,14 @@
   },
   "deployment": {
     "key": "Deployment",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments/${DeploymentId}",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/deployments/${DeploymentId}, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments/${DeploymentId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
   "deployments": {
     "key": "Deployments",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/deployments, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments",
     "conditionKeys": [
       "apigateway:Request/StageName",
       "aws:ResourceTag/${TagKey}"
@@ -110,21 +110,14 @@
   },
   "integration": {
     "key": "Integration",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "integrations": {
-    "key": "Integrations",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
   "integrationresponse": {
     "key": "IntegrationResponse",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration/responses/${StatusCode}",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}/integrationresponses/${IntegrationResponseId}, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration/responses/${StatusCode}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -136,16 +129,16 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "model": {
-    "key": "Model",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models/${ModelName}",
+  "integrations": {
+    "key": "Integrations",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "models": {
-    "key": "Models",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models",
+  "model": {
+    "key": "Model",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models/${ModelId}, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models/${ModelName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -157,93 +150,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "route": {
-    "key": "Route",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}",
-    "conditionKeys": [
-      "apigateway:Request/ApiKeyRequired",
-      "apigateway:Request/RouteAuthorizationType",
-      "apigateway:Resource/ApiKeyRequired",
-      "apigateway:Resource/RouteAuthorizationType",
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "routes": {
-    "key": "Routes",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes",
-    "conditionKeys": [
-      "apigateway:Request/ApiKeyRequired",
-      "apigateway:Request/RouteAuthorizationType",
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "routeresponse": {
-    "key": "RouteResponse",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses/${RouteResponseId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "routeresponses": {
-    "key": "RouteResponses",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "routerequestparameter": {
-    "key": "RouteRequestParameter",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/requestparameters/${RequestParameterKey}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "routesettings": {
-    "key": "RouteSettings",
-    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}/routesettings/${RouteKey}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "routingrule": {
-    "key": "RoutingRule",
-    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}/routingrules/${RoutingRuleId}",
-    "conditionKeys": [
-      "apigateway:Resource/ConditionBasePaths",
-      "apigateway:Resource/Priority",
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "stage": {
-    "key": "Stage",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages/${StageName}",
-    "conditionKeys": [
-      "apigateway:Request/AccessLoggingDestination",
-      "apigateway:Request/AccessLoggingFormat",
-      "apigateway:Resource/AccessLoggingDestination",
-      "apigateway:Resource/AccessLoggingFormat",
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "stages": {
-    "key": "Stages",
-    "arn": "arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages",
-    "conditionKeys": [
-      "apigateway:Request/AccessLoggingDestination",
-      "apigateway:Request/AccessLoggingFormat",
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "vpclink": {
-    "key": "VpcLink",
-    "arn": "arn:${Partition}:apigateway:${Region}::/vpclinks/${VpcLinkId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "vpclinks": {
-    "key": "VpcLinks",
-    "arn": "arn:${Partition}:apigateway:${Region}::/vpclinks",
+  "models": {
+    "key": "Models",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -283,6 +192,97 @@
       "apigateway:Resource/ProductRestEndpointPageEndpointPrefix",
       "apigateway:Resource/RestApiId",
       "apigateway:Resource/Stage",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "route": {
+    "key": "Route",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}",
+    "conditionKeys": [
+      "apigateway:Request/ApiKeyRequired",
+      "apigateway:Request/RouteAuthorizationType",
+      "apigateway:Resource/ApiKeyRequired",
+      "apigateway:Resource/RouteAuthorizationType",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routerequestparameter": {
+    "key": "RouteRequestParameter",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/requestparameters/${RequestParameterKey}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routeresponse": {
+    "key": "RouteResponse",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses/${RouteResponseId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routeresponses": {
+    "key": "RouteResponses",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routesettings": {
+    "key": "RouteSettings",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}/routesettings/${RouteKey}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routes": {
+    "key": "Routes",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes",
+    "conditionKeys": [
+      "apigateway:Request/ApiKeyRequired",
+      "apigateway:Request/RouteAuthorizationType",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "routingrule": {
+    "key": "RoutingRule",
+    "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}/routingrules/${RoutingRuleId}",
+    "conditionKeys": [
+      "apigateway:Resource/ConditionBasePaths",
+      "apigateway:Resource/Priority",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "stage": {
+    "key": "Stage",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages/${StageName}",
+    "conditionKeys": [
+      "apigateway:Request/AccessLoggingDestination",
+      "apigateway:Request/AccessLoggingFormat",
+      "apigateway:Resource/AccessLoggingDestination",
+      "apigateway:Resource/AccessLoggingFormat",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "stages": {
+    "key": "Stages",
+    "arn": "arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages, arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages",
+    "conditionKeys": [
+      "apigateway:Request/AccessLoggingDestination",
+      "apigateway:Request/AccessLoggingFormat",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "vpclink": {
+    "key": "VpcLink",
+    "arn": "arn:${Partition}:apigateway:${Region}::/vpclinks/${VpcLinkId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "vpclinks": {
+    "key": "VpcLinks",
+    "arn": "arn:${Partition}:apigateway:${Region}::/vpclinks",
+    "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
@@ -376,18 +376,6 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "domainnames": {
-    "key": "DomainNames",
-    "arn": "arn:${Partition}:apigateway:${Region}::/domainnames",
-    "conditionKeys": [
-      "apigateway:Request/EndpointType",
-      "apigateway:Request/MtlsTrustStoreUri",
-      "apigateway:Request/MtlsTrustStoreVersion",
-      "apigateway:Request/SecurityPolicy",
-      "apigateway:Resource/RoutingMode",
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
   "domainnameaccessassociation": {
     "key": "DomainNameAccessAssociation",
     "arn": "arn:${Partition}:apigateway:${Region}:${Account}:/domainnameaccessassociations/domainname/${DomainName}/${SourceType}/${SourceId}"
@@ -398,6 +386,18 @@
     "conditionKeys": [
       "apigateway:Request/AccessAssociationSource",
       "apigateway:Request/DomainNameArn",
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "domainnames": {
+    "key": "DomainNames",
+    "arn": "arn:${Partition}:apigateway:${Region}::/domainnames",
+    "conditionKeys": [
+      "apigateway:Request/EndpointType",
+      "apigateway:Request/MtlsTrustStoreUri",
+      "apigateway:Request/MtlsTrustStoreVersion",
+      "apigateway:Request/SecurityPolicy",
+      "apigateway:Resource/RoutingMode",
       "aws:ResourceTag/${TagKey}"
     ]
   },
@@ -527,6 +527,10 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "tags": {
+    "key": "Tags",
+    "arn": "arn:${Partition}:apigateway:${Region}::/tags/${UrlEncodedResourceARN}"
+  },
   "template": {
     "key": "Template",
     "arn": "arn:${Partition}:apigateway:${Region}::/restapis/models/${ModelName}/template",
@@ -537,13 +541,6 @@
   "usageplan": {
     "key": "UsagePlan",
     "arn": "arn:${Partition}:apigateway:${Region}::/usageplans/${UsagePlanId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "usageplans": {
-    "key": "UsagePlans",
-    "arn": "arn:${Partition}:apigateway:${Region}::/usageplans",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -562,8 +559,11 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "tags": {
-    "key": "Tags",
-    "arn": "arn:${Partition}:apigateway:${Region}::/tags/${UrlEncodedResourceARN}"
+  "usageplans": {
+    "key": "UsagePlans",
+    "arn": "arn:${Partition}:apigateway:${Region}::/usageplans",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

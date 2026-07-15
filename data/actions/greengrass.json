@@ -2,7 +2,7 @@
   "associateserviceroletoaccount": {
     "name": "AssociateServiceRoleToAccount",
     "description": "Grants permission to associate a role with your account. AWS IoT Greengrass uses this role to access your Lambda functions and AWS IoT resources",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -50,16 +50,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iot:CancelJob",
-      "iot:DeleteThingShadow",
-      "iot:DescribeJob",
-      "iot:DescribeThing",
-      "iot:DescribeThingGroup",
-      "iot:GetThingShadow",
-      "iot:UpdateJob",
-      "iot:UpdateThingShadow"
-    ]
+    "dependentActions": []
   },
   "createcomponentversion": {
     "name": "CreateComponentVersion",
@@ -91,7 +82,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "deletecomponent": {
@@ -122,9 +116,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iot:DescribeJobExecution"
-    ]
+    "dependentActions": []
   },
   "deletedeployment": {
     "name": "DeleteDeployment",
@@ -139,9 +131,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iot:DeleteJob"
-    ]
+    "dependentActions": []
   },
   "describecomponent": {
     "name": "DescribeComponent",
@@ -239,12 +229,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iot:DescribeJob",
-      "iot:DescribeThing",
-      "iot:DescribeThingGroup",
-      "iot:GetThingShadow"
-    ]
+    "dependentActions": []
   },
   "getserviceroleforaccount": {
     "name": "GetServiceRoleForAccount",
@@ -328,13 +313,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iot:DescribeJob",
-      "iot:DescribeJobExecution",
-      "iot:DescribeThing",
-      "iot:DescribeThingGroup",
-      "iot:GetThingShadow"
-    ]
+    "dependentActions": []
   },
   "listinstalledcomponents": {
     "name": "ListInstalledComponents",
@@ -370,6 +349,12 @@
       },
       {
         "name": "coreDefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deployment",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -435,7 +420,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "bulkDeployment",
@@ -451,6 +436,12 @@
       },
       {
         "name": "coreDefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deployment",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -501,7 +492,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "bulkDeployment",
@@ -517,6 +508,12 @@
       },
       {
         "name": "coreDefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "deployment",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -559,6 +556,7 @@
       }
     ],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []

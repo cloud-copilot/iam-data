@@ -1,9 +1,23 @@
 {
   "accesskubernetesapi": {
     "name": "AccessKubernetesApi",
-    "isPermissionOnly": true,
     "description": "Grants permission to view Kubernetes objects via AWS EKS console",
     "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "mutateviakubernetesapi": {
+    "name": "MutateViaKubernetesApi",
+    "description": "Grants permission to modify Kubernetes objects via AWS console",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -28,9 +42,9 @@
       }
     ],
     "conditionKeys": [
-      "eks:policyArn",
+      "eks:accessScope",
       "eks:namespaces",
-      "eks:accessScope"
+      "eks:policyArn"
     ],
     "dependentActions": []
   },
@@ -101,10 +115,10 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "eks:principalArn",
+      "eks:accessEntryType",
       "eks:kubernetesGroups",
-      "eks:username",
-      "eks:accessEntryType"
+      "eks:principalArn",
+      "eks:username"
     ],
     "dependentActions": []
   },
@@ -158,22 +172,22 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "eks:authenticationMode",
+      "eks:blockStorageEnabled",
       "eks:bootstrapClusterCreatorAdminPermissions",
       "eks:bootstrapSelfManagedAddons",
-      "eks:authenticationMode",
-      "eks:supportType",
       "eks:computeConfigEnabled",
-      "eks:elasticLoadBalancingEnabled",
-      "eks:blockStorageEnabled",
-      "eks:loggingType/${type}",
-      "eks:kubernetesVersion",
-      "eks:endpointPublicAccess",
-      "eks:endpointPrivateAccess",
-      "eks:deletionProtection",
+      "eks:controlPlaneEgressMode",
       "eks:controlPlaneScalingTier",
+      "eks:deletionProtection",
+      "eks:elasticLoadBalancingEnabled",
       "eks:encryptionConfigProviderKeyArns",
-      "eks:zonalShiftEnabled",
-      "eks:controlPlaneEgressMode"
+      "eks:endpointPrivateAccess",
+      "eks:endpointPublicAccess",
+      "eks:kubernetesVersion",
+      "eks:loggingType/${type}",
+      "eks:supportType",
+      "eks:zonalShiftEnabled"
     ],
     "dependentActions": []
   },
@@ -578,12 +592,6 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "addon",
         "required": false,
         "conditionKeys": [],
@@ -592,6 +600,12 @@
       {
         "name": "capability",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -618,9 +632,9 @@
       }
     ],
     "conditionKeys": [
-      "eks:policyArn",
+      "eks:accessScope",
       "eks:namespaces",
-      "eks:accessScope"
+      "eks:policyArn"
     ],
     "dependentActions": []
   },
@@ -891,12 +905,6 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "addon",
         "required": false,
         "conditionKeys": [],
@@ -909,6 +917,12 @@
         "dependentActions": []
       },
       {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "nodegroup",
         "required": false,
         "conditionKeys": [],
@@ -917,24 +931,6 @@
     ],
     "conditionKeys": [],
     "dependentActions": []
-  },
-  "mutateviakubernetesapi": {
-    "name": "MutateViaKubernetesApi",
-    "isPermissionOnly": true,
-    "description": "Grants permission to modify Kubernetes objects via AWS console",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "eks:AccessKubernetesApi"
-    ]
   },
   "registercluster": {
     "name": "RegisterCluster",
@@ -965,7 +961,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-entry",
@@ -1037,7 +1033,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-entry",
@@ -1170,17 +1166,17 @@
     ],
     "conditionKeys": [
       "eks:authenticationMode",
-      "eks:supportType",
-      "eks:computeConfigEnabled",
-      "eks:elasticLoadBalancingEnabled",
       "eks:blockStorageEnabled",
-      "eks:loggingType/${type}",
-      "eks:endpointPublicAccess",
-      "eks:endpointPrivateAccess",
-      "eks:deletionProtection",
+      "eks:computeConfigEnabled",
+      "eks:controlPlaneEgressMode",
       "eks:controlPlaneScalingTier",
-      "eks:zonalShiftEnabled",
-      "eks:controlPlaneEgressMode"
+      "eks:deletionProtection",
+      "eks:elasticLoadBalancingEnabled",
+      "eks:endpointPrivateAccess",
+      "eks:endpointPublicAccess",
+      "eks:loggingType/${type}",
+      "eks:supportType",
+      "eks:zonalShiftEnabled"
     ],
     "dependentActions": []
   },

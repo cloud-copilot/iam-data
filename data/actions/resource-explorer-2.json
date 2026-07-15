@@ -1,4 +1,73 @@
 {
+  "createmanagedview": {
+    "name": "CreateManagedView",
+    "description": "Grants permission to create managed view",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createstreamingaccessforservice": {
+    "name": "CreateStreamingAccessForService",
+    "description": "Grants permission to create resource explorer streaming access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete the specified view's resource policy",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletestreamingaccessforservice": {
+    "name": "DeleteStreamingAccessForService",
+    "description": "Grants permission to delete resource explorer streaming access",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to retrieve information about the specified view's resource policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to update the specified view's resource policy",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "view",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associatedefaultview": {
     "name": "AssociateDefaultView",
     "description": "Grants permission to set the specified view as the default for this AWS Region in this AWS account",
@@ -13,9 +82,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "resource-explorer-2:GetView"
-    ]
+    "dependentActions": []
   },
   "createindex": {
     "name": "CreateIndex",
@@ -28,27 +95,9 @@
     ],
     "dependentActions": []
   },
-  "createmanagedview": {
-    "name": "CreateManagedView",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create managed view",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createresourceexplorersetup": {
     "name": "CreateResourceExplorerSetup",
     "description": "Grants permission to create resource explorer setup",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "createstreamingaccessforservice": {
-    "name": "CreateStreamingAccessForService",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create resource explorer streaming access",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -83,31 +132,6 @@
   "deleteresourceexplorersetup": {
     "name": "DeleteResourceExplorerSetup",
     "description": "Grants permission to delete resource explorer setup",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deleteresourcepolicy": {
-    "name": "DeleteResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete the specified view's resource policy",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "view",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "deletestreamingaccessforservice": {
-    "name": "DeleteStreamingAccessForService",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete resource explorer streaming access",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -180,22 +204,6 @@
     "description": "Grants permission to get resource explorer setup",
     "accessLevel": "Read",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getresourcepolicy": {
-    "name": "GetResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve information about the specified view's resource policy",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "view",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -315,22 +323,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putresourcepolicy": {
-    "name": "PutResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the specified view's resource policy",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "view",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "search": {
     "name": "Search",
     "description": "Grants permission to search for resources and display details about all resources that match the specified criteria",
@@ -351,7 +343,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add one or more tag key and value pairs to the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "index",
@@ -375,7 +367,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove one or more tag key and value pairs from the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "index",

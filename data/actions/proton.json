@@ -93,8 +93,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -107,14 +107,12 @@
         "name": "environment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "proton:EnvironmentTemplate"
     ],
     "dependentActions": []
@@ -125,8 +123,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -143,8 +141,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -161,8 +159,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -179,8 +177,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -197,8 +195,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -215,8 +213,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -229,14 +227,12 @@
         "name": "service",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "codestar-connections:PassConnection"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "proton:ServiceTemplate"
     ],
     "dependentActions": []
@@ -254,8 +250,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "proton:ServiceTemplate"
     ],
     "dependentActions": []
@@ -281,8 +277,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -299,8 +295,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -317,8 +313,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -335,8 +331,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -976,14 +972,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "environment",
-        "required": true,
+        "name": "deployment",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "deployment",
-        "required": false,
+        "name": "environment",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1089,6 +1085,12 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
+        "name": "deployment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "service",
         "required": true,
         "conditionKeys": [],
@@ -1097,12 +1099,6 @@
       {
         "name": "service-instance",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "deployment",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1145,14 +1141,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "service",
-        "required": true,
+        "name": "deployment",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "deployment",
-        "required": false,
+        "name": "service",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1368,7 +1364,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "component",
@@ -1456,15 +1452,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "component",
@@ -1562,9 +1558,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateaccountsettings": {
     "name": "UpdateAccountSettings",
@@ -1572,9 +1566,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updatecomponent": {
     "name": "UpdateComponent",
@@ -1600,9 +1592,7 @@
         "name": "environment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

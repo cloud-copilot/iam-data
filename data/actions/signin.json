@@ -1,4 +1,19 @@
 {
+  "createaccount": {
+    "name": "CreateAccount",
+    "description": "Grants permission to create an AWS account through the AWS Management Console sign-up flow",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "console",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "authenticate": {
     "name": "Authenticate",
     "description": "Grants permission to authenticate to the AWS Management Console",
@@ -30,33 +45,49 @@
       {
         "name": "oauth2-public-client-localhost",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "signin:OAuthClientId",
+          "signin:OAuthRedirectUri"
+        ],
         "dependentActions": []
       },
       {
         "name": "oauth2-public-client-remote",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "signin:OAuthClientId",
+          "signin:OAuthRedirectUri"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "oauth2-resource-service-principal",
+        "required": true,
+        "conditionKeys": [
+          "signin:OAuthClientId",
+          "signin:OAuthRedirectUri"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
     "dependentActions": []
   },
-  "createaccount": {
-    "name": "CreateAccount",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an AWS account through the AWS Management Console sign-up flow",
+  "createoauth2publicclient": {
+    "name": "CreateOAuth2PublicClient",
+    "description": "Grants permission to dynamically register an OAuth 2.0 public client for use with AWS Sign-In",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "console",
+        "name": "oauth2-public-client-registration",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "signin:OAuthRedirectUri"
+    ],
     "dependentActions": []
   },
   "createoauth2token": {
@@ -73,13 +104,34 @@
       {
         "name": "oauth2-public-client-localhost",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "signin:OAuthClientAuthentication",
+          "signin:OAuthClientId",
+          "signin:OAuthGrantType",
+          "signin:OAuthRedirectUri"
+        ],
         "dependentActions": []
       },
       {
         "name": "oauth2-public-client-remote",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "signin:OAuthClientAuthentication",
+          "signin:OAuthClientId",
+          "signin:OAuthGrantType",
+          "signin:OAuthRedirectUri"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "oauth2-resource-service-principal",
+        "required": true,
+        "conditionKeys": [
+          "signin:OAuthClientAuthentication",
+          "signin:OAuthClientId",
+          "signin:OAuthGrantType",
+          "signin:OAuthRedirectUri"
+        ],
         "dependentActions": []
       }
     ],
@@ -92,15 +144,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "sso:CreateApplication",
-      "sso:GetSharedSsoConfiguration",
-      "sso:ListApplications",
-      "sso:PutApplicationAccessScope",
-      "sso:PutApplicationAssignmentConfiguration",
-      "sso:PutApplicationAuthenticationMethod",
-      "sso:PutApplicationGrant"
-    ]
+    "dependentActions": []
   },
   "deleteconsoleauthorizationconfiguration": {
     "name": "DeleteConsoleAuthorizationConfiguration",
@@ -134,6 +178,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "introspectoauth2token": {
+    "name": "IntrospectOAuth2Token",
+    "description": "Grants permission to inspect the metadata and active state of an OAuth 2.0 access token or refresh token",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "oauth2-public-client-localhost",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "oauth2-public-client-remote",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "oauth2-resource-service-principal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "signin:OAuthClientId",
+      "signin:OAuthTokenType"
+    ],
+    "dependentActions": []
+  },
   "listresourcepermissionstatements": {
     "name": "ListResourcePermissionStatements",
     "description": "Grants permission to list the SignIn Resource Based Policy statements in your account",
@@ -148,10 +222,7 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "sso:GetSharedSsoConfiguration",
-      "sso:ListApplications"
-    ]
+    "dependentActions": []
   },
   "putconsoleauthorizationconfiguration": {
     "name": "PutConsoleAuthorizationConfiguration",
@@ -167,6 +238,35 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revokeoauth2token": {
+    "name": "RevokeOAuth2Token",
+    "description": "Grants permission to revoke an OAuth 2.0 refresh token and its associated refresh tokens",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "oauth2-public-client-localhost",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "oauth2-public-client-remote",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "oauth2-resource-service-principal",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "signin:OAuthTokenType"
+    ],
     "dependentActions": []
   }
 }

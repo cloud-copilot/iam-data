@@ -1,4 +1,11 @@
 {
+  "billingview": {
+    "key": "billingview",
+    "arn": "arn:${Partition}:billing::${Account}:billingview/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "export": {
     "key": "export",
     "arn": "arn:${Partition}:bcm-data-exports:${Region}:${Account}:export/${Identifier}",
@@ -9,12 +16,5 @@
   "table": {
     "key": "table",
     "arn": "arn:${Partition}:bcm-data-exports:${Region}:${Account}:table/${Identifier}"
-  },
-  "billingview": {
-    "key": "billingview",
-    "arn": "arn:${Partition}:billing::${Account}:billingview/${ResourceId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
   }
 }

@@ -1,9 +1,8 @@
 {
   "allowvendedlogdeliveryforresource": {
     "name": "AllowVendedLogDeliveryForResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to configure vended log delivery for Amazon Q Business application resource",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "application",
@@ -15,6 +14,51 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "createdataaccessorwithtti": {
+    "name": "CreateDataAccessorWithTti",
+    "description": "Grants permission to create AWS IAM Identity center Trusted Token Issuer based DataAccessor to the application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disableaclondatasource": {
+    "name": "DisableAclOnDataSource",
+    "description": "Grants permission to disable the ACL crawl while creating the Amazon Q Business data source resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to put resource based policy statement to the application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "associatepermission": {
@@ -30,9 +74,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "qbusiness:PutResourcePolicy"
-    ]
+    "dependentActions": []
   },
   "batchdeletedocument": {
     "name": "BatchDeleteDocument",
@@ -207,31 +249,13 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "qbusiness:CreateDataAccessorWithTti"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": []
-  },
-  "createdataaccessorwithtti": {
-    "name": "CreateDataAccessorWithTti",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create AWS IAM Identity center Trusted Token Issuer based DataAccessor to the application",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "application",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "createdatasource": {
@@ -343,8 +367,8 @@
       }
     ],
     "conditionKeys": [
-      "identitystore:UserId",
-      "identitystore:GroupId"
+      "identitystore:GroupId",
+      "identitystore:UserId"
     ],
     "dependentActions": []
   },
@@ -651,22 +675,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "disableaclondatasource": {
-    "name": "DisableAclOnDataSource",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disable the ACL crawl while creating the Amazon Q Business data source resource",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "application",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "disassociatepermission": {
     "name": "DisassociatePermission",
     "description": "Grants permission to disassociate resource based policy statement to the application",
@@ -680,9 +688,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "qbusiness:PutResourcePolicy"
-    ]
+    "dependentActions": []
   },
   "getapplication": {
     "name": "GetApplication",
@@ -1374,22 +1380,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putresourcepolicy": {
-    "name": "PutResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to put resource based policy statement to the application",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "application",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "searchrelevantcontent": {
     "name": "SearchRelevantContent",
     "description": "Grants permission to search relevant content from the Amazon Q Business Application",
@@ -1483,7 +1473,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource with given key value pairs",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "application",
@@ -1549,7 +1539,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove the tag with the given key from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "application",

@@ -190,14 +190,7 @@
         "name": "RouterInput",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "iam:PassRole",
-          "mediaconnect:AssociateRouterNetworkInterface",
-          "mediaconnect:CreateRouterInput",
-          "mediaconnect:TagResource",
-          "mediaconnect:UpdateFlowOutput"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -215,11 +208,7 @@
         "name": "RouterNetworkInterface",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "mediaconnect:CreateRouterNetworkInterface",
-          "mediaconnect:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -237,15 +226,7 @@
         "name": "RouterOutput",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "iam:PassRole",
-          "mediaconnect:AssociateRouterNetworkInterface",
-          "mediaconnect:CreateRouterOutput",
-          "mediaconnect:TagResource",
-          "mediaconnect:UpdateFlowSource",
-          "medialive:UpdateInput"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -970,7 +951,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to associate tags with resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Entitlement",
@@ -1051,7 +1032,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "Entitlement",
@@ -1294,13 +1275,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "iam:PassRole",
-      "mediaconnect:AssociateRouterNetworkInterface",
-      "mediaconnect:UpdateFlowOutput",
-      "mediaconnect:UpdateRouterInput"
-    ]
+    "dependentActions": []
   },
   "updaterouternetworkinterface": {
     "name": "UpdateRouterNetworkInterface",
@@ -1315,10 +1290,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "mediaconnect:UpdateRouterNetworkInterface"
-    ]
+    "dependentActions": []
   },
   "updaterouteroutput": {
     "name": "UpdateRouterOutput",
@@ -1333,13 +1305,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "iam:PassRole",
-      "mediaconnect:AssociateRouterNetworkInterface",
-      "mediaconnect:UpdateFlowSource",
-      "mediaconnect:UpdateRouterOutput",
-      "medialive:UpdateInput"
-    ]
+    "dependentActions": []
   }
 }

@@ -1,4 +1,21 @@
 {
+  "pausemultiregionclusterreplication": {
+    "name": "PauseMultiRegionClusterReplication",
+    "description": "Grants permission to pause replication for a Multi-Region cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "multiregioncluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "batchupdatecluster": {
     "name": "BatchUpdateCluster",
     "description": "Grants permissions to apply service updates",
@@ -8,14 +25,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "s3:GetObject"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -55,17 +65,12 @@
         "name": "snapshot",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "memorydb:TagResource",
-          "s3:DeleteObject",
-          "s3:GetBucketAcl",
-          "s3:PutObject"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -79,14 +84,12 @@
         "name": "user",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "memorydb:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -100,26 +103,6 @@
         "name": "acl",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "memorydb:TagResource",
-          "s3:GetObject"
-        ]
-      },
-      {
-        "name": "parametergroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "subnetgroup",
-        "required": true,
-        "conditionKeys": [],
         "dependentActions": []
       },
       {
@@ -129,15 +112,27 @@
         "dependentActions": []
       },
       {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "snapshot",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "subnetgroup",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "memorydb:TLSEnabled"
     ],
@@ -152,14 +147,12 @@
         "name": "multiregionparametergroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "memorydb:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "memorydb:TLSEnabled"
     ],
@@ -174,9 +167,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "memorydb:TagResource"
-    ]
+    "dependentActions": []
   },
   "createsnapshot": {
     "name": "CreateSnapshot",
@@ -187,17 +178,12 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "memorydb:TagResource",
-          "s3:DeleteObject",
-          "s3:GetBucketAcl",
-          "s3:PutObject"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -211,9 +197,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "memorydb:TagResource"
-    ]
+    "dependentActions": []
   },
   "createuser": {
     "name": "CreateUser",
@@ -225,9 +209,7 @@
       "aws:TagKeys",
       "memorydb:UserAuthenticationMode"
     ],
-    "dependentActions": [
-      "memorydb:TagResource"
-    ]
+    "dependentActions": []
   },
   "deleteacl": {
     "name": "DeleteAcl",
@@ -255,13 +237,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       },
       {
         "name": "multiregioncluster",
@@ -341,13 +317,7 @@
         "name": "subnetgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -596,13 +566,7 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -697,24 +661,6 @@
     ],
     "dependentActions": []
   },
-  "pausemultiregionclusterreplication": {
-    "name": "PauseMultiRegionClusterReplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to pause replication for a Multi-Region cluster",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "multiregioncluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
   "purchasereservednodesoffering": {
     "name": "PurchaseReservedNodesOffering",
     "description": "Grants permissions to purchase a new reserved node",
@@ -724,14 +670,12 @@
         "name": "reservednode",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "memorydb:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -756,7 +700,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permissions to add up to 10 cost allocation tags to the named resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "acl",
@@ -808,16 +752,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permissions to remove the tags identified by the TagKeys list from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "acl",
@@ -863,8 +807,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -897,20 +841,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "cluster",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
-      },
-      {
         "name": "acl",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -935,13 +873,7 @@
         "name": "multiregioncluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       },
       {
         "name": "multiregionparametergroup",

@@ -1,4 +1,18 @@
 {
+  "channel": {
+    "key": "channel",
+    "arn": "arn:${Partition}:mediatailor:${Region}:${Account}:channel/${ChannelName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "livesource": {
+    "key": "liveSource",
+    "arn": "arn:${Partition}:mediatailor:${Region}:${Account}:liveSource/${SourceLocationName}/${LiveSourceName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "playbackconfiguration": {
     "key": "playbackConfiguration",
     "arn": "arn:${Partition}:mediatailor:${Region}:${Account}:playbackConfiguration/${ResourceId}",
@@ -9,13 +23,6 @@
   "prefetchschedule": {
     "key": "prefetchSchedule",
     "arn": "arn:${Partition}:mediatailor:${Region}:${Account}:prefetchSchedule/${ResourceId}"
-  },
-  "channel": {
-    "key": "channel",
-    "arn": "arn:${Partition}:mediatailor:${Region}:${Account}:channel/${ChannelName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
   },
   "program": {
     "key": "program",
@@ -31,13 +38,6 @@
   "vodsource": {
     "key": "vodSource",
     "arn": "arn:${Partition}:mediatailor:${Region}:${Account}:vodSource/${SourceLocationName}/${VodSourceName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "livesource": {
-    "key": "liveSource",
-    "arn": "arn:${Partition}:mediatailor:${Region}:${Account}:liveSource/${SourceLocationName}/${LiveSourceName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

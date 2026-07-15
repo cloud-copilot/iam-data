@@ -751,8 +751,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -800,7 +800,7 @@
   "putconfiguredaudiencemodelpolicy": {
     "name": "PutConfiguredAudienceModelPolicy",
     "description": "Grants permission to create or update the resource policy for a configured audience model",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "configuredaudiencemodel",
@@ -911,7 +911,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a specific resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ConfiguredModelAlgorithm",
@@ -969,16 +969,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UnTagResource",
     "description": "Grants permission to untag a specific resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ConfiguredModelAlgorithm",
@@ -1036,8 +1036,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -1047,14 +1047,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "configuredaudiencemodel",
-        "required": true,
+        "name": "audiencemodel",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "audiencemodel",
-        "required": false,
+        "name": "configuredaudiencemodel",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

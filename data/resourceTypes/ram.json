@@ -1,4 +1,21 @@
 {
+  "customer-managed-permission": {
+    "key": "customer-managed-permission",
+    "arn": "arn:${Partition}:ram:${Region}:${Account}:permission/${ResourcePath}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "ram:PermissionArn",
+      "ram:PermissionResourceType"
+    ]
+  },
+  "permission": {
+    "key": "permission",
+    "arn": "arn:${Partition}:ram::${Account}:permission/${ResourcePath}",
+    "conditionKeys": [
+      "ram:PermissionArn",
+      "ram:PermissionResourceType"
+    ]
+  },
   "resource-share": {
     "key": "resource-share",
     "arn": "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}",
@@ -13,23 +30,6 @@
     "arn": "arn:${Partition}:ram:${Region}:${Account}:resource-share-invitation/${ResourcePath}",
     "conditionKeys": [
       "ram:ShareOwnerAccountId"
-    ]
-  },
-  "permission": {
-    "key": "permission",
-    "arn": "arn:${Partition}:ram::${Account}:permission/${ResourcePath}",
-    "conditionKeys": [
-      "ram:PermissionArn",
-      "ram:PermissionResourceType"
-    ]
-  },
-  "customer-managed-permission": {
-    "key": "customer-managed-permission",
-    "arn": "arn:${Partition}:ram:${Region}:${Account}:permission/${ResourcePath}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "ram:PermissionArn",
-      "ram:PermissionResourceType"
     ]
   }
 }

@@ -2,7 +2,7 @@
   "addprofilepermission": {
     "name": "AddProfilePermission",
     "description": "Grants permission to add cross-account permissions to a Signing Profile",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "signing-profile",
@@ -160,7 +160,7 @@
   "removeprofilepermission": {
     "name": "RemoveProfilePermission",
     "description": "Grants permission to remove cross-account permissions from a Signing Profile",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "signing-profile",
@@ -243,7 +243,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add one or more tags to a Signing Profile",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "signing-profile",
@@ -253,15 +253,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove one or more tags from a Signing Profile",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "signing-profile",
@@ -271,8 +271,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   }

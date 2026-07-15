@@ -71,14 +71,7 @@
         "name": "networkSettings",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:CreateNetworkInterfacePermission",
-          "ec2:CreateTags",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DeleteNetworkInterfacePermission",
-          "ec2:ModifyNetworkInterfaceAttribute"
-        ]
+        "dependentActions": []
       },
       {
         "name": "portal",
@@ -141,10 +134,7 @@
         "name": "portal",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kinesis:PutRecord",
-          "kinesis:PutRecords"
-        ]
+        "dependentActions": []
       },
       {
         "name": "userAccessLoggingSettings",
@@ -183,16 +173,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "kms:CreateGrant",
-      "kms:Decrypt",
-      "kms:DescribeKey",
-      "kms:GenerateDataKey",
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createdataprotectionsettings": {
     "name": "CreateDataProtectionSettings",
@@ -200,12 +184,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createidentityprovider": {
     "name": "CreateIdentityProvider",
@@ -226,8 +208,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -237,12 +219,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createnetworksettings": {
     "name": "CreateNetworkSettings",
@@ -250,13 +230,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createportal": {
     "name": "CreatePortal",
@@ -264,17 +241,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "kms:CreateGrant",
-      "kms:Decrypt",
-      "kms:DescribeKey",
-      "kms:GenerateDataKey",
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createsessionlogger": {
     "name": "CreateSessionLogger",
@@ -282,13 +252,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "s3:PutObject",
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createtruststore": {
     "name": "CreateTrustStore",
@@ -296,12 +263,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createuseraccessloggingsettings": {
     "name": "CreateUserAccessLoggingSettings",
@@ -309,12 +274,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "createusersettings": {
     "name": "CreateUserSettings",
@@ -322,12 +285,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": [
-      "workspaces-web:TagResource"
-    ]
+    "dependentActions": []
   },
   "deletebrowsersettings": {
     "name": "DeleteBrowserSettings",
@@ -936,7 +897,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add one or more tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "browserSettings",
@@ -1000,15 +961,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove one or more tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "browserSettings",
@@ -1155,14 +1116,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:CreateTags",
-      "ec2:DeleteNetworkInterface",
-      "ec2:DeleteNetworkInterfacePermission",
-      "ec2:ModifyNetworkInterfaceAttribute"
-    ]
+    "dependentActions": []
   },
   "updateportal": {
     "name": "UpdatePortal",
@@ -1222,10 +1176,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kinesis:PutRecord",
-      "kinesis:PutRecords"
-    ]
+    "dependentActions": []
   },
   "updateusersettings": {
     "name": "UpdateUserSettings",

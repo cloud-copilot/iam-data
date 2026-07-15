@@ -56,14 +56,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "job-queue",
-        "required": true,
+        "name": "compute-environment",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "compute-environment",
-        "required": false,
+        "name": "job-queue",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -137,9 +137,7 @@
         "name": "service-environment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -485,37 +483,37 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "consumable-resource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "job-definition",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
-      },
-      {
-        "name": "consumable-resource",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "batch:User",
-      "batch:Privileged",
-      "batch:Image",
-      "batch:LogDriver",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "batch:AWSLogsCreateGroup",
       "batch:AWSLogsGroup",
       "batch:AWSLogsRegion",
       "batch:AWSLogsStreamPrefix",
-      "batch:AWSLogsCreateGroup",
-      "batch:EKSServiceAccountName",
       "batch:EKSImage",
-      "batch:EKSRunAsUser",
-      "batch:EKSRunAsGroup",
-      "batch:EKSPrivileged",
       "batch:EKSNamespace",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "batch:EKSPrivileged",
+      "batch:EKSRunAsGroup",
+      "batch:EKSRunAsUser",
+      "batch:EKSServiceAccountName",
+      "batch:Image",
+      "batch:LogDriver",
+      "batch:Privileged",
+      "batch:User"
     ],
     "dependentActions": []
   },
@@ -525,25 +523,19 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "job",
-        "required": true,
-        "conditionKeys": [
-          "batch:ShareIdentifier",
-          "batch:EKSImage",
-          "batch:EKSNamespace"
-        ],
-        "dependentActions": []
-      },
-      {
-        "name": "job-queue",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "consumable-resource",
         "required": false,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job",
+        "required": true,
+        "conditionKeys": [
+          "batch:EKSImage",
+          "batch:EKSNamespace",
+          "batch:ShareIdentifier"
+        ],
         "dependentActions": []
       },
       {
@@ -555,6 +547,12 @@
       {
         "name": "job-definition-revision",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "job-queue",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -577,17 +575,17 @@
         "dependentActions": []
       },
       {
+        "name": "quota-share",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "service-job",
         "required": true,
         "conditionKeys": [
           "batch:ShareIdentifier"
         ],
-        "dependentActions": []
-      },
-      {
-        "name": "quota-share",
-        "required": false,
-        "conditionKeys": [],
         "dependentActions": []
       }
     ],
@@ -601,7 +599,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an AWS Batch resource in your account",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "compute-environment",
@@ -697,7 +695,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag an AWS Batch resource in your account",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "compute-environment",
@@ -795,14 +793,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "job-queue",
-        "required": true,
+        "name": "compute-environment",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "compute-environment",
-        "required": false,
+        "name": "job-queue",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },

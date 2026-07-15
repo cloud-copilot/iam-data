@@ -14,6 +14,13 @@
       "geo:GeofenceIds"
     ]
   },
+  "job": {
+    "key": "job",
+    "arn": "arn:${Partition}:geo:${Region}:${Account}:job/${JobId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "map": {
     "key": "map",
     "arn": "arn:${Partition}:geo:${Region}:${Account}:map/${MapName}",
@@ -41,13 +48,6 @@
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "geo:DeviceIds"
-    ]
-  },
-  "job": {
-    "key": "job",
-    "arn": "arn:${Partition}:geo:${Region}:${Account}:job/${JobId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
     ]
   }
 }

@@ -1,7 +1,14 @@
 {
-  "workload": {
-    "key": "workload",
-    "arn": "arn:${Partition}:wellarchitected:${Region}:${Account}:workload/${ResourceId}",
+  "agent-profile": {
+    "key": "agent-profile",
+    "arn": "arn:${Partition}:wellarchitected:${Region}:${Account}:agent-profile/${ProfileName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "agent-recommendation": {
+    "key": "agent-recommendation",
+    "arn": "arn:${Partition}:wellarchitected:${Region}:${Account}:agent-recommendation/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -23,6 +30,13 @@
   "review-template": {
     "key": "review-template",
     "arn": "arn:${Partition}:wellarchitected:${Region}:${Account}:review-template/${ResourceId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "workload": {
+    "key": "workload",
+    "arn": "arn:${Partition}:wellarchitected:${Region}:${Account}:workload/${ResourceId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

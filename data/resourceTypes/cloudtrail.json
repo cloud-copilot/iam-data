@@ -1,7 +1,14 @@
 {
-  "trail": {
-    "key": "trail",
-    "arn": "arn:${Partition}:cloudtrail:${Region}:${Account}:trail/${TrailName}",
+  "channel": {
+    "key": "channel",
+    "arn": "arn:${Partition}:cloudtrail:${Region}:${Account}:channel/${ChannelId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "dashboard": {
+    "key": "dashboard",
+    "arn": "arn:${Partition}:cloudtrail:${Region}:${Account}:dashboard/${DashboardName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -13,16 +20,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "channel": {
-    "key": "channel",
-    "arn": "arn:${Partition}:cloudtrail:${Region}:${Account}:channel/${ChannelId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "dashboard": {
-    "key": "dashboard",
-    "arn": "arn:${Partition}:cloudtrail:${Region}:${Account}:dashboard/${DashboardName}",
+  "trail": {
+    "key": "trail",
+    "arn": "arn:${Partition}:cloudtrail:${Region}:${Account}:trail/${TrailName}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

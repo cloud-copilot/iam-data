@@ -136,11 +136,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeSubnets",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createmultipartreadsetupload": {
     "name": "CreateMultipartReadSetUpload",
@@ -1290,16 +1286,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "run",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
-      },
-      {
         "name": "configuration",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "run",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -1343,9 +1337,7 @@
         "name": "run",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "runBatch",
@@ -1396,7 +1388,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add AWS tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "AnnotationStore",
@@ -1492,7 +1484,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove resource AWS tags",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "AnnotationStore",

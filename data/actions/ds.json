@@ -1,7 +1,22 @@
 {
-  "acceptshareddirectory": {
-    "name": "AcceptSharedDirectory",
-    "description": "Grants permission to accept a directory sharing request that was sent from the directory owner account",
+  "accessdsdata": {
+    "name": "AccessDSData",
+    "description": "Grants permission to access directory data using the Directory Service Data API",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "authorizeapplication": {
+    "name": "AuthorizeApplication",
+    "description": "Grants permission to authorize an application for your AWS Directory",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -14,11 +29,134 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "accessdsdata": {
-    "name": "AccessDSData",
-    "isPermissionOnly": true,
-    "description": "Grants permission to access directory data using the Directory Service Data API",
-    "accessLevel": "Permissions management",
+  "checkalias": {
+    "name": "CheckAlias",
+    "description": "Grants permission to verify that the alias is available for use",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createidentitypooldirectory": {
+    "name": "CreateIdentityPoolDirectory",
+    "description": "Grants permission to create an IdentityPool Directory in the AWS cloud",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "disableroleaccess": {
+    "name": "DisableRoleAccess",
+    "description": "Grants permission to disable AWS Management Console access for identity in your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "enableroleaccess": {
+    "name": "EnableRoleAccess",
+    "description": "Grants permission to enable AWS Management Console access for identity in your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getauthorizedapplicationdetails": {
+    "name": "GetAuthorizedApplicationDetails",
+    "description": "Grants permission to retrieve the details of the authorized applications on a directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listauthorizedapplications": {
+    "name": "ListAuthorizedApplications",
+    "description": "Grants permission to obtain the AWS applications authorized for a directory",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "unauthorizeapplication": {
+    "name": "UnauthorizeApplication",
+    "description": "Grants permission to unauthorize an application from your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateauthorizedapplication": {
+    "name": "UpdateAuthorizedApplication",
+    "description": "Grants permission to update an authorized application for your AWS Directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedirectory": {
+    "name": "UpdateDirectory",
+    "description": "Grants permission to update the configurations like service account credentials or DNS server IP addresses for the specified directory",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "directory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "acceptshareddirectory": {
+    "name": "AcceptSharedDirectory",
+    "description": "Grants permission to accept a directory sharing request that was sent from the directory owner account",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "directory",
@@ -43,11 +181,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:DescribeSecurityGroups"
-    ]
+    "dependentActions": []
   },
   "addregion": {
     "name": "AddRegion",
@@ -62,42 +196,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateTags",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs"
-    ]
+    "dependentActions": []
   },
   "addtagstoresource": {
     "name": "AddTagsToResource",
     "description": "Grants permission to add or overwrite one or more tags for the specified Amazon Directory Services directory",
-    "accessLevel": "Tagging",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateTags"
-        ]
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
-  "authorizeapplication": {
-    "name": "AuthorizeApplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to authorize an application for your AWS Directory",
-    "accessLevel": "Write",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "directory",
@@ -106,7 +210,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "cancelschemaextension": {
@@ -124,15 +231,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "checkalias": {
-    "name": "CheckAlias",
-    "isPermissionOnly": true,
-    "description": "Grants permission to verify that the alias is available for use",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "connectdirectory": {
     "name": "ConnectDirectory",
     "description": "Grants permission to create an AD Connector to connect to an on-premises directory",
@@ -142,16 +240,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateTags",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs"
-    ]
+    "dependentActions": []
   },
   "createalias": {
     "name": "CreateAlias",
@@ -207,50 +296,11 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateTags",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs"
-    ]
+    "dependentActions": []
   },
   "createhybridad": {
     "name": "CreateHybridAD",
     "description": "Grants permission to create a Hybrid Managed AD directory",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateTags",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "iam:CreateServiceLinkedRole",
-      "iam:GetRole",
-      "secretsmanager:DescribeSecret",
-      "secretsmanager:GetSecretValue",
-      "ssm:GetCommandInvocation",
-      "ssm:GetConnectionStatus",
-      "ssm:ListCommands",
-      "ssm:SendCommand"
-    ]
-  },
-  "createidentitypooldirectory": {
-    "name": "CreateIdentityPoolDirectory",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an IdentityPool Directory in the AWS cloud",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -283,16 +333,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateTags",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs"
-    ]
+    "dependentActions": []
   },
   "createsnapshot": {
     "name": "CreateSnapshot",
@@ -360,13 +401,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DeleteNetworkInterface",
-      "ec2:DeleteSecurityGroup",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:RevokeSecurityGroupEgress",
-      "ec2:RevokeSecurityGroupIngress"
-    ]
+    "dependentActions": []
   },
   "deletelogsubscription": {
     "name": "DeleteLogSubscription",
@@ -745,22 +780,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "disableroleaccess": {
-    "name": "DisableRoleAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disable AWS Management Console access for identity in your AWS Directory",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "disablesso": {
     "name": "DisableSso",
     "description": "Grants permission to disable single-sign on for a directory",
@@ -789,10 +808,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "acm-pca:DescribeCertificateAuthority",
-      "pca-connector-ad:GetConnector"
-    ]
+    "dependentActions": []
   },
   "enableclientauthentication": {
     "name": "EnableClientAuthentication",
@@ -854,44 +870,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "enableroleaccess": {
-    "name": "EnableRoleAccess",
-    "isPermissionOnly": true,
-    "description": "Grants permission to enable AWS Management Console access for identity in your AWS Directory",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
-  },
   "enablesso": {
     "name": "EnableSso",
     "description": "Grants permission to enable single-sign on for a directory",
     "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getauthorizedapplicationdetails": {
-    "name": "GetAuthorizedApplicationDetails",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve the details of the authorized applications on a directory",
-    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "directory",
@@ -931,22 +913,6 @@
     "description": "Grants permission to list directory assessments",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listauthorizedapplications": {
-    "name": "ListAuthorizedApplications",
-    "isPermissionOnly": true,
-    "description": "Grants permission to obtain the AWS applications authorized for a directory",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1046,9 +1012,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "sns:GetTopicAttributes"
-    ]
+    "dependentActions": []
   },
   "rejectshareddirectory": {
     "name": "RejectSharedDirectory",
@@ -1098,15 +1062,13 @@
   "removetagsfromresource": {
     "name": "RemoveTagsFromResource",
     "description": "Grants permission to remove tags from an Amazon Directory Services directory",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "directory",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DeleteTags"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1166,42 +1128,11 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:CreateSecurityGroup",
-      "ec2:DeleteNetworkInterface",
-      "ec2:DeleteSecurityGroup",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "ssm:GetCommandInvocation",
-      "ssm:GetConnectionStatus",
-      "ssm:ListCommands",
-      "ssm:SendCommand"
-    ]
+    "dependentActions": []
   },
   "startschemaextension": {
     "name": "StartSchemaExtension",
     "description": "Grants permission to apply a schema extension to a Microsoft AD directory",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "unauthorizeapplication": {
-    "name": "UnauthorizeApplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to unauthorize an application from your AWS Directory",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1229,41 +1160,9 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "updateauthorizedapplication": {
-    "name": "UpdateAuthorizedApplication",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update an authorized application for your AWS Directory",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "updateconditionalforwarder": {
     "name": "UpdateConditionalForwarder",
     "description": "Grants permission to update a conditional forwarder that has been set up for your AWS directory",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "directory",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatedirectory": {
-    "name": "UpdateDirectory",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the configurations like service account credentials or DNS server IP addresses for the specified directory",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1304,23 +1203,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateNetworkInterface",
-      "ec2:CreateNetworkInterfacePermission",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateTags",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "secretsmanager:DescribeSecret",
-      "secretsmanager:GetSecretValue",
-      "ssm:GetCommandInvocation",
-      "ssm:GetConnectionStatus",
-      "ssm:ListCommands",
-      "ssm:SendCommand"
-    ]
+    "dependentActions": []
   },
   "updatenumberofdomaincontrollers": {
     "name": "UpdateNumberOfDomainControllers",

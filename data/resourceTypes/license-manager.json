@@ -1,10 +1,9 @@
 {
-  "license-configuration": {
-    "key": "license-configuration",
-    "arn": "arn:${Partition}:license-manager:${Region}:${Account}:license-configuration:${LicenseConfigurationId}",
+  "grant": {
+    "key": "grant",
+    "arn": "arn:${Partition}:license-manager::${Account}:grant:${GrantId}",
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "license-manager:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}"
     ]
   },
   "license": {
@@ -14,19 +13,11 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "grant": {
-    "key": "grant",
-    "arn": "arn:${Partition}:license-manager::${Account}:grant:${GrantId}",
+  "license-asset-group": {
+    "key": "license-asset-group",
+    "arn": "arn:${Partition}:license-manager:${Region}:${Account}:license-asset-group:${LicenseAssetGroupId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "report-generator": {
-    "key": "report-generator",
-    "arn": "arn:${Partition}:license-manager:${Region}:${Account}:report-generator:${ReportGeneratorId}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "license-manager:ResourceTag/${TagKey}"
     ]
   },
   "license-asset-ruleset": {
@@ -36,11 +27,20 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "license-asset-group": {
-    "key": "license-asset-group",
-    "arn": "arn:${Partition}:license-manager:${Region}:${Account}:license-asset-group:${LicenseAssetGroupId}",
+  "license-configuration": {
+    "key": "license-configuration",
+    "arn": "arn:${Partition}:license-manager:${Region}:${Account}:license-configuration:${LicenseConfigurationId}",
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "license-manager:ResourceTag/${TagKey}"
+    ]
+  },
+  "report-generator": {
+    "key": "report-generator",
+    "arn": "arn:${Partition}:license-manager:${Region}:${Account}:report-generator:${ReportGeneratorId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "license-manager:ResourceTag/${TagKey}"
     ]
   }
 }

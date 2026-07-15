@@ -1,45 +1,22 @@
 {
-  "engagement": {
-    "key": "Engagement",
-    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement/${Identifier}"
+  "benefit": {
+    "key": "Benefit",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/benefit/${Identifier}"
   },
-  "engagement-by-accepting-invitation-task": {
-    "key": "engagement-by-accepting-invitation-task",
-    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-by-accepting-invitation-task/${TaskId}"
+  "benefitallocation": {
+    "key": "BenefitAllocation",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-allocation/${Identifier}"
   },
-  "engagement-from-opportunity-task": {
-    "key": "engagement-from-opportunity-task",
-    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-from-opportunity-task/${TaskId}"
-  },
-  "engagement-invitation": {
-    "key": "engagement-invitation",
-    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-invitation/${Identifier}"
-  },
-  "opportunity": {
-    "key": "Opportunity",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/opportunity/${Identifier}",
+  "benefitapplication": {
+    "key": "BenefitApplication",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-application/${Identifier}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "resource-snapshot-job": {
-    "key": "resource-snapshot-job",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/resource-snapshot-job/${Identifier}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "resourcesnapshot": {
-    "key": "ResourceSnapshot",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/engagement/${EngagementIdentifier}/resource/${ResourceType}/${ResourceIdentifier}/template/${TemplateIdentifier}/resource-snapshot/${SnapshotRevision}"
-  },
-  "solution": {
-    "key": "Solution",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/solution/${Identifier}"
-  },
-  "partner": {
-    "key": "Partner",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/partner/${Identifier}",
+  "channelhandshake": {
+    "key": "ChannelHandshake",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/channel-handshake/${Identifier}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -56,21 +33,35 @@
     "key": "ConnectionPreferences",
     "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/connection-preferences"
   },
+  "dashboard": {
+    "key": "Dashboard",
+    "arn": "arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${TableId}/Dashboard/${DashboardId}"
+  },
+  "engagement": {
+    "key": "Engagement",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement/${Identifier}"
+  },
+  "marketplacerevenueshare": {
+    "key": "MarketplaceRevenueShare",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/marketplace-revenue-share/${MarketplaceProductId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "opportunity": {
+    "key": "Opportunity",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/opportunity/${Identifier}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "opportunityfromengagementtask": {
     "key": "OpportunityFromEngagementTask",
     "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/opportunity-from-engagement-task/${TaskId}"
   },
-  "benefit": {
-    "key": "Benefit",
-    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/benefit/${Identifier}"
-  },
-  "benefitallocation": {
-    "key": "BenefitAllocation",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-allocation/${Identifier}"
-  },
-  "benefitapplication": {
-    "key": "BenefitApplication",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-application/${Identifier}",
+  "partner": {
+    "key": "Partner",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/partner/${Identifier}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
@@ -82,6 +73,10 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
+  "prospectingfromengagementtask": {
+    "key": "ProspectingFromEngagementTask",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/prospecting-from-engagement-task/${TaskIdentifier}"
+  },
   "relationship": {
     "key": "Relationship",
     "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${ProgramManagementAccountId}/relationship/${RelationshipId}",
@@ -89,16 +84,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "channelhandshake": {
-    "key": "ChannelHandshake",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/channel-handshake/${Identifier}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
-  },
-  "dashboard": {
-    "key": "Dashboard",
-    "arn": "arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${TableId}/Dashboard/${DashboardId}"
+  "resourcesnapshot": {
+    "key": "ResourceSnapshot",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/engagement/${EngagementIdentifier}/resource/${ResourceType}/${ResourceIdentifier}/template/${TemplateIdentifier}/resource-snapshot/${SnapshotRevision}"
   },
   "revenueattribution": {
     "key": "RevenueAttribution",
@@ -107,15 +95,27 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "marketplacerevenueshare": {
-    "key": "MarketplaceRevenueShare",
-    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/marketplace-revenue-share/${MarketplaceProductId}",
+  "solution": {
+    "key": "Solution",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/solution/${Identifier}"
+  },
+  "engagement-by-accepting-invitation-task": {
+    "key": "engagement-by-accepting-invitation-task",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-by-accepting-invitation-task/${TaskId}"
+  },
+  "engagement-from-opportunity-task": {
+    "key": "engagement-from-opportunity-task",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-from-opportunity-task/${TaskId}"
+  },
+  "engagement-invitation": {
+    "key": "engagement-invitation",
+    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-invitation/${Identifier}"
+  },
+  "resource-snapshot-job": {
+    "key": "resource-snapshot-job",
+    "arn": "arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/resource-snapshot-job/${Identifier}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
-  },
-  "prospectingfromengagementtask": {
-    "key": "ProspectingFromEngagementTask",
-    "arn": "arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/prospecting-from-engagement-task/${TaskIdentifier}"
   }
 }

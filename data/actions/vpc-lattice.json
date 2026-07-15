@@ -1,18 +1,24 @@
 {
   "associateviaawsservice": {
     "name": "AssociateViaAWSService",
-    "isPermissionOnly": true,
     "description": "Grants permission to associate a resource configuration through any AWS service managed networks",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
   "associateviaawsservice-eventsandstates": {
     "name": "AssociateViaAWSService-EventsAndStates",
-    "isPermissionOnly": true,
     "description": "Grants permission to associate a resource configuration through Amazon EventBridge and AWS Step Functions service networks",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createservicenetworkvpcendpointassociation": {
+    "name": "CreateServiceNetworkVpcEndpointAssociation",
+    "description": "Grants permission to create an association between a service network and VPC endpoint",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -26,10 +32,7 @@
         "name": "AccessLogSubscription",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "logs:CreateLogDelivery",
-          "logs:GetLogDelivery"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ResourceConfiguration",
@@ -72,9 +75,9 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "vpc-lattice:CreateAction",
       "vpc-lattice:Protocol",
-      "vpc-lattice:TargetGroupArns",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:TargetGroupArns"
     ],
     "dependentActions": []
   },
@@ -118,18 +121,14 @@
         "name": "ResourceGateway",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "vpc-lattice:VpcId",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:CreateAction",
+      "vpc-lattice:VpcId"
     ],
     "dependentActions": []
   },
@@ -148,8 +147,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "vpc-lattice:TargetGroupArns",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:CreateAction",
+      "vpc-lattice:TargetGroupArns"
     ],
     "dependentActions": []
   },
@@ -162,9 +161,7 @@
         "name": "Service",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -184,9 +181,7 @@
         "name": "ServiceNetwork",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -224,9 +219,9 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "vpc-lattice:CreateAction",
       "vpc-lattice:ResourceConfigurationArn",
-      "vpc-lattice:ServiceNetworkArn",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:ServiceNetworkArn"
     ],
     "dependentActions": []
   },
@@ -257,9 +252,9 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "vpc-lattice:CreateAction",
       "vpc-lattice:ServiceArn",
-      "vpc-lattice:ServiceNetworkArn",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:ServiceNetworkArn"
     ],
     "dependentActions": []
   },
@@ -272,9 +267,7 @@
         "name": "ServiceNetwork",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       },
       {
         "name": "ServiceNetworkVpcAssociation",
@@ -286,22 +279,13 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "vpc-lattice:CreateAction",
       "vpc-lattice:PrivateDnsPreference",
       "vpc-lattice:PrivateDnsSpecifiedDomains",
       "vpc-lattice:SecurityGroupIds",
       "vpc-lattice:ServiceNetworkArn",
-      "vpc-lattice:VpcId",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:VpcId"
     ],
-    "dependentActions": []
-  },
-  "createservicenetworkvpcendpointassociation": {
-    "name": "CreateServiceNetworkVpcEndpointAssociation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an association between a service network and VPC endpoint",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "createtargetgroup": {
@@ -313,16 +297,14 @@
         "name": "TargetGroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "vpc-lattice:VpcId",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:CreateAction",
+      "vpc-lattice:VpcId"
     ],
     "dependentActions": []
   },
@@ -335,10 +317,7 @@
         "name": "AccessLogSubscription",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "logs:DeleteLogDelivery",
-          "logs:GetLogDelivery"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -349,7 +328,7 @@
   "deleteauthpolicy": {
     "name": "DeleteAuthPolicy",
     "description": "Grants permission to delete an auth policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "Service",
@@ -626,9 +605,7 @@
         "name": "AccessLogSubscription",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "logs:GetLogDelivery"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1022,7 +999,7 @@
   "putauthpolicy": {
     "name": "PutAuthPolicy",
     "description": "Grants permission to create or update the auth policy for a service network or a service",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "Service",
@@ -1097,15 +1074,15 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "vpc-lattice:DomainName",
-      "vpc-lattice:CreateAction"
+      "vpc-lattice:CreateAction",
+      "vpc-lattice:DomainName"
     ],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a vpc-lattice resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "AccessLogSubscription",
@@ -1196,7 +1173,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a vpc-lattice resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "AccessLogSubscription",
@@ -1291,10 +1268,7 @@
         "name": "AccessLogSubscription",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "logs:GetLogDelivery",
-          "logs:UpdateLogDelivery"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1418,10 +1392,7 @@
         "name": "ServiceNetworkVpcAssociation",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

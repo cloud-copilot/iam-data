@@ -12,9 +12,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "associateconnectpeer": {
     "name": "AssociateConnectPeer",
@@ -131,10 +129,7 @@
         "name": "attachment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "core-network",
@@ -158,10 +153,7 @@
         "name": "attachment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -179,9 +171,7 @@
         "name": "global-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -199,10 +189,7 @@
         "name": "global-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -235,9 +222,7 @@
         "name": "global-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -255,10 +240,7 @@
         "name": "core-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -278,10 +260,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole",
-      "networkmanager:TagResource"
-    ]
+    "dependentActions": []
   },
   "createlink": {
     "name": "CreateLink",
@@ -292,9 +271,7 @@
         "name": "global-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "site",
@@ -318,9 +295,7 @@
         "name": "global-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -338,10 +313,7 @@
         "name": "core-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -360,10 +332,7 @@
         "name": "core-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -382,10 +351,7 @@
         "name": "peering",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -404,17 +370,14 @@
         "name": "core-network",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions",
-          "networkmanager:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "networkmanager:vpcArn",
-      "networkmanager:subnetArns"
+      "networkmanager:subnetArns",
+      "networkmanager:vpcArn"
     ],
     "dependentActions": []
   },
@@ -431,9 +394,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "deleteconnectpeer": {
     "name": "DeleteConnectPeer",
@@ -448,9 +409,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "deleteconnection": {
     "name": "DeleteConnection",
@@ -486,9 +445,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "deletecorenetworkpolicyversion": {
     "name": "DeleteCoreNetworkPolicyVersion",
@@ -590,14 +547,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete a resource",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "core-network",
@@ -751,9 +706,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "getconnectattachment": {
     "name": "GetConnectAttachment",
@@ -806,14 +759,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "global-network",
-        "required": true,
+        "name": "connection",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "connection",
-        "required": false,
+        "name": "global-network",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -902,14 +855,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "global-network",
-        "required": true,
+        "name": "device",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "device",
-        "required": false,
+        "name": "global-network",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -938,14 +891,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "global-network",
-        "required": true,
+        "name": "device",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "device",
-        "required": false,
+        "name": "global-network",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -1409,14 +1362,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to create or update a resource policy",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "core-network",
@@ -1494,14 +1445,12 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeRegions"
-    ]
+    "dependentActions": []
   },
   "startorganizationserviceaccessupdate": {
     "name": "StartOrganizationServiceAccessUpdate",
     "description": "Grants permission to start organization service access update",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -1524,7 +1473,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a Network Manager resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "attachment",
@@ -1582,16 +1531,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a Network Manager resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "attachment",
@@ -1719,9 +1668,7 @@
         "name": "attachment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1812,9 +1759,7 @@
         "name": "attachment",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeRegions"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

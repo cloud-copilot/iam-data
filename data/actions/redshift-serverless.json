@@ -1,4 +1,42 @@
 {
+  "describeonetimecredit": {
+    "name": "DescribeOneTimeCredit",
+    "description": "Grants permission to see on the Amazon Redshift Serverless console the remaining number of free trial credits and their expiration date",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listautonomicsdenylist": {
+    "name": "ListAutonomicsDenylist",
+    "description": "Grants permission to list the resources that are denylisted from global autonomics decisions for a specified workgroup",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateautonomicsdenylist": {
+    "name": "UpdateAutonomicsDenylist",
+    "description": "Grants permission to add or remove resources from the global autonomics denylist for a specified workgroup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "convertrecoverypointtosnapshot": {
     "name": "ConvertRecoveryPointToSnapshot",
     "description": "Grants permission to convert a recovery point to a snapshot",
@@ -36,9 +74,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "acm:DescribeCertificate"
-    ]
+    "dependentActions": []
   },
   "createendpointaccess": {
     "name": "CreateEndpointAccess",
@@ -64,20 +100,7 @@
         "name": "namespace",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey",
-          "kms:GenerateDataKey",
-          "kms:RetireGrant",
-          "secretsmanager:CreateSecret",
-          "secretsmanager:DeleteSecret",
-          "secretsmanager:DescribeSecret",
-          "secretsmanager:GetRandomPassword",
-          "secretsmanager:RotateSecret",
-          "secretsmanager:TagResource",
-          "secretsmanager:UpdateSecret"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -217,12 +240,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:DescribeKey",
-      "kms:RetireGrant",
-      "secretsmanager:DeleteSecret",
-      "secretsmanager:DescribeSecret"
-    ]
+    "dependentActions": []
   },
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
@@ -283,15 +301,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describeonetimecredit": {
-    "name": "DescribeOneTimeCredit",
-    "isPermissionOnly": true,
-    "description": "Grants permission to see on the Amazon Redshift Serverless console the remaining number of free trial credits and their expiration date",
-    "accessLevel": "Read",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -474,22 +483,6 @@
   "getworkgroup": {
     "name": "GetWorkgroup",
     "description": "Grants permission to get information about a specific workgroup",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "workgroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listautonomicsdenylist": {
-    "name": "ListAutonomicsDenylist",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list the resources that are denylisted from global autonomics decisions for a specified workgroup",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -701,20 +694,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:CreateGrant",
-      "kms:Decrypt",
-      "kms:DescribeKey",
-      "kms:GenerateDataKey",
-      "kms:RetireGrant",
-      "secretsmanager:CreateSecret",
-      "secretsmanager:DeleteSecret",
-      "secretsmanager:DescribeSecret",
-      "secretsmanager:GetRandomPassword",
-      "secretsmanager:RotateSecret",
-      "secretsmanager:TagResource",
-      "secretsmanager:UpdateSecret"
-    ]
+    "dependentActions": []
   },
   "restoretablefromrecoverypoint": {
     "name": "RestoreTableFromRecoveryPoint",
@@ -761,7 +741,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to assign one or more tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "namespace",
@@ -789,16 +769,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove a tag or set of tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "namespace",
@@ -830,22 +810,6 @@
     ],
     "dependentActions": []
   },
-  "updateautonomicsdenylist": {
-    "name": "UpdateAutonomicsDenylist",
-    "isPermissionOnly": true,
-    "description": "Grants permission to add or remove resources from the global autonomics denylist for a specified workgroup",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "workgroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "updatecustomdomainassociation": {
     "name": "UpdateCustomDomainAssociation",
     "description": "Grants permission to update a certificate associated with a custom domain",
@@ -859,9 +823,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "acm:DescribeCertificate"
-    ]
+    "dependentActions": []
   },
   "updateendpointaccess": {
     "name": "UpdateEndpointAccess",
@@ -891,20 +853,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:CreateGrant",
-      "kms:Decrypt",
-      "kms:DescribeKey",
-      "kms:GenerateDataKey",
-      "kms:RetireGrant",
-      "secretsmanager:CreateSecret",
-      "secretsmanager:DeleteSecret",
-      "secretsmanager:DescribeSecret",
-      "secretsmanager:GetRandomPassword",
-      "secretsmanager:RotateSecret",
-      "secretsmanager:TagResource",
-      "secretsmanager:UpdateSecret"
-    ]
+    "dependentActions": []
   },
   "updatescheduledaction": {
     "name": "UpdateScheduledAction",

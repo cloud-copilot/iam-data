@@ -1,8 +1,25 @@
 {
+  "interruptclusterazpower": {
+    "name": "InterruptClusterAzPower",
+    "description": "Grants permission to test an AZ power interruption for an ElastiCache resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "addtagstoresource": {
     "name": "AddTagsToResource",
     "description": "Grants permission to add tags to an ElastiCache resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -72,9 +89,9 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -87,9 +104,7 @@
         "name": "securitygroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:AuthorizeSecurityGroupIngress"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -106,14 +121,7 @@
         "name": "cluster",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "s3:GetObject"
-        ]
+        "dependentActions": []
       },
       {
         "name": "replicationgroup",
@@ -179,12 +187,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "user",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "replicationgroup",
         "required": false,
         "conditionKeys": [],
@@ -193,6 +195,12 @@
       {
         "name": "serverlesscache",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "user",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -214,9 +222,7 @@
           "aws:ResourceTag/${TagKey}",
           "elasticache:KmsKeyId"
         ],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -234,17 +240,12 @@
         "name": "snapshot",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticache:AddTagsToResource",
-          "s3:DeleteObject",
-          "s3:GetBucketAcl",
-          "s3:PutObject"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "elasticache:KmsKeyId"
     ],
@@ -256,46 +257,38 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "parametergroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "elasticache:AddTagsToResource",
-          "s3:GetObject"
-        ]
-      },
-      {
         "name": "cluster",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
-          "elasticache:CacheNodeType",
-          "elasticache:EngineVersion",
-          "elasticache:EngineType",
-          "elasticache:MultiAZEnabled",
           "elasticache:AuthTokenEnabled",
-          "elasticache:SnapshotRetentionLimit",
-          "elasticache:CacheParameterGroupName"
+          "elasticache:CacheNodeType",
+          "elasticache:CacheParameterGroupName",
+          "elasticache:EngineType",
+          "elasticache:EngineVersion",
+          "elasticache:MultiAZEnabled",
+          "elasticache:SnapshotRetentionLimit"
         ],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "replicationgroup",
         "required": false,
         "conditionKeys": [
-          "elasticache:CacheNodeType",
-          "elasticache:EngineVersion",
-          "elasticache:EngineType",
-          "elasticache:MultiAZEnabled",
           "elasticache:AuthTokenEnabled",
-          "elasticache:SnapshotRetentionLimit",
-          "elasticache:CacheParameterGroupName"
+          "elasticache:CacheNodeType",
+          "elasticache:CacheParameterGroupName",
+          "elasticache:EngineType",
+          "elasticache:EngineVersion",
+          "elasticache:MultiAZEnabled",
+          "elasticache:SnapshotRetentionLimit"
         ],
         "dependentActions": []
       },
@@ -332,14 +325,12 @@
         "name": "parametergroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "elasticache:CacheParameterGroupName"
     ],
@@ -354,14 +345,12 @@
         "name": "securitygroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -375,14 +364,12 @@
         "name": "subnetgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -416,20 +403,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "parametergroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs",
-          "elasticache:AddTagsToResource",
-          "s3:GetObject"
-        ]
-      },
-      {
         "name": "cluster",
         "required": false,
         "conditionKeys": [],
@@ -439,21 +412,27 @@
         "name": "globalreplicationgroup",
         "required": false,
         "conditionKeys": [
-          "elasticache:NumNodeGroups",
-          "elasticache:CacheNodeType",
-          "elasticache:ReplicasPerNodeGroup",
-          "elasticache:EngineVersion",
-          "elasticache:EngineType",
           "elasticache:AtRestEncryptionEnabled",
-          "elasticache:TransitEncryptionEnabled",
-          "elasticache:AutomaticFailoverEnabled",
-          "elasticache:MultiAZEnabled",
-          "elasticache:ClusterModeEnabled",
           "elasticache:AuthTokenEnabled",
-          "elasticache:SnapshotRetentionLimit",
+          "elasticache:AutomaticFailoverEnabled",
+          "elasticache:CacheNodeType",
+          "elasticache:CacheParameterGroupName",
+          "elasticache:ClusterModeEnabled",
+          "elasticache:EngineType",
+          "elasticache:EngineVersion",
           "elasticache:KmsKeyId",
-          "elasticache:CacheParameterGroupName"
+          "elasticache:MultiAZEnabled",
+          "elasticache:NumNodeGroups",
+          "elasticache:ReplicasPerNodeGroup",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:TransitEncryptionEnabled"
         ],
+        "dependentActions": []
+      },
+      {
+        "name": "parametergroup",
+        "required": true,
+        "conditionKeys": [],
         "dependentActions": []
       },
       {
@@ -462,21 +441,21 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys",
-          "elasticache:NumNodeGroups",
-          "elasticache:CacheNodeType",
-          "elasticache:ReplicasPerNodeGroup",
-          "elasticache:EngineVersion",
-          "elasticache:EngineType",
           "elasticache:AtRestEncryptionEnabled",
-          "elasticache:TransitEncryptionEnabled",
-          "elasticache:AutomaticFailoverEnabled",
-          "elasticache:MultiAZEnabled",
-          "elasticache:ClusterModeEnabled",
           "elasticache:AuthTokenEnabled",
-          "elasticache:SnapshotRetentionLimit",
-          "elasticache:KmsKeyId",
+          "elasticache:AutomaticFailoverEnabled",
+          "elasticache:CacheNodeType",
           "elasticache:CacheParameterGroupName",
-          "elasticache:Durability"
+          "elasticache:ClusterModeEnabled",
+          "elasticache:Durability",
+          "elasticache:EngineType",
+          "elasticache:EngineVersion",
+          "elasticache:KmsKeyId",
+          "elasticache:MultiAZEnabled",
+          "elasticache:NumNodeGroups",
+          "elasticache:ReplicasPerNodeGroup",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:TransitEncryptionEnabled"
         ],
         "dependentActions": []
       },
@@ -520,28 +499,17 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
+          "elasticache:DataStorageUnit",
           "elasticache:EngineType",
           "elasticache:EngineVersion",
-          "elasticache:SnapshotRetentionLimit",
           "elasticache:KmsKeyId",
-          "elasticache:MinimumDataStorage",
           "elasticache:MaximumDataStorage",
-          "elasticache:DataStorageUnit",
+          "elasticache:MaximumECPUPerSecond",
+          "elasticache:MinimumDataStorage",
           "elasticache:MinimumECPUPerSecond",
-          "elasticache:MaximumECPUPerSecond"
+          "elasticache:SnapshotRetentionLimit"
         ],
-        "dependentActions": [
-          "ec2:CreateTags",
-          "ec2:CreateVpcEndpoint",
-          "ec2:DeleteVpcEndpoints",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeTags",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "elasticache:AddTagsToResource",
-          "s3:GetObject"
-        ]
+        "dependentActions": []
       },
       {
         "name": "serverlesscachesnapshot",
@@ -585,9 +553,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "serverlesscachesnapshot",
@@ -611,21 +577,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "snapshot",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys",
-          "elasticache:KmsKeyId"
-        ],
-        "dependentActions": [
-          "elasticache:AddTagsToResource",
-          "s3:DeleteObject",
-          "s3:GetBucketAcl",
-          "s3:PutObject"
-        ]
-      },
-      {
         "name": "cluster",
         "required": false,
         "conditionKeys": [],
@@ -635,6 +586,16 @@
         "name": "replicationgroup",
         "required": false,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "snapshot",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "elasticache:KmsKeyId"
+        ],
         "dependentActions": []
       }
     ],
@@ -652,14 +613,12 @@
         "name": "user",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "elasticache:UserAuthenticationMode"
     ],
@@ -674,9 +633,7 @@
         "name": "user",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "usergroup",
@@ -719,13 +676,7 @@
         "name": "replicationgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -745,13 +696,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -807,13 +752,7 @@
         "name": "subnetgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -847,13 +786,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       },
       {
         "name": "snapshot",
@@ -876,9 +809,7 @@
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
-        "dependentActions": [
-          "ec2:DescribeTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "serverlesscachesnapshot",
@@ -898,13 +829,13 @@
       {
         "name": "serverlesscachesnapshot",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletesnapshot": {
@@ -1130,16 +1061,16 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "serverlesscachesnapshot",
-        "required": true,
+        "name": "serverlesscache",
+        "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       },
       {
-        "name": "serverlesscache",
-        "required": false,
+        "name": "serverlesscachesnapshot",
+        "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
         ],
@@ -1157,13 +1088,13 @@
       {
         "name": "serverlesscache",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "describeserviceupdates": {
@@ -1271,18 +1202,14 @@
       {
         "name": "serverlesscachesnapshot",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": [
-      "s3:DeleteObject",
-      "s3:ListAllMyBuckets",
-      "s3:PutObject"
-    ]
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "failoverglobalreplicationgroup": {
     "name": "FailoverGlobalReplicationGroup",
@@ -1325,36 +1252,12 @@
         "name": "replicationgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
       "elasticache:ReplicasPerNodeGroup"
-    ],
-    "dependentActions": []
-  },
-  "interruptclusterazpower": {
-    "name": "InterruptClusterAzPower",
-    "isPermissionOnly": true,
-    "description": "Grants permission to test an AZ power interruption for an ElastiCache resource",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "replicationgroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -1467,12 +1370,12 @@
         "name": "cluster",
         "required": true,
         "conditionKeys": [
+          "elasticache:AuthTokenEnabled",
           "elasticache:CacheNodeType",
+          "elasticache:CacheParameterGroupName",
           "elasticache:EngineVersion",
           "elasticache:MultiAZEnabled",
-          "elasticache:AuthTokenEnabled",
-          "elasticache:SnapshotRetentionLimit",
-          "elasticache:CacheParameterGroupName"
+          "elasticache:SnapshotRetentionLimit"
         ],
         "dependentActions": []
       },
@@ -1542,9 +1445,9 @@
       }
     ],
     "conditionKeys": [
+      "elasticache:AutomaticFailoverEnabled",
       "elasticache:CacheNodeType",
-      "elasticache:EngineVersion",
-      "elasticache:AutomaticFailoverEnabled"
+      "elasticache:EngineVersion"
     ],
     "dependentActions": []
   },
@@ -1554,32 +1457,26 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "replicationgroup",
-        "required": true,
-        "conditionKeys": [
-          "elasticache:CacheNodeType",
-          "elasticache:EngineVersion",
-          "elasticache:AutomaticFailoverEnabled",
-          "elasticache:MultiAZEnabled",
-          "elasticache:AuthTokenEnabled",
-          "elasticache:SnapshotRetentionLimit",
-          "elasticache:CacheParameterGroupName",
-          "elasticache:TransitEncryptionEnabled",
-          "elasticache:ClusterModeEnabled",
-          "elasticache:Durability"
-        ],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
-      },
-      {
         "name": "parametergroup",
         "required": false,
         "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "replicationgroup",
+        "required": true,
+        "conditionKeys": [
+          "elasticache:AuthTokenEnabled",
+          "elasticache:AutomaticFailoverEnabled",
+          "elasticache:CacheNodeType",
+          "elasticache:CacheParameterGroupName",
+          "elasticache:ClusterModeEnabled",
+          "elasticache:Durability",
+          "elasticache:EngineVersion",
+          "elasticache:MultiAZEnabled",
+          "elasticache:SnapshotRetentionLimit",
+          "elasticache:TransitEncryptionEnabled"
+        ],
         "dependentActions": []
       },
       {
@@ -1609,13 +1506,7 @@
         "name": "replicationgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1634,18 +1525,15 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "elasticache:EngineVersion",
-          "elasticache:SnapshotRetentionLimit",
-          "elasticache:MinimumDataStorage",
-          "elasticache:MaximumDataStorage",
           "elasticache:DataStorageUnit",
+          "elasticache:EngineVersion",
+          "elasticache:MaximumDataStorage",
+          "elasticache:MaximumECPUPerSecond",
+          "elasticache:MinimumDataStorage",
           "elasticache:MinimumECPUPerSecond",
-          "elasticache:MaximumECPUPerSecond"
+          "elasticache:SnapshotRetentionLimit"
         ],
-        "dependentActions": [
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "usergroup",
@@ -1709,14 +1597,12 @@
         "name": "reserved-instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticache:AddTagsToResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
     ],
     "dependentActions": []
@@ -1756,7 +1642,7 @@
   "removetagsfromresource": {
     "name": "RemoveTagsFromResource",
     "description": "Grants permission to remove tags from a ElastiCache resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "cluster",
@@ -1826,8 +1712,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -1892,13 +1778,7 @@
         "name": "replicationgroup",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcs"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

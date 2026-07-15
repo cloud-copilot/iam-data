@@ -1,7 +1,18 @@
 {
-  "studio": {
-    "key": "studio",
-    "arn": "arn:${Partition}:nimble:${Region}:${Account}:studio/${StudioId}",
+  "eula": {
+    "key": "eula",
+    "arn": "arn:${Partition}:nimble:${Region}:${Account}:eula/${EulaId}"
+  },
+  "eula-acceptance": {
+    "key": "eula-acceptance",
+    "arn": "arn:${Partition}:nimble:${Region}:${Account}:eula-acceptance/${EulaAcceptanceId}",
+    "conditionKeys": [
+      "nimble:studioId"
+    ]
+  },
+  "launch-profile": {
+    "key": "launch-profile",
+    "arn": "arn:${Partition}:nimble:${Region}:${Account}:launch-profile/${LaunchProfileId}",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -12,26 +23,6 @@
   "streaming-image": {
     "key": "streaming-image",
     "arn": "arn:${Partition}:nimble:${Region}:${Account}:streaming-image/${StreamingImageId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "nimble:studioId"
-    ]
-  },
-  "studio-component": {
-    "key": "studio-component",
-    "arn": "arn:${Partition}:nimble:${Region}:${Account}:studio-component/${StudioComponentId}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "nimble:studioId"
-    ]
-  },
-  "launch-profile": {
-    "key": "launch-profile",
-    "arn": "arn:${Partition}:nimble:${Region}:${Account}:launch-profile/${LaunchProfileId}",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -60,14 +51,23 @@
       "nimble:ownedBy"
     ]
   },
-  "eula": {
-    "key": "eula",
-    "arn": "arn:${Partition}:nimble:${Region}:${Account}:eula/${EulaId}"
-  },
-  "eula-acceptance": {
-    "key": "eula-acceptance",
-    "arn": "arn:${Partition}:nimble:${Region}:${Account}:eula-acceptance/${EulaAcceptanceId}",
+  "studio": {
+    "key": "studio",
+    "arn": "arn:${Partition}:nimble:${Region}:${Account}:studio/${StudioId}",
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "nimble:studioId"
+    ]
+  },
+  "studio-component": {
+    "key": "studio-component",
+    "arn": "arn:${Partition}:nimble:${Region}:${Account}:studio-component/${StudioComponentId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
       "nimble:studioId"
     ]
   }

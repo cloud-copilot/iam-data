@@ -1,4 +1,20 @@
 {
+  "invokehttpendpoint": {
+    "name": "InvokeHTTPEndpoint",
+    "description": "Grants permission to invoke the HTTP Task state",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "revealsecrets": {
+    "name": "RevealSecrets",
+    "description": "Grants permission to reveal sensitive data from an execution",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createactivity": {
     "name": "CreateActivity",
     "description": "Grants permission to create an activity",
@@ -26,10 +42,7 @@
         "name": "statemachine",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "states:PublishStateMachineVersion"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -249,15 +262,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "invokehttpendpoint": {
-    "name": "InvokeHTTPEndpoint",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke the HTTP Task state",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listactivities": {
     "name": "ListActivities",
     "description": "Grants permission to list the existing activities",
@@ -395,15 +399,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "revealsecrets": {
-    "name": "RevealSecrets",
-    "isPermissionOnly": true,
-    "description": "Grants permission to reveal sensitive data from an execution",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "sendtaskfailure": {
     "name": "SendTaskFailure",
     "description": "Grants permission to report that the task identified by the taskToken failed",
@@ -480,7 +475,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an AWS Step Functions resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "activity",
@@ -496,8 +491,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -507,14 +502,12 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "states:RevealSecrets"
-    ]
+    "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove a tag from an AWS Step Functions resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "activity",
@@ -558,10 +551,7 @@
         "name": "statemachine",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole",
-          "states:PublishStateMachineVersion"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [

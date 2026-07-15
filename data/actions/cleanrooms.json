@@ -1,4 +1,64 @@
 {
+  "passcollaboration": {
+    "name": "PassCollaboration",
+    "description": "Grants permission to access a collaboration in the context of Clean Rooms ML custom models",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "collaboration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "passmembership": {
+    "name": "PassMembership",
+    "description": "Grants permission to access a membership in the context of Clean Rooms ML custom models",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconfiguredtableallowedcolumns": {
+    "name": "UpdateConfiguredTableAllowedColumns",
+    "description": "Grants permission to update the allowed columns of an existing configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconfiguredtablereference": {
+    "name": "UpdateConfiguredTableReference",
+    "description": "Grants permission to update the table reference of an existing configured table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "configuredtable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchgetcollaborationanalysistemplate": {
     "name": "BatchGetCollaborationAnalysisTemplate",
     "description": "Grants permission to view details of analysisTemplates associated to the collaboration",
@@ -8,9 +68,7 @@
         "name": "analysistemplate",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cleanrooms:GetCollaborationAnalysisTemplate"
-        ]
+        "dependentActions": []
       },
       {
         "name": "collaboration",
@@ -31,9 +89,7 @@
         "name": "collaboration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cleanrooms:GetSchema"
-        ]
+        "dependentActions": []
       },
       {
         "name": "configuredtableassociation",
@@ -66,9 +122,7 @@
         "name": "collaboration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cleanrooms:GetSchema"
-        ]
+        "dependentActions": []
       },
       {
         "name": "configuredtableassociation",
@@ -129,15 +183,15 @@
       {
         "name": "collaboration",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createcollaborationchangerequest": {
@@ -148,15 +202,15 @@
       {
         "name": "collaboration",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createconfiguredaudiencemodelassociation": {
@@ -172,11 +226,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "cleanrooms-ml:GetConfiguredAudienceModel",
-          "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
-          "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -200,26 +250,16 @@
       {
         "name": "configuredtable",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": [
-      "athena:GetTableMetadata",
-      "glue:BatchGetPartition",
-      "glue:GetDatabase",
-      "glue:GetDatabases",
-      "glue:GetPartition",
-      "glue:GetPartitions",
-      "glue:GetSchemaVersion",
-      "glue:GetTable",
-      "glue:GetTables"
-    ]
+    "conditionKeys": [],
+    "dependentActions": []
   },
   "createconfiguredtableanalysisrule": {
     "name": "CreateConfiguredTableAnalysisRule",
@@ -249,9 +289,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "configuredtableassociation",
@@ -285,15 +323,15 @@
       {
         "name": "configuredtableassociation",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createidmappingtable": {
@@ -309,10 +347,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "entityresolution:AddPolicyStatement",
-          "entityresolution:GetIdMappingWorkflow"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -341,10 +376,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "entityresolution:AddPolicyStatement",
-          "entityresolution:GetIdNamespace"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -366,19 +398,13 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "intermediatetable",
-        "required": true,
-        "conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:ResourceTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "dependentActions": [
-          "cleanrooms:GetCollaborationAnalysisTemplate"
-        ]
+        "name": "analysistemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
       },
       {
-        "name": "membership",
+        "name": "intermediatetable",
         "required": true,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -388,9 +414,13 @@
         "dependentActions": []
       },
       {
-        "name": "analysistemplate",
-        "required": false,
-        "conditionKeys": [],
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
@@ -425,19 +455,7 @@
           "aws:ResourceTag/${TagKey}",
           "aws:TagKeys"
         ],
-        "dependentActions": [
-          "iam:PassRole",
-          "logs:CreateLogDelivery",
-          "logs:CreateLogGroup",
-          "logs:DeleteLogDelivery",
-          "logs:DescribeLogGroups",
-          "logs:DescribeResourcePolicies",
-          "logs:GetLogDelivery",
-          "logs:ListLogDeliveries",
-          "logs:PutResourcePolicy",
-          "logs:UpdateLogDelivery",
-          "s3:GetBucketLocation"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -510,11 +528,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
-      "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
-      "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
-    ]
+    "dependentActions": []
   },
   "deleteconfiguredaudiencemodelassociation": {
     "name": "DeleteConfiguredAudienceModelAssociation",
@@ -529,11 +543,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
-      "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
-      "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
-    ]
+    "dependentActions": []
   },
   "deleteconfiguredtable": {
     "name": "DeleteConfiguredTable",
@@ -604,9 +614,7 @@
         "name": "idmappingtable",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "entityresolution:DeletePolicyStatement"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -627,9 +635,7 @@
         "name": "idnamespaceassociation",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "entityresolution:DeletePolicyStatement"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -690,11 +696,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
-      "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
-      "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
-    ]
+    "dependentActions": []
   },
   "deletemembership": {
     "name": "DeleteMembership",
@@ -975,9 +977,7 @@
         "name": "idnamespaceassociation",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "entityresolution:GetIdNamespace"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -1115,9 +1115,7 @@
         "name": "collaboration",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cleanrooms:GetSchema"
-        ]
+        "dependentActions": []
       },
       {
         "name": "configuredtableassociation",
@@ -1543,38 +1541,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "passcollaboration": {
-    "name": "PassCollaboration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to access a collaboration in the context of Clean Rooms ML custom models",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "collaboration",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "passmembership": {
-    "name": "PassMembership",
-    "isPermissionOnly": true,
-    "description": "Grants permission to access a membership in the context of Clean Rooms ML custom models",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "membership",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "populateidmappingtable": {
     "name": "PopulateIdMappingTable",
     "description": "Grants permission to start an Id Mapping Job in AWS Entity Resolution to generate id mapping results in cleanrooms collaboration.",
@@ -1584,9 +1550,7 @@
         "name": "idmappingtable",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "entityresolution:GetIdMappingWorkflow"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -1604,20 +1568,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "intermediatetable",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "cleanrooms:GetSchema"
-        ]
-      },
-      {
-        "name": "membership",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "configuredtableassociation",
         "required": false,
         "conditionKeys": [],
@@ -1626,6 +1576,18 @@
       {
         "name": "idmappingtable",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "intermediatetable",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1654,15 +1616,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "membership",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "cleanrooms:GetCollaborationAnalysisTemplate",
-          "cleanrooms:GetSchema"
-        ]
-      },
-      {
         "name": "analysistemplate",
         "required": false,
         "conditionKeys": [],
@@ -1679,6 +1632,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -1689,18 +1648,6 @@
     "description": "Grants permission to start protected queries",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "membership",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "cleanrooms:GetCollaborationAnalysisTemplate",
-          "cleanrooms:GetSchema",
-          "s3:GetBucketLocation",
-          "s3:ListBucket",
-          "s3:PutObject"
-        ]
-      },
       {
         "name": "analysistemplate",
         "required": false,
@@ -1724,6 +1671,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "membership",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -1732,7 +1685,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "analysistemplate",
@@ -1796,15 +1749,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "analysistemplate",
@@ -1945,34 +1898,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "athena:GetTableMetadata",
-      "cleanrooms:UpdateConfiguredTableAllowedColumns",
-      "cleanrooms:UpdateConfiguredTableReference",
-      "glue:BatchGetPartition",
-      "glue:GetDatabase",
-      "glue:GetDatabases",
-      "glue:GetPartition",
-      "glue:GetPartitions",
-      "glue:GetSchemaVersion",
-      "glue:GetTable",
-      "glue:GetTables"
-    ]
-  },
-  "updateconfiguredtableallowedcolumns": {
-    "name": "UpdateConfiguredTableAllowedColumns",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the allowed columns of an existing configured table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "configuredtable",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "updateconfiguredtableanalysisrule": {
@@ -2003,9 +1928,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updateconfiguredtableassociationanalysisrule": {
     "name": "UpdateConfiguredTableAssociationAnalysisRule",
@@ -2014,22 +1937,6 @@
     "resourceTypes": [
       {
         "name": "configuredtableassociation",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updateconfiguredtablereference": {
-    "name": "UpdateConfiguredTableReference",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the table reference of an existing configured table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "configuredtable",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2068,9 +1975,7 @@
         "name": "idnamespaceassociation",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "entityresolution:GetIdNamespace"
-        ]
+        "dependentActions": []
       },
       {
         "name": "membership",
@@ -2131,19 +2036,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "logs:CreateLogDelivery",
-      "logs:CreateLogGroup",
-      "logs:DeleteLogDelivery",
-      "logs:DescribeLogGroups",
-      "logs:DescribeResourcePolicies",
-      "logs:GetLogDelivery",
-      "logs:ListLogDeliveries",
-      "logs:PutResourcePolicy",
-      "logs:UpdateLogDelivery",
-      "s3:GetBucketLocation"
-    ]
+    "dependentActions": []
   },
   "updateprivacybudgettemplate": {
     "name": "UpdatePrivacyBudgetTemplate",

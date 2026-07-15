@@ -1,28 +1,39 @@
 {
-  "associatewebacl": {
-    "name": "AssociateWebACL",
-    "description": "Grants permission to associate a WebACL with a resource",
+  "disassociatefirewallmanager": {
+    "name": "DisassociateFirewallManager",
+    "description": "Grants permission to disassociate Firewall Manager from a WebACL",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "webacl",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "amplify:AssociateWebACL",
-          "apigateway:SetWebACL",
-          "apprunner:AssociateWebAcl",
-          "appsync:AssociateWebACL",
-          "appsync:SetWebACL",
-          "bedrock-agentcore:GatewayAssociateWebACL",
-          "cognito-idp:AssociateWebACL",
-          "ec2:AssociateVerifiedAccessInstanceWebAcl",
-          "elasticloadbalancing:CreateWebACLAssociation",
-          "elasticloadbalancing:SetWebAcl",
-          "wafv2:GetPermissionPolicy",
-          "wafv2:PutPermissionPolicy"
-        ]
-      },
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putfirewallmanagerrulegroups": {
+    "name": "PutFirewallManagerRuleGroups",
+    "description": "Grants permission to create FirewallManagedRulesGroups in a WebACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "webacl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatewebacl": {
+    "name": "AssociateWebACL",
+    "description": "Grants permission to associate a WebACL with a resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
       {
         "name": "agentcore-gateway",
         "required": false,
@@ -70,6 +81,12 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "webacl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [],
@@ -100,9 +117,7 @@
         "name": "ipset",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "wafv2:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -120,9 +135,7 @@
         "name": "regexpatternset",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "wafv2:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -137,14 +150,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "rulegroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "wafv2:TagResource"
-        ]
-      },
-      {
         "name": "ipset",
         "required": false,
         "conditionKeys": [],
@@ -153,6 +158,12 @@
       {
         "name": "regexpatternset",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rulegroup",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -168,14 +179,6 @@
     "description": "Grants permission to create a WebACL",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "webacl",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "wafv2:TagResource"
-        ]
-      },
       {
         "name": "ipset",
         "required": false,
@@ -197,6 +200,12 @@
       {
         "name": "rulegroup",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webacl",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -265,7 +274,7 @@
   "deletepermissionpolicy": {
     "name": "DeletePermissionPolicy",
     "description": "Grants permission to delete the PermissionPolicy on a RuleGroup",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "rulegroup",
@@ -346,22 +355,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "disassociatefirewallmanager": {
-    "name": "DisassociateFirewallManager",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disassociate Firewall Manager from a WebACL",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "webacl",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "disassociatewebacl": {
     "name": "DisassociateWebACL",
     "description": "Grants permission to disassociate a WebACL from an application resource",
@@ -371,19 +364,7 @@
         "name": "agentcore-gateway",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "amplify:DisassociateWebACL",
-          "apigateway:SetWebACL",
-          "apprunner:DisassociateWebAcl",
-          "appsync:DisassociateWebACL",
-          "appsync:SetWebACL",
-          "bedrock-agentcore:GatewayDisassociateWebACL",
-          "cognito-idp:DisassociateWebACL",
-          "ec2:DisassociateVerifiedAccessInstanceWebAcl",
-          "elasticloadbalancing:DeleteWebACLAssociation",
-          "elasticloadbalancing:SetWebAcl",
-          "wafv2:PutPermissionPolicy"
-        ]
+        "dependentActions": []
       },
       {
         "name": "amplify-app",
@@ -648,21 +629,6 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "webacl",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "amplify:GetWebACLForResource",
-          "apprunner:DescribeWebAclForService",
-          "appsync:GetWebACLForResource",
-          "bedrock-agentcore:GatewayGetWebACLForResource",
-          "cognito-idp:GetWebACLForResource",
-          "ec2:GetVerifiedAccessInstanceWebAcl",
-          "elasticloadbalancing:GetLoadBalancerWebACL",
-          "wafv2:GetWebACL"
-        ]
-      },
-      {
         "name": "agentcore-gateway",
         "required": false,
         "conditionKeys": [],
@@ -707,6 +673,12 @@
       {
         "name": "verified-access-instance",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webacl",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -786,20 +758,6 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "webacl",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "amplify:ListResourcesForWebACL",
-          "apprunner:ListAssociatedServicesForWebAcl",
-          "appsync:ListResourcesForWebACL",
-          "bedrock-agentcore:GatewayListResourcesForWebACL",
-          "cognito-idp:ListResourcesForWebACL",
-          "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
-          "elasticloadbalancing:DescribeWebACLAssociation"
-        ]
-      },
-      {
         "name": "agentcore-gateway",
         "required": false,
         "conditionKeys": [],
@@ -826,6 +784,12 @@
       {
         "name": "verified-access-instance",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webacl",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -892,22 +856,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putfirewallmanagerrulegroups": {
-    "name": "PutFirewallManagerRuleGroups",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create FirewallManagedRulesGroups in a WebACL",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "webacl",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "putloggingconfiguration": {
     "name": "PutLoggingConfiguration",
     "description": "Grants permission to enable a LoggingConfiguration, to start logging for a web ACL",
@@ -917,14 +865,12 @@
         "name": "webacl",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "wafv2:LogScope",
-      "wafv2:LogDestinationResource"
+      "wafv2:LogDestinationResource",
+      "wafv2:LogScope"
     ],
     "dependentActions": []
   },
@@ -952,7 +898,7 @@
   "putpermissionpolicy": {
     "name": "PutPermissionPolicy",
     "description": "Grants permission to attach an IAM policy to a resource, used to share rule groups between accounts",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "rulegroup",
@@ -967,7 +913,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to associate tags with a AWS resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ipset",
@@ -995,16 +941,16 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to disassociate tags from an AWS resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ipset",
@@ -1091,12 +1037,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "rulegroup",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "ipset",
         "required": false,
         "conditionKeys": [],
@@ -1105,6 +1045,12 @@
       {
         "name": "regexpatternset",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "rulegroup",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1119,12 +1065,6 @@
     "description": "Grants permission to update a WebACL",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "webacl",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
       {
         "name": "ipset",
         "required": false,
@@ -1146,6 +1086,12 @@
       {
         "name": "rulegroup",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webacl",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

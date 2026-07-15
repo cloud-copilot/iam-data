@@ -6,12 +6,9 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "repository": {
-    "key": "repository",
-    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:repository/${DomainName}/${RepositoryName}",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ]
+  "package": {
+    "key": "package",
+    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:package/${DomainName}/${RepositoryName}/${PackageFormat}/${PackageNamespace}/${PackageName}"
   },
   "package-group": {
     "key": "package-group",
@@ -20,8 +17,11 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "package": {
-    "key": "package",
-    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:package/${DomainName}/${RepositoryName}/${PackageFormat}/${PackageNamespace}/${PackageName}"
+  "repository": {
+    "key": "repository",
+    "arn": "arn:${Partition}:codeartifact:${Region}:${Account}:repository/${DomainName}/${RepositoryName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

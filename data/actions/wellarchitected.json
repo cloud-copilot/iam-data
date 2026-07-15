@@ -1,4 +1,12 @@
 {
+  "configureintegration": {
+    "name": "ConfigureIntegration",
+    "description": "Grants permission to configure the integration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associatelenses": {
     "name": "AssociateLenses",
     "description": "Grants permission to associate a lens to the specified workload",
@@ -33,13 +41,49 @@
     ],
     "dependentActions": []
   },
-  "configureintegration": {
-    "name": "ConfigureIntegration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to configure the integration",
+  "createagentcontext": {
+    "name": "CreateAgentContext",
+    "description": "Grants permission to create a context associated with a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createagentgoal": {
+    "name": "CreateAgentGoal",
+    "description": "Grants permission to create a goal associated with a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "createagentprofile": {
+    "name": "CreateAgentProfile",
+    "description": "Grants permission to create an agent profile",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createlensshare": {
@@ -168,6 +212,57 @@
     "resourceTypes": [
       {
         "name": "workload",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteagentcontext": {
+    "name": "DeleteAgentContext",
+    "description": "Grants permission to delete a context associated with a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteagentgoal": {
+    "name": "DeleteAgentGoal",
+    "description": "Grants permission to delete a goal associated with a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "deleteagentprofile": {
+    "name": "DeleteAgentProfile",
+    "description": "Grants permission to delete an agent profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -355,6 +450,91 @@
     "resourceTypes": [
       {
         "name": "lens",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getagentcontext": {
+    "name": "GetAgentContext",
+    "description": "Grants permission to get context associated with a profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getagentgoal": {
+    "name": "GetAgentGoal",
+    "description": "Grants permission to get goal associated with a profile",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getagentprofile": {
+    "name": "GetAgentProfile",
+    "description": "Grants permission to get agent profile by profile arn",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getagentrecommendation": {
+    "name": "GetAgentRecommendation",
+    "description": "Grants permission to get a recommendation by recommendation ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-recommendation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getagentrecommendationgeneration": {
+    "name": "GetAgentRecommendationGeneration",
+    "description": "Grants permission to get a recommendation generation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -587,6 +767,99 @@
     ],
     "dependentActions": []
   },
+  "listagentcontexts": {
+    "name": "ListAgentContexts",
+    "description": "Grants permission to list contexts associated with a profile by filters on the fields",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listagentgoals": {
+    "name": "ListAgentGoals",
+    "description": "Grants permission to list goals associated with a profile by filters on the fields",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listagentprofiles": {
+    "name": "ListAgentProfiles",
+    "description": "Grants permission to list agent profiles",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listagentrecommendationgenerations": {
+    "name": "ListAgentRecommendationGenerations",
+    "description": "Grants permission to list recommendation generations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listagentrecommendationitems": {
+    "name": "ListAgentRecommendationItems",
+    "description": "Grants permission to list recommendation items associated with a recommendation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-recommendation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "listagentrecommendations": {
+    "name": "ListAgentRecommendations",
+    "description": "Grants permission to list recommendations by profile ARN",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "listanswers": {
     "name": "ListAnswers",
     "description": "Grants permission to list the answers from the specified lens review",
@@ -794,6 +1067,18 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "agent-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "agent-recommendation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "lens",
         "required": false,
         "conditionKeys": [],
@@ -865,11 +1150,57 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putagentrecommendationfeedback": {
+    "name": "PutAgentRecommendationFeedback",
+    "description": "Grants permission to put feedback on a recommendation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-recommendation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "startagentrecommendationgeneration": {
+    "name": "StartAgentRecommendationGeneration",
+    "description": "Grants permission to start a recommendation generation process",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a Well-Architected resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "agent-recommendation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "lens",
         "required": false,
@@ -896,16 +1227,28 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a Well-Architected resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "agent-recommendation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "lens",
         "required": false,
@@ -933,6 +1276,74 @@
     ],
     "conditionKeys": [
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "updateagentcontext": {
+    "name": "UpdateAgentContext",
+    "description": "Grants permission to update a context associated with a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateagentgoal": {
+    "name": "UpdateAgentGoal",
+    "description": "Grants permission to update a goal associated with a profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateagentprofile": {
+    "name": "UpdateAgentProfile",
+    "description": "Grants permission to update an agent profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-profile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateagentrecommendationstatus": {
+    "name": "UpdateAgentRecommendationStatus",
+    "description": "Grants permission to update the status of a recommendation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "agent-recommendation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ],
     "dependentActions": []
   },

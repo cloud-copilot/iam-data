@@ -1,7 +1,6 @@
 {
   "activateec2remote": {
     "name": "ActivateEC2Remote",
-    "isPermissionOnly": true,
     "description": "Grants permission to start the Amazon EC2 instance that your AWS Cloud9 IDE connects to",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -15,25 +14,218 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createenvironmentssh": {
+    "name": "CreateEnvironmentSSH",
+    "description": "Grants permission to create an AWS Cloud9 SSH development environment",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "cloud9:EnvironmentName",
+      "cloud9:OwnerArn"
+    ],
+    "dependentActions": []
+  },
+  "createenvironmenttoken": {
+    "name": "CreateEnvironmentToken",
+    "description": "Grants permission to create an authentication token that allows a connection between the AWS Cloud9 IDE and the user's environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeec2remote": {
+    "name": "DescribeEC2Remote",
+    "description": "Grants permission to get details about the connection to the EC2 development environment, including host, user, and port",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesshremote": {
+    "name": "DescribeSSHRemote",
+    "description": "Grants permission to get details about the connection to the SSH development environment, including host, user, and port",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironmentconfig": {
+    "name": "GetEnvironmentConfig",
+    "description": "Grants permission to get configuration information that's used to initialize the AWS Cloud9 IDE",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getenvironmentsettings": {
+    "name": "GetEnvironmentSettings",
+    "description": "Grants permission to get the AWS Cloud9 IDE settings for a specified development environment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmembershipsettings": {
+    "name": "GetMembershipSettings",
+    "description": "Grants permission to get the AWS Cloud9 IDE settings for a specified environment member",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getmigrationexperiences": {
+    "name": "GetMigrationExperiences",
+    "description": "Grants permission to get the migration experience for a cloud9 user",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getuserpublickey": {
+    "name": "GetUserPublicKey",
+    "description": "Grants permission to get the user's public SSH key, which is used by AWS Cloud9 to connect to SSH development environments",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "cloud9:UserArn"
+    ],
+    "dependentActions": []
+  },
+  "getusersettings": {
+    "name": "GetUserSettings",
+    "description": "Grants permission to get the AWS Cloud9 IDE settings for a specified user",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "modifytemporarycredentialsonenvironmentec2": {
+    "name": "ModifyTemporaryCredentialsOnEnvironmentEC2",
+    "description": "Grants permission to set AWS managed temporary credentials on the Amazon EC2 instance that's used by the AWS Cloud9 integrated development environment (IDE)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateenvironmentsettings": {
+    "name": "UpdateEnvironmentSettings",
+    "description": "Grants permission to update the AWS Cloud9 IDE settings for a specified development environment",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatemembershipsettings": {
+    "name": "UpdateMembershipSettings",
+    "description": "Grants permission to update the AWS Cloud9 IDE settings for a specified environment member",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatesshremote": {
+    "name": "UpdateSSHRemote",
+    "description": "Grants permission to update details about the connection to the SSH development environment, including host, user, and port",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateusersettings": {
+    "name": "UpdateUserSettings",
+    "description": "Grants permission to update IDE-specific settings of an AWS Cloud9 user",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createenvironmentec2": {
     "name": "CreateEnvironmentEC2",
     "description": "Grants permission to create an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the instance",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "cloud9:EnvironmentName",
       "cloud9:InstanceType",
-      "cloud9:SubnetId",
-      "cloud9:UserArn",
       "cloud9:OwnerArn",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "cloud9:SubnetId",
+      "cloud9:UserArn"
     ],
-    "dependentActions": [
-      "ec2:DescribeSubnets",
-      "ec2:DescribeVpcs",
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createenvironmentmembership": {
     "name": "CreateEnvironmentMembership",
@@ -48,40 +240,10 @@
       }
     ],
     "conditionKeys": [
-      "cloud9:UserArn",
       "cloud9:EnvironmentId",
-      "cloud9:Permissions"
+      "cloud9:Permissions",
+      "cloud9:UserArn"
     ],
-    "dependentActions": []
-  },
-  "createenvironmentssh": {
-    "name": "CreateEnvironmentSSH",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an AWS Cloud9 SSH development environment",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "cloud9:EnvironmentName",
-      "cloud9:OwnerArn",
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
-  "createenvironmenttoken": {
-    "name": "CreateEnvironmentToken",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create an authentication token that allows a connection between the AWS Cloud9 IDE and the user's environment",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteenvironment": {
@@ -97,9 +259,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "deleteenvironmentmembership": {
     "name": "DeleteEnvironmentMembership",
@@ -114,25 +274,9 @@
       }
     ],
     "conditionKeys": [
-      "cloud9:UserArn",
-      "cloud9:EnvironmentId"
+      "cloud9:EnvironmentId",
+      "cloud9:UserArn"
     ],
-    "dependentActions": []
-  },
-  "describeec2remote": {
-    "name": "DescribeEC2Remote",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get details about the connection to the EC2 development environment, including host, user, and port",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "describeenvironmentmemberships": {
@@ -148,8 +292,8 @@
       }
     ],
     "conditionKeys": [
-      "cloud9:UserArn",
-      "cloud9:EnvironmentId"
+      "cloud9:EnvironmentId",
+      "cloud9:UserArn"
     ],
     "dependentActions": []
   },
@@ -183,99 +327,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describesshremote": {
-    "name": "DescribeSSHRemote",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get details about the connection to the SSH development environment, including host, user, and port",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getenvironmentconfig": {
-    "name": "GetEnvironmentConfig",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get configuration information that's used to initialize the AWS Cloud9 IDE",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getenvironmentsettings": {
-    "name": "GetEnvironmentSettings",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the AWS Cloud9 IDE settings for a specified development environment",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getmembershipsettings": {
-    "name": "GetMembershipSettings",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the AWS Cloud9 IDE settings for a specified environment member",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getmigrationexperiences": {
-    "name": "GetMigrationExperiences",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the migration experience for a cloud9 user",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getuserpublickey": {
-    "name": "GetUserPublicKey",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the user's public SSH key, which is used by AWS Cloud9 to connect to SSH development environments",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "cloud9:UserArn"
-    ],
-    "dependentActions": []
-  },
-  "getusersettings": {
-    "name": "GetUserSettings",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the AWS Cloud9 IDE settings for a specified user",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listenvironments": {
     "name": "ListEnvironments",
     "description": "Grants permission to get a list of AWS Cloud9 development environment identifiers",
@@ -299,26 +350,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "modifytemporarycredentialsonenvironmentec2": {
-    "name": "ModifyTemporaryCredentialsOnEnvironmentEC2",
-    "isPermissionOnly": true,
-    "description": "Grants permission to set AWS managed temporary credentials on the Amazon EC2 instance that's used by the AWS Cloud9 integrated development environment (IDE)",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a cloud9 environment",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "environment",
@@ -336,7 +371,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a cloud9 environment",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "environment",
@@ -378,67 +413,10 @@
       }
     ],
     "conditionKeys": [
-      "cloud9:UserArn",
       "cloud9:EnvironmentId",
-      "cloud9:Permissions"
+      "cloud9:Permissions",
+      "cloud9:UserArn"
     ],
-    "dependentActions": []
-  },
-  "updateenvironmentsettings": {
-    "name": "UpdateEnvironmentSettings",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the AWS Cloud9 IDE settings for a specified development environment",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatemembershipsettings": {
-    "name": "UpdateMembershipSettings",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the AWS Cloud9 IDE settings for a specified environment member",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatesshremote": {
-    "name": "UpdateSSHRemote",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update details about the connection to the SSH development environment, including host, user, and port",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "environment",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updateusersettings": {
-    "name": "UpdateUserSettings",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update IDE-specific settings of an AWS Cloud9 user",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   }
 }

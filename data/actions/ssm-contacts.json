@@ -1,4 +1,19 @@
 {
+  "associatecontact": {
+    "name": "AssociateContact",
+    "description": "Grants permission to use a contact in an escalation plan",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "contact",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "acceptpage": {
     "name": "AcceptPage",
     "description": "Grants permission to accept a page",
@@ -29,22 +44,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "associatecontact": {
-    "name": "AssociateContact",
-    "isPermissionOnly": true,
-    "description": "Grants permission to use a contact in an escalation plan",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "contact",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createcontact": {
     "name": "CreateContact",
     "description": "Grants permission to create a contact",
@@ -54,14 +53,12 @@
         "name": "contact",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ssm-contacts:AssociateContact"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -93,8 +90,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -514,7 +511,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "contact",
@@ -530,15 +527,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "contact",
@@ -571,9 +568,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ssm-contacts:AssociateContact"
-    ]
+    "dependentActions": []
   },
   "updatecontactchannel": {
     "name": "UpdateContactChannel",

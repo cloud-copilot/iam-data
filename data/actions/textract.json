@@ -5,9 +5,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "analyzeexpense": {
     "name": "AnalyzeExpense",
@@ -15,9 +13,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "analyzeid": {
     "name": "AnalyzeID",
@@ -25,9 +21,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createadapter": {
     "name": "CreateAdapter",
@@ -94,9 +88,7 @@
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "getadapter": {
     "name": "GetAdapter",
@@ -211,9 +203,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "startdocumenttextdetection": {
     "name": "StartDocumentTextDetection",
@@ -221,9 +211,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "startexpenseanalysis": {
     "name": "StartExpenseAnalysis",
@@ -231,9 +219,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "startlendinganalysis": {
     "name": "StartLendingAnalysis",
@@ -241,14 +227,12 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add one or more tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "adapter",
@@ -264,15 +248,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove one or more tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "adapter",

@@ -1,7 +1,6 @@
 {
   "backup": {
     "name": "Backup",
-    "isPermissionOnly": true,
     "description": "Grants permission to start a backup job for an existing file system",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -17,7 +16,6 @@
   },
   "clientmount": {
     "name": "ClientMount",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow an NFS client read-access to a file system",
     "accessLevel": "Read",
     "resourceTypes": [
@@ -36,7 +34,6 @@
   },
   "clientrootaccess": {
     "name": "ClientRootAccess",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow an NFS client root-access to a file system",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -55,7 +52,6 @@
   },
   "clientwrite": {
     "name": "ClientWrite",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow an NFS client write-access to a file system",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -72,6 +68,51 @@
     ],
     "dependentActions": []
   },
+  "replicationread": {
+    "name": "ReplicationRead",
+    "description": "Grants permission to read file system data for replication",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "replicationwrite": {
+    "name": "ReplicationWrite",
+    "description": "Grants permission to replicate data to a file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "restore": {
+    "name": "Restore",
+    "description": "Grants permission to start a restore job for a backup of a file system",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "file-system",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createaccesspoint": {
     "name": "CreateAccessPoint",
     "description": "Grants permission to create an access point for the specified file system",
@@ -81,14 +122,12 @@
         "name": "file-system",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "elasticfilesystem:TagResource"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -102,9 +141,7 @@
       "aws:TagKeys",
       "elasticfilesystem:Encrypted"
     ],
-    "dependentActions": [
-      "elasticfilesystem:TagResource"
-    ]
+    "dependentActions": []
   },
   "createmounttarget": {
     "name": "CreateMountTarget",
@@ -139,7 +176,7 @@
   "createtags": {
     "name": "CreateTags",
     "description": "Grants permission to create or overwrite tags associated with a file system; deprecated, see TagResource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "file-system",
@@ -187,7 +224,7 @@
   "deletefilesystempolicy": {
     "name": "DeleteFileSystemPolicy",
     "description": "Grants permission to delete the resource-level policy for a file system",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "file-system",
@@ -232,7 +269,7 @@
   "deletetags": {
     "name": "DeleteTags",
     "description": "Grants permission to delete the specified tags from a file system; deprecated, see UntagResource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "file-system",
@@ -356,14 +393,14 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
-        "name": "file-system",
-        "required": true,
+        "name": "access-point",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "access-point",
-        "required": false,
+        "name": "file-system",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -463,7 +500,7 @@
   "putfilesystempolicy": {
     "name": "PutFileSystemPolicy",
     "description": "Grants permission to apply a resource-level policy that defines the actions allowed or denied from given actors for the specified file system",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "file-system",
@@ -490,58 +527,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "replicationread": {
-    "name": "ReplicationRead",
-    "isPermissionOnly": true,
-    "description": "Grants permission to read file system data for replication",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "file-system",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "replicationwrite": {
-    "name": "ReplicationWrite",
-    "isPermissionOnly": true,
-    "description": "Grants permission to replicate data to a file system",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "file-system",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "restore": {
-    "name": "Restore",
-    "isPermissionOnly": true,
-    "description": "Grants permission to start a restore job for a backup of a file system",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "file-system",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to create or overwrite tags associated with the specified Amazon EFS resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-point",
@@ -566,7 +555,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to delete the specified tags from an Amazon EFS resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-point",

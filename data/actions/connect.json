@@ -1,4 +1,134 @@
 {
+  "associatecustomerprofilesdomain": {
+    "name": "AssociateCustomerProfilesDomain",
+    "description": "Grants permission to associate a Customer Profiles domain for an existing Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeforecastingplanningschedulingintegration": {
+    "name": "DescribeForecastingPlanningSchedulingIntegration",
+    "description": "Grants permission to describe the status of forecasting, planning, and scheduling integration on an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "disassociatecustomerprofilesdomain": {
+    "name": "DisassociateCustomerProfilesDomain",
+    "description": "Grants permission to disassociate a Customer Profiles domain for an existing Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendintegrationevent": {
+    "name": "SendIntegrationEvent",
+    "description": "Grants permission to send integration events using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendoutboundchatmessage": {
+    "name": "SendOutboundChatMessage",
+    "description": "Grants permission to send outbound chat messages using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "phone-number",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:Subtype"
+    ],
+    "dependentActions": []
+  },
+  "sendoutboundwebnotification": {
+    "name": "SendOutboundWebNotification",
+    "description": "Grants permission to send outbound web notifications using the Amazon Connect API",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "startforecastingplanningschedulingintegration": {
+    "name": "StartForecastingPlanningSchedulingIntegration",
+    "description": "Grants permission to enable forecasting, planning, and scheduling integration on an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "stopforecastingplanningschedulingintegration": {
+    "name": "StopForecastingPlanningSchedulingIntegration",
+    "description": "Grants permission to disable forecasting, planning, and scheduling integration on an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "activateevaluationform": {
     "name": "ActivateEvaluationForm",
     "description": "Grants permission to activate an evaluation form in the specified Amazon Connect instance. After the evaluation form is activated, it is available to start new evaluations based on the form",
@@ -29,11 +159,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "connect:DescribeInstance",
-      "connect:ListInstances",
-      "ds:DescribeDirectories"
-    ]
+    "dependentActions": []
   },
   "associateanalyticsdataset": {
     "name": "AssociateAnalyticsDataSet",
@@ -78,15 +204,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "lex:CreateResourcePolicy",
-          "lex:DescribeBotAlias",
-          "lex:GetBot",
-          "lex:UpdateResourcePolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -119,32 +237,11 @@
       }
     ],
     "conditionKeys": [
-      "connect:PreferredUserArn",
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:PreferredUserArn"
     ],
     "dependentActions": []
-  },
-  "associatecustomerprofilesdomain": {
-    "name": "AssociateCustomerProfilesDomain",
-    "isPermissionOnly": true,
-    "description": "Grants permission to associate a Customer Profiles domain for an existing Amazon Connect instance",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:AttachRolePolicy",
-      "iam:CreateServiceLinkedRole",
-      "iam:PutRolePolicy",
-      "profile:GetDomain"
-    ]
   },
   "associatedefaultvocabulary": {
     "name": "AssociateDefaultVocabulary",
@@ -214,23 +311,12 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ds:DescribeDirectories",
-          "firehose:DescribeDeliveryStream",
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "kinesis:DescribeStream",
-          "kms:CreateGrant",
-          "kms:DescribeKey",
-          "s3:GetBucketAcl",
-          "s3:GetBucketLocation"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "connect:StorageResourceType",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:StorageResourceType"
     ],
     "dependentActions": []
   },
@@ -243,9 +329,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "lambda:AddPermission"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -262,12 +346,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "lex:GetBot"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -388,6 +467,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "ai-agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "instance",
         "required": true,
         "conditionKeys": [],
@@ -396,12 +481,6 @@
       {
         "name": "security-profile",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "ai-agent",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -421,10 +500,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeUser",
-          "connect:SearchUsers"
-        ]
+        "dependentActions": []
       },
       {
         "name": "traffic-distribution-group",
@@ -440,8 +516,8 @@
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
       "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId",
       "connect:SearchTag/${TagKey}"
     ],
     "dependentActions": []
@@ -475,12 +551,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "workspace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "routing-profile",
         "required": false,
         "conditionKeys": [],
@@ -489,6 +559,12 @@
       {
         "name": "user",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -530,8 +606,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
       "connect:ExpressionValue",
+      "connect:InstanceId",
       "connect:PrimaryAttribute/${PrimaryAttribute}"
     ],
     "dependentActions": []
@@ -604,8 +680,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId"
     ],
@@ -666,8 +742,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
       "connect:ExpressionValue",
+      "connect:InstanceId",
       "connect:PrimaryAttribute/${PrimaryAttribute}"
     ],
     "dependentActions": []
@@ -716,8 +792,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId"
     ],
@@ -755,8 +831,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId"
     ],
@@ -785,14 +861,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "instance",
-        "required": true,
+        "name": "contact",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "contact",
-        "required": false,
+        "name": "instance",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -805,8 +881,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactInitiationMethod"
+      "connect:ContactInitiationMethod",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -825,8 +901,8 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -899,8 +975,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1027,19 +1103,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ds:AuthorizeApplication",
-      "ds:CheckAlias",
-      "ds:CreateAlias",
-      "ds:CreateDirectory",
-      "ds:CreateIdentityPoolDirectory",
-      "ds:DeleteDirectory",
-      "ds:DescribeDirectories",
-      "ds:UnauthorizeApplication",
-      "iam:AttachRolePolicy",
-      "iam:CreateServiceLinkedRole",
-      "iam:PutRolePolicy"
-    ]
+    "dependentActions": []
   },
   "createintegrationassociation": {
     "name": "CreateIntegrationAssociation",
@@ -1050,31 +1114,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "app-integrations:CreateApplicationAssociation",
-          "app-integrations:CreateEventIntegrationAssociation",
-          "app-integrations:GetApplication",
-          "app-integrations:GetDataIntegration",
-          "app-integrations:ListDataIntegrationAssociations",
-          "app-integrations:TagResource",
-          "cases:GetDomain",
-          "chime:AssociateVoiceConnectorConnect",
-          "chime:DisassociateVoiceConnectorConnect",
-          "chime:TagResource",
-          "chime:UntagResource",
-          "connect:DescribeInstance",
-          "ds:DescribeDirectories",
-          "events:PutRule",
-          "events:PutTargets",
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "mobiletargeting:GetApp",
-          "voiceid:DescribeDomain",
-          "wisdom:GetAssistant",
-          "wisdom:GetKnowledgeBase",
-          "wisdom:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "integration-association",
@@ -1084,9 +1124,9 @@
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1189,11 +1229,7 @@
         "name": "prompt",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:Decrypt",
-          "s3:GetObject",
-          "s3:GetObjectAcl"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -1226,26 +1262,26 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "hours-of-operation",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "queue",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "contact-flow",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
+        "name": "hours-of-operation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "phone-number",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "queue",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -1269,12 +1305,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "quick-connect",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "contact-flow",
         "required": false,
         "conditionKeys": [],
@@ -1283,6 +1313,12 @@
       {
         "name": "queue",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quick-connect",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -1410,10 +1446,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeInstance",
-          "ds:DescribeDirectories"
-        ]
+        "dependentActions": []
       },
       {
         "name": "integration-association",
@@ -1429,9 +1462,9 @@
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1440,6 +1473,12 @@
     "description": "Grants permission to create a user for the specified Amazon Connect instance",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "hierarchy-group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "routing-profile",
         "required": true,
@@ -1455,12 +1494,6 @@
       {
         "name": "user",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "hierarchy-group",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1572,12 +1605,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "workspace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "aws-managed-view",
         "required": false,
         "conditionKeys": [],
@@ -1586,6 +1613,12 @@
       {
         "name": "customer-managed-view",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1622,14 +1655,12 @@
         "name": "attached-file",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cases:DeleteRelatedItem"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId"
     ],
@@ -1667,8 +1698,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1740,8 +1771,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1867,16 +1898,12 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ds:DeleteDirectory",
-          "ds:DescribeDirectories",
-          "ds:UnauthorizeApplication"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -1889,16 +1916,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "app-integrations:DeleteApplicationAssociation",
-          "app-integrations:DeleteEventIntegrationAssociation",
-          "app-integrations:UntagResource",
-          "connect:DescribeInstance",
-          "ds:DescribeDirectories",
-          "events:DeleteRule",
-          "events:ListTargetsByRule",
-          "events:RemoveTargets"
-        ]
+        "dependentActions": []
       },
       {
         "name": "integration-association",
@@ -2116,10 +2134,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeInstance",
-          "ds:DescribeDirectories"
-        ]
+        "dependentActions": []
       },
       {
         "name": "use-case",
@@ -2325,9 +2340,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -2364,8 +2379,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -2477,24 +2492,6 @@
     ],
     "dependentActions": []
   },
-  "describeforecastingplanningschedulingintegration": {
-    "name": "DescribeForecastingPlanningSchedulingIntegration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to describe the status of forecasting, planning, and scheduling integration on an Amazon Connect instance",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "connect:InstanceId"
-    ],
-    "dependentActions": []
-  },
   "describehoursofoperation": {
     "name": "DescribeHoursOfOperation",
     "description": "Grants permission to describe hours of operation in an Amazon Connect instance",
@@ -2545,14 +2542,12 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ds:DescribeDirectories"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -2587,8 +2582,8 @@
       }
     ],
     "conditionKeys": [
-      "connect:StorageResourceType",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:StorageResourceType"
     ],
     "dependentActions": []
   },
@@ -2936,42 +2931,13 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "lex:DeleteResourcePolicy",
-          "lex:UpdateResourcePolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
       "connect:InstanceId"
     ],
     "dependentActions": []
-  },
-  "disassociatecustomerprofilesdomain": {
-    "name": "DisassociateCustomerProfilesDomain",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disassociate a Customer Profiles domain for an existing Amazon Connect instance",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": [
-      "iam:AttachRolePolicy",
-      "iam:DeleteRolePolicy",
-      "iam:DetachRolePolicy",
-      "iam:GetPolicy",
-      "iam:GetPolicyVersion",
-      "iam:GetRolePolicy"
-    ]
   },
   "disassociateemailaddressalias": {
     "name": "DisassociateEmailAddressAlias",
@@ -3022,8 +2988,8 @@
       }
     ],
     "conditionKeys": [
-      "connect:StorageResourceType",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:StorageResourceType"
     ],
     "dependentActions": []
   },
@@ -3036,9 +3002,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "lambda:RemovePermission"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3055,11 +3019,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -3168,6 +3128,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "ai-agent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "instance",
         "required": true,
         "conditionKeys": [],
@@ -3176,12 +3142,6 @@
       {
         "name": "security-profile",
         "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "ai-agent",
-        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -3217,8 +3177,8 @@
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -3313,8 +3273,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId"
     ],
@@ -3334,9 +3294,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -3616,11 +3576,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "sms-voice:DescribePhoneNumbers",
-          "social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber",
-          "social-messaging:TagResource"
-        ]
+        "dependentActions": []
       },
       {
         "name": "wildcard-phone-number",
@@ -3854,8 +3810,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -3890,9 +3846,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -3993,14 +3949,14 @@
     "accessLevel": "List",
     "resourceTypes": [
       {
-        "name": "instance",
-        "required": true,
+        "name": "ai-agent",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "ai-agent",
-        "required": false,
+        "name": "instance",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -4142,9 +4098,7 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ds:DescribeDirectories"
-    ]
+    "dependentActions": []
   },
   "listintegrationassociations": {
     "name": "ListIntegrationAssociations",
@@ -4155,10 +4109,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeInstance",
-          "ds:DescribeDirectories"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -4728,10 +4679,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeInstance",
-          "ds:DescribeDirectories"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -4933,9 +4881,9 @@
       }
     ],
     "conditionKeys": [
-      "connect:MonitorCapabilities",
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:MonitorCapabilities"
     ],
     "dependentActions": []
   },
@@ -4951,14 +4899,14 @@
         "dependentActions": []
       },
       {
-        "name": "instance",
-        "required": true,
+        "name": "contact-flow",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "contact-flow",
-        "required": false,
+        "name": "instance",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5025,19 +4973,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ds:AuthorizeApplication",
-          "ds:CheckAlias",
-          "ds:CreateAlias",
-          "ds:CreateDirectory",
-          "ds:CreateIdentityPoolDirectory",
-          "ds:DeleteDirectory",
-          "ds:DescribeDirectories",
-          "ds:UnauthorizeApplication",
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5059,14 +4995,14 @@
         "dependentActions": []
       },
       {
-        "name": "instance",
-        "required": true,
+        "name": "contact-flow",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "contact-flow",
-        "required": false,
+        "name": "instance",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5091,8 +5027,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -5106,9 +5042,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeAgentStatus"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5141,9 +5075,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeContactEvaluation"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5161,9 +5093,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeContactFlowModule"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5181,15 +5111,13 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeContactFlow"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
+      "connect:FlowType",
       "connect:InstanceId",
-      "connect:SearchTag/${TagKey}",
-      "connect:FlowType"
+      "connect:SearchTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -5202,17 +5130,15 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeContact"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "connect:SearchTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:SearchContactsByContactAnalysis",
       "connect:Channel",
-      "connect:PreferredUserArn"
+      "connect:InstanceId",
+      "connect:PreferredUserArn",
+      "connect:SearchContactsByContactAnalysis",
+      "connect:SearchTag/${TagKey}"
     ],
     "dependentActions": []
   },
@@ -5225,9 +5151,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeDataTable"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5245,9 +5169,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeEmailAddress"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5265,9 +5187,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeEvaluationForm"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5285,10 +5205,7 @@
         "name": "hours-of-operation",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeHoursOfOperation",
-          "connect:ListHoursOfOperationOverrides"
-        ]
+        "dependentActions": []
       },
       {
         "name": "instance",
@@ -5312,9 +5229,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeHoursOfOperation"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5350,9 +5265,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribePredefinedAttribute"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5369,9 +5282,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribePrompt"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5389,9 +5300,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeQueue"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5409,9 +5318,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeQuickConnect"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5433,8 +5340,8 @@
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -5447,9 +5354,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeRoutingProfile"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5467,9 +5372,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeSecurityProfile"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5487,9 +5390,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeUserHierarchyGroup"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5507,10 +5408,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeUser",
-          "connect:ListUserProficiencies"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5528,9 +5426,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeView"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5583,9 +5479,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeWorkspace"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -5600,44 +5494,6 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": []
-  },
-  "sendintegrationevent": {
-    "name": "SendIntegrationEvent",
-    "isPermissionOnly": true,
-    "description": "Grants permission to send integration events using the Amazon Connect API",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "sendoutboundchatmessage": {
-    "name": "SendOutboundChatMessage",
-    "isPermissionOnly": true,
-    "description": "Grants permission to send outbound chat messages using the Amazon Connect API",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "social-messaging:SendWhatsAppMessage",
-          "wisdom:GetMessageTemplate",
-          "wisdom:RenderMessageTemplate"
-        ]
-      },
-      {
-        "name": "phone-number",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "connect:InstanceId",
-      "connect:Subtype"
-    ],
     "dependentActions": []
   },
   "sendoutboundemail": {
@@ -5657,30 +5513,6 @@
     ],
     "dependentActions": []
   },
-  "sendoutboundwebnotification": {
-    "name": "SendOutboundWebNotification",
-    "isPermissionOnly": true,
-    "description": "Grants permission to send outbound web notifications using the Amazon Connect API",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "connect:DescribeView",
-          "kms:Decrypt",
-          "profile:BatchGetProfile",
-          "profile:GetProfileRecommendations",
-          "profile:SearchProfiles"
-        ]
-      }
-    ],
-    "conditionKeys": [
-      "connect:InstanceId"
-    ],
-    "dependentActions": []
-  },
   "startattachedfileupload": {
     "name": "StartAttachedFileUpload",
     "description": "Grants permission to start an attached file upload in an Amazon Connect instance",
@@ -5690,14 +5522,12 @@
         "name": "attached-file",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "cases:CreateRelatedItem"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId",
       "connect:UserArn"
@@ -5710,14 +5540,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "contact-flow",
-        "required": true,
+        "name": "contact",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "contact",
-        "required": false,
+        "name": "contact-flow",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -5740,8 +5570,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
       "connect:InstanceId"
     ],
@@ -5814,8 +5644,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -5872,47 +5702,32 @@
     ],
     "dependentActions": []
   },
-  "startforecastingplanningschedulingintegration": {
-    "name": "StartForecastingPlanningSchedulingIntegration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to enable forecasting, planning, and scheduling integration on an Amazon Connect instance",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "connect:InstanceId"
-    ],
-    "dependentActions": []
-  },
   "startoutboundchatcontact": {
     "name": "StartOutboundChatContact",
     "description": "Grants permission to initiate an outbound chat using the Amazon Connect API",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "contact-flow",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "wisdom:GetMessageTemplate",
-          "wisdom:RenderMessageTemplate"
-        ]
-      },
-      {
-        "name": "instance",
-        "required": true,
+        "name": "contact",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
         "name": "contact",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "contact-flow",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -5975,9 +5790,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -5988,14 +5803,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "contact-flow",
-        "required": true,
+        "name": "contact",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "contact",
-        "required": false,
+        "name": "contact-flow",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -6014,8 +5829,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:AssignmentType"
+      "connect:AssignmentType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -6049,9 +5864,9 @@
       }
     ],
     "conditionKeys": [
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6093,8 +5908,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6113,24 +5928,6 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
-    ],
-    "dependentActions": []
-  },
-  "stopforecastingplanningschedulingintegration": {
-    "name": "StopForecastingPlanningSchedulingIntegration",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disable forecasting, planning, and scheduling integration on an Amazon Connect instance",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "instance",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -6165,8 +5962,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6184,11 +5981,11 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
+      "aws:TagKeys",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6196,7 +5993,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag an Amazon Connect resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "agent-status",
@@ -6344,8 +6141,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -6375,9 +6172,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6396,9 +6193,9 @@
     ],
     "conditionKeys": [
       "aws:TagKeys",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6406,7 +6203,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag an Amazon Connect resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "agent-status",
@@ -6607,9 +6404,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6628,9 +6425,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6666,8 +6463,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -6685,8 +6482,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -6758,8 +6555,8 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:FlowType"
+      "connect:FlowType",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -6777,9 +6574,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6798,9 +6595,9 @@
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}",
-      "connect:InstanceId",
-      "connect:ContactAssociationId",
       "connect:Channel",
+      "connect:ContactAssociationId",
+      "connect:InstanceId",
       "connect:UserArn"
     ],
     "dependentActions": []
@@ -6945,13 +6742,7 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ds:DescribeDirectories",
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "logs:CreateLogGroup"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -6969,23 +6760,12 @@
         "name": "instance",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ds:DescribeDirectories",
-          "firehose:DescribeDeliveryStream",
-          "iam:AttachRolePolicy",
-          "iam:CreateServiceLinkedRole",
-          "iam:PutRolePolicy",
-          "kinesis:DescribeStream",
-          "kms:CreateGrant",
-          "kms:DescribeKey",
-          "s3:GetBucketAcl",
-          "s3:GetBucketLocation"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "connect:StorageResourceType",
-      "connect:InstanceId"
+      "connect:InstanceId",
+      "connect:StorageResourceType"
     ],
     "dependentActions": []
   },
@@ -7121,11 +6901,7 @@
         "name": "prompt",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:Decrypt",
-          "s3:GetObject",
-          "s3:GetObjectAcl"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -7200,12 +6976,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "queue",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "contact-flow",
         "required": false,
         "conditionKeys": [],
@@ -7214,6 +6984,12 @@
       {
         "name": "phone-number",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "queue",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -7266,12 +7042,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "quick-connect",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "contact-flow",
         "required": false,
         "conditionKeys": [],
@@ -7280,6 +7050,12 @@
       {
         "name": "queue",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "quick-connect",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -7486,14 +7262,14 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "user",
-        "required": true,
+        "name": "hierarchy-group",
+        "required": false,
         "conditionKeys": [],
         "dependentActions": []
       },
       {
-        "name": "hierarchy-group",
-        "required": false,
+        "name": "user",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -7723,12 +7499,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "workspace",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "aws-managed-view",
         "required": false,
         "conditionKeys": [],
@@ -7737,6 +7507,12 @@
       {
         "name": "customer-managed-view",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }

@@ -12,14 +12,14 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
-      "observabilityadmin:CentralizationSourceRegions",
-      "observabilityadmin:CentralizationDestinationRegion",
+      "aws:TagKeys",
       "observabilityadmin:CentralizationBackupRegion",
+      "observabilityadmin:CentralizationDestinationAccount",
+      "observabilityadmin:CentralizationDestinationRegion",
       "observabilityadmin:CentralizationRuleName",
       "observabilityadmin:CentralizationSourceId",
-      "observabilityadmin:CentralizationDestinationAccount"
+      "observabilityadmin:CentralizationSourceRegions"
     ],
     "dependentActions": []
   },
@@ -36,8 +36,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -54,8 +54,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "observabilityadmin:SourceType"
     ],
     "dependentActions": []
@@ -73,8 +73,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "observabilityadmin:TargetRegions"
     ],
     "dependentActions": []
@@ -92,8 +92,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "observabilityadmin:TargetRegions"
     ],
     "dependentActions": []
@@ -430,7 +430,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or update the specified tags for the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "organization-centralization-rule",
@@ -464,8 +464,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -480,7 +480,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove the specified tags from the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "organization-centralization-rule",
@@ -531,12 +531,12 @@
       }
     ],
     "conditionKeys": [
-      "observabilityadmin:CentralizationSourceRegions",
-      "observabilityadmin:CentralizationDestinationRegion",
       "observabilityadmin:CentralizationBackupRegion",
+      "observabilityadmin:CentralizationDestinationAccount",
+      "observabilityadmin:CentralizationDestinationRegion",
       "observabilityadmin:CentralizationRuleName",
       "observabilityadmin:CentralizationSourceId",
-      "observabilityadmin:CentralizationDestinationAccount"
+      "observabilityadmin:CentralizationSourceRegions"
     ],
     "dependentActions": []
   },

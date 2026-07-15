@@ -1,4 +1,27 @@
 {
+  "generatecommandpayload": {
+    "name": "GenerateCommandPayload",
+    "description": "Grants permission to generate the payload for running a command on a vehicle",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "statetemplate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iotfleetwise:Signals"
+    ],
+    "dependentActions": []
+  },
   "associatevehiclefleet": {
     "name": "AssociateVehicleFleet",
     "description": "Grants permission to associate the given vehicle to a fleet",
@@ -180,10 +203,7 @@
         "name": "decodermanifest",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iot:CreateThing",
-          "iot:DescribeThing"
-        ]
+        "dependentActions": []
       },
       {
         "name": "modelmanifest",
@@ -328,30 +348,6 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": []
-  },
-  "generatecommandpayload": {
-    "name": "GenerateCommandPayload",
-    "isPermissionOnly": true,
-    "description": "Grants permission to generate the payload for running a command on a vehicle",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [
-      {
-        "name": "vehicle",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "statetemplate",
-        "required": false,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "iotfleetwise:Signals"
-    ],
     "dependentActions": []
   },
   "getcampaign": {
@@ -750,14 +746,12 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "campaign",
@@ -811,7 +805,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "campaign",
@@ -957,12 +951,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "vehicle",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "decodermanifest",
         "required": false,
         "conditionKeys": [],
@@ -973,11 +961,17 @@
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
+      },
+      {
+        "name": "vehicle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "iotfleetwise:UpdateToModelManifestArn",
-      "iotfleetwise:UpdateToDecoderManifestArn"
+      "iotfleetwise:UpdateToDecoderManifestArn",
+      "iotfleetwise:UpdateToModelManifestArn"
     ],
     "dependentActions": []
   }

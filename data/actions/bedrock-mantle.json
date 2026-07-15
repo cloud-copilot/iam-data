@@ -1,4 +1,14 @@
 {
+  "callwithbearertoken": {
+    "name": "CallWithBearerToken",
+    "description": "Grants permission to make API calls using bearer token authentication",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "bedrock-mantle:BearerTokenType"
+    ],
+    "dependentActions": []
+  },
   "archiveproject": {
     "name": "ArchiveProject",
     "description": "Grants permission to archive a specific project",
@@ -7,13 +17,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "associatecustomizedmodel": {
@@ -39,19 +49,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-mantle:ProjectArn",
-      "bedrock-mantle:CustomizedModelArn"
-    ],
-    "dependentActions": []
-  },
-  "callwithbearertoken": {
-    "name": "CallWithBearerToken",
-    "isPermissionOnly": true,
-    "description": "Grants permission to make API calls using bearer token authentication",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [
-      "bedrock-mantle:BearerTokenType"
+      "bedrock-mantle:CustomizedModelArn",
+      "bedrock-mantle:ProjectArn"
     ],
     "dependentActions": []
   },
@@ -82,13 +81,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createcustomizedmodel": {
@@ -100,15 +99,14 @@
         "name": "customized-model",
         "required": true,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createfile": {
@@ -119,13 +117,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createfinetuningjob": {
@@ -143,8 +141,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-mantle:Model",
-      "bedrock-mantle:Files"
+      "bedrock-mantle:Files",
+      "bedrock-mantle:Model"
     ],
     "dependentActions": []
   },
@@ -163,8 +161,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-mantle:ServiceTier",
-      "bedrock-mantle:Model"
+      "bedrock-mantle:Model",
+      "bedrock-mantle:ServiceTier"
     ],
     "dependentActions": []
   },
@@ -177,14 +175,14 @@
         "name": "project",
         "required": true,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "bedrock-mantle:DataRetentionMode"
     ],
     "dependentActions": []
@@ -198,7 +196,9 @@
         "name": "project",
         "required": true,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -206,14 +206,14 @@
         "name": "reservation",
         "required": true,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "bedrock-mantle:ProjectArn",
       "bedrock-mantle:ReservationArn"
     ],
@@ -227,13 +227,13 @@
       {
         "name": "customized-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletefile": {
@@ -263,13 +263,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletereservation": {
@@ -323,8 +323,8 @@
       }
     ],
     "conditionKeys": [
-      "bedrock-mantle:ProjectArn",
-      "bedrock-mantle:CustomizedModelArn"
+      "bedrock-mantle:CustomizedModelArn",
+      "bedrock-mantle:ProjectArn"
     ],
     "dependentActions": []
   },
@@ -344,13 +344,13 @@
       {
         "name": "customized-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getfile": {
@@ -399,13 +399,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getmodel": {
@@ -416,13 +416,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getproject": {
@@ -433,13 +433,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getreservation": {
@@ -450,13 +450,13 @@
       {
         "name": "reservation",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listcustomizedmodelassociations": {
@@ -467,7 +467,9 @@
       {
         "name": "customized-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -482,7 +484,9 @@
       {
         "name": "customized-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -497,13 +501,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listfinetuningjobs": {
@@ -514,13 +518,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listmodels": {
@@ -531,13 +535,13 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listprojects": {
@@ -548,7 +552,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -563,7 +569,9 @@
       {
         "name": "reservation",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -616,13 +624,15 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "customized-model",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -630,7 +640,9 @@
         "name": "project",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -638,27 +650,27 @@
         "name": "reservation",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "customized-model",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -666,7 +678,8 @@
         "name": "project",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       },
@@ -674,14 +687,13 @@
         "name": "reservation",
         "required": false,
         "conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
         ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateproject": {

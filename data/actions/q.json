@@ -1,7 +1,6 @@
 {
   "associateconnectorresource": {
     "name": "AssociateConnectorResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to associate an AWS resource with an Amazon Q connector",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -10,14 +9,15 @@
   },
   "associatelogindomain": {
     "name": "AssociateLoginDomain",
-    "isPermissionOnly": true,
     "description": "Grants permission to associate a login domain with an Amazon Q Developer Profile",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -26,14 +26,15 @@
   },
   "batchdescribegroups": {
     "name": "BatchDescribeGroups",
-    "isPermissionOnly": true,
     "description": "Grants permission to describe multiple groups for an Amazon Q Developer Profile",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -42,14 +43,15 @@
   },
   "batchdescribeusers": {
     "name": "BatchDescribeUsers",
-    "isPermissionOnly": true,
     "description": "Grants permission to describe multiple users for an Amazon Q Developer Profile",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -58,14 +60,15 @@
   },
   "batchgetgroups": {
     "name": "BatchGetGroups",
-    "isPermissionOnly": true,
     "description": "Grants permission to get multiple groups for an Amazon Q Developer Profile",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -74,14 +77,15 @@
   },
   "batchgetusers": {
     "name": "BatchGetUsers",
-    "isPermissionOnly": true,
     "description": "Grants permission to get multiple users for an Amazon Q Developer Profile",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -90,7 +94,6 @@
   },
   "createartifact": {
     "name": "CreateArtifact",
-    "isPermissionOnly": true,
     "description": "Grants permission to create an artifact with Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -99,80 +102,70 @@
   },
   "createassignment": {
     "name": "CreateAssignment",
-    "isPermissionOnly": true,
     "description": "Grants permission to create a user or group assignment for an Amazon Q Developer Profile",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "identitystore:UserId",
-      "identitystore:GroupId"
+      "identitystore:GroupId",
+      "identitystore:UserId"
     ],
     "dependentActions": []
   },
   "createauthgrant": {
     "name": "CreateAuthGrant",
-    "isPermissionOnly": true,
     "description": "Grants permission to create OAuth user in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "kms:ReEncryptFrom",
-      "kms:ReEncryptTo"
-    ]
+    "dependentActions": []
   },
   "createoauthappconnection": {
     "name": "CreateOAuthAppConnection",
-    "isPermissionOnly": true,
     "description": "Grants permission to register an OAuth application in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "kms:ReEncryptFrom",
-      "kms:ReEncryptTo"
-    ]
+    "dependentActions": []
   },
   "createplugin": {
     "name": "CreatePlugin",
-    "isPermissionOnly": true,
     "description": "Grants permission to create and configure a third party plugin in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createscimaccesstoken": {
     "name": "CreateScimAccessToken",
-    "isPermissionOnly": true,
     "description": "Grants permission to create a SCIM access token for an Amazon Q Developer Profile",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -181,26 +174,26 @@
   },
   "deleteassignment": {
     "name": "DeleteAssignment",
-    "isPermissionOnly": true,
     "description": "Grants permission to delete a user or group assignment for an Amazon Q Developer Profile",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "identitystore:UserId",
-      "identitystore:GroupId"
+      "identitystore:GroupId",
+      "identitystore:UserId"
     ],
     "dependentActions": []
   },
   "deleteconversation": {
     "name": "DeleteConversation",
-    "isPermissionOnly": true,
     "description": "Grants permission to delete a conversation with Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -209,46 +202,40 @@
   },
   "deleteoauthappconnection": {
     "name": "DeleteOAuthAppConnection",
-    "isPermissionOnly": true,
     "description": "Grants permission to delete an OAuth application in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "kms:ReEncryptFrom",
-      "kms:ReEncryptTo"
-    ]
+    "dependentActions": []
   },
   "deleteplugin": {
     "name": "DeletePlugin",
-    "isPermissionOnly": true,
     "description": "Grants permission to delete a configured plugin in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deletescimaccesstoken": {
     "name": "DeleteScimAccessToken",
-    "isPermissionOnly": true,
     "description": "Grants permission to delete a SCIM access token for an Amazon Q Developer Profile",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -257,14 +244,15 @@
   },
   "disassociatelogindomain": {
     "name": "DisassociateLoginDomain",
-    "isPermissionOnly": true,
     "description": "Grants permission to disassociate a login domain from an Amazon Q Developer Profile",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -273,7 +261,6 @@
   },
   "generatecodefromcommands": {
     "name": "GenerateCodeFromCommands",
-    "isPermissionOnly": true,
     "description": "Grants permission to generate code from CLI commands in Amazon Q",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -282,7 +269,6 @@
   },
   "generatecoderecommendations": {
     "name": "GenerateCodeRecommendations",
-    "isPermissionOnly": true,
     "description": "Grants permission to generate code recommendations in Amazon Q",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -291,7 +277,6 @@
   },
   "getartifact": {
     "name": "GetArtifact",
-    "isPermissionOnly": true,
     "description": "Grants permission to view an Amazon Q artifact",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -300,20 +285,14 @@
   },
   "getartifactactionresult": {
     "name": "GetArtifactActionResult",
-    "isPermissionOnly": true,
     "description": "Grants permission to view results of an action in an Amazon Q artifact",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:GetResource",
-      "cloudformation:GetResourceRequestStatus",
-      "cloudformation:ListResourceRequests"
-    ]
+    "dependentActions": []
   },
   "getconnector": {
     "name": "GetConnector",
-    "isPermissionOnly": true,
     "description": "Grants permission to view information about a specific Amazon Q connector",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -322,7 +301,6 @@
   },
   "getconversation": {
     "name": "GetConversation",
-    "isPermissionOnly": true,
     "description": "Grants permission to get individual messages associated with a specific conversation with Amazon Q",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -331,7 +309,6 @@
   },
   "getidentitymetadata": {
     "name": "GetIdentityMetadata",
-    "isPermissionOnly": true,
     "description": "Grants permission to Amazon Q to get the identity metadata",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -340,25 +317,23 @@
   },
   "getplugin": {
     "name": "GetPlugin",
-    "isPermissionOnly": true,
     "description": "Grants permission to view information about a specific configured Amazon Q plugin",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "gettroubleshootingresults": {
     "name": "GetTroubleshootingResults",
-    "isPermissionOnly": true,
     "description": "Grants permission to get troubleshooting results with Amazon Q",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -367,7 +342,6 @@
   },
   "listconversations": {
     "name": "ListConversations",
-    "isPermissionOnly": true,
     "description": "Grants permission to list individual conversations associated with a specific Amazon Q user",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -376,7 +350,6 @@
   },
   "listdashboardmetrics": {
     "name": "ListDashboardMetrics",
-    "isPermissionOnly": true,
     "description": "Grants permission to read metrics to populate Amazon Q dashboard",
     "accessLevel": "List",
     "resourceTypes": [],
@@ -385,14 +358,15 @@
   },
   "listgroups": {
     "name": "ListGroups",
-    "isPermissionOnly": true,
     "description": "Grants permission to list groups for an Amazon Q Developer Profile",
     "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -401,14 +375,15 @@
   },
   "listlogindomains": {
     "name": "ListLoginDomains",
-    "isPermissionOnly": true,
     "description": "Grants permission to list login domains for an Amazon Q Developer Profile",
     "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -417,7 +392,6 @@
   },
   "listpluginproviders": {
     "name": "ListPluginProviders",
-    "isPermissionOnly": true,
     "description": "Grants permission to list available plugins in Amazon Q",
     "accessLevel": "List",
     "resourceTypes": [],
@@ -426,14 +400,15 @@
   },
   "listplugins": {
     "name": "ListPlugins",
-    "isPermissionOnly": true,
     "description": "Grants permission to list configured plugins in Amazon Q",
     "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -442,14 +417,15 @@
   },
   "listscimaccesstokens": {
     "name": "ListScimAccessTokens",
-    "isPermissionOnly": true,
     "description": "Grants permission to list SCIM access tokens for an Amazon Q Developer Profile",
     "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -458,32 +434,32 @@
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to list all tags associated with an Amazon Q resource",
     "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listusers": {
     "name": "ListUsers",
-    "isPermissionOnly": true,
     "description": "Grants permission to list users for an Amazon Q Developer Profile",
     "accessLevel": "List",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -492,7 +468,6 @@
   },
   "passrequest": {
     "name": "PassRequest",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow Amazon Q to perform actions on your behalf",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -501,27 +476,14 @@
   },
   "performartifactaction": {
     "name": "PerformArtifactAction",
-    "isPermissionOnly": true,
     "description": "Grants permission to perform an action in an Amazon Q artifact",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "cloudformation:CancelResourceRequest",
-      "cloudformation:CreateResource",
-      "cloudformation:GetResource",
-      "cloudformation:GetResourceRequestStatus",
-      "cloudformation:ListResourceRequests",
-      "cloudformation:UpdateResource",
-      "iam:AttachRolePolicy",
-      "iam:CreatePolicy",
-      "iam:CreateRole",
-      "iam:PutRolePolicy"
-    ]
+    "dependentActions": []
   },
   "rejectconnector": {
     "name": "RejectConnector",
-    "isPermissionOnly": true,
     "description": "Grants permission to reject a connection request for an Amazon Q connector",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -530,21 +492,14 @@
   },
   "sendevent": {
     "name": "SendEvent",
-    "isPermissionOnly": true,
     "description": "Grants permission to trigger asynchronous Amazon Q actions",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "kms:ReEncryptFrom",
-      "kms:ReEncryptTo"
-    ]
+    "dependentActions": []
   },
   "sendmessage": {
     "name": "SendMessage",
-    "isPermissionOnly": true,
     "description": "Grants permission to send a message to Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -553,7 +508,6 @@
   },
   "startconversation": {
     "name": "StartConversation",
-    "isPermissionOnly": true,
     "description": "Grants permission to start a conversation with Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -562,7 +516,6 @@
   },
   "starttroubleshootinganalysis": {
     "name": "StartTroubleshootingAnalysis",
-    "isPermissionOnly": true,
     "description": "Grants permission to start a troubleshooting analysis with Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -571,7 +524,6 @@
   },
   "starttroubleshootingresolutionexplanation": {
     "name": "StartTroubleshootingResolutionExplanation",
-    "isPermissionOnly": true,
     "description": "Grants permission to start a troubleshooting resolution explanation with Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -580,91 +532,90 @@
   },
   "tagresource": {
     "name": "TagResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to associate tags with an Amazon Q resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       },
       {
         "name": "profile",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to remove tags associated with an Amazon Q resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       },
       {
         "name": "profile",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateassignment": {
     "name": "UpdateAssignment",
-    "isPermissionOnly": true,
     "description": "Grants permission to update a user or group assignment for an Amazon Q Developer Profile",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "profile",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "identitystore:UserId",
-      "identitystore:GroupId"
+      "identitystore:GroupId",
+      "identitystore:UserId"
     ],
     "dependentActions": []
   },
   "updateauthgrant": {
     "name": "UpdateAuthGrant",
-    "isPermissionOnly": true,
     "description": "Grants permission to update OAuth user in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "kms:ReEncryptFrom",
-      "kms:ReEncryptTo"
-    ]
+    "dependentActions": []
   },
   "updateconversation": {
     "name": "UpdateConversation",
-    "isPermissionOnly": true,
     "description": "Grants permission to update a conversation with Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -673,40 +624,33 @@
   },
   "updateoauthappconnection": {
     "name": "UpdateOAuthAppConnection",
-    "isPermissionOnly": true,
     "description": "Grants permission to update an OAuth application in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "kms:ReEncryptFrom",
-      "kms:ReEncryptTo"
-    ]
+    "dependentActions": []
   },
   "updateplugin": {
     "name": "UpdatePlugin",
-    "isPermissionOnly": true,
     "description": "Grants permission to update a third party plugin in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatetroubleshootingcommandresult": {
     "name": "UpdateTroubleshootingCommandResult",
-    "isPermissionOnly": true,
     "description": "Grants permission to update a troubleshooting command result with Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -715,14 +659,15 @@
   },
   "useplugin": {
     "name": "UsePlugin",
-    "isPermissionOnly": true,
     "description": "Grants permission to use Amazon Q plugins",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "plugin",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -731,16 +676,10 @@
   },
   "verifyoauthappconnection": {
     "name": "VerifyOAuthAppConnection",
-    "isPermissionOnly": true,
     "description": "Grants permission to verify an OAuth application in Amazon Q",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "kms:Decrypt",
-      "kms:GenerateDataKeyWithoutPlaintext",
-      "kms:ReEncryptFrom",
-      "kms:ReEncryptTo"
-    ]
+    "dependentActions": []
   }
 }

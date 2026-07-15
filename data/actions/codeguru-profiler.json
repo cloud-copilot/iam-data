@@ -50,8 +50,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -224,7 +224,7 @@
   "putpermission": {
     "name": "PutPermission",
     "description": "Grants permission to update the list of principals allowed for an action group in the resource policy associated with the specified Profiling Group",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "ProfilingGroup",
@@ -254,7 +254,7 @@
   "removepermission": {
     "name": "RemovePermission",
     "description": "Grants permission to remove the permission of specified Action Group from the resource policy associated with the specified Profiling Group",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "ProfilingGroup",
@@ -284,7 +284,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or overwrite tags to a Profiling Group",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ProfilingGroup",
@@ -294,15 +294,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a Profiling Group",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "ProfilingGroup",

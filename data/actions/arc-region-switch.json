@@ -1,4 +1,35 @@
 {
+  "deleteresourcepolicy": {
+    "name": "DeleteResourcePolicy",
+    "description": "Grants permission to delete the RAM access control policy for a plan",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getresourcepolicy": {
+    "name": "GetResourcePolicy",
+    "description": "Grants permission to get the resource policy of a plan",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [
+      {
+        "name": "plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putresourcepolicy": {
+    "name": "PutResourcePolicy",
+    "description": "Grants permission to define the RAM access control policy for a plan",
+    "accessLevel": "Permissions management, Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "approveplanexecutionstep": {
     "name": "ApprovePlanExecutionStep",
     "description": "Grants permission to approve a plan execution step",
@@ -62,15 +93,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deleteresourcepolicy": {
-    "name": "DeleteResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete the RAM access control policy for a plan",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getplan": {
     "name": "GetPlan",
     "description": "Grants permission to get information about plans in all AWS Regions using a control plane",
@@ -120,22 +142,6 @@
     "name": "GetPlanInRegion",
     "description": "Grants permission to get information about a plan in a specific AWS Region using the Region switch Regional data plane",
     "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "plan",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "getresourcepolicy": {
-    "name": "GetResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the resource policy of a plan",
-    "accessLevel": "Permissions management",
     "resourceTypes": [
       {
         "name": "plan",
@@ -240,15 +246,6 @@
     ],
     "dependentActions": []
   },
-  "putresourcepolicy": {
-    "name": "PutResourcePolicy",
-    "isPermissionOnly": true,
-    "description": "Grants permission to define the RAM access control policy for a plan",
-    "accessLevel": "Permissions management",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "startplanexecution": {
     "name": "StartPlanExecution",
     "description": "Grants permission to start a plan execution",
@@ -267,7 +264,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "plan",
@@ -286,7 +283,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "plan",

@@ -1,25 +1,23 @@
 {
-  "workspace": {
-    "key": "workspace",
-    "arn": "arn:${Partition}:aps:${Region}:${Account}:workspace/${WorkspaceId}",
+  "anomalydetector": {
+    "key": "anomalydetector",
+    "arn": "arn:${Partition}:aps:${Region}:${Account}:anomalydetector/${WorkspaceId}/${AnomalyDetectorId}",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys"
+    ]
+  },
+  "cluster": {
+    "key": "cluster",
+    "arn": "arn:${Partition}:eks:${Region}:${Account}:cluster/${ClusterName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
     ]
   },
   "rulegroupsnamespace": {
     "key": "rulegroupsnamespace",
     "arn": "arn:${Partition}:aps:${Region}:${Account}:rulegroupsnamespace/${WorkspaceId}/${Namespace}",
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:ResourceTag/${TagKey}",
-      "aws:TagKeys"
-    ]
-  },
-  "anomalydetector": {
-    "key": "anomalydetector",
-    "arn": "arn:${Partition}:aps:${Region}:${Account}:anomalydetector/${WorkspaceId}/${AnomalyDetectorId}",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -35,11 +33,13 @@
       "aws:TagKeys"
     ]
   },
-  "cluster": {
-    "key": "cluster",
-    "arn": "arn:${Partition}:eks:${Region}:${Account}:cluster/${ClusterName}",
+  "workspace": {
+    "key": "workspace",
+    "arn": "arn:${Partition}:aps:${Region}:${Account}:workspace/${WorkspaceId}",
     "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ]
   }
 }

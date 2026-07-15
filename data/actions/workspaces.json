@@ -1,4 +1,125 @@
 {
+  "createrootclientcertificate": {
+    "name": "CreateRootClientCertificate",
+    "description": "Grants permission to create a root client certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificateid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterootclientcertificate": {
+    "name": "DeleteRootClientCertificate",
+    "description": "Grants permission to delete root client certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificateid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeconsent": {
+    "name": "DescribeConsent",
+    "description": "Grants permission to retrieve information about consent agreement to BYOL minimum requirements",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "directoryaccessmanagement": {
+    "name": "DirectoryAccessManagement",
+    "description": "Grants permission to directory management actions while managing and provisioning workspaces",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "directoryid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettroubleshootingrecommendation": {
+    "name": "GetTroubleshootingRecommendation",
+    "description": "Grants permission to get troubleshooting recommendations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "invoketroubleshootinginvestigation": {
+    "name": "InvokeTroubleshootingInvestigation",
+    "description": "Grants permission to invoke troubleshooting investigation",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtroubleshootingrecommendations": {
+    "name": "ListTroubleshootingRecommendations",
+    "description": "Grants permission to list troubleshooting recommendations",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspaceid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateconsent": {
+    "name": "UpdateConsent",
+    "description": "Grants permission to update the consent agreement to BYOL minimum requirements",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterootclientcertificate": {
+    "name": "UpdateRootClientCertificate",
+    "description": "Grants permission to update a root client certificate",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "certificateid",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "acceptaccountlinkinvitation": {
     "name": "AcceptAccountLinkInvitation",
     "description": "Grants permission to accept invitations from other AWS accounts to share the same configuration for WorkSpaces BYOL",
@@ -85,9 +206,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "workspaces:UpdateRulesOfIpGroup"
-    ]
+    "dependentActions": []
   },
   "copyworkspaceimage": {
     "name": "CopyWorkspaceImage",
@@ -98,9 +217,7 @@
         "name": "workspaceimage",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "workspaces:DescribeWorkspaceImages"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -154,22 +271,6 @@
     ],
     "dependentActions": []
   },
-  "createrootclientcertificate": {
-    "name": "CreateRootClientCertificate",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create a root client certificate",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "certificateid",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "createstandbyworkspaces": {
     "name": "CreateStandbyWorkspaces",
     "description": "Grants permission to create one or more Standby WorkSpaces",
@@ -197,7 +298,7 @@
   "createtags": {
     "name": "CreateTags",
     "description": "Grants permission to create tags for WorkSpaces resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
@@ -232,9 +333,7 @@
         "name": "workspacebundle",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "workspaces:CreateTags"
-        ]
+        "dependentActions": []
       },
       {
         "name": "workspaceimage",
@@ -402,26 +501,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deleterootclientcertificate": {
-    "name": "DeleteRootClientCertificate",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete root client certificate",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "certificateid",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletetags": {
     "name": "DeleteTags",
     "description": "Grants permission to delete tags from WorkSpaces resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
@@ -617,15 +700,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describeconsent": {
-    "name": "DescribeConsent",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve information about consent agreement to BYOL minimum requirements",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "describecustomworkspaceimageimport": {
     "name": "DescribeCustomWorkspaceImageImport",
     "description": "Grants permission to retrieve information about WorkSpace BYOL image import task",
@@ -784,22 +858,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "directoryaccessmanagement": {
-    "name": "DirectoryAccessManagement",
-    "isPermissionOnly": true,
-    "description": "Grants permission to directory management actions while managing and provisioning workspaces",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "directoryid",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "disassociateconnectionalias": {
     "name": "DisassociateConnectionAlias",
     "description": "Grants permission to disassociate connection aliases from directories",
@@ -867,22 +925,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "gettroubleshootingrecommendation": {
-    "name": "GetTroubleshootingRecommendation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get troubleshooting recommendations",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "workspaceid",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "importclientbranding": {
     "name": "ImportClientBranding",
     "description": "Grants permission to import AWS WorkSpaces Client branding data within a directory",
@@ -912,25 +954,6 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:DescribeImages",
-      "ec2:ModifyImageAttribute"
-    ]
-  },
-  "invoketroubleshootinginvestigation": {
-    "name": "InvokeTroubleshootingInvestigation",
-    "isPermissionOnly": true,
-    "description": "Grants permission to invoke troubleshooting investigation",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "workspaceid",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "listaccountlinks": {
@@ -946,22 +969,6 @@
     "description": "Grants permission to list the available CIDR ranges for enabling Bring Your Own License (BYOL) for WorkSpaces accounts",
     "accessLevel": "List",
     "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listtroubleshootingrecommendations": {
-    "name": "ListTroubleshootingRecommendations",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list troubleshooting recommendations",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "workspaceid",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1057,7 +1064,7 @@
   "modifyselfservicepermissions": {
     "name": "ModifySelfservicePermissions",
     "description": "Grants permission to modify the self-service WorkSpace management capabilities for your users",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "directoryid",
@@ -1228,9 +1235,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "workspaces:UpdateRulesOfIpGroup"
-    ]
+    "dependentActions": []
   },
   "startworkspaces": {
     "name": "StartWorkspaces",
@@ -1365,35 +1370,10 @@
   "updateconnectionaliaspermission": {
     "name": "UpdateConnectionAliasPermission",
     "description": "Grants permission to share or unshare connection aliases with other accounts",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "connectionalias",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updateconsent": {
-    "name": "UpdateConsent",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the consent agreement to BYOL minimum requirements",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updaterootclientcertificate": {
-    "name": "UpdateRootClientCertificate",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update a root client certificate",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "certificateid",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1415,10 +1395,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "workspaces:AuthorizeIpRules",
-      "workspaces:RevokeIpRules"
-    ]
+    "dependentActions": []
   },
   "updateworkspacebundle": {
     "name": "UpdateWorkspaceBundle",
@@ -1444,7 +1421,7 @@
   "updateworkspaceimagepermission": {
     "name": "UpdateWorkspaceImagePermission",
     "description": "Grants permission to share or unshare WorkSpace images with other accounts by specifying whether other accounts have permission to copy the image",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "workspaceimage",

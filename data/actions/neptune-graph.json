@@ -57,12 +57,7 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -106,13 +101,7 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:CreateServiceLinkedRole",
-          "iam:PassRole",
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey"
-        ]
+        "dependentActions": []
       },
       {
         "name": "import-task",
@@ -137,17 +126,7 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:CreateVpcEndpoint",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcAttribute",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "ec2:ModifyVpcEndpoint",
-          "route53:AssociateVPCWithHostedZone"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -217,17 +196,7 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DeleteVpcEndpoints",
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeSecurityGroups",
-          "ec2:DescribeSubnets",
-          "ec2:DescribeVpcAttribute",
-          "ec2:DescribeVpcEndpoints",
-          "ec2:DescribeVpcs",
-          "ec2:ModifyVpcEndpoint",
-          "route53:DisassociateVPCFromHostedZone"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -546,11 +515,7 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:CreateGrant",
-          "kms:Decrypt",
-          "kms:DescribeKey"
-        ]
+        "dependentActions": []
       },
       {
         "name": "graph-snapshot",
@@ -576,9 +541,7 @@
         "name": "export-task",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "graph",
@@ -603,10 +566,7 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "kms:Decrypt",
-          "kms:DescribeKey"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -623,9 +583,7 @@
         "name": "graph",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       },
       {
         "name": "import-task",
@@ -657,7 +615,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a Neptune Analytics resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "graph",
@@ -673,15 +631,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a Neptune Analytics resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "graph",

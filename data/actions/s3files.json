@@ -1,7 +1,6 @@
 {
   "clientmount": {
     "name": "ClientMount",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow an NFS client read-access to a file system",
     "accessLevel": "Read",
     "resourceTypes": [
@@ -19,7 +18,6 @@
   },
   "clientrootaccess": {
     "name": "ClientRootAccess",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow an NFS client root-access to a file system",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -37,7 +35,6 @@
   },
   "clientwrite": {
     "name": "ClientWrite",
-    "isPermissionOnly": true,
     "description": "Grants permission to allow an NFS client write-access to a file system",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -66,8 +63,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -130,7 +127,7 @@
   "deletefilesystempolicy": {
     "name": "DeleteFileSystemPolicy",
     "description": "Grants permission to delete the IAM resource policy for a specified file system",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "file-system",
@@ -301,7 +298,7 @@
   "putfilesystempolicy": {
     "name": "PutFileSystemPolicy",
     "description": "Grants permission to add an IAM resource policy to a specified file system",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "file-system",
@@ -331,7 +328,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a specified S3 Files resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-point",
@@ -356,7 +353,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a specified S3 Files resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "access-point",

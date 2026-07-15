@@ -1,12 +1,26 @@
 {
   "connectkxcluster": {
     "name": "ConnectKxCluster",
-    "isPermissionOnly": true,
     "description": "Grants permission to connect to a kdb cluster",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "kxCluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "mountkxdatabase": {
+    "name": "MountKxDatabase",
+    "description": "Grants permission to mount a database to a kdb cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "kxDatabase",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -28,8 +42,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -57,15 +71,12 @@
         "name": "kxCluster",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeSubnets",
-          "finspace:MountKxDatabase"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -82,8 +93,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -100,8 +111,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -111,8 +122,8 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -129,8 +140,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -147,8 +158,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -165,8 +176,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -189,8 +200,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -387,9 +398,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "finspace:ConnectKxCluster"
-    ]
+    "dependentActions": []
   },
   "getkxdatabase": {
     "name": "GetKxDatabase",
@@ -753,22 +762,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "mountkxdatabase": {
-    "name": "MountKxDatabase",
-    "isPermissionOnly": true,
-    "description": "Grants permission to mount a database to a kdb cluster",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "kxDatabase",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "resetuserpassword": {
     "name": "ResetUserPassword",
     "description": "Grants permission to reset the password for a FinSpace user",
@@ -793,7 +786,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "environment",
@@ -845,15 +838,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag a resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "environment",

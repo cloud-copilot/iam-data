@@ -1,11 +1,18 @@
 {
-  "customer-agreement": {
-    "key": "customer-agreement",
-    "arn": "arn:${Partition}:artifact::${Account}:customer-agreement/*"
-  },
   "agreement": {
     "key": "agreement",
     "arn": "arn:${Partition}:artifact:::agreement/*"
+  },
+  "compliance-inquiry": {
+    "key": "compliance-inquiry",
+    "arn": "arn:${Partition}:artifact:${Region}:${Account}:compliance-inquiry/*",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "customer-agreement": {
+    "key": "customer-agreement",
+    "arn": "arn:${Partition}:artifact::${Account}:customer-agreement/*"
   },
   "report": {
     "key": "report",
@@ -13,13 +20,6 @@
     "conditionKeys": [
       "artifact:ReportCategory",
       "artifact:ReportSeries"
-    ]
-  },
-  "compliance-inquiry": {
-    "key": "compliance-inquiry",
-    "arn": "arn:${Partition}:artifact:${Region}:${Account}:compliance-inquiry/*",
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
     ]
   }
 }

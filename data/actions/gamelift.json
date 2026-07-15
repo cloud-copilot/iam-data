@@ -31,9 +31,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "gamelift:TagResource"
-    ]
+    "dependentActions": []
   },
   "createbuild": {
     "name": "CreateBuild",
@@ -44,11 +42,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "gamelift:TagResource",
-      "iam:PassRole",
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createcontainerfleet": {
     "name": "CreateContainerFleet",
@@ -59,12 +53,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:DescribeAvailabilityZones",
-      "ec2:DescribeRegions",
-      "gamelift:TagResource",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createcontainergroupdefinition": {
     "name": "CreateContainerGroupDefinition",
@@ -75,13 +64,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ecr:BatchGetImage",
-      "ecr:DescribeImages",
-      "ecr:GetAuthorizationToken",
-      "ecr:GetDownloadUrlForLayer",
-      "gamelift:TagResource"
-    ]
+    "dependentActions": []
   },
   "createfleet": {
     "name": "CreateFleet",
@@ -92,12 +75,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "ec2:DescribeAvailabilityZones",
-      "ec2:DescribeRegions",
-      "gamelift:TagResource",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "createfleetlocations": {
     "name": "CreateFleetLocations",
@@ -108,10 +86,7 @@
         "name": "containerFleet",
         "required": false,
         "conditionKeys": [],
-        "dependentActions": [
-          "ec2:DescribeAvailabilityZones",
-          "ec2:DescribeRegions"
-        ]
+        "dependentActions": []
       },
       {
         "name": "fleet",
@@ -132,18 +107,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "autoscaling:CreateAutoScalingGroup",
-      "autoscaling:DescribeAutoScalingGroups",
-      "autoscaling:PutLifecycleHook",
-      "autoscaling:PutScalingPolicy",
-      "ec2:DescribeAvailabilityZones",
-      "ec2:DescribeSubnets",
-      "events:PutRule",
-      "events:PutTargets",
-      "gamelift:TagResource",
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "creategamesession": {
     "name": "CreateGameSession",
@@ -162,9 +126,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "gamelift:TagResource"
-    ]
+    "dependentActions": []
   },
   "createlocation": {
     "name": "CreateLocation",
@@ -175,9 +137,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "gamelift:TagResource"
-    ]
+    "dependentActions": []
   },
   "creatematchmakingconfiguration": {
     "name": "CreateMatchmakingConfiguration",
@@ -188,9 +148,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "gamelift:TagResource"
-    ]
+    "dependentActions": []
   },
   "creatematchmakingruleset": {
     "name": "CreateMatchmakingRuleSet",
@@ -201,9 +159,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "gamelift:TagResource"
-    ]
+    "dependentActions": []
   },
   "createplayersession": {
     "name": "CreatePlayerSession",
@@ -230,11 +186,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
-    "dependentActions": [
-      "gamelift:TagResource",
-      "iam:PassRole",
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "createvpcpeeringauthorization": {
     "name": "CreateVpcPeeringAuthorization",
@@ -242,17 +194,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "ec2:AcceptVpcPeeringConnection",
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:CreateRoute",
-      "ec2:DeleteRoute",
-      "ec2:DescribeRouteTables",
-      "ec2:DescribeSecurityGroups",
-      "ec2:RevokeSecurityGroupEgress",
-      "ec2:RevokeSecurityGroupIngress"
-    ]
+    "dependentActions": []
   },
   "createvpcpeeringconnection": {
     "name": "CreateVpcPeeringConnection",
@@ -371,14 +313,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "autoscaling:DeleteAutoScalingGroup",
-      "autoscaling:DescribeAutoScalingGroups",
-      "autoscaling:ExitStandby",
-      "autoscaling:ResumeProcesses",
-      "autoscaling:SetInstanceProtection",
-      "autoscaling:UpdateAutoScalingGroup"
-    ]
+    "dependentActions": []
   },
   "deletegamesessionqueue": {
     "name": "DeleteGameSessionQueue",
@@ -1437,7 +1372,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag GameLift resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "alias",
@@ -1523,7 +1458,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to untag GameLift resources",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "alias",
@@ -1655,12 +1590,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "ecr:BatchGetImage",
-      "ecr:DescribeImages",
-      "ecr:GetAuthorizationToken",
-      "ecr:GetDownloadUrlForLayer"
-    ]
+    "dependentActions": []
   },
   "updatefleetattributes": {
     "name": "UpdateFleetAttributes",
@@ -1741,9 +1671,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole"
-    ]
+    "dependentActions": []
   },
   "updategamesession": {
     "name": "UpdateGameSession",
@@ -1811,10 +1739,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:PassRole",
-      "s3:GetObject"
-    ]
+    "dependentActions": []
   },
   "validatematchmakingruleset": {
     "name": "ValidateMatchmakingRuleSet",

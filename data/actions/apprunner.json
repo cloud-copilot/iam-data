@@ -1,7 +1,43 @@
 {
-  "associatecustomdomain": {
-    "name": "AssociateCustomDomain",
-    "description": "Grants permission to associate your own domain name with the AWS App Runner subdomain URL of your App Runner service",
+  "associatewebacl": {
+    "name": "AssociateWebAcl",
+    "description": "Grants permission to associate the service with an AWS WAF web ACL",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "webacl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describewebaclforservice": {
+    "name": "DescribeWebAclForService",
+    "description": "Grants permission to get the AWS WAF web ACL that is associated with an AWS App Runner service",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatewebacl": {
+    "name": "DisassociateWebAcl",
+    "description": "Grants permission to disassociate the service with an AWS WAF web ACL",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -14,20 +50,28 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "associatewebacl": {
-    "name": "AssociateWebAcl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to associate the service with an AWS WAF web ACL",
+  "listassociatedservicesforwebacl": {
+    "name": "ListAssociatedServicesForWebAcl",
+    "description": "Grants permission to list the services that are associated with an AWS WAF web ACL",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "webacl",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatecustomdomain": {
+    "name": "AssociateCustomDomain",
+    "description": "Grants permission to associate your own domain name with the AWS App Runner subdomain URL of your App Runner service",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "service",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
-        "name": "webacl",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -96,12 +140,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "service",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "autoscalingconfiguration",
         "required": false,
         "conditionKeys": [],
@@ -120,6 +158,12 @@
         "dependentActions": []
       },
       {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "vpcconnector",
         "required": false,
         "conditionKeys": [],
@@ -127,12 +171,12 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "apprunner:ConnectionArn",
       "apprunner:AutoScalingConfigurationArn",
+      "apprunner:ConnectionArn",
       "apprunner:ObservabilityConfigurationArn",
-      "apprunner:VpcConnectorArn"
+      "apprunner:VpcConnectorArn",
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -167,11 +211,11 @@
       }
     ],
     "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
       "apprunner:ServiceArn",
+      "apprunner:VpcEndpointId",
       "apprunner:VpcId",
-      "apprunner:VpcEndpointId"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -370,22 +414,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "describewebaclforservice": {
-    "name": "DescribeWebAclForService",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the AWS WAF web ACL that is associated with an AWS App Runner service",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "service",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "disassociatecustomdomain": {
     "name": "DisassociateCustomDomain",
     "description": "Grants permission to disassociate a custom domain name from an AWS App Runner service",
@@ -393,38 +421,6 @@
     "resourceTypes": [
       {
         "name": "service",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "disassociatewebacl": {
-    "name": "DisassociateWebAcl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to disassociate the service with an AWS WAF web ACL",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "service",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listassociatedservicesforwebacl": {
-    "name": "ListAssociatedServicesForWebAcl",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list the services that are associated with an AWS WAF web ACL",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "webacl",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -598,7 +594,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add tags to, or update tag values of, an AWS App Runner resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "autoscalingconfiguration",
@@ -638,15 +634,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags from an AWS App Runner resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "autoscalingconfiguration",
@@ -711,12 +707,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "service",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "autoscalingconfiguration",
         "required": false,
         "conditionKeys": [],
@@ -735,6 +725,12 @@
         "dependentActions": []
       },
       {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "vpcconnector",
         "required": false,
         "conditionKeys": [],
@@ -742,8 +738,8 @@
       }
     ],
     "conditionKeys": [
-      "apprunner:ConnectionArn",
       "apprunner:AutoScalingConfigurationArn",
+      "apprunner:ConnectionArn",
       "apprunner:ObservabilityConfigurationArn",
       "apprunner:VpcConnectorArn"
     ],
@@ -762,8 +758,8 @@
       }
     ],
     "conditionKeys": [
-      "apprunner:VpcId",
-      "apprunner:VpcEndpointId"
+      "apprunner:VpcEndpointId",
+      "apprunner:VpcId"
     ],
     "dependentActions": []
   }

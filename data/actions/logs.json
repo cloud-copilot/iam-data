@@ -1,4 +1,151 @@
 {
+  "callwithbearertoken": {
+    "name": "CallWithBearerToken",
+    "description": "Grants permission to authenticate requests using bearer token",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createlogdelivery": {
+    "name": "CreateLogDelivery",
+    "description": "Grants permission to create the log delivery",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletelogdelivery": {
+    "name": "DeleteLogDelivery",
+    "description": "Grants permission to delete the log delivery information for specified log delivery",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepipelinerule": {
+    "name": "DeletePipelineRule",
+    "description": "Grants permission to delete telemetry pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getlogdelivery": {
+    "name": "GetLogDelivery",
+    "description": "Grants permission to get the log delivery information for specified log delivery",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "integratewiths3table": {
+    "name": "IntegrateWithS3Table",
+    "description": "Grants permission to deliver log events to S3 Tables",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "log-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "logs:data_source_name",
+      "logs:data_source_type"
+    ],
+    "dependentActions": []
+  },
+  "link": {
+    "name": "Link",
+    "description": "Grants permission to share CloudWatch resources with a monitoring account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listentitiesforloggroup": {
+    "name": "ListEntitiesForLogGroup",
+    "description": "Grants permission to retrieve all the entities that are associated with log group",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listlogdeliveries": {
+    "name": "ListLogDeliveries",
+    "description": "Grants permission to list all the log deliveries for specified account and/or log source",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listloggroupsforentity": {
+    "name": "ListLogGroupsForEntity",
+    "description": "Grants permission to retrieve all the log groups that are associated with entity",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "processwithpipeline": {
+    "name": "ProcessWithPipeline",
+    "description": "Grants permission to process and transform log events through pipeline transformers before storage",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "log-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "logs:data_source_name",
+      "logs:data_source_type"
+    ],
+    "dependentActions": []
+  },
+  "putpipelinerule": {
+    "name": "PutPipelineRule",
+    "description": "Grants permission to create telemetry pipeline",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoplivetail": {
+    "name": "StopLiveTail",
+    "description": "Grants permission to stop a Live Tail session that is in progress",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "unmask": {
+    "name": "Unmask",
+    "description": "Grants permission to fetch unmasked log events that have been redacted with a data protection policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "log-group",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatelogdelivery": {
+    "name": "UpdateLogDelivery",
+    "description": "Grants permission to update the log delivery information for specified log delivery",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "associatekmskey": {
     "name": "AssociateKmsKey",
     "description": "Grants permission to associate the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group",
@@ -17,15 +164,6 @@
   "associatesourcetos3tableintegration": {
     "name": "AssociateSourceToS3TableIntegration",
     "description": "Grants permission to associate a log source to an S3 Tables integration",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "callwithbearertoken": {
-    "name": "CallWithBearerToken",
-    "isPermissionOnly": true,
-    "description": "Grants permission to authenticate requests using bearer token",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -72,8 +210,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -113,18 +251,9 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
-    "dependentActions": []
-  },
-  "createlogdelivery": {
-    "name": "CreateLogDelivery",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create the log delivery",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
     "dependentActions": []
   },
   "createloggroup": {
@@ -140,8 +269,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -173,8 +302,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -191,8 +320,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -325,15 +454,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deletelogdelivery": {
-    "name": "DeleteLogDelivery",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete the log delivery information for specified log delivery",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deleteloggroup": {
     "name": "DeleteLogGroup",
     "description": "Grants permission to delete the log group with the specified name",
@@ -394,15 +514,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "deletepipelinerule": {
-    "name": "DeletePipelineRule",
-    "isPermissionOnly": true,
-    "description": "Grants permission to delete telemetry pipeline",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletequerydefinition": {
     "name": "DeleteQueryDefinition",
     "description": "Grants permission to delete a saved CloudWatch Logs Insights query definition",
@@ -414,7 +525,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete a resource policy from this account",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -803,15 +914,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "getlogdelivery": {
-    "name": "GetLogDelivery",
-    "isPermissionOnly": true,
-    "description": "Grants permission to get the log delivery information for specified log delivery",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "getlogevents": {
     "name": "GetLogEvents",
     "description": "Grants permission to retrieve log events from the specified log stream",
@@ -925,6 +1027,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getstoragetierpolicy": {
+    "name": "GetStorageTierPolicy",
+    "description": "Grants permission to retrieve the storage tier policy for the account",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "gettransformer": {
     "name": "GetTransformer",
     "description": "Grants permission to return transformer associated with the specified log group",
@@ -937,34 +1047,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "integratewiths3table": {
-    "name": "IntegrateWithS3Table",
-    "isPermissionOnly": true,
-    "description": "Grants permission to deliver log events to S3 Tables",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "log-group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "logs:data_source_name",
-      "logs:data_source_type"
-    ],
-    "dependentActions": []
-  },
-  "link": {
-    "name": "Link",
-    "isPermissionOnly": true,
-    "description": "Grants permission to share CloudWatch resources with a monitoring account",
-    "accessLevel": "Write",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -991,15 +1073,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "listentitiesforloggroup": {
-    "name": "ListEntitiesForLogGroup",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve all the entities that are associated with log group",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listintegrations": {
     "name": "ListIntegrations",
     "description": "Grants permission to list all integrations associated with the AWS account making the request",
@@ -1023,27 +1096,9 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "listlogdeliveries": {
-    "name": "ListLogDeliveries",
-    "isPermissionOnly": true,
-    "description": "Grants permission to list all the log deliveries for specified account and/or log source",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listloggroups": {
     "name": "ListLogGroups",
     "description": "Grants permission to return all the log groups that are associated with the AWS account making the request",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listloggroupsforentity": {
-    "name": "ListLogGroupsForEntity",
-    "isPermissionOnly": true,
-    "description": "Grants permission to retrieve all the log groups that are associated with entity",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1147,25 +1202,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "processwithpipeline": {
-    "name": "ProcessWithPipeline",
-    "isPermissionOnly": true,
-    "description": "Grants permission to process and transform log events through pipeline transformers before storage",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "log-group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "logs:data_source_name",
-      "logs:data_source_type"
-    ],
-    "dependentActions": []
-  },
   "putaccountpolicy": {
     "name": "PutAccountPolicy",
     "description": "Grants permission to attach an account policy",
@@ -1217,8 +1253,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "logs:DeliveryDestinationResourceArn"
     ],
     "dependentActions": []
@@ -1251,8 +1287,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "logs:LogGeneratingResourceArns"
     ],
     "dependentActions": []
@@ -1266,14 +1302,12 @@
         "name": "destination",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -1353,15 +1387,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "putpipelinerule": {
-    "name": "PutPipelineRule",
-    "isPermissionOnly": true,
-    "description": "Grants permission to create telemetry pipeline",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "putquerydefinition": {
     "name": "PutQueryDefinition",
     "description": "Grants permission to create or update a query definition",
@@ -1373,7 +1398,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to create or update a resource policy allowing other AWS services to put log events to this account",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -1393,22 +1418,28 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "putstoragetierpolicy": {
+    "name": "PutStorageTierPolicy",
+    "description": "Grants permission to set the storage tier policy for the account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "putsubscriptionfilter": {
     "name": "PutSubscriptionFilter",
     "description": "Grants permission to create or update a subscription filter and associates it with the specified log group",
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "log-group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": [
-          "iam:PassRole"
-        ]
-      },
-      {
         "name": "destination",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "log-group",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1476,15 +1507,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "stoplivetail": {
-    "name": "StopLiveTail",
-    "isPermissionOnly": true,
-    "description": "Grants permission to stop a Live Tail session that is in progress",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "stopquery": {
     "name": "StopQuery",
     "description": "Grants permission to stop a CloudWatch Logs Insights query that is in progress",
@@ -1496,7 +1518,7 @@
   "tagloggroup": {
     "name": "TagLogGroup",
     "description": "Grants permission to add or update the specified tags for the specified log group",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "log-group",
@@ -1506,15 +1528,15 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or update the specified tags for the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "anomaly-detector",
@@ -1566,8 +1588,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -1587,26 +1609,10 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "unmask": {
-    "name": "Unmask",
-    "isPermissionOnly": true,
-    "description": "Grants permission to fetch unmasked log events that have been redacted with a data protection policy",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      {
-        "name": "log-group",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "untagloggroup": {
     "name": "UntagLogGroup",
     "description": "Grants permission to remove the specified tags from the specified log group",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "log-group",
@@ -1623,7 +1629,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove the specified tags from the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "anomaly-detector",
@@ -1719,8 +1725,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -1736,15 +1742,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "updatelogdelivery": {
-    "name": "UpdateLogDelivery",
-    "isPermissionOnly": true,
-    "description": "Grants permission to update the log delivery information for specified log delivery",
-    "accessLevel": "Write",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },

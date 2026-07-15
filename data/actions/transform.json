@@ -1,7 +1,6 @@
 {
   "accesstransformprofile": {
     "name": "AccessTransformProfile",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke AccessTransformProfile on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -17,25 +16,23 @@
   },
   "associateconnectorresource": {
     "name": "AssociateConnectorResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke AssociateConnectorResource on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "connector",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createprofile": {
     "name": "CreateProfile",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke CreateProfile on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -51,7 +48,6 @@
   },
   "deleteagentruntimeconfiguration": {
     "name": "DeleteAgentRuntimeConfiguration",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke DeleteAgentRuntimeConfiguration on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -60,25 +56,23 @@
   },
   "deleteconnector": {
     "name": "DeleteConnector",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke DeleteConnector on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "connector",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "deleteprofile": {
     "name": "DeleteProfile",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke DeleteProfile on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [
@@ -94,7 +88,6 @@
   },
   "getaccountsettings": {
     "name": "GetAccountSettings",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke GetAccountSettings on AWS Transform",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -103,7 +96,6 @@
   },
   "getagent": {
     "name": "GetAgent",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke GetAgent on AWS Transform",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -112,7 +104,6 @@
   },
   "getagentruntimeconfiguration": {
     "name": "GetAgentRuntimeConfiguration",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke GetAgentRuntimeConfiguration on AWS Transform",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -121,25 +112,23 @@
   },
   "getconnector": {
     "name": "GetConnector",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke GetConnector on AWS Transform",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "connector",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "getwebappurl": {
     "name": "GetWebAppUrl",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke GetWebAppUrl on AWS Transform",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -148,7 +137,6 @@
   },
   "listagents": {
     "name": "ListAgents",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke ListAgents on AWS Transform",
     "accessLevel": "Read",
     "resourceTypes": [],
@@ -157,7 +145,6 @@
   },
   "listconnectors": {
     "name": "ListConnectors",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke ListConnectors on AWS Transform",
     "accessLevel": "List",
     "resourceTypes": [],
@@ -168,7 +155,6 @@
   },
   "listprofiles": {
     "name": "ListProfiles",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke ListProfiles on AWS Transform",
     "accessLevel": "List",
     "resourceTypes": [],
@@ -177,14 +163,15 @@
   },
   "listtagsforresource": {
     "name": "ListTagsForResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke ListTagsForResource on AWS Transform",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "connector",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -193,7 +180,6 @@
   },
   "putagentruntimeconfiguration": {
     "name": "PutAgentRuntimeConfiguration",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke PutAgentRuntimeConfiguration on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -202,62 +188,60 @@
   },
   "rejectconnector": {
     "name": "RejectConnector",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke RejectConnector on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "connector",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:ResourceTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "tagresource": {
     "name": "TagResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke TagResource on AWS Transform",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "connector",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke UntagResource on AWS Transform",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "connector",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:TagKeys"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updateaccountsettings": {
     "name": "UpdateAccountSettings",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke UpdateAccountSettings on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -266,7 +250,6 @@
   },
   "updateagentaccess": {
     "name": "UpdateAgentAccess",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke UpdateAgentAccess on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [],
@@ -275,7 +258,6 @@
   },
   "updateprofile": {
     "name": "UpdateProfile",
-    "isPermissionOnly": true,
     "description": "Grants permission to invoke UpdateProfile on AWS Transform",
     "accessLevel": "Write",
     "resourceTypes": [

@@ -35,11 +35,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "mpa:CancelSession",
-      "mpa:GetApprovalTeam",
-      "mpa:StartSession"
-    ]
+    "dependentActions": []
   },
   "createalias": {
     "name": "CreateAlias",
@@ -70,13 +66,11 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "payment-cryptography:KeyAlgorithm",
       "payment-cryptography:KeyClass",
-      "payment-cryptography:KeyUsage",
-      "payment-cryptography:KeyAlgorithm"
+      "payment-cryptography:KeyUsage"
     ],
-    "dependentActions": [
-      "payment-cryptography:TagResource"
-    ]
+    "dependentActions": []
   },
   "decryptdata": {
     "name": "DecryptData",
@@ -128,9 +122,7 @@
         "name": "key",
         "required": true,
         "conditionKeys": [],
-        "dependentActions": [
-          "mpa:CancelSession"
-        ]
+        "dependentActions": []
       }
     ],
     "conditionKeys": [
@@ -141,7 +133,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete the resource-based policy attached to a key",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "key",
@@ -174,10 +166,7 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "mpa:CancelSession",
-      "mpa:StartSession"
-    ]
+    "dependentActions": []
   },
   "enabledefaultkeyreplicationregions": {
     "name": "EnableDefaultKeyReplicationRegions",
@@ -223,8 +212,8 @@
       }
     ],
     "conditionKeys": [
-      "payment-cryptography:RequestAlias",
       "payment-cryptography:CertificateAuthorityPublicKeyIdentifier",
+      "payment-cryptography:RequestAlias",
       "payment-cryptography:WrappingKeyIdentifier"
     ],
     "dependentActions": []
@@ -487,14 +476,11 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
-      "payment-cryptography:ImportKeyMaterial",
       "payment-cryptography:CertificateAuthorityPublicKeyIdentifier",
+      "payment-cryptography:ImportKeyMaterial",
       "payment-cryptography:WrappingKeyIdentifier"
     ],
-    "dependentActions": [
-      "mpa:StartSession",
-      "payment-cryptography:TagResource"
-    ]
+    "dependentActions": []
   },
   "listaliases": {
     "name": "ListAliases",
@@ -530,7 +516,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to attach or replace a resource-based policy on a key",
-    "accessLevel": "Permissions management",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "key",
@@ -642,7 +628,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add or overwrites one or more tags for the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "key",
@@ -652,8 +638,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
-      "aws:RequestTag/${TagKey}"
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -706,7 +692,7 @@
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove the specified tag or tags from the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "key",

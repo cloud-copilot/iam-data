@@ -12,21 +12,13 @@
       }
     ],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "attachpolicy": {
     "name": "AttachPolicy",
     "description": "Grants permission to attach a policy to a root, an organizational unit, or an individual account",
     "accessLevel": "Write",
     "resourceTypes": [
-      {
-        "name": "policy",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
       {
         "name": "account",
         "required": false,
@@ -36,6 +28,12 @@
       {
         "name": "organizationalunit",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -88,8 +86,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -100,8 +98,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
     ],
     "dependentActions": []
   },
@@ -111,9 +109,7 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
-    "dependentActions": [
-      "iam:CreateServiceLinkedRole"
-    ]
+    "dependentActions": []
   },
   "createorganizationalunit": {
     "name": "CreateOrganizationalUnit",
@@ -145,10 +141,10 @@
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
-      "organizations:PolicyType",
       "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
-      "aws:ResourceTag/${TagKey}"
+      "organizations:PolicyType"
     ],
     "dependentActions": []
   },
@@ -348,8 +344,8 @@
       }
     ],
     "conditionKeys": [
-      "organizations:TransferType",
-      "organizations:TransferDirection"
+      "organizations:TransferDirection",
+      "organizations:TransferType"
     ],
     "dependentActions": []
   },
@@ -359,12 +355,6 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
-        "name": "policy",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      },
-      {
         "name": "account",
         "required": false,
         "conditionKeys": [],
@@ -373,6 +363,12 @@
       {
         "name": "organizationalunit",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "policy",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       },
@@ -481,8 +477,8 @@
       }
     ],
     "conditionKeys": [
-      "organizations:TransferType",
-      "organizations:TransferDirection"
+      "organizations:TransferDirection",
+      "organizations:TransferType"
     ],
     "dependentActions": []
   },
@@ -634,8 +630,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "organizations:TransferType",
-      "organizations:TransferDirection"
+      "organizations:TransferDirection",
+      "organizations:TransferType"
     ],
     "dependentActions": []
   },
@@ -666,8 +662,8 @@
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
-      "organizations:TransferType",
-      "organizations:TransferDirection"
+      "organizations:TransferDirection",
+      "organizations:TransferType"
     ],
     "dependentActions": []
   },
@@ -772,8 +768,8 @@
         "name": "responsibilitytransfer",
         "required": false,
         "conditionKeys": [
-          "organizations:TransferType",
-          "organizations:TransferDirection"
+          "organizations:TransferDirection",
+          "organizations:TransferType"
         ],
         "dependentActions": []
       },
@@ -886,7 +882,7 @@
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to add one or more tags to the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "account",
@@ -918,8 +914,8 @@
         "name": "responsibilitytransfer",
         "required": false,
         "conditionKeys": [
-          "organizations:TransferType",
-          "organizations:TransferDirection"
+          "organizations:TransferDirection",
+          "organizations:TransferType"
         ],
         "dependentActions": []
       },
@@ -931,8 +927,8 @@
       }
     ],
     "conditionKeys": [
-      "aws:TagKeys",
       "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
       "organizations:PolicyType"
     ],
     "dependentActions": []
@@ -950,15 +946,15 @@
       }
     ],
     "conditionKeys": [
-      "organizations:TransferType",
-      "organizations:TransferDirection"
+      "organizations:TransferDirection",
+      "organizations:TransferType"
     ],
     "dependentActions": []
   },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove one or more tags from the specified resource",
-    "accessLevel": "Tagging",
+    "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
         "name": "account",
@@ -988,8 +984,8 @@
         "name": "responsibilitytransfer",
         "required": false,
         "conditionKeys": [
-          "organizations:TransferType",
-          "organizations:TransferDirection"
+          "organizations:TransferDirection",
+          "organizations:TransferType"
         ],
         "dependentActions": []
       },
@@ -1051,8 +1047,8 @@
       }
     ],
     "conditionKeys": [
-      "organizations:TransferType",
-      "organizations:TransferDirection"
+      "organizations:TransferDirection",
+      "organizations:TransferType"
     ],
     "dependentActions": []
   }
