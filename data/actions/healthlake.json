@@ -29,6 +29,18 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createdatatransformationprofile": {
+    "name": "CreateDataTransformationProfile",
+    "description": "Grants permission to create a data transformation profile",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createfhirdatastore": {
     "name": "CreateFHIRDatastore",
     "description": "Grants permission to create a datastore that can ingest and export FHIR data",
@@ -48,6 +60,21 @@
     "resourceTypes": [
       {
         "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatatransformationprofile": {
+    "name": "DeleteDataTransformationProfile",
+    "description": "Grants permission to delete a data transformation profile and all its versions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -83,6 +110,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatatransformationjob": {
+    "name": "DescribeDataTransformationJob",
+    "description": "Grants permission to describe a data transformation job",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -251,6 +286,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getdatatransformationprofile": {
+    "name": "GetDataTransformationProfile",
+    "description": "Grants permission to retrieve a data transformation profile and its content",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getexportedfile": {
     "name": "GetExportedFile",
     "description": "Grants permission to access exported files from a FHIR Export job initiated with Get",
@@ -293,6 +343,37 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatatransformationjobs": {
+    "name": "ListDataTransformationJobs",
+    "description": "Grants permission to list data transformation jobs in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatatransformationprofileversions": {
+    "name": "ListDataTransformationProfileVersions",
+    "description": "Grants permission to list all versions of a data transformation profile",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatatransformationprofiles": {
+    "name": "ListDataTransformationProfiles",
+    "description": "Grants permission to list data transformation profiles in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -339,6 +420,12 @@
     "description": "Grants permission to get a list of tags for the specified datastore",
     "accessLevel": "List",
     "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "datastore",
         "required": false,
@@ -454,6 +541,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "publishdatatransformationprofile": {
+    "name": "PublishDataTransformationProfile",
+    "description": "Grants permission to publish a new immutable version of a data transformation profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "questionnairepackage": {
     "name": "QuestionnairePackage",
     "description": "Grants permission to retrieve Questionnaire packages with dependency Library and ValueSet resources",
@@ -536,6 +638,21 @@
     "resourceTypes": [
       {
         "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startdatatransformationjob": {
+    "name": "StartDataTransformationJob",
+    "description": "Grants permission to start an asynchronous data transformation job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -655,6 +772,12 @@
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
+        "name": "dataTransformationProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "datastore",
         "required": false,
         "conditionKeys": [],
@@ -668,11 +791,32 @@
     ],
     "dependentActions": []
   },
+  "transformdata": {
+    "name": "TransformData",
+    "description": "Grants permission to perform a synchronous data transformation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "untagresource": {
     "name": "UntagResource",
     "description": "Grants permission to remove tags associated with a datastore",
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "datastore",
         "required": false,
@@ -685,6 +829,21 @@
     ],
     "dependentActions": []
   },
+  "updatedatatransformationprofile": {
+    "name": "UpdateDataTransformationProfile",
+    "description": "Grants permission to update the draft version of a data transformation profile",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatefhirdatastore": {
     "name": "UpdateFHIRDatastore",
     "description": "Grants permission to update the configuration of a datastore",
@@ -692,6 +851,21 @@
     "resourceTypes": [
       {
         "name": "datastore",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateprofilewithagent": {
+    "name": "UpdateProfileWithAgent",
+    "description": "Grants permission to update a data transformation profile using the AI agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataTransformationProfile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -727,6 +901,14 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "validatesource": {
+    "name": "ValidateSource",
+    "description": "Grants permission to validate source data against format specifications",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
