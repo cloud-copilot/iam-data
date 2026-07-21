@@ -4,7 +4,11 @@
     "description": "Grants permission to invoke BatchCreateFindings on AWS Transform custom",
     "accessLevel": "Write",
     "resourceTypes": [],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "batchupdatefindings": {
