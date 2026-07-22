@@ -1,10 +1,16 @@
 {
   "environment": {
     "key": "environment",
-    "arn": "arn:${Partition}:airflow:${Region}:${Account}:environment/${EnvironmentName}"
+    "arn": "arn:${Partition}:airflow:${Region}:${Account}:environment/${EnvironmentName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "rbac-role": {
     "key": "rbac-role",
-    "arn": "arn:${Partition}:airflow:${Region}:${Account}:role/${EnvironmentName}/${RoleName}"
+    "arn": "arn:${Partition}:airflow:${Region}:${Account}:role/${EnvironmentName}/${RoleName}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   }
 }

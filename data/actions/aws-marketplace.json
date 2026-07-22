@@ -137,6 +137,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "gettaxcomplianceprofile": {
+    "name": "GetTaxComplianceProfile",
+    "description": "Grants permission to retrieve details of a tax compliance profile including artifacts with download URLs",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "TaxComplianceProfile",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getverification": {
     "name": "GetVerification",
     "description": "Grants permission to retrieve the detailed status of a specific verification process, including PSP validation results",
@@ -227,6 +242,22 @@
     ],
     "dependentActions": []
   },
+  "listtaxcomplianceprofilechangetasks": {
+    "name": "ListTaxComplianceProfileChangeTasks",
+    "description": "Grants permission to list tax compliance profile change tasks with optional filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtaxcomplianceprofiles": {
+    "name": "ListTaxComplianceProfiles",
+    "description": "Grants permission to list tax compliance profiles with optional filters",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listverificationevidence": {
     "name": "ListVerificationEvidence",
     "description": "Grants permission to list verification evidence resources with summary metadata",
@@ -287,6 +318,24 @@
     "resourceTypes": [
       {
         "name": "InvoiceSubmissionTask",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "starttaxcomplianceprofilechangetask": {
+    "name": "StartTaxComplianceProfileChangeTask",
+    "description": "Grants permission to initiate asynchronous processing of a tax compliance profile create or update with artifact validation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "TaxComplianceProfileChangeTask",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
