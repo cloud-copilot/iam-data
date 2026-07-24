@@ -183,6 +183,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "adddatasetexamples": {
+    "name": "AddDatasetExamples",
+    "description": "Grants permission to add examples to a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchcreatememoryrecords": {
     "name": "BatchCreateMemoryRecords",
     "description": "Grants permission to create one or more memory records",
@@ -397,6 +412,33 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createdataset": {
+    "name": "CreateDataset",
+    "description": "Grants permission to create a new dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdatasetversion": {
+    "name": "CreateDatasetVersion",
+    "description": "Grants permission to create a new version of a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createevaluator": {
     "name": "CreateEvaluator",
     "description": "Grants permission to create a new evaluator",
@@ -606,7 +648,8 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "bedrock-agentcore:DiscoveryUrl"
     ],
     "dependentActions": []
   },
@@ -837,6 +880,36 @@
     "resourceTypes": [
       {
         "name": "configuration-bundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedataset": {
+    "name": "DeleteDataset",
+    "description": "Grants permission to delete a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedatasetexamples": {
+    "name": "DeleteDatasetExamples",
+    "description": "Grants permission to delete examples from a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1467,6 +1540,21 @@
     "resourceTypes": [
       {
         "name": "configuration-bundle",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdataset": {
+    "name": "GetDataset",
+    "description": "Grants permission to get details of a dataset",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dataset",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2473,6 +2561,44 @@
   "listconfigurationbundles": {
     "name": "ListConfigurationBundles",
     "description": "Grants permission to list configuration bundles",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetexamples": {
+    "name": "ListDatasetExamples",
+    "description": "Grants permission to list examples in a dataset",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetversions": {
+    "name": "ListDatasetVersions",
+    "description": "Grants permission to list versions of a dataset",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasets": {
+    "name": "ListDatasets",
+    "description": "Grants permission to list datasets",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -3644,6 +3770,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatedataset": {
+    "name": "UpdateDataset",
+    "description": "Grants permission to update a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedatasetexamples": {
+    "name": "UpdateDatasetExamples",
+    "description": "Grants permission to update examples in a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updateevaluator": {
     "name": "UpdateEvaluator",
     "description": "Grants permission to update an evaluator",
@@ -3839,7 +3995,9 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "bedrock-agentcore:DiscoveryUrl"
+    ],
     "dependentActions": []
   },
   "updatepolicy": {

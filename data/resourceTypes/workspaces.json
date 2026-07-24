@@ -1,7 +1,10 @@
 {
   "certificateid": {
     "key": "certificateid",
-    "arn": "arn:${Partition}:workspaces:${Region}:${Account}:workspacecertificate/${CertificateId}"
+    "arn": "arn:${Partition}:workspaces:${Region}:${Account}:workspacecertificate/${CertificateId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "connectionalias": {
     "key": "connectionalias",
@@ -52,8 +55,8 @@
       "aws:ResourceTag/${TagKey}"
     ]
   },
-  "workspacespoolid": {
-    "key": "workspacespoolid",
+  "workspacespool": {
+    "key": "workspacespool",
     "arn": "arn:${Partition}:workspaces:${Region}:${Account}:workspacespool/${PoolId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
