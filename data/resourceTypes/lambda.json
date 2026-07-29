@@ -15,7 +15,10 @@
   },
   "durable execution": {
     "key": "durable execution",
-    "arn": "arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}/durable-execution/${ExecutionName}/${ExecutionId}"
+    "arn": "arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}/durable-execution/${ExecutionName}/${ExecutionId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "eventsourcemapping": {
     "key": "eventSourceMapping",
