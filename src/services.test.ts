@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { iamServiceExists, iamServiceKeys, iamServiceName } from './services'
+import {
+  iamServiceExists,
+  iamServiceKeys,
+  iamServiceName,
+  servicesWithRcpSupport
+} from './services'
 
 describe('services', () => {
   describe('iamServiceKeys', () => {
@@ -10,6 +15,19 @@ describe('services', () => {
 
       //Then result should be an array of strings
       expect(Array.isArray(result)).toBe(true)
+    })
+  })
+
+  describe('servicesWithRcpSupport', () => {
+    it('should return the services with RCP support', async () => {
+      //Given servicesWithRcpSupport exists
+      //When servicesWithRcpSupport is called
+      const result = await servicesWithRcpSupport()
+
+      //Then result should include services that support RCPs
+      expect(result).toContain('s3')
+      expect(result).toContain('sqs')
+      expect(result).toContain('sts')
     })
   })
 

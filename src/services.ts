@@ -10,6 +10,15 @@ export async function iamServiceKeys(): Promise<string[]> {
 }
 
 /**
+ * Get keys for all services with RCP support
+ *
+ * @returns an array of service keys that support RCPs
+ */
+export async function servicesWithRcpSupport(): Promise<string[]> {
+  return readDataFile<string[]>('rcpSupportedServices.json')
+}
+
+/**
  * Check if a service exists
  *
  * @param serviceKey the service key to check, is case insensitive

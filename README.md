@@ -35,6 +35,7 @@ for(const serviceKey of serviceKeys) {
 * `iamServiceKeys()` - Returns an array of all service keys such as 's3', 'ec2', etc.
 * `iamServiceName(serviceKey: string)` - Returns the service name for a given service key.
 * `iamServiceExists(serviceKey: string)` - Returns true if the service key exists.
+* `servicesWithRcpSupport()` - Returns an array of service keys for services that support RCPs.
 
 ### Categories
 * `serviceCategories()` - Returns an array of all service category keys such as 'storage', 'compute', etc.
