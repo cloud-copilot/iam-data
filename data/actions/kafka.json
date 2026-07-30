@@ -29,6 +29,24 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createchannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create an MSK Data Channel for an MSK cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcluster": {
     "name": "CreateCluster",
     "description": "Grants permission to create an MSK cluster",
@@ -137,6 +155,27 @@
     ],
     "dependentActions": []
   },
+  "deletechannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete an MSK Data Channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecluster": {
     "name": "DeleteCluster",
     "description": "Grants permission to delete an MSK cluster",
@@ -219,6 +258,27 @@
     "resourceTypes": [
       {
         "name": "vpc-connection",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describechannel": {
+    "name": "DescribeChannel",
+    "description": "Grants permission to describe an MSK Data Channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "cluster",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -391,6 +451,21 @@
     "description": "Grants permission to get a list of the Apache Kafka versions to which you can update an MSK cluster",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listchannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to list all MSK Data Channels for a specified MSK cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -695,6 +770,27 @@
     "description": "Grants permission to update the broker type of an Amazon MSK cluster",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to update the configuration of an MSK Data Channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "cluster",
         "required": true,

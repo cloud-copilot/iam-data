@@ -15,7 +15,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -30,7 +32,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -45,13 +49,42 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchassociatedatasegmentstodataset": {
+    "name": "BatchAssociateDataSegmentsToDataset",
+    "description": "Grants permission to associate data segments to a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -66,7 +99,59 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdeletedatasetdatasegments": {
+    "name": "BatchDeleteDatasetDataSegments",
+    "description": "Grants permission to batch delete data segments from a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchdisassociatedatasegmentsfromdataset": {
+    "name": "BatchDisassociateDataSegmentsFromDataset",
+    "description": "Grants permission to disassociate data segments from a dataset",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -81,7 +166,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -96,13 +183,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -117,13 +208,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -138,13 +233,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -159,13 +258,68 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelenrichmentjob": {
+    "name": "CancelEnrichmentJob",
+    "description": "Grants permission to cancel an enrichment job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelpipelineexecution": {
+    "name": "CancelPipelineExecution",
+    "description": "Grants permission to cancel a pipeline execution in a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "cancelquery": {
+    "name": "CancelQuery",
+    "description": "Grants permission to cancel a query",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -180,16 +334,31 @@
       {
         "name": "portal",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "project",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createapplication": {
+    "name": "CreateApplication",
+    "description": "Grants permission to create an application",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -204,7 +373,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -233,7 +404,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -244,7 +417,24 @@
     "name": "CreateBulkImportJob",
     "description": "Grants permission to create bulk import job",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -256,13 +446,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -280,7 +474,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -294,11 +490,78 @@
     "name": "CreateDataset",
     "description": "Grants permission to create a dataset",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "createdatasetexportjob": {
+    "name": "CreateDatasetExportJob",
+    "description": "Grants permission to create a dataset export job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "time-series",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createenrichmentjob": {
+    "name": "CreateEnrichmentJob",
+    "description": "Grants permission to create an enrichment job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "creategateway": {
@@ -309,6 +572,18 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createpipeline": {
+    "name": "CreatePipeline",
+    "description": "Grants permission to create a new pipeline definition in a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "iotsitewise:taskArns"
     ],
     "dependentActions": []
   },
@@ -331,10 +606,34 @@
       {
         "name": "portal",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createtask": {
+    "name": "CreateTask",
+    "description": "Grants permission to create a new task definition in a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createworkspace": {
+    "name": "CreateWorkspace",
+    "description": "Grants permission to create a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -349,7 +648,26 @@
       {
         "name": "access-policy",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteapplication": {
+    "name": "DeleteApplication",
+    "description": "Grants permission to delete an application",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -364,7 +682,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -379,7 +699,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -394,7 +716,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -409,7 +733,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -424,7 +750,9 @@
       {
         "name": "computation-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -439,7 +767,9 @@
       {
         "name": "dashboard",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -454,7 +784,17 @@
       {
         "name": "dataset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -469,7 +809,26 @@
       {
         "name": "gateway",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletepipeline": {
+    "name": "DeletePipeline",
+    "description": "Grants permission to delete a pipeline definition from a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -484,7 +843,9 @@
       {
         "name": "portal",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -499,7 +860,26 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetask": {
+    "name": "DeleteTask",
+    "description": "Grants permission to delete a task definition from a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -514,13 +894,42 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteworkspace": {
+    "name": "DeleteWorkspace",
+    "description": "Grants permission to delete a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -535,7 +944,9 @@
       {
         "name": "access-policy",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -550,13 +961,34 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeapplication": {
+    "name": "DescribeApplication",
+    "description": "Grants permission to describe an application",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -571,7 +1003,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -586,7 +1020,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -601,7 +1037,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -616,7 +1054,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -631,7 +1071,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -646,7 +1088,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -657,7 +1101,24 @@
     "name": "DescribeBulkImportJob",
     "description": "Grants permission to describe bulk import job",
     "accessLevel": "Read",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -669,7 +1130,9 @@
       {
         "name": "computation-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -684,13 +1147,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -705,7 +1172,9 @@
       {
         "name": "dashboard",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -720,7 +1189,34 @@
       {
         "name": "dataset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedatasetexportjob": {
+    "name": "DescribeDatasetExportJob",
+    "description": "Grants permission to describe a dataset export job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -732,6 +1228,23 @@
     "description": "Grants permission to describe the default encryption configuration for the AWS account",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describeenrichmentjob": {
+    "name": "DescribeEnrichmentJob",
+    "description": "Grants permission to describe an enrichment job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -751,7 +1264,9 @@
       {
         "name": "gateway",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -766,7 +1281,9 @@
       {
         "name": "gateway",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -781,6 +1298,40 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describepipeline": {
+    "name": "DescribePipeline",
+    "description": "Grants permission to retrieve detailed information about a pipeline in a workspace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describepipelineexecution": {
+    "name": "DescribePipelineExecution",
+    "description": "Grants permission to retrieve detailed information about a pipeline execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeportal": {
     "name": "DescribePortal",
     "description": "Grants permission to describe a portal",
@@ -789,7 +1340,9 @@
       {
         "name": "portal",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -804,7 +1357,43 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describequery": {
+    "name": "DescribeQuery",
+    "description": "Grants permission to describe a query",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describesearch": {
+    "name": "DescribeSearch",
+    "description": "Grants permission to describe a search",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -819,6 +1408,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describetask": {
+    "name": "DescribeTask",
+    "description": "Grants permission to retrieve detailed information about a task in a workspace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describetimeseries": {
     "name": "DescribeTimeSeries",
     "description": "Grants permission to describe a time series",
@@ -827,13 +1433,25 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -841,6 +1459,23 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "describeworkspace": {
+    "name": "DescribeWorkspace",
+    "description": "Grants permission to describe a workspace",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "disassociateassets": {
@@ -851,7 +1486,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -866,13 +1503,17 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -887,13 +1528,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -916,13 +1561,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -937,13 +1586,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -958,13 +1611,42 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcapturedata": {
+    "name": "GetCaptureData",
+    "description": "Grants permission to retrieve captured data",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "time-series",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -979,13 +1661,51 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getqueryresults": {
+    "name": "GetQueryResults",
+    "description": "Grants permission to retrieve query results",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsearchresults": {
+    "name": "GetSearchResults",
+    "description": "Grants permission to retrieve search results",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1008,13 +1728,17 @@
       {
         "name": "portal",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "project",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1029,16 +1753,28 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listapplications": {
+    "name": "ListApplications",
+    "description": "Grants permission to list all applications",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1050,7 +1786,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1065,7 +1803,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1088,7 +1828,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1103,7 +1845,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1118,7 +1862,9 @@
       {
         "name": "asset-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1133,7 +1879,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1144,7 +1892,16 @@
     "name": "ListBulkImportJobs",
     "description": "Grants permission to list bulk import jobs",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1156,7 +1913,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1171,13 +1930,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1192,7 +1955,9 @@
       {
         "name": "computation-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1215,7 +1980,76 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetdatasegmentrelationships": {
+    "name": "ListDatasetDataSegmentRelationships",
+    "description": "Grants permission to list dataset data segment relationships",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetdatasegments": {
+    "name": "ListDatasetDataSegments",
+    "description": "Grants permission to list data segments for a dataset",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdatasetexportjobs": {
+    "name": "ListDatasetExportJobs",
+    "description": "Grants permission to list dataset export jobs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1226,7 +2060,41 @@
     "name": "ListDatasets",
     "description": "Grants permission to list all datasets",
     "accessLevel": "List",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listenrichmentjobs": {
+    "name": "ListEnrichmentJobs",
+    "description": "Grants permission to list enrichment jobs",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dataset",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1238,13 +2106,17 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1267,10 +2139,37 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpipelineexecutions": {
+    "name": "ListPipelineExecutions",
+    "description": "Grants permission to list pipeline executions for a pipeline in a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listpipelines": {
+    "name": "ListPipelines",
+    "description": "Grants permission to list pipeline definitions in a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1290,7 +2189,9 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1305,7 +2206,43 @@
       {
         "name": "portal",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listqueries": {
+    "name": "ListQueries",
+    "description": "Grants permission to list queries",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsearches": {
+    "name": "ListSearches",
+    "description": "Grants permission to list searches",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1320,67 +2257,127 @@
       {
         "name": "access-policy",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dashboard",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dataset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "gateway",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "pipeline",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "portal",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "project",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ],
+    "dependentActions": []
+  },
+  "listtasks": {
+    "name": "ListTasks",
+    "description": "Grants permission to list task definitions in a workspace",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listtimeseries": {
@@ -1391,10 +2388,28 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listworkspaces": {
+    "name": "ListWorkspaces",
+    "description": "Grants permission to list all workspaces",
+    "accessLevel": "List",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1406,7 +2421,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1437,6 +2454,57 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startpipelineexecution": {
+    "name": "StartPipelineExecution",
+    "description": "Grants permission to start execution of a pipeline in a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startquery": {
+    "name": "StartQuery",
+    "description": "Grants permission to start a query on sensor data",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "startsearch": {
+    "name": "StartSearch",
+    "description": "Grants permission to start a search",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a resource",
@@ -1445,61 +2513,113 @@
       {
         "name": "access-policy",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dashboard",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dataset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "gateway",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "pipeline",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "portal",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "project",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1517,61 +2637,113 @@
       {
         "name": "access-policy",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "application",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dashboard",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "dataset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "gateway",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "pipeline",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "portal",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "project",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "task",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "time-series",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1588,7 +2760,9 @@
       {
         "name": "access-policy",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1603,7 +2777,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1618,7 +2794,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1633,7 +2811,9 @@
       {
         "name": "asset-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1648,7 +2828,9 @@
       {
         "name": "asset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1663,19 +2845,25 @@
       {
         "name": "asset",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "asset-model",
         "required": false,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       },
       {
         "name": "computation-model",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1690,7 +2878,9 @@
       {
         "name": "dashboard",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1705,7 +2895,17 @@
       {
         "name": "dataset",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1720,7 +2920,9 @@
       {
         "name": "gateway",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1735,11 +2937,32 @@
       {
         "name": "gateway",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatepipeline": {
+    "name": "UpdatePipeline",
+    "description": "Grants permission to update an existing pipeline definition in a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "pipeline",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "iotsitewise:taskArns"
+    ],
     "dependentActions": []
   },
   "updateportal": {
@@ -1750,7 +2973,9 @@
       {
         "name": "portal",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1765,7 +2990,43 @@
       {
         "name": "project",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetask": {
+    "name": "UpdateTask",
+    "description": "Grants permission to update an existing task definition in a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "task",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateworkspace": {
+    "name": "UpdateWorkspace",
+    "description": "Grants permission to update a workspace",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "workspace",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
