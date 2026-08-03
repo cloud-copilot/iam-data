@@ -413,18 +413,24 @@
         "dependentActions": []
       },
       {
+        "name": "storage-virtual-machine",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "volume",
         "required": true,
-        "conditionKeys": [],
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys",
+          "fsx:ParentVolumeId",
+          "fsx:StorageVirtualMachineId"
+        ],
         "dependentActions": []
       }
     ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys",
-      "fsx:ParentVolumeId",
-      "fsx:StorageVirtualMachineId"
-    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createvolumefrombackup": {

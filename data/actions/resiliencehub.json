@@ -283,6 +283,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createtest": {
+    "name": "CreateTest",
+    "description": "Grants permission to create a test instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createuserjourney": {
     "name": "CreateUserJourney",
     "description": "Grants permission to create a user journey within a system",
@@ -522,6 +539,40 @@
     "resourceTypes": [
       {
         "name": "system",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetest": {
+    "name": "DeleteTest",
+    "description": "Grants permission to delete a test",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletetestsources": {
+    "name": "DeleteTestSources",
+    "description": "Grants permission to delete test sources from a test",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
@@ -772,6 +823,48 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettest": {
+    "name": "GetTest",
+    "description": "Grants permission to retrieve a test",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettestrun": {
+    "name": "GetTestRun",
+    "description": "Grants permission to retrieve a test run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "gettesttemplate": {
+    "name": "GetTestTemplate",
+    "description": "Grants permission to retrieve a test template",
+    "accessLevel": "Read",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1157,6 +1250,23 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listresolvedtestruntargetresources": {
+    "name": "ListResolvedTestRunTargetResources",
+    "description": "Grants permission to list resolved target resources for a test run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listresourcegroupingrecommendations": {
     "name": "ListResourceGroupingRecommendations",
     "description": "Grants permission to list resource grouping recommendations",
@@ -1362,6 +1472,99 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listtestrunevents": {
+    "name": "ListTestRunEvents",
+    "description": "Grants permission to list events for a test run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtestrunsources": {
+    "name": "ListTestRunSources",
+    "description": "Grants permission to list test run source snapshots",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtestruns": {
+    "name": "ListTestRuns",
+    "description": "Grants permission to list test runs for a target",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtestsources": {
+    "name": "ListTestSources",
+    "description": "Grants permission to list test sources on a test",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtesttemplates": {
+    "name": "ListTestTemplates",
+    "description": "Grants permission to list available test templates",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listtests": {
+    "name": "ListTests",
+    "description": "Grants permission to list tests for a target",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listunsupportedappversionresources": {
     "name": "ListUnsupportedAppVersionResources",
     "description": "Grants permission to list unsupported application version resources",
@@ -1418,6 +1621,23 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "puttestsources": {
+    "name": "PutTestSources",
+    "description": "Grants permission to put test sources on a test",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1521,6 +1741,40 @@
         "name": "application",
         "required": true,
         "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "starttestrun": {
+    "name": "StartTestRun",
+    "description": "Grants permission to start a test run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stoptestrun": {
+    "name": "StopTestRun",
+    "description": "Grants permission to stop a test run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "dependentActions": []
       }
     ],
@@ -1834,6 +2088,23 @@
     "resourceTypes": [
       {
         "name": "system",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatetest": {
+    "name": "UpdateTest",
+    "description": "Grants permission to update a test",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "service",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
