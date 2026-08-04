@@ -1,4 +1,22 @@
 {
+  "createdbbackup": {
+    "name": "CreateDbBackup",
+    "description": "Grants permission to create a Timestream InfluxDB Backup for a DbInstance or DbCluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createdbcluster": {
     "name": "CreateDbCluster",
     "description": "Grants permission to create a new Timestream InfluxDB Cluster",
@@ -46,6 +64,21 @@
     ],
     "dependentActions": []
   },
+  "deletedbbackup": {
+    "name": "DeleteDbBackup",
+    "description": "Grants permission to delete a Timestream InfluxDB backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletedbcluster": {
     "name": "DeleteDbCluster",
     "description": "Grants permission to delete a Timestream InfluxDB Cluster",
@@ -68,6 +101,21 @@
     "resourceTypes": [
       {
         "name": "db-instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getdbbackup": {
+    "name": "GetDbBackup",
+    "description": "Grants permission to get information about a Timestream InfluxDB Backup",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "db-backup",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -121,6 +169,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listdbbackups": {
+    "name": "ListDbBackups",
+    "description": "Grants permission to list information about all Timestream InfluxDB backups in the account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdbclusters": {
     "name": "ListDbClusters",
     "description": "Grants permission to list information about all Timestream InfluxDB clusters in the account",
@@ -165,6 +221,12 @@
     "description": "Grants permission to list tags for a Timestream InfluxDB resource",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "db-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "db-cluster",
         "required": false,
@@ -225,11 +287,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "restorefromdbbackup": {
+    "name": "RestoreFromDbBackup",
+    "description": "Grants permission to restore from a Timestream InfluxDB backup",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "db-backup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "timestream-influxdb:RestoreMode"
+    ],
+    "dependentActions": []
+  },
   "tagresource": {
     "name": "TagResource",
     "description": "Grants permission to tag a Timestream InfluxDB resource",
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "db-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "db-cluster",
         "required": false,
@@ -261,6 +348,12 @@
     "description": "Grants permission to untag a Timestream InfluxDB resource",
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "db-backup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "db-cluster",
         "required": false,

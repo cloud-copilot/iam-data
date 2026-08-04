@@ -17,7 +17,7 @@
   "attachpolicy": {
     "name": "AttachPolicy",
     "description": "Grants permission to attach a policy to a root, an organizational unit, or an individual account",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "account",
@@ -139,7 +139,14 @@
     "name": "CreatePolicy",
     "description": "Grants permission to create a policy that you can attach to a root, an organizational unit (OU), or an individual AWS account",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "policy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -206,7 +213,7 @@
   "deleteresourcepolicy": {
     "name": "DeleteResourcePolicy",
     "description": "Grants permission to delete a resource policy from your organization",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
@@ -352,7 +359,7 @@
   "detachpolicy": {
     "name": "DetachPolicy",
     "description": "Grants permission to detach a policy from a target root, organizational unit, or account",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "account",
@@ -832,7 +839,7 @@
   "putresourcepolicy": {
     "name": "PutResourcePolicy",
     "description": "Grants permission to create or update a resource policy",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "resourcepolicy",
@@ -1020,7 +1027,7 @@
   "updatepolicy": {
     "name": "UpdatePolicy",
     "description": "Grants permission to update an existing policy with a new name, description, or content",
-    "accessLevel": "Write",
+    "accessLevel": "Permissions management, Write",
     "resourceTypes": [
       {
         "name": "policy",
