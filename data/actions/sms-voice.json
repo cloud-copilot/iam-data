@@ -17,6 +17,12 @@
         "dependentActions": []
       },
       {
+        "name": "RcsAgent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "SenderId",
         "required": false,
         "conditionKeys": [],
@@ -47,6 +53,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "carrierlookup": {
+    "name": "CarrierLookup",
+    "description": "Grants permission to look up carrier information for a phone number",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createconfigurationset": {
     "name": "CreateConfigurationSet",
     "description": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
@@ -71,6 +85,17 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createnotifyconfiguration": {
+    "name": "CreateNotifyConfiguration",
+    "description": "Grants permission to create a notify configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createoptoutlist": {
@@ -119,6 +144,17 @@
     ],
     "dependentActions": []
   },
+  "creatercsagent": {
+    "name": "CreateRcsAgent",
+    "description": "Grants permission to create an RCS agent",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createregistration": {
     "name": "CreateRegistration",
     "description": "Grants permission to create a registration",
@@ -137,6 +173,12 @@
     "resourceTypes": [
       {
         "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RcsAgent",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -278,6 +320,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletenotifyconfiguration": {
+    "name": "DeleteNotifyConfiguration",
+    "description": "Grants permission to delete a notify configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NotifyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletenotifymessagespendlimitoverride": {
+    "name": "DeleteNotifyMessageSpendLimitOverride",
+    "description": "Grants permission to delete an override for your account's notify messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteoptoutlist": {
     "name": "DeleteOptOutList",
     "description": "Grants permission to delete an opt-out list",
@@ -350,6 +415,29 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletercsagent": {
+    "name": "DeleteRcsAgent",
+    "description": "Grants permission to delete an RCS agent",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RcsAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletercsmessagespendlimitoverride": {
+    "name": "DeleteRcsMessageSpendLimitOverride",
+    "description": "Grants permission to delete an override for your account's RCS messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -514,6 +602,29 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describenotifyconfigurations": {
+    "name": "DescribeNotifyConfigurations",
+    "description": "Grants permission to describe the notify configurations in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "NotifyConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describenotifytemplates": {
+    "name": "DescribeNotifyTemplates",
+    "description": "Grants permission to describe the notify templates available",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeoptoutlists": {
     "name": "DescribeOptOutLists",
     "description": "Grants permission to describe the opt-out lists in your account",
@@ -581,6 +692,36 @@
     "resourceTypes": [
       {
         "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describercsagentcountrylaunchstatus": {
+    "name": "DescribeRcsAgentCountryLaunchStatus",
+    "description": "Grants permission to describe the country launch status for an RCS agent",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RcsAgent",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describercsagents": {
+    "name": "DescribeRcsAgents",
+    "description": "Grants permission to describe the RCS agents in your account",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RcsAgent",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -729,6 +870,12 @@
         "dependentActions": []
       },
       {
+        "name": "RcsAgent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "SenderId",
         "required": false,
         "conditionKeys": [],
@@ -822,6 +969,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listnotifycountries": {
+    "name": "ListNotifyCountries",
+    "description": "Grants permission to list countries that support notify messaging",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listpooloriginationidentities": {
     "name": "ListPoolOriginationIdentities",
     "description": "Grants permission to list all origination phone numbers and sender IDs associated to a pool",
@@ -879,6 +1034,12 @@
         "dependentActions": []
       },
       {
+        "name": "NotifyConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "OptOutList",
         "required": false,
         "conditionKeys": [],
@@ -898,6 +1059,12 @@
       },
       {
         "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RcsAgent",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1080,7 +1247,19 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "OptOutList",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Registration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1109,6 +1288,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "PhoneNumber",
         "required": false,
         "conditionKeys": [],
@@ -1136,6 +1321,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "PhoneNumber",
         "required": false,
         "conditionKeys": [],
@@ -1143,6 +1334,99 @@
       },
       {
         "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendnotifytextmessage": {
+    "name": "SendNotifyTextMessage",
+    "description": "Grants permission to send a notify text message to a destination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NotifyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendnotifyvoicemessage": {
+    "name": "SendNotifyVoiceMessage",
+    "description": "Grants permission to send a notify voice message to a destination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "NotifyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "sendrcsmessage": {
+    "name": "SendRcsMessage",
+    "description": "Grants permission to send an RCS message to a destination phone number",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "PhoneNumber",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RcsAgent",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "SenderId",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1157,6 +1441,12 @@
     "accessLevel": "Write",
     "resourceTypes": [
       {
+        "name": "ConfigurationSet",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "PhoneNumber",
         "required": false,
         "conditionKeys": [],
@@ -1164,6 +1454,12 @@
       },
       {
         "name": "Pool",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ProtectConfiguration",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1254,6 +1550,22 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "setnotifymessagespendlimitoverride": {
+    "name": "SetNotifyMessageSpendLimitOverride",
+    "description": "Grants permission to set an override for your account's notify messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "setrcsmessagespendlimitoverride": {
+    "name": "SetRcsMessageSpendLimitOverride",
+    "description": "Grants permission to set an override for your account's RCS messaging monthly spend limit",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "settextmessagespendlimitoverride": {
     "name": "SetTextMessageSpendLimitOverride",
     "description": "Grants permission to set an override for your account's text messaging monthly spend limit",
@@ -1297,6 +1609,12 @@
         "dependentActions": []
       },
       {
+        "name": "NotifyConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "OptOutList",
         "required": false,
         "conditionKeys": [],
@@ -1316,6 +1634,12 @@
       },
       {
         "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RcsAgent",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1363,6 +1687,12 @@
         "dependentActions": []
       },
       {
+        "name": "NotifyConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "OptOutList",
         "required": false,
         "conditionKeys": [],
@@ -1382,6 +1712,12 @@
       },
       {
         "name": "ProtectConfiguration",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RcsAgent",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1431,11 +1767,32 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatenotifyconfiguration": {
+    "name": "UpdateNotifyConfiguration",
+    "description": "Grants permission to update a notify configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "NotifyConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updatephonenumber": {
     "name": "UpdatePhoneNumber",
     "description": "Grants permission to update an origination phone number's configuration",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "OptOutList",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "PhoneNumber",
         "required": true,
@@ -1451,6 +1808,12 @@
     "description": "Grants permission to update a pool's configuration",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "OptOutList",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "Pool",
         "required": true,
@@ -1483,6 +1846,21 @@
     "resourceTypes": [
       {
         "name": "ProtectConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatercsagent": {
+    "name": "UpdateRcsAgent",
+    "description": "Grants permission to update an RCS agent's configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RcsAgent",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

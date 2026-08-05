@@ -10,6 +10,13 @@
     "key": "Message",
     "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:message/${MessageId}"
   },
+  "notifyconfiguration": {
+    "key": "NotifyConfiguration",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:notify-configuration/${NotifyConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "optoutlist": {
     "key": "OptOutList",
     "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:opt-out-list/${OptOutListName}",
@@ -34,6 +41,13 @@
   "protectconfiguration": {
     "key": "ProtectConfiguration",
     "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:protect-configuration/${ProtectConfigurationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "rcsagent": {
+    "key": "RcsAgent",
+    "arn": "arn:${Partition}:sms-voice:${Region}:${Account}:rcs-agent/${RcsAgentId}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]
