@@ -12,14 +12,29 @@
     ],
     "dependentActions": []
   },
-  "listmetadatamodelassessmentactionitems": {
-    "name": "ListMetadataModelAssessmentActionItems",
-    "description": "Grants permission to list the AWS DMS attributes for a metadata model assessment action items. Note. Despite this action requires StartMetadataModelImport, the latter does not currently authorize the described Schema Conversion operation",
+  "getmetadatamodel": {
+    "name": "GetMetadataModel",
+    "description": "Grants permission to list all of the AWS DMS attributes for a metadata model",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "MigrationProject",
-        "required": false,
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listmetadatamodelassessmentactionitems": {
+    "name": "ListMetadataModelAssessmentActionItems",
+    "description": "Grants permission to list the AWS DMS attributes for a metadata model assessment action items",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "MigrationProject",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -256,7 +271,7 @@
   },
   "createdataprovider": {
     "name": "CreateDataProvider",
-    "description": "Grants permission to create an data provider using the provided settings",
+    "description": "Grants permission to create a data provider using the provided settings",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [
@@ -271,7 +286,20 @@
     "name": "CreateEndpoint",
     "description": "Grants permission to create an endpoint using the provided settings",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "Endpoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -284,7 +312,14 @@
     "name": "CreateEventSubscription",
     "description": "Grants permission to create an AWS DMS event notification subscription",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "EventSubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -316,7 +351,7 @@
   },
   "createmigrationproject": {
     "name": "CreateMigrationProject",
-    "description": "Grants permission to create an migration project using the provided settings",
+    "description": "Grants permission to create a migration project using the provided settings",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -364,7 +399,20 @@
     "name": "CreateReplicationInstance",
     "description": "Grants permission to create a replication instance using the specified parameters",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ReplicationInstance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "ReplicationSubnetGroup",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -377,7 +425,14 @@
     "name": "CreateReplicationSubnetGroup",
     "description": "Grants permission to create a replication subnet group given a list of the subnet IDs in a VPC",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ReplicationSubnetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -586,7 +641,7 @@
   },
   "deletereplicationsubnetgroup": {
     "name": "DeleteReplicationSubnetGroup",
-    "description": "Grants permission to deletes a subnet group",
+    "description": "Grants permission to delete a subnet group",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -887,7 +942,7 @@
   },
   "describerefreshschemasstatus": {
     "name": "DescribeRefreshSchemasStatus",
-    "description": "Grants permission to returns the status of the RefreshSchemas operation",
+    "description": "Grants permission to return the status of the RefreshSchemas operation",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -1073,7 +1128,7 @@
     "resourceTypes": [
       {
         "name": "MigrationProject",
-        "required": false,
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1100,7 +1155,14 @@
     "name": "ImportCertificate",
     "description": "Grants permission to upload the specified certificate",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "Certificate",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -1110,7 +1172,7 @@
   },
   "listdataproviders": {
     "name": "ListDataProviders",
-    "description": "Grants permission to list the AWS DMS attributes for a data providers",
+    "description": "Grants permission to list the AWS DMS attributes for data providers",
     "accessLevel": "Read",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -1118,12 +1180,12 @@
   },
   "listextensionpacks": {
     "name": "ListExtensionPacks",
-    "description": "Grants permission to list the AWS DMS attributes for a extension packs",
+    "description": "Grants permission to list the AWS DMS attributes for extension packs",
     "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "MigrationProject",
-        "required": false,
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1133,7 +1195,7 @@
   },
   "listinstanceprofiles": {
     "name": "ListInstanceProfiles",
-    "description": "Grants permission to list the AWS DMS attributes for a instance profiles",
+    "description": "Grants permission to list the AWS DMS attributes for instance profiles",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -1153,7 +1215,7 @@
     "resourceTypes": [
       {
         "name": "MigrationProject",
-        "required": false,
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1168,7 +1230,7 @@
     "resourceTypes": [
       {
         "name": "MigrationProject",
-        "required": false,
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1183,7 +1245,7 @@
     "resourceTypes": [
       {
         "name": "MigrationProject",
-        "required": false,
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -1193,7 +1255,7 @@
   },
   "listmigrationprojects": {
     "name": "ListMigrationProjects",
-    "description": "Grants permission to list the AWS DMS attributes for a migration projects. Note. Despite this action requires DescribeMigrationProjects and DescribeConversionConfiguration, both required actions do not currently authorize the described Schema Conversion operation",
+    "description": "Grants permission to list the AWS DMS attributes for a migration projects",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -1345,7 +1407,14 @@
     "name": "ModifyEventSubscription",
     "description": "Grants permission to modify an existing AWS DMS event notification subscription",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "EventSubscription",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1383,7 +1452,14 @@
     "name": "ModifyReplicationSubnetGroup",
     "description": "Grants permission to modify the settings for the specified replication subnet group",
     "accessLevel": "Write",
-    "resourceTypes": [],
+    "resourceTypes": [
+      {
+        "name": "ReplicationSubnetGroup",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },

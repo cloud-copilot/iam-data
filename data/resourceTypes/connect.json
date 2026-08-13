@@ -126,6 +126,13 @@
     "key": "legacy-phone-number",
     "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/phone-number/${PhoneNumberId}"
   },
+  "metric": {
+    "key": "metric",
+    "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/metric/${MetricId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "notification": {
     "key": "notification",
     "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/notification/${NotificationId}",
@@ -154,6 +161,13 @@
   "qualified-customer-managed-view": {
     "key": "qualified-customer-managed-view",
     "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/view/${ViewId}:${ViewQualifier}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
+  "qualified-metric": {
+    "key": "qualified-metric",
+    "arn": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/metric/${MetricId}:${MetricQualifier}",
     "conditionKeys": [
       "aws:ResourceTag/${TagKey}"
     ]

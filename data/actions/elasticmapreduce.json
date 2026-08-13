@@ -353,6 +353,12 @@
         "dependentActions": []
       },
       {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "studio",
         "required": false,
         "conditionKeys": [],
@@ -677,6 +683,36 @@
     ],
     "dependentActions": []
   },
+  "getsession": {
+    "name": "GetSession",
+    "description": "Grants permission to get details of a Spark Connect session",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getsessionendpoint": {
+    "name": "GetSessionEndpoint",
+    "description": "Grants permission to get the endpoint and credentials for a Spark Connect session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getstudiosessionmapping": {
     "name": "GetStudioSessionMapping",
     "description": "Grants permission to view information about an EMR Studio session mapping",
@@ -781,6 +817,21 @@
     "description": "Grants permission to list available security configurations in this account by name, along with creation dates and times",
     "accessLevel": "List",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listsessions": {
+    "name": "ListSessions",
+    "description": "Grants permission to list Spark Connect sessions on an Amazon EMR cluster",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -990,6 +1041,12 @@
         "dependentActions": []
       },
       {
+        "name": "session",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "studio",
         "required": false,
         "conditionKeys": [],
@@ -1098,6 +1155,26 @@
     ],
     "dependentActions": []
   },
+  "startsession": {
+    "name": "StartSession",
+    "description": "Grants permission to start a Spark Connect session on an Amazon EMR cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "elasticmapreduce:ExecutionRoleArn",
+      "elasticmapreduce:RequestTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "stopnotebookexecution": {
     "name": "StopNotebookExecution",
     "description": "Grants permission to stop notebook execution",
@@ -1120,6 +1197,21 @@
     "resourceTypes": [
       {
         "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "terminatesession": {
+    "name": "TerminateSession",
+    "description": "Grants permission to terminate a Spark Connect session on an Amazon EMR cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "session",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

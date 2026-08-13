@@ -147,6 +147,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describedlpjob": {
+    "name": "DescribeDlpJob",
+    "description": "Grants permission to describe a DLP evaluation job",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dlpSetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeemailcustomizationtemplate": {
     "name": "DescribeEmailCustomizationTemplate",
     "description": "Grants permission to describe a QuickSight email customization template",
@@ -227,6 +242,14 @@
   "listcustomermanagedkeys": {
     "name": "ListCustomerManagedKeys",
     "description": "Grants permission to list all registered customer managed keys",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listdlplabels": {
+    "name": "ListDlpLabels",
+    "description": "Grants permission to list sensitivity labels available from a DLP provider",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -373,6 +396,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "startdlpjob": {
+    "name": "StartDlpJob",
+    "description": "Grants permission to start a DLP evaluation job",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dlpSetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "subscribe": {
     "name": "Subscribe",
     "description": "Grants permission to subscribe to Amazon QuickSight, and also to allow the user to upgrade the subscription to Enterprise edition",
@@ -461,21 +499,6 @@
     "conditionKeys": [],
     "dependentActions": []
   },
-  "batchassignlimitsprofile": {
-    "name": "BatchAssignLimitsProfile",
-    "description": "Grants permission to assign a limits profile to targets",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "limitsProfile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "batchcreatetopicreviewedanswer": {
     "name": "BatchCreateTopicReviewedAnswer",
     "description": "Grants permission to create reviewed answers for a topic",
@@ -527,10 +550,10 @@
     ],
     "dependentActions": []
   },
-  "batchunassignlimitsprofile": {
-    "name": "BatchUnassignLimitsProfile",
-    "description": "Grants permission to unassign a limits profile from targets",
-    "accessLevel": "Write",
+  "batchdescribeuserlimits": {
+    "name": "BatchDescribeUserLimits",
+    "description": "Grants permission to describe the effective resource limits for users",
+    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "limitsProfile",
@@ -633,6 +656,21 @@
     ],
     "dependentActions": []
   },
+  "createapprovalpolicy": {
+    "name": "CreateApprovalPolicy",
+    "description": "Grants permission to create an approval policy for governed actions",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "approvalPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createbrand": {
     "name": "CreateBrand",
     "description": "Grants permission to create an Amazon QuickSight brand",
@@ -710,6 +748,24 @@
     "description": "Grants permission to create a data source",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createdlpsetting": {
+    "name": "CreateDlpSetting",
+    "description": "Grants permission to create a DLP setting",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dlpSetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
@@ -1172,6 +1228,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteapprovalpolicy": {
+    "name": "DeleteApprovalPolicy",
+    "description": "Grants permission to delete an approval policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "approvalPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletebrand": {
     "name": "DeleteBrand",
     "description": "Grants permission to delete an Amazon QuickSight brand",
@@ -1274,6 +1345,21 @@
     "description": "Grants permission to delete linked QBusiness application for QuickSight account",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletedlpsetting": {
+    "name": "DeleteDlpSetting",
+    "description": "Grants permission to delete a DLP setting",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dlpSetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -1828,6 +1914,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describeapprovalpolicy": {
+    "name": "DescribeApprovalPolicy",
+    "description": "Grants permission to describe an approval policy",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "approvalPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describeassetbundleexportjob": {
     "name": "DescribeAssetBundleExportJob",
     "description": "Grants permission to describe an asset bundle export job",
@@ -2116,6 +2217,21 @@
     "description": "Grants permission to describe linked QBusiness application Id for QuickSight account",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describedlpsetting": {
+    "name": "DescribeDlpSetting",
+    "description": "Grants permission to describe a DLP setting",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "dlpSetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -2775,6 +2891,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listapprovalpolicies": {
+    "name": "ListApprovalPolicies",
+    "description": "Grants permission to list approval policies",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "approvalPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listapps": {
     "name": "ListApps",
     "description": "Grants permission to list all apps in a QuickSight account",
@@ -2812,21 +2943,6 @@
     "resourceTypes": [
       {
         "name": "assetBundleImportJob",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "listassignmentsforprincipal": {
-    "name": "ListAssignmentsForPrincipal",
-    "description": "Grants permission to list limits profile assignments for a principal",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "limitsProfile",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -2909,6 +3025,21 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "listdlpsettings": {
+    "name": "ListDlpSettings",
+    "description": "Grants permission to list DLP settings in an account",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "dlpSetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listflows": {
@@ -3109,21 +3240,6 @@
     ],
     "dependentActions": []
   },
-  "listprofileassignments": {
-    "name": "ListProfileAssignments",
-    "description": "Grants permission to list assignments for a limits profile",
-    "accessLevel": "List",
-    "resourceTypes": [
-      {
-        "name": "limitsProfile",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "listrefreshschedules": {
     "name": "ListRefreshSchedules",
     "description": "Grants permission to list all refresh schedules on a dataset",
@@ -3233,6 +3349,12 @@
       },
       {
         "name": "datasource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dlpSetting",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3851,6 +3973,12 @@
         "dependentActions": []
       },
       {
+        "name": "dlpSetting",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "emailCustomizationTemplate",
         "required": false,
         "conditionKeys": [],
@@ -3978,6 +4106,12 @@
       },
       {
         "name": "datasource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "dlpSetting",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -4195,6 +4329,21 @@
     "description": "Grants permission to update QuickSight IAM Identity Center application with Token Exchange grant",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateapprovalpolicy": {
+    "name": "UpdateApprovalPolicy",
+    "description": "Grants permission to update an approval policy",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "approvalPolicy",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -4417,6 +4566,21 @@
     "description": "Grants permission to update linked QBusiness application Id for QuickSight account",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatedlpsetting": {
+    "name": "UpdateDlpSetting",
+    "description": "Grants permission to update a DLP setting",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "dlpSetting",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },

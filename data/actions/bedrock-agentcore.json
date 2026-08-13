@@ -168,6 +168,38 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "passcapacityprovider": {
+    "name": "PassCapacityProvider",
+    "description": "Grants permission to pass a capacity provider to a runtime resource",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putsystemlogevents": {
+    "name": "PutSystemLogEvents",
+    "description": "Grants permission to collect system logs from the runtime instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-agentcore:runtimeSessionId"
+    ],
+    "dependentActions": []
+  },
   "synchronizegatewaytargets": {
     "name": "SynchronizeGatewayTargets",
     "description": "Grants permission to enable search on gateways",
@@ -222,6 +254,21 @@
     "resourceTypes": [
       {
         "name": "memory",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchputgatewayratelimits": {
+    "name": "BatchPutGatewayRateLimits",
+    "description": "Grants permission to batch put rate limits on a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -391,6 +438,18 @@
     ],
     "dependentActions": []
   },
+  "createcapacityprovider": {
+    "name": "CreateCapacityProvider",
+    "description": "Grants permission to create a new capacity provider",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createcodeinterpreter": {
     "name": "CreateCodeInterpreter",
     "description": "Grants permission to create a new custom code interpreter",
@@ -478,6 +537,21 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "creategatewayratelimit": {
+    "name": "CreateGatewayRateLimit",
+    "description": "Grants permission to create a rate limit on a gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "creategatewayrule": {
@@ -858,6 +932,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletecapacityprovider": {
+    "name": "DeleteCapacityProvider",
+    "description": "Grants permission to delete a capacity provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecapacityprovidersession": {
+    "name": "DeleteCapacityProviderSession",
+    "description": "Grants permission to delete a capacity provider session",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletecodeinterpreter": {
     "name": "DeleteCodeInterpreter",
     "description": "Grants permission to delete a custom code interpreter",
@@ -954,6 +1058,21 @@
   "deletegateway": {
     "name": "DeleteGateway",
     "description": "Grants permission to delete an existing gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletegatewayratelimit": {
+    "name": "DeleteGatewayRateLimit",
+    "description": "Grants permission to delete a rate limit on a gateway",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -1482,6 +1601,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getcapacityprovider": {
+    "name": "GetCapacityProvider",
+    "description": "Grants permission to get details of a capacity provider",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getcodeinterpreter": {
     "name": "GetCodeInterpreter",
     "description": "Grants permission to get details of a code interpreter",
@@ -1599,6 +1733,21 @@
   "getgateway": {
     "name": "GetGateway",
     "description": "Grants permission to retrieve an existing gateway",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getgatewayratelimit": {
+    "name": "GetGatewayRateLimit",
+    "description": "Grants permission to retrieve a rate limit on a gateway",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -2453,6 +2602,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listagentruntimeversionsbycapacityprovider": {
+    "name": "ListAgentRuntimeVersionsByCapacityProvider",
+    "description": "Grants permission to list agent runtime versions by capacity provider",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listagentruntimes": {
     "name": "ListAgentRuntimes",
     "description": "Grants permission to list agent runtimes",
@@ -2509,6 +2666,14 @@
   "listbrowsers": {
     "name": "ListBrowsers",
     "description": "Grants permission to list browsers",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcapacityproviders": {
+    "name": "ListCapacityProviders",
+    "description": "Grants permission to list capacity providers",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -2628,6 +2793,21 @@
       "bedrock-agentcore:actorId",
       "bedrock-agentcore:sessionId"
     ],
+    "dependentActions": []
+  },
+  "listgatewayratelimits": {
+    "name": "ListGatewayRateLimits",
+    "description": "Grants permission to list rate limits on a gateway",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "listgatewayrules": {
@@ -3000,6 +3180,12 @@
       },
       {
         "name": "browser-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "capacity-provider",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3451,6 +3637,12 @@
         "dependentActions": []
       },
       {
+        "name": "capacity-provider",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "code-interpreter-custom",
         "required": false,
         "conditionKeys": [],
@@ -3566,6 +3758,12 @@
       },
       {
         "name": "browser-profile",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "capacity-provider",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -3763,6 +3961,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "updatecapacityprovider": {
+    "name": "UpdateCapacityProvider",
+    "description": "Grants permission to update a capacity provider",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "capacity-provider",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "updateconfigurationbundle": {
     "name": "UpdateConfigurationBundle",
     "description": "Grants permission to update a configuration bundle",
@@ -3826,6 +4039,21 @@
   "updategateway": {
     "name": "UpdateGateway",
     "description": "Grants permission to update an existing gateway",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "gateway",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updategatewayratelimit": {
+    "name": "UpdateGatewayRateLimit",
+    "description": "Grants permission to update a rate limit on a gateway",
     "accessLevel": "Write",
     "resourceTypes": [
       {

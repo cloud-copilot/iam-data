@@ -34,32 +34,6 @@
     ],
     "dependentActions": []
   },
-  "createbackupaccesspoint": {
-    "name": "CreateBackupAccessPoint",
-    "description": "Grants permission to create a new access point for backup instant access",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      {
-        "name": "recoveryPoint",
-        "required": true,
-        "conditionKeys": [],
-        "dependentActions": []
-      }
-    ],
-    "conditionKeys": [
-      "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
-    ],
-    "dependentActions": []
-  },
-  "deletebackupaccesspoint": {
-    "name": "DeleteBackupAccessPoint",
-    "description": "Grants permission to delete the access point",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
   "deletebackupvaultsharingpolicy": {
     "name": "DeleteBackupVaultSharingPolicy",
     "description": "Grants permission to delete backup vault sharing policy",
@@ -72,14 +46,6 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  "describebackupaccesspoint": {
-    "name": "DescribeBackupAccessPoint",
-    "description": "Grants permission to return information about the specified access point",
-    "accessLevel": "Read",
-    "resourceTypes": [],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -166,6 +132,24 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createbackupaccesspoint": {
+    "name": "CreateBackupAccessPoint",
+    "description": "Grants permission to create a new backup access point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "recoveryPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
     "dependentActions": []
   },
   "createbackupplan": {
@@ -363,6 +347,21 @@
     ],
     "dependentActions": []
   },
+  "deletebackupaccesspoint": {
+    "name": "DeleteBackupAccessPoint",
+    "description": "Grants permission to delete the backup access point",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "backupAccessPoint",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deletebackupplan": {
     "name": "DeleteBackupPlan",
     "description": "Grants permission to delete a backup plan",
@@ -535,6 +534,21 @@
     "resourceTypes": [
       {
         "name": "tieringConfiguration",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describebackupaccesspoint": {
+    "name": "DescribeBackupAccessPoint",
+    "description": "Grants permission to return information about the specified backup access point",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "backupAccessPoint",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -925,6 +939,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listbackupaccesspoints": {
+    "name": "ListBackupAccessPoints",
+    "description": "Grants permission to list backup access points in the caller's account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbackupaccesspointsbyrecoverypoint": {
+    "name": "ListBackupAccessPointsByRecoveryPoint",
+    "description": "Grants permission to list backup access points associated with a recovery point",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listbackupaccesspointsbyresource": {
+    "name": "ListBackupAccessPointsByResource",
+    "description": "Grants permission to list backup access points associated with a resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listbackupjobsummaries": {
     "name": "ListBackupJobSummaries",
     "description": "Grants permission to list backup job summaries",
@@ -1196,6 +1234,12 @@
     "accessLevel": "Read",
     "resourceTypes": [
       {
+        "name": "backupAccessPoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "backupPlan",
         "required": false,
         "conditionKeys": [],
@@ -1416,6 +1460,12 @@
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
+        "name": "backupAccessPoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "backupPlan",
         "required": false,
         "conditionKeys": [],
@@ -1475,6 +1525,12 @@
     "description": "Grants permission to untag a resource",
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "backupAccessPoint",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "backupPlan",
         "required": false,

@@ -1130,6 +1130,25 @@
     ],
     "dependentActions": []
   },
+  "createmetric": {
+    "name": "CreateMetric",
+    "description": "Grants permission to create a metric in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "createnotification": {
     "name": "CreateNotification",
     "description": "Grants permission to create a notification in an Amazon Connect instance",
@@ -1930,6 +1949,24 @@
     ],
     "dependentActions": []
   },
+  "deletemetric": {
+    "name": "DeleteMetric",
+    "description": "Grants permission to delete a metric in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "deletenotification": {
     "name": "DeleteNotification",
     "description": "Grants permission to delete a notification in an Amazon Connect instance",
@@ -2601,6 +2638,30 @@
     "conditionKeys": [
       "connect:InstanceId",
       "connect:StorageResourceType"
+    ],
+    "dependentActions": []
+  },
+  "describemetric": {
+    "name": "DescribeMetric",
+    "description": "Grants permission to describe a metric in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "qualified-metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
@@ -4185,6 +4246,23 @@
     ],
     "dependentActions": []
   },
+  "listmetrics": {
+    "name": "ListMetrics",
+    "description": "Grants permission to list metrics in an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listnotifications": {
     "name": "ListNotifications",
     "description": "Grants permission to list notifications in an Amazon Connect instance",
@@ -4581,6 +4659,12 @@
       },
       {
         "name": "integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "metric",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -5257,6 +5341,24 @@
   "searchhoursofoperations": {
     "name": "SearchHoursOfOperations",
     "description": "Grants permission to search hours of operation resources in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId",
+      "connect:SearchTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "searchmetrics": {
+    "name": "SearchMetrics",
+    "description": "Grants permission to search metrics in an Amazon Connect instance",
     "accessLevel": "Read",
     "resourceTypes": [
       {
@@ -6114,6 +6216,12 @@
         "dependentActions": []
       },
       {
+        "name": "metric",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "phone-number",
         "required": false,
         "conditionKeys": [],
@@ -6319,6 +6427,12 @@
       },
       {
         "name": "integration-association",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "metric",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -6835,6 +6949,54 @@
     "conditionKeys": [
       "connect:InstanceId",
       "connect:StorageResourceType"
+    ],
+    "dependentActions": []
+  },
+  "updatemetriccontent": {
+    "name": "UpdateMetricContent",
+    "description": "Grants permission to update the content of a metric in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "qualified-metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updatemetricmetadata": {
+    "name": "UpdateMetricMetadata",
+    "description": "Grants permission to update the metadata of a metric in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "qualified-metric",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
     ],
     "dependentActions": []
   },
