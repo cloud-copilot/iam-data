@@ -78,6 +78,12 @@
         "dependentActions": []
       },
       {
+        "name": "exascale-db-storage-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "odb-network",
         "required": true,
         "conditionKeys": [],
@@ -99,6 +105,12 @@
         "dependentActions": []
       },
       {
+        "name": "exascale-db-storage-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "odb-network",
         "required": true,
         "conditionKeys": [],
@@ -115,6 +127,12 @@
     "resourceTypes": [
       {
         "name": "cloud-exadata-infrastructure",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "exascale-db-storage-vault",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -180,6 +198,21 @@
       {
         "name": "cloud-vm-cluster",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "associatevirtualmachinestoexadbvmcluster": {
+    "name": "AssociateVirtualMachinesToExadbVmCluster",
+    "description": "Grants permission to associate virtual machines to a specified Exadb VM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "exadb-vm-cluster",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -297,6 +330,41 @@
     ],
     "dependentActions": []
   },
+  "createexadbvmcluster": {
+    "name": "CreateExadbVmCluster",
+    "description": "Grants permission to create an Exadb VM cluster in the specified Exascale DB storage vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "exascale-db-storage-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "odb-network",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createexascaledbstoragevault": {
+    "name": "CreateExascaleDbStorageVault",
+    "description": "Grants permission to create an Exascale DB storage vault",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createodbnetwork": {
     "name": "CreateOdbNetwork",
     "description": "Grants permission to create an ODB network",
@@ -401,6 +469,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deleteexadbvmcluster": {
+    "name": "DeleteExadbVmCluster",
+    "description": "Grants permission to delete a specified Exadb VM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "exadb-vm-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteexascaledbstoragevault": {
+    "name": "DeleteExascaleDbStorageVault",
+    "description": "Grants permission to delete a specified Exascale DB storage vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "exascale-db-storage-vault",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteodbnetwork": {
     "name": "DeleteOdbNetwork",
     "description": "Grants permission to delete the specified ODB network",
@@ -445,6 +543,21 @@
       {
         "name": "cloud-vm-cluster",
         "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatevirtualmachinesfromexadbvmcluster": {
+    "name": "DisassociateVirtualMachinesFromExadbVmCluster",
+    "description": "Grants permission to disassociate virtual machines from a specified Exadb VM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "exadb-vm-cluster",
+        "required": true,
         "conditionKeys": [],
         "dependentActions": []
       }
@@ -600,6 +713,36 @@
     "resourceTypes": [
       {
         "name": "cloud-exadata-infrastructure",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexadbvmcluster": {
+    "name": "GetExadbVmCluster",
+    "description": "Grants permission to get information about a specified Exadb VM cluster",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "exadb-vm-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getexascaledbstoragevault": {
+    "name": "GetExascaleDbStorageVault",
+    "description": "Grants permission to get information about a specified Exascale DB storage vault",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "exascale-db-storage-vault",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -814,9 +957,40 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listexadbvmclusters": {
+    "name": "ListExadbVmClusters",
+    "description": "Grants permission to list information about the Exadb VM clusters owned by your Amazon Web Services account or only the ones in the specified Exascale DB storage vault",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "exascale-db-storage-vault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexascaledbstoragevaults": {
+    "name": "ListExascaleDbStorageVaults",
+    "description": "Grants permission to list information about the Exascale DB storage vaults owned by your Amazon Web Services account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listflexcomponents": {
     "name": "ListFlexComponents",
     "description": "Grants permission to list information about the flex components that are available for a DB system shape",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listgiminorversions": {
+    "name": "ListGiMinorVersions",
+    "description": "Grants permission to list information about the minor versions of Oracle Grid Infrastructure (GI) software that are available for a VM cluster for the specified GI version and shape",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -898,6 +1072,18 @@
       },
       {
         "name": "db-node",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "exadb-vm-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "exascale-db-storage-vault",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -1115,6 +1301,18 @@
         "dependentActions": []
       },
       {
+        "name": "exadb-vm-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "exascale-db-storage-vault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "odb-network",
         "required": false,
         "conditionKeys": [],
@@ -1176,6 +1374,18 @@
         "dependentActions": []
       },
       {
+        "name": "exadb-vm-cluster",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "exascale-db-storage-vault",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "odb-network",
         "required": false,
         "conditionKeys": [],
@@ -1231,6 +1441,36 @@
     "resourceTypes": [
       {
         "name": "cloud-exadata-infrastructure",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateexadbvmcluster": {
+    "name": "UpdateExadbVmCluster",
+    "description": "Grants permission to update properties of a specified Exadb VM cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "exadb-vm-cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updateexascaledbstoragevault": {
+    "name": "UpdateExascaleDbStorageVault",
+    "description": "Grants permission to update properties of a specified Exascale DB storage vault",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "exascale-db-storage-vault",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
