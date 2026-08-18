@@ -57,6 +57,24 @@
     ],
     "dependentActions": []
   },
+  "createexperimentdefinition": {
+    "name": "CreateExperimentDefinition",
+    "description": "Grants permission to create an experiment definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "createextension": {
     "name": "CreateExtension",
     "description": "Grants permission to create an extension",
@@ -164,6 +182,27 @@
       },
       {
         "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleteexperimentdefinition": {
+    "name": "DeleteExperimentDefinition",
+    "description": "Grants permission to delete an experiment definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -375,6 +414,58 @@
     ],
     "dependentActions": []
   },
+  "getexperimentdefinition": {
+    "name": "GetExperimentDefinition",
+    "description": "Grants permission to view details about an experiment definition",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "getexperimentrun": {
+    "name": "GetExperimentRun",
+    "description": "Grants permission to view details about an experiment run",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentrun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
   "getextension": {
     "name": "GetExtension",
     "description": "Grants permission to view details about an extension",
@@ -512,6 +603,62 @@
     "resourceTypes": [
       {
         "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexperimentdefinitions": {
+    "name": "ListExperimentDefinitions",
+    "description": "Grants permission to list the experiment definitions in your account",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexperimentrunevents": {
+    "name": "ListExperimentRunEvents",
+    "description": "Grants permission to list the events for an experiment run",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentrun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listexperimentruns": {
+    "name": "ListExperimentRuns",
+    "description": "Grants permission to list the experiment runs for an experiment definition",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -663,6 +810,30 @@
     ],
     "dependentActions": []
   },
+  "startexperimentrun": {
+    "name": "StartExperimentRun",
+    "description": "Grants permission to start an experiment run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "stopdeployment": {
     "name": "StopDeployment",
     "description": "Grants permission to stop a deployment",
@@ -688,6 +859,35 @@
       }
     ],
     "conditionKeys": [],
+    "dependentActions": []
+  },
+  "stopexperimentrun": {
+    "name": "StopExperimentRun",
+    "description": "Grants permission to stop an experiment run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentrun",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
     "dependentActions": []
   },
   "tagresource": {
@@ -727,6 +927,18 @@
       },
       {
         "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentrun",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -788,6 +1000,18 @@
       },
       {
         "name": "environment",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentrun",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -888,6 +1112,58 @@
       },
       {
         "name": "environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateexperimentdefinition": {
+    "name": "UpdateExperimentDefinition",
+    "description": "Grants permission to modify an experiment definition",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ],
+    "dependentActions": []
+  },
+  "updateexperimentrun": {
+    "name": "UpdateExperimentRun",
+    "description": "Grants permission to modify an experiment run",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentdefinition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "experimentrun",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []

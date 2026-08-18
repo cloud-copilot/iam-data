@@ -671,6 +671,21 @@
     ],
     "dependentActions": []
   },
+  "cancelrecoveryplanexecution": {
+    "name": "CancelRecoveryPlanExecution",
+    "description": "Grants permission to cancel a recovery plan execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanExecutionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createextendedsourceserver": {
     "name": "CreateExtendedSourceServer",
     "description": "Grants permission to extend a source server",
@@ -691,6 +706,32 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "createrecoveryplan": {
+    "name": "CreateRecoveryPlan",
+    "description": "Grants permission to create a recovery plan",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createrecoveryplanstep": {
+    "name": "CreateRecoveryPlanStep",
+    "description": "Grants permission to create a step in a recovery plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "createreplicationconfigurationtemplate": {
@@ -773,6 +814,51 @@
     "resourceTypes": [
       {
         "name": "RecoveryInstanceResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecoveryplan": {
+    "name": "DeleteRecoveryPlan",
+    "description": "Grants permission to delete a recovery plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecoveryplanexecution": {
+    "name": "DeleteRecoveryPlanExecution",
+    "description": "Grants permission to delete a recovery plan execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanExecutionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deleterecoveryplanstep": {
+    "name": "DeleteRecoveryPlanStep",
+    "description": "Grants permission to delete a recovery plan step",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -982,6 +1068,66 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getrecoveryplan": {
+    "name": "GetRecoveryPlan",
+    "description": "Grants permission to get a recovery plan",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecoveryplanexecution": {
+    "name": "GetRecoveryPlanExecution",
+    "description": "Grants permission to get a recovery plan execution",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanExecutionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecoveryplanexecutionstep": {
+    "name": "GetRecoveryPlanExecutionStep",
+    "description": "Grants permission to get a recovery plan execution step",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanExecutionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getrecoveryplanstep": {
+    "name": "GetRecoveryPlanStep",
+    "description": "Grants permission to get a recovery plan step",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getreplicationconfiguration": {
     "name": "GetReplicationConfiguration",
     "description": "Grants permission to get replication configuration",
@@ -1034,6 +1180,59 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listrecoveryplanexecutionsteps": {
+    "name": "ListRecoveryPlanExecutionSteps",
+    "description": "Grants permission to list recovery plan execution steps",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanExecutionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecoveryplanexecutions": {
+    "name": "ListRecoveryPlanExecutions",
+    "description": "Grants permission to list recovery plan executions",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecoveryplansteps": {
+    "name": "ListRecoveryPlanSteps",
+    "description": "Grants permission to list recovery plan steps",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listrecoveryplans": {
+    "name": "ListRecoveryPlans",
+    "description": "Grants permission to list recovery plans",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "liststagingaccounts": {
     "name": "ListStagingAccounts",
     "description": "Grants permission to list staging accounts",
@@ -1071,6 +1270,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "reorderrecoveryplansteps": {
+    "name": "ReorderRecoveryPlanSteps",
+    "description": "Grants permission to reorder steps in a recovery plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "retrydatareplication": {
     "name": "RetryDataReplication",
     "description": "Grants permission to retry data replication",
@@ -1078,6 +1292,21 @@
     "resourceTypes": [
       {
         "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "retryrecoveryplanexecutionstep": {
+    "name": "RetryRecoveryPlanExecutionStep",
+    "description": "Grants permission to retry a recovery plan execution step",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanExecutionResource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1129,6 +1358,24 @@
     "resourceTypes": [
       {
         "name": "SourceServerResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "startrecoveryplanexecution": {
+    "name": "StartRecoveryPlanExecution",
+    "description": "Grants permission to start a recovery plan execution",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -1257,6 +1504,18 @@
         "dependentActions": []
       },
       {
+        "name": "RecoveryPlanExecutionResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RecoveryPlanResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ReplicationConfigurationTemplateResource",
         "required": false,
         "conditionKeys": [],
@@ -1324,6 +1583,18 @@
         "dependentActions": []
       },
       {
+        "name": "RecoveryPlanExecutionResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "RecoveryPlanResource",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "ReplicationConfigurationTemplateResource",
         "required": false,
         "conditionKeys": [],
@@ -1384,6 +1655,51 @@
     "resourceTypes": [
       {
         "name": "LaunchConfigurationTemplateResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterecoveryplan": {
+    "name": "UpdateRecoveryPlan",
+    "description": "Grants permission to update a recovery plan",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterecoveryplanexecutionstep": {
+    "name": "UpdateRecoveryPlanExecutionStep",
+    "description": "Grants permission to update a recovery plan execution step",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanExecutionResource",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updaterecoveryplanstep": {
+    "name": "UpdateRecoveryPlanStep",
+    "description": "Grants permission to update a recovery plan step",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "RecoveryPlanResource",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
