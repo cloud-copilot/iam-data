@@ -1100,6 +1100,49 @@
     ],
     "dependentActions": []
   },
+  "associateapplicationstatuscheck": {
+    "name": "AssociateApplicationStatusCheck",
+    "description": "Grants permission to associate an application status check with instances or tags",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-status-check",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "associatecapacityreservationbillingowner": {
     "name": "AssociateCapacityReservationBillingOwner",
     "description": "Grants permission to assign billing of the unused capacity of a shared Capacity Reservation to a consumer account",
@@ -1386,8 +1429,6 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
@@ -1484,8 +1525,6 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
@@ -2411,6 +2450,48 @@
           "ec2:VolumeSize",
           "ec2:VolumeThroughput",
           "ec2:VolumeType"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createapplicationstatuscheck": {
+    "name": "CreateApplicationStatusCheck",
+    "description": "Grants permission to create an application status check for monitoring the health of applications running on instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-status-check",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "security-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "subnet",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Vpc"
         ],
         "dependentActions": []
       }
@@ -3965,8 +4046,6 @@
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
@@ -4850,6 +4929,17 @@
     "description": "Grants permission to add or overwrite one or more tags for Amazon EC2 resources",
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "application-status-check",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
       {
         "name": "capacity-block",
         "required": false,
@@ -6507,6 +6597,37 @@
     ],
     "dependentActions": []
   },
+  "createtransitgatewaypolicytableentry": {
+    "name": "CreateTransitGatewayPolicyTableEntry",
+    "description": "Grants permission to create an entry in a transit gateway policy table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-policy-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayPolicyTableId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-route-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayRouteTableId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createtransitgatewayprefixlistreference": {
     "name": "CreateTransitGatewayPrefixListReference",
     "description": "Grants permission to create a transit gateway prefix list reference",
@@ -6950,8 +7071,6 @@
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
@@ -7304,6 +7423,26 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleteapplicationstatuscheck": {
+    "name": "DeleteApplicationStatusCheck",
+    "description": "Grants permission to delete an application status check",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-status-check",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -8540,6 +8679,17 @@
     "description": "Grants permission to delete one or more tags from Amazon EC2 resources",
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
+      {
+        "name": "application-status-check",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
       {
         "name": "capacity-block",
         "required": false,
@@ -9969,6 +10119,27 @@
     ],
     "dependentActions": []
   },
+  "deletetransitgatewaypolicytableentry": {
+    "name": "DeleteTransitGatewayPolicyTableEntry",
+    "description": "Grants permission to delete an entry from a transit gateway policy table",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-policy-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayPolicyTableId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deletetransitgatewayprefixlistreference": {
     "name": "DeleteTransitGatewayPrefixListReference",
     "description": "Grants permission to delete a transit gateway prefix list reference",
@@ -10654,6 +10825,36 @@
   "describeaggregateidformat": {
     "name": "DescribeAggregateIdFormat",
     "description": "Grants permission to describe the longer ID format settings for all resource types",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeapplicationstatus": {
+    "name": "DescribeApplicationStatus",
+    "description": "Grants permission to describe the aggregated application health status for instances",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeapplicationstatuscheckassociations": {
+    "name": "DescribeApplicationStatusCheckAssociations",
+    "description": "Grants permission to describe the associations for one or more application status checks",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeapplicationstatuschecks": {
+    "name": "DescribeApplicationStatusChecks",
+    "description": "Grants permission to describe application status checks",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -13044,6 +13245,40 @@
     ],
     "dependentActions": []
   },
+  "disableapplicationstatuschecksuppression": {
+    "name": "DisableApplicationStatusCheckSuppression",
+    "description": "Grants permission to disable suppression of application status checks for instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "disableawsnetworkperformancemetricsubscription": {
     "name": "DisableAwsNetworkPerformanceMetricSubscription",
     "description": "Grants permission to disable infrastructure performance metric subscriptions",
@@ -13480,6 +13715,49 @@
     ],
     "dependentActions": []
   },
+  "disassociateapplicationstatuscheck": {
+    "name": "DisassociateApplicationStatusCheck",
+    "description": "Grants permission to disassociate an application status check from instances or tags",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-status-check",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "disassociatecapacityreservationbillingowner": {
     "name": "DisassociateCapacityReservationBillingOwner",
     "description": "Grants permission to cancel a pending request to assign billing of the unused capacity of a Capacity Reservation to a consumer account",
@@ -13720,8 +13998,6 @@
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
@@ -13827,8 +14103,6 @@
         "required": false,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
-          "ec2:Ipv4IpamPoolId",
-          "ec2:Ipv6IpamPoolId",
           "ec2:ResourceTag/${TagKey}",
           "ec2:Tenancy",
           "ec2:VpcID"
@@ -14031,6 +14305,40 @@
     "description": "Grants permission to enable allowed images settings",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "enableapplicationstatuschecksuppression": {
+    "name": "EnableApplicationStatusCheckSuppression",
+    "description": "Grants permission to suppress application status checks for instances",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:EbsOptimized",
+          "ec2:InstanceAutoRecovery",
+          "ec2:InstanceBandwidthWeighting",
+          "ec2:InstanceMarketType",
+          "ec2:InstanceMetadataTags",
+          "ec2:InstanceProfile",
+          "ec2:InstanceType",
+          "ec2:MetadataHttpEndpoint",
+          "ec2:MetadataHttpPutResponseHopLimit",
+          "ec2:MetadataHttpTokens",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:RootDeviceType",
+          "ec2:Tenancy"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -16223,6 +16531,50 @@
     ],
     "dependentActions": []
   },
+  "modifyapplicationstatuscheck": {
+    "name": "ModifyApplicationStatusCheck",
+    "description": "Grants permission to modify an application status check",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "application-status-check",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "security-group",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "subnet",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:AvailabilityZone",
+          "ec2:AvailabilityZoneId",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:Vpc"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "modifyavailabilityzonegroup": {
     "name": "ModifyAvailabilityZoneGroup",
     "description": "Grants permission to modify the opt-in status of the Local Zone and Wavelength Zone group for your account",
@@ -17847,6 +18199,37 @@
     ],
     "dependentActions": []
   },
+  "modifytransitgatewaypolicytableentry": {
+    "name": "ModifyTransitGatewayPolicyTableEntry",
+    "description": "Grants permission to modify a transit gateway policy table entry",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "transit-gateway-policy-table",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayPolicyTableId"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "transit-gateway-route-table",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:transitGatewayRouteTableId"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "modifytransitgatewayprefixlistreference": {
     "name": "ModifyTransitGatewayPrefixListReference",
     "description": "Grants permission to modify a transit gateway prefix list reference",
@@ -18325,6 +18708,28 @@
         ],
         "dependentActions": []
       },
+      {
+        "name": "vpc-endpoint-service",
+        "required": false,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}",
+          "ec2:VpceMultiRegion",
+          "ec2:VpceSupportedRegion"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyvpcendpointpayerresponsibility": {
+    "name": "ModifyVpcEndpointPayerResponsibility",
+    "description": "Grants permission to modify the payer responsibility for a VPC endpoint",
+    "accessLevel": "Write",
+    "resourceTypes": [
       {
         "name": "vpc-endpoint-service",
         "required": false,
@@ -20712,6 +21117,12 @@
     "description": "Grants permission to start a stopped instance",
     "accessLevel": "Write",
     "resourceTypes": [
+      {
+        "name": "group",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "instance",
         "required": true,

@@ -45,6 +45,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "requestmanagedinstanceroletoken": {
+    "name": "RequestManagedInstanceRoleToken",
+    "description": "Grants permission to SSM Agent to retrieve temporary credentials to access the managed node (internal Systems Manager call)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:NodeAccountId",
+      "ssm:NodeOrgId"
+    ],
+    "dependentActions": []
+  },
   "updateinstanceassociationstatus": {
     "name": "UpdateInstanceAssociationStatus",
     "description": "Grants permission to SSM Agent to update the status of the association that it is currently running (internal Systems Manager call)",
@@ -73,6 +97,30 @@
       "aws:ResourceTag/${TagKey}",
       "ec2:SourceInstanceARN",
       "ssm:SourceInstanceARN"
+    ],
+    "dependentActions": []
+  },
+  "updatemanagedinstancepublickey": {
+    "name": "UpdateManagedInstancePublicKey",
+    "description": "Grants permission to SSM Agent to update the public key of the managed node after rotating the key pair (internal Systems Manager call)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "managed-instance",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ssm:NodeAccountId",
+      "ssm:NodeOrgId"
     ],
     "dependentActions": []
   },
@@ -1952,7 +2000,9 @@
     "resourceTypes": [],
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
-      "aws:TagKeys"
+      "aws:TagKeys",
+      "ssm:NodeAccountId",
+      "ssm:NodeOrgId"
     ],
     "dependentActions": []
   },

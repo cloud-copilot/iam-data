@@ -1,4 +1,17 @@
 {
+  "application-status-check": {
+    "key": "application-status-check",
+    "arn": "arn:${Partition}:ec2:${Region}:${Account}:application-status-check/${ApplicationStatusCheckId}",
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:ResourceTag/${TagKey}",
+      "aws:TagKeys",
+      "ec2:Attribute",
+      "ec2:Attribute/${AttributeName}",
+      "ec2:Region",
+      "ec2:ResourceTag/${TagKey}"
+    ]
+  },
   "capacity-block": {
     "key": "capacity-block",
     "arn": "arn:${Partition}:ec2:${Region}:${Account}:capacity-block/${CapacityBlockId}",

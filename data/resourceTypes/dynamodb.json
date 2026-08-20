@@ -24,7 +24,10 @@
   },
   "stream": {
     "key": "stream",
-    "arn": "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/stream/${StreamLabel}"
+    "arn": "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/stream/${StreamLabel}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
   },
   "table": {
     "key": "table",
