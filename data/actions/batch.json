@@ -1,4 +1,22 @@
 {
+  "setcapacitytags": {
+    "name": "SetCapacityTags",
+    "description": "Grants permission to set capacity tags on an AWS Batch compute environment in your account",
+    "accessLevel": "Tagging, Write",
+    "resourceTypes": [
+      {
+        "name": "compute-environment",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
   "canceljob": {
     "name": "CancelJob",
     "description": "Grants permission to cancel a job in an AWS Batch job queue in your account",
