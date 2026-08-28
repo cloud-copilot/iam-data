@@ -90,6 +90,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "counttokens": {
+    "name": "CountTokens",
+    "description": "Grants permission to count the tokens in an inference request",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "project",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "bedrock-mantle:Model"
+    ],
+    "dependentActions": []
+  },
   "createcustomizedmodel": {
     "name": "CreateCustomizedModel",
     "description": "Grants permission to import a customized model with custom weights",
@@ -148,7 +167,7 @@
   },
   "createinference": {
     "name": "CreateInference",
-    "description": "Grants permission to create a chat completion inference request",
+    "description": "Grants permission to create an inference request",
     "accessLevel": "Write",
     "resourceTypes": [
       {
