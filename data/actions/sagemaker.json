@@ -757,6 +757,36 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "batchrebootclusternodes": {
+    "name": "BatchRebootClusterNodes",
+    "description": "Grants permission to reboot nodes in a SageMaker HyperPod cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "batchreplaceclusternodes": {
+    "name": "BatchReplaceClusterNodes",
+    "description": "Grants permission to replace nodes in a SageMaker HyperPod cluster",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "cluster",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchwriterecord": {
     "name": "BatchWriteRecord",
     "description": "Grants permission to put a batch of records to one or more feature groups",
@@ -1208,6 +1238,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
       "sagemaker:AppNetworkAccessType",
+      "sagemaker:AuthMode",
       "sagemaker:DomainSharingOutputKmsKeyArn",
       "sagemaker:ImageArns",
       "sagemaker:ImageVersionArns",
@@ -4813,6 +4844,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "describetrainingplanextensionhistory": {
+    "name": "DescribeTrainingPlanExtensionHistory",
+    "description": "Grants permission to retrieve the extension history for a specified training plan",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "training-plan",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "describetransformjob": {
     "name": "DescribeTransformJob",
     "description": "Grants permission to return information about a transform job",
@@ -4956,6 +5002,14 @@
   "enablesagemakerservicecatalogportfolio": {
     "name": "EnableSagemakerServicecatalogPortfolio",
     "description": "Grants permission to enable a SageMaker Service Catalog Portfolio",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "extendtrainingplan": {
+    "name": "ExtendTrainingPlan",
+    "description": "Grants permission to extend an existing training plan by purchasing an extension offering",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -6443,7 +6497,10 @@
         "dependentActions": []
       }
     ],
-    "conditionKeys": [],
+    "conditionKeys": [
+      "sagemaker:IsUpdateRecord",
+      "sagemaker:UpdatableFeatures"
+    ],
     "dependentActions": []
   },
   "querylineage": {
