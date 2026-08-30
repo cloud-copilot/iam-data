@@ -53,9 +53,12 @@ jobs:
           npm run build
           npm run test
           npm publish
+      - name: Read package version
+        id: package
+        run: echo "version=$(jq -r '.version' package.json)" >> "$GITHUB_OUTPUT"
       - name: Publish Cloud Copilot package alias
         if: steps.version_check.outputs.changed == 'true'
         uses: act-security-labs/dual-npm-publish-action@0af853d1d5705e464a5806bc0c9f9641e3b2c292
         with:
           package-name: '@cloud-copilot/iam-data'
-          version: ${{ steps.package_check.outputs.version }}
+          version: ${{ steps.package.outputs.version }}
