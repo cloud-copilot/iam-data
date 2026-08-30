@@ -44,6 +44,21 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatestreamforsegments": {
+    "name": "AssociateStreamForSegments",
+    "description": "Grants permission to associate an Amazon Kinesis data stream to receive segment membership events for a domain",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "batchgetcalculatedattributeforprofile": {
     "name": "BatchGetCalculatedAttributeForProfile",
     "description": "Grants permission to retrieve a calculated attribute for the specific profiles in the domain",
@@ -677,6 +692,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "deletesegmentsubscription": {
+    "name": "DeleteSegmentSubscription",
+    "description": "Grants permission to delete a segment subscription for membership events",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "deleteworkflow": {
     "name": "DeleteWorkflow",
     "description": "Grants permission to delete a workflow in a domain",
@@ -696,6 +732,21 @@
     "name": "DetectProfileObjectType",
     "description": "Grants permission to auto detect object type",
     "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "disassociatestreamforsegments": {
+    "name": "DisassociateStreamForSegments",
+    "description": "Grants permission to disassociate the Amazon Kinesis data stream configured for segment membership events in a domain",
+    "accessLevel": "Write",
     "resourceTypes": [
       {
         "name": "domains",
@@ -1156,10 +1207,46 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getsegmentsubscription": {
+    "name": "GetSegmentSubscription",
+    "description": "Grants permission to get the configuration, schedule, and status of a segment subscription for membership events",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getsimilarprofiles": {
     "name": "GetSimilarProfiles",
     "description": "Grants permission to get all the similar profiles in the domain",
     "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getstreamforsegments": {
+    "name": "GetStreamForSegments",
+    "description": "Grants permission to get information about the segment membership event stream configured for a domain",
+    "accessLevel": "Read",
     "resourceTypes": [
       {
         "name": "domains",
@@ -1587,6 +1674,27 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listsegmentsubscriptionevents": {
+    "name": "ListSegmentSubscriptionEvents",
+    "description": "Grants permission to list the most recent segment membership events for a segment",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listtagsforresource": {
     "name": "ListTagsForResource",
     "description": "Grants permission to list tags for a resource",
@@ -1800,6 +1908,27 @@
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
         ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "putsegmentsubscription": {
+    "name": "PutSegmentSubscription",
+    "description": "Grants permission to create or update a segment subscription for membership events",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "domains",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "segment-definitions",
+        "required": true,
+        "conditionKeys": [],
         "dependentActions": []
       }
     ],
