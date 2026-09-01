@@ -11,11 +11,11 @@ Data is scanned daily and a new version is published if there are changes. The v
 ## Usage
 
 ```bash
-npm install @cloud-copilot/iam-data
+npm install @actsecurity/iam-data
 ```
 
 ```typescript
-import { iamServiceKeys, iamActionDetails, iamActionsForService, iamServiceName } from '@cloud-copilot/iam-data';
+import { iamServiceKeys, iamActionDetails, iamActionsForService, iamServiceName } from '@actsecurity/iam-data';
 
 // Iterate through all actions in all services
 const serviceKeys = await iamServiceKeys()
