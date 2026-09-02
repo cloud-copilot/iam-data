@@ -23,6 +23,25 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "createcustomdetectionruleassociation": {
+    "name": "CreateCustomDetectionRuleAssociation",
+    "description": "Grants permission to create a GuardDuty custom detection rule association",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys"
+    ],
+    "dependentActions": []
+  },
+  "createcustomdetectionruleorgconfiguration": {
+    "name": "CreateCustomDetectionRuleOrgConfiguration",
+    "description": "Grants permission to create the organization configuration for a GuardDuty custom detection rule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createdetector": {
     "name": "CreateDetector",
     "description": "Grants permission to create a detector",
@@ -150,6 +169,29 @@
   "declineinvitations": {
     "name": "DeclineInvitations",
     "description": "Grants permission to decline invitations to become a GuardDuty member account",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustomdetectionruleassociation": {
+    "name": "DeleteCustomDetectionRuleAssociation",
+    "description": "Grants permission to delete a GuardDuty custom detection rule association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customdetectionruleassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletecustomdetectionruleorgconfiguration": {
+    "name": "DeleteCustomDetectionRuleOrgConfiguration",
+    "description": "Grants permission to delete the organization configuration for a GuardDuty custom detection rule",
     "accessLevel": "Write",
     "resourceTypes": [],
     "conditionKeys": [],
@@ -385,6 +427,44 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "getcustomdetectionrule": {
+    "name": "GetCustomDetectionRule",
+    "description": "Grants permission to retrieve a GuardDuty custom detection rule",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "customdetectionrule",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcustomdetectionruleassociation": {
+    "name": "GetCustomDetectionRuleAssociation",
+    "description": "Grants permission to retrieve a GuardDuty custom detection rule association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "customdetectionruleassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "getcustomdetectionruleorgconfiguration": {
+    "name": "GetCustomDetectionRuleOrgConfiguration",
+    "description": "Grants permission to retrieve the organization configuration for a GuardDuty custom detection rule",
+    "accessLevel": "Read",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "getdetector": {
     "name": "GetDetector",
     "description": "Grants permission to retrieve GuardDuty detectors",
@@ -609,6 +689,30 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listcustomdetectionruleassociations": {
+    "name": "ListCustomDetectionRuleAssociations",
+    "description": "Grants permission to retrieve a list of GuardDuty custom detection rule associations",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomdetectionruleorgconfigurations": {
+    "name": "ListCustomDetectionRuleOrgConfigurations",
+    "description": "Grants permission to retrieve a list of organization configurations for GuardDuty custom detection rules",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "listcustomdetectionrules": {
+    "name": "ListCustomDetectionRules",
+    "description": "Grants permission to retrieve a list of GuardDuty custom detection rules",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listdetectors": {
     "name": "ListDetectors",
     "description": "Grants permission to retrieve a list of GuardDuty detectors",
@@ -702,6 +806,12 @@
     "description": "Grants permission to retrieve a list of tags associated with a GuardDuty resource",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "customdetectionruleassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
       {
         "name": "detector",
         "required": false,
@@ -824,6 +934,12 @@
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
+        "name": "customdetectionruleassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "detector",
         "required": false,
         "conditionKeys": [],
@@ -892,6 +1008,12 @@
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
+        "name": "customdetectionruleassociation",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "detector",
         "required": false,
         "conditionKeys": [],
@@ -943,6 +1065,29 @@
     "conditionKeys": [
       "aws:TagKeys"
     ],
+    "dependentActions": []
+  },
+  "updatecustomdetectionruleassociation": {
+    "name": "UpdateCustomDetectionRuleAssociation",
+    "description": "Grants permission to update a GuardDuty custom detection rule association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "customdetectionruleassociation",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatecustomdetectionruleorgconfiguration": {
+    "name": "UpdateCustomDetectionRuleOrgConfiguration",
+    "description": "Grants permission to update the organization configuration for a GuardDuty custom detection rule",
+    "accessLevel": "Write",
+    "resourceTypes": [],
+    "conditionKeys": [],
     "dependentActions": []
   },
   "updatedetector": {

@@ -1,4 +1,15 @@
 {
+  "customdetectionrule": {
+    "key": "customdetectionrule",
+    "arn": "arn:${Partition}:guardduty::aws:detection-rule/custom/${RuleId}"
+  },
+  "customdetectionruleassociation": {
+    "key": "customdetectionruleassociation",
+    "arn": "arn:${Partition}:guardduty:${Region}:${Account}:detection-rule/custom/${RuleId}/association/${AssociationId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "detector": {
     "key": "detector",
     "arn": "arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}",

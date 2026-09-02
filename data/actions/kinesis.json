@@ -30,6 +30,50 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "associatestreamswithchannel": {
+    "name": "AssociateStreamsWithChannel",
+    "description": "Grants permission to associate a stream with a channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "createchannel": {
+    "name": "CreateChannel",
+    "description": "Grants permission to create a channel that delivers data from a selected single stream to a destination",
+    "accessLevel": "Tagging, Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "createstream": {
     "name": "CreateStream",
     "description": "Grants permission to create a Amazon Kinesis stream",
@@ -56,6 +100,23 @@
     "resourceTypes": [
       {
         "name": "stream",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "deletechannel": {
+    "name": "DeleteChannel",
+    "description": "Grants permission to delete the specified channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}"
@@ -130,6 +191,23 @@
     "description": "Grants permission to describe the account-level settings for Amazon Kinesis Data Streams",
     "accessLevel": "Read",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "describechannel": {
+    "name": "DescribeChannel",
+    "description": "Grants permission to describe the specified channel",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },
@@ -284,6 +362,14 @@
     "conditionKeys": [],
     "dependentActions": []
   },
+  "listchannels": {
+    "name": "ListChannels",
+    "description": "Grants permission to list the channels in the account, optionally filtered by stream",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
   "listshards": {
     "name": "ListShards",
     "description": "Grants permission to list the shards in a stream and provides information about each shard",
@@ -331,6 +417,14 @@
     "description": "Grants permission to list the tags for the specified Amazon Kinesis resource",
     "accessLevel": "Read",
     "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
       {
         "name": "consumer",
         "required": true,
@@ -567,6 +661,16 @@
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "consumer",
         "required": true,
         "conditionKeys": [
@@ -596,6 +700,15 @@
     "accessLevel": "Tagging, Write",
     "resourceTypes": [
       {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      },
+      {
         "name": "consumer",
         "required": true,
         "conditionKeys": [
@@ -622,6 +735,23 @@
     "description": "Grants permission to update the account-level settings for Amazon Kinesis Data Streams",
     "accessLevel": "Write",
     "resourceTypes": [],
+    "conditionKeys": [],
+    "dependentActions": []
+  },
+  "updatechannel": {
+    "name": "UpdateChannel",
+    "description": "Grants permission to update the logging configuration and destination data freshness for the specified channel",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "channel",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
     "conditionKeys": [],
     "dependentActions": []
   },

@@ -2107,6 +2107,26 @@
     ],
     "dependentActions": []
   },
+  "batchmodifyipamroutingpolicyregistrations": {
+    "name": "BatchModifyIpamRoutingPolicyRegistrations",
+    "description": "Grants permission to modify multiple routing policy registrations in a single operation",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "bundleinstance": {
     "name": "BundleInstance",
     "description": "Grants permission to bundle an instance store-backed Windows instance",
@@ -3478,6 +3498,35 @@
     ],
     "dependentActions": []
   },
+  "createipaminternetregistryassociation": {
+    "name": "CreateIpamInternetRegistryAssociation",
+    "description": "Grants permission to create an association between an IPAM and a Regional Internet Registry (RIR) for Resource Public Key Infrastructure (RPKI) management",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "createipampolicy": {
     "name": "CreateIpamPolicy",
     "description": "Grants permission to create a policy in Amazon VPC IP Address Manager (IPAM) that defines rules for allocating public IPv4 addresses from IPAM pools to AWS resources",
@@ -3614,6 +3663,26 @@
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
           "aws:TagKeys"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "createipamroutingpolicyregistration": {
+    "name": "CreateIpamRoutingPolicyRegistration",
+    "description": "Grants permission to create a routing policy registration and publish Route Origin Authorizations (ROAs) to the RPKI",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
         ],
         "dependentActions": []
       }
@@ -5306,6 +5375,17 @@
       },
       {
         "name": "ipam-external-resource-verification-token",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-internet-registry-association",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -7842,6 +7922,26 @@
     ],
     "dependentActions": []
   },
+  "deleteipaminternetregistryassociation": {
+    "name": "DeleteIpamInternetRegistryAssociation",
+    "description": "Grants permission to delete an IPAM internet registry association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "deleteipampolicy": {
     "name": "DeleteIpamPolicy",
     "description": "Grants permission to delete an Amazon VPC IP Address Manager (IPAM) policy",
@@ -7929,6 +8029,26 @@
     "resourceTypes": [
       {
         "name": "ipam-resource-discovery",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "deleteipamroutingpolicyregistration": {
+    "name": "DeleteIpamRoutingPolicyRegistration",
+    "description": "Grants permission to delete a routing policy registration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -9011,6 +9131,17 @@
       },
       {
         "name": "ipam-external-resource-verification-token",
+        "required": false,
+        "conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}",
+          "aws:TagKeys",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      },
+      {
+        "name": "ipam-internet-registry-association",
         "required": false,
         "conditionKeys": [
           "aws:RequestTag/${TagKey}",
@@ -10792,6 +10923,16 @@
     ],
     "dependentActions": []
   },
+  "describeaccountvpcencryptioncontrol": {
+    "name": "DescribeAccountVpcEncryptionControl",
+    "description": "Grants permission to describe the account-level VPC Encryption Control configuration",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "describeaddresstransfers": {
     "name": "DescribeAddressTransfers",
     "description": "Grants permission to describe an Elastic IP address transfer",
@@ -11693,6 +11834,16 @@
   "describeipamexternalresourceverificationtokens": {
     "name": "DescribeIpamExternalResourceVerificationTokens",
     "description": "Grants permission to describe verification tokens, which proves ownership of an external resource",
+    "accessLevel": "List",
+    "resourceTypes": [],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "describeipaminternetregistryassociations": {
+    "name": "DescribeIpamInternetRegistryAssociations",
+    "description": "Grants permission to describe IPAM internet registry associations",
     "accessLevel": "List",
     "resourceTypes": [],
     "conditionKeys": [
@@ -14556,6 +14707,26 @@
     ],
     "dependentActions": []
   },
+  "enableipaminternetregistryassociation": {
+    "name": "EnableIpamInternetRegistryAssociation",
+    "description": "Grants permission to enable Resource Public Key Infrastructure (RPKI) on an IPAM internet registry association",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "enableipamorganizationadminaccount": {
     "name": "EnableIpamOrganizationAdminAccount",
     "description": "Grants permission to enable an AWS Organizations member account as an Amazon VPC IP Address Manager (IPAM) admin account",
@@ -15466,6 +15637,66 @@
     ],
     "dependentActions": []
   },
+  "getipamdiscoveredroutes": {
+    "name": "GetIpamDiscoveredRoutes",
+    "description": "Grants permission to retrieve Border Gateway Protocol (BGP) routes discovered by IPAM resource discovery",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-resource-discovery",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipaminternetregistryassociationasns": {
+    "name": "GetIpamInternetRegistryAssociationAsns",
+    "description": "Grants permission to retrieve Autonomous System Numbers (ASNs) registered with an internet registry for an IPAM internet registry association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipaminternetregistryassociationcidrs": {
+    "name": "GetIpamInternetRegistryAssociationCidrs",
+    "description": "Grants permission to retrieve IP address CIDRs registered with an internet registry for an IPAM internet registry association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
   "getipampolicyallocationrules": {
     "name": "GetIpamPolicyAllocationRules",
     "description": "Grants permission to describe the rules that define how Amazon VPC IP Address Manager (IPAM) pools allocate IP addresses to AWS resource types within an IPAM policy",
@@ -15622,6 +15853,86 @@
       },
       {
         "name": "ipam-scope",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipamrouteoriginauthorizations": {
+    "name": "GetIpamRouteOriginAuthorizations",
+    "description": "Grants permission to retrieve the current Route Origin Authorizations (ROAs) published to the RPKI for an IPAM internet registry association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipamrouteprotectionfindings": {
+    "name": "GetIpamRouteProtectionFindings",
+    "description": "Grants permission to retrieve route protection findings for an IPAM",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipamroutingpolicyregistrationdeltas": {
+    "name": "GetIpamRoutingPolicyRegistrationDeltas",
+    "description": "Grants permission to retrieve the history of routing policy registration changes for an IPAM internet registry association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "getipamroutingpolicyregistrations": {
+    "name": "GetIpamRoutingPolicyRegistrations",
+    "description": "Grants permission to retrieve routing policy registrations for an IPAM internet registry association",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -16501,6 +16812,16 @@
         "dependentActions": []
       }
     ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyaccountvpcencryptioncontrol": {
+    "name": "ModifyAccountVpcEncryptionControl",
+    "description": "Grants permission to modify the account-level VPC Encryption Control configuration",
+    "accessLevel": "Write",
+    "resourceTypes": [],
     "conditionKeys": [
       "ec2:Region"
     ],
@@ -17529,6 +17850,28 @@
     "resourceTypes": [
       {
         "name": "ipam-resource-discovery",
+        "required": true,
+        "conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "ec2:Attribute",
+          "ec2:Attribute/${AttributeName}",
+          "ec2:ResourceTag/${TagKey}"
+        ],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "ec2:Region"
+    ],
+    "dependentActions": []
+  },
+  "modifyipamroutingpolicyregistration": {
+    "name": "ModifyIpamRoutingPolicyRegistration",
+    "description": "Grants permission to modify an existing routing policy registration",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "ipam-internet-registry-association",
         "required": true,
         "conditionKeys": [
           "aws:ResourceTag/${TagKey}",

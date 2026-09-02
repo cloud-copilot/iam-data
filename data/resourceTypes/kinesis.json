@@ -1,4 +1,11 @@
 {
+  "channel": {
+    "key": "channel",
+    "arn": "arn:${Partition}:kinesis:${Region}:${Account}:channel/${ChannelId}",
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}"
+    ]
+  },
   "consumer": {
     "key": "consumer",
     "arn": "arn:${Partition}:kinesis:${Region}:${Account}:${StreamType}/${StreamName}/consumer/${ConsumerName}:${ConsumerCreationTimpstamp}",

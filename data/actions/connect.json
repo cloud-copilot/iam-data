@@ -1052,6 +1052,25 @@
     ],
     "dependentActions": []
   },
+  "createextractiondefinition": {
+    "name": "CreateExtractionDefinition",
+    "description": "Grants permission to create an extraction definition in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "extraction-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:RequestTag/${TagKey}",
+      "aws:TagKeys",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "createhoursofoperation": {
     "name": "CreateHoursOfOperation",
     "description": "Grants permission to create hours of operation in an Amazon Connect instance",
@@ -1867,6 +1886,24 @@
     ],
     "dependentActions": []
   },
+  "deleteextractiondefinition": {
+    "name": "DeleteExtractionDefinition",
+    "description": "Grants permission to delete an extraction definition in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "extraction-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "deletehoursofoperation": {
     "name": "DeleteHoursOfOperation",
     "description": "Grants permission to delete hours of operation in an Amazon Connect instance",
@@ -2535,6 +2572,24 @@
     "resourceTypes": [
       {
         "name": "evaluation-form",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "describeextractiondefinition": {
+    "name": "DescribeExtractionDefinition",
+    "description": "Grants permission to describe an extraction definition in an Amazon Connect instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "extraction-definition",
         "required": true,
         "conditionKeys": [],
         "dependentActions": []
@@ -3402,6 +3457,23 @@
     ],
     "dependentActions": []
   },
+  "getcrossregionrouting": {
+    "name": "GetCrossRegionRouting",
+    "description": "Grants permission to retrieve the cross-region routing configuration for an Amazon Connect Global Resiliency instance",
+    "accessLevel": "Read",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "getcurrentmetricdata": {
     "name": "GetCurrentMetricData",
     "description": "Grants permission to retrieve current metric data for queues and routing profiles in an Amazon Connect instance",
@@ -4096,6 +4168,23 @@
     ],
     "dependentActions": []
   },
+  "listextractiondefinitions": {
+    "name": "ListExtractionDefinitions",
+    "description": "Grants permission to list extraction definitions associated with an Amazon Connect instance",
+    "accessLevel": "List",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "listflowassociations": {
     "name": "ListFlowAssociations",
     "description": "Grants permission to list summary information about the flow associations for the specified Amazon Connect instance",
@@ -4641,6 +4730,12 @@
       },
       {
         "name": "evaluation-form",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "extraction-definition",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -6192,6 +6287,12 @@
         "dependentActions": []
       },
       {
+        "name": "extraction-definition",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
         "name": "hierarchy-group",
         "required": false,
         "conditionKeys": [],
@@ -6403,6 +6504,12 @@
       },
       {
         "name": "evaluation-form",
+        "required": false,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "extraction-definition",
         "required": false,
         "conditionKeys": [],
         "dependentActions": []
@@ -6785,6 +6892,23 @@
     ],
     "dependentActions": []
   },
+  "updatecrossregionrouting": {
+    "name": "UpdateCrossRegionRouting",
+    "description": "Grants permission to update the cross-region routing configuration for an Amazon Connect Global Resiliency instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "instance",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
   "updatedatatableattribute": {
     "name": "UpdateDataTableAttribute",
     "description": "Grants permission to update an attribute of a data table in an Amazon Connect instance",
@@ -6871,6 +6995,24 @@
       }
     ],
     "conditionKeys": [
+      "connect:InstanceId"
+    ],
+    "dependentActions": []
+  },
+  "updateextractiondefinition": {
+    "name": "UpdateExtractionDefinition",
+    "description": "Grants permission to update an extraction definition in an Amazon Connect instance",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "extraction-definition",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "aws:ResourceTag/${TagKey}",
       "connect:InstanceId"
     ],
     "dependentActions": []
