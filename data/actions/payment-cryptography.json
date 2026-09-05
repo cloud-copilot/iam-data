@@ -66,6 +66,7 @@
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:TagKeys",
+      "payment-cryptography:DeriveKeyUsage",
       "payment-cryptography:KeyAlgorithm",
       "payment-cryptography:KeyClass",
       "payment-cryptography:KeyUsage"
@@ -213,7 +214,11 @@
     ],
     "conditionKeys": [
       "payment-cryptography:CertificateAuthorityPublicKeyIdentifier",
+      "payment-cryptography:ExportDukptInitialKey",
+      "payment-cryptography:ExportKeyMaterial",
+      "payment-cryptography:PrivateKeyIdentifier",
       "payment-cryptography:RequestAlias",
+      "payment-cryptography:SigningKeyIdentifier",
       "payment-cryptography:WrappingKeyIdentifier"
     ],
     "dependentActions": []
@@ -221,6 +226,29 @@
   "generateas2805kekvalidation": {
     "name": "GenerateAs2805KekValidation",
     "description": "Grants permission to generate a KekValidationRequest or a KekValidationResponse for node-to-node initialization between payment processing nodes using Australian Standard 2805 (AS2805)",
+    "accessLevel": "Write",
+    "resourceTypes": [
+      {
+        "name": "alias",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      },
+      {
+        "name": "key",
+        "required": true,
+        "conditionKeys": [],
+        "dependentActions": []
+      }
+    ],
+    "conditionKeys": [
+      "payment-cryptography:RequestAlias"
+    ],
+    "dependentActions": []
+  },
+  "generateauthrequestcryptogram": {
+    "name": "GenerateAuthRequestCryptogram",
+    "description": "Grants permission to generate an Authorization Request Cryptogram (ARQC) for an EMV chip payment card authorization",
     "accessLevel": "Write",
     "resourceTypes": [
       {
@@ -478,6 +506,7 @@
       "aws:TagKeys",
       "payment-cryptography:CertificateAuthorityPublicKeyIdentifier",
       "payment-cryptography:ImportKeyMaterial",
+      "payment-cryptography:PrivateKeyIdentifier",
       "payment-cryptography:WrappingKeyIdentifier"
     ],
     "dependentActions": []

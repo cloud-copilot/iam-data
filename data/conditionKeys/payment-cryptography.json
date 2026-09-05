@@ -19,6 +19,21 @@
     "description": "Filters access by the CertificateAuthorityPublicKeyIdentifier specified in the request or the ImportKey, and ExportKey operations",
     "type": "String"
   },
+  "payment-cryptography:derivekeyusage": {
+    "key": "payment-cryptography:DeriveKeyUsage",
+    "description": "Filters access by the DeriveKeyUsage specified in the request for the CreateKey operation",
+    "type": "String"
+  },
+  "payment-cryptography:exportdukptinitialkey": {
+    "key": "payment-cryptography:ExportDukptInitialKey",
+    "description": "Filters access by whether the request is to export a DUKPT initial key for the ExportKey operation",
+    "type": "Bool"
+  },
+  "payment-cryptography:exportkeymaterial": {
+    "key": "payment-cryptography:ExportKeyMaterial",
+    "description": "Filters access by the type of key material being exported [Tr34KeyBlock, Tr31KeyBlock, DiffieHellmanTr31KeyBlock, As2805KeyCryptogram, KeyCryptogram] for the ExportKey operation",
+    "type": "String"
+  },
   "payment-cryptography:importkeymaterial": {
     "key": "payment-cryptography:ImportKeyMaterial",
     "description": "Filters access by the type of key material being imported [RootCertificatePublicKey, TrustedCertificatePublicKey, Tr34KeyBlock, Tr31KeyBlock, DiffieHellmanTr31KeyBlock, As2805KeyCryptogram, KeyCryptogram] for the ImportKey operation",
@@ -36,7 +51,12 @@
   },
   "payment-cryptography:keyusage": {
     "key": "payment-cryptography:KeyUsage",
-    "description": "Filters access by KeyClass specified in the request or associated with a key for the CreateKey operation",
+    "description": "Filters access by KeyUsage specified in the request or associated with a key for the CreateKey operation",
+    "type": "String"
+  },
+  "payment-cryptography:privatekeyidentifier": {
+    "key": "payment-cryptography:PrivateKeyIdentifier",
+    "description": "Filters access by the PrivateKeyIdentifier specified in the request for the ImportKey and ExportKey operations",
     "type": "String"
   },
   "payment-cryptography:requestalias": {
@@ -48,6 +68,11 @@
     "key": "payment-cryptography:ResourceAliases",
     "description": "Filters access by aliases associated with a key for the specified operation",
     "type": "ArrayOfString"
+  },
+  "payment-cryptography:signingkeyidentifier": {
+    "key": "payment-cryptography:SigningKeyIdentifier",
+    "description": "Filters access by the SigningKeyIdentifier specified in the request for the ExportKey operation",
+    "type": "String"
   },
   "payment-cryptography:wrappingkeyidentifier": {
     "key": "payment-cryptography:WrappingKeyIdentifier",
